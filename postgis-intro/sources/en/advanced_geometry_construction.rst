@@ -68,7 +68,7 @@ Beyond the recursive CTE itself, there are a number of advanced PostgreSQL array
 * We are using **array_append** to build up our array of visited identifiers.
 * We are using the **@>** array operator ("array contains") to find which of the Q train stations we have already visited. The **@>** operators requires ARRAY values on both sides, so we have to turn the individual "gid" numbers into single-entry arrays using the ARRAY[] syntax.
   
-When you run the query, you get each geometry in the order it is found (which is the route order), as well as the list of identifiers already visited. Wrapping the geometries into the PostGIS `ST_MakeLine <http://postgis.net/docs/manual-2.1/ST_MakeLine.html>`_ aggregate function turns the set of geometries into a single linear output, constructed in the provided order.
+When you run the query, you get each geometry in the order it is found (which is the route order), as well as the list of identifiers already visited. Wrapping the geometries into the PostGIS `ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_ aggregate function turns the set of geometries into a single linear output, constructed in the provided order.
 
 .. code-block:: sql
 
@@ -343,5 +343,5 @@ See Also
 * `PostgreSQL Arrays <http://www.postgresql.org/docs/current/static/arrays.html>`_
 * `PostgreSQL Array Functions <http://www.postgresql.org/docs/current/static/functions-array.html>`_
 * `PostgreSQL Recursive Common TABLE Expressions <http://www.postgresql.org/docs/current/static/queries-with.html>`_
-* `PostGIS ST_MakeLine <http://postgis.net/docs/manual-2.1/ST_MakeLine.html>`_
+* `PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_
   

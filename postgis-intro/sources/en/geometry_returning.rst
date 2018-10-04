@@ -193,13 +193,13 @@ The same answer! We have successfully built an NYC county table from our census 
 Function List
 -------------
 
-`ST_AsText(text) <http://postgis.net/docs/manual-2.1/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata.
+`ST_AsText(text) <http://postgis.net/docs/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata.
 
-`ST_Buffer(geometry, distance) <http://postgis.net/docs/manual-2.1/ST_Buffer.html>`_: For geometry: Returns a geometry that represents all points whose distance from this Geometry is less than or equal to distance. Calculations are in the Spatial Reference System of this Geometry. For geography: Uses a planar transform wrapper. 
+`ST_Buffer(geometry, distance) <http://postgis.net/docs/ST_Buffer.html>`_: For geometry: Returns a geometry that represents all points whose distance from this Geometry is less than or equal to distance. Calculations are in the Spatial Reference System of this Geometry. For geography: Uses a planar transform wrapper. 
 
-`ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/manual-2.1/ST_Intersection.html>`_: Returns a geometry that represents the shared portion of geomA and geomB. The geography implementation does a transform to geometry to do the intersection and then transform back to WGS84.
+`ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/ST_Intersection.html>`_: Returns a geometry that represents the shared portion of geomA and geomB. The geography implementation does a transform to geometry to do the intersection and then transform back to WGS84.
 
-`ST_Union() <http://postgis.net/docs/manual-2.1/ST_Union.html>`_: Returns a geometry that represents the point set union of the Geometries.
+`ST_Union() <http://postgis.net/docs/ST_Union.html>`_: Returns a geometry that represents the point set union of the Geometries.
 
 `substring(string [from int] [for int]) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function to extract substring matching SQL regular expression.
 

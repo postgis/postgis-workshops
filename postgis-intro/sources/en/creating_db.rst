@@ -69,4 +69,4 @@ You have successfully created a PostGIS spatial database!!
 Function List
 -------------
 
-`PostGIS_Full_Version <http://postgis.net/docs/manual-2.1/PostGIS_Full_Version.html>`_: Reports full PostGIS version and build configuration info.
+`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: Reports full PostGIS version and build configuration info.

@@ -138,10 +138,10 @@ However, if you know what the SRID of the coordinates is supposed to be, you can
 
 Function List
 -------------
-`ST_AsText <http://postgis.net/docs/manual-2.1/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata.
+`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata.
 
-`ST_SetSRID(geometry, srid) <http://postgis.net/docs/manual-2.1/ST_SetSRID.html>`_: Sets the SRID on a geometry to a particular integer value.
+`ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>`_: Sets the SRID on a geometry to a particular integer value.
 
-`ST_SRID(geometry) <http://postgis.net/docs/manual-2.1/ST_SRID.html>`_: Returns the spatial reference identifier for the ST_Geometry as defined in spatial_ref_sys table.
+`ST_SRID(geometry) <http://postgis.net/docs/ST_SRID.html>`_: Returns the spatial reference identifier for the ST_Geometry as defined in spatial_ref_sys table.
 
-`ST_Transform(geometry, srid) <http://postgis.net/docs/manual-2.1/ST_Transform.html>`_: Returns a new geometry with its coordinates transformed to the SRID referenced by the integer parameter.
+`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: Returns a new geometry with its coordinates transformed to the SRID referenced by the integer parameter.

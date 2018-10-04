@@ -6,7 +6,7 @@ Introduction to PostGIS
 Getting Started
 ---------------
 
-* This workshop uses a `data bundle <http://postgis.net/data/postgis-workshop-2018.zip>`_. Download it and extract to a convenient location.
+* This workshop uses a `data bundle <https://s3.cleverelephant.ca/postgis-workshop-2018.zip>`_. Download it and extract to a convenient location.
 
 Workshop Materials
 ------------------

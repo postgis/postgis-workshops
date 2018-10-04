@@ -10,8 +10,8 @@ body
 
 div.wrap
 { 
-  background-color: #FEFDF1;
-  border-bottom: 1px solid #A8BCCF;
+  background-color: #eee;
+  border-bottom: 1px solid #5d7a9e;
   text-align: left;
 }
 
@@ -31,7 +31,7 @@ h1.logo
   padding-top: 15px;
   padding-bottom: 7px;
   padding-left: 45px;
-  border-top: 8px solid #6c9400;
+  border-top: 8px solid #5d7a9e;
 }
 
 h1.logo img
@@ -44,13 +44,16 @@ h2.docstitle
   border: none;
   margin: 0px;
   padding: 0px;
-  padding-top: 25px;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 2px;
   padding-left: 45px;
-  background: transparent url(img/page-heading-bg.png);
-  font-weight: lighter;
+/*  background: transparent url(img/page-heading-bg.png); */
+  background-color: #5d7a9e;
+/*  font-weight: lighter; */
   font-family: Univers, Helvetica, Verdana, Arial, sans-serif;
-  font-size: 1.4em;
-  color: #0a2742;
+  font-size: 1.6em;
+  color: white;
   height: 29px; /* 54 after padding*/
   letter-spacing: 0.03em; 
 }
@@ -58,7 +61,7 @@ h2.docstitle
 h2.docstitle a
 {
   text-decoration: none;
-  color: #0a2742;
+  color: white;
 }
   
 
@@ -151,7 +154,7 @@ div.sphinxsidebar h3, div.sphinxsidebar h4
   color: white;
   font-weight: bold;
   border: 0;
-  background-color: #A8BCCF; 
+  background-color: #5d7a9e;
 }
 
 div.sphinxsidebar h3 a 
@@ -161,8 +164,9 @@ div.sphinxsidebar h3 a
 
 div.footer
 {
+  color: white;
   border-top: 1px solid #ccc;
-  background-color: #D7E6EB;
+  background-color: #5d7a9e;
 }
 
 div.documentwrapper

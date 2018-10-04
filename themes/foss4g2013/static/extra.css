@@ -1,0 +1,172 @@
+
+@import url("sphinxdoc.css");
+
+body
+{
+  margin: 0;
+  padding: 0;
+  font-family: helvetica,"microsoft sans serif",arial,sans-serif;
+}
+
+div.wrap
+{ 
+  background-color: #FEFDF1;
+  border-bottom: 1px solid #A8BCCF;
+  text-align: left;
+}
+
+#content
+{
+  margin: 0px;
+  padding: 0px;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-bottom: 45px;
+}
+
+h1.logo
+{
+  padding: 0px;
+  margin: 0px;
+  padding-top: 15px;
+  padding-bottom: 7px;
+  padding-left: 45px;
+  border-top: 8px solid #6c9400;
+}
+
+h1.logo img
+{
+  border: none;
+}
+
+h2.docstitle
+{
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 25px;
+  padding-left: 45px;
+  background: transparent url(img/page-heading-bg.png);
+  font-weight: lighter;
+  font-family: Univers, Helvetica, Verdana, Arial, sans-serif;
+  font-size: 1.4em;
+  color: #0a2742;
+  height: 29px; /* 54 after padding*/
+  letter-spacing: 0.03em; 
+}
+
+h2.docstitle a
+{
+  text-decoration: none;
+  color: #0a2742;
+}
+  
+
+div.related
+{
+  margin: 0px;
+  padding: 0px;
+  padding-top: 6px;
+  padding-bottom: 5px;
+  background: white;
+  vertical-align: middle;
+}
+
+div.related ul
+{
+  margin: 0;
+  margin-left: 45px;
+  padding: 0;
+  height: 2em;
+  background-image: none;
+  border: none;
+}
+
+div.related ul li
+{
+  height: 2em;
+  padding: 0 0.5em 0 0;
+}
+
+div.related ul li a 
+{
+  padding: 0 0.3em 0 0;
+  color: #1A3752;
+  text-decoration: underline;
+}
+
+div.clearer
+{
+  border-bottom: 1px solid #ccc;
+}
+
+div.body
+{
+  padding: 0.5em 45px 0.5em 45px;
+}
+
+div.body p.caption
+{
+  font-style: italic;
+  font-size: small;
+}
+
+div.bodywrapper
+{
+  margin-right: 280px;
+}
+
+h1,h2,h3
+{
+  font-family: Univers, Helvetica, Verdana, Arial, sans-serif;
+  color: #0A2742;
+  font-weight: lighter;
+}
+
+a,a.reference
+{
+  color: #1A3752;
+  text-decoration: underline;
+}
+
+a:hover
+{
+  color: #3366CC;
+}
+
+div.sphinxsidebar 
+{
+  padding: 0;
+  padding-top: 0.8em;
+  padding-bottom: 20px;
+  padding-right: 45px;
+  width: 210px;
+}
+
+div.sphinxsidebar h3, div.sphinxsidebar h4 
+{
+  margin: 1em 0 0.5em 0;
+  font-size: 1em;
+  padding: 0.5em 0 0.15em 0.6em;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  background-color: #A8BCCF; 
+}
+
+div.sphinxsidebar h3 a 
+{
+  text-decoration: none;
+}
+
+div.footer
+{
+  border-top: 1px solid #ccc;
+  background-color: #D7E6EB;
+}
+
+div.documentwrapper
+{
+  width: auto; 
+} 
+

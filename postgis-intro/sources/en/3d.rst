@@ -1,0 +1,144 @@
+.. _3d:
+
+3-D
+===
+
+.. note::
+
+  This section refers to many features that are only available with PostGIS 2.0 and higher.
+
+3-D Geometries
+--------------
+
+So far, we have been working with 2-D geometries, with only X and Y coordinates. But PostGIS supports additional dimensions on all geometry types, a "Z" dimension to add height information and a "M" dimension for additional dimensional information (commonly time, or road-mile, or upstream-distance information) for each coordinate.
+
+For 3-D and 4-D geometries, the extra dimensions are added as extra coordinates for each vertex in the geometry, and the geometry type is enhanced to indicate how to interpret the extra dimensions. Adding the extra dimensions results in three extra possible geometry types for each geometry primitive:
+
+* Point (a 2-D type)i is joined by PointZ, PointM and PointZM types.
+* Linestring (a 2-D type) is joined by LinestringZ, LinestringM and LinestringZM types.
+* Polygon (a 2-D type) is joined by PolygonZ, PolygonM and PolygonZM types.
+* And so on.
+ 
+For well-known text (:term:`WKT`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The extra dimensionality information is simply added to the text string after the type name, and the extra coordinates added after the X/Y information. For example:
+
+* POINT ZM (1 2 3 4)
+* LINESTRING M (1 1 0, 1 2 0, 1 3 1, 2 2 0)
+* POLYGON Z ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0))
+ 
+The ST_AsText() function will return the above representations when dealing with 3-D and 4-D geometries.
+
+For well-known binary (:term:`WKB`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The BNF form of the format is available from http://svn.osgeo.org/postgis/trunk/doc/bnf-wkb.txt.
+
+In addition to higher-dimensional forms of the standard types, PostGIS includes a few new types that make sense in a 3-D space:
+
+* The TIN type allows you to model triangular meshes as rows in your database.
+* The POLYHEDRALSURFACE allows you to model volumetric objects in your database.
+ 
+Since both these types are for modelling 3-D objects, it only really makes sense to use the Z variants.  An example of a POLYHEDRALSURFACE Z would be the 1 unit cube:
+
+:: 
+
+  POLYHEDRALSURFACE Z (
+    ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0)),
+    ((0 0 0, 0 1 0, 0 1 1, 0 0 1, 0 0 0)),
+    ((0 0 0, 1 0 0, 1 0 1, 0 0 1, 0 0 0)),
+    ((1 1 1, 1 0 1, 0 0 1, 0 1 1, 1 1 1)),
+    ((1 1 1, 1 0 1, 1 0 0, 1 1 0, 1 1 1)),
+    ((1 1 1, 1 1 0, 0 1 0, 0 1 1, 1 1 1))
+  )
+  
+  
+3-D Functions
+--------------
+
+There are a number of functions built to calculate relationships between 3-D objects:
+
+* ST_3DClosestPoint — Returns the 3-dimensional point on g1 that is closest to g2. This is the first point of the 3D shortest line.
+* ST_3DDistance — For geometry type Returns the 3-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units.
+* ST_3DDWithin — For 3d (z) geometry type Returns true if two geometries 3d distance is within number of units.
+* ST_3DDFullyWithin — Returns true if all of the 3D geometries are within the specified distance of one another.
+* ST_3DIntersects — Returns TRUE if the Geometries "spatially intersect" in 3d - only for points and linestrings
+* ST_3DLongestLine — Returns the 3-dimensional longest line between two geometries
+* ST_3DMaxDistance — For geometry type Returns the 3-dimensional cartesian maximum distance (based on spatial ref) between two geometries in projected units.
+* ST_3DShortestLine — Returns the 3-dimensional shortest line between two geometries
+
+For example, we can calculate the distance between our unit cube and a point using the ST_3DDistance function:
+
+.. code-block:: sql
+
+  -- This is really the distance between the top corner
+  -- and the point.
+  SELECT ST_3DDistance(
+    'POLYHEDRALSURFACE Z (
+      ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0)),
+      ((0 0 0, 0 1 0, 0 1 1, 0 0 1, 0 0 0)),
+      ((0 0 0, 1 0 0, 1 0 1, 0 0 1, 0 0 0)),
+      ((1 1 1, 1 0 1, 0 0 1, 0 1 1, 1 1 1)),
+      ((1 1 1, 1 0 1, 1 0 0, 1 1 0, 1 1 1)),
+      ((1 1 1, 1 1 0, 0 1 0, 0 1 1, 1 1 1))
+    )'::geometry,
+    'POINT Z (2 2 2)'::geometry
+  );
+  
+  -- So here's a shorter form.
+  SELECT ST_3DDistance(
+    'POINT Z (1 1 1)'::geometry,
+    'POINT Z (2 2 2)'::geometry
+  );
+  
+  -- Both return 1.73205080756888 == sqrt(3) as expected
+    
+
+N-D Indexes
+-----------
+
+Once you have data in higher dimensions it may make sense to index it. However, you should think carefully about the distribution of your data in all dimensions before applying a multi-dimensional index. 
+
+Indexes are only useful when they allow the database to drastically reduce the number of return rows as a result of a WHERE condition. For a higher dimension index to be useful, the data must cover a wide range of that dimension, relative to the kinds of queries you are constructing.
+
+* A set of DEM points would probably be a *poor* candidate for a 3-D index, since the queries would usually be extracting a 2-D box of points, and rarely attempting to select a Z-slice of points.
+* A set of GPS traces in X/Y/T space might be a *good* candidate for a 3-D index, if the GPS tracks overlapped each other frequently in all dimensions (for example, driving the same route over and over at different times), since there would be large variability in all dimensions of the data set.
+
+You can create a multi-dimensional index on data of any dimensionality (even mixed dimensionality). For example, to create a multi-dimensional index on the ``nyc_streets`` table,
+
+.. code-block:: sql
+
+  CREATE INDEX nyc_streets_gix_nd ON nyc_streets 
+  USING GIST (geom gist_geometry_ops_nd);
+  
+The ``gist_geometry_ops_nd`` parameter tells PostGIS to use the N-D index instead of the standard 2-D index.
+
+Once you have the index built, you can use it in queries with the ``&&&`` index operator. ``&&&`` has the same semantics as ``&&``, "bounding boxes interact", but applies those semantics using all the dimensions of the input geometries. Geometries with mis-matching dimensionality do not interact.
+
+.. code-block:: sql
+
+  -- Returns true (both 3-D on the zero plane)
+  SELECT 'POINT Z (1 1 0)'::geometry &&& 
+         'POLYGON ((0 0 0, 0 2 0, 2 2 0, 2 0 0, 0 0 0))'::geometry;
+  
+  -- Returns false (one 2-D one 3-D)
+  SELECT 'POINT Z (1 1 1)'::geometry &&& 
+         'POLYGON ((0 0, 0 2, 2 2, 2 0, 0 0))'::geometry;
+  
+  -- Returns true (the volume around the linestring interacts with the point)
+  SELECT 'LINESTRING Z(0 0 0, 1 1 1)'::geometry &&& 
+         'POINT(0 1 1)'::geometry;
+
+To search the ``nyc_streets`` table using the N-D index, just replace the usual ``&&`` 2-D index operator with the ``&&&`` operator.
+
+.. code-block:: sql
+
+  -- N-D index operator
+  SELECT gid, name 
+  FROM nyc_streets 
+  WHERE geom &&& 
+        ST_SetSRID('LINESTRING(586785 4492901,587561 4493037)',26918);
+
+  -- 2-D index operator
+  SELECT gid, name 
+  FROM nyc_streets 
+  WHERE geom && 
+        ST_SetSRID('LINESTRING(586785 4492901,587561 4493037)',26918);
+
+The results should be the same. In general the N-D index is very slightly slower than the 2-D index, so only use the N-D index where you are certain that N-D queries will improve the selectivity of your queries.
+

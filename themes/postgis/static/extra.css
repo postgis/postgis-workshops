@@ -11,7 +11,7 @@ body
 div.wrap
 { 
   background-color: #eee;
-  border-bottom: 1px solid #5d7a9e;
+  border-bottom: 1px solid #579;
   text-align: left;
 }
 
@@ -31,7 +31,7 @@ h1.logo
   padding-top: 15px;
   padding-bottom: 7px;
   padding-left: 45px;
-  border-top: 8px solid #5d7a9e;
+  border-top: 8px solid #579;
 }
 
 h1.logo img
@@ -49,7 +49,7 @@ h2.docstitle
   padding-bottom: 2px;
   padding-left: 45px;
 /*  background: transparent url(img/page-heading-bg.png); */
-  background-color: #5d7a9e;
+  background-color: #579;
 /*  font-weight: lighter; */
   font-family: Univers, Helvetica, Verdana, Arial, sans-serif;
   font-size: 1.6em;
@@ -154,7 +154,7 @@ div.sphinxsidebar h3, div.sphinxsidebar h4
   color: white;
   font-weight: bold;
   border: 0;
-  background-color: #5d7a9e;
+  background-color: #579;
 }
 
 div.sphinxsidebar h3 a 
@@ -166,7 +166,7 @@ div.footer
 {
   color: white;
   border-top: 1px solid #ccc;
-  background-color: #5d7a9e;
+  background-color: #579;
 }
 
 div.documentwrapper

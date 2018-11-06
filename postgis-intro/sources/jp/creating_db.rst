@@ -92,4 +92,4 @@ PostGIS空間データベースの作成に成功しました!
 関数一覧
 -------------
 
-`PostGISのフルバージョン <http://postgis.net/docs/manual-2.0/PostGIS_Full_Version.html>`_ : レポートは、完全なPostGISのバージョン情報とコンフィギュレーション情報を報告します。
+`PostGISのフルバージョン <http://postgis.net/docs/PostGIS_Full_Version.html>`_ : レポートは、完全なPostGISのバージョン情報とコンフィギュレーション情報を報告します。

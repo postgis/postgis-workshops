@@ -165,25 +165,25 @@ GISを使っていると、"ある距離以内に含まれるすべての要素�
 関数一覧
 -------------
 
-`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/manual-2.0/ST_Contains.html>`_: Bのどの部分もAの外に属しておらず、かつBの中の1点だけでもAの中に含まれていればTRUEを返します。
+`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains.html>`_: Bのどの部分もAの外に属しておらず、かつBの中の1点だけでもAの中に含まれていればTRUEを返します。
 
-`ST_Crosses(geometry A, geometry B)  <http://postgis.net/docs/manual-2.0/ST_Crosses.html>`_: 指定したジオメトリ同士が、全てではなく一部だけを共有しているときにTRUEを返します。
+`ST_Crosses(geometry A, geometry B)  <http://postgis.net/docs/ST_Crosses.html>`_: 指定したジオメトリ同士が、全てではなく一部だけを共有しているときにTRUEを返します。
 
-`ST_Disjoint(geometry A , geometry B) <http://postgis.net/docs/manual-2.0/ST_Disjoint.html>`_: ジオメトリが空間的に交わりを持たない（すなわち、ジオメトリ同士が共有のエリアを持たない）場合にTRUEを返します。
+`ST_Disjoint(geometry A , geometry B) <http://postgis.net/docs/ST_Disjoint.html>`_: ジオメトリが空間的に交わりを持たない（すなわち、ジオメトリ同士が共有のエリアを持たない）場合にTRUEを返します。
 
-`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/manual-2.0/ST_Distance.html>`_: 二次元デカルト座標系における2つのジオメトリ間の距離を、ジオメトリに使用されている単位で返します。
+`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/ST_Distance.html>`_: 二次元デカルト座標系における2つのジオメトリ間の距離を、ジオメトリに使用されている単位で返します。
 
-`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/manual-2.0/ST_DWithin.html>`_: 両方のジオメトリが指定した距離以内であれば true を返します。
+`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/ST_DWithin.html>`_: 両方のジオメトリが指定した距離以内であれば true を返します。
 
-`ST_Equals(geometry A, geometry B) <http://postgis.net/docs/manual-2.0/ST_Equals.html>`_: 2つのジオメトリが幾何的に同一である場合にTRUEを返します。向きの違いは関係ありません。
+`ST_Equals(geometry A, geometry B) <http://postgis.net/docs/ST_Equals.html>`_: 2つのジオメトリが幾何的に同一である場合にTRUEを返します。向きの違いは関係ありません。
 
-`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/manual-2.0/ST_Intersects.html>`_: ジオメトリが空間的に交わっている（すなわち、ジオメトリの一部を共有している）場合にTRUEを返し、まったく交わりがない場合にFALSEを返します。
+`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects.html>`_: ジオメトリが空間的に交わっている（すなわち、ジオメトリの一部を共有している）場合にTRUEを返し、まったく交わりがない場合にFALSEを返します。
 
-`ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/manual-2.0/ST_Overlaps.html>`_: ジオメトリ同士が共通のエリアを持ち、それが同じ次元である、また一方がもう片方に完全に含まれた状態ではないときにTRUEを返します。
+`ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/ST_Overlaps.html>`_: ジオメトリ同士が共通のエリアを持ち、それが同じ次元である、また一方がもう片方に完全に含まれた状態ではないときにTRUEを返します。
 
-`ST_Touches(geometry A, geometry B)  <http://postgis.net/docs/manual-2.0/ST_Touches.html>`_: ジオメトリ同士が少なくとも1点を共有し、しかもその内部では交わりを持たないときにTRUEを返します。
+`ST_Touches(geometry A, geometry B)  <http://postgis.net/docs/ST_Touches.html>`_: ジオメトリ同士が少なくとも1点を共有し、しかもその内部では交わりを持たないときにTRUEを返します。
 
-`ST_Within(geometry A , geometry B) <http://postgis.net/docs/manual-2.0/ST_Within.html>`_: ジオメトリAが完全にジオメトリBの内部に含まれるときにTRUEを返します。
+`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within.html>`_: ジオメトリAが完全にジオメトリBの内部に含まれるときにTRUEを返します。
 
 
 

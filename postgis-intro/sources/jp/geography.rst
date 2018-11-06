@@ -223,13 +223,13 @@ geographyを使う理由、使わない理由
 関数一覧
 -------------
 
-`ST_Distance(geometry, geometry) <http://postgis.net/docs/manual-2.0/ST_Distance.html>`_: ジオメトリー型に対しては、2次元の直角座標系（空間参照情報による）での2つのジオメトリー間の最小距離を、その座標系での単位で返します。geography型は、デフォルトでは2つのジオメトリー間の球面上での最小距離をメートル単位で返します。
+`ST_Distance(geometry, geometry) <http://postgis.net/docs/ST_Distance.html>`_: ジオメトリー型に対しては、2次元の直角座標系（空間参照情報による）での2つのジオメトリー間の最小距離を、その座標系での単位で返します。geography型は、デフォルトでは2つのジオメトリー間の球面上での最小距離をメートル単位で返します。
 
-`ST_GeographyFromText(text) <http://postgis.net/docs/manual-2.0/ST_GeographyFromText.html>`_: Well-Known Text(WKT)で記述された図形情報、または拡張されたWKTテキストから、geography型の値を返します。
+`ST_GeographyFromText(text) <http://postgis.net/docs/ST_GeographyFromText.html>`_: Well-Known Text(WKT)で記述された図形情報、または拡張されたWKTテキストから、geography型の値を返します。
 
-`ST_Transform(geometry, srid) <http://postgis.net/docs/manual-2.0/ST_Transform.html>`_: 数値型のパラメータで指定されたSRID参照情報で座標が変換されたジオメトリーを返します。
+`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: 数値型のパラメータで指定されたSRID参照情報で座標が変換されたジオメトリーを返します。
 
-`ST_X(point) <http://postgis.net/docs/manual-2.0/ST_X.html>`_: ポイントのX座標を返します。利用できない場合はNULLを返します。入力値はポイントでなければなりません。
+`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: ポイントのX座標を返します。利用できない場合はNULLを返します。入力値はポイントでなければなりません。
 
 .. rubric:: Footnotes
 

@@ -197,4 +197,4 @@ We can test for that by looking for streets that intersect (so we have a join) b
 Function List
 -------------
 
-`ST_Relate(geometry A, geometry B) <http://postgis.net/docs/manual-2.1/ST_Relate.html>`_: Returns a text string representing the DE9IM relationship between the geometries. 
+`ST_Relate(geometry A, geometry B) <http://postgis.net/docs/ST_Relate.html>`_: Returns a text string representing the DE9IM relationship between the geometries. 

@@ -244,11 +244,11 @@ A列車が都市の人種比率に影響を与えていないことを見てき�
 関数一覧
 -------------
 
-`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/manual-2.0/ST_Contains.html>`_: Bのどの部分もAの外に属しておらず、かつBの中の1点だけでもAの中に含まれていれば true を返します。
+`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains.html>`_: Bのどの部分もAの外に属しておらず、かつBの中の1点だけでもAの中に含まれていれば true を返します。
 
-`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/manual-2.0/ST_DWithin.html>`_: 両方のジオメトリーが指定した距離以内であれば true を返します。
+`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/ST_DWithin.html>`_: 両方のジオメトリーが指定した距離以内であれば true を返します。
 
-`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/manual-2.0/ST_Intersects.html>`_: ジオメトリーが空間的に交わっている（すなわち、ジオメトリーの一部を共有している）場合に true を返し、まったく交わりがない場合に false を返します。
+`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects.html>`_: ジオメトリーが空間的に交わっている（すなわち、ジオメトリーの一部を共有している）場合に true を返し、まったく交わりがない場合に false を返します。
 
 `round(v numeric, s integer) <http://www.postgresql.org/docs/7.4/interactive/functions-math.html>`_: 四捨五入して整数にした値を返すPostgreSQLの数学関数です。
 
@@ -258,5 +258,5 @@ A列車が都市の人種比率に影響を与えていないことを見てき�
 
 .. rubric:: 脚注
 
-.. [#PostGIS_Doco] http://postgis.net/docs/manual-2.0/
+.. [#PostGIS_Doco] http://postgis.net/docs/
 

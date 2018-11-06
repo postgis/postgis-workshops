@@ -134,10 +134,10 @@ SRIDを指定せずにデータを読み込む、あるいは、ジオメトリ�
 
 関数一覧
 -------------
-`ST_AsText <http://postgis.net/docs/manual-2.0/ST_AsText.html>`_:  ジオメトリまたはジオグラフィをWell-Known Text (WKT)表記で返します。SRIDメタデータは表示されません。
+`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_:  ジオメトリまたはジオグラフィをWell-Known Text (WKT)表記で返します。SRIDメタデータは表示されません。
 
-`ST_SetSRID(geometry, srid) <http://postgis.net/docs/manual-2.0/ST_SetSRID.html>`_:ジオメトリのSRIDを指定された整数値で設定します。
+`ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>`_:ジオメトリのSRIDを指定された整数値で設定します。
 
-`ST_SRID(geometry) <http://postgis.net/docs/manual-2.0/ST_SRID.html>`_: spatial_ref_sysテーブルで定義されたST_Geometryの空間参照IDを返します。
+`ST_SRID(geometry) <http://postgis.net/docs/ST_SRID.html>`_: spatial_ref_sysテーブルで定義されたST_Geometryの空間参照IDを返します。
 
-`ST_Transform(geometry, srid) <http://postgis.net/docs/manual-2.0/ST_Transform.html>`_: 指定された整数値をSRIDとして座標系を変換し、新しいジオメトリを返します。
+`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: 指定された整数値をSRIDとして座標系を変換し、新しいジオメトリを返します。

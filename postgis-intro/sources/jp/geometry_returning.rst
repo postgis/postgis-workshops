@@ -169,13 +169,13 @@ ST_Union
 関数一覧
 -------------
 
-`ST_AsText(text) <http://postgis.net/docs/manual-2.0/ST_AsText.html>`_: ジオメトリまたはジオグラフィをWell-Known Text (WKT)表記で返します。SRIDメタデータは表示されません。
+`ST_AsText(text) <http://postgis.net/docs/ST_AsText.html>`_: ジオメトリまたはジオグラフィをWell-Known Text (WKT)表記で返します。SRIDメタデータは表示されません。
 
-`ST_Buffer(geometry, distance) <http://postgis.net/docs/manual-2.0/ST_Buffer.html>`_: ジオメトリに対しては、ジオメトリからの距離が指定された距離と同じか短い範囲で構成されているジオメトリを返します。ジオメトリは、指定されたジオメトリの空間参照系で計算されます。ジオグラフィーに対しては、平面に変換されます。
+`ST_Buffer(geometry, distance) <http://postgis.net/docs/ST_Buffer.html>`_: ジオメトリに対しては、ジオメトリからの距離が指定された距離と同じか短い範囲で構成されているジオメトリを返します。ジオメトリは、指定されたジオメトリの空間参照系で計算されます。ジオグラフィーに対しては、平面に変換されます。
 
-`ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/manual-2.0/ST_Intersection.html>`_: geomAとgeomBに共通している部分のジオメトリを返します。ジオグラフィーは、ジオメトリにいったん変換されてから、WGS84に変換し戻されます。
+`ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/ST_Intersection.html>`_: geomAとgeomBに共通している部分のジオメトリを返します。ジオグラフィーは、ジオメトリにいったん変換されてから、WGS84に変換し戻されます。
 
-`ST_Union() <http://postgis.net/docs/manual-2.0/ST_Union.html>`_: ジオメトリのユニオン演算された後のポイントを示すジオメトリが返されます。
+`ST_Union() <http://postgis.net/docs/ST_Union.html>`_: ジオメトリのユニオン演算された後のポイントを示すジオメトリが返されます。
 
 `substring(string [from int] [for int]) <http://www.postgresql.org/docs/8.1/static/functions-string.html>`_: PostgreSQLの文字列に対する関数で、文字列の一部が一致するかを判定するSQLの標準的な表記実行可能です。
 

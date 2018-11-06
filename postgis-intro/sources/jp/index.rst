@@ -65,7 +65,7 @@ ZIPファイルの内容は以下のとおりです:
 
 * PostGIS - http://postgis.net/ 
 
-  - ドキュメント - http://postgis.net/docs/manual-2.0/
+  - ドキュメント - http://postgis.net/docs/
 
 * PostgreSQL - http://www.postgresl.org/ 
 

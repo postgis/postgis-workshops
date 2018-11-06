@@ -134,11 +134,11 @@ PostgreSQLをより効率的に使用するために単にインデックスを�
 関数一覧
 -------------
 
-`geometry_a && geometry_b <http://postgis.net/docs/manual-2.0/ST_Geometry_Overlap.html>`_: AのバウンディングボックスがBのものに重なる場合に「真」を返します。
+`geometry_a && geometry_b <http://postgis.net/docs/ST_Geometry_Overlap.html>`_: AのバウンディングボックスがBのものに重なる場合に「真」を返します。
 
-`geometry_a = geometry_b <http://postgis.net/docs/manual-2.0/ST_Geometry_EQ.html>`_: :AのバウンディングボックスがBのものと同じである場合に「真」を返します。
+`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: :AのバウンディングボックスがBのものと同じである場合に「真」を返します。
 
-`ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/manual-2.0/ST_Intersects.html>`_: ジオメトリまたはジオグラフィが空間的に交差している（一部でも重なっている）場合に「真」を返します。そうでなければ（重なっていない）、「偽」を返します。
+`ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/ST_Intersects.html>`_: ジオメトリまたはジオグラフィが空間的に交差している（一部でも重なっている）場合に「真」を返します。そうでなければ（重なっていない）、「偽」を返します。
 
 .. rubric:: Footnotes
 

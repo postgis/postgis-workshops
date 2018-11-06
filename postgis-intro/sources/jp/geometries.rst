@@ -332,61 +332,61 @@ PostGISは多様な形式（WKT、WKB、GML、KML、JSON、SVG）を出力する
 関数リスト
 -------------
 
-`Populate_Geometry_Columns <http://postgis.net/docs/manual-2.0/Populate_Geometry_Columns.html>`_: ジオメトリカラムが適切な空間的制約を持ち、geometry_columnsテーブルに存在していることを確実にします。
+`Populate_Geometry_Columns <http://postgis.net/docs/Populate_Geometry_Columns.html>`_: ジオメトリカラムが適切な空間的制約を持ち、geometry_columnsテーブルに存在していることを確実にします。
 
-`ST_Area <http://postgis.net/docs/manual-2.0/ST_Area.html>`_: ポリゴンまたはマルチポリゴンの場合、面積を返します。"ジオメトリ"型の場合はSRIDの単位で、"ジオグラフィー"型の場合は平方メートル単位で返します。
+`ST_Area <http://postgis.net/docs/ST_Area.html>`_: ポリゴンまたはマルチポリゴンの場合、面積を返します。"ジオメトリ"型の場合はSRIDの単位で、"ジオグラフィー"型の場合は平方メートル単位で返します。
 
-`ST_AsText <http://postgis.net/docs/manual-2.0/ST_AsText.html>`_: SRIDメタデータをつけずに、ジオメトリ/ジオグラフィーのWKT表現を返します。
+`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: SRIDメタデータをつけずに、ジオメトリ/ジオグラフィーのWKT表現を返します。
 
-`ST_AsBinary <http://postgis.net/docs/manual-2.0/ST_AsBinary.html>`_: SRIDメタデータをつけずに、ジオメトリ/ジオグラフィーのWKB表現を返します。
+`ST_AsBinary <http://postgis.net/docs/ST_AsBinary.html>`_: SRIDメタデータをつけずに、ジオメトリ/ジオグラフィーのWKB表現を返します。
 
-`ST_EndPoint <http://postgis.net/docs/manual-2.0/ST_EndPoint.html>`_: ラインストリングジオメトリの最後の点をポイントで返します。
+`ST_EndPoint <http://postgis.net/docs/ST_EndPoint.html>`_: ラインストリングジオメトリの最後の点をポイントで返します。
 
-`ST_AsEWKB <http://postgis.net/docs/manual-2.0/ST_AsEWKB.html>`_: SRIDメタデータがついたジオメトリのWKB表現を返します。
+`ST_AsEWKB <http://postgis.net/docs/ST_AsEWKB.html>`_: SRIDメタデータがついたジオメトリのWKB表現を返します。
 
-`ST_AsEWKT <http://postgis.net/docs/manual-2.0/ST_AsEWKT.html>`_: SRIDメタデータがついたジオメトリのWKT表現を返します。
+`ST_AsEWKT <http://postgis.net/docs/ST_AsEWKT.html>`_: SRIDメタデータがついたジオメトリのWKT表現を返します。
 
-`ST_AsGeoJSON <http://postgis.net/docs/manual-2.0/ST_AsGeoJSON.html>`_: ジオメトリをGeoJSON要素で返します。
+`ST_AsGeoJSON <http://postgis.net/docs/ST_AsGeoJSON.html>`_: ジオメトリをGeoJSON要素で返します。
 
-`ST_AsGML <http://postgis.net/docs/manual-2.0/ST_AsGML.html>`_: ジオメトリを、バージョン2または3のGMLとして返します。
+`ST_AsGML <http://postgis.net/docs/ST_AsGML.html>`_: ジオメトリを、バージョン2または3のGMLとして返します。
 
-`ST_AsKML <http://postgis.net/docs/manual-2.0/ST_AsKML.html>`_: KML要素としてジオメトリを返します。いくつかの形式がありますが、デフォルトはversion=2、precision=15です。
+`ST_AsKML <http://postgis.net/docs/ST_AsKML.html>`_: KML要素としてジオメトリを返します。いくつかの形式がありますが、デフォルトはversion=2、precision=15です。
 
-`ST_AsSVG <http://postgis.net/docs/manual-2.0/ST_AsSVG.html>`_: 与えられたジオメトリまたはジオグラフィーオブジェクトの、SVGパスデータを返します。
+`ST_AsSVG <http://postgis.net/docs/ST_AsSVG.html>`_: 与えられたジオメトリまたはジオグラフィーオブジェクトの、SVGパスデータを返します。
 
-`ST_ExteriorRing <http://postgis.net/docs/manual-2.0/ST_ExteriorRing.html>`_: ポリゴンジオメトリの外側の輪をラインストリングで返します。ジオメトリがポリゴンではない場合はNULLを返します。マルチポリゴンの場合は動作しません。
+`ST_ExteriorRing <http://postgis.net/docs/ST_ExteriorRing.html>`_: ポリゴンジオメトリの外側の輪をラインストリングで返します。ジオメトリがポリゴンではない場合はNULLを返します。マルチポリゴンの場合は動作しません。
 
-`ST_GeometryN <http://postgis.net/docs/manual-2.0/ST_GeometryN.html>`_: ジオメトリがジオメトリコレクション、マルチポイント、マルチラインストリング、マルチカーブまたはマルチポリゴンの場合、1始まりでN番目のジオメトリを返します。それ以外の場合はNULLを返します。
+`ST_GeometryN <http://postgis.net/docs/ST_GeometryN.html>`_: ジオメトリがジオメトリコレクション、マルチポイント、マルチラインストリング、マルチカーブまたはマルチポリゴンの場合、1始まりでN番目のジオメトリを返します。それ以外の場合はNULLを返します。
 
-`ST_GeomFromGML <http://postgis.net/docs/manual-2.0/ST_GeomFromGML.html>`_: ジオメトリのGML表現を入力値とし、PostGISのジオメトリオブジェクトを出力します。
+`ST_GeomFromGML <http://postgis.net/docs/ST_GeomFromGML.html>`_: ジオメトリのGML表現を入力値とし、PostGISのジオメトリオブジェクトを出力します。
 
-`ST_GeomFromKML <http://postgis.net/docs/manual-2.0/ST_GeomFromKML.html>`_: ジオメトリのKML表現を入力値とし、PostGISのジオメトリオブジェクトを出力します。
+`ST_GeomFromKML <http://postgis.net/docs/ST_GeomFromKML.html>`_: ジオメトリのKML表現を入力値とし、PostGISのジオメトリオブジェクトを出力します。
 
-`ST_GeomFromText <http://postgis.net/docs/manual-2.0/ST_GeomFromText.html>`_: WKT表現から、指定したST_Geometryを返します。
+`ST_GeomFromText <http://postgis.net/docs/ST_GeomFromText.html>`_: WKT表現から、指定したST_Geometryを返します。
 
-`ST_GeomFromWKB <http://postgis.net/docs/manual-2.0/ST_GeomFromWKB.html>`_: WKBジオメトリ表現とオプションで与えられるSRIDから、ジオメトリのインスタンスを生成します。
+`ST_GeomFromWKB <http://postgis.net/docs/ST_GeomFromWKB.html>`_: WKBジオメトリ表現とオプションで与えられるSRIDから、ジオメトリのインスタンスを生成します。
 
-`ST_GeometryType <http://postgis.net/docs/manual-2.0/ST_GeometryType.html>`_: ST_Geometryのジオメトリ型を返します。
+`ST_GeometryType <http://postgis.net/docs/ST_GeometryType.html>`_: ST_Geometryのジオメトリ型を返します。
 
-`ST_InteriorRingN <http://postgis.net/docs/manual-2.0/ST_InteriorRingN.html>`_: ポリゴンのN番目の内側の輪を返します。ジオメトリがポリゴンでない場合や、Nが範囲外の場合はNULLを返します。
+`ST_InteriorRingN <http://postgis.net/docs/ST_InteriorRingN.html>`_: ポリゴンのN番目の内側の輪を返します。ジオメトリがポリゴンでない場合や、Nが範囲外の場合はNULLを返します。
 
-`ST_Length <http://postgis.net/docs/manual-2.0/ST_Length.html>`_: ジオメトリがラインストリングまたはマルチラインストリングの場合に、2次元の長さを返します。単位は、ジオメトリは空間参照系の単位、ジオグラフィーの場合はメートルです（デフォルトの回転楕円体）
+`ST_Length <http://postgis.net/docs/ST_Length.html>`_: ジオメトリがラインストリングまたはマルチラインストリングの場合に、2次元の長さを返します。単位は、ジオメトリは空間参照系の単位、ジオグラフィーの場合はメートルです（デフォルトの回転楕円体）
 
-`ST_NDims <http://postgis.net/docs/manual-2.0/ST_NDims.html>`_: ジオメトリの座標次元をsmall int型で返します。2、3、4のいずれかの値になります。
+`ST_NDims <http://postgis.net/docs/ST_NDims.html>`_: ジオメトリの座標次元をsmall int型で返します。2、3、4のいずれかの値になります。
 
-`ST_NPoints <http://postgis.net/docs/manual-2.0/ST_NPoints.html>`_: ジオメトリに含まれるポイント（頂点）の数を返します。
+`ST_NPoints <http://postgis.net/docs/ST_NPoints.html>`_: ジオメトリに含まれるポイント（頂点）の数を返します。
 
-`ST_NRings <http://postgis.net/docs/manual-2.0/ST_NRings.html>`_: ジオメトリがポリゴンまたはマルチポリゴンの場合リングの数を返します。
+`ST_NRings <http://postgis.net/docs/ST_NRings.html>`_: ジオメトリがポリゴンまたはマルチポリゴンの場合リングの数を返します。
 
-`ST_NumGeometries <http://postgis.net/docs/manual-2.0/ST_NumGeometries.html>`_: ジオメトリがジオメトリコレクション（またはマルチ*）の場合に、ジオメトリの数を返します。それ以外の場合はNULLを返します。
+`ST_NumGeometries <http://postgis.net/docs/ST_NumGeometries.html>`_: ジオメトリがジオメトリコレクション（またはマルチ*）の場合に、ジオメトリの数を返します。それ以外の場合はNULLを返します。
 
-`ST_Perimeter <http://postgis.net/docs/manual-2.0/ST_Perimeter.html>`_: ST_SurfaceまたはST_MultiSurfaceで得られた値（ポリゴン、マルチポリゴン）の境界線の長さを返します。
+`ST_Perimeter <http://postgis.net/docs/ST_Perimeter.html>`_: ST_SurfaceまたはST_MultiSurfaceで得られた値（ポリゴン、マルチポリゴン）の境界線の長さを返します。
 
-`ST_SRID <http://postgis.net/docs/manual-2.0/ST_SRID.html>`_: spatial_ref_sysテーブルで定義されている、ST_GeometryのSRIDを返します。
+`ST_SRID <http://postgis.net/docs/ST_SRID.html>`_: spatial_ref_sysテーブルで定義されている、ST_GeometryのSRIDを返します。
 
-`ST_StartPoint <http://postgis.net/docs/manual-2.0/ST_StartPoint.html>`_: ラインストリングの最初の点をポイントで返します。
+`ST_StartPoint <http://postgis.net/docs/ST_StartPoint.html>`_: ラインストリングの最初の点をポイントで返します。
 
-`ST_X <http://postgis.net/docs/manual-2.0/ST_X.html>`_: ポイントのX座標を返しますが、利用不能の場合はNULLを返します。ポイントの入力が必須です。
+`ST_X <http://postgis.net/docs/ST_X.html>`_: ポイントのX座標を返しますが、利用不能の場合はNULLを返します。ポイントの入力が必須です。
 
-`ST_Y <http://postgis.net/docs/manual-2.0/ST_Y.html>`_: ポイントのY座標を返しますが、利用不能の場合はNULLを返します。ポイントの入力が必須です。 
+`ST_Y <http://postgis.net/docs/ST_Y.html>`_: ポイントのY座標を返しますが、利用不能の場合はNULLを返します。ポイントの入力が必須です。 
 

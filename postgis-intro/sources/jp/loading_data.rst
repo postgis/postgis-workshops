@@ -150,5 +150,5 @@ pgAdmin中の ``postgis_template`` を使用してデータベースを作成す
 
 .. rubric:: Footnotes
 
-.. [#PostGIS_Install] "Chapter 2.5. Installation" PostGIS Documentation. May 2010 <http://postgis.net/docs/manual-2.0/postgis_installation.html>
+.. [#PostGIS_Install] "Chapter 2.5. Installation" PostGIS Documentation. May 2010 <http://postgis.net/docs/postgis_installation.html>
 

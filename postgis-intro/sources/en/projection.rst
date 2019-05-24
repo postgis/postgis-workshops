@@ -7,7 +7,7 @@ The earth is not flat, and there is no simple way of putting it down on a flat p
 
 We've already encountered projections when we :ref:`loaded our nyc data <loading_data>`.  (Recall that pesky SRID 26918).  Sometimes, however, you need to transform and re-project between spatial reference systems. PostGIS includes built-in support for changing the projection of data, using the :command:`ST_Transform(geometry, srid)` function. For managing the spatial reference identifiers on geometries, PostGIS provides the :command:`ST_SRID(geometry)` and :command:`ST_SetSRID(geometry, srid)` functions.
 
-We can confirm the SRID of our data with the :command:`ST_SRID` command:
+We can confirm the SRID of our data with the :command:`ST_SRID` function:
 
 .. code-block:: sql
 
@@ -33,7 +33,7 @@ In fact, for the internal PostGIS re-projection calculations, it is the contents
 
   +proj=utm +zone=18 +ellps=GRS80 +datum=NAD83 +units=m +no_defs 
   
-In practice, both the ``srtext`` and the ``proj4text`` columns are important: the ``srtext`` column is used by external programs like `GeoServer <http://geoserver.org>`_, `uDig <udig.refractions.net>`_, and `FME <http://www.safe.com/>`_  and others; the ``proj4text`` column is used internally.
+In practice, both the ``srtext`` and the ``proj4text`` columns are important: the ``srtext`` column is used by external programs like `GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_, and `FME <http://www.safe.com/>`_  and others; the ``proj4text`` column is used internally.
 
 Comparing Data
 --------------

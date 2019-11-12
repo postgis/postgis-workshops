@@ -147,5 +147,5 @@ Function List
 
 .. rubric:: Footnotes
 
-.. [#RTree] http://postgis.org/support/rtree.pdf
+.. [#RTree] http://postgis.net/docs/support/rtree.pdf
 

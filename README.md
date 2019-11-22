@@ -2,9 +2,11 @@
 
 Training materials for PostGIS
 
-## Building the Content
+## Workshops
 
-### Workshops
+The workshop pages are viewable at: https://postgis.net/workshops/postgis-intro/
+
+## Building the Workshop Content
 
 * Install Sphinx: http://www.sphinx-doc.org/en/1.8/usage/installation.html
 * Go to the source directory: `cd postgis-intro/sources/en/`

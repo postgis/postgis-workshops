@@ -174,3 +174,21 @@ div.documentwrapper
   width: auto; 
 } 
 
+.btn-scm {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.gitlab{
+  background-color: #FC6D27; /* Orange */
+}
+
+.github {
+	 background-color: #28A745; /* Green */
+}

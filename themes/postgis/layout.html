@@ -41,8 +41,10 @@
 {% block header %}
     <div class="header">
         <div class="wrap">
-            <h1 class="logo"><a href="http://postgis.net"><img src="{{ pathto('_static/img/postgis-logo.png',1) }}" alt="PostGIS" /></a></h1>
-            <h2 class="docstitle"><a href="{{ pathto('index') }}">{{ docstitle }}</a></h2>
+            <h1 class="logo"><a href="http://postgis.net"><img src="_static/img/postgis-logo.png" alt="PostGIS" /></a>
+				      <div style="float:right;font-size:small"><b>Edit This Page On:</b> <a class="btn-scm gitlab" href="https://gitlab.com/postgis/postgis-workshops/blob/master/postgis-intro/sources/en/{{pagename}}.rst" target="_blank">Gitlab</a> <a class="btn-scm github" href="https://github.com/postgis/postgis-workshops/edit/master/postgis-intro/sources/en/{{pagename}}.rst" target="_blank">Github</a></div>
+			      </h1>
+            <h2 class="docstitle"><a href="{{ pathto('index') }}">{{ docstitle }}</a> </h2>
         </div>
     </div>
 {% endblock %}

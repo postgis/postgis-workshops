@@ -81,7 +81,7 @@ Links to have on hand
   - Python Driver - http://www.pygresql.org/
   - C/C++ Driver - http://www.postgresql.org/docs/current/static/libpq.html
 
-* PgAdmin III - http://www.pgadmin.org/ 
+* PgAdmin - http://www.pgadmin.org/ 
 
 * Open Source Desktop Clients
 

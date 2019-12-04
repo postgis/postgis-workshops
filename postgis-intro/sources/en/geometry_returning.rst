@@ -19,10 +19,26 @@ ST_Centroid / ST_PointOnSurface
 A common need when composing a spatial query is to replace a polygon feature with a point representation of the feature. This is useful for spatial joins (as discussed in :ref:`polypolyjoins`) because using :command:`ST_Intersects(geometry,geometry)` on two polygon layers often results in double-counting: a polygon on a boundary will intersect an object on both sides; replacing it with a point forces it to be on one side or the other, not both.
 
 * :command:`ST_Centroid(geometry)` returns a point that is approximately on the center of mass of the input argument. This simple calculation is very fast, but sometimes not desirable, because the returned point is not necessarily in the feature itself. If the input feature has a convexity (imagine the letter 'C') the returned centroid might not be in the interior of the feature.
-* :command:`ST_PointOnSurface(geometry)` returns a point that is guaranteed to be inside the input argument. It is substantially more computationally expensive than the centroid operation.
+* :command:`ST_PointOnSurface(geometry)` returns a point that is guaranteed to be inside the input argument. This makes it more useful for computing "proxy points" for spatial joins.
  
 .. image:: ./geometry_returning/centroid.jpg
   :class: inline
+
+.. code-block:: sql
+
+  -- Compare the location of centroid and point-on-surface for a concave geometry
+  
+  SELECT ST_Intersects(geom, ST_Centroid(geom)) AS centroid_inside,
+         ST_Intersects(geom, ST_PointOnSurface(geom)) AS pos_inside
+  FROM (VALUES 
+      ('POLYGON ((30 0, 30 10, 10 10, 10 40, 30 40, 30 50, 0 50, 0 0, 0 0, 30 0))'::geometry)
+    ) AS t(geom);
+
+::
+
+   centroid_inside | pos_inside 
+  -----------------+------------
+   f               | t
 
 
 ST_Buffer

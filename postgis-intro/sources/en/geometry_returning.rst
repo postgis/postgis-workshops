@@ -77,7 +77,7 @@ The :command:`ST_Intersection(geometry A, geometry B)` function returns the spat
 ST_Union
 --------
 
-In the previous example we intersected geometries, creating a new geometry that had lines from both the inputs. The :command:`ST_Union` does the reverse; it takes inputs and removes common lines. There are two forms of the :command:`ST_Union` function: 
+In the previous example we intersected geometries, creating a new geometry that had lines from both the inputs. The :command:`ST_Union` function does the reverse; it takes inputs and removes common lines. There are two forms of the :command:`ST_Union` function: 
 
 * :command:`ST_Union(geometry, geometry)`: A two-argument version that takes in two geometries and returns the merged union.  For example, our two-circle example from the previous section looks like this when you replace the intersection with a union.
  
@@ -95,7 +95,7 @@ In the previous example we intersected geometries, creating a new geometry that 
     :class: inline
    
 
-* :command:`ST_Union([geometry])`: An aggregate version that takes in a set of geometries and returns the merged geometry for the entire group. The aggregate ST_Union can be used with the ``GROUP BY`` SQL statement to create carefully merged subsets of basic geometries. It is very powerful,
+* :command:`ST_Union([geometry])`: An aggregate version that takes in a set of geometries and returns the merged geometry for the entire group. The aggregate ST_Union can be used with the ``GROUP BY`` SQL statement to create carefully merged subsets of basic geometries. It is very powerful.
  
 As an example of :command:`ST_Union` aggregation, consider our ``nyc_census_blocks`` table. Census geography is carefully constructed so that larger geographies can be built up from smaller ones. So, we can create a census tracts map by merging the blocks that form each tract (as we do later in :ref:`creatingtractstable`). Or, we can create a county map by merging blocks that fall within each county.
 
@@ -133,7 +133,8 @@ An area test can confirm that our union operation did not lose any geometry. Fir
 
   SELECT SubStr(blkid,1,5) AS countyid, Sum(ST_Area(geom)) AS area
   FROM nyc_census_blocks 
-  GROUP BY countyid;
+  GROUP BY countyid
+  ORDER BY countyid;
 
 ::
 
@@ -150,7 +151,8 @@ Then we calculate the area of each of our new county polygons from the county ta
 .. code-block:: sql
 
   SELECT countyid, ST_Area(geom) AS area
-  FROM nyc_census_counties;
+  FROM nyc_census_counties
+  ORDER BY countyid;
 
 ::
 
@@ -193,13 +195,17 @@ The same answer! We have successfully built an NYC county table from our census 
 Function List
 -------------
 
-`ST_AsText(text) <http://postgis.net/docs/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata.
+`ST_Centroid(geometry) <http://postgis.net/docs/ST_Centroid.html>`_: Returns a point geometry that represents the center of mass of the input geometry. 
+
+`ST_PointOnSurface(geometry) <http://postgis.net/docs/ST_PointOnSurface.html>`_: Returns a point geometry that is guaranteed to be in the interior of the input geometry. 
 
 `ST_Buffer(geometry, distance) <http://postgis.net/docs/ST_Buffer.html>`_: For geometry: Returns a geometry that represents all points whose distance from this Geometry is less than or equal to distance. Calculations are in the Spatial Reference System of this Geometry. For geography: Uses a planar transform wrapper. 
 
 `ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/ST_Intersection.html>`_: Returns a geometry that represents the shared portion of geomA and geomB. The geography implementation does a transform to geometry to do the intersection and then transform back to WGS84.
 
 `ST_Union() <http://postgis.net/docs/ST_Union.html>`_: Returns a geometry that represents the point set union of the Geometries.
+
+`ST_AsText(text) <http://postgis.net/docs/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata.
 
 `substring(string [from int] [for int]) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function to extract substring matching SQL regular expression.
 

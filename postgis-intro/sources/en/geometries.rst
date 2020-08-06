@@ -181,7 +181,7 @@ A polygon is a representation of an area.  The outer boundary of the polygon is 
 
 Polygons are used to represent objects whose size and shape are important.  City limits, parks, building footprints or bodies of water are all commonly represented as polygons when the scale is sufficiently high to see their area.  Roads and rivers can sometimes be represented as polygons.
 
-The following SQL query will return the geometry associated with one linestring (in the :command:`ST_AsText` column).
+The following SQL query will return the geometry associated with one polygon (in the :command:`ST_AsText` column).
 
 .. code-block:: sql
 

@@ -58,7 +58,7 @@ KNN is a pure index based nearest neighbour search. By walking up and down the i
 
   The KNN feature is only available on PostGIS 2.0 with PostgreSQL 9.1 or greater.
 
-The KNN system works by evaluating distances between bounding boxes inside the PostGIS R-Tree index.
+The KNN system works by evaluating distances between bounding boxes inside the PostGIS GIST index.
 
 Because the index is built using the bounding boxes of geometries, the distances between any geometries that are not points will be inexact: they will be the distances between the bounding boxes of geometries.
 

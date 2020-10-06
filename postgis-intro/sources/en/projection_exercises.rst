@@ -7,7 +7,7 @@ Here's a reminder of some of the functions we have seen.  Hint: they should be u
 
 * :command:`sum(expression)` aggregate to return a sum for a set of records
 * :command:`ST_Length(linestring)` returns the length of the linestring
-* :command:`ST_SRID(geometry, srid)` returns the SRID of the geometry
+* :command:`ST_SRID(geometry)` returns the SRID of the geometry
 * :command:`ST_Transform(geometry, srid)` converts geometries into different spatial reference systems
 * :command:`ST_GeomFromText(text)` returns ``geometry``
 * :command:`ST_AsText(geometry)` returns WKT ``text``

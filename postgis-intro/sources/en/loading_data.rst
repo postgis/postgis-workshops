@@ -63,14 +63,14 @@ Supported by a wide variety of libraries and applications, PostGIS provides many
    
 #. Or, to load data via CLI tools, use:
 
-``` bash
-DATAFILES='nyc_census_blocks nyc_streets nyc_neighborhoods nyc_subway_stations nyc_homicides'
-for datafile in $DATAFILES
-do
-    shp2pgsql -s 26918 _local/data/data_bundle/data/${DATA}.shp > ${DATA}.sql
-    PGPASSWORD=${PROJECTNAME} psql -h localhost -U postgres -d nyc -f ${DATA}.sql
-done
-```
+.. code-block ::
+
+   DATAFILES='nyc_census_blocks nyc_streets nyc_neighborhoods nyc_subway_stations nyc_homicides'
+   for datafile in $DATAFILES
+   do
+       shp2pgsql -s 26918 _local/data/data_bundle/data/${datafile}.shp > ${datafile}.sql
+       PGPASSWORD=${PROJECTNAME} psql -h localhost -U postgres -d nyc -f ${datafile}.sql
+   done
  
 #. When all the files are loaded, click the "Refresh" button in pgAdmin to update the tree view. You should see your four tables show up in the **Databases > nyc > Schemas > public > Tables** section of the tree.
 

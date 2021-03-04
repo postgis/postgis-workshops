@@ -25,6 +25,70 @@ In the previous :ref:`section <loading_data>`, we loaded a variety of data.  Bef
 
 The above example CREATEs a table (**geometries**) then INSERTs five geometries: a point, a line, a polygon, a polygon with a hole, and a collection. Finally, the inserted rows are SELECTed and displayed in the Output pane.
 
+Geometry types
+--------------
+
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| **Geometry type**    | **Dimensions** | **Metadata type**   | **Example**                                                                     |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| Point                | 2              | POINT               | CREATE TABLE point (ID serial, geom geometry(Point,2180));                      |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| PointZ               | 3              | POINT               | CREATE TABLE point_z (ID serial, geom geometry(PointZ,2180));                   |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| PointM               | 3              | POINTM              | CREATE TABLE point_m (ID serial, geom geometry(PointM,2180));                   |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| PointZM              | 4              | POINT               | CREATE TABLE point_zm (ID serial, geom geometry(PointZM,2180));                 |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiPoint           | 2              | MULTIPOINT          | CREATE TABLE multipoint (ID serial, geom geometry(MultiPoint,2180));            |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiPointZ          | 3              | MULTIPOINT          | CREATE TABLE multipoint_z (ID serial, geom geometry(MultiPointZ,2180));         |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiPointM          | 3              | MULTIPOINTM         | CREATE TABLE multipoint_m (ID serial, geom geometry(MultiPointM,2180));         |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiPointZM         | 4              | MULTIPOINT          | CREATE TABLE multipoint_zm (ID serial, geom geometry(MultiPointZM,2180));       |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| LineString           | 2              | LINESTRING          | CREATE TABLE line (ID serial, geom geometry(LineString,2180));                  |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| LineStringZ          | 3              | LINESTRING          | CREATE TABLE line_z (ID serial, geom geometry(LineStringZ,2180));               |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| LineStringM          | 3              | LINESTRINGM         | CREATE TABLE line_m (ID serial, geom geometry(LineStringM,2180));               |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| LineStringZM         | 4              | LINESTRING          | CREATE TABLE line_zm (ID serial, geom geometry(LineStringZM,2180));             |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiLineString      | 2              | MULTILINESTRING     | CREATE TABLE multiline (ID serial, geom geometry(MultiLineString,2180));        |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiLineStringZ     | 3              | MULTILINESTRING     | CREATE TABLE multiline_z (ID serial, geom geometry(MultiLineStringZ,2180));     |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiLineStringM     | 3              | MULTILINESTRINGM    | CREATE TABLE multiline_m (ID serial, geom geometry(MultiLineStringM,2180));     |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiLineStringZM    | 4              | MULTILINESTRING     | CREATE TABLE multiline_zm (ID serial, geom geometry(MultiLineStringZM,2180));   |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| Polygon              | 2              | POLYGON             | CREATE TABLE polygon (ID serial, geom geometry(Polygon,2180));                  |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| PolygonZ             | 3              | POLYGON             | CREATE TABLE polygon_z (ID serial, geom geometry(PolygonZ,2180));               |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| PolygonM             | 3              | POLYGONM            | CREATE TABLE polygon_m (ID serial, geom geometry(PolygonM,2180));               |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| PolygonZM            | 4              | POLYGON             | CREATE TABLE polygon_zm (ID serial, geom geometry(PolygonZM,2180));             |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiPolygon         | 2              | MULTIPOLYGON        | CREATE TABLE multipolygon (ID serial, geom geometry(MultiPolygon,2180));        |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiPolygonZ        | 3              | MULTIPOLYGON        | CREATE TABLE multipolygon_z (ID serial, geom geometry(MultiPolygonZ,2180));     |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiPolygonM        | 3              | MULTIPOLYGONM       | CREATE TABLE multipolygon_m (ID serial, geom geometry(MultiPolygonM,2180));     |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| MultiPolygonZM       | 4              | MULTIPOLYGON        | CREATE TABLE multipolygon_zm (ID serial, geom geometry(MultiPolygonZM,2180));   |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| GeometryCollection   | 2              | GEOMETRYCOLLECTION  | CREATE TABLE geomcoll (ID serial, geom geometry(GeometryCollection,2180));      |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| GeometryCollectionZ  | 3              | GEOMETRYCOLLECTION  | CREATE TABLE geomcoll_z (ID serial, geom geometry(GeometryCollectionZ,2180));   |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| GeometryCollectionM  | 3              | GEOMETRYCOLLECTIONM | CREATE TABLE geomcoll_m (ID serial, geom geometry(GeometryCollectionM,2180));   |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+| GeometryCollectionZM | 4              | GEOMETRYCOLLECTION  | CREATE TABLE geomcoll_zm (ID serial, geom geometry(GeometryCollectionZM,2180)); |
++----------------------+----------------+---------------------+---------------------------------------------------------------------------------+
+
+
 Metadata Tables
 ---------------
 

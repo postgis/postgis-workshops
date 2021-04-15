@@ -3,7 +3,7 @@
 Linear Referencing
 ==================
 
-Linear referencing is a means of representing features that are can be described by referencing a base set of linear features. Common examples of features that are modelled using linear referencing are:
+Linear referencing is a means of representing features that can be described by referencing a base set of linear features. Common examples of features that are modelled using linear referencing are:
 
 * Highway assets, which are referenced using miles along a highway network
 * Road maintenance operations, which are referenced as occurring along a road network between a pair of mile measurements.

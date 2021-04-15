@@ -205,7 +205,7 @@ The first polygon has only one ring. The second one has an interior "hole". Most
 Some of the specific spatial functions for working with polygons are:
 
 * :command:`ST_Area(geometry)` returns the area of the polygons
-* :command:`ST_NRings(geometry)` returns the number of rings (usually 1, more of there are holes)
+* :command:`ST_NRings(geometry)` returns the number of rings (usually 1, more if there are holes)
 * :command:`ST_ExteriorRing(geometry)` returns the outer ring as a linestring
 * :command:`ST_InteriorRingN(geometry,n)` returns a specified interior ring as a linestring
 * :command:`ST_Perimeter(geometry)` returns the length of all the rings

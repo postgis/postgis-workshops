@@ -30,11 +30,11 @@ The following calculates the distance between Los Angeles and Paris using the st
 
   121.898285970107
   
-Aha! 121! But, what does that mean? 
+Aha! 122! But, what does that mean? 
 
-The units for spatial reference 4326 are degrees. So our answer is 121 degrees. But (again), what does that mean? 
+The units for spatial reference 4326 are degrees. So our answer is 122 degrees. But (again), what does that mean? 
 
-On a sphere, the size of one "degree square" is quite variable, becoming smaller as you move away from the equator. Think of the meridians (vertical lines) on the globe getting closer to each other as you go towards the poles. So, a distance of 121 degrees doesn't *mean* anything. It is a nonsense number.
+On a sphere, the size of one "degree square" is quite variable, becoming smaller as you move away from the equator. Think of the meridians (vertical lines) on the globe getting closer to each other as you go towards the poles. So, a distance of 122 degrees doesn't *mean* anything. It is a nonsense number.
 
 In order to calculate a meaningful distance, we must treat geographic coordinates not as approximate Cartesian coordinates but rather as true spherical coordinates.  We must measure the distances between points as true paths over a sphere -- a portion of a great circle. 
 
@@ -62,7 +62,7 @@ Using the ``geography`` instead of ``geometry`` type, let's try again to measure
 
   9124665.26917268
 
-A big number! All return values from ``geography`` calculations are in meters, so our answer is 9124km. 
+A big number! All return values from ``geography`` calculations are in meters, so our answer is 9125km. 
 
 Older versions of PostGIS supported very basic calculations over the sphere using the :command:`ST_Distance_Spheroid(point, point, measurement)` function. However, :command:`ST_Distance_Spheroid` is substantially limited. The function only works on points and provides no support for indexing across the poles or international dateline.
 

@@ -215,7 +215,7 @@ Geographics are universally accepted coordinates -- everyone understands what la
 
 The conclusion? 
 
-**If your data is geographically compact** (contained within a state, county or city), **use the geometry type with a Cartesian projection** that makes sense with your data. See the http://spatialreference.org site and type in the name of your region for a selection of possible reference systems.
+**If your data is geographically compact** (contained within a state, county or city), **use the geometry type with a Cartesian projection** that makes sense with your data. See the http://epsg.io site and type in the name of your region for a selection of possible reference systems.
 
 **If you need to measure distance with a dataset that is geographically dispersed** (covering much of the world), **use the geography type.** The application complexity you save by working in ``geography`` will offset any performance issues. And casting to ``geometry`` can offset most functionality limitations.
 

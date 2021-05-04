@@ -60,6 +60,17 @@ Supported by a wide variety of libraries and applications, PostGIS provides many
    * ``nyc_neighborhoods.shp``
    * ``nyc_subway_stations.shp``
    * ``nyc_homicides.shp``
+   
+#. Alternatively, you can load the data via CLI. Navigate to the workshop data bundle directory and run the following commands in bash.
+
+   .. code-block :: bash
+
+      DATAFILES='nyc_census_blocks nyc_streets nyc_neighborhoods nyc_subway_stations nyc_homicides' for datafile in $DATAFILES do
+          shp2pgsql -s 26918 -I data/${datafile}.shp > ${datafile}.sql
+          PGPASSWORD=postgres psql -h localhost -U postgres -d nyc -f ${datafile}.sql
+      done
+   
+   Note that ``-I`` option tells ``shp2pgsql`` to create spatial index on geometry column.
  
 #. When all the files are loaded, click the "Refresh" button in pgAdmin to update the tree view. You should see your four tables show up in the **Databases > nyc > Schemas > public > Tables** section of the tree.
 

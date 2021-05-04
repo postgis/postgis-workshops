@@ -14,7 +14,7 @@ So far, we have been working with 2-D geometries, with only X and Y coordinates.
 
 For 3-D and 4-D geometries, the extra dimensions are added as extra coordinates for each vertex in the geometry, and the geometry type is enhanced to indicate how to interpret the extra dimensions. Adding the extra dimensions results in three extra possible geometry types for each geometry primitive:
 
-* Point (a 2-D type)i is joined by PointZ, PointM and PointZM types.
+* Point (a 2-D type) is joined by PointZ, PointM and PointZM types.
 * Linestring (a 2-D type) is joined by LinestringZ, LinestringM and LinestringZM types.
 * Polygon (a 2-D type) is joined by PolygonZ, PolygonM and PolygonZM types.
 * And so on.

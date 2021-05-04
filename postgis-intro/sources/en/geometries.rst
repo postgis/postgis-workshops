@@ -181,7 +181,7 @@ A polygon is a representation of an area.  The outer boundary of the polygon is 
 
 Polygons are used to represent objects whose size and shape are important.  City limits, parks, building footprints or bodies of water are all commonly represented as polygons when the scale is sufficiently high to see their area.  Roads and rivers can sometimes be represented as polygons.
 
-The following SQL query will return the geometry associated with one linestring (in the :command:`ST_AsText` column).
+The following SQL query will return the geometry associated with one polygon (in the :command:`ST_AsText` column).
 
 .. code-block:: sql
 
@@ -205,7 +205,7 @@ The first polygon has only one ring. The second one has an interior "hole". Most
 Some of the specific spatial functions for working with polygons are:
 
 * :command:`ST_Area(geometry)` returns the area of the polygons
-* :command:`ST_NRings(geometry)` returns the number of rings (usually 1, more of there are holes)
+* :command:`ST_NRings(geometry)` returns the number of rings (usually 1, more if there are holes)
 * :command:`ST_ExteriorRing(geometry)` returns the outer ring as a linestring
 * :command:`ST_InteriorRingN(geometry,n)` returns a specified interior ring as a linestring
 * :command:`ST_Perimeter(geometry)` returns the length of all the rings

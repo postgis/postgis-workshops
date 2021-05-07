@@ -255,7 +255,7 @@ Now we know every route, and we know (approximately) what station each route sta
 
 But first, we need to turn our recursive CTE expression into a function we can call with parameters.
 
-.. code-block:: sql
+.. code-block:: plpgsql
 
   CREATE OR REPLACE function walk_subway(integer, text) returns geometry AS
   $$

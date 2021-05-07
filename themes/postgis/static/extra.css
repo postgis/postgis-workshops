@@ -192,3 +192,10 @@ div.documentwrapper
 .github {
 	 background-color: #28A745; /* Green */
 }
+
+img.border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+}
+  

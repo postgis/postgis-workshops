@@ -1,0 +1,26 @@
+# http://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+# these are the defaults
+[*.rst]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Makefiles want tab indentation
+[Makefile]
+indent_style = tab
+
+# .bat files want CRLF
+[*.bat]
+end_of_line = crlf
+

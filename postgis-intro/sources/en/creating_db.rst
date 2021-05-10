@@ -6,17 +6,21 @@ Creating a Spatial Database
 PgAdmin
 -------
 
-PostgreSQL has a number of administrative front-ends.  The primary one is `psql <http://www.postgresql.org/docs/current/static/app-psql.html>`_ a command-line tool for entering SQL queries.  Another popular PostgreSQL front-end is the free and open source graphical tool `pgAdmin <http://www.pgadmin.org/>`_. All queries done in pgAdmin can also be done on the command line with ``psql``. 
+PostgreSQL has a number of administrative front-ends.  The primary one is `psql <http://www.postgresql.org/docs/current/static/app-psql.html>`_, a command-line tool for entering SQL queries.  Another popular PostgreSQL front-end is the free and open source graphical tool `pgAdmin <http://www.pgadmin.org/>`_. All queries done in pgAdmin can also be done on the command line with ``psql``. 
 
 #. Find pgAdmin and start it up.
 
    .. image:: ./screenshots/pgadmin_01.png
      :class: inline
 
-#. If this is the first time you have run pgAdmin, you should have a server entry for **PostGIS (localhost:5432)** already configured in pgAdmin. Double click the entry, and enter anything you like at the password prompt to connect to the database.
+#. If this is the first time you have run pgAdmin, you probably don't have any servers configured. Right click the ``Servers`` item in the Browser panel.
+   
+   We'll name our server **PostGIS**. In the Connection tab, enter the ``Host name/address``. If you're working with a local PostgreSQL install, you'll be able to use ``localhost``. If you're using a cloud service, you should be able to retrieve the host name from your account.
 
-   The PostGIS database has been installed with unrestricted access for local users (users connecting from the same machine as the database is running). That means that it will accept *any* password you provide. If you need to connect from a remote computer, the password for the ``postgres`` user has been set to ``postgres``.
+   Leave **Port** set at ``5432``, and both **Maintenance database** and **Username** as ``postgres``. The **Password** should be what you specified with a local install or with your cloud service.
 
+   .. image:: ./screenshots/pgadmin_02a.png
+      :class: inline
 
 Creating a Database
 -------------------
@@ -25,10 +29,10 @@ Creating a Database
 
 #. Right-click on the ``Databases`` item and select ``New Database``.
 
-   .. image:: ./screenshots/pgadmin_03.png
+   .. image:: ./screenshots/pgadmin_02.png
      :class: inline
 
-#. Fill in the ``New Database`` form as shown below and click **OK**.  
+#. Fill in the ``Create Database`` form as shown below and click **OK**.  
 
    .. list-table::
 
@@ -38,7 +42,7 @@ Creating a Database
        - ``postgres``
 
 
-   .. image:: ./screenshots/pgadmin_02.png
+   .. image:: ./screenshots/pgadmin_03.png
      :class: inline
 
 #. Select the new ``nyc`` database and open it up to display the tree of objects. You'll see the ``public`` schema.

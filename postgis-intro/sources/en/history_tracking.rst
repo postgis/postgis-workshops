@@ -57,7 +57,7 @@ Using this information it is possible to reconstruct the state of the edit table
   
   For an insert, we just add a new record into the history table with the creation time/user.
 
-  .. code-block:: sql
+  .. code-block:: plpgsql
 
     CREATE OR REPLACE FUNCTION nyc_streets_insert() RETURNS trigger AS 
     $$
@@ -79,7 +79,7 @@ Using this information it is possible to reconstruct the state of the edit table
 
   For a deletion, we just mark the currently active history record (the one with a NULL deletion time) as deleted.
 
-  .. code-block:: sql
+  .. code-block:: plpgsql
 
     CREATE OR REPLACE FUNCTION nyc_streets_delete() RETURNS trigger AS 
     $$
@@ -99,7 +99,7 @@ Using this information it is possible to reconstruct the state of the edit table
 
   For an update, we first mark the active history record as deleted, then insert a new record for the updated state.
 
-  .. code-block:: sql
+  .. code-block:: plpgsql
 
     CREATE OR REPLACE FUNCTION nyc_streets_update() RETURNS trigger AS 
     $$

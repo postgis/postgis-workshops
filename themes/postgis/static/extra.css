@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 @import url("sphinxdoc.css");
 
@@ -192,3 +193,206 @@ div.documentwrapper
 .github {
 	 background-color: #28A745; /* Green */
 }
+=======
+
+@import url("sphinxdoc.css");
+
+body
+{
+  margin: 0;
+  padding: 0;
+  font-family: helvetica,"microsoft sans serif",arial,sans-serif;
+}
+
+div.wrap
+{ 
+  background-color: #eee;
+  border-bottom: 1px solid #468;
+  text-align: left;
+}
+
+#content
+{
+  margin: 0px;
+  padding: 0px;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-bottom: 45px;
+}
+
+h1.logo
+{
+  padding: 0px;
+  margin: 0px;
+  padding-top: 15px;
+  padding-bottom: 7px;
+  padding-left: 45px;
+  border-top: 8px solid #468;
+}
+
+h1.logo img
+{
+  border: none;
+}
+
+h2.docstitle
+{
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 2px;
+  padding-left: 45px;
+/*  background: transparent url(img/page-heading-bg.png); */
+  background-color: #468;
+/*  font-weight: lighter; */
+  font-family: Univers, Helvetica, Verdana, Arial, sans-serif;
+  font-size: 1.6em;
+  color: white;
+  height: 29px; /* 54 after padding*/
+  letter-spacing: 0.03em; 
+}
+
+h2.docstitle a
+{
+  text-decoration: none;
+  color: white;
+}
+  
+
+div.related
+{
+  margin: 0px;
+  padding: 0px;
+  padding-top: 6px;
+  padding-bottom: 5px;
+  background: white;
+  vertical-align: middle;
+}
+
+div.related ul
+{
+  margin: 0;
+  margin-left: 45px;
+  padding: 0;
+  height: 2em;
+  background-image: none;
+  border: none;
+}
+
+div.related ul li
+{
+  height: 2em;
+  padding: 0 0.5em 0 0;
+}
+
+div.related ul li a 
+{
+  padding: 0 0.3em 0 0;
+  color: #1A3752;
+  text-decoration: underline;
+}
+
+div.clearer
+{
+  border-bottom: 1px solid #ccc;
+}
+
+div.body
+{
+  padding: 0.5em 45px 0.5em 45px;
+}
+
+div.body p.caption
+{
+  font-style: italic;
+  font-size: small;
+}
+
+div.bodywrapper
+{
+  margin-right: 280px;
+}
+
+h1,h2,h3
+{
+  font-family: Univers, Helvetica, Verdana, Arial, sans-serif;
+  color: #0A2742;
+  font-weight: lighter;
+}
+
+a,a.reference
+{
+  color: #1A3752;
+  text-decoration: underline;
+}
+
+a:hover
+{
+  color: #3366CC;
+}
+
+div.sphinxsidebar 
+{
+  padding: 0;
+  padding-top: 0.8em;
+  padding-bottom: 20px;
+  padding-right: 45px;
+  width: 210px;
+}
+
+div.sphinxsidebar h3, div.sphinxsidebar h4 
+{
+  margin: 1em 0 0.5em 0;
+  font-size: 1em;
+  padding: 0.5em 0 0.15em 0.6em;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  background-color: #468;
+}
+
+div.sphinxsidebar h3 a 
+{
+  text-decoration: none;
+}
+
+div.footer
+{
+  color: white;
+  border-top: 1px solid #ccc;
+  background-color: #468;
+}
+
+div.documentwrapper
+{
+  width: auto; 
+} 
+
+.btn-scm {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.gitlab{
+  background-color: #FC6D27; /* Orange */
+}
+
+.github {
+	 background-color: #28A745; /* Green */
+}
+
+img.border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+}
+  
+>>>>>>> f2d625ff0c8aa4f0ba023e6146af6d19ef9b9fd7

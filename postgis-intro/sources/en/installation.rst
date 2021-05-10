@@ -3,58 +3,73 @@
 Installation
 ============
 
-We will be using OpenGeo Suite as our software package, as it includes PostGIS/PostgreSQL in a single fast installation for Windows, Apple OS X, and Linux. The Suite also includes GeoServer, OpenLayers, and a number of web visualization utilities.
+To explore the PostgreSQL/PostGIS database, and learn about writing spatial queries in SQL, we will need some software, either installed locally or available remotely on the cloud.
 
-.. note::
+* There are instructions below on how to access PostgreSQL for installation on Windows or MacOS. PostgreSQL for Windows and MacOS either include PostGIS or have an easy way to add it on.
+* There are instructions below on how to install `PgAdmin <https://www.pgadmin.org/>`_. PgAdmin is a graphical database explorer and SQL editor which provides a "user facing" interface to the database engine that does all the world. 
 
-  If you want to install just PostgreSQL, it can also be downloaded directly as source code or binary from the PostgreSQL project site: http://postgresql.org/download/. After installing PostgreSQL, use the "StackBuilder" utility to add the PostGIS extension.
+For always up-to-date directions on installing PostgreSQL, go to the `PostgreSQL download page  <https://www.postgresql.org/download/>`_ and select the operating system you are using. 
 
-.. note:: 
 
-  The precise directions in this document are for Windows, but for OS X the installation is largely the same. Once the Suite is installed, the directions for both operating systems should be almost identical.  
+PostgreSQL for Microsoft Windows
+--------------------------------
 
-#. Find PostGIS installer for your platform.  Double click to begin.
+For a Windows install:
 
-#. Enjoy the warm welcome, then click **Next**.
+#. Go to the `Windows PostgreSQL download page <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>`_.
 
-   .. image:: ./screenshots/install_welcome.png
+#. Select the latest version of PostgreSQL and save the installer to disk.
+
+#. Run the installer and accept the defaults.
+
+#. Find and run the "StackBuilder" program that was installed with the database.
+
+#. Select the "PostGIS" extension.
+
+#. Accept the defaults and install.
+
+
+PostgreSQL for Apple MacOS
+--------------------------
+
+For a MacOS install:
+
+#. Go to the `Postgres.app <https://postgresapp.com/>`_ site, and download the latest release.
+
+#. Open the disk image, and drag the **Postgres** icon into the **Applications** folder.
+
+   .. image:: ./screenshots/install_macos_01.png
      :class: inline
 
+#. In the **Applications** folder, double-click the **Postgres** icon to start the server.
 
-#. PostGIS is licensed under the GNU GPL, which is reproduced on the licensing page.  Click **I Agree**.
+#. Click the **Initialize** button to create a new blank database instance.
 
-   .. image:: ./screenshots/install_license.png
+   .. image:: ./screenshots/install_macos_02.png
+     :class: inline, border
+
+#. In the **Applications** folder, go to the **Utilities** folder and open **Terminal**.
+
+#. Add the command-line utilities to your `PATH` for convenience. 
+
+  :: 
+
+    sudo mkdir -p /etc/paths.d
+    echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp    
+
+
+PgAdmin for Windows and MacOS
+-----------------------------
+
+PgAdmin is available for multiple platforms, at https://www.pgadmin.org/download/. 
+
+#. Download and install the latest version for your platform.
+
+#. Start PgAdmin!
+
+   .. image:: ./screenshots/install_pgadmin_01.png
      :class: inline
 
-
-#. The directory where PostGIS will reside is the usual ``C:\Program Files\`` (or ``C:\Program Files (x86)``) location. Click **Next**.
-
-   .. image:: ./screenshots/install_directory.png
-     :class: inline
-
-
-#. The installer will create a number of shortcuts in the Start Menu. Click **Next**.
-
-   .. image:: ./screenshots/install_startmenu.png
-     :class: inline
-
-
-#. Make sure the **PostGIS** component and the **Client Tools** components are selected. Click **Next**.
-
-   .. image:: ./screenshots/install_components.png
-     :class: inline
-
-
-#. Ready for install!  Click **Install**.
-
-   .. image:: ./screenshots/install_ready.png
-     :class: inline
-
-
-#. The installation process will run for a couple of minutes.
-
-   .. image:: ./screenshots/install_installing.png
-     :class: inline
 
 
 

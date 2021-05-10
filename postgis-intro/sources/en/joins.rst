@@ -258,7 +258,4 @@ Function List
 
 `sum(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the sum of records in a set of records.
 
-.. rubric:: Footnotes
-
-.. [#PostGIS_Doco] http://postgis.net/docs/
 

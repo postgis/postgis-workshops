@@ -29,7 +29,7 @@ Second-generation spatial systems store some data in relational databases (usual
 
 **True spatial databases were born when people started to treat spatial features as first class database objects.**  
 
-Spatial databases fully integrate spatial data with an object relational database.  The orientation changes from GIS-centric to database-centric.     
+Spatial databases fully integrate spatial data with a relational database.  The system orientation changes from GIS-centric to database-centric.     
 
 .. image:: ./introduction/beginning.png
   :class: inline
@@ -52,9 +52,11 @@ Spatial data types are organized in a type hierarchy.  Each sub-type inherits th
 Spatial Indexes and Bounding Boxes
 ----------------------------------
 
-An ordinary database provides "access methods" -- commonly known as **indexes** -- to allow for fast and random access to subsets of data.  Indexing for standard types (numbers, strings, dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ indexes.  A B-tree partitions the data using the natural sort order to put the data into a hierarchical tree.
+An ordinary database provides **indexes** to allow for fast and random access to subsets of data.  Indexing for standard types (numbers, strings, dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ indexes.  
 
-The natural sort order of numbers, strings, and dates is simple to determine -- every value is less than, greater than or equal to every other value. But because polygons can overlap, can be contained in one another, and are arrayed in a two-dimensional (or more) space, a B-tree cannot be used to efficiently index them. Real spatial databases provide a "spatial index" that instead answers the question "which objects are within this particular bounding box?".  
+A B-tree partitions the data using the natural sort order to put the data into a hierarchical tree. The natural sort order of numbers, strings, and dates is simple to determine -- every value is less than, greater than or equal to every other value. 
+
+But because polygons can overlap, can be contained in one another, and are arrayed in a two-dimensional (or more) space, a B-tree cannot be used to efficiently index them. Real spatial databases provide a "spatial index" that instead answers the question "which objects are within this particular bounding box?".  
 
 A **bounding box** is the smallest rectangle -- parallel to the coordinate axes -- capable of containing a given feature.
 
@@ -66,12 +68,14 @@ Bounding boxes are used because answering the question "is A inside B?" is very 
 
 Indexes have to perform quickly in order to be useful. So instead of providing exact results, as B-trees do, spatial indexes provide approximate results. The question "what lines are inside this polygon?" will be instead interpreted by a spatial index as "what lines have bounding boxes that are contained inside this polygon's bounding box?" 
 
-The actual spatial indexes implemented by various databases vary widely. The most common implementation is the `R-tree <http://en.wikipedia.org/wiki/R-tree>`_ (used in PostGIS), but there are also `Quadtrees <http://en.wikipedia.org/wiki/Quadtree>`_, and `grid-based indexes <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ implemented in other spatial databases.
+The actual spatial indexes implemented by various databases vary widely. The most common implementations are the `R-Tree <http://en.wikipedia.org/wiki/R-tree>`_ and `Quadtree <http://en.wikipedia.org/wiki/Quadtree>`_ (used in PostGIS), but there are also `grid-based indexes <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ and `GeoHash indexes <https://en.wikipedia.org/wiki/Geohash>`_ implemented in other spatial databases.
 
 Spatial Functions
 -----------------
 
-For manipulating data during a query, an ordinary database provides **functions** such as concatenating strings, performing hash operations on strings, doing mathematics on numbers, and extracting information from dates.  A spatial database provides a complete set of functions for analyzing geometric components, determining spatial relationships, and manipulating geometries.  These spatial functions serve as the building block for any spatial project.
+For manipulating data during a query, an ordinary database provides **functions** such as concatenating strings, performing hash operations on strings, doing mathematics on numbers, and extracting information from dates.  
+
+A spatial database provides a complete set of functions for analyzing geometric components, determining spatial relationships, and manipulating geometries.  These spatial functions serve as the building block for any spatial project.
 
 The majority of all spatial functions can be grouped into one of the following five categories:
 
@@ -86,14 +90,14 @@ The list of possible functions is very large, but a common set of functions is d
 What is PostGIS?
 ================
 
-PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database Management System into a spatial database by adding support for the three features: spatial types, indexes, and functions.  Because it is built on PostgreSQL, PostGIS automatically inherits important "enterprise" features as well as open standards for implementation 
+PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database Management System into a spatial database by adding support for the three features: spatial types, spatial indexes, and spatial functions.  Because it is built on PostgreSQL, PostGIS automatically inherits important "enterprise" features as well as open standards for implementation.
 
 But what is PostgreSQL?
 -----------------------
 
-PostgreSQL is a powerful, object-relational database management system (ORDBMS). It is released under a BSD-style license and is thus free and open source software. As with many other open source programs, PostgreSQL is not controlled by any single company, but has a global community of developers and companies to develop it.
+PostgreSQL is a powerful relational database management system (RDBMS). It is released under a BSD-style license and is thus free and open source software. As with many other open source programs, PostgreSQL is not controlled by any single company, but has a `global community of developers <https://www.postgresql.org/community/contributors/>`_ and companies to develop it.
 
-PostgreSQL was designed from the very start with type extension in mind -- the ability to add new data types, functions and access methods at run-time. Because of this, the PostGIS extension can be developed by a separate development team, yet still integrate very tightly into the core PostgreSQL database.
+PostgreSQL was designed from the very start with type extension in mind -- the ability to add new data types, functions and indexes at run-time. Because of this, the PostGIS extension can be developed by a separate development team, yet still integrate very tightly into the core PostgreSQL database.
 
 Why choose PostgreSQL?
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -110,17 +114,19 @@ PostgreSQL has:
 * Generic index structure (GiST) to allow R-Tree index
 * Easy to add custom functions
 
-Combined, PostgreSQL provides a very easy development path to add new spatial types. In the proprietary world, only Illustra (now Informix Universal Server) allows such easy extension. This is no coincidence; Illustra is a proprietary re-working of the original PostgreSQL code base from the 1980's. 
+Combined, PostgreSQL provides a very easy development path to add new spatial types. In the proprietary world, only `Illustra <https://en.wikipedia.org/wiki/Illustra>`_ (now Informix Universal Server) allowed such easy extension. This is no coincidence; Illustra is a proprietary re-working of the original PostgreSQL code base from the 1980's. 
 
-Because the development path for adding types to PostgreSQL was so straightforward, it made sense to start there. When MySQL released basic spatial types in version 4.1, the PostGIS team took a look at their code, and the exercise reinforced the original decision to use PostgreSQL. Because MySQL spatial objects had to be hacked on top of the string type as a special case, the MySQL code was spread over the entire code base. Development of PostGIS 0.1 took under a month. Doing a "MyGIS" 0.1 would have taken a lot longer, and as such, might never have seen the light of day.
+Because the development path for adding types to PostgreSQL was so straightforward, it made sense to start there. When MySQL released basic spatial types in version 4.1, the PostGIS team took a look at their code, and the exercise reinforced the original decision to use PostgreSQL. 
 
-Why not Shapefiles?
--------------------
+Because MySQL spatial objects had to be hacked on top of the string type as a special case, the MySQL code was spread over the entire code base. Development of PostGIS 0.1 took under a month. Doing a "MyGIS" 0.1 would have taken a lot longer, and as such, might never have seen the light of day.
 
-The `shapefile <http://en.wikipedia.org/wiki/Shapefile>`_ (and other file formats) have been the standard way of storing and interacting with spatial data since GIS software was first written. However, these "flat" files have the following disadvantages:
+Why not files?
+--------------
+
+The `Shapefile <http://en.wikipedia.org/wiki/Shapefile>`_ (and other formats like the Esri File Geodatabase and the `GeoPackage <https://www.geopackage.org/>`_) have been a standard way of storing and interacting with spatial data since GIS software was first written. However, these "flat" files have the following disadvantages:
 
 * **Files require special software to read and write.**  SQL is an abstraction for random data access and analysis. Without that abstraction, you will need to write all the access and analysis code yourself.
-* **Concurrent users can cause corruption.** While it's possible to write extra code to ensure that multiple writes to the same file do not corrupt the data, by the time you have solved the problem and also solved the associated performance problem, you will have written the better part of a database system. Why not just use a standard database?
+* **Concurrent users can cause corruption and slowdowns.** While it's possible to write extra code to ensure that multiple writes to the same file do not corrupt the data, by the time you have solved the problem and also solved the associated performance problem, you will have written the better part of a database system. Why not just use a standard database?
 * **Complicated questions require complicated software to answer.** Complicated and interesting questions (spatial joins, aggregations, etc) that are expressible in one line of SQL in the database take hundreds of lines of specialized code to answer when programming against files.
 
 Most users of PostGIS are setting up systems where multiple applications will be expected to access the data, so having a standard SQL access method simplifies deployment and development. Some users are working with large data sets; with files, they might be segmented into multiple files, but in a database they can be stored as a single large table.
@@ -142,7 +148,7 @@ Fortunately a second project, the "Geometry Engine, Open Source" or `GEOS <http:
 
 As PostGIS data capacity grew, another issue surfaced: the representation used to store geometry proved relatively inefficient. For small objects like points and short lines, the metadata in the representation had as much as a 300% overhead. For performance reasons, it was necessary to put the representation on a diet.  By shrinking the metadata header and required dimensions, overhead greatly reduced. In PostGIS 1.0, this new, faster, lightweight representation became the default.
 
-Recent updates of PostGIS have worked on expanding standards compliance, adding support for curve-based geometries and function signatures specified in the ISO :term:`SQL/MM` standard. Through a continued focus on performance,  PostGIS 1.4 significantly improved the speed of geometry testing routines.
+Recent releases of PostGIS continue to add features and performance improvements, as well as support for new features in the PostgreSQL core system.
 
 Who uses PostGIS?
 -----------------
@@ -154,10 +160,10 @@ Institut Geographique National, France
 
 IGN is the national mapping agency of France, and uses PostGIS to store the high resolution topographic map of the country, "BDUni". BDUni has more than 100 million features, and is maintained by a staff of over 100 field staff who verify observations and add new mapping to the database daily. The IGN installation uses the database transactional system to ensure consistency during update processes, and a `warm standby system <http://developer.postgresql.org/pgdocs/postgres/warm-standby.html>`_ to maintain uptime in the event of a system failure.
 
-GlobeXplorer
-~~~~~~~~~~~~
+RedFin
+~~~~~~
 
-GlobeXplorer is a web-based service providing online access to petabytes of global satellite and aerial imagery. GlobeXplorer uses PostGIS to manage the metadata associated with the imagery catalogue, so queries for imagery first search the PostGIS catalogue to find the location of the relevant images, then pull the images from storage and return them to the client. In building their system, GlobeXplorer tried other spatial databases but eventually settled on PostGIS because of the great combination of price and performance it offers.
+`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based service for exploring properties and estimate values. Their system was originally build on MySQL, but they found that moving to PostgreSQL and PostGIS provided `huge benefits in performance and reliability <https://www.redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_.
 
 What applications support PostGIS?
 ----------------------------------
@@ -182,13 +188,13 @@ The following table shows a list of some of the software that leverages PostGIS:
 |   * GeoServer (Java-based WFS / WMS -server )   |   * Iwan Mapserver                           |     
 |   * SharpMap SDK - for ASP.NET 2.0              |   * MapDotNet Server                         |      
 |   * MapGuide Open Source (using FDO)            |   * MapGuide Enterprise (using FDO)          |   
-|                                                 |   * ESRI ArcGIS Server 9.3+                  |         
+|                                                 |   * ESRI ArcGIS Server                       |         
 | * Desktop                                       |                                              |           
 |                                                 | * Desktop                                    |               
 |   * uDig                                        |                                              |           
 |   * QGIS                                        |   * Cadcorp SIS                              |      
 |   * mezoGIS                                     |   * Microimages TNTmips GIS                  |         
-|   * OpenJUMP                                    |   * ESRI ArcGIS 9.3+                         |           
+|   * OpenJUMP                                    |   * ESRI ArcGIS                              |           
 |   * OpenEV                                      |   * Manifold                                 |   
 |   * SharpMap SDK for Microsoft.NET 2.0          |   * GeoConcept                               |       
 |   * ZigGIS for ArcGIS/ArcObjects.NET            |   * MapInfo (v10)                            |           

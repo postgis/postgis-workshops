@@ -21,7 +21,12 @@ Loading the Backup File
    .. image:: ./screenshots/data_loading_2.png
      :class: inline, border
 
-#. The database restore should run to completion without errors.
+#. Click on the **Restore options** tab, scroll down to the **Do not save** section and toggle **Owner** to **Yes**.
+
+   .. image:: ./screenshots/data_loading_2a.png
+     :class: inline, border
+
+#. Click the **Restore** button. The database restore should run to completion without errors.
 
    .. image:: ./screenshots/data_loading_3.png
      :class: inline, border

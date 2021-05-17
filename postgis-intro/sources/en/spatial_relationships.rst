@@ -5,7 +5,7 @@ Spatial Relationships
 
 So far we have only used spatial functions that measure (:command:`ST_Area`, :command:`ST_Length`), serialize (:command:`ST_GeomFromText`) or deserialize (:command:`ST_AsGML`) geometries. What these functions have in common is that they only work on one geometry at a time.
 
-Spatial databases are powerful because they not only store geometry, they also have the ability to compare *relationships between geometries*. 
+Spatial databases are powerful because they not only store geometry, they also have the ability to compare *relationships between geometries*.
 
 Questions like "Which are the closest bike racks to a park?" or "Where are the intersections of subway lines and streets?" can only be answered by comparing geometries representing the bike racks, streets, and subway lines.
 
@@ -13,8 +13,8 @@ The OGC standard defines the following set of methods to compare geometries.
 
 ST_Equals
 ---------
- 
-:command:`ST_Equals(geometry A, geometry B)` tests the spatial equality of two geometries. 
+
+:command:`ST_Equals(geometry A, geometry B)` tests the spatial equality of two geometries.
 
 .. figure:: ./spatial_relationships/st_equals.png
    :align: center
@@ -25,23 +25,25 @@ First, let's retrieve a representation of a point from our ``nyc_subway_stations
 
 .. code-block:: sql
 
-  SELECT name, geom, ST_AsText(geom)
-  FROM nyc_subway_stations 
-  WHERE name = 'Broad St';             
+  SELECT name, geom
+  FROM nyc_subway_stations
+  WHERE name = 'Broad St';
 
 ::
 
-     name   |                      geom                          |      st_astext
-  ----------+----------------------------------------------------+-----------------------
-   Broad St | 0101000020266900000EEBD4CF27CF2141BC17D69516315141 | POINT(583571 4506714)
- 
+     name   |                      geom
+  ----------+---------------------------------------------------
+   Broad St | 0101000020266900000EEBD4CF27CF2141BC17D69516315141
+
 Then, plug the geometry representation back into an :command:`ST_Equals` test:
 
 .. code-block:: sql
 
-  SELECT name 
-  FROM nyc_subway_stations 
-  WHERE ST_Equals(geom, '0101000020266900000EEBD4CF27CF2141BC17D69516315141');
+  SELECT name
+  FROM nyc_subway_stations
+  WHERE ST_Equals(
+    geom,
+    '0101000020266900000EEBD4CF27CF2141BC17D69516315141');
 
 ::
 
@@ -55,7 +57,7 @@ Then, plug the geometry representation back into an :command:`ST_Equals` test:
 ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps
 ------------------------------------------------------
 
-:command:`ST_Intersects`, :command:`ST_Crosses`, and :command:`ST_Overlaps` test whether the interiors of the geometries intersect. 
+:command:`ST_Intersects`, :command:`ST_Crosses`, and :command:`ST_Overlaps` test whether the interiors of the geometries intersect.
 
 .. figure:: ./spatial_relationships/st_intersects.png
    :align: center
@@ -67,7 +69,7 @@ ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps
 
 The opposite of ST_Intersects is :command:`ST_Disjoint(geometry A , geometry B)`. If two geometries are disjoint, they do not intersect, and vice-versa. In fact, it is often more efficient to test "not intersects" than to test "disjoint" because the intersects tests can be spatially indexed, while the disjoint test cannot.
 
-.. figure:: ./spatial_relationships/st_crosses.png  
+.. figure:: ./spatial_relationships/st_crosses.png
    :align: center
 
 For multipoint/polygon, multipoint/linestring, linestring/linestring, linestring/polygon, and linestring/multipolygon comparisons, :command:`ST_Crosses(geometry A, geometry B)` returns t (TRUE) if the intersection results in a geometry whose dimension is one less than the maximum dimension of the two source geometries and the intersection set is interior to both source geometries.
@@ -82,22 +84,22 @@ Let's take our Broad Street subway station and determine its neighborhood using 
 .. code-block:: sql
 
   SELECT name, ST_AsText(geom)
-  FROM nyc_subway_stations 
-  WHERE name = 'Broad St';               
+  FROM nyc_subway_stations
+  WHERE name = 'Broad St';
 
 ::
 
   POINT(583571 4506714)
 
-.. code-block:: sql   
+.. code-block:: sql
 
-  SELECT name, boroname 
+  SELECT name, boroname
   FROM nyc_neighborhoods
   WHERE ST_Intersects(geom, ST_GeomFromText('POINT(583571 4506714)',26918));
 
 ::
 
-          name        | boroname  
+          name        | boroname
   --------------------+-----------
    Financial District | Manhattan
 
@@ -106,7 +108,7 @@ Let's take our Broad Street subway station and determine its neighborhood using 
 ST_Touches
 ----------
 
-:command:`ST_Touches` tests whether two geometries touch at their boundaries, but do not intersect in their interiors 
+:command:`ST_Touches` tests whether two geometries touch at their boundaries, but do not intersect in their interiors
 
 .. figure:: ./spatial_relationships/st_touches.png
    :align: center
@@ -116,20 +118,20 @@ ST_Touches
 ST_Within and ST_Contains
 -------------------------
 
-:command:`ST_Within` and :command:`ST_Contains` test whether one geometry is fully within the other. 
+:command:`ST_Within` and :command:`ST_Contains` test whether one geometry is fully within the other.
 
 .. figure:: ./spatial_relationships/st_within.png
    :align: center
-    
-:command:`ST_Within(geometry A , geometry B)` returns TRUE if the first geometry is completely within the second geometry. ST_Within tests for the exact opposite result of ST_Contains.  
 
-:command:`ST_Contains(geometry A, geometry B)` returns TRUE if the second geometry is completely contained by the first geometry. 
+:command:`ST_Within(geometry A , geometry B)` returns TRUE if the first geometry is completely within the second geometry. ST_Within tests for the exact opposite result of ST_Contains.
+
+:command:`ST_Contains(geometry A, geometry B)` returns TRUE if the second geometry is completely contained by the first geometry.
 
 
 ST_Distance and ST_DWithin
 --------------------------
 
-An extremely common GIS question is "find all the stuff within distance X of this other stuff". 
+An extremely common GIS question is "find all the stuff within distance X of this other stuff".
 
 The :command:`ST_Distance(geometry A, geometry B)` calculates the *shortest* distance between two geometries and returns it as a float. This is useful for actually reporting back the distance between objects.
 
@@ -147,22 +149,22 @@ For testing whether two objects are within a distance of one another, the :comma
 
 .. figure:: ./spatial_relationships/st_dwithin.png
   :align: center
-    
+
 Using our Broad Street subway station again, we can find the streets nearby (within 10 meters of) the subway stop:
 
 .. code-block:: sql
 
-  SELECT name 
-  FROM nyc_streets 
+  SELECT name
+  FROM nyc_streets
   WHERE ST_DWithin(
-          geom, 
-          ST_GeomFromText('POINT(583571 4506714)',26918), 
+          geom,
+          ST_GeomFromText('POINT(583571 4506714)',26918),
           10
         );
 
-:: 
+::
 
-       name     
+       name
   --------------
      Wall St
      Broad St
@@ -181,13 +183,13 @@ Function List
 
 `ST_Disjoint(geometry A , geometry B) <http://postgis.net/docs/ST_Disjoint.html>`_: Returns TRUE if the Geometries do not "spatially intersect" - if they do not share any space together.
 
-`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/ST_Distance.html>`_: Returns the 2-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units. 
+`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/ST_Distance.html>`_: Returns the 2-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units.
 
-`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/ST_DWithin.html>`_: Returns true if the geometries are within the specified distance (radius) of one another. 
+`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/ST_DWithin.html>`_: Returns true if the geometries are within the specified distance (radius) of one another.
 
 `ST_Equals(geometry A, geometry B) <http://postgis.net/docs/ST_Equals.html>`_: Returns true if the given geometries represent the same geometry. Directionality is ignored.
 
-`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography "spatially intersect" - (share any portion of space) and FALSE if they don't (they are Disjoint). 
+`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography "spatially intersect" - (share any portion of space) and FALSE if they don't (they are Disjoint).
 
 `ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/ST_Overlaps.html>`_: Returns TRUE if the Geometries share space, are of the same dimension, but are not completely contained by each other.
 

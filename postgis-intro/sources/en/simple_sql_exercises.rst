@@ -3,7 +3,7 @@
 Simple SQL Exercises
 ====================
 
-Using the ``nyc_census_blocks`` table, answer the following questions (don't peak at the answers!). 
+Using the ``nyc_census_blocks`` table, answer the following questions (don't peek at the answers!). 
 
 Here is some helpful information to get started.  Recall from the :ref:`About Our Data <about_data>` section our ``nyc_census_blocks`` table definition.
 

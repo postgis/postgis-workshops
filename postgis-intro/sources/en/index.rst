@@ -35,8 +35,8 @@ Workshop Modules
 ----------------
 
 .. toctree::
-   :maxdepth: 1
-   :numbered:
+  :maxdepth: 1
+  :numbered:
 
   welcome
   introduction

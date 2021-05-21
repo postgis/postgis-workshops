@@ -69,6 +69,34 @@ Both PostGIS and Oracle Spatial share the same "R-Tree" [#RTree]_ spatial index 
 
 .. image:: ./indexing/index-01.png
 
+
+Spatially Indexed Functions
+---------------------------
+
+Only a subset of functions will automatically make use of a spatial index, if one is available.
+
+* `ST_Intersects <http://postgis.net/docs/ST_Intersects.html>`_
+* `ST_Contains <http://postgis.net/docs/ST_Contains.html>`_
+* `ST_Within <http://postgis.net/docs/ST_Within.html>`_
+* `ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_
+* `ST_ContainsProperly <http://postgis.net/docs/ST_ContainsProperly.html>`_
+* `ST_CoveredBy <http://postgis.net/docs/ST_CoveredBy.html>`_
+* `ST_Covers <http://postgis.net/docs/ST_Covers.html>`_
+* `ST_Overlaps <http://postgis.net/docs/ST_Overlaps.html>`_
+* `ST_Crosses <http://postgis.net/docs/ST_Crosses.html>`_
+* `ST_DFullyWithin <http://postgis.net/docs/ST_DFullyWithin.html>`_
+* `ST_3DIntersects <http://postgis.net/docs/ST_3DIntersects.html>`_
+* `ST_3DDWithin <http://postgis.net/docs/ST_3DDWithin.html>`_
+* `ST_3DDFullyWithin <http://postgis.net/docs/ST_3DDFullyWithin.html>`_
+* `ST_LineCrossingDirection <http://postgis.net/docs/ST_LineCrossingDirection.html>`_
+* `ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_
+* `ST_Equals <http://postgis.net/docs/ST_Equals.html>`_
+
+The first four are the ones most commonly used in queries, and `ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_ is very important for doing "within a distance" or "within a radius" style queries while still getting a performance boost from the index.
+
+In order to add index acceleration to other functions that are not in this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) add an index-only clause as descibed below.
+
+
 Index-Only Queries
 ------------------
 

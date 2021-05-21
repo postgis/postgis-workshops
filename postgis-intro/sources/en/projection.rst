@@ -12,28 +12,27 @@ We can confirm the SRID of our data with the :command:`ST_SRID` function:
 .. code-block:: sql
 
   SELECT ST_SRID(geom) FROM nyc_streets LIMIT 1;
-  
+
 ::
 
   26918
-  
+
 And what is definition of "26918"? As we saw in ":ref:`loading data section <loading_data>`", the definition is contained in the ``spatial_ref_sys`` table. In fact, **two** definitions are there. The "well-known text" (:term:`WKT`) definition is in the ``srtext`` column, and there is a second definition in "proj.4" format in the ``proj4text`` column.
 
 .. code-block:: sql
 
    SELECT * FROM spatial_ref_sys WHERE srid = 26918;
-   
-In fact, for the internal PostGIS re-projection calculations, it is the contents of the ``proj4text`` column that are used. For our 26918 projection, here is the proj.4 text:
 
-.. code-block:: sql
+The PostGIS reprojection engine will attempt to find the best projection from the ``spatial_ref_sys`` table:
 
-  SELECT proj4text FROM spatial_ref_sys WHERE srid = 26918;
-  
-::
+* **auth_name / auth_srid** If proj can find a valid "authority name" and "authority srid" in its internal catalogue, it will use that to generate a projection definition.
+* **srtext** If proj can parse and form a definition object from the ``srtext`` it will use that.
+* **proj4text** Finally, proj will attempt to process the ``proj4text``.
 
-  +proj=utm +zone=18 +ellps=GRS80 +datum=NAD83 +units=m +no_defs 
-  
-In practice, both the ``srtext`` and the ``proj4text`` columns are important: the ``srtext`` column is used by external programs like `GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_, and `FME <http://www.safe.com/>`_  and others; the ``proj4text`` column is used internally.
+All this redundancy means that all you need to create a new projection in PostGIS is either a valid ``srtext`` string or ``proj4text`` string. All the common authority name/code pairs are already loaded in the table by default.
+
+If you have a choice when creating a custom projection, fill out the ``srtext`` column, since that column is also used by external programs like `GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_, and `FME <http://www.safe.com/>`_  and others.
+
 
 Comparing Data
 --------------
@@ -51,9 +50,8 @@ If you feed in geometries with differing SRIDs you will just get an error:
 
 ::
 
-  ERROR:  Operation on two geometries with different SRIDs
-  CONTEXT:  SQL function "st_equals" statement 1
-  
+  ERROR:  ST_Equals: Operation on mixed SRID geometries (Point, 4326) != (Point, 26918)
+
 
 .. note::
 
@@ -65,24 +63,46 @@ Transforming Data
 
 If we return to our proj4 definition for SRID 26918, we can see that our working projection is UTM (Universal Transverse Mercator) of zone 18, with meters as the unit of measurement.
 
+.. code-block:: sql
+
+   SELECT srtext FROM spatial_ref_sys WHERE srid = 26918;
+
 ::
 
-   +proj=utm +zone=18 +ellps=GRS80 +datum=NAD83 +units=m +no_defs 
+  PROJCS["NAD83 / UTM zone 18N",
+    GEOGCS["NAD83",
+      DATUM["North_American_Datum_1983",
+        SPHEROID["GRS 1980",6378137,298.257222101,AUTHORITY["EPSG","7019"]],
+        TOWGS84[0,0,0,0,0,0,0],
+        AUTHORITY["EPSG","6269"]],
+      PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],
+      UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],
+      AUTHORITY["EPSG","4269"]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",-75],
+    PARAMETER["scale_factor",0.9996],
+    PARAMETER["false_easting",500000],
+    PARAMETER["false_northing",0],
+    UNIT["metre",1,AUTHORITY["EPSG","9001"]],
+    AXIS["Easting",EAST],AXIS["Northing",NORTH],
+    AUTHORITY["EPSG","26918"]]
 
-Let's convert some data from our working projection to geographic coordinates -- also known as "longitude/latitude". 
+
+Let's convert some data from our working projection to geographic coordinates -- also known as "longitude/latitude".
 
 To convert data from one SRID to another, you must first verify that your geometry has a valid SRID. Since we have already confirmed a valid SRID, we next need the SRID of the projection to transform into. In other words, what is the SRID of geographic coordinates?
 
 The most common SRID for geographic coordinates is 4326, which corresponds to "longitude/latitude on the WGS84 spheroid". You can see the definition at the spatialreference.org site:
 
-  http://spatialreference.org/ref/epsg/4326/
-  
+  https://epsg.io/26918
+
 You can also pull the definitions from the ``spatial_ref_sys`` table:
 
 .. code-block:: sql
 
   SELECT srtext FROM spatial_ref_sys WHERE srid = 4326;
-  
+
 ::
 
   GEOGCS["WGS 84",
@@ -97,13 +117,13 @@ Let's convert the coordinates of the 'Broad St' subway station into geographics:
 
 .. code-block:: sql
 
-  SELECT ST_AsText(ST_Transform(geom,4326)) 
-  FROM nyc_subway_stations 
+  SELECT ST_AsText(ST_Transform(geom,4326))
+  FROM nyc_subway_stations
   WHERE name = 'Broad St';
-  
+
 ::
 
-  POINT(-74.0106714688735 40.7071048155841)
+  POINT(-74.01067146887341 40.70710481558761)
 
 If you load data or create a new geometry without specifying an SRID, the SRID value will be 0.  Recall in :ref:`geometries`, that when we created our ``geometries`` table we didn't specify an SRID. If we query our database, we should expect all the ``nyc_`` tables to have an SRID of 26918, while  the ``geometries`` table defaulted to an SRID of 0.
 
@@ -111,30 +131,32 @@ To view a table's SRID assignment, query the database's ``geometry_columns`` tab
 
 .. code-block:: sql
 
-  SELECT f_table_name AS name, srid 
+  SELECT f_table_name AS name, srid
   FROM geometry_columns;
-  
+
 ::
 
-          name         | srid  
+          name         | srid
   ---------------------+-------
    nyc_census_blocks   | 26918
+   nyc_homicides       | 26918
    nyc_neighborhoods   | 26918
    nyc_streets         | 26918
    nyc_subway_stations | 26918
    geometries          |     0
 
-  
+
 However, if you know what the SRID of the coordinates is supposed to be, you can set it post-facto, using :command:`ST_SetSRID` on the geometry. Then you will be able to transform the geometry into other systems.
 
 .. code-block:: sql
 
-   SELECT ST_AsText(
-    ST_Transform(
-      ST_SetSRID(geom,26918),
-    4326)
-   )
-   FROM geometries;
+  SELECT ST_AsText(
+      ST_Transform(
+        ST_SetSRID(geom,26918),
+        4326)
+      )
+    FROM geometries;
+
 
 Function List
 -------------

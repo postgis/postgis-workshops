@@ -10,7 +10,7 @@ Unlike coordinates in Mercator, UTM, or Stateplane, geographic coordinates are *
 .. image:: ./geography/cartesian_spherical.jpg
   :class: inline
 
-You can treat geographic coordinates as approximate Cartesian coordinates and continue to do spatial calculations. However, measurements of distance, length and area will be nonsensical. Since spherical coordinates measure **angular** distance, the units are in "degrees." Further, the approximate results from indexes and true/false tests like intersects and contains can become terribly wrong. The distance between points get larger as problem areas like the poles or the international dateline are approached.
+You can treat geographic coordinates as approximate Cartesian coordinates and continue to do spatial calculations. However, measurements of distance, length and area will be **nonsensical**. Since spherical coordinates measure **angular** distance, the units are in "degrees." Further, the approximate results from indexes and true/false tests like intersects and contains can become terribly wrong. The distance between points get larger as problem areas like the poles or the international dateline are approached.
 
 For example, here are the coordinates of Los Angeles and Paris.
 
@@ -22,8 +22,8 @@ The following calculates the distance between Los Angeles and Paris using the st
 .. code-block:: sql
 
   SELECT ST_Distance(
-    ST_GeometryFromText('POINT(-118.4079 33.9434)', 4326), -- Los Angeles (LAX)
-    ST_GeometryFromText('POINT(2.5559 49.0083)', 4326)     -- Paris (CDG)
+    'SRID=4326;POINT(-118.4079 33.9434)'::geometry, -- Los Angeles (LAX)
+    'SRID=4326;POINT(2.5559 49.0083)'::geometry     -- Paris (CDG)
     );
 
 ::
@@ -38,7 +38,7 @@ On a sphere, the size of one "degree square" is quite variable, becoming smaller
 
 In order to calculate a meaningful distance, we must treat geographic coordinates not as approximate Cartesian coordinates but rather as true spherical coordinates.  We must measure the distances between points as true paths over a sphere -- a portion of a great circle. 
 
-Starting with version 1.5, PostGIS provides this functionality through the ``geography`` type.
+PostGIS provides this functionality through the ``geography`` type.
 
 .. note::
 
@@ -49,20 +49,20 @@ Starting with version 1.5, PostGIS provides this functionality through the ``geo
   * Informix Spatial is a pure Cartesian extension to Informix, while Informix Geodetic is a pure geographic extension. 
   * Similar to SQL Server, PostGIS uses two types, "geometry" and "geography".
   
-Using the ``geography`` instead of ``geometry`` type, let's try again to measure the distance between Los Angeles and Paris. Instead of :command:`ST_GeometryFromText(text)`, we will use :command:`ST_GeographyFromText(text)`.
+Using the ``geography`` instead of ``geometry`` type, let's try again to measure the distance between Los Angeles and Paris.
 
 .. code-block:: sql
 
   SELECT ST_Distance(
-    ST_GeographyFromText('POINT(-118.4079 33.9434)'), -- Los Angeles (LAX)
-    ST_GeographyFromText('POINT(2.5559 49.0083)')     -- Paris (CDG)
+    'SRID=4326;POINT(-118.4079 33.9434)'::geography, -- Los Angeles (LAX)
+    'SRID=4326;POINT(2.5559 49.0083)'::geography     -- Paris (CDG)
     );
 
 ::
 
-  9124665.26917268
+  9124665.27317673
 
-A big number! All return values from ``geography`` calculations are in meters, so our answer is 9125km. 
+A big number! All return values from ``geography`` calculations are in **meters**, so our answer is 9125km.
 
 Older versions of PostGIS supported very basic calculations over the sphere using the :command:`ST_Distance_Spheroid(point, point, measurement)` function. However, :command:`ST_Distance_Spheroid` is substantially limited. The function only works on points and provides no support for indexing across the poles or international dateline.
 
@@ -110,13 +110,13 @@ The Cartesian approach to handling geographic coordinates breaks down entirely f
 Using Geography
 ---------------
 
-In order to load geometry data into a geography table, the geometry first needs to be projected into EPSG:4326 (longitude/latitude), then it needs to be changed into geography.  The :command:`ST_Transform(geometry,srid)` function converts coordinates to geographics and the :command:`Geography(geometry)` function "casts" them from geometry to geography.
+In order to load geometry data into a geography table, the geometry first needs to be projected into EPSG:4326 (longitude/latitude), then it needs to be changed into geography.  The :command:`ST_Transform(geometry,srid)` function converts coordinates to geographics and the :command:`Geography(geometry)` function or the ``::geography`` suffix "casts" to geography.
 
 .. code-block:: sql
 
   CREATE TABLE nyc_subway_stations_geog AS
   SELECT 
-    Geography(ST_Transform(geom,4326)) AS geog, 
+    ST_Transform(geom,4326)::geography AS geog,
     name, 
     routes
   FROM nyc_subway_stations;
@@ -129,6 +129,21 @@ Building a spatial index on a geography table is exactly the same as for geometr
   ON nyc_subway_stations_geog USING GIST (geog);
 
 The difference is under the covers: the geography index will correctly handle queries that cover the poles or the international date-line, while the geometry one will not.
+
+Here's a query to find all the subway stations within 500 meters of the Empire State Building.
+
+.. code-block::sql
+
+  SWITH empire_state_building AS (
+    SELECT 'POINT(-73.98501 40.74812)'::geography AS geog
+  )
+  SELECT name,
+    ST_Distance(esb.geog, ss.geog) AS distance,
+    degrees(ST_Azimuth(esb.geog, ss.geog)) AS direction
+  FROM nyc_subway_stations_geog ss,
+       empire_state_building esb
+  WHERE ST_DWithin(ss.geog, esb.geog, 500);
+
 
 There are only a small number of native functions for the geography type:
  
@@ -158,13 +173,16 @@ The SQL for creating a new table with a geography column is much like that for c
 .. code-block:: sql
 
   CREATE TABLE airports (
-    code VARCHAR(3),
-    geog GEOGRAPHY(Point)
-  );
-  
-  INSERT INTO airports VALUES ('LAX', 'POINT(-118.4079 33.9434)');
-  INSERT INTO airports VALUES ('CDG', 'POINT(2.5559 49.0083)');
-  INSERT INTO airports VALUES ('KEF', 'POINT(-22.6056 63.9850)');
+      code VARCHAR(3),
+      geog GEOGRAPHY(Point)
+    );
+
+  INSERT INTO airports
+    VALUES ('LAX', 'POINT(-118.4079 33.9434)');
+  INSERT INTO airports
+    VALUES ('CDG', 'POINT(2.5559 49.0083)');
+  INSERT INTO airports
+    VALUES ('KEF', 'POINT(-22.6056 63.9850)');
   
 In the table definition, the ``GEOGRAPHY(Point)`` specifies our airport data type as points. The new geography fields don't get registered in the ``geometry_columns`` view. Instead, they are registered in a view called ``geography_columns``.
 
@@ -229,6 +247,10 @@ Function List
 `ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: Returns a new geometry with its coordinates transformed to the SRID referenced by the integer parameter.
 
 `ST_X(point) <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate of the point, or NULL if not available. Input must be a point.
+
+`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth.html>`_: Returns the direction from A to B in radians.
+
+`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin.html>`_: Returns true if A is within R meters of B.
 
 
 .. rubric:: Footnotes

@@ -58,6 +58,7 @@ Workshop Modules
   geography
   geography_exercises
   geometry_returning
+  geometry_returning_exercises
   joins_advanced
   validity
   equality

@@ -43,7 +43,31 @@ And, here are some common SQL aggregation functions you might find useful:
 
 Now the questions:
 
-* **"What is the population of the City of New York?"**
+* **How many records are in the nyc_streets table?**
+
+  .. code-block:: sql
+
+    SELECT Count(*)
+    FROM nyc_streets;
+
+  ::
+
+    19091
+
+* **How many streets in NYC start with ‘B’?**
+
+  .. code-block:: sql
+
+    SELECT Count(*)
+      FROM nyc_streets
+      WHERE name LIKE 'B%';
+
+  ::
+
+    1282
+
+
+* **What is the population of the City of New York?**
  
   .. code-block:: sql
    
@@ -58,7 +82,7 @@ Now the questions:
    
     What is this ``AS``? You can give a table or a column another name by using an alias.  Aliases can make queries easier to both write and to read. So instead of our outputted column name as ``sum`` we write it **AS** the more readable ``population``. 
        
-* **"What is the population of the Bronx?"**
+* **What is the population of the Bronx?**
 
   .. code-block:: sql
  
@@ -69,14 +93,35 @@ Now the questions:
   :: 
    
     1385108 
+
+
+* **How many "neighborhoods" are in each borough?**
+
+  .. code-block:: sql
+
+    SELECT boroname, count(*)
+      FROM nyc_neighborhoods
+      GROUP BY boroname;
+
+  ::
+
+       boroname    | count
+    ---------------+-------
+     Queens        |    30
+     Brooklyn      |    23
+     Staten Island |    24
+     The Bronx     |    24
+     Manhattan     |    28
+
+
   
-* **"For each borough, what percentage of the population is white?"**
+* **For each borough, what percentage of the population is white?**
 
   .. code-block:: sql
 
     SELECT 
       boroname, 
-      100 * Sum(popn_white)/Sum(popn_total) AS white_pct
+      100.0 * Sum(popn_white)/Sum(popn_total) AS white_pct
     FROM nyc_census_blocks
     GROUP BY boroname;
 
@@ -91,6 +136,7 @@ Now the questions:
      Staten Island | 72.8942034860154
    
  
+
 Function List
 -------------
 

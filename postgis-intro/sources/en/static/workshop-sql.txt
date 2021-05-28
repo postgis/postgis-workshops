@@ -1,1 +1,193 @@
-SELECT FOO FROM BAR!
+
+--------------------------------------------------------------------------------
+-- Creating a Spatial Database
+--
+CREATE EXTENSION postgis;
+SELECT postgis_full_version();
+
+--------------------------------------------------------------------------------
+-- Simple SQL
+--
+SELECT name FROM nyc_neighborhoods;
+
+-- What are the names of all the neighborhoods in Brooklyn?
+SELECT name
+  FROM nyc_neighborhoods
+  WHERE boroname = 'Brooklyn';
+
+-- What is the number of letters in the names of all the 
+-- neighborhoods in Brooklyn?
+SELECT char_length(name)
+  FROM nyc_neighborhoods
+  WHERE boroname = 'Brooklyn';
+
+-- What is the average number of letters and standard 
+-- deviation of number of letters in the names of all the 
+-- neighborhoods in Brooklyn?
+SELECT avg(char_length(name)), stddev(char_length(name))
+  FROM nyc_neighborhoods
+  WHERE boroname = 'Brooklyn';
+     
+-- What is the average number of letters in the names 
+-- of all the neighborhoods in New York City, reported by borough?
+SELECT boroname, avg(char_length(name))
+  FROM nyc_neighborhoods
+  GROUP BY boroname;
+
+--------------------------------------------------------------------------------
+-- Simple SQL Exercises
+--
+
+-- How many records are in the nyc_streets table?
+SELECT Count(*)  
+  FROM nyc_streets;
+
+-- How many streets in NYC start with ‘B’?
+SELECT Count(*)  
+  FROM nyc_streets
+  WHERE name LIKE 'B%';
+
+-- What is the population of NYC?
+SELECT Sum(popn_total)  
+  FROM nyc_census_blocks; 
+
+-- What is the population of ‘The Bronx’?
+SELECT Sum(popn_total)  
+  FROM nyc_census_blocks
+  WHERE boroname = 'The Bronx';
+
+-- How many "neighborhoods" are in each borough?
+SELECT boroname, count(*)
+  FROM nyc_neighborhoods
+  GROUP BY boroname;
+
+-- For each borough in NYC, what is percentage of the 
+-- population is “white”?
+SELECT 
+    boroname, 
+    100.0 * Sum(popn_white)/Sum(popn_total) AS pct
+  FROM nyc_census_blocks
+  GROUP BY boroname;
+
+--------------------------------------------------------------------------------
+-- Geometries
+--
+
+CREATE TABLE geometries (name varchar, geom geometry);
+
+INSERT INTO geometries VALUES
+  ('Point', 'POINT(0 0)'),
+  ('Linestring', 'LINESTRING(0 0, 1 1, 2 1, 2 2)'),
+  ('Polygon', 'POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))'),
+  ('PolygonWithHole', 'POLYGON((0 0, 10 0, 10 10, 0 10, 0 0),(1 1, 1 2, 2 2, 2 1, 1 1))'),
+  ('Collection', 'GEOMETRYCOLLECTION(POINT(2 0),POLYGON((0 0, 1 0, 1 1, 0 1, 0 0)))');
+
+SELECT name, ST_AsText(geom) FROM geometries;
+
+SELECT * FROM geometry_columns;
+
+-- Metadata functions
+SELECT 
+  name, 
+  ST_GeometryType(geom), 
+  ST_NDims(geom), 
+  ST_SRID(geom)
+FROM geometries;
+
+-- Points
+SELECT ST_AsText(geom)
+FROM geometries
+WHERE name = 'Point';
+
+-- Points 
+SELECT 
+  ST_X(geom), 
+  ST_Y(geom)
+FROM geometries
+WHERE name = 'Point'
+
+-- Points 
+SELECT 
+  name, 
+  ST_AsText(geom)
+FROM nyc_subway_stations
+LIMIT 1;
+
+-- LineStrings
+SELECT ST_AsText(geom)
+FROM geometries
+WHERE name = 'Linestring';
+
+-- LineStrings
+SELECT ST_Length(geom)
+FROM geometries
+WHERE name = 'Linestring';
+
+-- Polygons
+SELECT ST_AsText(geom)
+  FROM geometries
+  WHERE name LIKE 'Polygon%';
+
+-- Polygons 
+SELECT name, ST_Area(geom)
+FROM geometries
+WHERE name LIKE 'Polygon%';
+
+-- Geometry formats
+SELECT ST_AsText(
+  ST_GeometryFromText(
+    'LINESTRING(0 0 0,1 0 0,1 1 2)'
+  )
+);
+
+-- Geometry formats
+SELECT ST_AsGeoJSON(
+  ST_GeomFromGML(
+    '<gml:Point>
+      <gml:coordinates>
+       1,1
+      </gml:coordinates>
+     </gml:Point>'
+  ));
+
+-- Geometry formats (creating a point)
+SELECT ST_AsEWKT(
+  ST_GeomFromText('POINT(1 1)', 4326)
+);
+
+-- Geometry formats (creating a point)
+SELECT ST_AsEWKT(
+  ST_SetSRID(
+    ST_GeomFromText('POINT(1 1)'),
+    4326
+  )
+);
+
+-- Geometry formats (creating a point)
+SELECT ST_AsEWKT(
+  ST_SetSRID(
+    ST_MakePoint(1, 1),
+    4326
+  )
+);
+
+-- Geometry formats (creating a point)
+SELECT ST_AsEWKT(
+  ST_SetSRID(
+    'POINT(1 1)'::geometry,
+    4326
+  )
+);
+
+-- Geometry formats (creating a point)
+SELECT ST_AsEWKT(
+  'SRID=4326;POINT(1 1)'::geometry
+);
+
+--------------------------------------------------------------------------------
+-- Geometry Exercises
+--
+
+
+
+

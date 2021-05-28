@@ -57,7 +57,7 @@ Also remember the tables we have available:
 Exercises
 ---------
 
-* **"What is the area of the 'West Village' neighborhood?"**
+* **What is the area of the 'West Village' neighborhood?**
  
   .. code-block:: sql
 
@@ -73,7 +73,52 @@ Exercises
 
     The area is given in square meters. To get an area in hectares, divide by 10000. To get an area in acres, divide by 4047.
 
-* **"What is the area of Manhattan in acres?"** (Hint: both ``nyc_census_blocks`` and ``nyc_neighborhoods`` have a ``boroname`` in them.)
+
+* **What is the geometry type of ‘Pelham St’? The length?**
+
+  .. code-block:: sql
+
+    SELECT
+       ST_GeometryType(geom),
+       ST_Length(geom)
+      FROM nyc_streets
+      WHERE name = 'Pelham St';
+
+  ::
+
+    ST_MultiLineString
+    50.323
+
+
+* **What is the GeoJSON representation of the 'Broad St' subway station?**
+
+  .. code-block:: sql
+
+    SELECT
+     ST_AsGeoJSON(geom)
+    FROM nyc_subway_stations
+    WHERE name = 'Broad St';
+
+  ::
+
+     {"type":"Point",
+      "crs":{"type":"name","properties":{"name":"EPSG:26918"}},
+      "coordinates":[583571.905921312,4506714.341192182]}
+
+
+* **What is the total length of streets (in kilometers) in New York City?** (Hint: The units of measurement of the spatial data are meters, there are 1000 meters in a kilometer.)
+
+  .. code-block:: sql
+
+    SELECT Sum(ST_Length(geom)) / 1000
+      FROM nyc_streets;
+
+  ::
+
+    10418.9047172
+
+
+* **What is the area of Manhattan in acres?** (Hint: both ``nyc_census_blocks`` and ``nyc_neighborhoods`` have a ``boroname`` in them.)
  
   .. code-block:: sql
 
@@ -98,34 +143,21 @@ Exercises
     14601.3987215548
 
 
-* **"How many census blocks in New York City have a hole in them?"**
- 
+* **What is the most westerly subway station?**
+
   .. code-block:: sql
 
-    SELECT Count(*) 
-      FROM nyc_census_blocks
-      WHERE ST_NumInteriorRings(ST_GeometryN(geom,1)) > 0;
+    SELECT ST_X(geom), name
+      FROM nyc_subway_stations
+      ORDER BY ST_X(geom)
+      LIMIT 1;
 
-  .. note::
-   
-    The ST_NRings() functions might be tempting, but it also counts the exterior rings of multi-polygons as well as interior rings.  In order to run ST_NumInteriorRings() we need to convert the MultiPolygon geometries of the blocks into simple polygons, so we extract the first polygon from each collection using ST_GeometryN(). Yuck!
+  ::
 
-  :: 
-   
-    43
-   
-* **"What is the total length of streets (in kilometers) in New York City?"** (Hint: The units of measurement of the spatial data are meters, there are 1000 meters in a kilometer.)
-  
-  .. code-block:: sql
+    Tottenville
 
-    SELECT Sum(ST_Length(geom)) / 1000
-      FROM nyc_streets;
 
-  :: 
-   
-    10418.9047172
-
-* **"How long is 'Columbus Cir' (Columbus Circle)?**
+* **How long is 'Columbus Cir' (aka Columbus Circle)?**
  
   .. code-block:: sql
  
@@ -137,41 +169,8 @@ Exercises
    
     308.34199
 
-* **"What is the JSON representation of the boundary of the 'West Village'?"**
- 
-  .. code-block:: sql
-
-    SELECT ST_AsGeoJSON(geom)
-      FROM nyc_neighborhoods
-      WHERE name = 'West Village';
-
-  ::
-     
-    {"type":"MultiPolygon","coordinates":
-     [[[[583263.2776595836,4509242.6260239873],
-        [583276.81990686338,4509378.825446927], ...
-        [583263.2776595836,4509242.6260239873]]]]}
-
-  The geometry type is "MultiPolygon", interesting!
-   
-* **"How many polygons are in the 'West Village' multipolygon?"**
- 
-  .. code-block:: sql
-
-    SELECT ST_NumGeometries(geom)
-      FROM nyc_neighborhoods
-      WHERE name = 'West Village';
-
-  ::
-
-    1
        
-  .. note::
-   
-    It is not uncommon to find single-element MultiPolygons in spatial tables. Using MultiPolygons allows a table with only one geometry type to store both single- and multi-geometries without using mixed types.
-       
-       
-* **"What is the length of streets in New York City, summarized by type?"**
+* **What is the length of streets in New York City, summarized by type?**
  
   .. code-block:: sql
 

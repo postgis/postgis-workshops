@@ -38,7 +38,7 @@ Also remember the tables we have available:
 Exercises
 ---------
 
-* **"What is the length of all streets in New York, as measured in UTM 18?"**
+* **What is the length of all streets in New York, as measured in UTM 18?**
 
   .. code-block:: sql
 
@@ -49,7 +49,7 @@ Exercises
 
     10418904.7172
 
-* **"What is the WKT definition of SRID 2831?"**
+* **What is the WKT definition of SRID 2831?**
 
   .. code-block:: sql
 
@@ -88,7 +88,7 @@ Exercises
       AUTHORITY["EPSG","2831"]]
 
 
-* **"What is the length of all streets in New York, as measured in SRID 2831?"**
+* **What is the length of all streets in New York, as measured in SRID 2831?**
 
   .. code-block:: sql
 
@@ -103,20 +103,30 @@ Exercises
 
     The difference between the UTM 18 and the State Plane Long Island measurements is (10421993 - 10418904)/10418904, or 0.02%. Calculated on the spheroid using :ref:`geography` the total street length is 10421999, which is closer to the State Plane value. This is not surprising, since the State Plane Long Island projection is precisely calibrated for a very small area (New York City) while UTM 18 has to provide reasonable results for a large regional area.
 
-* **"What is the KML representation of the point at 'Broad St' subway station?"**
+
+* **How many streets cross the 74th meridian?**
 
   .. code-block:: sql
 
-    SELECT ST_AsKML(geom)
-    FROM nyc_subway_stations
-    WHERE name = 'Broad St';
+    SELECT Count(*)
+    FROM nyc_streets
+    WHERE ST_Intersects(
+      ST_Transform(geom, 4326),
+      'SRID=4326;LINESTRING(-74 20, -74 60)'
+      );
 
   ::
 
-    <Point>
-      <coordinates>
-        -74.010671468873468,40.707104815584088
-      </coordinates>
-    </Point>
+    223
 
-  Hey! The coordinates are in geographics even though we didn't call :command:`ST_Transform`, why? Because the KML standard dictates that all coordinates *must* be in geographics (ESPG:4326, in fact) so the :command:`ST_AsKML` function does the transformation automatically.
+  The "74th meridian" is a fancy way of saying "a vertical line in geographics where the X value is -74". We can construct such a line and then compare it to the streets, projected into geographics also. Projecting the line into UTM and comparing it there will return a slightly different answer. To get the same answer, you need to "segmentize" it, so it has more points, before transforming.
+
+  .. code-block:: sql
+
+    SELECT Count(*)
+    FROM nyc_streets
+    WHERE ST_Intersects(
+      geom,
+      ST_Transform(ST_Segmentize('SRID=4326;LINESTRING(-74 20, -74 60)'::geometry,0.001), 26918)
+      );
+

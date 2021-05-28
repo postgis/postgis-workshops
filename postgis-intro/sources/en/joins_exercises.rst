@@ -39,7 +39,7 @@ Also remember the tables we have available:
 Exercises
 ---------
 
-* **"What subway station is in 'Little Italy'? What subway route is it on?"**
+* **What subway station is in 'Little Italy'? What subway route is it on?**
  
   .. code-block:: sql
  
@@ -55,7 +55,7 @@ Exercises
    -----------+--------
     Spring St | 6
    
-* **"What are all the neighborhoods served by the 6-train?"** (Hint: The ``routes`` column in the ``nyc_subway_stations`` table has values like 'B,D,6,V' and 'C,6')
+* **What are all the neighborhoods served by the 6-train?** (Hint: The ``routes`` column in the ``nyc_subway_stations`` table has values like 'B,D,6,V' and 'C,6')
  
   .. code-block:: sql
   
@@ -89,7 +89,7 @@ Exercises
   
     We used the ``DISTINCT`` keyword to remove duplicate values from our result set where there were more than one subway station in a neighborhood.
     
-* **"After 9/11, the 'Battery Park' neighborhood was off limits for several days. How many people had to be evacuated?"**
+* **After 9/11, the 'Battery Park' neighborhood was off limits for several days. How many people had to be evacuated?**
  
   .. code-block:: sql
  
@@ -103,7 +103,7 @@ Exercises
 
     17153
     
-* **"What are the population density (people / km^2) of the 'Upper West Side' and 'Upper East Side'?"** (Hint: There are 1000000 m^2 in one km^2.)
+* **What neighborhood has the highest population density (persons/km2)?**
  
   .. code-block:: sql
    
@@ -113,9 +113,8 @@ Exercises
     FROM nyc_census_blocks AS c
     JOIN nyc_neighborhoods AS n
     ON ST_Intersects(c.geom, n.geom)
-    WHERE n.name = 'Upper West Side'
-    OR n.name = 'Upper East Side'
-    GROUP BY n.name, n.geom;
+    GROUP BY n.name, n.geom
+    ORDER BY 2 DESC;
      
   ::
    

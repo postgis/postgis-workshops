@@ -27,7 +27,25 @@ Also remember the tables we have available:
 Exercises
 ---------
 
-* **"What is the total length of all streets in New York, calculated on the spheroid?"**
+* **How far is New York from Seattle? What are the units of the answer?**
+
+  .. note::
+
+    New York = ``POINT(-74.0064 40.7142)`` and Seattle = ``POINT(-122.3331 47.6097)``
+
+  .. code-block:: sql
+
+    SELECT ST_Distance(
+      'POINT(-74.0064 40.7142)'::geography,
+      'POINT(-122.3331 47.6097)'::geography
+      );
+
+  ::
+
+    3875538.57141352
+
+
+* **What is the total length of all streets in New York, calculated on the spheroid?**
  
   .. code-block:: sql
 
@@ -45,7 +63,8 @@ Exercises
 
     The length calculated in the planar "UTM Zone 18" projection is 10418904.717, 0.02% different. UTM is good at preserving area and distance, within the zone boundaries.
 
-* **"Does ‘POINT(1 2.0001)’ intersect with ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ in geography? In geometry? Why the difference?"**
+
+* **Does ‘POINT(1 2.0001)’ intersect with ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ in geography? In geometry? Why the difference?**
  
   .. code-block:: sql
 

@@ -52,11 +52,16 @@ Let's have a look at the ``geometry_columns`` table in our database.  Paste this
 By querying this table, GIS clients and libraries can determine what to expect when retrieving data and can perform any necessary projection, processing or rendering without needing to inspect each geometry.
 
 .. note::
-   Do some or all of your ``nyc`` tables not have an ``srid`` of 26918? It's easy to fix by updating the table::
+
+   Do some or all of your ``nyc`` tables not have an ``srid`` of 26918? It's easy to fix by updating the table.
 
   .. code-block:: sql
   
-      SELECT UpdateGeometrySRID('nyc_neighborhoods','geom',26918);
+    ALTER TABLE nyc_neighborhoods
+      ALTER COLUMN geom
+      TYPE Geometry(MultiPolygon, 26918)
+      USING ST_SetSRID(geom, 26918);
+
 
 Representing Real World Objects
 -------------------------------

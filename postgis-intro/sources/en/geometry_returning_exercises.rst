@@ -38,7 +38,7 @@ Remember the tables we have available:
 Exercises
 ---------
 
-* **"How many census blocks don’t contain their own centroid?"**
+* **How many census blocks don’t contain their own centroid?**
 
   .. code-block:: sql
 
@@ -54,7 +54,7 @@ Exercises
 
     481
 
-* **"Union all the census blocks into a single output. What kind of geometry is it? How many parts does it have?"**
+* **Union all the census blocks into a single output. What kind of geometry is it? How many parts does it have?**
 
   .. code-block:: sql
 
@@ -79,7 +79,7 @@ Exercises
     63
 
 
-* **"What is the area of a one unit buffer around the origin? How different is it from what you would expect? Why?"**
+* **What is the area of a one unit buffer around the origin? How different is it from what you would expect? Why?**
 
   .. code-block:: sql
 
@@ -93,7 +93,7 @@ Exercises
 
     A unit circle (circle with radius of one) should have an area of pi, 3.1415926... The difference is due to the linear stroking of the edges of the buffer. The buffer has a finite number of edges. Increasing the number of edges in the buffer will get the value closer to pi, but it will always be smaller due to the linearization.
 
-* **"The Brooklyn neighborhoods of ‘Park Slope’ and ‘Carroll Gardens’ are going to war! Construct a polygon delineating a 100 meter wide DMZ on the border between the neighborhoods. What is the area of the DMZ?"**
+* **The Brooklyn neighborhoods of ‘Park Slope’ and ‘Carroll Gardens’ are going to war! Construct a polygon delineating a 100 meter wide DMZ on the border between the neighborhoods. What is the area of the DMZ?**
 
   .. code-block:: sql
 

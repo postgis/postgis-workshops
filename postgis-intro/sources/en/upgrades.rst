@@ -57,10 +57,10 @@ The pg_upgrade_ program expects to have access to both versions of PostgreSQL it
   ::
       
     pg_upgrade 
-      --old-datadir "C:/Program Files/PostgreSQL/8.4/data"
-      --new-datadir "C:/Program Files/PostgreSQL/9.0/data"
-      --old-bindir "C:/Program Files/PostgreSQL/8.4/bin"
-      --new-bindir "C:/Program Files/PostgreSQL/9.0/bin"
+      --old-datadir "/var/lib/postgres/12/data"
+      --new-datadir "/var/lib/postgres/13/data"
+      --old-bindir "/usr/pgsql/12/bin"
+      --new-bindir "/usr/pgsql/13/bin"
 
 * If pg_upgrade_ generated any ``.sql`` files, run them now.
 * Start the new server.
@@ -77,11 +77,13 @@ Then, run the SQL to upgrade your PostGIS extension.
 
 .. code-block:: sql
 
-  -- If you are upgrading from PostGIS 2.5 or later:
+  -- If you are upgrading from PostGIS 2.5 or later
+  -- and want the latest installed version
   SELECT postgis_extensions_upgrade();
 
-
-  -- If you are upgrading from an earlier verison
+  -- If you are upgrading from an earlier version
+  -- you have to specifically turn on the version you want
   ALTER EXTENSION postgis UPDATE TO '2.5.5';
+
 
 .. _pg_upgrade: http://www.postgresql.org/docs/current/static/pgupgrade.html

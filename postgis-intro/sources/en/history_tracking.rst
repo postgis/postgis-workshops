@@ -3,7 +3,7 @@
 Tracking Edit History using Triggers
 ====================================
 
-A common requirement for production databases is the ability to track history: how has the data changed between two dates, who made the changes, and where did they occur? Some GIS systems track changes by including change management in the client interface, but that adds a lot of complexity to editing tools.
+A common requirement for production databases is the ability to track history: how has the data changed between two dates, who made the changes, and where did they occur? Some GIS systems track changes by including change management in the client interface, but that adds a lot of **complexity** to editing tools.
 
 Using the database and the trigger system, it's possible to add history tracking to any table, while maintaining simple "direct edit" access to the primary table.
 
@@ -13,6 +13,40 @@ History tracking works by keeping a history table that records, for every edit:
 * If a record was deleted, when it was deleted and by whom.
 * If a record was updated, adding a deletion record (for the old state) and a creation record (for the new state).
 
+Using TSTZRANGE
+~~~~~~~~~~~~~~~
+
+The history table uses a PostgreSQL-specific feature--the "`timestamp range <https://www.postgresql.org/docs/current/rangetypes.html>`_" type--to store the time range that a history record was the "live" record. All the timestamp ranges in the history table for a particular feature can be expected to be non-overlapping but adjacent.
+
+The range for a new record will start at ``now()`` and have an open end point, so that the range covers all time from the current time into the future.
+
+.. code-block:: sql
+
+  SELECT tstzrange(current_timestamp, NULL);
+
+::
+
+                 tstzrange
+  ------------------------------------
+   ["2021-06-01 14:49:40.910074-07",)
+
+
+Similarly, the time range for a deleted record will be updated to include the current time as the end point of the time range.
+
+Searching time ranges is much simpler than searching a pair of timestamps, because of the way an open time range encompasses all time from the start point to infinity. The "contains" operator ``@>`` for ranges is the one we will use.
+
+
+.. code-block:: sql
+
+  -- Does the range of "ten minutes ago to the future" include now?
+  -- It should! :)
+  --
+  SELECT tstzrange(current_timestamp - '10m'::interval, NULL) @> current_timestamp;
+
+
+Ranges can be very efficiently indexed using a GIST index, just like spatial data, as we will show below. This makes history queries very efficient.
+
+
 Building the History Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -21,15 +55,15 @@ Using this information it is possible to reconstruct the state of the edit table
 * First, add a new **nyc_streets_history** table. This is the table we will use to store all the historical edit information. In addition to all the fields from **nyc_streets**, we add five more fields.
 
   * **hid** the primary key for the history table
-  * **created** the date/time the history record was created
   * **created_by** the database user that caused the record to be created
-  * **deleted** the date/time the history record was marked as deleted
   * **deleted_by** the database user that caused the record to be marked as deleted
+  * **valid_range** the time range within which the record was "live"
 
   Note that we don't actually delete any records in the history table, we just mark the time they ceased to be part of the current state of the edit table.
 
   .. code-block:: sql
 
+    DROP TABLE IF EXISTS nyc_streets_history;
     CREATE TABLE nyc_streets_history (
       hid SERIAL PRIMARY KEY,
       gid INTEGER,
@@ -38,19 +72,27 @@ Using this information it is possible to reconstruct the state of the edit table
       oneway VARCHAR(10),
       type VARCHAR(50),
       geom GEOMETRY(MultiLinestring,26918),
-      created TIMESTAMP,
+      valid_range TSTZRANGE,
       created_by VARCHAR(32),
-      deleted TIMESTAMP,
       deleted_by VARCHAR(32)
     );
 
-* Next, we import the current state of the active table, **nyc_streets** into the history table, so we have a starting point to trace history from. Note that we fill in the creation time and creation user, but leave the deletion records NULL.
+    CREATE INDEX nyc_streets_history_geom_x
+      ON nyc_streets_history USING GIST (geom);
+
+    CREATE INDEX nyc_streets_history_tstz_x
+      ON nyc_streets_history USING GIST (valid_range);
+
+
+* Next, we import the current state of the active table, **nyc_streets** into the history table, so we have a starting point to trace history from. Note that we fill in the creation time and creation user, but leave the end of the time range and the deleted by information NULL.
 
   .. code-block:: sql
 
-    INSERT INTO nyc_streets_history 
-      (gid, id, name, oneway, type, geom, created, created_by)
-       SELECT gid, id, name, oneway, type, geom, now(), current_user
+    INSERT INTO nyc_streets_history
+      (gid, id, name, oneway, type, geom, valid_range, created_by)
+       SELECT gid, id, name, oneway, type, geom,
+         tstzrange(now(), NULL),
+         current_user
        FROM nyc_streets;
 	
 * Now we need three triggers on the active table, for INSERT, DELETE and UPDATE actions. First we create the trigger functions, then bind them to the table as triggers.
@@ -59,19 +101,20 @@ Using this information it is possible to reconstruct the state of the edit table
 
   .. code-block:: plpgsql
 
-    CREATE OR REPLACE FUNCTION nyc_streets_insert() RETURNS trigger AS 
-    $$
-      BEGIN
-        INSERT INTO nyc_streets_history 
-          (gid, id, name, oneway, type, geom, created, created_by)
-        VALUES
-          (NEW.gid, NEW.id, NEW.name, NEW.oneway, NEW.type, NEW.geom,
-           current_timestamp, current_user);
-        RETURN NEW;
-      END;
-    $$ 
-    LANGUAGE plpgsql;
-      
+
+    CREATE OR REPLACE FUNCTION nyc_streets_insert() RETURNS trigger AS
+      $$
+        BEGIN
+          INSERT INTO nyc_streets_history
+            (gid, id, name, oneway, type, geom, valid_range, created_by)
+          VALUES
+            (NEW.gid, NEW.id, NEW.name, NEW.oneway, NEW.type, NEW.geom,
+             tstzrange(current_timestamp, NULL), current_user);
+          RETURN NEW;
+        END;
+      $$
+      LANGUAGE plpgsql;
+
     CREATE TRIGGER nyc_streets_insert_trigger
     AFTER INSERT ON nyc_streets
       FOR EACH ROW EXECUTE PROCEDURE nyc_streets_insert();
@@ -81,17 +124,19 @@ Using this information it is possible to reconstruct the state of the edit table
 
   .. code-block:: plpgsql
 
-    CREATE OR REPLACE FUNCTION nyc_streets_delete() RETURNS trigger AS 
-    $$
-      BEGIN
-        UPDATE nyc_streets_history 
-          SET deleted = current_timestamp, deleted_by = current_user
-          WHERE deleted IS NULL and gid = OLD.gid;
-        RETURN NULL;
-      END;
-    $$ 
-    LANGUAGE plpgsql;
-      
+    CREATE OR REPLACE FUNCTION nyc_streets_delete() RETURNS trigger AS
+      $$
+        BEGIN
+          UPDATE nyc_streets_history
+            SET valid_range = tstzrange(lower(valid_range), current_timestamp),
+                deleted_by = current_user
+            WHERE valid_range @> current_timestamp AND gid = OLD.gid;
+          RETURN NULL;
+        END;
+      $$
+      LANGUAGE plpgsql;
+
+
     CREATE TRIGGER nyc_streets_delete_trigger
     AFTER DELETE ON nyc_streets
       FOR EACH ROW EXECUTE PROCEDURE nyc_streets_delete();
@@ -101,19 +146,20 @@ Using this information it is possible to reconstruct the state of the edit table
 
   .. code-block:: plpgsql
 
-    CREATE OR REPLACE FUNCTION nyc_streets_update() RETURNS trigger AS 
+    CREATE OR REPLACE FUNCTION nyc_streets_update() RETURNS trigger AS
     $$
       BEGIN
 
-        UPDATE nyc_streets_history 
-          SET deleted = current_timestamp, deleted_by = current_user
-          WHERE deleted IS NULL and gid = OLD.gid;
+        UPDATE nyc_streets_history
+          SET valid_range = tstzrange(lower(valid_range), current_timestamp),
+              deleted_by = current_user
+          WHERE valid_range @> current_timestamp AND gid = OLD.gid;
 
-        INSERT INTO nyc_streets_history 
-          (gid, id, name, oneway, type, geom, created, created_by)
-        VALUES
-          (NEW.gid, NEW.id, NEW.name, NEW.oneway, NEW.type, NEW.geom,
-           current_timestamp, current_user);
+        INSERT INTO nyc_streets_history
+            (gid, id, name, oneway, type, geom, valid_range, created_by)
+          VALUES
+            (NEW.gid, NEW.id, NEW.name, NEW.oneway, NEW.type, NEW.geom,
+             tstzrange(current_timestamp, NULL), current_user);
 
         RETURN NEW;
 
@@ -148,7 +194,8 @@ Updating the two streets will cause the original streets to be marked as deleted
 
 .. code-block::sql
 
-  SELECT * FROM nyc_streets WHERE name LIKE 'Cumberland W%';
+  SELECT * FROM nyc_streets_history
+    WHERE name LIKE 'Cumberland W%';
   
 
 Querying the History Table
@@ -163,14 +210,13 @@ We can use this logic to create a query, or a view, of the state of the data in 
 
 .. code-block:: sql
 
-  -- State of history 10 minutes ago
-  -- Records must have been created at least 10 minute ago and
-  -- either be visible now (deleted is null) or deleted in the last hour
+  -- Records with a valid range that includes 10 minutes ago
+  -- are the ones valid at that moment.
 
   CREATE OR REPLACE VIEW nyc_streets_ten_min_ago AS
     SELECT * FROM nyc_streets_history
-      WHERE created < (now() - '10min'::interval)
-      AND ( deleted IS NULL OR deleted > (now() - '10min'::interval) );    
+      WHERE valid_range @> (now() - '10min'::interval)
+
 
 We can also create views that show just what a particular used has added, for example:
 
@@ -186,4 +232,5 @@ See Also
 
 * `QGIS open source GIS <http://qgis.org>`_
 * `PostgreSQL Triggers <http://www.postgresql.org/docs/current/static/plpgsql-trigger.html>`_
+* `PostgreSQL Range Types <https://www.postgresql.org/docs/current/rangetypes.html>`_
 

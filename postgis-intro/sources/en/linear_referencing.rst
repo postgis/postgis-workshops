@@ -3,7 +3,7 @@
 Linear Referencing
 ==================
 
-Linear referencing is a means of representing features that can be described by referencing a base set of linear features. Common examples of features that are modelled using linear referencing are:
+Linear referencing (sometimes called "dynamic segmentation") is a means of representing features that can be described by referencing a base set of linear features. Common examples of features that are modelled using linear referencing are:
 
 * Highway assets, which are referenced using miles along a highway network
 * Road maintenance operations, which are referenced as occurring along a road network between a pair of mile measurements.
@@ -14,7 +14,8 @@ The benefit of linear referencing models is that the dependent spatial observati
 
 .. note::
 
-  The ESRI convention for linear referencing is to have a base table of linear spatial features, and a non-spatial table of "events" which includes a foreign key reference to the spatial feature and a measure along the referenced feature. We will use the term "event table" to refer to the non-spatial tables we build.
+  The Esri terminological convention for linear referencing is to have a base table of linear spatial features, and a non-spatial table of "events" which includes a foreign key reference to the spatial feature and a measure along the referenced feature. We will use the term "event table" to refer to the non-spatial tables we build.
+
 
 Creating Linear References
 --------------------------

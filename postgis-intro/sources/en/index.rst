@@ -68,12 +68,12 @@ Workshop Modules
   3d
   knn
   history_tracking
-  advanced_geometry_construction
   tuning
   security
   schemas
   backup
   upgrades
+  advanced_geometry_construction
 
   postgis-functions
   glossary

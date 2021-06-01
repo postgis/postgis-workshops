@@ -3,10 +3,6 @@
 3-D
 ===
 
-.. note::
-
-  This section refers to many features that are only available with PostGIS 2.0 and higher.
-
 3-D Geometries
 --------------
 

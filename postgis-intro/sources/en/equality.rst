@@ -39,9 +39,11 @@ Exact equality is determined by comparing two geometries, vertex by vertex, in o
 
 .. code-block:: sql
 
-  SELECT a.name, b.name, CASE WHEN ST_OrderingEquals(a.poly, b.poly)
-      THEN 'Exactly Equal' ELSE 'Not Exactly Equal' end
-    FROM polygons as a, polygons as b;
+  SELECT a.name, b.name,
+    CASE WHEN ST_OrderingEquals(a.poly, b.poly)
+         THEN 'Exactly Equal'
+         ELSE 'Not Exactly Equal' END
+    FROM polygons AS a, polygons AS b;
 
 .. image:: ./equality/start14.png
 
@@ -54,9 +56,11 @@ As we saw above, exact equality does not take into account the spatial nature of
 
 .. code-block:: sql
 
-  SELECT a.name, b.name, CASE WHEN ST_Equals(a.poly, b.poly) 
-      THEN 'Spatially Equal' ELSE 'Not Equal' end
-    FROM polygons as a, polygons as b;
+  SELECT a.name, b.name,
+    CASE WHEN ST_Equals(a.poly, b.poly)
+         THEN 'Spatially Equal'
+         ELSE 'Not Equal' END
+    FROM polygons AS a, polygons AS b;
 
 .. image:: ./equality/start15.png
 
@@ -69,9 +73,11 @@ Exact equality requires, in the worst case, comparison of each and every vertex 
 
 .. code-block:: sql
 
-  SELECT a.name, b.name, CASE WHEN a.poly ~= b.poly 
-      THEN 'Equal Bounds' ELSE 'Non-equal Bounds' end
-    FROM polygons as a, polygons as b;
+  SELECT a.name, b.name,
+    CASE WHEN a.poly ~= b.poly
+         THEN 'Equal Bounds'
+         ELSE 'Non-equal Bounds' END
+    FROM polygons AS a, polygons AS b;
 
 .. image:: ./equality/start17.png
 

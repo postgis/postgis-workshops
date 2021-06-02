@@ -187,7 +187,1035 @@ SELECT ST_AsEWKT(
 --------------------------------------------------------------------------------
 -- Geometry Exercises
 --
+-- What is the area of the ‘West Village’ neighborhood?
+SELECT ST_Area(geom)
+  FROM nyc_neighborhoods
+  WHERE name = 'West Village';
+
+-- What is the geometry type of ‘Pelham St’? The length?
+SELECT
+   ST_GeometryType(geom),
+   ST_Length(geom)
+  FROM nyc_streets
+  WHERE name = 'Pelham St';
+
+-- What is the GeoJSON representation of the ‘Broad St’ subway station?
+SELECT
+ ST_AsGeoJSON(geom)
+FROM nyc_subway_stations
+WHERE name = 'Broad St';
+
+-- What is the total length of streets (in kilometers) in New York City? 
+SELECT Sum(ST_Length(geom)) / 1000
+  FROM nyc_streets;
+
+-- What is the area of Manhattan in acres? 
+SELECT Sum(ST_Area(geom)) / 4047
+  FROM nyc_neighborhoods
+  WHERE boroname = 'Manhattan';
+
+-- What is the most westerly subway station?
+SELECT ST_X(geom), name
+  FROM nyc_subway_stations
+  ORDER BY ST_X(geom)
+  LIMIT 1;
+
+-- How long is ‘Columbus Cir’ (aka Columbus Circle)?
+SELECT ST_Length(geom)
+  FROM nyc_streets
+  WHERE name = 'Columbus Cir';
+
+--------------------------------------------------------------------------------
+-- Spatial Relationships
+--
+
+-- ST_Equals
+SELECT name, geom
+FROM nyc_subway_stations
+WHERE name = 'Broad St';
+
+SELECT name
+FROM nyc_subway_stations
+WHERE ST_Equals(
+  geom,
+  '0101000020266900000EEBD4CF27CF2141BC17D69516315141');
+
+-- ST_Intersects
+SELECT name, ST_AsText(geom, 0)
+FROM nyc_subway_stations
+WHERE name = 'Broad St';
+
+SELECT name, boroname
+FROM nyc_neighborhoods
+WHERE ST_Intersects(geom, ST_GeomFromText('POINT(583571 4506714)',26918));
+
+-- ST_Distance 
+SELECT ST_Distance(
+  ST_GeometryFromText('POINT(0 5)'),
+  ST_GeometryFromText('LINESTRING(-2 2, 2 2)'));
+
+-- ST_DWithin
+SELECT name
+FROM nyc_streets
+WHERE ST_DWithin(
+        geom,
+        ST_GeomFromText('POINT(583571 4506714)',26918),
+        10
+      );
+
+--------------------------------------------------------------------------------
+-- Spatial Relationships Exercises
+--
+
+-- What is the geometry value for the street named ‘Atlantic Commons’?
+SELECT ST_AsText(geom)
+  FROM nyc_streets
+  WHERE name = 'Atlantic Commons';
+
+-- What neighborhood and borough is Atlantic Commons in?
+SELECT name, boroname
+FROM nyc_neighborhoods
+WHERE ST_Intersects(
+  geom,
+  ST_GeomFromText('LINESTRING(586782 4504202,586864 4504216)', 26918)
+);
+
+-- What streets does Atlantic Commons join with?
+SELECT name
+FROM nyc_streets
+WHERE ST_DWithin(
+  geom,
+  ST_GeomFromText('LINESTRING(586782 4504202,586864 4504216)', 26918),
+  0.1
+);
+
+-- Approximately how many people live on (within 50 meters of) Atlantic Commons?
+SELECT Sum(popn_total)
+  FROM nyc_census_blocks
+  WHERE ST_DWithin(
+   geom,
+   ST_GeomFromText('LINESTRING(586782 4504202,586864 4504216)', 26918),
+   50
+  );
+
+--------------------------------------------------------------------------------
+-- Spatial Joins
+--
+
+-- Join!
+-- What neighborhood contains Broad St station?
+SELECT
+  subways.name AS subway_name,
+  neighborhoods.name AS neighborhood_name,
+  neighborhoods.boroname AS borough
+FROM nyc_neighborhoods AS neighborhoods
+JOIN nyc_subway_stations AS subways
+ON ST_Contains(neighborhoods.geom, subways.geom)
+WHERE subways.name = 'Broad St';
+
+-- Join and Summarize
+-- What is the population and racial make-up of the neighborhoods of Manhattan?
+SELECT
+  neighborhoods.name AS neighborhood_name,
+  Sum(census.popn_total) AS population,
+  100.0 * Sum(census.popn_white) / Sum(census.popn_total) AS white_pct,
+  100.0 * Sum(census.popn_black) / Sum(census.popn_total) AS black_pct
+FROM nyc_neighborhoods AS neighborhoods
+JOIN nyc_census_blocks AS census
+ON ST_Intersects(neighborhoods.geom, census.geom)
+WHERE neighborhoods.boroname = 'Manhattan'
+GROUP BY neighborhoods.name
+ORDER BY white_pct DESC;
+
+-- Baseline NYC racial makeup
+SELECT
+  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,
+  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,
+  Sum(popn_total) AS popn_total
+FROM nyc_census_blocks;
+
+-- Distinct subway routes
+SELECT DISTINCT routes FROM nyc_subway_stations;
+
+-- All the A-train stations
+SELECT DISTINCT routes
+FROM nyc_subway_stations AS subways
+WHERE strpos(subways.routes,'A') > 0;
+
+-- Summarize racial stats w/i 200m of A train
+SELECT
+  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,
+  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,
+  Sum(popn_total) AS popn_total
+FROM nyc_census_blocks AS census
+JOIN nyc_subway_stations AS subways
+ON ST_DWithin(census.geom, subways.geom, 200)
+WHERE strpos(subways.routes,'A') > 0;
+
+--------------------------------------------------------------------------------
+-- Spatial Joins Exercises
+--
+
+-- What subway station is in ‘Little Italy’? What subway route is it on?
+SELECT s.name, s.routes
+FROM nyc_subway_stations AS s
+JOIN nyc_neighborhoods AS n
+ON ST_Contains(n.geom, s.geom)
+WHERE n.name = 'Little Italy';
+
+-- What are all the neighborhoods served by the 6-train? 
+SELECT DISTINCT n.name, n.boroname
+FROM nyc_subway_stations AS s
+JOIN nyc_neighborhoods AS n
+ON ST_Contains(n.geom, s.geom)
+WHERE strpos(s.routes,'6') > 0;
+
+-- After 9/11, the ‘Battery Park’ neighborhood was off limits for several days. -- How many people had to be evacuated?
+SELECT Sum(popn_total)
+FROM nyc_neighborhoods AS n
+JOIN nyc_census_blocks AS c
+ON ST_Intersects(n.geom, c.geom)
+WHERE n.name = 'Battery Park';
+
+-- What neighborhood has the highest population density (persons/km2)?
+SELECT
+  n.name,
+  Sum(c.popn_total) / (ST_Area(n.geom) / 1000000.0) AS popn_per_sqkm
+FROM nyc_census_blocks AS c
+JOIN nyc_neighborhoods AS n
+ON ST_Intersects(c.geom, n.geom)
+GROUP BY n.name, n.geom
+ORDER BY 2 DESC;
+
+--------------------------------------------------------------------------------
+-- Spatial Indexing
+--
+
+-- Drop existing index
+DROP INDEX nyc_census_blocks_geom_idx;
+
+-- Time a query!
+SELECT count(blocks.blkid)
+ FROM nyc_census_blocks blocks
+ JOIN nyc_subway_stations subways
+ ON ST_Contains(blocks.geom, subways.geom)
+ WHERE subways.name LIKE 'B%';
+
+-- Put the index back
+CREATE INDEX nyc_census_blocks_geom_idx
+ON nyc_census_blocks
+USING GIST (geom);
+
+-- Time the query again!
+SELECT count(blocks.blkid)
+ FROM nyc_census_blocks blocks
+ JOIN nyc_subway_stations subways
+ ON ST_Contains(blocks.geom, subways.geom)
+ WHERE subways.name LIKE 'B%';
+
+-- The && operator and index-only query
+SELECT Sum(popn_total)
+FROM nyc_neighborhoods neighborhoods
+JOIN nyc_census_blocks blocks
+ON neighborhoods.geom && blocks.geom
+WHERE neighborhoods.name = 'West Village';
+
+-- More exact query with ST_Intersects
+SELECT Sum(popn_total)
+FROM nyc_neighborhoods neighborhoods
+JOIN nyc_census_blocks blocks
+ON ST_Intersects(neighborhoods.geom, blocks.geom)
+WHERE neighborhoods.name = 'West Village';
+
+-- Statistics maintenance
+ANALYZE nyc_census_blocks;
+VACUUM ANALYZE nyc_census_blocks;
+
+--------------------------------------------------------------------------------
+-- Projecting Data
+--
+
+-- Read SRID from data
+SELECT ST_SRID(geom) FROM nyc_streets LIMIT 1;
+
+-- Read definition of SRID
+SELECT * FROM spatial_ref_sys WHERE srid = 26918;
+
+-- convert the coordinates of the ‘Broad St’ subway station into geographics
+SELECT ST_AsText(ST_Transform(geom,4326))
+FROM nyc_subway_stations
+WHERE name = 'Broad St';
+
+-- View SRIDs of tables
+SELECT f_table_name AS name, srid
+FROM geometry_columns;
+
+--------------------------------------------------------------------------------
+-- Projection Exercises
+--
+
+-- What is the length of all streets in New York, as measured in UTM 18?
+SELECT Sum(ST_Length(geom))
+  FROM nyc_streets;
+
+-- What is the WKT definition of SRID 2831?
+SELECT srtext FROM spatial_ref_sys
+WHERE SRID = 2831;
+
+-- What is the length of all streets in New York, as measured in SRID 2831?
+SELECT Sum(ST_Length(ST_Transform(geom,2831)))
+  FROM nyc_streets;
+
+-- How many streets cross the 74th meridian?
+SELECT Count(*)
+FROM nyc_streets
+WHERE ST_Intersects(
+  ST_Transform(geom, 4326),
+  'SRID=4326;LINESTRING(-74 20, -74 60)'
+  );
+
+--------------------------------------------------------------------------------
+-- Geography
+--
+
+-- distance between Los Angeles and Paris using geometry
+SELECT ST_Distance(
+  'SRID=4326;POINT(-118.4079 33.9434)'::geometry, -- Los Angeles (LAX)
+  'SRID=4326;POINT(2.5559 49.0083)'::geometry     -- Paris (CDG)
+  );
+
+-- distance between Los Angeles and Paris using geography
+SELECT ST_Distance(
+  'SRID=4326;POINT(-118.4079 33.9434)'::geography, -- Los Angeles (LAX)
+  'SRID=4326;POINT(2.5559 49.0083)'::geography     -- Paris (CDG)
+  );
+
+-- closest approach to iceland on lax/cdg route
+SELECT ST_Distance(
+  ST_GeographyFromText('LINESTRING(-118.4079 33.9434, 2.5559 49.0083)'), 
+  ST_GeographyFromText('POINT(-22.6056 63.9850)')                        
+);  
+
+-- lax->nrt route comparison
+SELECT ST_Distance(
+  ST_GeometryFromText('Point(-118.4079 33.9434)'),  -- LAX
+  ST_GeometryFromText('Point(139.733 35.567)'))     -- NRT (Tokyo/Narita)
+    AS geometry_distance,
+ST_Distance(
+  ST_GeographyFromText('Point(-118.4079 33.9434)'), -- LAX
+  ST_GeographyFromText('Point(139.733 35.567)'))    -- NRT (Tokyo/Narita)
+    AS geography_distance;
+
+-- geography-based subway table
+CREATE TABLE nyc_subway_stations_geog AS
+SELECT
+  ST_Transform(geom,4326)::geography AS geog,
+  name,
+  routes
+FROM nyc_subway_stations;
+
+-- spatial index on geography
+CREATE INDEX nyc_subway_stations_geog_gix
+ON nyc_subway_stations_geog USING GIST (geog);
+
+-- a simple geography table
+CREATE TABLE airports (
+    code VARCHAR(3),
+    geog GEOGRAPHY(Point)
+  );
+
+INSERT INTO airports
+  VALUES ('LAX', 'POINT(-118.4079 33.9434)');
+INSERT INTO airports
+  VALUES ('CDG', 'POINT(2.5559 49.0083)');
+INSERT INTO airports
+  VALUES ('KEF', 'POINT(-22.6056 63.9850)');
+
+-- geography metadata
+SELECT * FROM geography_columns;
+
+-- casting to/from geography
+SELECT code, ST_X(geog::geometry) AS longitude FROM airports;  
+
+--------------------------------------------------------------------------------
+-- Geography Exercises
+--
+
+-- How far is New York from Seattle? What are the units of the answer?
+SELECT ST_Distance(
+  'POINT(-74.0064 40.7142)'::geography,
+  'POINT(-122.3331 47.6097)'::geography
+  );
+
+-- What is the total length of all streets in New York, 
+-- calculated on the spheroid?
+SELECT Sum(
+  ST_Length(Geography(
+    ST_Transform(geom,4326)
+  )))
+FROM nyc_streets;
+
+-- Does ‘POINT(1 2.0001)’ intersect with 
+-- ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ in geography? 
+-- In geometry? Why the difference?
+SELECT ST_Intersects(
+  'POINT(1 2.0001)'::geography,
+  'POLYGON((0 0,0 2,2 2,2 0,0 0))'::geography
+);
+
+SELECT ST_Intersects(
+  'POINT(1 2.0001)'::geometry,
+  'POLYGON((0 0,0 2,2 2,2 0,0 0))'::geometry
+);
+
+--------------------------------------------------------------------------------
+-- Geometry Constructing Functions
+--
+
+-- compare centroid to point on surface
+SELECT ST_Intersects(geom, ST_Centroid(geom)) AS centroid_inside,
+       ST_Intersects(geom, ST_PointOnSurface(geom)) AS pos_inside
+FROM (VALUES
+    ('POLYGON ((30 0, 30 10, 10 10, 10 40, 30 40, 30 50, 0 50, 0 0, 0 0, 30 0))'::geometry)
+  ) AS t(geom);
+
+-- Make a new table with a Liberty Island 500m buffer zone
+CREATE TABLE liberty_island_zone AS
+SELECT ST_Buffer(geom,500)::geometry(Polygon,26918) AS geom
+FROM nyc_census_blocks
+WHERE blkid = '360610001001001';
+
+-- What is the area these two circles have in common?
+-- Using ST_Buffer to make the circles!
+SELECT ST_AsText(ST_Intersection(
+  ST_Buffer('POINT(0 0)', 2),
+  ST_Buffer('POINT(3 0)', 2)
+));  
+
+-- What is the total area these two circles cover?
+-- Using ST_Buffer to make the circles!
+SELECT ST_AsText(ST_Union(
+  ST_Buffer('POINT(0 0)', 2),
+  ST_Buffer('POINT(3 0)', 2)
+));
+
+-- Create a nyc_census_counties table by merging census blocks
+CREATE TABLE nyc_census_counties AS
+SELECT
+  ST_Union(geom)::Geometry(MultiPolygon,26918) AS geom,
+  SubStr(blkid,1,5) AS countyid
+FROM nyc_census_blocks
+GROUP BY countyid;
+
+-- Confirm area of counties table vs originals
+SELECT SubStr(blkid,1,5) AS countyid, Sum(ST_Area(geom)) AS area
+FROM nyc_census_blocks
+GROUP BY countyid
+ORDER BY countyid;
+
+SELECT countyid, ST_Area(geom) AS area
+FROM nyc_census_counties
+ORDER BY countyid;
+
+--------------------------------------------------------------------------------
+-- More Spatial Joins
+--
+
+-- Make the tracts table
+CREATE TABLE nyc_census_tract_geoms AS
+SELECT
+  ST_Union(geom) AS geom,
+  SubStr(blkid,1,11) AS tractid
+FROM nyc_census_blocks
+GROUP BY tractid;
+
+-- Index the tractid
+CREATE INDEX nyc_census_tract_geoms_tractid_idx
+  ON nyc_census_tract_geoms (tractid);
+
+-- Make the tracts table
+CREATE TABLE nyc_census_tracts AS
+SELECT
+  g.geom,
+  a.*
+FROM nyc_census_tract_geoms g
+JOIN nyc_census_sociodata a
+ON g.tractid = a.tractid;
+
+-- Index the geometries
+CREATE INDEX nyc_census_tract_gidx
+  ON nyc_census_tracts USING GIST (geom);
+
+-- List top 10 New York neighborhoods ordered by the 
+-- proportion of people who have graduate degrees.
+SELECT
+  100.0 * Sum(t.edu_graduate_dipl) / Sum(t.edu_total) AS graduate_pct,
+  n.name, n.boroname
+FROM nyc_neighborhoods n
+JOIN nyc_census_tracts t
+ON ST_Intersects(n.geom, t.geom)
+WHERE t.edu_total > 0
+GROUP BY n.name, n.boroname
+ORDER BY graduate_pct DESC
+LIMIT 10;
+
+-- Avoid double counting when calculating 
+-- proportion of people who have graduate degrees
+-- by using ST_Centroid
+SELECT
+  100.0 * Sum(t.edu_graduate_dipl) / Sum(t.edu_total) AS graduate_pct,
+  n.name, n.boroname
+FROM nyc_neighborhoods n
+JOIN nyc_census_tracts t
+ON ST_Contains(n.geom, ST_Centroid(t.geom))
+WHERE t.edu_total > 0
+GROUP BY n.name, n.boroname
+ORDER BY graduate_pct DESC
+LIMIT 10;
+
+-- Population of NYC
+SELECT Sum(popn_total)
+FROM nyc_census_blocks;
+
+-- population of the people in New York within 500 meters of a subway station
+SELECT Sum(popn_total)
+FROM nyc_census_blocks census
+JOIN nyc_subway_stations subway
+ON ST_DWithin(census.geom, subway.geom, 500);
+
+-- avoid double counting using distinct blocks
+WITH distinct_blocks AS (
+  SELECT DISTINCT ON (blkid) popn_total
+  FROM nyc_census_blocks census
+  JOIN nyc_subway_stations subway
+  ON ST_DWithin(census.geom, subway.geom, 500)
+)
+SELECT Sum(popn_total)
+FROM distinct_blocks;
+
+--------------------------------------------------------------------------------
+-- Validity
+--
+
+-- Area of invalid polygon
+SELECT ST_Area(ST_GeometryFromText(
+         'POLYGON((0 0, 0 1, 1 1, 2 1, 2 2, 1 2, 1 1, 1 0, 0 0))'
+       ));
+
+-- Test polygon validity
+SELECT ST_IsValid(ST_GeometryFromText(
+         'POLYGON((0 0, 0 1, 1 1, 2 1, 2 2, 1 2, 1 1, 1 0, 0 0))'
+       ));
+
+-- Get reason for invalidity
+SELECT ST_IsValidReason(ST_GeometryFromText(
+         'POLYGON((0 0, 0 1, 1 1, 2 1, 2 2, 1 2, 1 1, 1 0, 0 0))'
+       ));
+
+-- Find all the invalid polygons and what their problem is
+SELECT name, boroname, ST_IsValidReason(geom)
+FROM nyc_neighborhoods
+WHERE NOT ST_IsValid(geom);
+
+-- Fix validity in banana polygon
+SELECT ST_AsText(
+         ST_Buffer(
+           ST_GeometryFromText('POLYGON((0 0, 2 0, 1 1, 2 2, 3 1, 2 0, 4 0, 4 4, 0 4, 0 0))'),
+           0.0
+         )
+       );
+
+-- Column for old invalid form
+ALTER TABLE nyc_neighborhoods
+  ADD COLUMN geom_invalid geometry
+  DEFAULT NULL;
+
+-- Fix invalid and save the original
+UPDATE nyc_neighborhoods
+  SET geom = ST_MakeValid(geom),
+      invalid_geom = geom
+  WHERE NOT ST_IsValid(geom);
+
+-- Review the invalid cases
+SELECT geom, ST_IsValidReason(geom_invalid)
+  FROM nyc_neighborhoods
+  WHERE geom_invalid IS NOT NULL;
+
+--------------------------------------------------------------------------------
+-- Equality
+--
+
+-- Table of "equal" polygons
+CREATE TABLE polygons (id integer, name varchar, poly geometry);
+
+INSERT INTO polygons VALUES
+  (1, 'Polygon 1', 'POLYGON((-1 1.732,1 1.732,2 0,1 -1.732,
+      -1 -1.732,-2 0,-1 1.732))'),
+  (2, 'Polygon 2', 'POLYGON((-1 1.732,-2 0,-1 -1.732,1 -1.732,
+      2 0,1 1.732,-1 1.732))'),
+  (3, 'Polygon 3', 'POLYGON((1 -1.732,2 0,1 1.732,-1 1.732,
+      -2 0,-1 -1.732,1 -1.732))'),
+  (4, 'Polygon 4', 'POLYGON((-1 1.732,0 1.732, 1 1.732,1.5 0.866,
+      2 0,1.5 -0.866,1 -1.732,0 -1.732,-1 -1.732,-1.5 -0.866,
+      -2 0,-1.5 0.866,-1 1.732))'),
+  (5, 'Polygon 5', 'POLYGON((-2 -1.732,2 -1.732,2 1.732,
+      -2 1.732,-2 -1.732))');
+
+-- what polygons are "exactly" equal?
+SELECT a.name, b.name,
+  CASE WHEN ST_OrderingEquals(a.poly, b.poly)
+       THEN 'Exactly Equal'
+       ELSE 'Not Exactly Equal' END
+  FROM polygons AS a, polygons AS b;
+
+-- what polygons are "spatially" equal
+SELECT a.name, b.name,
+  CASE WHEN ST_Equals(a.poly, b.poly)
+       THEN 'Spatially Equal'
+       ELSE 'Not Equal' END
+  FROM polygons AS a, polygons AS b;
+
+-- what polygons are "bounds" equal
+SELECT a.name, b.name,
+  CASE WHEN a.poly ~= b.poly
+       THEN 'Equal Bounds'
+       ELSE 'Non-equal Bounds' END
+  FROM polygons AS a, polygons AS b;
+
+--------------------------------------------------------------------------------
+-- Linear Referencing
+--
+
+-- Simple example of locating a point half-way along a line
+SELECT ST_LineLocatePoint('LINESTRING(0 0, 2 2)', 'POINT(1 1)');
+-- Answer 0.5
+
+-- What if the point is not on the line? It projects to closest point
+SELECT ST_LineLocatePoint('LINESTRING(0 0, 2 2)', 'POINT(0 2)');
+-- Answer 0.5
+
+-- Convert NYC subway stations into an "event table" relative to streets
+-- All the SQL below is in aid of creating the new event table
+CREATE TABLE nyc_subway_station_events AS
+-- We first need to get a candidate set of maybe-closest
+-- streets, ordered by id and distance...
+WITH ordered_nearest AS (
+SELECT
+  ST_GeometryN(streets.geom,1) AS streets_geom,
+  streets.gid AS streets_gid,
+  subways.geom AS subways_geom,
+  subways.gid AS subways_gid,
+  ST_Distance(streets.geom, subways.geom) AS distance
+FROM nyc_streets streets
+  JOIN nyc_subway_stations subways
+  ON ST_DWithin(streets.geom, subways.geom, 200)
+ORDER BY subways_gid, distance ASC
+)
+-- We use the 'distinct on' PostgreSQL feature to get the first
+-- street (the nearest) for each unique street gid. We can then
+-- pass that one street into ST_LineLocatePoint along with
+-- its candidate subway station to calculate the measure.
+SELECT
+  DISTINCT ON (subways_gid)
+  subways_gid,
+  streets_gid,
+  ST_LineLocatePoint(streets_geom, subways_geom) AS measure,
+  distance
+FROM ordered_nearest;
+
+-- Primary keys are useful for visualization softwares
+ALTER TABLE nyc_subway_station_events ADD PRIMARY KEY (subways_gid);
+
+-- Simple example of locating a point half-way along a line
+SELECT ST_AsText(ST_LineInterpolatePoint('LINESTRING(0 0, 2 2)', 0.5));
+
+-- New view that turns events back into spatial objects
+CREATE OR REPLACE VIEW nyc_subway_stations_lrs AS
+SELECT
+  events.subways_gid,
+  ST_LineInterpolatePoint(ST_GeometryN(streets.geom, 1), events.measure)AS geom,
+  events.streets_gid
+FROM nyc_subway_station_events events
+JOIN nyc_streets streets
+ON (streets.gid = events.streets_gid);
+
+--------------------------------------------------------------------------------
+-- Dimensionally Extended 9-Intersection Model
+--
+
+-- relate line and poly
+SELECT ST_Relate(
+         'LINESTRING(0 0, 2 0)',
+         'POLYGON((1 -1, 1 1, 3 1, 3 -1, 1 -1))'
+       );
+
+-- example lakes/docks relationships
+CREATE TABLE lakes ( id serial primary key, geom geometry );
+CREATE TABLE docks ( id serial primary key, good boolean, geom geometry );
+
+INSERT INTO lakes ( geom )
+  VALUES ( 'POLYGON ((100 200, 140 230, 180 310, 280 310, 390 270, 400 210, 320 140, 215 141, 150 170, 100 200))');
+
+INSERT INTO docks ( geom, good )
+  VALUES
+        ('LINESTRING (170 290, 205 272)',true),
+        ('LINESTRING (120 215, 176 197)',true),
+        ('LINESTRING (290 260, 340 250)',false),
+        ('LINESTRING (350 300, 400 320)',false),
+        ('LINESTRING (370 230, 420 240)',false),
+        ('LINESTRING (370 180, 390 160)',false);       
+
+-- find the "good" docks
+SELECT docks.*
+FROM docks JOIN lakes ON ST_Intersects(docks.geom, lakes.geom)
+WHERE ST_Relate(docks.geom, lakes.geom, '1FF00F212');
+
+-- dock with 2d boundary intersection to lake
+INSERT INTO docks ( geom, good )
+  VALUES ('LINESTRING (140 230, 150 250, 210 230)',true);
+
+-- how many "good" docks now?
+SELECT docks.*
+FROM docks JOIN lakes ON ST_Intersects(docks.geom, lakes.geom)
+WHERE ST_Relate(docks.geom, lakes.geom, '1*F00F212');  
+
+-- find some census blocks with overlaps?
+SELECT a.gid, b.gid
+FROM nyc_census_blocks a, nyc_census_blocks b
+WHERE ST_Intersects(a.geom, b.geom)
+  AND ST_Relate(a.geom, b.geom, '2********')
+  AND a.gid != b.gid
+LIMIT 10;
+
+-- find some streets with un-noded ends? lots.
+SELECT a.gid, b.gid
+FROM nyc_streets a, nyc_streets b
+WHERE ST_Intersects(a.geom, b.geom)
+  AND NOT ST_Relate(a.geom, b.geom, '****0****')
+  AND a.gid != b.gid
+LIMIT 10;
+
+--------------------------------------------------------------------------------
+-- Clustering on Indices
+--
+
+-- Cluster the blocks based on their spatial index
+CLUSTER nyc_census_blocks USING nyc_census_blocks_geom_gist;
+
+-- Cluster using geohash index
+CREATE INDEX nyc_census_blocks_geohash 
+  ON nyc_census_blocks (ST_GeoHash(ST_Transform(geom,4326)));
+
+CLUSTER nyc_census_blocks USING nyc_census_blocks_geohash;
+
+--------------------------------------------------------------------------------
+-- 3-D Geometries
+--
+
+-- 3D distance calculation!
+-- This is really the distance between the top corner
+-- and the point.
+SELECT ST_3DDistance(
+  'POLYHEDRALSURFACE Z (
+    ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0)),
+    ((0 0 0, 0 1 0, 0 1 1, 0 0 1, 0 0 0)),
+    ((0 0 0, 1 0 0, 1 0 1, 0 0 1, 0 0 0)),
+    ((1 1 1, 1 0 1, 0 0 1, 0 1 1, 1 1 1)),
+    ((1 1 1, 1 0 1, 1 0 0, 1 1 0, 1 1 1)),
+    ((1 1 1, 1 1 0, 0 1 0, 0 1 1, 1 1 1))
+  )'::geometry,
+  'POINT Z (2 2 2)'::geometry
+);
+
+-- So here's a shorter form.
+SELECT ST_3DDistance(
+  'POINT Z (1 1 1)'::geometry,
+  'POINT Z (2 2 2)'::geometry
+);
+
+-- create n-dimensional index
+CREATE INDEX nyc_streets_gix_nd ON nyc_streets
+USING GIST (geom gist_geometry_ops_nd);
+
+-- Returns true (both 3-D on the zero plane)
+SELECT 'POINT Z (1 1 0)'::geometry &&&
+       'POLYGON ((0 0 0, 0 2 0, 2 2 0, 2 0 0, 0 0 0))'::geometry;
+
+-- Returns false (one 2-D one 3-D)
+SELECT 'POINT Z (1 1 1)'::geometry &&&
+       'POLYGON ((0 0, 0 2, 2 2, 2 0, 0 0))'::geometry;
+
+-- Returns true (the volume around the linestring interacts with the point)
+SELECT 'LINESTRING Z(0 0 0, 1 1 1)'::geometry &&&
+       'POINT(0 1 1)'::geometry;
+
+-- N-D index operator
+SELECT gid, name
+FROM nyc_streets
+WHERE geom &&&
+      ST_SetSRID('LINESTRING(586785 4492901,587561 4493037)',26918);
+
+-- 2-D index operator
+SELECT gid, name
+FROM nyc_streets
+WHERE geom &&
+      ST_SetSRID('LINESTRING(586785 4492901,587561 4493037)',26918);
+
+--------------------------------------------------------------------------------
+-- Nearest-Neighbour Searching             
+--
+
+-- Get the geometry of Broad St
+SELECT ST_AsEWKT(geom, 1)
+FROM nyc_subway_stations
+WHERE name = 'Broad St';
+
+-- Plug the geometry into a nearest-neighbor query
+SELECT streets.gid, streets.name,
+  ST_Transform(streets.geom, 4326),
+  ST_Distance(streets.geom, 'SRID=26918;POINT(583571.9 4506714.3)') AS dist
+FROM
+  nyc_streets streets
+ORDER BY
+  streets.geom <-> 'SRID=26918;POINT(583571.9 4506714.3)'::geometry
+LIMIT 3;
+
+-- Nearest neighbor join
+SELECT subways.gid AS subway_gid,
+       subways.name AS subway,
+       streets.name AS street,
+       streets.gid AS street_gid,
+       streets.geom::geometry(MultiLinestring, 26918) AS street_geom,
+       ST_Distance(streets.geom, subways.geom) AS dist
+FROM nyc_subway_stations subways
+CROSS JOIN LATERAL (
+  SELECT streets.name, streets.geom, streets.gid
+  FROM nyc_streets streets
+  ORDER BY streets.geom <-> subways.geom
+  LIMIT 1
+) streets;
+
+--------------------------------------------------------------------------------
+-- Tracking Edit History using Triggers
+--
+
+-- Constructing and open time range
+SELECT tstzrange(current_timestamp, NULL);
+
+-- Does the range of "ten minutes ago to the future" include now?
+-- It should! :)
+SELECT tstzrange(current_timestamp - '10m'::interval, NULL) @> current_timestamp;
+
+-- Build a history table for nyc_streets
+DROP TABLE IF EXISTS nyc_streets_history;
+CREATE TABLE nyc_streets_history (
+  hid SERIAL PRIMARY KEY,
+  gid INTEGER,
+  id FLOAT8,
+  name VARCHAR(200),
+  oneway VARCHAR(10),
+  type VARCHAR(50),
+  geom GEOMETRY(MultiLinestring,26918),
+  valid_range TSTZRANGE,
+  created_by VARCHAR(32),
+  deleted_by VARCHAR(32)
+);
+
+CREATE INDEX nyc_streets_history_geom_x
+  ON nyc_streets_history USING GIST (geom);
+
+CREATE INDEX nyc_streets_history_tstz_x
+  ON nyc_streets_history USING GIST (valid_range);
+
+-- Populate the history table with current state
+INSERT INTO nyc_streets_history
+  (gid, id, name, oneway, type, geom, valid_range, created_by)
+   SELECT gid, id, name, oneway, type, geom,
+     tstzrange(now(), NULL),
+     current_user
+   FROM nyc_streets;
+
+-- Add an insert trigger
+CREATE OR REPLACE FUNCTION nyc_streets_insert() RETURNS trigger AS
+  $$
+    BEGIN
+      INSERT INTO nyc_streets_history
+        (gid, id, name, oneway, type, geom, valid_range, created_by)
+      VALUES
+        (NEW.gid, NEW.id, NEW.name, NEW.oneway, NEW.type, NEW.geom,
+         tstzrange(current_timestamp, NULL), current_user);
+      RETURN NEW;
+    END;
+  $$
+  LANGUAGE plpgsql;
+
+CREATE TRIGGER nyc_streets_insert_trigger
+AFTER INSERT ON nyc_streets
+  FOR EACH ROW EXECUTE PROCEDURE nyc_streets_insert();     
+
+-- Add a delete trigger
+CREATE OR REPLACE FUNCTION nyc_streets_delete() RETURNS trigger AS
+  $$
+    BEGIN
+      UPDATE nyc_streets_history
+        SET valid_range = tstzrange(lower(valid_range), current_timestamp),
+            deleted_by = current_user
+        WHERE valid_range @> current_timestamp AND gid = OLD.gid;
+      RETURN NULL;
+    END;
+  $$
+  LANGUAGE plpgsql;
 
 
+CREATE TRIGGER nyc_streets_delete_trigger
+AFTER DELETE ON nyc_streets
+  FOR EACH ROW EXECUTE PROCEDURE nyc_streets_delete();
 
+-- Add an update trigger
+CREATE OR REPLACE FUNCTION nyc_streets_update() RETURNS trigger AS
+$$
+  BEGIN
+
+    UPDATE nyc_streets_history
+      SET valid_range = tstzrange(lower(valid_range), current_timestamp),
+          deleted_by = current_user
+      WHERE valid_range @> current_timestamp AND gid = OLD.gid;
+
+    INSERT INTO nyc_streets_history
+        (gid, id, name, oneway, type, geom, valid_range, created_by)
+      VALUES
+        (NEW.gid, NEW.id, NEW.name, NEW.oneway, NEW.type, NEW.geom,
+         tstzrange(current_timestamp, NULL), current_user);
+
+    RETURN NEW;
+
+  END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER nyc_streets_update_trigger
+AFTER UPDATE ON nyc_streets
+  FOR EACH ROW EXECUTE PROCEDURE nyc_streets_update();
+
+-- Add a "10 minutes ago" view
+CREATE OR REPLACE VIEW nyc_streets_ten_min_ago AS
+  SELECT * FROM nyc_streets_history
+    WHERE valid_range @> (now() - '10min'::interval)
+
+-- Add a "what did this user edit" view
+CREATE OR REPLACE VIEW nyc_streets_postgres AS
+  SELECT * FROM nyc_streets_history
+    WHERE created_by = 'postgres';
+
+--------------------------------------------------------------------------------
+-- PostgreSQL Security
+--
+
+-- A user account for the web app
+CREATE USER app1;
+-- Web app needs access to specific data tables
+GRANT SELECT ON nyc_streets TO app1;
+
+-- A generic role for access to PostGIS functionality
+CREATE ROLE postgis_reader INHERIT;
+-- Give that role to the web app
+GRANT postgis_reader TO app1;
+
+-- This works!
+SELECT * FROM nyc_streets LIMIT 1;
+
+-- This doesn't work!
+SELECT ST_AsText(ST_Transform(geom, 4326))
+  FROM nyc_streets LIMIT 1;
+
+-- Fix it!
+GRANT SELECT ON geometry_columns TO postgis_reader;
+GRANT SELECT ON geography_columns TO postgis_reader;
+GRANT SELECT ON spatial_ref_sys TO postgis_reader;  
+
+-- This works now!
+SELECT ST_AsText(ST_Transform(geom, 4326))
+  FROM nyc_streets LIMIT 1;
+
+-- Add insert/update/delete abilities to our web application
+GRANT INSERT,UPDATE,DELETE ON nyc_streets TO app1;
+
+-- Make a postgis writer role
+CREATE ROLE postgis_writer;
+
+-- Start by giving it the postgis_reader powers
+GRANT postgis_reader TO postgis_writer;
+
+-- Add insert/update/delete powers for the PostGIS tables
+GRANT INSERT,UPDATE,DELETE ON spatial_ref_sys TO postgis_writer;
+
+-- Make app1 a PostGIS writer to see if it works!
+GRANT postgis_writer TO app1;
+
+--------------------------------------------------------------------------------
+-- Schemas
+--  
+
+-- create a data schema
+CREATE SCHEMA census;
+-- move data into it
+ALTER TABLE nyc_census_blocks SET SCHEMA census;
+-- reference into it
+SELECT * FROM census.nyc_census_blocks LIMIT 1;
+-- add schema to search path for convenience
+SET search_path = census, public;
+-- make search path permanent for user
+ALTER USER postgres SET search_path = census, public;
+
+-- add a user schema
+CREATE USER myuser WITH ROLE postgis_writer;
+CREATE SCHEMA myuser AUTHORIZATION myuser;
+
+-- see the default search path
+show search_path;
+
+--------------------------------------------------------------------------------
+-- Advanced Geometry Constructions
+--  
+
+CREATE TABLE nyc_subway_lines AS
+-- Distinct route identifiers!
+WITH routes AS (
+  SELECT DISTINCT unnest(string_to_array(routes,',')) AS route
+  FROM nyc_subway_stations ORDER BY route
+),
+-- Joined back to stops! Every route has all its stops!
+stops AS (
+  SELECT s.gid, s.geom, r.route
+  FROM routes r
+  JOIN nyc_subway_stations s
+  ON (strpos(s.routes, r.route) <> 0)
+),
+-- Collects stops by routes and calculate centroid!
+centers AS (
+  SELECT ST_Centroid(ST_Collect(geom)) AS geom, route
+  FROM stops
+  GROUP BY route
+),
+-- Calculate stop/center distance for each stop in each route.
+stops_distance AS (
+  SELECT s.*, ST_Distance(s.geom, c.geom) AS distance
+  FROM stops s JOIN centers c
+  ON (s.route = c.route)
+  ORDER BY route, distance DESC
+),
+-- Filter out just the furthest stop/center pairs.
+first_stops AS (
+  SELECT DISTINCT ON (route) stops_distance.*
+  FROM stops_distance
+)
+-- Pass the route/stop information into the linear route generation function!
+SELECT
+  ascii(route) AS gid, -- QGIS likes numeric primary keys
+  route,
+  walk_subway(gid, route) AS geom
+FROM first_stops;
+
+-- Do some housekeeping too
+ALTER TABLE nyc_subway_lines ADD PRIMARY KEY (gid);
 

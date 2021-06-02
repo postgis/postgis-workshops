@@ -39,7 +39,7 @@ Also remember the tables we have available:
 Exercises
 ---------
 
-* **"What is the geometry value for the street named 'Atlantic Commons'?"**
+* **What is the geometry value for the street named 'Atlantic Commons'?**
  
   .. code-block:: sql
 
@@ -51,7 +51,7 @@ Exercises
    
     MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))
      
-* **"What neighborhood and borough is Atlantic Commons in?"**
+* **What neighborhood and borough is Atlantic Commons in?**
      
   .. code-block:: sql
 
@@ -75,7 +75,7 @@ Exercises
     More importantly, we also rounded the coordinates to make them easier to read, which does actually change results: we couldn't use the ST_Touches() predicate to find out which roads join Atlantic Commons, because the coordinates are not exactly the same anymore.
 
 
-* **"What streets does Atlantic Commons join with?"**
+* **What streets does Atlantic Commons join with?**
  
   .. code-block:: sql
 
@@ -97,7 +97,7 @@ Exercises
   .. image:: ./spatial_relationships/atlantic_commons.jpg
   
 
-* **"Approximately how many people live on (within 50 meters of) Atlantic Commons?"**
+* **Approximately how many people live on (within 50 meters of) Atlantic Commons?**
  
   .. code-block:: sql
 

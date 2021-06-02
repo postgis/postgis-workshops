@@ -119,9 +119,8 @@ Running `ST_MakeValid <http://postgis.net/docs/ST_MakeValid.html>`_ on the polyg
 .. code-block:: sql
 
   SELECT ST_AsText(
-           ST_Buffer(
-             ST_GeometryFromText('POLYGON((0 0, 2 0, 1 1, 2 2, 3 1, 2 0, 4 0, 4 4, 0 4, 0 0))'),
-             0.0
+           ST_MakeValid(
+             ST_GeometryFromText('POLYGON((0 0, 2 0, 1 1, 2 2, 3 1, 2 0, 4 0, 4 4, 0 4, 0 0))')
            )
          );
 

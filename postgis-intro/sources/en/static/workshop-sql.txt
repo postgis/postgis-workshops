@@ -46,7 +46,7 @@ SELECT boroname, avg(char_length(name))
 SELECT Count(*)  
   FROM nyc_streets;
 
--- How many streets in NYC start with ‘B’?
+-- How many streets in NYC start with 'B'?
 SELECT Count(*)  
   FROM nyc_streets
   WHERE name LIKE 'B%';
@@ -55,7 +55,7 @@ SELECT Count(*)
 SELECT Sum(popn_total)  
   FROM nyc_census_blocks; 
 
--- What is the population of ‘The Bronx’?
+-- What is the population of 'The Bronx'?
 SELECT Sum(popn_total)  
   FROM nyc_census_blocks
   WHERE boroname = 'The Bronx';
@@ -191,19 +191,19 @@ SELECT ST_AsEWKT(
 --------------------------------------------------------------------------------
 -- Geometry Exercises
 --
--- What is the area of the ‘West Village’ neighborhood?
+-- What is the area of the 'West Village' neighborhood?
 SELECT ST_Area(geom)
   FROM nyc_neighborhoods
   WHERE name = 'West Village';
 
--- What is the geometry type of ‘Pelham St’? The length?
+-- What is the geometry type of 'Pelham St'? The length?
 SELECT
    ST_GeometryType(geom),
    ST_Length(geom)
   FROM nyc_streets
   WHERE name = 'Pelham St';
 
--- What is the GeoJSON representation of the ‘Broad St’ subway station?
+-- What is the GeoJSON representation of the 'Broad St' subway station?
 SELECT
  ST_AsGeoJSON(geom)
 FROM nyc_subway_stations
@@ -224,7 +224,7 @@ SELECT ST_X(geom), name
   ORDER BY ST_X(geom)
   LIMIT 1;
 
--- How long is ‘Columbus Cir’ (aka Columbus Circle)?
+-- How long is 'Columbus Cir' (aka Columbus Circle)?
 SELECT ST_Length(geom)
   FROM nyc_streets
   WHERE name = 'Columbus Cir';
@@ -271,7 +271,7 @@ WHERE ST_DWithin(
 -- Spatial Relationships Exercises
 --
 
--- What is the geometry value for the street named ‘Atlantic Commons’?
+-- What is the geometry value for the street named 'Atlantic Commons'?
 SELECT ST_AsText(geom)
   FROM nyc_streets
   WHERE name = 'Atlantic Commons';
@@ -360,7 +360,7 @@ WHERE strpos(subways.routes,'A') > 0;
 -- Spatial Joins Exercises
 --
 
--- What subway station is in ‘Little Italy’? What subway route is it on?
+-- What subway station is in 'Little Italy'? What subway route is it on?
 SELECT s.name, s.routes
 FROM nyc_subway_stations AS s
 JOIN nyc_neighborhoods AS n
@@ -374,7 +374,7 @@ JOIN nyc_neighborhoods AS n
 ON ST_Contains(n.geom, s.geom)
 WHERE strpos(s.routes,'6') > 0;
 
--- After 9/11, the ‘Battery Park’ neighborhood was off limits for several days. -- How many people had to be evacuated?
+-- After 9/11, the 'Battery Park' neighborhood was off limits for several days. -- How many people had to be evacuated?
 SELECT Sum(popn_total)
 FROM nyc_neighborhoods AS n
 JOIN nyc_census_blocks AS c
@@ -445,7 +445,7 @@ SELECT ST_SRID(geom) FROM nyc_streets LIMIT 1;
 -- Read definition of SRID
 SELECT * FROM spatial_ref_sys WHERE srid = 26918;
 
--- convert the coordinates of the ‘Broad St’ subway station into geographics
+-- convert the coordinates of the 'Broad St' subway station into geographics
 SELECT ST_AsText(ST_Transform(geom,4326))
 FROM nyc_subway_stations
 WHERE name = 'Broad St';
@@ -559,8 +559,8 @@ SELECT Sum(
   )))
 FROM nyc_streets;
 
--- Does ‘POINT(1 2.0001)’ intersect with 
--- ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ in geography? 
+-- Does 'POINT(1 2.0001)' intersect with 
+-- 'POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))' in geography? 
 -- In geometry? Why the difference?
 SELECT ST_Intersects(
   'POINT(1 2.0001)'::geography,

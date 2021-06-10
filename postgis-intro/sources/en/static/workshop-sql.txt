@@ -10,6 +10,10 @@ SELECT postgis_full_version();
 --
 SELECT name FROM nyc_neighborhoods;
 
+SELECT name, 
+       ST_Transform(geom, 4326)
+FROM nyc_neighborhoods;
+
 -- What are the names of all the neighborhoods in Brooklyn?
 SELECT name
   FROM nyc_neighborhoods

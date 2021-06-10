@@ -16,7 +16,7 @@ Loading the Backup File
    .. image:: ./screenshots/data_loading_1.png
      :class: inline, border
 
-#. Browse to the location of your workshop data data directory, and select the :file:`nyc_data.dmp` file.
+#. Browse to the location of your workshop data data directory, and select the :file:`nyc_data.backup` file.
 
    .. image:: ./screenshots/data_loading_2.png
      :class: inline, border

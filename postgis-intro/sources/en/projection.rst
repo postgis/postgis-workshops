@@ -93,9 +93,9 @@ Let's convert some data from our working projection to geographic coordinates --
 
 To convert data from one SRID to another, you must first verify that your geometry has a valid SRID. Since we have already confirmed a valid SRID, we next need the SRID of the projection to transform into. In other words, what is the SRID of geographic coordinates?
 
-The most common SRID for geographic coordinates is 4326, which corresponds to "longitude/latitude on the WGS84 spheroid". You can see the definition at the spatialreference.org site:
+The most common SRID for geographic coordinates is 4326, which corresponds to "longitude/latitude on the WGS84 spheroid". You can see the definition here:
 
-  https://epsg.io/26918
+  https://epsg.io/4326
 
 You can also pull the definitions from the ``spatial_ref_sys`` table:
 

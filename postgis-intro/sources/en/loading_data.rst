@@ -44,6 +44,7 @@ Loading with ogr2ogr
 
 * **Windows**:
   * Builds of ogr2ogr can be downloaded from `GIS Internals <https://www.gisinternals.com/release.php>`_.
+  * ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/forusers/download.html>` and accessible via QGIS4W Shell menu -
   * Builds of ogr2ogr can be downloaded from `MS4W <https://ms4w.com/download.html>`_.
 * **MacOS**:
   * If you installed `Postgres.app <https://postgresapp.com/>`_, then you will find :file:`ogr2ogr` in the :file:`/Applications/Postgres.app/Contents/Versions/*/bin` directory.

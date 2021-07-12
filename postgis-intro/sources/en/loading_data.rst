@@ -42,15 +42,17 @@ Loading with ogr2ogr
 
 :file:`ogr2ogr` is a commandline utility for converting data between GIS data formats, including common file formats and common spatial databases.
 
-* **Windows**:
+**Windows**:
   * Builds of ogr2ogr can be downloaded from `GIS Internals <https://www.gisinternals.com/release.php>`_.
-  * ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/forusers/download.html>` and accessible via QGIS4W Shell menu -
+  * ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/forusers/download.html>`_ and accessible via QGIS4W Shell menu -
   * Builds of ogr2ogr can be downloaded from `MS4W <https://ms4w.com/download.html>`_.
-* **MacOS**:
+
+**MacOS**:
   * If you installed `Postgres.app <https://postgresapp.com/>`_, then you will find :file:`ogr2ogr` in the :file:`/Applications/Postgres.app/Contents/Versions/*/bin` directory.
   * Alternately, you can download an independent build of GDAL from `KyngChaos <https://www.kyngchaos.com/software/frameworks/>`_ and install that.
   * Finally, if you have installed `HomeBrew <https://brew.sh/>`_ you can install the **gdal** package to get access to :file:`ogr2ogr`
-* **Linux**:
+
+**Linux**:
   * If you installed Linux from packages, :file:`ogr2ogr` should be installed and on your PATH already as part of the **gdal** or *libgdal** packages.
 
 The postgis workshop data directory includes a :file:`2000/` sub-directory, which contains shape files from the 2000 census, that were obsoleted by data from the 2010 census. We can practice data loading using those files, to avoid creating name collisions with the data we already loaded using the backup file.

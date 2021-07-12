@@ -89,18 +89,18 @@ Links to have on hand
 
 * PostgreSQL - http://www.postgresql.org/
 
-  - Docs - http://www.postgresql.org/docs/
-  - Downloads - http://www.postgresql.org/download/
-  - JDBC Driver - http://jdbc.postgresql.org/
-  - .Net Driver - http://npgsql.projects.postgresql.org/
+  - Docs - https://www.postgresql.org/docs/
+  - Downloads - https://www.postgresql.org/download/
+  - JDBC Driver - https://jdbc.postgresql.org/
+  - .Net Driver - https://www.npgsql.org/
   - Python Driver - http://www.pygresql.org/
-  - C/C++ Driver - http://www.postgresql.org/docs/current/static/libpq.html
+  - C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html
 
-* PgAdmin - http://www.pgadmin.org/
+* PgAdmin - https://www.pgadmin.org/
 
 * Open Source Desktop Clients
 
-  - QGIS - http://qgis.org/
+  - QGIS - https://qgis.org/
   - OpenJUMP - http://openjump.org/
   - uDig - http://udig.github.io/
 

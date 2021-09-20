@@ -45,20 +45,26 @@ pickle:
 web: pickle
 
 htmlhelp:
-	mkdir -p $(CACHE) $(OUTPUT)/.build/htmlhelp 
+	mkdir -p $(CACHE) $(OUTPUT)/.build/htmlhelp
 	$(SPHINXBUILD) -b htmlhelp $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/htmlhelp
 	@echo
 	@echo "Build finished; now you can run HTML Help Workshop with the" \
 	      ".hhp project file in $(OUTPUT)/.build/htmlhelp."
 
+latex:
+	mkdir -p $(CACHE) $(OUTPUT)/.build/latex
+	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/latex
+	@echo
+	@echo "Build finished; now you can run 'make' in $(OUTPUT)/.build/latex."
+
 changes:
-	mkdir -p $(CACHE) $(OUTPUT)/.build/changes 
+	mkdir -p $(CACHE) $(OUTPUT)/.build/changes
 	$(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/changes
 	@echo
 	@echo "The overview file is in $(OUTPUT)/.build/changes."
 
 linkcheck:
-	mkdir -p $(CACHE) $(OUTPUT)/.build/linkcheck 
+	mkdir -p $(CACHE) $(OUTPUT)/.build/linkcheck
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \

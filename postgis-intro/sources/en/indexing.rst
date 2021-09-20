@@ -171,7 +171,7 @@ Vacuuming and analyzing the database can be performed separately as needed.  Iss
 Function List
 -------------
 
-`geometry_a && geometry_b <http://postgis.net/docs/ST_Geometry_Overlap.html>`_: Returns TRUE if A's bounding box overlaps B's.
+`geometry_a && geometry_b <http://postgis.net/docs/geometry_overlaps.html>`_: Returns TRUE if A's bounding box overlaps B's.
 
 `geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: Returns TRUE if A's bounding box is the same as B's.
 

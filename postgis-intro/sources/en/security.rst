@@ -258,7 +258,7 @@ Links
 
 
 
-.. _GSSAPI: <http://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface>
+.. _GSSAPI: http://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface
 .. _SSPI: http://msdn.microsoft.com/en-us/library/windows/desktop/aa380493(v=vs.85).aspx
 .. _RADIUS: http://en.wikipedia.org/wiki/RADIUS
 .. _LDAP: http://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol

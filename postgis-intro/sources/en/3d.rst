@@ -23,7 +23,7 @@ For well-known text (:term:`WKT`) representation, the format for higher dimensio
  
 The ST_AsText() function will return the above representations when dealing with 3-D and 4-D geometries.
 
-For well-known binary (:term:`WKB`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The BNF form of the format is available from http://svn.osgeo.org/postgis/trunk/doc/bnf-wkb.txt.
+For well-known binary (:term:`WKB`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The BNF form of the format is available from https://git.osgeo.org/gitea/postgis/postgis/src/branch/master/doc/bnf-wkb.txt.
 
 In addition to higher-dimensional forms of the standard types, PostGIS includes a few new types that make sense in a 3-D space:
 

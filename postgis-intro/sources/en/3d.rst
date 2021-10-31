@@ -112,8 +112,8 @@ Once you have the index built, you can use it in queries with the ``&&&`` index 
   SELECT 'POINT Z (1 1 0)'::geometry &&& 
          'POLYGON ((0 0 0, 0 2 0, 2 2 0, 2 0 0, 0 0 0))'::geometry;
   
-  -- Returns false (one 2-D one 3-D) Wrong example, it will be True here I checked in pgAdmin4
-  SELECT 'POINT Z (1 1 1)'::geometry &&& 
+  -- Returns false (one 2-D one 3-D)
+  SELECT 'POINT Z (3 3 3)'::geometry &&& 
          'POLYGON ((0 0, 0 2, 2 2, 2 0, 0 0))'::geometry;
   
   -- Returns true (the volume around the linestring interacts with the point)

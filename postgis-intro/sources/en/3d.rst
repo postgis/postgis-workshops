@@ -112,7 +112,7 @@ Once you have the index built, you can use it in queries with the ``&&&`` index 
   SELECT 'POINT Z (1 1 0)'::geometry &&& 
          'POLYGON ((0 0 0, 0 2 0, 2 2 0, 2 0 0, 0 0 0))'::geometry;
   
-  -- Returns false (one 2-D one 3-D)
+  -- Returns false (one 2-D one 3-D) Wrong example, it will be True here I checked in pgAdmin4
   SELECT 'POINT Z (1 1 1)'::geometry &&& 
          'POLYGON ((0 0, 0 2, 2 2, 2 0, 0 0))'::geometry;
   
@@ -128,13 +128,13 @@ To search the ``nyc_streets`` table using the N-D index, just replace the usual 
   SELECT gid, name 
   FROM nyc_streets 
   WHERE geom &&& 
-        ST_SetSRID('LINESTRING(586785 4492901,587561 4493037)',26918);
+        ST_SetSRID('LINESTRING(586785 4492901,587561 4493037)'::geometry,26918);
 
   -- 2-D index operator
   SELECT gid, name 
   FROM nyc_streets 
   WHERE geom && 
-        ST_SetSRID('LINESTRING(586785 4492901,587561 4493037)',26918);
+        ST_SetSRID('LINESTRING(586785 4492901,587561 4493037)'::geometry,26918);
 
 The results should be the same. In general the N-D index is very slightly slower than the 2-D index, so only use the N-D index where you are certain that N-D queries will improve the selectivity of your queries.
 

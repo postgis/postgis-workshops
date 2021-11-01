@@ -10,7 +10,9 @@ A frequently posed spatial query is: "what is the nearest <candidate feature> to
 
 Unlike a distance search, the "nearest neighbour" search doesn't include any measurement restricting how far away candidate geometries might be, features of any distance away will be accepted, as long as they are the *nearest*.
 
-PostgreSQL solves the nearest neighbor problem by introducing an "order by" operator that induces the database to use an index to speed up a sorted return set. With an order by operator in place, a nearest neighbor query can return the "N nearest features" just by adding an ordering and limiting the result set to N entries.
+PostgreSQL solves the nearest neighbor problem by introducing an "order by distance" (``<->``) operator that induces the database to use an index to speed up a sorted return set. With an "order by distance" operator in place, a nearest neighbor query can return the "N nearest features" just by adding an ordering and limiting the result set to N entries.
+
+The "order by distance" operator works for both geometry and geography types.  The only difference between how they work between the two types is the distance value returned.  For geometry ``<->`` returns the same answer as `ST_Distance` which is dependent on the units of the spatial reference system in use. For geography the distance value returned is the sphere distance, instead of the more accurate spheroidal distance that ``ST_Distance(geography,geography)`` returns.
 
 Here's the 3 nearest streets to 'Broad St' subway station:
 
@@ -30,11 +32,11 @@ Here's the 3 nearest streets to 'Broad St' subway station:
   -- Plug the geometry into a nearest-neighbor query
   SELECT streets.gid, streets.name,
     ST_Transform(streets.geom, 4326),
-    ST_Distance(streets.geom, 'SRID=26918;POINT(583571.9 4506714.3)') AS dist
+    streets.geom <-> 'SRID=26918;POINT(583571.9 4506714.3)'::geometry AS dist
   FROM
     nyc_streets streets
   ORDER BY
-    streets.geom <-> 'SRID=26918;POINT(583571.9 4506714.3)'::geometry
+    dist
   LIMIT 3;
 
 ::
@@ -79,12 +81,12 @@ Here we will find the nearest street to each subway station:
          streets.name AS street,
          streets.gid AS street_gid,
          streets.geom::geometry(MultiLinestring, 26918) AS street_geom,
-         ST_Distance(streets.geom, subways.geom) AS dist
+         streets.dist
   FROM nyc_subway_stations subways
   CROSS JOIN LATERAL (
-    SELECT streets.name, streets.geom, streets.gid
-    FROM nyc_streets streets
-    ORDER BY streets.geom <-> subways.geom
+    SELECT streets.name, streets.geom, streets.gid, streets.geom <-> subways.geom AS dist
+    FROM nyc_streets AS streets
+    ORDER BY dist
     LIMIT 1
   ) streets;
 
@@ -111,4 +113,4 @@ The explain shows the loop on the subway stations, and the index-assisted order 
 
 
 
-  
+

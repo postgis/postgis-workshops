@@ -9,12 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
@@ -28,12 +29,12 @@ msgstr ""
 
 #: ../../en/creating_db.rst:9
 msgid ""
-"PostgreSQL has a number of administrative front-ends.  The primary one is"
-" `psql <http://www.postgresql.org/docs/current/static/app-psql.html>`_, a"
-" command-line tool for entering SQL queries.  Another popular PostgreSQL "
-"front-end is the free and open source graphical tool `pgAdmin "
-"<http://www.pgadmin.org/>`_. All queries done in pgAdmin can also be done"
-" on the command line with ``psql``."
+"PostgreSQL has a number of administrative front-ends.  The primary one is "
+"`psql <http://www.postgresql.org/docs/current/static/app-psql.html>`_, a "
+"command-line tool for entering SQL queries.  Another popular PostgreSQL "
+"front-end is the free and open source graphical tool `pgAdmin <http://www."
+"pgadmin.org/>`_. All queries done in pgAdmin can also be done on the command "
+"line with ``psql``."
 msgstr ""
 
 #: ../../en/creating_db.rst:11
@@ -42,24 +43,23 @@ msgstr ""
 
 #: ../../en/creating_db.rst:16
 msgid ""
-"If this is the first time you have run pgAdmin, you probably don't have "
-"any servers configured. Right click the ``Servers`` item in the Browser "
-"panel."
+"If this is the first time you have run pgAdmin, you probably don't have any "
+"servers configured. Right click the ``Servers`` item in the Browser panel."
 msgstr ""
 
 #: ../../en/creating_db.rst:18
 msgid ""
-"We'll name our server **PostGIS**. In the Connection tab, enter the "
-"``Host name/address``. If you're working with a local PostgreSQL install,"
-" you'll be able to use ``localhost``. If you're using a cloud service, "
-"you should be able to retrieve the host name from your account."
+"We'll name our server **PostGIS**. In the Connection tab, enter the ``Host "
+"name/address``. If you're working with a local PostgreSQL install, you'll be "
+"able to use ``localhost``. If you're using a cloud service, you should be "
+"able to retrieve the host name from your account."
 msgstr ""
 
 #: ../../en/creating_db.rst:20
 msgid ""
 "Leave **Port** set at ``5432``, and both **Maintenance database** and "
-"**Username** as ``postgres``. The **Password** should be what you "
-"specified with a local install or with your cloud service."
+"**Username** as ``postgres``. The **Password** should be what you specified "
+"with a local install or with your cloud service."
 msgstr ""
 
 #: ../../en/creating_db.rst:26
@@ -68,9 +68,9 @@ msgstr ""
 
 #: ../../en/creating_db.rst:28
 msgid ""
-"Open the Databases tree item and have a look at the available databases."
-"  The ``postgres`` database is the user database for the default postgres"
-" user and is not too interesting to us."
+"Open the Databases tree item and have a look at the available databases.  "
+"The ``postgres`` database is the user database for the default postgres user "
+"and is not too interesting to us."
 msgstr ""
 
 #: ../../en/creating_db.rst:30
@@ -117,8 +117,8 @@ msgstr ""
 
 #: ../../en/creating_db.rst:62
 msgid ""
-"Click the **Play** button in the toolbar (or press **F5**) to \"Execute "
-"the query.\""
+"Click the **Play** button in the toolbar (or press **F5**) to \"Execute the "
+"query.\""
 msgstr ""
 
 #: ../../en/creating_db.rst:64
@@ -135,8 +135,6 @@ msgstr ""
 
 #: ../../en/creating_db.rst:76
 msgid ""
-"`PostGIS_Full_Version "
-"<http://postgis.net/docs/PostGIS_Full_Version.html>`_: Reports full "
-"PostGIS version and build configuration info."
+"`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: "
+"Reports full PostGIS version and build configuration info."
 msgstr ""
-

@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to
+# PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../en/equality.rst:4 ../../en/equality.rst:7
+msgid "Equality"
+msgstr ""
+
+#: ../../en/equality.rst:9
+msgid ""
+"Determining equality when dealing with geometries can be tricky.  PostGIS"
+" supports three different functions that can be used to determine "
+"different levels of equality, though for clarity we will use the "
+"definitions below.  To illustrate these functions, we will use the "
+"following polygons."
+msgstr ""
+
+#: ../../en/equality.rst:14
+msgid "These polygons are loaded using the following commands."
+msgstr ""
+
+#: ../../en/equality.rst:36
+msgid "Exactly Equal"
+msgstr ""
+
+#: ../../en/equality.rst:38
+msgid ""
+"Exact equality is determined by comparing two geometries, vertex by "
+"vertex, in order, to ensure they are identical in position.  The "
+"following examples show how this method can be limited in its "
+"effectiveness."
+msgstr ""
+
+#: ../../en/equality.rst:50
+msgid ""
+"In this example, the polygons are only equal to themselves, not to other "
+"seemingly equivalent polygons (as in the case of Polygons 1 through 3).  "
+"In the case of Polygons 1, 2, and 3, the vertices are in identical "
+"positions but are defined in differing orders.  Polygon 4 has colinear "
+"(and thus redundant) vertices on the hexagon edges causing inequality "
+"with Polygon 1."
+msgstr ""
+
+#: ../../en/equality.rst:53
+msgid "Spatially Equal"
+msgstr ""
+
+#: ../../en/equality.rst:55
+msgid ""
+"As we saw above, exact equality does not take into account the spatial "
+"nature of the geometries.  There is an function, aptly named "
+":command:`ST_Equals`, available to test the spatial equality or "
+"equivalence of geometries."
+msgstr ""
+
+#: ../../en/equality.rst:67
+msgid ""
+"These results are more in line with our intuitive understanding of "
+"equality.  Polygons 1 through 4 are considered equal, since they enclose "
+"the same area.  Note that neither the direction of the polygon is drawn, "
+"the starting point for defining the polygon, nor the number of points "
+"used are important here.  What is important is that the polygons contain "
+"the same space."
+msgstr ""
+
+#: ../../en/equality.rst:70
+msgid "Equal Bounds"
+msgstr ""
+
+#: ../../en/equality.rst:72
+msgid ""
+"Exact equality requires, in the worst case, comparison of each and every "
+"vertex in the geometry to determine equality.  This can be slow, and may "
+"not be appropriate for comparing huge numbers of geometries.  To allow "
+"for speedier comparison, the equal bounds operator, :command:`~=`, is "
+"provided.  This operates only on the bounding box (rectangle), ensuring "
+"that the geometries occupy the same two dimensional extent, but not "
+"necessarily the same space."
+msgstr ""
+
+#: ../../en/equality.rst:84
+msgid ""
+"As you can see, all of our spatially equal geometries also have equal "
+"bounds.  Unfortunately, Polygon 5 is also returned as equal under this "
+"test, because it shares the same bounding box as the other geometries.  "
+"Why is this useful, then?  Although this will be covered in detail later,"
+" the short answer is that this enables the use of spatial indexing that "
+"can quickly reduce huge comparison sets into more manageable blocks when "
+"joining or filtering data."
+msgstr ""
+

@@ -1,0 +1,252 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to
+# PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../en/joins.rst:4
+msgid "Spatial Joins"
+msgstr ""
+
+#: ../../en/joins.rst:6
+msgid ""
+"Spatial joins are the bread-and-butter of spatial databases.  They allow "
+"you to combine information from different tables by using spatial "
+"relationships as the join key.  Much of what we think of as \"standard "
+"GIS analysis\" can be expressed as spatial joins."
+msgstr ""
+
+#: ../../en/joins.rst:8
+msgid ""
+"In the previous section, we explored spatial relationships using a two-"
+"step process: first we extracted a subway station point for 'Broad St'; "
+"then, we used that point to ask further questions such as \"what "
+"neighborhood is the 'Broad St' station in?\""
+msgstr ""
+
+#: ../../en/joins.rst:10
+msgid ""
+"Using a spatial join, we can answer the question in one step, retrieving "
+"information about the subway station and the neighborhood that contains "
+"it:"
+msgstr ""
+
+#: ../../en/joins.rst:29
+msgid ""
+"We could have joined every subway station to its containing neighborhood,"
+" but in this case we wanted information about just one.  Any function "
+"that provides a true/false relationship between two tables can be used to"
+" drive a spatial join, but the most commonly used ones are: "
+":command:`ST_Intersects`, :command:`ST_Contains`, and "
+":command:`ST_DWithin`."
+msgstr ""
+
+#: ../../en/joins.rst:32
+msgid "Join and Summarize"
+msgstr ""
+
+#: ../../en/joins.rst:34
+msgid ""
+"The combination of a ``JOIN`` with a ``GROUP BY`` provides the kind of "
+"analysis that is usually done in a GIS system."
+msgstr ""
+
+#: ../../en/joins.rst:36
+msgid ""
+"For example: **\"What is the population and racial make-up of the "
+"neighborhoods of Manhattan?\"** Here we have a question that combines "
+"information from about population from the census with the boundaries of "
+"neighborhoods, with a restriction to just one borough of Manhattan."
+msgstr ""
+
+#: ../../en/joins.rst:88
+msgid ""
+"What's going on here? Notionally (the actual evaluation order is "
+"optimized under the covers by the database) this is what happens:"
+msgstr ""
+
+#: ../../en/joins.rst:90
+msgid ""
+"The ``JOIN`` clause creates a virtual table that includes columns from "
+"both the neighborhoods and census tables."
+msgstr ""
+
+#: ../../en/joins.rst:91
+msgid "The ``WHERE`` clause filters our virtual table to just rows in Manhattan."
+msgstr ""
+
+#: ../../en/joins.rst:92
+msgid ""
+"The remaining rows are grouped by the neighborhood name and fed through "
+"the aggregation function to :command:`Sum()` the population values."
+msgstr ""
+
+#: ../../en/joins.rst:93
+msgid ""
+"After a little arithmetic and formatting (e.g., ``GROUP BY``, ``ORDER "
+"BY``) on the final numbers, our query spits out the percentages."
+msgstr ""
+
+#: ../../en/joins.rst:97
+msgid ""
+"The ``JOIN`` clause combines two ``FROM`` items.  By default, we are "
+"using an ``INNER JOIN``, but there are four other types of joins. For "
+"further information see the `join_type "
+"<http://www.postgresql.org/docs/9.1/interactive/sql-select.html#SQL-"
+"FROM>`_ definition in the PostgreSQL documentation."
+msgstr ""
+
+#: ../../en/joins.rst:99
+msgid ""
+"We can also use distance tests as a join key, to create summarized \"all "
+"items within a radius\" queries. Let's explore the racial geography of "
+"New York using distance queries."
+msgstr ""
+
+#: ../../en/joins.rst:101
+msgid "First, let's get the baseline racial make-up of the city."
+msgstr ""
+
+#: ../../en/joins.rst:118
+msgid ""
+"So, of the 8M people in New York, about 44% are recorded as \"white\" and"
+" 26% are recorded as \"black\"."
+msgstr ""
+
+#: ../../en/joins.rst:120
+msgid ""
+"Duke Ellington once sang that \"You / must take the A-train / To / go to "
+"Sugar Hill way up in Harlem.\" As we saw earlier, Harlem has far and away"
+" the highest African-American population in Manhattan (80.5%). Is the "
+"same true of Duke's A-train?"
+msgstr ""
+
+#: ../../en/joins.rst:122
+msgid ""
+"First, note that the contents of the ``nyc_subway_stations`` table "
+"``routes`` field is what we are interested in to find the A-train. The "
+"values in there are a little complex."
+msgstr ""
+
+#: ../../en/joins.rst:140
+msgid ""
+"The ``DISTINCT`` keyword eliminates duplicate rows from the result.  "
+"Without the ``DISTINCT`` keyword, the query above identifies 491 results "
+"instead of 73."
+msgstr ""
+
+#: ../../en/joins.rst:142
+msgid ""
+"So to find the A-train, we will want any row in ``routes`` that has an "
+"'A' in it. We can do this a number of ways, but today we will use the "
+"fact that :command:`strpos(routes,'A')` will return a non-zero number "
+"only if 'A' is in the ``routes`` field."
+msgstr ""
+
+#: ../../en/joins.rst:162
+msgid ""
+"Let's summarize the racial make-up of within 200 meters of the A-train "
+"line."
+msgstr ""
+
+#: ../../en/joins.rst:181
+msgid ""
+"So the racial make-up along the A-train isn't radically different from "
+"the make-up of New York City as a whole."
+msgstr ""
+
+#: ../../en/joins.rst:184
+msgid "Advanced Join"
+msgstr ""
+
+#: ../../en/joins.rst:186
+msgid ""
+"In the last section we saw that the A-train didn't serve a population "
+"that differed much from the racial make-up of the rest of the city. Are "
+"there any trains that have a non-average racial make-up?"
+msgstr ""
+
+#: ../../en/joins.rst:188
+msgid ""
+"To answer that question, we'll add another join to our query, so that we "
+"can simultaneously calculate the make-up of many subway lines at once. To"
+" do that, we'll need to create a new table that enumerates all the lines "
+"we want to summarize."
+msgstr ""
+
+#: ../../en/joins.rst:199
+msgid "Now we can join the table of subway lines onto our original query."
+msgstr ""
+
+#: ../../en/joins.rst:244
+msgid ""
+"As before, the joins create a virtual table of all the possible "
+"combinations available within the constraints of the ``JOIN ON`` "
+"restrictions, and those rows are then fed into a ``GROUP`` summary. The "
+"spatial magic is in the ``ST_DWithin`` function, that ensures only census"
+" blocks close to the appropriate subway stations are included in the "
+"calculation."
+msgstr ""
+
+#: ../../en/joins.rst:247
+msgid "Function List"
+msgstr ""
+
+#: ../../en/joins.rst:249
+msgid ""
+"`ST_Contains(geometry A, geometry B) "
+"<http://postgis.net/docs/ST_Contains.html>`_: Returns true if and only if"
+" no points of B lie in the exterior of A, and at least one point of the "
+"interior of B lies in the interior of A."
+msgstr ""
+
+#: ../../en/joins.rst:251
+msgid ""
+"`ST_DWithin(geometry A, geometry B, radius) "
+"<http://postgis.net/docs/ST_DWithin.html>`_: Returns true if the "
+"geometries are within the specified distance of one another."
+msgstr ""
+
+#: ../../en/joins.rst:253
+msgid ""
+"`ST_Intersects(geometry A, geometry B) "
+"<http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the "
+"Geometries/Geography \"spatially intersect\" - (share any portion of "
+"space) and FALSE if they don't (they are Disjoint)."
+msgstr ""
+
+#: ../../en/joins.rst:255
+msgid ""
+"`round(v numeric, s integer) "
+"<http://www.postgresql.org/docs/current/interactive/functions-"
+"math.html>`_: PostgreSQL math function that rounds to s decimal places"
+msgstr ""
+
+#: ../../en/joins.rst:257
+msgid ""
+"`strpos(string, substring) <http://www.postgresql.org/docs/current/static"
+"/functions-string.html>`_: PostgreSQL string function that returns an "
+"integer location of a specified substring."
+msgstr ""
+
+#: ../../en/joins.rst:259
+msgid ""
+"`sum(expression) <http://www.postgresql.org/docs/current/static"
+"/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL "
+"aggregate function that returns the sum of records in a set of records."
+msgstr ""
+

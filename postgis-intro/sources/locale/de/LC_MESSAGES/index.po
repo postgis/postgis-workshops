@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to
+# PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../en/index.rst:4
+msgid "Introduction to PostGIS"
+msgstr ""
+
+#: ../../en/index.rst:7
+msgid "Getting Started"
+msgstr ""
+
+#: ../../en/index.rst:9
+msgid ""
+"This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-"
+"workshop-2020.zip>`_. Download it and extract to a convenient location."
+msgstr ""
+
+#: ../../en/index.rst:11
+msgid ""
+"The **presentation deck** that goes with this workshop is available `on "
+"Google Slides <https://docs.google.com/presentation/d"
+"/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
+msgstr ""
+
+#: ../../en/index.rst:13
+msgid ""
+"The **cheat sheet** of SQL commands that are run in this workshop is "
+"`available here <workshop-sql.txt>`_."
+msgstr ""
+
+#: ../../en/index.rst:17
+msgid "Data Bundle"
+msgstr ""
+
+#: ../../en/index.rst:19
+msgid "Inside the data bundle, you will find:"
+msgstr ""
+
+#: ../../en/index.rst:22
+msgid "**data/**"
+msgstr ""
+
+#: ../../en/index.rst:22
+msgid "a directory containing the data files we will be loading"
+msgstr ""
+
+#: ../../en/index.rst:26
+msgid "**printing/**"
+msgstr ""
+
+#: ../../en/index.rst:25
+msgid "a directory containing the exercise pages and data model pages"
+msgstr ""
+
+#: ../../en/index.rst:29
+msgid "License & Copying"
+msgstr ""
+
+#: ../../en/index.rst:31
+msgid ""
+"All the data in the package is public domain and freely redistributable. "
+"All the software in the package is open source, and freely "
+"redistributable. This workshop is licensed as Creative Commons \"`share "
+"alike with attribution <http://creativecommons.org/licenses/by-"
+"sa/3.0/us/>`_\", and is freely redistributable under the terms of that "
+"license."
+msgstr ""
+
+#: ../../en/index.rst:35
+msgid "Workshop Modules"
+msgstr ""
+
+#: ../../en/index.rst:84
+msgid "Links to have on hand"
+msgstr ""
+
+#: ../../en/index.rst:86
+msgid "PostGIS - http://postgis.net/"
+msgstr ""
+
+#: ../../en/index.rst:88
+msgid "Docs - http://postgis.net/docs/"
+msgstr ""
+
+#: ../../en/index.rst:90
+msgid "PostgreSQL - http://www.postgresql.org/"
+msgstr ""
+
+#: ../../en/index.rst:92
+msgid "Docs - https://www.postgresql.org/docs/"
+msgstr ""
+
+#: ../../en/index.rst:93
+msgid "Downloads - https://www.postgresql.org/download/"
+msgstr ""
+
+#: ../../en/index.rst:94
+msgid "JDBC Driver - https://jdbc.postgresql.org/"
+msgstr ""
+
+#: ../../en/index.rst:95
+msgid ".Net Driver - https://www.npgsql.org/"
+msgstr ""
+
+#: ../../en/index.rst:96
+msgid "Python Driver - http://www.pygresql.org/"
+msgstr ""
+
+#: ../../en/index.rst:97
+msgid "C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html"
+msgstr ""
+
+#: ../../en/index.rst:99
+msgid "PgAdmin - https://www.pgadmin.org/"
+msgstr ""
+
+#: ../../en/index.rst:101
+msgid "Open Source Desktop Clients"
+msgstr ""
+
+#: ../../en/index.rst:103
+msgid "QGIS - https://qgis.org/"
+msgstr ""
+
+#: ../../en/index.rst:104
+msgid "OpenJUMP - http://openjump.org/"
+msgstr ""
+
+#: ../../en/index.rst:105
+msgid "uDig - http://udig.github.io/"
+msgstr ""
+

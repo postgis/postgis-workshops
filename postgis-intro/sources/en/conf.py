@@ -185,3 +185,7 @@ latex_documents = [
 
 # If false, no module index is generated.
 latex_use_modindex = False
+
+# -- Options for sphinx-intl example
+locale_dirs = ['../locale/']   # path is example but recommended.
+gettext_compact = False     # optional.

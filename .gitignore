@@ -2,3 +2,4 @@
 postgis-intro/doc
 # OSX nonsense
 .DS_Store
+_build

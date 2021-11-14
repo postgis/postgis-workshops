@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/upgrades.rst:4
+msgid "Software Upgrades"
+msgstr ""
+
+#: ../../en/upgrades.rst:6
+msgid "Because PostGIS resides within PostgreSQL every PostGIS installation actually consists of two versions of software: the PostgreSQL version and the PostGIS version.  As a general principle, each version of PostGIS can be theoretically run within a number of versions of PostgreSQL, and vice versa."
+msgstr ""
+
+#: ../../en/upgrades.rst:8
+msgid "In practice, the exact version pair available will be dictated by the packager who has built your PostgreSQL distribution. Most Linux packages includes a couple PostGIS versions for each PostgreSQL version release, allowing the parts to be upgraded either independently or simultaneously, depending on your preferences."
+msgstr ""
+
+#: ../../en/upgrades.rst:10
+msgid "Upgrades can be considered in terms of upgrading each component."
+msgstr ""
+
+#: ../../en/upgrades.rst:14
+msgid "Upgrading PostgreSQL"
+msgstr ""
+
+#: ../../en/upgrades.rst:16
+msgid "There are two kinds of PostgreSQL upgrade scenarios:"
+msgstr ""
+
+#: ../../en/upgrades.rst:18
+msgid "A \"minor upgrade\" when the software version increases at the \"patch\" level. For example, from 8.4.3 to 8.4.4, or from 9.0.1 to 9.0.3. Increases of more than one patch version are just fine. Minor upgrades fix bugs but do not add any new features or change behaviour."
+msgstr ""
+
+#: ../../en/upgrades.rst:19
+msgid "A \"major upgrade\" when the \"major\" or \"minor\" versions increase. For example, from 8.4.5 to 9.0.0, or from 9.0.5 to 9.1.1. Major upgrades add new features and change behavior."
+msgstr ""
+
+#: ../../en/upgrades.rst:22
+msgid "Minor PostgreSQL Upgrades"
+msgstr ""
+
+#: ../../en/upgrades.rst:24
+msgid "For \"minor upgrades\", no special process is necessary. Simply install the new software, and re-start the server."
+msgstr ""
+
+#: ../../en/upgrades.rst:27
+msgid "Major PostgreSQL Upgrades"
+msgstr ""
+
+#: ../../en/upgrades.rst:29
+msgid "For \"major upgrades\" there are two ways to carry out the upgrade."
+msgstr ""
+
+#: ../../en/upgrades.rst:32
+msgid "Dump/Restore"
+msgstr ""
+
+#: ../../en/upgrades.rst:34
+msgid "Dumping and restoring involves converting all the data to a platform neutral format (text representations) on dump, and back to native representations on restore, so it can be time consuming and CPU intensive. However, if you are migrating to a new architecture or operating system, it's a required process. It's also a time-tested and well-understood upgrade path, so if your database is not too big, there's no reason not to stick with it."
+msgstr ""
+
+#: ../../en/upgrades.rst:36
+msgid "Dump your data ``pg_dumpall`` from the old database."
+msgstr ""
+
+#: ../../en/upgrades.rst:37
+msgid "Install the new version of PostgreSQL and the same version of PostGIS you are using in your old database. You need to match the PostGIS version so that the dump file function definitions reference an expected version of the PostGIS library."
+msgstr ""
+
+#: ../../en/upgrades.rst:38
+msgid "Initialize the new data area using the ``initdb`` program from the new software."
+msgstr ""
+
+#: ../../en/upgrades.rst:39
+msgid "Start the new server on the new data area."
+msgstr ""
+
+#: ../../en/upgrades.rst:40
+msgid "Restore the dump file using ``pg_restore``."
+msgstr ""
+
+#: ../../en/upgrades.rst:43
+msgid "pg_upgrade"
+msgstr ""
+
+#: ../../en/upgrades.rst:45
+msgid "The pg_upgrade_ utility allows PostgreSQL data directories to be upgraded without the requirement for a dump/restore step. The utility cannot handle changes to the data files themselves, but handles the more common and frequent changes to system tables that occur in PostgreSQL major upgrades."
+msgstr ""
+
+#: ../../en/upgrades.rst:49
+msgid "The full instructions for running the upgrade process are in the pg_upgrade_ web page at the PostgreSQL site."
+msgstr ""
+
+#: ../../en/upgrades.rst:51
+msgid "The pg_upgrade_ program expects to have access to both versions of PostgreSQL it is working with, the old and the new version, so you will have to install them both."
+msgstr ""
+
+#: ../../en/upgrades.rst:53
+msgid "Install the new version of PostgreSQL you will be using."
+msgstr ""
+
+#: ../../en/upgrades.rst:54
+msgid "Install the same version of PostGIS you are using in the old PostgreSQL into the new PostgreSQL."
+msgstr ""
+
+#: ../../en/upgrades.rst:55
+msgid "Initialize the new PostgreSQL data area with the new copy of ``initdb``."
+msgstr ""
+
+#: ../../en/upgrades.rst:56
+msgid "Ensure both the old and new PostgreSQL servers are turned off."
+msgstr ""
+
+#: ../../en/upgrades.rst:57
+msgid "Run pg_upgrade_, making sure to use the binary from the new software installation."
+msgstr ""
+
+#: ../../en/upgrades.rst:67
+msgid "If pg_upgrade_ generated any ``.sql`` files, run them now."
+msgstr ""
+
+#: ../../en/upgrades.rst:68
+msgid "Start the new server."
+msgstr ""
+
+#: ../../en/upgrades.rst:72
+msgid "Upgrading PostGIS"
+msgstr ""
+
+#: ../../en/upgrades.rst:74
+msgid "PostGIS deals with minor and upgrades through the ``EXTENSION`` mechanism. If you spatially-enabled your database using ``CREATE EXTENSION postgis``, you can update your database using the same functionality."
+msgstr ""
+
+#: ../../en/upgrades.rst:76
+msgid "First, install the new software so it is available to the database."
+msgstr ""
+
+#: ../../en/upgrades.rst:78
+msgid "Then, run the SQL to upgrade your PostGIS extension."
+msgstr ""

@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/geometry_returning.rst:4
+msgid "Geometry Constructing Functions"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:6
+msgid "All the functions we have seen so far work with geometries \"as they are\" and returns"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:8
+msgid "analyses of the objects (:command:`ST_Length(geometry)`, :command:`ST_Area(geometry)`),"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:9
+msgid "serializations of the objects (:command:`ST_AsText(geometry)`, :command:`ST_AsGML(geometry)`),"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:10
+msgid "parts of the object (:command:`ST_RingN(geometry,n)`) or"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:11
+msgid "true/false tests (:command:`ST_Contains(geometry,geometry)`, :command:`ST_Intersects(geometry,geometry)`)."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:13
+msgid "\"Geometry constructing functions\" take geometries as inputs and output new shapes."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:17
+msgid "ST_Centroid / ST_PointOnSurface"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:19
+msgid "A common need when composing a spatial query is to replace a polygon feature with a point representation of the feature. This is useful for spatial joins (as discussed in :ref:`polypolyjoins`) because using :command:`ST_Intersects(geometry,geometry)` on two polygon layers often results in double-counting: a polygon on a boundary will intersect an object on both sides; replacing it with a point forces it to be on one side or the other, not both."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:21
+msgid ":command:`ST_Centroid(geometry)` returns a point that is approximately on the center of mass of the input argument. This simple calculation is very fast, but sometimes not desirable, because the returned point is not necessarily in the feature itself. If the input feature has a convexity (imagine the letter 'C') the returned centroid might not be in the interior of the feature."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:22
+msgid ":command:`ST_PointOnSurface(geometry)` returns a point that is guaranteed to be inside the input argument. This makes it more useful for computing \"proxy points\" for spatial joins."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:45
+msgid "ST_Buffer"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:47
+msgid "The buffering operation is common in GIS workflows, and is also available in PostGIS. :command:`ST_Buffer(geometry,distance)` takes in a buffer distance and geometry type and outputs a polygon with a boundary the buffer distance away from the input geometry."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:52
+msgid "For example, if the US Park Service wanted to enforce a marine traffic zone around Liberty Island, they might build a 500 meter buffer polygon around the island. Liberty Island is a single census block in our ``nyc_census_blocks`` table, so we can easily extract and buffer it."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:65
+msgid "The :command:`ST_Buffer` function also accepts negative distances and builds inscribed polygons within polygonal inputs. For lines and points you will just get an empty return."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:72
+msgid "ST_Intersection"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:74
+msgid "Another classic GIS operation -- the \"overlay\" -- creates a new coverage by calculating the intersection of two superimposed polygons. The resultant has the property that any polygon in either of the parents can be built by merging polygons in the resultant."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:76
+msgid "The :command:`ST_Intersection(geometry A, geometry B)` function returns the spatial area (or line, or point) that both arguments have in common. If the arguments are disjoint, the function returns an empty geometry."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:94
+msgid "ST_Union"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:96
+msgid "In the previous example we intersected geometries, creating a new geometry that had lines from both the inputs. The :command:`ST_Union` function does the reverse; it takes inputs and removes common lines. There are two forms of the :command:`ST_Union` function:"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:98
+msgid ":command:`ST_Union(geometry, geometry)`: A two-argument version that takes in two geometries and returns the merged union.  For example, our two-circle example from the previous section looks like this when you replace the intersection with a union."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:114
+msgid ":command:`ST_Union([geometry])`: An aggregate version that takes in a set of geometries and returns the merged geometry for the entire group. The aggregate ST_Union can be used with the ``GROUP BY`` SQL statement to create carefully merged subsets of basic geometries. It is very powerful."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:116
+msgid "As an example of :command:`ST_Union` aggregation, consider our ``nyc_census_blocks`` table. Census geography is carefully constructed so that larger geographies can be built up from smaller ones. So, we can create a census tracts map by merging the blocks that form each tract (as we do later in :ref:`creatingtractstable`). Or, we can create a county map by merging blocks that fall within each county."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:118
+msgid "To carry out the merge, note that the unique key ``blkid`` actually embeds information about the higher level geographies. Here are the parts of the key for Liberty Island we used earlier:"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:131
+msgid "So, we can create a county map by merging all geometries that share the same first 5 digits of their ``blkid``. Be patient; this is computationally expensive and can take a minute or two."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:146
+msgid "An area test can confirm that our union operation did not lose any geometry. First, we calculate the area of each individual census block, and sum those areas grouping by census county id."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:165
+msgid "Then we calculate the area of each of our new county polygons from the county table:"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:183
+msgid "The same answer! We have successfully built an NYC county table from our census blocks data."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:212
+msgid "Function List"
+msgstr ""
+
+#: ../../en/geometry_returning.rst:214
+msgid "`ST_Centroid(geometry) <http://postgis.net/docs/ST_Centroid.html>`_: Returns a point geometry that represents the center of mass of the input geometry."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:216
+msgid "`ST_PointOnSurface(geometry) <http://postgis.net/docs/ST_PointOnSurface.html>`_: Returns a point geometry that is guaranteed to be in the interior of the input geometry."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:218
+msgid "`ST_Buffer(geometry, distance) <http://postgis.net/docs/ST_Buffer.html>`_: For geometry: Returns a geometry that represents all points whose distance from this Geometry is less than or equal to distance. Calculations are in the Spatial Reference System of this Geometry. For geography: Uses a planar transform wrapper."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:220
+msgid "`ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/ST_Intersection.html>`_: Returns a geometry that represents the shared portion of geomA and geomB. The geography implementation does a transform to geometry to do the intersection and then transform back to WGS84."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:222
+msgid "`ST_Union() <http://postgis.net/docs/ST_Union.html>`_: Returns a geometry that represents the point set union of the Geometries."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:224
+msgid "`ST_AsText(text) <http://postgis.net/docs/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:226
+msgid "`substring(string [from int] [for int]) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function to extract substring matching SQL regular expression."
+msgstr ""
+
+#: ../../en/geometry_returning.rst:228
+msgid "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the sum of records in a set of records."
+msgstr ""

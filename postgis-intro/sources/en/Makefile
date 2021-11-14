@@ -7,6 +7,7 @@ SPHINXBUILD   = sphinx-build
 
 # Internal variables.
 OUTPUT          = ../../doc/en
+BUILDDIR				= ../_build
 SOURCE          = .
 CACHE           = $(OUTPUT)/.build/doctrees
 ALLSPHINXOPTS   = -d $(CACHE) $(SPHINXOPTS)
@@ -31,6 +32,19 @@ html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)
 	@echo
 	@echo "Build finished. The HTML pages are in $(OUTPUT)."
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+pot: 
+	mkdir -p $(OUTPUT) $(CACHE)
+	$(SPHINXBUILD) -M gettext "$(SOURCE)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	mv $(BUILDDIR)/gettext/*.pot ../locale/pot
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	mkdir -p $(OUTPUT) $(CACHE)
+	$(SPHINXBUILD) -M $@ "$(SOURCE)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 #	find $(OUTPUT) -name .svn -type d -exec /bin/rm -rf {} ';'
 

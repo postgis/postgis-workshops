@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to
+# PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../en/projection_exercises.rst:4
+msgid "Projection Exercises"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:6
+msgid ""
+"Here's a reminder of some of the functions we have seen.  Hint: they "
+"should be useful for the exercises!"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:8
+msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:9
+msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:10
+msgid ":command:`ST_SRID(geometry)` returns the SRID of the geometry"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:11
+msgid ""
+":command:`ST_Transform(geometry, srid)` converts geometries into "
+"different spatial reference systems"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:12
+msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:13
+msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:14
+msgid ":command:`ST_AsGML(geometry)` returns GML ``text``"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:16
+msgid "Remember the online resources that are available to you:"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:18
+msgid "https://epsg.io/"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:20
+msgid "Also remember the tables we have available:"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:22
+msgid "``nyc_census_blocks``"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:24
+msgid "name, popn_total, boroname, geom"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:26
+msgid "``nyc_streets``"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:28
+msgid "name, type, geom"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:30
+msgid "``nyc_subway_stations``"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:32
+msgid "name, geom"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:34
+msgid "``nyc_neighborhoods``"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:36
+msgid "name, boroname, geom"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:39
+msgid "Exercises"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:41
+msgid "**What is the length of all streets in New York, as measured in UTM 18?**"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:52
+msgid "**What is the WKT definition of SRID 2831?**"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:59
+msgid "Or, via https://epsg.io/2831"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:91
+msgid ""
+"**What is the length of all streets in New York, as measured in SRID "
+"2831?**"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:104
+msgid ""
+"The difference between the UTM 18 and the State Plane Long Island "
+"measurements is (10421993 - 10418904)/10418904, or 0.02%. Calculated on "
+"the spheroid using :ref:`geography` the total street length is 10421999, "
+"which is closer to the State Plane value. This is not surprising, since "
+"the State Plane Long Island projection is precisely calibrated for a very"
+" small area (New York City) while UTM 18 has to provide reasonable "
+"results for a large regional area."
+msgstr ""
+
+#: ../../en/projection_exercises.rst:107
+msgid "**How many streets cross the 74th meridian?**"
+msgstr ""
+
+#: ../../en/projection_exercises.rst:122
+msgid ""
+"The \"74th meridian\" is a fancy way of saying \"a vertical line in "
+"geographics where the X value is -74\". We can construct such a line and "
+"then compare it to the streets, projected into geographics also. "
+"Projecting the line into UTM and comparing it there will return a "
+"slightly different answer. To get the same answer, you need to "
+"\"segmentize\" it, so it has more points, before transforming."
+msgstr ""
+

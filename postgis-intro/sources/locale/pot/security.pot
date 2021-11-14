@@ -1,0 +1,289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/security.rst:4
+msgid "PostgreSQL Security"
+msgstr ""
+
+#: ../../en/security.rst:6
+msgid "PostgreSQL has a rich and flexible permissions system, with the ability to parcel out particular privileges to particular roles_, and provide users with the powers of one or more of those roles_."
+msgstr ""
+
+#: ../../en/security.rst:8
+msgid "In addition, the PostgreSQL server can use multiple different systems to authenticate users. This means that the database can use the same authentication infrastructure as other architecture components, simplifying password management."
+msgstr ""
+
+#: ../../en/security.rst:12
+msgid "Users and Roles"
+msgstr ""
+
+#: ../../en/security.rst:14
+msgid "In this chapter we will create two useful production users:"
+msgstr ""
+
+#: ../../en/security.rst:16
+msgid "A read-only user for use in a publishing application."
+msgstr ""
+
+#: ../../en/security.rst:17
+msgid "A read/write user for use by a developer in building a software or analyzing data."
+msgstr ""
+
+#: ../../en/security.rst:19
+msgid "Rather than creating users and granting them the necessary powers, we will create two roles with the right powers and then create two users and add them to the appropriate roles. That way we can easily reuse the roles when we create further users."
+msgstr ""
+
+#: ../../en/security.rst:23
+msgid "Creating Roles"
+msgstr ""
+
+#: ../../en/security.rst:25
+msgid "A role is a user and a user is a role. The only difference is that a \"user\" can be said to be a role with the \"login\" privilege."
+msgstr ""
+
+#: ../../en/security.rst:27
+msgid "So functionally, the two SQL statements below are the same, they both create a \"role with the login privilege\", which is to say, a \"user\"."
+msgstr ""
+
+#: ../../en/security.rst:36
+msgid "Read-only Users"
+msgstr ""
+
+#: ../../en/security.rst:38
+msgid "Our read-only user will be for a web application to use to query the ``nyc_streets`` table."
+msgstr ""
+
+#: ../../en/security.rst:40
+msgid "The application will have specific access to the ``nyc_streets`` table, but will inherit the necessary system access for PostGIS operations from the ``postgis_reader`` role."
+msgstr ""
+
+#: ../../en/security.rst:54
+msgid "Now, when we login as app1, we can select rows from the ``nyc_streets`` table. However, we cannot run an :command:`ST_Transform` call! Why not?"
+msgstr ""
+
+#: ../../en/security.rst:70
+msgid "The answer is contained in the error statement. Though our ``app1`` user can view the contents of the ``nyc_streets`` table fine, it cannot view the contents of ``spatial_ref_sys``, so the call to :command:`ST_Transform` fails."
+msgstr ""
+
+#: ../../en/security.rst:72
+msgid "So, we need to also grant the ``postgis_reader`` role read access to all the PostGIS metadata tables:"
+msgstr ""
+
+#: ../../en/security.rst:80
+msgid "Now we have a nice generic ``postgis_reader`` role we can apply to any user that need to read from PostGIS tables."
+msgstr ""
+
+#: ../../en/security.rst:91
+msgid "Read/write Users"
+msgstr ""
+
+#: ../../en/security.rst:93
+msgid "There are two kinds of read/write scenarios we need to consider:"
+msgstr ""
+
+#: ../../en/security.rst:95
+msgid "Web applications and others that need to write to existing data tables."
+msgstr ""
+
+#: ../../en/security.rst:96
+msgid "Developers or analysts that need to create new tables and geometry columns as part of their work."
+msgstr ""
+
+#: ../../en/security.rst:98
+msgid "For web applications that require write access to data tables, we just need to grant extra permissions to the tables themselves, and we can continue to use the ``postgis_reader`` role."
+msgstr ""
+
+#: ../../en/security.rst:105
+msgid "These kinds of permissions would be required for a read/write WFS service, for example."
+msgstr ""
+
+#: ../../en/security.rst:107
+msgid "For developers and analysts, a little more access is needed to the main PostGIS metadata tables.  We will need a ``postgis_writer`` role that can edit the PostGIS metadata tables!"
+msgstr ""
+
+#: ../../en/security.rst:123
+msgid "Now try the table creation SQL above as the app1 user and see how it goes!"
+msgstr ""
+
+#: ../../en/security.rst:127
+msgid "Encryption"
+msgstr ""
+
+#: ../../en/security.rst:129
+msgid "PostgreSQL provides a lot of `encryption facilities <http://www.postgresql.org/docs/current/static/encryption-options.html>`_, many of them optional, some of them on by default."
+msgstr ""
+
+#: ../../en/security.rst:131
+msgid "By default, all passwords are MD5 encrypted. The client/server handshake double encrypts the MD5 password to prevent re-use of the hash by anyone who intercepts the password."
+msgstr ""
+
+#: ../../en/security.rst:132
+msgid "`SSL connections <http://www.postgresql.org/docs/current/static/libpq-ssl.html>`_ are optionally available between the client and server, to encrypt all data and login information. SSL certificate authentication is also available when SSL connections are used."
+msgstr ""
+
+#: ../../en/security.rst:133
+msgid "Columns inside the database can be encrypted using the pgcrypto_ module, which includes hashing algorithms, direct ciphers (blowfish, aes) and both public key and symmetric PGP encryption."
+msgstr ""
+
+#: ../../en/security.rst:136
+msgid "SSL Connections"
+msgstr ""
+
+#: ../../en/security.rst:138
+msgid "In order to use SSL connections, both your client and server must support SSL."
+msgstr ""
+
+#: ../../en/security.rst:140
+msgid "First, turn off PostgreSQL, since activating SSL will require a restart."
+msgstr ""
+
+#: ../../en/security.rst:141
+msgid "Next, we acquire or generate an SSL certificate and key. The certificate will need to have no passphrase on it, or the database server won't be able to start up. You can generate a self-signed key as follows:"
+msgstr ""
+
+#: ../../en/security.rst:157
+msgid "Copy the ``server.crt`` and ``server.key`` into the PostgreSQL data directory."
+msgstr ""
+
+#: ../../en/security.rst:159
+msgid "Enable SSL support in the ``postgresql.conf`` file by turning the \"ssl\" parameter to \"on\"."
+msgstr ""
+
+#: ../../en/security.rst:161
+msgid "Now re-start PostgreSQL; the server is ready for SSL operation."
+msgstr ""
+
+#: ../../en/security.rst:163
+msgid "With the server enabled for SSL, creating an encrypted connection is easy. In PgAdmin, create a new server connection (File > Add Server...), and set the SSL parameter to “require”."
+msgstr ""
+
+#: ../../en/security.rst:167
+msgid "Once you connect with the new connection, you can see in its properties that it is using an SSL connection."
+msgstr ""
+
+#: ../../en/security.rst:171
+msgid "Since the default SSL connection mode is \"prefer\", you don't even need to specify an SSL preference when connecting. A connection with the command line ``psql`` terminal will pick up the SSL option and use it by default:"
+msgstr ""
+
+#: ../../en/security.rst:181
+msgid "Note how the terminal reports the SSL status of the connection."
+msgstr ""
+
+#: ../../en/security.rst:185
+msgid "Data Encryption"
+msgstr ""
+
+#: ../../en/security.rst:187
+msgid "The pgcrypto_ module has a huge range of encryption options, so we will only demonstrate the simplest use case: encrypting a column of data using a symmetric cipher."
+msgstr ""
+
+#: ../../en/security.rst:189
+msgid "First, enable pgcrypto by loading the contrib SQL file, either in PgAdmin or psql."
+msgstr ""
+
+#: ../../en/security.rst:196
+msgid "Then, test the encryption function."
+msgstr ""
+
+#: ../../en/security.rst:203
+msgid "And make sure it's reversible too!"
+msgstr ""
+
+#: ../../en/security.rst:212
+msgid "Authentication"
+msgstr ""
+
+#: ../../en/security.rst:214
+msgid "PostgreSQL supports many different `authentication methods <http://www.postgresql.org/docs/current/static/auth-methods.html>`_, to allow easy integration into existing enterprise architectures. For production purposes, the following methods are commonly used:"
+msgstr ""
+
+#: ../../en/security.rst:216
+msgid "**Password** is the basic system where the passwords are stored by the database, with MD5 encryption."
+msgstr ""
+
+#: ../../en/security.rst:217
+msgid "Kerberos_ is a standard enterprise authentication method, which is used by both the GSSAPI_ and SSPI_ schemes in PostgreSQL. Using SSPI_, PostgreSQL can authenticate against Windows servers."
+msgstr ""
+
+#: ../../en/security.rst:218
+msgid "LDAP_ is another common enterprise authentication method. The `OpenLDAP <http://www.openldap.org/>`_ server bundled with most Linux distributions provides an open source implementation of LDAP_."
+msgstr ""
+
+#: ../../en/security.rst:219
+msgid "**Certificate** authentication is an option if you expect all client connections to be via SSL and are able to manage the distribution of keys."
+msgstr ""
+
+#: ../../en/security.rst:220
+msgid "PAM_ authentication is an option if you are on Linux or Solaris and use the PAM_ scheme for transparent authentication provision."
+msgstr ""
+
+#: ../../en/security.rst:222
+msgid "Authentication methods are controlled by the ``pg_hba.conf`` file. The \"HBA\" in the file name stands for \"host based access\", because in addition to allowing you to specify the authentication method to use for each database, it allows you to limit host access using network addresses."
+msgstr ""
+
+#: ../../en/security.rst:224
+msgid "Here is an example ``pg_hba.conf`` file:"
+msgstr ""
+
+#: ../../en/security.rst:239
+msgid "The file consists of five columns"
+msgstr ""
+
+#: ../../en/security.rst:241
+msgid "**TYPE** determines the kind of access, either \"local\" for connections from the same server or \"host\" for remote connections."
+msgstr ""
+
+#: ../../en/security.rst:242
+msgid "**DATABASE** specifies what database the configuration line refers to or \"all\" for all databases"
+msgstr ""
+
+#: ../../en/security.rst:243
+msgid "**USER** specifies what users the line refers to or \"all\" for all users"
+msgstr ""
+
+#: ../../en/security.rst:244
+msgid "**CIDR-ADDRESS** specifies the network limitations for remote connections, using network/netmask syntax"
+msgstr ""
+
+#: ../../en/security.rst:245
+msgid "**METHOD** specifies the authentication protocol to use. \"trust\" skips authentication entirely and simply accepts any valid username without challenge."
+msgstr ""
+
+#: ../../en/security.rst:247
+msgid "It's common for local connections to be trusted, since access to the server itself is usually privileged. Remote connections are disabled by default when PostgreSQL is installed: if you want to connect from remote machines, you'll have to add an entry."
+msgstr ""
+
+#: ../../en/security.rst:249
+msgid "The line for ``nyc`` in the example above is an example of a remote access entry. The ``nyc`` example allows LDAP authenticated access only to machines on the local network (in this case the 192.168.1. network) and only to the nyc database. Depending on the security of your network, you will use more or less strict versions of these rules in your production set-up."
+msgstr ""
+
+#: ../../en/security.rst:253
+msgid "Links"
+msgstr ""
+
+#: ../../en/security.rst:255
+msgid "`PostgreSQL Authentication <http://www.postgresql.org/docs/current/static/auth-methods.html>`_"
+msgstr ""
+
+#: ../../en/security.rst:256
+msgid "`PostgreSQL Encrpyption <http://www.postgresql.org/docs/current/static/encryption-options.html>`_"
+msgstr ""
+
+#: ../../en/security.rst:257
+msgid "`PostgreSQL SSL Support <http://www.postgresql.org/docs/current/static/libpq-ssl.html>`_"
+msgstr ""

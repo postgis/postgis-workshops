@@ -9,12 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
@@ -29,8 +30,8 @@ msgstr ""
 #: ../../en/introduction.rst:9
 msgid ""
 "PostGIS is a spatial database. Oracle Spatial and SQL Server (2008 and "
-"later) are also spatial databases. But what does that mean; what is it "
-"that makes an ordinary database a spatial database?"
+"later) are also spatial databases. But what does that mean; what is it that "
+"makes an ordinary database a spatial database?"
 msgstr ""
 
 #: ../../en/introduction.rst:11
@@ -45,19 +46,20 @@ msgstr ""
 
 #: ../../en/introduction.rst:15
 msgid ""
-"The following briefly covers the evolution of spatial databases, and then"
-" reviews three aspects that associate *spatial* data with a database -- "
-"data types, indexes, and functions."
+"The following briefly covers the evolution of spatial databases, and then "
+"reviews three aspects that associate *spatial* data with a database -- data "
+"types, indexes, and functions."
 msgstr ""
 
 #: ../../en/introduction.rst:17
-msgid "**Spatial data types** refer to shapes such as point, line, and polygon;"
+msgid ""
+"**Spatial data types** refer to shapes such as point, line, and polygon;"
 msgstr ""
 
 #: ../../en/introduction.rst:18
 msgid ""
-"Multi-dimensional **spatial indexing** is used for efficient processing "
-"of spatial operations;"
+"Multi-dimensional **spatial indexing** is used for efficient processing of "
+"spatial operations;"
 msgstr ""
 
 #: ../../en/introduction.rst:19
@@ -78,18 +80,18 @@ msgstr ""
 
 #: ../../en/introduction.rst:26
 msgid ""
-"In legacy first-generation :term:`GIS` implementations, all spatial data "
-"is stored in flat files and special :term:`GIS` software is required to "
+"In legacy first-generation :term:`GIS` implementations, all spatial data is "
+"stored in flat files and special :term:`GIS` software is required to "
 "interpret and manipulate the data.  These first-generation management "
-"systems are designed to meet the needs of users where all required data "
-"is within the user's organizational domain.  They are proprietary, self-"
+"systems are designed to meet the needs of users where all required data is "
+"within the user's organizational domain.  They are proprietary, self-"
 "contained systems specifically built for handling spatial data."
 msgstr ""
 
 #: ../../en/introduction.rst:28
 msgid ""
-"Second-generation spatial systems store some data in relational databases"
-" (usually the \"attribute\" or non-spatial parts) but still lack the "
+"Second-generation spatial systems store some data in relational databases "
+"(usually the \"attribute\" or non-spatial parts) but still lack the "
 "flexibility afforded with direct integration."
 msgstr ""
 
@@ -101,17 +103,16 @@ msgstr ""
 
 #: ../../en/introduction.rst:32
 msgid ""
-"Spatial databases fully integrate spatial data with a relational "
-"database.  The system orientation changes from GIS-centric to database-"
-"centric."
+"Spatial databases fully integrate spatial data with a relational database.  "
+"The system orientation changes from GIS-centric to database-centric."
 msgstr ""
 
 #: ../../en/introduction.rst:37
 msgid ""
-"A spatial database management system may be used in applications besides "
-"the geographic world.  Spatial databases are used to manage data related "
-"to the anatomy of the human body, large-scale integrated circuits, "
-"molecular structures, and electro-magnetic fields, among others."
+"A spatial database management system may be used in applications besides the "
+"geographic world.  Spatial databases are used to manage data related to the "
+"anatomy of the human body, large-scale integrated circuits, molecular "
+"structures, and electro-magnetic fields, among others."
 msgstr ""
 
 #: ../../en/introduction.rst:41
@@ -121,17 +122,17 @@ msgstr ""
 #: ../../en/introduction.rst:43
 msgid ""
 "An ordinary database has strings, numbers, and dates. A spatial database "
-"adds additional (spatial) types for representing **geographic features**."
-" These spatial data types abstract and encapsulate spatial structures "
-"such as boundary and dimension. In many respects, spatial data types can "
-"be understood simply as shapes."
+"adds additional (spatial) types for representing **geographic features**. "
+"These spatial data types abstract and encapsulate spatial structures such as "
+"boundary and dimension. In many respects, spatial data types can be "
+"understood simply as shapes."
 msgstr ""
 
 #: ../../en/introduction.rst:49
 msgid ""
 "Spatial data types are organized in a type hierarchy.  Each sub-type "
-"inherits the structure (attributes) and the behavior (methods or "
-"functions) of its super-type."
+"inherits the structure (attributes) and the behavior (methods or functions) "
+"of its super-type."
 msgstr ""
 
 #: ../../en/introduction.rst:53
@@ -141,61 +142,59 @@ msgstr ""
 #: ../../en/introduction.rst:55
 msgid ""
 "An ordinary database provides **indexes** to allow for fast and random "
-"access to subsets of data.  Indexing for standard types (numbers, "
-"strings, dates) is usually done with `B-tree "
-"<http://en.wikipedia.org/wiki/B-tree>`_ indexes."
+"access to subsets of data.  Indexing for standard types (numbers, strings, "
+"dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ "
+"indexes."
 msgstr ""
 
 #: ../../en/introduction.rst:57
 msgid ""
-"A B-tree partitions the data using the natural sort order to put the data"
-" into a hierarchical tree. The natural sort order of numbers, strings, "
-"and dates is simple to determine -- every value is less than, greater "
-"than or equal to every other value."
+"A B-tree partitions the data using the natural sort order to put the data "
+"into a hierarchical tree. The natural sort order of numbers, strings, and "
+"dates is simple to determine -- every value is less than, greater than or "
+"equal to every other value."
 msgstr ""
 
 #: ../../en/introduction.rst:59
 msgid ""
-"But because polygons can overlap, can be contained in one another, and "
-"are arrayed in a two-dimensional (or more) space, a B-tree cannot be used"
-" to efficiently index them. Real spatial databases provide a \"spatial "
-"index\" that instead answers the question \"which objects are within this"
-" particular bounding box?\"."
+"But because polygons can overlap, can be contained in one another, and are "
+"arrayed in a two-dimensional (or more) space, a B-tree cannot be used to "
+"efficiently index them. Real spatial databases provide a \"spatial index\" "
+"that instead answers the question \"which objects are within this particular "
+"bounding box?\"."
 msgstr ""
 
 #: ../../en/introduction.rst:61
 msgid ""
-"A **bounding box** is the smallest rectangle -- parallel to the "
-"coordinate axes -- capable of containing a given feature."
+"A **bounding box** is the smallest rectangle -- parallel to the coordinate "
+"axes -- capable of containing a given feature."
 msgstr ""
 
 #: ../../en/introduction.rst:67
 msgid ""
-"Bounding boxes are used because answering the question \"is A inside B?\""
-" is very computationally intensive for polygons but very fast in the case"
-" of rectangles.  Even the most complex polygons and linestrings can be "
+"Bounding boxes are used because answering the question \"is A inside B?\" is "
+"very computationally intensive for polygons but very fast in the case of "
+"rectangles.  Even the most complex polygons and linestrings can be "
 "represented by a simple bounding box."
 msgstr ""
 
 #: ../../en/introduction.rst:69
 msgid ""
 "Indexes have to perform quickly in order to be useful. So instead of "
-"providing exact results, as B-trees do, spatial indexes provide "
-"approximate results. The question \"what lines are inside this polygon?\""
-" will be instead interpreted by a spatial index as \"what lines have "
-"bounding boxes that are contained inside this polygon's bounding box?\""
+"providing exact results, as B-trees do, spatial indexes provide approximate "
+"results. The question \"what lines are inside this polygon?\" will be "
+"instead interpreted by a spatial index as \"what lines have bounding boxes "
+"that are contained inside this polygon's bounding box?\""
 msgstr ""
 
 #: ../../en/introduction.rst:71
 msgid ""
-"The actual spatial indexes implemented by various databases vary widely. "
-"The most common implementations are the `R-Tree "
-"<http://en.wikipedia.org/wiki/R-tree>`_ and `Quadtree "
-"<http://en.wikipedia.org/wiki/Quadtree>`_ (used in PostGIS), but there "
-"are also `grid-based indexes "
-"<http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ and `GeoHash "
-"indexes <https://en.wikipedia.org/wiki/Geohash>`_ implemented in other "
-"spatial databases."
+"The actual spatial indexes implemented by various databases vary widely. The "
+"most common implementations are the `R-Tree <http://en.wikipedia.org/wiki/R-"
+"tree>`_ and `Quadtree <http://en.wikipedia.org/wiki/Quadtree>`_ (used in "
+"PostGIS), but there are also `grid-based indexes <http://en.wikipedia.org/"
+"wiki/Grid_(spatial_index)>`_ and `GeoHash indexes <https://en.wikipedia.org/"
+"wiki/Geohash>`_ implemented in other spatial databases."
 msgstr ""
 
 #: ../../en/introduction.rst:74
@@ -205,17 +204,16 @@ msgstr ""
 #: ../../en/introduction.rst:76
 msgid ""
 "For manipulating data during a query, an ordinary database provides "
-"**functions** such as concatenating strings, performing hash operations "
-"on strings, doing mathematics on numbers, and extracting information from"
-" dates."
+"**functions** such as concatenating strings, performing hash operations on "
+"strings, doing mathematics on numbers, and extracting information from dates."
 msgstr ""
 
 #: ../../en/introduction.rst:78
 msgid ""
 "A spatial database provides a complete set of functions for analyzing "
-"geometric components, determining spatial relationships, and manipulating"
-" geometries.  These spatial functions serve as the building block for any"
-" spatial project."
+"geometric components, determining spatial relationships, and manipulating "
+"geometries.  These spatial functions serve as the building block for any "
+"spatial project."
 msgstr ""
 
 #: ../../en/introduction.rst:80
@@ -232,14 +230,14 @@ msgstr ""
 
 #: ../../en/introduction.rst:83
 msgid ""
-"**Management**: Functions that *manage* information about spatial tables "
-"and PostGIS administration."
+"**Management**: Functions that *manage* information about spatial tables and "
+"PostGIS administration."
 msgstr ""
 
 #: ../../en/introduction.rst:84
 msgid ""
-"**Retrieval**: Functions that *retrieve* properties and measurements of a"
-" Geometry."
+"**Retrieval**: Functions that *retrieve* properties and measurements of a "
+"Geometry."
 msgstr ""
 
 #: ../../en/introduction.rst:85
@@ -254,9 +252,9 @@ msgstr ""
 
 #: ../../en/introduction.rst:88
 msgid ""
-"The list of possible functions is very large, but a common set of "
-"functions is defined by the :term:`OGC` :term:`SFSQL` and implemented "
-"(along with additional useful functions) by PostGIS."
+"The list of possible functions is very large, but a common set of functions "
+"is defined by the :term:`OGC` :term:`SFSQL` and implemented (along with "
+"additional useful functions) by PostGIS."
 msgstr ""
 
 #: ../../en/introduction.rst:91
@@ -266,11 +264,10 @@ msgstr ""
 #: ../../en/introduction.rst:93
 msgid ""
 "PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database "
-"Management System into a spatial database by adding support for the three"
-" features: spatial types, spatial indexes, and spatial functions.  "
-"Because it is built on PostgreSQL, PostGIS automatically inherits "
-"important \"enterprise\" features as well as open standards for "
-"implementation."
+"Management System into a spatial database by adding support for the three "
+"features: spatial types, spatial indexes, and spatial functions.  Because it "
+"is built on PostgreSQL, PostGIS automatically inherits important \"enterprise"
+"\" features as well as open standards for implementation."
 msgstr ""
 
 #: ../../en/introduction.rst:96
@@ -279,21 +276,21 @@ msgstr ""
 
 #: ../../en/introduction.rst:98
 msgid ""
-"PostgreSQL is a powerful relational database management system (RDBMS). "
-"It is released under a BSD-style license and is thus free and open source"
-" software. As with many other open source programs, PostgreSQL is not "
-"controlled by any single company, but has a `global community of "
-"developers <https://www.postgresql.org/community/contributors/>`_ and "
-"companies to develop it."
+"PostgreSQL is a powerful relational database management system (RDBMS). It "
+"is released under a BSD-style license and is thus free and open source "
+"software. As with many other open source programs, PostgreSQL is not "
+"controlled by any single company, but has a `global community of developers "
+"<https://www.postgresql.org/community/contributors/>`_ and companies to "
+"develop it."
 msgstr ""
 
 #: ../../en/introduction.rst:100
 msgid ""
-"PostgreSQL was designed from the very start with type extension in mind "
-"-- the ability to add new data types, functions and indexes at run-time. "
+"PostgreSQL was designed from the very start with type extension in mind -- "
+"the ability to add new data types, functions and indexes at run-time. "
 "Because of this, the PostGIS extension can be developed by a separate "
-"development team, yet still integrate very tightly into the core "
-"PostgreSQL database."
+"development team, yet still integrate very tightly into the core PostgreSQL "
+"database."
 msgstr ""
 
 #: ../../en/introduction.rst:103
@@ -302,8 +299,8 @@ msgstr ""
 
 #: ../../en/introduction.rst:105
 msgid ""
-"A common question from people familiar with open source databases is, "
-"\"Why wasn't PostGIS built on MySQL?\"."
+"A common question from people familiar with open source databases is, \"Why "
+"wasn't PostGIS built on MySQL?\"."
 msgstr ""
 
 #: ../../en/introduction.rst:107
@@ -327,7 +324,8 @@ msgid "Community-oriented development model"
 msgstr ""
 
 #: ../../en/introduction.rst:113
-msgid "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
+msgid ""
+"No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
 msgstr ""
 
 #: ../../en/introduction.rst:114
@@ -341,28 +339,26 @@ msgstr ""
 #: ../../en/introduction.rst:117
 msgid ""
 "Combined, PostgreSQL provides a very easy development path to add new "
-"spatial types. In the proprietary world, only `Illustra "
-"<https://en.wikipedia.org/wiki/Illustra>`_ (now Informix Universal "
-"Server) allowed such easy extension. This is no coincidence; Illustra is "
-"a proprietary re-working of the original PostgreSQL code base from the "
-"1980's."
+"spatial types. In the proprietary world, only `Illustra <https://en."
+"wikipedia.org/wiki/Illustra>`_ (now Informix Universal Server) allowed such "
+"easy extension. This is no coincidence; Illustra is a proprietary re-working "
+"of the original PostgreSQL code base from the 1980's."
 msgstr ""
 
 #: ../../en/introduction.rst:119
 msgid ""
 "Because the development path for adding types to PostgreSQL was so "
 "straightforward, it made sense to start there. When MySQL released basic "
-"spatial types in version 4.1, the PostGIS team took a look at their code,"
-" and the exercise reinforced the original decision to use PostgreSQL."
+"spatial types in version 4.1, the PostGIS team took a look at their code, "
+"and the exercise reinforced the original decision to use PostgreSQL."
 msgstr ""
 
 #: ../../en/introduction.rst:121
 msgid ""
-"Because MySQL spatial objects had to be hacked on top of the string type "
-"as a special case, the MySQL code was spread over the entire code base. "
-"Development of PostGIS 0.1 took under a month. Doing a \"MyGIS\" 0.1 "
-"would have taken a lot longer, and as such, might never have seen the "
-"light of day."
+"Because MySQL spatial objects had to be hacked on top of the string type as "
+"a special case, the MySQL code was spread over the entire code base. "
+"Development of PostGIS 0.1 took under a month. Doing a \"MyGIS\" 0.1 would "
+"have taken a lot longer, and as such, might never have seen the light of day."
 msgstr ""
 
 #: ../../en/introduction.rst:124
@@ -371,29 +367,27 @@ msgstr ""
 
 #: ../../en/introduction.rst:126
 msgid ""
-"The `Shapefile <http://en.wikipedia.org/wiki/Shapefile>`_ (and other "
-"formats like the Esri File Geodatabase and the `GeoPackage "
-"<https://www.geopackage.org/>`_) have been a standard way of storing and "
-"interacting with spatial data since GIS software was first written. "
-"However, these \"flat\" files have the following disadvantages:"
+"The `Shapefile <http://en.wikipedia.org/wiki/Shapefile>`_ (and other formats "
+"like the Esri File Geodatabase and the `GeoPackage <https://www.geopackage."
+"org/>`_) have been a standard way of storing and interacting with spatial "
+"data since GIS software was first written. However, these \"flat\" files "
+"have the following disadvantages:"
 msgstr ""
 
 #: ../../en/introduction.rst:128
 msgid ""
-"**Files require special software to read and write.**  SQL is an "
-"abstraction for random data access and analysis. Without that "
-"abstraction, you will need to write all the access and analysis code "
-"yourself."
+"**Files require special software to read and write.**  SQL is an abstraction "
+"for random data access and analysis. Without that abstraction, you will need "
+"to write all the access and analysis code yourself."
 msgstr ""
 
 #: ../../en/introduction.rst:129
 msgid ""
-"**Concurrent users can cause corruption and slowdowns.** While it's "
-"possible to write extra code to ensure that multiple writes to the same "
-"file do not corrupt the data, by the time you have solved the problem and"
-" also solved the associated performance problem, you will have written "
-"the better part of a database system. Why not just use a standard "
-"database?"
+"**Concurrent users can cause corruption and slowdowns.** While it's possible "
+"to write extra code to ensure that multiple writes to the same file do not "
+"corrupt the data, by the time you have solved the problem and also solved "
+"the associated performance problem, you will have written the better part of "
+"a database system. Why not just use a standard database?"
 msgstr ""
 
 #: ../../en/introduction.rst:130
@@ -407,17 +401,17 @@ msgstr ""
 #: ../../en/introduction.rst:132
 msgid ""
 "Most users of PostGIS are setting up systems where multiple applications "
-"will be expected to access the data, so having a standard SQL access "
-"method simplifies deployment and development. Some users are working with"
-" large data sets; with files, they might be segmented into multiple "
-"files, but in a database they can be stored as a single large table."
+"will be expected to access the data, so having a standard SQL access method "
+"simplifies deployment and development. Some users are working with large "
+"data sets; with files, they might be segmented into multiple files, but in a "
+"database they can be stored as a single large table."
 msgstr ""
 
 #: ../../en/introduction.rst:134
 msgid ""
-"In summation, the combination of support for multiple users, complex ad "
-"hoc queries, and performance on large data sets are what sets spatial "
-"databases apart from file-based systems."
+"In summation, the combination of support for multiple users, complex ad hoc "
+"queries, and performance on large data sets are what sets spatial databases "
+"apart from file-based systems."
 msgstr ""
 
 #: ../../en/introduction.rst:137
@@ -426,54 +420,53 @@ msgstr ""
 
 #: ../../en/introduction.rst:139
 msgid ""
-"In the May of 2001, `Refractions Research <http://www.refractions.net/>`_"
-"  released the first version of PostGIS. PostGIS 0.1 had objects, indexes"
-" and a handful of functions. The result was a database suitable for "
-"storage and retrieval, but not analysis."
+"In the May of 2001, `Refractions Research <http://www.refractions.net/>`_  "
+"released the first version of PostGIS. PostGIS 0.1 had objects, indexes and "
+"a handful of functions. The result was a database suitable for storage and "
+"retrieval, but not analysis."
 msgstr ""
 
 #: ../../en/introduction.rst:141
 msgid ""
-"As the number of functions increased, the need for an organizing "
-"principle became clear.  The \"Simple Features for SQL\" (:term:`SFSQL`) "
-"specification from the Open Geospatial Consortium provided such structure"
-" with guidelines for function naming and requirements."
+"As the number of functions increased, the need for an organizing principle "
+"became clear.  The \"Simple Features for SQL\" (:term:`SFSQL`) specification "
+"from the Open Geospatial Consortium provided such structure with guidelines "
+"for function naming and requirements."
 msgstr ""
 
 #: ../../en/introduction.rst:143
 msgid ""
 "With PostGIS support for simple analysis and spatial joins, `Mapserver "
-"<http://mapserver.org/>`_ became the first external application to "
-"provide visualization of data in the database."
+"<http://mapserver.org/>`_ became the first external application to provide "
+"visualization of data in the database."
 msgstr ""
 
 #: ../../en/introduction.rst:145
 msgid ""
-"Over the next several years the number of PostGIS functions grew, but its"
-" power remained limited. Many of the most interesting functions (e.g., "
+"Over the next several years the number of PostGIS functions grew, but its "
+"power remained limited. Many of the most interesting functions (e.g., "
 "ST_Intersects(), ST_Buffer(), ST_Union()) were very difficult to code.  "
 "Writing them from scratch promised years of work."
 msgstr ""
 
 #: ../../en/introduction.rst:147
 msgid ""
-"Fortunately a second project, the \"Geometry Engine, Open Source\" or "
-"`GEOS <http://trac.osgeo.org/geos>`_, came along. The GEOS library "
-"provides the necessary algorithms for implementing the :term:`SFSQL` "
-"specification. By linking in GEOS, PostGIS provided complete support for "
-":term:`SFSQL` by version 0.8."
+"Fortunately a second project, the \"Geometry Engine, Open Source\" or `GEOS "
+"<http://trac.osgeo.org/geos>`_, came along. The GEOS library provides the "
+"necessary algorithms for implementing the :term:`SFSQL` specification. By "
+"linking in GEOS, PostGIS provided complete support for :term:`SFSQL` by "
+"version 0.8."
 msgstr ""
 
 #: ../../en/introduction.rst:149
-#, python-format
 msgid ""
-"As PostGIS data capacity grew, another issue surfaced: the representation"
-" used to store geometry proved relatively inefficient. For small objects "
-"like points and short lines, the metadata in the representation had as "
-"much as a 300% overhead. For performance reasons, it was necessary to put"
-" the representation on a diet.  By shrinking the metadata header and "
-"required dimensions, overhead greatly reduced. In PostGIS 1.0, this new, "
-"faster, lightweight representation became the default."
+"As PostGIS data capacity grew, another issue surfaced: the representation "
+"used to store geometry proved relatively inefficient. For small objects like "
+"points and short lines, the metadata in the representation had as much as a "
+"300% overhead. For performance reasons, it was necessary to put the "
+"representation on a diet.  By shrinking the metadata header and required "
+"dimensions, overhead greatly reduced. In PostGIS 1.0, this new, faster, "
+"lightweight representation became the default."
 msgstr ""
 
 #: ../../en/introduction.rst:151
@@ -489,8 +482,8 @@ msgstr ""
 
 #: ../../en/introduction.rst:156
 msgid ""
-"For a complete list of case studies, see the `PostGIS case studies "
-"<http://postgis.net/casestudy>`_ page."
+"For a complete list of case studies, see the `PostGIS case studies <http://"
+"postgis.net/casestudy>`_ page."
 msgstr ""
 
 #: ../../en/introduction.rst:159
@@ -499,14 +492,14 @@ msgstr ""
 
 #: ../../en/introduction.rst:161
 msgid ""
-"IGN is the national mapping agency of France, and uses PostGIS to store "
-"the high resolution topographic map of the country, \"BDUni\". BDUni has "
-"more than 100 million features, and is maintained by a staff of over 100 "
-"field staff who verify observations and add new mapping to the database "
-"daily. The IGN installation uses the database transactional system to "
-"ensure consistency during update processes, and a `warm standby system "
-"<https://www.postgresql.org/docs/devel/warm-standby.html>`_ to maintain "
-"uptime in the event of a system failure."
+"IGN is the national mapping agency of France, and uses PostGIS to store the "
+"high resolution topographic map of the country, \"BDUni\". BDUni has more "
+"than 100 million features, and is maintained by a staff of over 100 field "
+"staff who verify observations and add new mapping to the database daily. The "
+"IGN installation uses the database transactional system to ensure "
+"consistency during update processes, and a `warm standby system <https://www."
+"postgresql.org/docs/devel/warm-standby.html>`_ to maintain uptime in the "
+"event of a system failure."
 msgstr ""
 
 #: ../../en/introduction.rst:164
@@ -515,11 +508,11 @@ msgstr ""
 
 #: ../../en/introduction.rst:166
 msgid ""
-"`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-"
-"based service for exploring properties and estimate values. Their system "
-"was originally build on MySQL, but they found that moving to PostgreSQL "
-"and PostGIS provided `huge benefits in performance and reliability "
-"<https://www.redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
+"`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based "
+"service for exploring properties and estimate values. Their system was "
+"originally build on MySQL, but they found that moving to PostgreSQL and "
+"PostGIS provided `huge benefits in performance and reliability <https://www."
+"redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgstr ""
 
 #: ../../en/introduction.rst:169
@@ -528,12 +521,11 @@ msgstr ""
 
 #: ../../en/introduction.rst:171
 msgid ""
-"PostGIS has become a widely used spatial database, and the number of "
-"third-party programs that support storing and retrieving data using it "
-"has increased as well. The `programs that support PostGIS "
-"<http://trac.osgeo.org/postgis/wiki/UsersWikiToolsSupportPostgis>`_ "
-"include both open source and proprietary software on both server and "
-"desktop systems."
+"PostGIS has become a widely used spatial database, and the number of third-"
+"party programs that support storing and retrieving data using it has "
+"increased as well. The `programs that support PostGIS <http://trac.osgeo.org/"
+"postgis/wiki/UsersWikiToolsSupportPostgis>`_ include both open source and "
+"proprietary software on both server and desktop systems."
 msgstr ""
 
 #: ../../en/introduction.rst:173
@@ -566,7 +558,7 @@ msgstr ""
 msgid "Dxf2PostGIS"
 msgstr ""
 
-#: ../../en/introduction.rst:184 ../../en/introduction.rst:185
+#: ../../en/introduction.rst:185 ../../en/introduction.rst:184
 msgid "Web-Based"
 msgstr ""
 
@@ -681,4 +673,3 @@ msgstr ""
 #: ../../en/introduction.rst:201
 msgid "AutoCAD Map 3D (using FDO)"
 msgstr ""
-

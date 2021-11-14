@@ -9,12 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
@@ -24,9 +25,9 @@ msgstr ""
 
 #: ../../en/de9im.rst:6
 msgid ""
-"The \"`Dimensionally Extended 9-Intersection Model "
-"<http://en.wikipedia.org/wiki/DE-9IM>`_\" (DE9IM) is a framework for "
-"modelling how two spatial objects interact."
+"The \"`Dimensionally Extended 9-Intersection Model <http://en.wikipedia.org/"
+"wiki/DE-9IM>`_\" (DE9IM) is a framework for modelling how two spatial "
+"objects interact."
 msgstr ""
 
 #: ../../en/de9im.rst:8
@@ -57,22 +58,20 @@ msgstr ""
 
 #: ../../en/de9im.rst:21
 msgid ""
-"For linear features, the interior, boundary and exterior are less well-"
-"known:"
+"For linear features, the interior, boundary and exterior are less well-known:"
 msgstr ""
 
 #: ../../en/de9im.rst:26
 msgid ""
-"The interior is the part of the line bounded by the ends; the boundary is"
-" the ends of the linear feature, and the exterior is everything else in "
-"the plane."
+"The interior is the part of the line bounded by the ends; the boundary is "
+"the ends of the linear feature, and the exterior is everything else in the "
+"plane."
 msgstr ""
 
 #: ../../en/de9im.rst:28
 msgid ""
 "For points, things are even stranger: the interior is the point; the "
-"boundary is the empty set and the exterior is everything else in the "
-"plane."
+"boundary is the empty set and the exterior is everything else in the plane."
 msgstr ""
 
 #: ../../en/de9im.rst:30
@@ -85,16 +84,16 @@ msgstr ""
 
 #: ../../en/de9im.rst:35
 msgid ""
-"For the polygons in the example above, the intersection of the interiors "
-"is a 2-dimensional area, so that portion of the matrix is filled out with"
-" a \"2\". The boundaries only intersect at points, which are zero-"
-"dimensional, so that portion of the matrix is filled out with a 0."
+"For the polygons in the example above, the intersection of the interiors is "
+"a 2-dimensional area, so that portion of the matrix is filled out with a "
+"\"2\". The boundaries only intersect at points, which are zero-dimensional, "
+"so that portion of the matrix is filled out with a 0."
 msgstr ""
 
 #: ../../en/de9im.rst:37
 msgid ""
-"When there is no intersection between components, the square the matrix "
-"is filled out with an \"F\"."
+"When there is no intersection between components, the square the matrix is "
+"filled out with an \"F\"."
 msgstr ""
 
 #: ../../en/de9im.rst:39
@@ -107,23 +106,22 @@ msgstr ""
 
 #: ../../en/de9im.rst:49
 msgid ""
-"Note that the boundaries of the two objects don't actually intersect at "
-"all (the end point of the line interacts with the interior of the "
-"polygon, not the boundary, and vice versa), so the B/B cell is filled in "
-"with an \"F\"."
+"Note that the boundaries of the two objects don't actually intersect at all "
+"(the end point of the line interacts with the interior of the polygon, not "
+"the boundary, and vice versa), so the B/B cell is filled in with an \"F\"."
 msgstr ""
 
 #: ../../en/de9im.rst:51
 msgid ""
-"While it's fun to visually fill out DE9IM matrices, it would be nice if a"
-" computer could do it, and that's what the :command:`ST_Relate` function "
-"is for."
+"While it's fun to visually fill out DE9IM matrices, it would be nice if a "
+"computer could do it, and that's what the :command:`ST_Relate` function is "
+"for."
 msgstr ""
 
 #: ../../en/de9im.rst:53
 msgid ""
-"The previous example can be simplified using a simple box and line, with "
-"the same spatial relationship as our polygon and linestring:"
+"The previous example can be simplified using a simple box and line, with the "
+"same spatial relationship as our polygon and linestring:"
 msgstr ""
 
 #: ../../en/de9im.rst:58
@@ -132,24 +130,24 @@ msgstr ""
 
 #: ../../en/de9im.rst:67
 msgid ""
-"The answer (1010F0212) is the same as we calculated visually, but "
-"returned as a 9-character string, with the first row, second row and "
-"third row of the table appended together."
+"The answer (1010F0212) is the same as we calculated visually, but returned "
+"as a 9-character string, with the first row, second row and third row of the "
+"table appended together."
 msgstr ""
 
 #: ../../en/de9im.rst:75
 msgid ""
-"However, the power of DE9IM matrices is not in generating them, but in "
-"using them as a matching key to find geometries with very specific "
-"relationships to one another."
+"However, the power of DE9IM matrices is not in generating them, but in using "
+"them as a matching key to find geometries with very specific relationships "
+"to one another."
 msgstr ""
 
 #: ../../en/de9im.rst:94
 msgid ""
 "Suppose we have a data model that includes **Lakes** and **Docks**, and "
-"suppose further that Docks must be inside lakes, and must touch the "
-"boundary of their containing lake at one end. Can we find all the docks "
-"in our database that obey that rule?"
+"suppose further that Docks must be inside lakes, and must touch the boundary "
+"of their containing lake at one end. Can we find all the docks in our "
+"database that obey that rule?"
 msgstr ""
 
 #: ../../en/de9im.rst:99
@@ -181,17 +179,17 @@ msgstr ""
 #: ../../en/de9im.rst:111
 msgid ""
 "So to find all the legal docks, we would want to find all the docks that "
-"intersect lakes (a super-set of **potential** candidates we use for our "
-"join key), and then find all the docks in that set which have the legal "
-"relate pattern."
+"intersect lakes (a super-set of **potential** candidates we use for our join "
+"key), and then find all the docks in that set which have the legal relate "
+"pattern."
 msgstr ""
 
 #: ../../en/de9im.rst:121
 msgid ""
-"Note the use of the three-parameter version of :command:`ST_Relate`, "
-"which returns true if the pattern matches or false if it does not. For a "
-"fully-defined pattern like this one, the three-parameter version is not "
-"needed -- we could have just used a string equality operator."
+"Note the use of the three-parameter version of :command:`ST_Relate`, which "
+"returns true if the pattern matches or false if it does not. For a fully-"
+"defined pattern like this one, the three-parameter version is not needed -- "
+"we could have just used a string equality operator."
 msgstr ""
 
 #: ../../en/de9im.rst:123
@@ -210,17 +208,16 @@ msgstr ""
 
 #: ../../en/de9im.rst:128
 msgid ""
-"So for example, one possible dock we did not include in our example "
-"graphic is a dock with a two-dimensional intersection with the lake "
-"boundary:"
+"So for example, one possible dock we did not include in our example graphic "
+"is a dock with a two-dimensional intersection with the lake boundary:"
 msgstr ""
 
 #: ../../en/de9im.rst:138
 msgid ""
 "If we are to include this case in our set of \"legal\" docks, we need to "
-"change the relate pattern in our query. In particular, the intersection "
-"of the dock interior lake boundary can now be either 1 (our new case) or "
-"F (our original case). So we use the \"*\" catchall in the pattern."
+"change the relate pattern in our query. In particular, the intersection of "
+"the dock interior lake boundary can now be either 1 (our new case) or F (our "
+"original case). So we use the \"*\" catchall in the pattern."
 msgstr ""
 
 #: ../../en/de9im.rst:143
@@ -229,8 +226,8 @@ msgstr ""
 
 #: ../../en/de9im.rst:153
 msgid ""
-"Confirm that the stricter SQL from the previous example does *not* return"
-" the new dock."
+"Confirm that the stricter SQL from the previous example does *not* return "
+"the new dock."
 msgstr ""
 
 #: ../../en/de9im.rst:157
@@ -239,8 +236,8 @@ msgstr ""
 
 #: ../../en/de9im.rst:159
 msgid ""
-"The TIGER data is carefully quality controlled when it is prepared, so we"
-" expect our data to meet strict standards. For example: no census block "
+"The TIGER data is carefully quality controlled when it is prepared, so we "
+"expect our data to meet strict standards. For example: no census block "
 "should overlap any other census block. Can we test for that?"
 msgstr ""
 
@@ -250,9 +247,9 @@ msgstr ""
 
 #: ../../en/de9im.rst:177
 msgid ""
-"Similarly, we would expect that the roads data is all end-noded. That is,"
-" we expect that intersections only occur at the ends of lines, not at the"
-" mid-points."
+"Similarly, we would expect that the roads data is all end-noded. That is, we "
+"expect that intersections only occur at the ends of lines, not at the mid-"
+"points."
 msgstr ""
 
 #: ../../en/de9im.rst:182
@@ -268,8 +265,7 @@ msgstr ""
 
 #: ../../en/de9im.rst:200
 msgid ""
-"`ST_Relate(geometry A, geometry B) "
-"<http://postgis.net/docs/ST_Relate.html>`_: Returns a text string "
-"representing the DE9IM relationship between the geometries."
+"`ST_Relate(geometry A, geometry B) <http://postgis.net/docs/ST_Relate."
+"html>`_: Returns a text string representing the DE9IM relationship between "
+"the geometries."
 msgstr ""
-

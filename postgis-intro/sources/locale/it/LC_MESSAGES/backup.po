@@ -166,7 +166,7 @@ msgstr ""
 
 #: ../../en/backup.rst:144
 msgid "How it Works"
-msgstr ""
+msgstr "Come funziona"
 
 #: ../../en/backup.rst:146
 msgid "Rather than continually write to the main data tables, PostgreSQL stores changes initially in \"write-ahead logs\" (WAL). Taken together, these logs are a complete record of all changes made to a database.  Online backup consists of taking a copy of the database main data table, then taking a copy of each WAL that is generated from then on."

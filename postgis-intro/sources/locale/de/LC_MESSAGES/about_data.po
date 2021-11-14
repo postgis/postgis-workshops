@@ -9,12 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
@@ -25,24 +26,22 @@ msgstr ""
 #: ../../en/about_data.rst:6
 msgid ""
 "The data for this workshop is four shapefiles for New York City, and one "
-"attribute table of sociodemographic variables.  We've loaded our "
-"shapefiles as PostGIS tables and will add sociodemographic data later in "
-"the workshop."
+"attribute table of sociodemographic variables.  We've loaded our shapefiles "
+"as PostGIS tables and will add sociodemographic data later in the workshop."
 msgstr ""
 
 #: ../../en/about_data.rst:8
 msgid ""
-"The following describes the number of records and table attributes for "
-"each of our datasets.  These attribute values and relationships are "
-"fundamental to our future analysis."
+"The following describes the number of records and table attributes for each "
+"of our datasets.  These attribute values and relationships are fundamental "
+"to our future analysis."
 msgstr ""
 
 #: ../../en/about_data.rst:10
 msgid ""
-"To explore the nature of your tables in pgAdmin, right-click a "
-"highlighted table and select **Properties**.  You will find a summary of "
-"table properties, including a list of table attributes within the "
-"**Columns** tab."
+"To explore the nature of your tables in pgAdmin, right-click a highlighted "
+"table and select **Properties**.  You will find a summary of table "
+"properties, including a list of table attributes within the **Columns** tab."
 msgstr ""
 
 #: ../../en/about_data.rst:15
@@ -51,10 +50,10 @@ msgstr ""
 
 #: ../../en/about_data.rst:17
 msgid ""
-"A census block is the smallest geography for which census data is "
-"reported. All higher level census geographies (block groups, tracts, "
-"metro areas, counties, etc) can be built from unions of census blocks. We"
-" have attached some demographic data to our collection of blocks."
+"A census block is the smallest geography for which census data is reported. "
+"All higher level census geographies (block groups, tracts, metro areas, "
+"counties, etc) can be built from unions of census blocks. We have attached "
+"some demographic data to our collection of blocks."
 msgstr ""
 
 #: ../../en/about_data.rst:19
@@ -126,8 +125,8 @@ msgstr ""
 #: ../../en/about_data.rst:39 ../../en/about_data.rst:64
 #: ../../en/about_data.rst:109
 msgid ""
-"Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten "
-"Island, Queens"
+"Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, "
+"Queens"
 msgstr ""
 
 #: ../../en/about_data.rst:40 ../../en/about_data.rst:65
@@ -145,11 +144,10 @@ msgstr ""
 
 #: ../../en/about_data.rst:49
 msgid ""
-"To get census data into GIS, you need to join two pieces of information: "
-"the actual data (text), and the boundary files (spatial).  There are many"
-" options for getting the data, including downloading data and boundaries "
-"from the Census Bureau's `American FactFinder "
-"<http://factfinder.census.gov>`_."
+"To get census data into GIS, you need to join two pieces of information: the "
+"actual data (text), and the boundary files (spatial).  There are many "
+"options for getting the data, including downloading data and boundaries from "
+"the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
 msgstr ""
 
 #: ../../en/about_data.rst:52
@@ -158,14 +156,13 @@ msgstr ""
 
 #: ../../en/about_data.rst:54
 msgid ""
-"New York has a rich history of neighborhood names and extent.  "
-"Neighborhoods are social constructs that do not follow lines laid down by"
-" the government. For example, the Brooklyn neighborhoods of Carroll "
-"Gardens, Red Hook, and Cobble Hill were once collectively known as "
-"\"South Brooklyn.\" And now, depending on which real estate agent you "
-"talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-"
-"Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red"
-" Hook!"
+"New York has a rich history of neighborhood names and extent.  Neighborhoods "
+"are social constructs that do not follow lines laid down by the government. "
+"For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and "
+"Cobble Hill were once collectively known as \"South Brooklyn.\" And now, "
+"depending on which real estate agent you talk to, the same four blocks in "
+"the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia "
+"Heights, Carroll Gardens West, or Red Hook!"
 msgstr ""
 
 #: ../../en/about_data.rst:56
@@ -195,11 +192,11 @@ msgstr ""
 
 #: ../../en/about_data.rst:75
 msgid ""
-"The street centerlines form the transportation network of the city. These"
-" streets have been flagged with types in order to distinguish between "
-"such thoroughfares as back alleys, arterial streets, freeways, and "
-"smaller streets. Desirable areas to live might be on residential streets "
-"rather than next to a freeway."
+"The street centerlines form the transportation network of the city. These "
+"streets have been flagged with types in order to distinguish between such "
+"thoroughfares as back alleys, arterial streets, freeways, and smaller "
+"streets. Desirable areas to live might be on residential streets rather than "
+"next to a freeway."
 msgstr ""
 
 #: ../../en/about_data.rst:77
@@ -240,10 +237,10 @@ msgstr ""
 
 #: ../../en/about_data.rst:99
 msgid ""
-"The subway stations link the upper world where people live to the "
-"invisible network of subways beneath. As portals to the public "
-"transportation system, station locations help determine how easy it is "
-"for different people to enter the subway system."
+"The subway stations link the upper world where people live to the invisible "
+"network of subways beneath. As portals to the public transportation system, "
+"station locations help determine how easy it is for different people to "
+"enter the subway system."
 msgstr ""
 
 #: ../../en/about_data.rst:101
@@ -305,8 +302,8 @@ msgstr ""
 
 #: ../../en/about_data.rst:130
 msgid ""
-"The ``nyc_census_sociodata`` is a data table.  We will need to connect it"
-" to Census geographies before conducting any spatial analysis."
+"The ``nyc_census_sociodata`` is a data table.  We will need to connect it to "
+"Census geographies before conducting any spatial analysis."
 msgstr ""
 
 #: ../../en/about_data.rst:135
@@ -332,7 +329,8 @@ msgid "**transit_private**"
 msgstr ""
 
 #: ../../en/about_data.rst:140
-msgid "Number of workers in the tract who use private automobiles / motorcycles"
+msgid ""
+"Number of workers in the tract who use private automobiles / motorcycles"
 msgstr ""
 
 #: ../../en/about_data.rst:141
@@ -356,7 +354,8 @@ msgid "**transit_other**"
 msgstr ""
 
 #: ../../en/about_data.rst:146
-msgid "Number of workers in the tract who use other forms like walking / biking"
+msgid ""
+"Number of workers in the tract who use other forms like walking / biking"
 msgstr ""
 
 #: ../../en/about_data.rst:147
@@ -448,4 +447,3 @@ msgstr ""
 #: ../../en/about_data.rst:168
 msgid "Number of people with graduate school diploma"
 msgstr ""
-

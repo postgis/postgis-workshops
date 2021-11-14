@@ -9,12 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
@@ -28,12 +29,11 @@ msgstr ""
 
 #: ../../en/geometries.rst:9
 msgid ""
-"In the previous :ref:`section <loading_data>`, we loaded a variety of "
-"data.  Before we start playing with our data lets have a look at some "
-"simpler examples.  In pgAdmin, once again select the **nyc** database and"
-" open the SQL query tool.  Paste this example SQL code into the pgAdmin "
-"SQL Editor window (removing any text that may be there by default) and "
-"then execute."
+"In the previous :ref:`section <loading_data>`, we loaded a variety of data.  "
+"Before we start playing with our data lets have a look at some simpler "
+"examples.  In pgAdmin, once again select the **nyc** database and open the "
+"SQL query tool.  Paste this example SQL code into the pgAdmin SQL Editor "
+"window (removing any text that may be there by default) and then execute."
 msgstr ""
 
 #: ../../en/geometries.rst:26
@@ -58,8 +58,7 @@ msgstr ""
 #: ../../en/geometries.rst:33
 msgid ""
 "The first table, ``spatial_ref_sys``, defines all the spatial reference "
-"systems known to the database and will be described in greater detail "
-"later."
+"systems known to the database and will be described in greater detail later."
 msgstr ""
 
 #: ../../en/geometries.rst:34
@@ -71,36 +70,36 @@ msgstr ""
 
 #: ../../en/geometries.rst:39
 msgid ""
-"Let's have a look at the ``geometry_columns`` table in our database.  "
-"Paste this command in the Query Tool as before:"
+"Let's have a look at the ``geometry_columns`` table in our database.  Paste "
+"this command in the Query Tool as before:"
 msgstr ""
 
 #: ../../en/geometries.rst:47
 msgid ""
-"``f_table_catalog``, ``f_table_schema``, and ``f_table_name`` provide the"
-" fully qualified name of the feature table containing a given geometry.  "
-"Because PostgreSQL doesn't make use of catalogs, ``f_table_catalog`` will"
-" tend to be empty."
+"``f_table_catalog``, ``f_table_schema``, and ``f_table_name`` provide the "
+"fully qualified name of the feature table containing a given geometry.  "
+"Because PostgreSQL doesn't make use of catalogs, ``f_table_catalog`` will "
+"tend to be empty."
 msgstr ""
 
 #: ../../en/geometries.rst:48
 msgid ""
 "``f_geometry_column`` is the name of the column that geometry containing "
-"column -- for feature tables with multiple geometry columns, there will "
-"be one record for each."
+"column -- for feature tables with multiple geometry columns, there will be "
+"one record for each."
 msgstr ""
 
 #: ../../en/geometries.rst:49
 msgid ""
-"``coord_dimension`` and ``srid`` define the the dimension of the geometry"
-" (2-, 3- or 4-dimensional) and the Spatial Reference system identifier "
-"that refers to the ``spatial_ref_sys`` table respectively."
+"``coord_dimension`` and ``srid`` define the the dimension of the geometry "
+"(2-, 3- or 4-dimensional) and the Spatial Reference system identifier that "
+"refers to the ``spatial_ref_sys`` table respectively."
 msgstr ""
 
 #: ../../en/geometries.rst:50
 msgid ""
-"The ``type`` column defines the type of geometry as described below; "
-"we've seen Point and Linestring types so far."
+"The ``type`` column defines the type of geometry as described below; we've "
+"seen Point and Linestring types so far."
 msgstr ""
 
 #: ../../en/geometries.rst:52
@@ -112,8 +111,8 @@ msgstr ""
 
 #: ../../en/geometries.rst:56
 msgid ""
-"Do some or all of your ``nyc`` tables not have an ``srid`` of 26918? It's"
-" easy to fix by updating the table."
+"Do some or all of your ``nyc`` tables not have an ``srid`` of 26918? It's "
+"easy to fix by updating the table."
 msgstr ""
 
 #: ../../en/geometries.rst:67
@@ -123,20 +122,20 @@ msgstr ""
 #: ../../en/geometries.rst:69
 msgid ""
 "The Simple Features for SQL (:term:`SFSQL`) specification, the original "
-"guiding standard for PostGIS development, defines how a real world object"
-" is represented.  By taking a continuous shape and digitizing it at a "
-"fixed resolution we achieve a passable representation of the object.  "
-"SFSQL only handled 2-dimensional representations.  PostGIS has extended "
-"that to include 3- and 4-dimensional representations; more recently the "
-"SQL-Multimedia Part 3 (:term:`SQL/MM`) specification has officially "
-"defined their own representation."
+"guiding standard for PostGIS development, defines how a real world object is "
+"represented.  By taking a continuous shape and digitizing it at a fixed "
+"resolution we achieve a passable representation of the object.  SFSQL only "
+"handled 2-dimensional representations.  PostGIS has extended that to include "
+"3- and 4-dimensional representations; more recently the SQL-Multimedia Part "
+"3 (:term:`SQL/MM`) specification has officially defined their own "
+"representation."
 msgstr ""
 
 #: ../../en/geometries.rst:71
 msgid ""
 "Our example table contains a mixture of different geometry types. We can "
-"collect general information about each object using functions that read "
-"the geometry metadata."
+"collect general information about each object using functions that read the "
+"geometry metadata."
 msgstr ""
 
 #: ../../en/geometries.rst:73
@@ -151,8 +150,8 @@ msgstr ""
 
 #: ../../en/geometries.rst:75
 msgid ""
-":command:`ST_SRID(geometry)` returns the spatial reference identifier "
-"number of the geometry"
+":command:`ST_SRID(geometry)` returns the spatial reference identifier number "
+"of the geometry"
 msgstr ""
 
 #: ../../en/geometries.rst:94
@@ -161,12 +160,12 @@ msgstr ""
 
 #: ../../en/geometries.rst:100
 msgid ""
-"A spatial **point** represents a single location on the Earth.  This "
-"point is represented by a single coordinate (including either 2-, 3- or "
-"4-dimensions).  Points are used to represent objects when the exact "
-"details, such as shape and size, are not important at the target scale.  "
-"For example, cities on a map of the world can be described as points, "
-"while a map of a single state might represent cities as polygons."
+"A spatial **point** represents a single location on the Earth.  This point "
+"is represented by a single coordinate (including either 2-, 3- or 4-"
+"dimensions).  Points are used to represent objects when the exact details, "
+"such as shape and size, are not important at the target scale.  For example, "
+"cities on a map of the world can be described as points, while a map of a "
+"single state might represent cities as polygons."
 msgstr ""
 
 #: ../../en/geometries.rst:112
@@ -187,9 +186,9 @@ msgstr ""
 
 #: ../../en/geometries.rst:125
 msgid ""
-"The New York City subway stations (``nyc_subway_stations``) table is a "
-"data set represented as points. The following SQL query will return the "
-"geometry associated with one point (in the :command:`ST_AsText` column)."
+"The New York City subway stations (``nyc_subway_stations``) table is a data "
+"set represented as points. The following SQL query will return the geometry "
+"associated with one point (in the :command:`ST_AsText` column)."
 msgstr ""
 
 #: ../../en/geometries.rst:135
@@ -201,17 +200,17 @@ msgid ""
 "A **linestring** is a path between locations.  It takes the form of an "
 "ordered series of two or more points.  Roads and rivers are typically "
 "represented as linestrings.  A linestring is said to be **closed** if it "
-"starts and ends on the same point.  It is said to be **simple** if it "
-"does not cross or touch itself (except at its endpoints if it is closed)."
-"  A linestring can be both **closed** and **simple**."
+"starts and ends on the same point.  It is said to be **simple** if it does "
+"not cross or touch itself (except at its endpoints if it is closed).  A "
+"linestring can be both **closed** and **simple**."
 msgstr ""
 
 #: ../../en/geometries.rst:143
 msgid ""
-"The street network for New York (``nyc_streets``) was loaded earlier in "
-"the workshop.  This dataset contains details such as name, and type.  A "
-"single real world street may consist of many linestrings, each "
-"representing a segment of road with different attributes."
+"The street network for New York (``nyc_streets``) was loaded earlier in the "
+"workshop.  This dataset contains details such as name, and type.  A single "
+"real world street may consist of many linestrings, each representing a "
+"segment of road with different attributes."
 msgstr ""
 
 #: ../../en/geometries.rst:145
@@ -221,7 +220,8 @@ msgid ""
 msgstr ""
 
 #: ../../en/geometries.rst:157
-msgid "Some of the specific spatial functions for working with linestrings are:"
+msgid ""
+"Some of the specific spatial functions for working with linestrings are:"
 msgstr ""
 
 #: ../../en/geometries.rst:159
@@ -229,7 +229,8 @@ msgid ":command:`ST_Length(geometry)` returns the length of the linestring"
 msgstr ""
 
 #: ../../en/geometries.rst:160
-msgid ":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
+msgid ""
+":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
 msgstr ""
 
 #: ../../en/geometries.rst:161
@@ -252,42 +253,40 @@ msgstr ""
 
 #: ../../en/geometries.rst:184
 msgid ""
-"A polygon is a representation of an area.  The outer boundary of the "
-"polygon is represented by a ring.  This ring is a linestring that is both"
-" closed and simple as defined above.  Holes within the polygon are also "
-"represented by rings."
+"A polygon is a representation of an area.  The outer boundary of the polygon "
+"is represented by a ring.  This ring is a linestring that is both closed and "
+"simple as defined above.  Holes within the polygon are also represented by "
+"rings."
 msgstr ""
 
 #: ../../en/geometries.rst:186
 msgid ""
-"Polygons are used to represent objects whose size and shape are "
-"important.  City limits, parks, building footprints or bodies of water "
-"are all commonly represented as polygons when the scale is sufficiently "
-"high to see their area.  Roads and rivers can sometimes be represented as"
-" polygons."
+"Polygons are used to represent objects whose size and shape are important.  "
+"City limits, parks, building footprints or bodies of water are all commonly "
+"represented as polygons when the scale is sufficiently high to see their "
+"area.  Roads and rivers can sometimes be represented as polygons."
 msgstr ""
 
 #: ../../en/geometries.rst:188
 msgid ""
-"The following SQL query will return the geometry associated with one "
-"polygon (in the :command:`ST_AsText` column)."
+"The following SQL query will return the geometry associated with one polygon "
+"(in the :command:`ST_AsText` column)."
 msgstr ""
 
 #: ../../en/geometries.rst:198
 msgid ""
-"Rather than using an ``=`` sign in our ``WHERE`` clause, we are using the"
-" ``LIKE`` operator to carry out a string matching operation. **You may be"
-" used to the ``*`` symbol as a \"glob\" for pattern matching, but in SQL "
-"the ``%`` symbol is used**, along with the ``LIKE`` operator to tell the "
-"system to do globbing."
+"Rather than using an ``=`` sign in our ``WHERE`` clause, we are using the "
+"``LIKE`` operator to carry out a string matching operation. **You may be "
+"used to the ``*`` symbol as a \"glob\" for pattern matching, but in SQL the "
+"``%`` symbol is used**, along with the ``LIKE`` operator to tell the system "
+"to do globbing."
 msgstr ""
 
 #: ../../en/geometries.rst:205
 msgid ""
-"The first polygon has only one ring. The second one has an interior "
-"\"hole\". Most graphics systems include the concept of a \"polygon\", but"
-" GIS systems are relatively unique in allowing polygons to explicitly "
-"have holes."
+"The first polygon has only one ring. The second one has an interior \"hole"
+"\". Most graphics systems include the concept of a \"polygon\", but GIS "
+"systems are relatively unique in allowing polygons to explicitly have holes."
 msgstr ""
 
 #: ../../en/geometries.rst:209
@@ -300,20 +299,19 @@ msgstr ""
 
 #: ../../en/geometries.rst:212
 msgid ""
-":command:`ST_NRings(geometry)` returns the number of rings (usually 1, "
-"more if there are holes)"
+":command:`ST_NRings(geometry)` returns the number of rings (usually 1, more "
+"if there are holes)"
 msgstr ""
 
 #: ../../en/geometries.rst:213
 msgid ""
-":command:`ST_ExteriorRing(geometry)` returns the outer ring as a "
-"linestring"
+":command:`ST_ExteriorRing(geometry)` returns the outer ring as a linestring"
 msgstr ""
 
 #: ../../en/geometries.rst:214
 msgid ""
-":command:`ST_InteriorRingN(geometry,n)` returns a specified interior ring"
-" as a linestring"
+":command:`ST_InteriorRingN(geometry,n)` returns a specified interior ring as "
+"a linestring"
 msgstr ""
 
 #: ../../en/geometries.rst:215
@@ -326,8 +324,8 @@ msgstr ""
 
 #: ../../en/geometries.rst:230
 msgid ""
-"Note that the polygon with a hole has an area that is the area of the "
-"outer shell (a 10x10 square) minus the area of the hole (a 1x1 square)."
+"Note that the polygon with a hole has an area that is the area of the outer "
+"shell (a 10x10 square) minus the area of the hole (a 1x1 square)."
 msgstr ""
 
 #: ../../en/geometries.rst:233
@@ -336,8 +334,8 @@ msgstr ""
 
 #: ../../en/geometries.rst:235
 msgid ""
-"There are four collection types, which group multiple simple geometries "
-"into sets."
+"There are four collection types, which group multiple simple geometries into "
+"sets."
 msgstr ""
 
 #: ../../en/geometries.rst:237
@@ -360,11 +358,11 @@ msgstr ""
 
 #: ../../en/geometries.rst:242
 msgid ""
-"Collections are another concept that shows up in GIS software more than "
-"in generic graphics software. They are useful for directly modeling real "
-"world objects as spatial objects. For example, how to model a lot that is"
-" split by a right-of-way? As a **MultiPolygon**, with a part on either "
-"side of the right-of-way."
+"Collections are another concept that shows up in GIS software more than in "
+"generic graphics software. They are useful for directly modeling real world "
+"objects as spatial objects. For example, how to model a lot that is split by "
+"a right-of-way? As a **MultiPolygon**, with a part on either side of the "
+"right-of-way."
 msgstr ""
 
 #: ../../en/geometries.rst:246
@@ -372,7 +370,8 @@ msgid "Our example collection contains a polygon and a point:"
 msgstr ""
 
 #: ../../en/geometries.rst:260
-msgid "Some of the specific spatial functions for working with collections are:"
+msgid ""
+"Some of the specific spatial functions for working with collections are:"
 msgstr ""
 
 #: ../../en/geometries.rst:262
@@ -386,13 +385,13 @@ msgid ":command:`ST_GeometryN(geometry,n)` returns the specified part"
 msgstr ""
 
 #: ../../en/geometries.rst:264
-msgid ":command:`ST_Area(geometry)` returns the total area of all polygonal parts"
+msgid ""
+":command:`ST_Area(geometry)` returns the total area of all polygonal parts"
 msgstr ""
 
 #: ../../en/geometries.rst:265
 msgid ""
-":command:`ST_Length(geometry)` returns the total length of all linear "
-"parts"
+":command:`ST_Length(geometry)` returns the total length of all linear parts"
 msgstr ""
 
 #: ../../en/geometries.rst:270
@@ -401,11 +400,11 @@ msgstr ""
 
 #: ../../en/geometries.rst:272
 msgid ""
-"Within the database, geometries are stored on disk in a format only used "
-"by the PostGIS program. In order for external programs to insert and "
-"retrieve useful geometries, they need to be converted into a format that "
-"other applications can understand. Fortunately, PostGIS supports emitting"
-" and consuming geometries in a large number of formats:"
+"Within the database, geometries are stored on disk in a format only used by "
+"the PostGIS program. In order for external programs to insert and retrieve "
+"useful geometries, they need to be converted into a format that other "
+"applications can understand. Fortunately, PostGIS supports emitting and "
+"consuming geometries in a large number of formats:"
 msgstr ""
 
 #: ../../en/geometries.rst:274
@@ -482,40 +481,38 @@ msgstr ""
 
 #: ../../en/geometries.rst:304
 msgid ""
-"The most common use of a constructor is to turn a text representation of "
-"a geometry into an internal representation:"
+"The most common use of a constructor is to turn a text representation of a "
+"geometry into an internal representation:"
 msgstr ""
 
 #: ../../en/geometries.rst:310
 msgid ""
-"Note that in addition to a text parameter with a geometry representation,"
-" we also have a numeric parameter providing the :term:`SRID` of the "
-"geometry."
+"Note that in addition to a text parameter with a geometry representation, we "
+"also have a numeric parameter providing the :term:`SRID` of the geometry."
 msgstr ""
 
 #: ../../en/geometries.rst:312
 msgid ""
-"The following SQL query shows an example of :term:`WKB` representation "
-"(the call to :command:`encode()` is required to convert the binary output"
-" into an ASCII form for printing):"
+"The following SQL query shows an example of :term:`WKB` representation (the "
+"call to :command:`encode()` is required to convert the binary output into an "
+"ASCII form for printing):"
 msgstr ""
 
 #: ../../en/geometries.rst:324
 msgid ""
-"For the purposes of this workshop we will continue to use WKT to ensure "
-"you can read and understand the geometries we're viewing.  However, most "
-"actual processes, such as viewing data in a GIS application, transferring"
-" data to a web service, or processing data remotely, WKB is the format of"
-" choice."
+"For the purposes of this workshop we will continue to use WKT to ensure you "
+"can read and understand the geometries we're viewing.  However, most actual "
+"processes, such as viewing data in a GIS application, transferring data to a "
+"web service, or processing data remotely, WKB is the format of choice."
 msgstr ""
 
 #: ../../en/geometries.rst:326
 msgid ""
-"Since WKT and WKB were defined in the  :term:`SFSQL` specification, they "
-"do not handle 3- or 4-dimensional geometries.  For these cases PostGIS "
-"has defined the Extended Well Known Text (EWKT) and Extended Well Known "
-"Binary (EWKB) formats.  These provide the same formatting capabilities of"
-" WKT and WKB with the added dimensionality."
+"Since WKT and WKB were defined in the  :term:`SFSQL` specification, they do "
+"not handle 3- or 4-dimensional geometries.  For these cases PostGIS has "
+"defined the Extended Well Known Text (EWKT) and Extended Well Known Binary "
+"(EWKB) formats.  These provide the same formatting capabilities of WKT and "
+"WKB with the added dimensionality."
 msgstr ""
 
 #: ../../en/geometries.rst:328
@@ -524,8 +521,8 @@ msgstr ""
 
 #: ../../en/geometries.rst:338
 msgid ""
-"Note that the text representation changes! This is because the text input"
-" routine for PostGIS is liberal in what it consumes. It will consume"
+"Note that the text representation changes! This is because the text input "
+"routine for PostGIS is liberal in what it consumes. It will consume"
 msgstr ""
 
 #: ../../en/geometries.rst:340
@@ -542,23 +539,23 @@ msgstr ""
 
 #: ../../en/geometries.rst:344
 msgid ""
-"On the output side, the :command:`ST_AsText` function is conservative, "
-"and only emits ISO standard well-known text."
+"On the output side, the :command:`ST_AsText` function is conservative, and "
+"only emits ISO standard well-known text."
 msgstr ""
 
 #: ../../en/geometries.rst:346
 msgid ""
-"In addition to the :command:`ST_GeometryFromText` function, there are "
-"many other ways to create geometries from well-known text or similar "
-"formatted inputs:"
+"In addition to the :command:`ST_GeometryFromText` function, there are many "
+"other ways to create geometries from well-known text or similar formatted "
+"inputs:"
 msgstr ""
 
 #: ../../en/geometries.rst:366
 msgid ""
 "In addition to emitters for the various forms (WKT, WKB, GML, KML, JSON, "
 "SVG), PostGIS also has consumers for four (WKT, WKB, GML, KML). Most "
-"applications use the WKT or WKB geometry creation functions, but the "
-"others work too. Here's an example that consumes GML and output JSON:"
+"applications use the WKT or WKB geometry creation functions, but the others "
+"work too. Here's an example that consumes GML and output JSON:"
 msgstr ""
 
 #: ../../en/geometries.rst:376
@@ -568,8 +565,8 @@ msgstr ""
 #: ../../en/geometries.rst:378
 msgid ""
 "The :term:`WKT` strings we've see so far have been of type 'text' and we "
-"have been converting them to type 'geometry' using PostGIS functions like"
-" :command:`ST_GeomFromText()`."
+"have been converting them to type 'geometry' using PostGIS functions like :"
+"command:`ST_GeomFromText()`."
 msgstr ""
 
 #: ../../en/geometries.rst:380
@@ -587,15 +584,14 @@ msgstr ""
 msgid ""
 "One thing to note about using casting to create geometries: unless you "
 "specify the SRID, you will get a geometry with an unknown SRID. You can "
-"specify the SRID using the \"extended\" well-known text form, which "
-"includes an SRID block at the front:"
+"specify the SRID using the \"extended\" well-known text form, which includes "
+"an SRID block at the front:"
 msgstr ""
 
 #: ../../en/geometries.rst:398
 msgid ""
-"It's very common to use the casting notation when working with "
-":term:`WKT`, as well as `geometry` and `geography` columns (see "
-":ref:`geography`)."
+"It's very common to use the casting notation when working with :term:`WKT`, "
+"as well as `geometry` and `geography` columns (see :ref:`geography`)."
 msgstr ""
 
 #: ../../en/geometries.rst:402
@@ -604,9 +600,9 @@ msgstr ""
 
 #: ../../en/geometries.rst:404
 msgid ""
-"`ST_Area <http://postgis.net/docs/ST_Area.html>`_: Returns the area of "
-"the surface if it is a polygon or multi-polygon. For \"geometry\" type "
-"area is in SRID units. For \"geography\" area is in square meters."
+"`ST_Area <http://postgis.net/docs/ST_Area.html>`_: Returns the area of the "
+"surface if it is a polygon or multi-polygon. For \"geometry\" type area is "
+"in SRID units. For \"geography\" area is in square meters."
 msgstr ""
 
 #: ../../en/geometries.rst:406
@@ -618,15 +614,15 @@ msgstr ""
 
 #: ../../en/geometries.rst:408
 msgid ""
-"`ST_AsBinary <http://postgis.net/docs/ST_AsBinary.html>`_: Returns the "
-"Well-Known Binary (WKB) representation of the geometry/geography without "
-"SRID meta data."
+"`ST_AsBinary <http://postgis.net/docs/ST_AsBinary.html>`_: Returns the Well-"
+"Known Binary (WKB) representation of the geometry/geography without SRID "
+"meta data."
 msgstr ""
 
 #: ../../en/geometries.rst:410
 msgid ""
-"`ST_EndPoint <http://postgis.net/docs/ST_EndPoint.html>`_: Returns the "
-"last point of a LINESTRING geometry as a POINT."
+"`ST_EndPoint <http://postgis.net/docs/ST_EndPoint.html>`_: Returns the last "
+"point of a LINESTRING geometry as a POINT."
 msgstr ""
 
 #: ../../en/geometries.rst:412
@@ -649,85 +645,79 @@ msgstr ""
 
 #: ../../en/geometries.rst:418
 msgid ""
-"`ST_AsGML <http://postgis.net/docs/ST_AsGML.html>`_: Returns the geometry"
-" as a GML version 2 or 3 element."
+"`ST_AsGML <http://postgis.net/docs/ST_AsGML.html>`_: Returns the geometry as "
+"a GML version 2 or 3 element."
 msgstr ""
 
 #: ../../en/geometries.rst:420
 msgid ""
-"`ST_AsKML <http://postgis.net/docs/ST_AsKML.html>`_: Returns the geometry"
-" as a KML element. Several variants. Default version=2, default "
-"precision=15."
+"`ST_AsKML <http://postgis.net/docs/ST_AsKML.html>`_: Returns the geometry as "
+"a KML element. Several variants. Default version=2, default precision=15."
 msgstr ""
 
 #: ../../en/geometries.rst:422
 msgid ""
-"`ST_AsSVG <http://postgis.net/docs/ST_AsSVG.html>`_: Returns a Geometry "
-"in SVG path data given a geometry or geography object."
+"`ST_AsSVG <http://postgis.net/docs/ST_AsSVG.html>`_: Returns a Geometry in "
+"SVG path data given a geometry or geography object."
 msgstr ""
 
 #: ../../en/geometries.rst:424
 msgid ""
-"`ST_ExteriorRing <http://postgis.net/docs/ST_ExteriorRing.html>`_: "
-"Returns a line string representing the exterior ring of the POLYGON "
-"geometry. Return NULL if the geometry is not a polygon. Will not work "
-"with MULTIPOLYGON"
+"`ST_ExteriorRing <http://postgis.net/docs/ST_ExteriorRing.html>`_: Returns a "
+"line string representing the exterior ring of the POLYGON geometry. Return "
+"NULL if the geometry is not a polygon. Will not work with MULTIPOLYGON"
 msgstr ""
 
 #: ../../en/geometries.rst:426
 msgid ""
-"`ST_GeometryN <http://postgis.net/docs/ST_GeometryN.html>`_: Returns the "
-"1-based Nth geometry if the geometry is a GEOMETRYCOLLECTION, MULTIPOINT,"
-" MULTILINESTRING, MULTICURVE or MULTIPOLYGON. Otherwise, return NULL."
+"`ST_GeometryN <http://postgis.net/docs/ST_GeometryN.html>`_: Returns the 1-"
+"based Nth geometry if the geometry is a GEOMETRYCOLLECTION, MULTIPOINT, "
+"MULTILINESTRING, MULTICURVE or MULTIPOLYGON. Otherwise, return NULL."
 msgstr ""
 
 #: ../../en/geometries.rst:428
 msgid ""
-"`ST_GeomFromGML <http://postgis.net/docs/ST_GeomFromGML.html>`_: Takes as"
-" input GML representation of geometry and outputs a PostGIS geometry "
-"object."
+"`ST_GeomFromGML <http://postgis.net/docs/ST_GeomFromGML.html>`_: Takes as "
+"input GML representation of geometry and outputs a PostGIS geometry object."
 msgstr ""
 
 #: ../../en/geometries.rst:430
 msgid ""
-"`ST_GeomFromKML <http://postgis.net/docs/ST_GeomFromKML.html>`_: Takes as"
-" input KML representation of geometry and outputs a PostGIS geometry "
-"object"
+"`ST_GeomFromKML <http://postgis.net/docs/ST_GeomFromKML.html>`_: Takes as "
+"input KML representation of geometry and outputs a PostGIS geometry object"
 msgstr ""
 
 #: ../../en/geometries.rst:432
 msgid ""
-"`ST_GeomFromText <http://postgis.net/docs/ST_GeomFromText.html>`_: "
-"Returns a specified ST_Geometry value from Well-Known Text representation"
-" (WKT)."
+"`ST_GeomFromText <http://postgis.net/docs/ST_GeomFromText.html>`_: Returns a "
+"specified ST_Geometry value from Well-Known Text representation (WKT)."
 msgstr ""
 
 #: ../../en/geometries.rst:434
 msgid ""
-"`ST_GeomFromWKB <http://postgis.net/docs/ST_GeomFromWKB.html>`_: Creates "
-"a geometry instance from a Well-Known Binary geometry representation "
-"(WKB) and optional SRID."
+"`ST_GeomFromWKB <http://postgis.net/docs/ST_GeomFromWKB.html>`_: Creates a "
+"geometry instance from a Well-Known Binary geometry representation (WKB) and "
+"optional SRID."
 msgstr ""
 
 #: ../../en/geometries.rst:436
 msgid ""
-"`ST_GeometryType <http://postgis.net/docs/ST_GeometryType.html>`_: "
-"Returns the geometry type of the ST_Geometry value."
+"`ST_GeometryType <http://postgis.net/docs/ST_GeometryType.html>`_: Returns "
+"the geometry type of the ST_Geometry value."
 msgstr ""
 
 #: ../../en/geometries.rst:438
 msgid ""
-"`ST_InteriorRingN <http://postgis.net/docs/ST_InteriorRingN.html>`_: "
-"Returns the Nth interior linestring ring of the polygon geometry. Return "
-"NULL if the geometry is not a polygon or the given N is out of range."
+"`ST_InteriorRingN <http://postgis.net/docs/ST_InteriorRingN.html>`_: Returns "
+"the Nth interior linestring ring of the polygon geometry. Return NULL if the "
+"geometry is not a polygon or the given N is out of range."
 msgstr ""
 
 #: ../../en/geometries.rst:440
 msgid ""
-"`ST_Length <http://postgis.net/docs/ST_Length.html>`_: Returns the 2d "
-"length of the geometry if it is a linestring or multilinestring. geometry"
-" are in units of spatial reference and geography are in meters (default "
-"spheroid)"
+"`ST_Length <http://postgis.net/docs/ST_Length.html>`_: Returns the 2d length "
+"of the geometry if it is a linestring or multilinestring. geometry are in "
+"units of spatial reference and geography are in meters (default spheroid)"
 msgstr ""
 
 #: ../../en/geometries.rst:442
@@ -738,14 +728,14 @@ msgstr ""
 
 #: ../../en/geometries.rst:444
 msgid ""
-"`ST_NPoints <http://postgis.net/docs/ST_NPoints.html>`_: Returns the "
-"number of points (vertexes) in a geometry."
+"`ST_NPoints <http://postgis.net/docs/ST_NPoints.html>`_: Returns the number "
+"of points (vertexes) in a geometry."
 msgstr ""
 
 #: ../../en/geometries.rst:446
 msgid ""
-"`ST_NRings <http://postgis.net/docs/ST_NRings.html>`_: If the geometry is"
-" a polygon or multi-polygon returns the number of rings."
+"`ST_NRings <http://postgis.net/docs/ST_NRings.html>`_: If the geometry is a "
+"polygon or multi-polygon returns the number of rings."
 msgstr ""
 
 #: ../../en/geometries.rst:448
@@ -765,25 +755,23 @@ msgstr ""
 #: ../../en/geometries.rst:452
 msgid ""
 "`ST_SRID <http://postgis.net/docs/ST_SRID.html>`_: Returns the spatial "
-"reference identifier for the ST_Geometry as defined in spatial_ref_sys "
-"table."
+"reference identifier for the ST_Geometry as defined in spatial_ref_sys table."
 msgstr ""
 
 #: ../../en/geometries.rst:454
 msgid ""
-"`ST_StartPoint <http://postgis.net/docs/ST_StartPoint.html>`_: Returns "
-"the first point of a LINESTRING geometry as a POINT."
+"`ST_StartPoint <http://postgis.net/docs/ST_StartPoint.html>`_: Returns the "
+"first point of a LINESTRING geometry as a POINT."
 msgstr ""
 
 #: ../../en/geometries.rst:456
 msgid ""
-"`ST_X <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate of "
-"the point, or NULL if not available. Input must be a point."
+"`ST_X <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate of the "
+"point, or NULL if not available. Input must be a point."
 msgstr ""
 
 #: ../../en/geometries.rst:458
 msgid ""
-"`ST_Y <http://postgis.net/docs/ST_Y.html>`_: Returns the Y coordinate of "
-"the point, or NULL if not available. Input must be a point."
+"`ST_Y <http://postgis.net/docs/ST_Y.html>`_: Returns the Y coordinate of the "
+"point, or NULL if not available. Input must be a point."
 msgstr ""
-

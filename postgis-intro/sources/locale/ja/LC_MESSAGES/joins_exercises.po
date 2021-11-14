@@ -9,12 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
@@ -24,12 +25,13 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:6
 msgid ""
-"Here's a reminder of some of the functions we have seen.  Hint: they "
-"should be useful for the exercises!"
+"Here's a reminder of some of the functions we have seen.  Hint: they should "
+"be useful for the exercises!"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:8
-msgid ":command:`sum(expression)`: aggregate to return a sum for a set of records"
+msgid ""
+":command:`sum(expression)`: aggregate to return a sum for a set of records"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:9
@@ -48,20 +50,20 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:12
 msgid ""
-":command:`ST_Contains(geometry A, geometry B)` returns the true if "
-"geometry A contains geometry B"
+":command:`ST_Contains(geometry A, geometry B)` returns the true if geometry "
+"A contains geometry B"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:13
 msgid ""
-":command:`ST_Distance(geometry A, geometry B)` returns the minimum "
-"distance between geometry A and geometry B"
+":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance "
+"between geometry A and geometry B"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:14
 msgid ""
-":command:`ST_DWithin(geometry A, geometry B, radius)` returns the true if"
-" geometry A is radius distance or less from geometry B"
+":command:`ST_DWithin(geometry A, geometry B, radius)` returns the true if "
+"geometry A is radius distance or less from geometry B"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:15
@@ -86,8 +88,8 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:19
 msgid ""
-":command:`ST_Within(geometry A, geometry B)` returns the true if geometry"
-" A is within geometry B"
+":command:`ST_Within(geometry A, geometry B)` returns the true if geometry A "
+"is within geometry B"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:21
@@ -131,21 +133,21 @@ msgid "Exercises"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:42
-msgid "**What subway station is in 'Little Italy'? What subway route is it on?**"
+msgid ""
+"**What subway station is in 'Little Italy'? What subway route is it on?**"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:58
 msgid ""
 "**What are all the neighborhoods served by the 6-train?** (Hint: The "
-"``routes`` column in the ``nyc_subway_stations`` table has values like "
-"'B,D,6,V' and 'C,6')"
+"``routes`` column in the ``nyc_subway_stations`` table has values like 'B,"
+"D,6,V' and 'C,6')"
 msgstr ""
 
 #: ../../en/joins_exercises.rst:90
 msgid ""
-"We used the ``DISTINCT`` keyword to remove duplicate values from our "
-"result set where there were more than one subway station in a "
-"neighborhood."
+"We used the ``DISTINCT`` keyword to remove duplicate values from our result "
+"set where there were more than one subway station in a neighborhood."
 msgstr ""
 
 #: ../../en/joins_exercises.rst:92
@@ -157,4 +159,3 @@ msgstr ""
 #: ../../en/joins_exercises.rst:106
 msgid "**What neighborhood has the highest population density (persons/km2)?**"
 msgstr ""
-

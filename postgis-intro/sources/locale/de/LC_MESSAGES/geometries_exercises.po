@@ -9,12 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 18:47-0500\n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
@@ -24,18 +25,18 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:6
 msgid ""
-"Here's a reminder of all the functions we have seen so far. They should "
-"be useful for the exercises!"
+"Here's a reminder of all the functions we have seen so far. They should be "
+"useful for the exercises!"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:8
-msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
+msgid ""
+":command:`sum(expression)` aggregate to return a sum for a set of records"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:9
 msgid ""
-":command:`count(expression)` aggregate to return the size of a set of "
-"records"
+":command:`count(expression)` aggregate to return the size of a set of records"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:10
@@ -50,8 +51,8 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:12
 msgid ""
-":command:`ST_SRID(geometry)` returns the spatial reference identifier "
-"number of the geometry"
+":command:`ST_SRID(geometry)` returns the spatial reference identifier number "
+"of the geometry"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:13
@@ -67,7 +68,8 @@ msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:16
-msgid ":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
+msgid ""
+":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:17
@@ -86,18 +88,19 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:20
 msgid ""
-":command:`ST_NRings(geometry)` returns the number of rings (usually 1, "
-"more if there are holes)"
+":command:`ST_NRings(geometry)` returns the number of rings (usually 1, more "
+"if there are holes)"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:21
-msgid ":command:`ST_ExteriorRing(polygon)` returns the outer ring as a linestring"
+msgid ""
+":command:`ST_ExteriorRing(polygon)` returns the outer ring as a linestring"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:22
 msgid ""
-":command:`ST_InteriorRingN(polygon, integer)` returns a specified "
-"interior ring as a linestring"
+":command:`ST_InteriorRingN(polygon, integer)` returns a specified interior "
+"ring as a linestring"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:23
@@ -112,8 +115,8 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:25
 msgid ""
-":command:`ST_GeometryN(geometry, integer)` returns the specified part of "
-"the collection"
+":command:`ST_GeometryN(geometry, integer)` returns the specified part of the "
+"collection"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:26
@@ -210,8 +213,8 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:74
 msgid ""
-"The area is given in square meters. To get an area in hectares, divide by"
-" 10000. To get an area in acres, divide by 4047."
+"The area is given in square meters. To get an area in hectares, divide by "
+"10000. To get an area in acres, divide by 4047."
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:77
@@ -219,21 +222,21 @@ msgid "**What is the geometry type of ‘Pelham St’? The length?**"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:93
-msgid "**What is the GeoJSON representation of the 'Broad St' subway station?**"
+msgid ""
+"**What is the GeoJSON representation of the 'Broad St' subway station?**"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:109
 msgid ""
-"**What is the total length of streets (in kilometers) in New York City?**"
-" (Hint: The units of measurement of the spatial data are meters, there "
-"are 1000 meters in a kilometer.)"
+"**What is the total length of streets (in kilometers) in New York City?** "
+"(Hint: The units of measurement of the spatial data are meters, there are "
+"1000 meters in a kilometer.)"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:121
 msgid ""
 "**What is the area of Manhattan in acres?** (Hint: both "
-"``nyc_census_blocks`` and ``nyc_neighborhoods`` have a ``boroname`` in "
-"them.)"
+"``nyc_census_blocks`` and ``nyc_neighborhoods`` have a ``boroname`` in them.)"
 msgstr ""
 
 #: ../../en/geometries_exercises.rst:133
@@ -254,8 +257,6 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:211
 msgid ""
-"The ``ORDER BY length DESC`` clause sorts the result by length in "
-"descending order. The result is that most prevalent types are first in "
-"the list."
+"The ``ORDER BY length DESC`` clause sorts the result by length in descending "
+"order. The result is that most prevalent types are first in the list."
 msgstr ""
-

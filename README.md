@@ -35,6 +35,14 @@ make gettext
 sphinx-intl update -p _build/gettext -l de -l ja -l es
 ```
 
+## Building translated docs
+```
+LANG=ja make html-translation
+LANG=de make html-translation
+LANG=es make html-translation
+LANG=it make html-translation
+```
+
 ### Slide Decks
 
 * TBD, probably using reveal.js

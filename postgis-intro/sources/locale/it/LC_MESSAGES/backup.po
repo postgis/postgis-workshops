@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-13 19:01-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-01-06 18:29+0000\n"
+"Last-Translator: strk <strk@kbt.io>\n"
+"Language-Team: Italian <https://weblate.osgeo.org/projects/postgis-workshop/"
+"backup/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: ../../en/backup.rst:4
 msgid "PostgreSQL Backup and Restore"
@@ -38,11 +41,13 @@ msgstr ""
 
 #: ../../en/backup.rst:15
 msgid "Laying Out your Data"
-msgstr ""
+msgstr "Organizzare i tuoi dati"
 
 #: ../../en/backup.rst:17
 msgid "As discussed in :ref:`schemas`, ensuring that production data is always stored in separate schemas is a very important **best practice** in managing data. There are two reasons:"
 msgstr ""
+"Come discusso in :ref:`schemas`, e' molto importante assicurarsi che i dati "
+"di produzione siano sempre conservati in schemi separati. Ecco due motivi:"
 
 #: ../../en/backup.rst:19
 msgid "Backing up and restoring data in schemas is much simpler than managing lists of tables to be backed up individually."

@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to
+# PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../en/geometry_returning_exercises.rst:4
+msgid "Geometry Constructing Exercises"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:6
+msgid ""
+"Here's a reminder of some of the functions we have seen.  Hint: they should "
+"be useful for the exercises!"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:8
+msgid ""
+":command:`sum(expression)` aggregate to return a sum for a set of records"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:9
+msgid ":command:`ST_Area(geometry)` returns the area of the geometry"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:10
+msgid ":command:`ST_Centroid(geometry)` returns the ``geometry`` centroid"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:11
+msgid ""
+":command:`ST_Transform(geometry, srid)` converts ``geometries`` into "
+"different spatial reference systems"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:12
+msgid ""
+":command:`ST_Buffer(geometry, radius)` returns an expanded ``geometry`` shape"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:13
+msgid ""
+":command:`ST_Contains(geometry1, geometry2)` returns truw if geometry1 "
+"contains geometry2"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:14
+msgid ""
+":command:`ST_Union(geometry[])` returns the aggregate union of all "
+"geometries in the group"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:15
+msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:16
+msgid ""
+":command:`ST_NumGeometries(geometry)` returns the number of geometries in a "
+"collection or 1 for simple geometries"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:17
+msgid ""
+":command:`ST_Intersection(geometry, geometry)` returns the area that the two "
+"input geometries share in common"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:20
+msgid "Remember the tables we have available:"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:22
+msgid "``nyc_census_blocks``"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:24
+msgid "name, popn_total, boroname, geom"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:26
+msgid "``nyc_streets``"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:28
+msgid "name, type, geom"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:30
+msgid "``nyc_subway_stations``"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:32
+msgid "name, geom"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:34
+msgid "``nyc_neighborhoods``"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:36
+msgid "name, boroname, geom"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:39
+msgid "Exercises"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:41
+msgid "**How many census blocks don’t contain their own centroid?**"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:57
+msgid ""
+"**Union all the census blocks into a single output. What kind of geometry is "
+"it? How many parts does it have?**"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:82
+msgid ""
+"**What is the area of a one unit buffer around the origin? How different is "
+"it from what you would expect? Why?**"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:94
+msgid ""
+"A unit circle (circle with radius of one) should have an area of pi, "
+"3.1415926... The difference is due to the linear stroking of the edges of "
+"the buffer. The buffer has a finite number of edges. Increasing the number "
+"of edges in the buffer will get the value closer to pi, but it will always "
+"be smaller due to the linearization."
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:96
+msgid ""
+"**The Brooklyn neighborhoods of ‘Park Slope’ and ‘Carroll Gardens’ are going "
+"to war! Construct a polygon delineating a 100 meter wide DMZ on the border "
+"between the neighborhoods. What is the area of the DMZ?**"
+msgstr ""
+
+#: ../../en/geometry_returning_exercises.rst:116
+msgid ""
+"It is easy to buffer both the neighborhoods of interest, but to get the "
+"intersection requires a self-join of the table, creating one relation "
+"(``ps``) with just the \"Park Slope\" record and another (``cg``) with just "
+"the \"Carroll Gardens\" record. Note that the area of the intersection is in "
+"square meters because we are still working in UTM 18 (EPSG:26918)."
+msgstr ""

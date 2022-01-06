@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to
+# PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../en/linear_referencing.rst:4
+msgid "Linear Referencing"
+msgstr ""
+
+#: ../../en/linear_referencing.rst:6
+msgid ""
+"Linear referencing (sometimes called \"dynamic segmentation\") is a means of "
+"representing features that can be described by referencing a base set of "
+"linear features. Common examples of features that are modelled using linear "
+"referencing are:"
+msgstr ""
+
+#: ../../en/linear_referencing.rst:8
+msgid ""
+"Highway assets, which are referenced using miles along a highway network"
+msgstr ""
+
+#: ../../en/linear_referencing.rst:9
+msgid ""
+"Road maintenance operations, which are referenced as occurring along a road "
+"network between a pair of mile measurements."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:10
+msgid ""
+"Aquatic inventories, where fish presence is recorded as existing between a "
+"pair of mileage-upstream measurements."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:11
+msgid ""
+"Hydrologic characterizations (\"reaches\") of streams, recorded with a from- "
+"and to- mileage."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:13
+msgid ""
+"The benefit of linear referencing models is that the dependent spatial "
+"observations do not need to be separately recorded from the base "
+"observations, and updates to the base observation layer can be carried out "
+"knowing that the dependent observations will automatically track the new "
+"geometry."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:17
+msgid ""
+"The Esri terminological convention for linear referencing is to have a base "
+"table of linear spatial features, and a non-spatial table of \"events\" "
+"which includes a foreign key reference to the spatial feature and a measure "
+"along the referenced feature. We will use the term \"event table\" to refer "
+"to the non-spatial tables we build."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:21
+msgid "Creating Linear References"
+msgstr ""
+
+#: ../../en/linear_referencing.rst:23
+msgid ""
+"If you have an existing point table that you want to reference to a linear "
+"network, use the :command:`ST_LineLocatePoint` function, which takes a line "
+"and point, and returns the proportion along the line that the point can be "
+"found."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:35
+msgid ""
+"We can convert the **nyc_subway_stations** into an \"event table\" relative "
+"to the streets by using :command:`ST_LineLocatePoint`."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:70
+msgid ""
+"Once we have an event table, it's fun to turn it back into a spatial view, "
+"so we can visualize the events relative to the original points they were "
+"derived from."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:72
+msgid ""
+"To go from a measure to a point, we use the :command:"
+"`ST_LineInterpolatePoint` function. Here's our previous simple examples "
+"reversed:"
+msgstr ""
+
+#: ../../en/linear_referencing.rst:81
+msgid ""
+"And we can join the **nyc_subway_station_events** tables back to the "
+"**nyc_streets** table and use the **measure** attribute to generate the "
+"spatial event points, without referencing the original "
+"**nyc_subway_stations** table."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:95
+msgid ""
+"Viewing the original (red star) and event (blue circle) points with the "
+"streets, you can see how the events are snapped directly to the closest "
+"street lines."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:102
+msgid ""
+"One surprising use of the linear referencing functions has nothing to do "
+"with linear referencing models. As shown above, it's possible to use the "
+"functions to snap points to linear features. For use cases like GPS tracks "
+"or other inputs that are expected to reference a linear network, snapping is "
+"a handy feature to have available."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:106
+msgid "Function List"
+msgstr ""
+
+#: ../../en/linear_referencing.rst:108
+msgid ""
+"`ST_LineInterpolatePoint(geometry A, double measure) <http://postgis.net/"
+"docs/ST_LineInterpolatePoint.html>`_: Returns a point interpolated along a "
+"line."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:109
+msgid ""
+"`ST_LineLocatePoint(geometry A, geometry B) <http://postgis.net/docs/"
+"ST_LineLocatePoint.html>`_: Returns a float between 0 and 1 representing the "
+"location of the closest point on LineString to the given Point."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:110
+msgid ""
+"`ST_LineSubstring(geometry A, double from, double to) <http://postgis.net/"
+"docs/ST_LineSubstring.html>`_: Return a linestring being a substring of the "
+"input one starting and ending at the given fractions of total 2d length."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:111
+msgid ""
+"`ST_LocateAlong(geometry A, double measure) <http://postgis.net/docs/"
+"ST_LocateAlong.html>`_: Return a derived geometry collection value with "
+"elements that match the specified measure."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:112
+msgid ""
+"`ST_LocateBetween(geometry A, double from, double to) <http://postgis.net/"
+"docs/ST_LocateBetween.html>`_: Return a derived geometry collection value "
+"with elements that match the specified range of measures inclusively."
+msgstr ""
+
+#: ../../en/linear_referencing.rst:113
+msgid ""
+"`ST_AddMeasure(geometry A, double from, double to) <http://postgis.net/docs/"
+"ST_AddMeasure.html>`_: Return a derived geometry with measure elements "
+"linearly interpolated between the start and end points. If the geometry has "
+"no measure dimension, one is added."
+msgstr ""

@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/joins_exercises.rst:4
+msgid "Spatial Joins Exercises"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:6
+msgid "Here's a reminder of some of the functions we have seen.  Hint: they should be useful for the exercises!"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:8
+msgid ":command:`sum(expression)`: aggregate to return a sum for a set of records"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:9
+msgid ":command:`count(expression)`: aggregate to return the size of a set of records"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:10
+msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:11
+msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:12
+msgid ":command:`ST_Contains(geometry A, geometry B)` returns the true if geometry A contains geometry B"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:13
+msgid ":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance between geometry A and geometry B"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:14
+msgid ":command:`ST_DWithin(geometry A, geometry B, radius)` returns the true if geometry A is radius distance or less from geometry B"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:15
+msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:16
+msgid ":command:`ST_Intersects(geometry A, geometry B)` returns the true if geometry A intersects geometry B"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:17
+msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:18
+msgid ":command:`ST_Touches(geometry A, geometry B)` returns the true if the boundary of geometry A touches geometry B"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:19
+msgid ":command:`ST_Within(geometry A, geometry B)` returns the true if geometry A is within geometry B"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:21
+msgid "Also remember the tables we have available:"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:23
+msgid "``nyc_census_blocks``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:25
+msgid "name, popn_total, boroname, geom"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:27
+msgid "``nyc_streets``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:29
+msgid "name, type, geom"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:31
+msgid "``nyc_subway_stations``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:33
+msgid "name, routes, geom"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:35
+msgid "``nyc_neighborhoods``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:37
+msgid "name, boroname, geom"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:40
+msgid "Exercises"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:42
+msgid "**What subway station is in 'Little Italy'? What subway route is it on?**"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:58
+msgid "**What are all the neighborhoods served by the 6-train?** (Hint: The ``routes`` column in the ``nyc_subway_stations`` table has values like 'B,D,6,V' and 'C,6')"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:90
+msgid "We used the ``DISTINCT`` keyword to remove duplicate values from our result set where there were more than one subway station in a neighborhood."
+msgstr ""
+
+#: ../../en/joins_exercises.rst:92
+msgid "**After 9/11, the 'Battery Park' neighborhood was off limits for several days. How many people had to be evacuated?**"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:106
+msgid "**What neighborhood has the highest population density (persons/km2)?**"
+msgstr ""

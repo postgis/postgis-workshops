@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to
+# PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../en/validity.rst:4
+msgid "Validity"
+msgstr ""
+
+#: ../../en/validity.rst:6
+msgid ""
+"In 90% of the cases the answer to the question, \"why is my query giving me "
+"a 'TopologyException' error\" is \"one or more of the inputs are invalid\".  "
+"Which begs the question: what does it mean to be invalid, and why should we "
+"care?"
+msgstr ""
+
+#: ../../en/validity.rst:9
+msgid "What is Validity"
+msgstr ""
+
+#: ../../en/validity.rst:11
+msgid ""
+"Validity is most important for polygons, which define bounded areas and "
+"require a good deal of structure. Lines are very simple and cannot be "
+"invalid, nor can points."
+msgstr ""
+
+#: ../../en/validity.rst:13
+msgid ""
+"Some of the rules of polygon validity feel obvious, and others feel "
+"arbitrary (and in fact, are arbitrary)."
+msgstr ""
+
+#: ../../en/validity.rst:15
+msgid "Polygon rings must close."
+msgstr ""
+
+#: ../../en/validity.rst:16
+msgid ""
+"Rings that define holes should be inside rings that define exterior "
+"boundaries."
+msgstr ""
+
+#: ../../en/validity.rst:17
+msgid ""
+"Rings may not self-intersect (they may neither touch nor cross themselves)."
+msgstr ""
+
+#: ../../en/validity.rst:18
+msgid "Rings may not touch other rings, except at a point."
+msgstr ""
+
+#: ../../en/validity.rst:19
+msgid "Elements of multi-polygons may not touch each other."
+msgstr ""
+
+#: ../../en/validity.rst:21
+msgid ""
+"The last three rules are in the arbitrary category. There are other ways to "
+"define polygons that are equally self-consistent but the rules above are the "
+"ones used by the :term:`OGC` :term:`SFSQL` standard that PostGIS conforms to."
+msgstr ""
+
+#: ../../en/validity.rst:23
+msgid ""
+"The reason the rules are important is because algorithms for geometry "
+"calculations depend on consistent structure in the inputs. It is possible to "
+"build algorithms that have no structural assumptions, but those routines "
+"tend to be very slow, because the first step in any structure-free routine "
+"is to *analyze the inputs and build structure into them*."
+msgstr ""
+
+#: ../../en/validity.rst:25
+msgid "Here's an example of why structure matters. This polygon is invalid:"
+msgstr ""
+
+#: ../../en/validity.rst:31
+msgid "You can see the invalidity a little more clearly in this diagram:"
+msgstr ""
+
+#: ../../en/validity.rst:35
+msgid ""
+"The outer ring is actually a figure-eight, with a self-intersection in the "
+"middle. Note that the graphic routines successfully render the polygon fill, "
+"so that visually it is appears to be an \"area\": two one-unit squares, so a "
+"total area of two units of area."
+msgstr ""
+
+#: ../../en/validity.rst:37
+msgid "Let's see what the database thinks the area of our polygon is:"
+msgstr ""
+
+#: ../../en/validity.rst:51
+msgid ""
+"What's going on here? The algorithm that calculates area assumes that rings "
+"do not self-intersect. A well-behaved ring will always have the area that is "
+"bounded (the interior) on one side of the bounding line (it doesn't matter "
+"which side, just that it is on *one* side). However, in our (poorly behaved) "
+"figure-eight, the bounded area is to the right of the line for one lobe and "
+"to the left for the other. This causes the areas calculated for each lobe to "
+"cancel out (one comes out as 1, the other as -1) hence the \"zero area\" "
+"result."
+msgstr ""
+
+#: ../../en/validity.rst:55
+msgid "Detecting Validity"
+msgstr ""
+
+#: ../../en/validity.rst:57
+msgid ""
+"In the previous example we had one polygon that we **knew** was invalid. How "
+"do we detect invalidity in a table with millions of geometries? With the :"
+"command:`ST_IsValid(geometry)` function. Used against our figure-eight, we "
+"get a quick answer:"
+msgstr ""
+
+#: ../../en/validity.rst:69
+msgid ""
+"Now we know that the feature is invalid, but we don't know why. We can use "
+"the :command:`ST_IsValidReason(geometry)` function to find out the source of "
+"the invalidity:"
+msgstr ""
+
+#: ../../en/validity.rst:81
+msgid ""
+"Note that in addition to the reason (self-intersection) the location of the "
+"invalidity (coordinate (1 1)) is also returned."
+msgstr ""
+
+#: ../../en/validity.rst:83
+msgid ""
+"We can use the :command:`ST_IsValid(geometry)` function to test our tables "
+"too:"
+msgstr ""
+
+#: ../../en/validity.rst:104
+msgid "Repairing Invalidity"
+msgstr ""
+
+#: ../../en/validity.rst:106
+msgid ""
+"Repairing invalidity involves stripping a polygon down to its simplest "
+"structures (rings), ensuring the rings follow the rules of validity, then "
+"building up new polygons that follow the rules of ring enclosure. Frequently "
+"the results are intuitive, but in the case of extremely ill-behaved inputs, "
+"the valid outputs may not conform to your intuition of how they should look. "
+"Recent versions of PostGIS include different algorithms for geometry repair: "
+"read the `manual page <http://postgis.net/docs/ST_MakeValid.html>`_ "
+"carefully and choose the one you like best."
+msgstr ""
+
+#: ../../en/validity.rst:108
+msgid ""
+"For example, here's a classic invalidity -- the \"banana polygon\" -- a "
+"single ring that encloses an area but bends around to touch itself, leaving "
+"a \"hole\" which is not actually a hole."
+msgstr ""
+
+#: ../../en/validity.rst:117
+msgid ""
+"Running `ST_MakeValid <http://postgis.net/docs/ST_MakeValid.html>`_ on the "
+"polygon returns a valid :term:`OGC` polygon, consisting of an outer and "
+"inner ring that touch at one point."
+msgstr ""
+
+#: ../../en/validity.rst:133
+msgid ""
+"The \"banana polygon\" (or \"inverted shell\") is a case where the :term:"
+"`OGC` topology model for valid geometry and the model used internally by "
+"ESRI differ. The ESRI model considers rings that touch to be invalid, and "
+"prefers the banana form for this kind of shape. The OGC model is the "
+"reverse. Neither is \"correct\", they are just different ways to model the "
+"same situation."
+msgstr ""
+
+#: ../../en/validity.rst:137
+msgid "Bulk Validity Repair"
+msgstr ""
+
+#: ../../en/validity.rst:139
+msgid ""
+"Here's an example of SQL to flag invalid geometries for review while adding "
+"a repaired version to the table."
+msgstr ""
+
+#: ../../en/validity.rst:159
+msgid ""
+"A good tool for visually repairing invalid geometry is OpenJump (http://"
+"openjump.org) which includes a validation routine under **Tools->QA-"
+">Validate Selected Layers**."
+msgstr ""
+
+#: ../../en/validity.rst:163
+msgid "Function List"
+msgstr ""
+
+#: ../../en/validity.rst:165
+msgid ""
+"`ST_IsValid(geometry A) <http://postgis.net/docs/ST_IsValid.html>`_: Returns "
+"a boolean indiciting whether the geometery is valid."
+msgstr ""
+
+#: ../../en/validity.rst:167
+msgid ""
+"`ST_IsValidReason(geometry A) <http://postgis.net/docs/ST_IsValidReason."
+"html>`_: Returns a text string with the reason for the invalidity and a "
+"coordinate of invalidity."
+msgstr ""
+
+#: ../../en/validity.rst:169
+msgid ""
+"`ST_MakeValid(geometry A) <http://postgis.net/docs/ST_MakeValid.html>`_: "
+"Returns a geometry re-constructed to obey the validity rules."
+msgstr ""

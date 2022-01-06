@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/tuning.rst:4
+msgid "Basic PostgreSQL Tuning"
+msgstr ""
+
+#: ../../en/tuning.rst:6
+msgid "PostgreSQL is a very versatile database system, capable of running efficiently in very low-resource environments and environments shared with a variety of other applications.  In order to ensure it will run properly for many different environments, the default configuration is very conservative and not terribly appropriate for a high-performance production database.  Add the fact that geospatial databases have different usage patterns, and the data tend to consist of fewer, much larger records than non-geospatial databases, and you can see that the default configuration will not be totally appropriate for our purposes."
+msgstr ""
+
+#: ../../en/tuning.rst:8
+msgid "All of these configuration parameters can edited in the `postgresql.conf` database configuration file. This is a regular text file and can be edited using any text editor.  The changes will not take effect until the server is restarted."
+msgstr ""
+
+#: ../../en/tuning.rst:10
+msgid "This section describes some of the configuration parameters that can be adjusted for a more production-ready geospatial database."
+msgstr ""
+
+#: ../../en/tuning.rst:12
+msgid "These values are recommendations only; each environment will differ and testing is required to determine the optimal configuration.  But this section should get you off to a good start."
+msgstr ""
+
+#: ../../en/tuning.rst:16
+msgid "shared_buffers"
+msgstr ""
+
+#: ../../en/tuning.rst:18
+msgid "Sets the amount of memory the database server uses for shared memory buffers.  These are shared amongst the back-end processes, as the name suggests.  The default values are typically woefully inadequate for production databases."
+msgstr ""
+
+#: ../../en/tuning.rst:20
+msgid "*Default value*: typically 32MB"
+msgstr ""
+
+#: ../../en/tuning.rst:22
+msgid "*Recommended value*: about 75% of database memory up to a max of about 2GB"
+msgstr ""
+
+#: ../../en/tuning.rst:26
+msgid "effective_cache_size"
+msgstr ""
+
+#: ../../en/tuning.rst:28
+msgid "In addition to the memory PostgreSQL sets aside for ``shared_buffers`` the query planner also takes into account how many disk blocks the operating system may have cached as part of its virtual file system. For systems with large amount of memory, this can be quite large. The ``effective_cache_size`` is approximately the amount of memory on the machine, less the ``shared_buffers``, less the ``work_mem`` times the expected number of connections, less any memory required for any other processes running on the machine, less about 1GB for other random operating system needs. The database will not **use** the extra cache directly, but it will compute plans expecting that the operating system has cached filesystem data in about that much memory."
+msgstr ""
+
+#: ../../en/tuning.rst:30
+msgid "*Default value*: typically 4GB"
+msgstr ""
+
+#: ../../en/tuning.rst:32
+msgid "*Recommended value*: any amount of \"free\" memory expected to be around under ordinary operating conditions"
+msgstr ""
+
+#: ../../en/tuning.rst:36
+msgid "work_mem"
+msgstr ""
+
+#: ../../en/tuning.rst:38
+msgid "Defines the amount of memory that internal sorting operations, indexing operations and hash tables can consume before the database switches to on-disk files.  This value defines the available memory for each operation; complex queries may have several sort or hash operations running in parallel, and each connected session may be executing a query."
+msgstr ""
+
+#: ../../en/tuning.rst:40
+msgid "As such you must consider how many connections and the complexity of expected queries before increasing this value.  The **benefit** to increasing is that the processing of more of these operations, including ORDER BY, and DISTINCT clauses, merge and hash joins, hash-based aggregation and hash-based processing of subqueries, can be accomplished without incurring disk writes. The **cost** of increasing is memory that will be used **per connection**, which can be quite high with production levels of connections."
+msgstr ""
+
+#: ../../en/tuning.rst:42
+msgid "*Default value*: 1MB"
+msgstr ""
+
+#: ../../en/tuning.rst:44
+msgid "*Recommended value*: 32MB"
+msgstr ""
+
+#: ../../en/tuning.rst:48
+msgid "maintenance_work_mem"
+msgstr ""
+
+#: ../../en/tuning.rst:50
+msgid "Defines the amount of memory used for maintenance operations, including vacuuming, index and foreign key creation.  As these operations are not terribly common, a higher value will only exact an occasional cost, and may substantially speed up maintenance activities  This parameter can alternately be increased for a single session before the execution of a number of :command:`CREATE INDEX` or :command:`VACUUM` calls as shown below."
+msgstr ""
+
+#: ../../en/tuning.rst:58
+msgid "*Default value*: 16MB"
+msgstr ""
+
+#: ../../en/tuning.rst:60
+msgid "*Recommended value*: 128MB"
+msgstr ""
+
+#: ../../en/tuning.rst:64
+msgid "wal_buffers"
+msgstr ""
+
+#: ../../en/tuning.rst:66
+msgid "Sets the amount of memory used for write-ahead log (WAL) data.  Write-ahead logs provide a high-performance mechanism for insuring data-integrity.  During each change command, the effects of the changes are written first to the WAL files and flushed to disk.  Only once the WAL files have been flushed will the changes be written to the data files themselves.  This allows the data files to be written to disk in an optimal and asynchronous manner while ensuring that, in the event of a crash, all data changes can be recovered from the WAL."
+msgstr ""
+
+#: ../../en/tuning.rst:68
+msgid "The size of this buffer only needs to be large enough to hold WAL data for a single typical transaction.  While the default value is often sufficient for most data, geospatial data tends to be much larger.  Therefore, it is recommended to increase the size of this parameter."
+msgstr ""
+
+#: ../../en/tuning.rst:70
+msgid "*Default value*: 64kB"
+msgstr ""
+
+#: ../../en/tuning.rst:72
+msgid "*Recommended value*: 1MB"
+msgstr ""
+
+#: ../../en/tuning.rst:76
+msgid "checkpoint_segments"
+msgstr ""
+
+#: ../../en/tuning.rst:78
+msgid "This value sets the maximum number of log file segments (typically 16MB) that can be filled between automatic WAL checkpoints.  A WAL checkpoint is a point in the sequence of WAL transactions at which it is guaranteed that the data files have been updated with all information before the checkpoint.  At this time all dirty data pages are flushed to disk and a checkpoint record is written to the log file.  This allows the crash recovery process to find the latest checkpoint record and apply all following log segments to complete the data recovery."
+msgstr ""
+
+#: ../../en/tuning.rst:80
+msgid "Because the checkpoint process requires the flushing of all dirty data pages to disk, it creates a significant I/O load.  The same argument from above applies; geospatial data is large enough to unbalance non-geospatial optimizations.  Increasing this value will prevent excessive checkpoints, though it may cause the server to restart more slowly in the event of a crash."
+msgstr ""
+
+#: ../../en/tuning.rst:82
+msgid "*Default value*: 3"
+msgstr ""
+
+#: ../../en/tuning.rst:84
+msgid "*Recommended value*: 6"
+msgstr ""
+
+#: ../../en/tuning.rst:88
+msgid "random_page_cost"
+msgstr ""
+
+#: ../../en/tuning.rst:90
+msgid "This is a unit-less value that represents the cost of a random page access from disk.  This value is relative to a number of other cost parameters including sequential page access, and CPU operation costs.  While there is no magic bullet for this value, the default is generally conservative and for databases running on spinning media. The random access cost for SSD should be set even lower."
+msgstr ""
+
+#: ../../en/tuning.rst:92
+msgid "This value can be set on a per-session basis using the ``SET random_page_cost TO 2.0`` command, which can be useful for testing how it effects query plans."
+msgstr ""
+
+#: ../../en/tuning.rst:94
+msgid "*Default value*: 4.0"
+msgstr ""
+
+#: ../../en/tuning.rst:96
+msgid "*Recommended value*: 2.0 for spinning media, 1.0 for SSD"
+msgstr ""
+
+#: ../../en/tuning.rst:100
+msgid "seq_page_cost"
+msgstr ""
+
+#: ../../en/tuning.rst:102
+msgid "This is the parameter that controls the cost of a sequential page access.  This value does not generally require adjustment but the difference between this value and ``random_page_cost`` greatly affects the choices made by the query planner.  This value can also be set on a per-session basis."
+msgstr ""
+
+#: ../../en/tuning.rst:104
+msgid "*Default value*: 1.0"
+msgstr ""
+
+#: ../../en/tuning.rst:106
+msgid "*Recommended value*: 1.0"
+msgstr ""
+
+#: ../../en/tuning.rst:110
+msgid "Reload configuration"
+msgstr ""
+
+#: ../../en/tuning.rst:112
+msgid "After these changes are made, save changes and reload the configuration. The easiest way to do this is to restart the PostgreSQL service."
+msgstr ""
+
+#: ../../en/tuning.rst:114
+msgid "In pgAdmin, right-click the server **PostGIS (localhost:5432)** and select *Disconnect*."
+msgstr ""
+
+#: ../../en/tuning.rst:115
+msgid "In Windows Services (``services.msc``) right-click **PostgreSQL** and select *Restart*."
+msgstr ""
+
+#: ../../en/tuning.rst:116
+msgid "Back in pgAdmin, click the server again select *Disconnect*."
+msgstr ""

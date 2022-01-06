@@ -6,9 +6,10 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 
 # Internal variables.
-OUTPUT          = ../../doc/en
+OUTPUT          = ../../doc
+BUILDDIR				= ../_build
 SOURCE          = .
-CACHE           = $(OUTPUT)/.build/doctrees
+CACHE           = $(OUTPUT)/.build/en/doctrees
 ALLSPHINXOPTS   = -d $(CACHE) $(SPHINXOPTS)
 
 .PHONY: help clean html web pickle htmlhelp latex changes linkcheck
@@ -27,10 +28,32 @@ clean:
 	@rm -rf $(OUTPUT)
 
 html:
-	mkdir -p $(OUTPUT) $(CACHE)
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)
+	mkdir -p $(OUTPUT)/en $(CACHE)
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/en
 	@echo
 	@echo "Build finished. The HTML pages are in $(OUTPUT)."
+
+html-translation:
+	echo "Building for $(LANG)"
+	mkdir -p $(OUTPUT)/$(LANG) $(OUTPUT)/.build/$(LANG)/doctrees
+	$(SPHINXBUILD) -b html -d $(OUTPUT)/.build/$(LANG)/doctrees -D language=$(LANG) $(SOURCE) $(OUTPUT)/$(LANG)
+
+html-all:
+	@for lang in $(translations); do \
+		mkdir -p $(OUTPUT)/de $(OUTPUT)/.build/de/doctrees \
+	done
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+pot: 
+	mkdir -p $(OUTPUT) $(CACHE)
+	$(SPHINXBUILD) -M gettext "$(SOURCE)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	mv $(BUILDDIR)/gettext/*.pot ../locale/pot
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+# %: Makefile
+# 	mkdir -p $(OUTPUT) $(CACHE)
+# 	$(SPHINXBUILD) -M $@ "$(SOURCE)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 #	find $(OUTPUT) -name .svn -type d -exec /bin/rm -rf {} ';'
 

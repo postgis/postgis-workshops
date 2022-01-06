@@ -1,0 +1,370 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to
+# PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../en/advanced_geometry_construction.rst:4
+msgid "Advanced Geometry Constructions"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:6
+msgid ""
+"The ``nyc_subway_stations`` layer has provided us with lots of interesting "
+"examples so far, but there is something striking about it:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:10
+msgid ""
+"Although it is a database of all the stations, it doesn't allow easy "
+"visualization of routes! In this chapter we will use advanced features of "
+"PostgreSQL and PostGIS to build up a new linear routes layer from the point "
+"layer of subway stations."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:12
+msgid "Our task is made especially difficult by two issues:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:14
+msgid ""
+"The ``routes`` column of ``nyc_subway_stations`` has multiple route "
+"identifiers in each row, so a station that might appear in multiple routes "
+"appears only once in the table."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:15
+msgid ""
+"Related to the previous issue, there is no route ordering information in the "
+"stations table, so while it is possible to find all the stations in a "
+"particular route, it's not possible using the attributes to determine what "
+"the order in which trains travel through the stations."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:17
+msgid ""
+"The second problem is the harder one: given an unordered set of points in a "
+"route, how do we order them to match the actual route."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:19
+msgid "Here are the stops for the 'Q' train:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:27
+msgid ""
+"In this picture, the stops are labelled with their unique ``gid`` primary "
+"key."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:31
+msgid ""
+"If we start at one of the end stations, the next station on the line seems "
+"to always be the closest. We can repeat the process each time as long as we "
+"exclude all the previously found stations from our search."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:33
+msgid "There are two ways to run such an iterative routine in a database:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:35
+msgid ""
+"Using a procedural language, like `PL/PgSQL <http://www.postgresql.org/docs/"
+"current/static/plpgsql.html>`_."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:36
+msgid ""
+"Using recursive `common table expressions <http://www.postgresql.org/docs/"
+"current/static/queries-with.html>`_."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:38
+msgid ""
+"Common table expressions (CTE) have the virtue of not requiring a function "
+"definition to run. Here's the CTE to calculate the route line of the 'Q' "
+"train, starting from the northernmost stop (where ``gid`` is 304)."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:60
+msgid "The CTE consists of two halves, unioned together:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:62
+msgid ""
+"The first half establishes a start point for the expression. We get the "
+"initial geometry and initialize the array of visited identifiers, using the "
+"record of \"gid\" 304 (the end of the line)."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:63
+msgid ""
+"The second half iterates until it finds no further records. At each "
+"iteration it takes in the value at the previous iteration via the self-"
+"reference to \"next_stop\". We search every stop on the Q line (**strpos(s."
+"routes,'Q')**) that we have not already added to our visited list (**NOT n."
+"idlist @> ARRAY[s.gid]**) and order them by their distance from the previous "
+"point, taking just the first one (the nearest)."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:65
+msgid ""
+"Beyond the recursive CTE itself, there are a number of advanced PostgreSQL "
+"array features being used here:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:67
+msgid ""
+"We are using ARRAY! PostgreSQL supports arrays of any type. In this case we "
+"have an array of integers, but we could also build an array of geometries, "
+"or any other PostgreSQL type."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:68
+msgid ""
+"We are using **array_append** to build up our array of visited identifiers."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:69
+msgid ""
+"We are using the **@>** array operator (\"array contains\") to find which of "
+"the Q train stations we have already visited. The **@>** operators requires "
+"ARRAY values on both sides, so we have to turn the individual \"gid\" "
+"numbers into single-entry arrays using the ARRAY[] syntax."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:71
+msgid ""
+"When you run the query, you get each geometry in the order it is found "
+"(which is the route order), as well as the list of identifiers already "
+"visited. Wrapping the geometries into the PostGIS `ST_MakeLine <http://"
+"postgis.net/docs/ST_MakeLine.html>`_ aggregate function turns the set of "
+"geometries into a single linear output, constructed in the provided order."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:93
+msgid "Which looks like this:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:97
+msgid "*Success!*"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:99
+msgid "Except, two problems:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:101
+msgid ""
+"We are only calculating one subway route here, we want to calculate all the "
+"routes."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:102
+msgid ""
+"Our query includes a piece of *a priori* knowledge, the initial station "
+"identifier that serves as the seed for the search algorithm that builds the "
+"route."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:104
+msgid ""
+"Let's tackle the hard problem first, figuring out the first station on a "
+"route without manually eyeballing the set of stations that make up the route."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:106
+msgid ""
+"Our 'Q' train stops can serve as a starting point. What characterizes the "
+"end stations of the route?"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:110
+msgid ""
+"One answer is \"they are the most northerly and southerly stations\". "
+"However, imagine if the 'Q' train ran from east to west. Would the condition "
+"still hold?"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:112
+msgid ""
+"A less directional characterization of the end stations is \"they are the "
+"furthest stations from the middle of the route\". With this characterization "
+"it doesn't matter if the route runs north/south or east/west, just that it "
+"run in more-or-less one direction, particularly at the ends."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:114
+msgid ""
+"Since there is no 100% heuristic to figure out the end points, let's try "
+"this second rule out."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:118
+msgid ""
+"An obvious failure mode of the \"furthest from middle\" rule is a circular "
+"line, like the Circle Line in London, UK. Fortunately, New York doesn't have "
+"any such lines!"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:120
+msgid ""
+"To work out the end stations of every route, we first have to work out what "
+"routes there are! We find the distinct routes."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:130
+msgid "Note the use of two advanced PostgreSQL ARRAY functions:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:132
+msgid ""
+"**string_to_array** takes in a string and splits it into an array using a "
+"separator character. `PostgreSQL supports arrays <http://www.postgresql.org/"
+"docs/current/static/arrays.html>`_ of any type, so it's possible to build "
+"arrays of strings, as in this case, but also of geometries and geographies "
+"as we'll see later in this example."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:133
+msgid ""
+"**unnest** takes in an array and builds a new row for each entry in the "
+"array. The effect is to take a \"horizontal\" array embedded in a single row "
+"and turn it into a \"vertical\" array with a row for each value."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:135
+msgid "The result is a list of all the unique subway route identifiers."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:167
+msgid ""
+"We can build on this result by joining it back to the "
+"``nyc_subway_stations`` table to create a new table that has, for each "
+"route, a row for every station on that route."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:193
+msgid ""
+"Now we can find the center point by collecting all the stations for each "
+"route into a single multi-point, and calculating the centroid of that multi-"
+"point."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:214
+msgid "The center point of the collection of 'Q' train stops looks like this:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:218
+msgid ""
+"So the northern most stop, the end point, appears to also be the stop "
+"furthest from the center. Let's calculate the furthest point for every route."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:249
+msgid "We've added two sub-queries this time:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:251
+msgid ""
+"**stops_distance** joins the centers points back to the stations table and "
+"calculates the distance between the stations and center for each route. The "
+"result is ordered such that the records come out in batches for each route, "
+"with the furthest station as the first record of the batch."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:252
+msgid ""
+"**first_stops** filters the **stops_distance** output by only taking the "
+"first record for each distinct group. Because of the way we ordered "
+"**stops_distance** the first record is the furthest record, which means it's "
+"the station we want to use as our starting seed to build each subway route."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:254
+msgid ""
+"Now we know every route, and we know (approximately) what station each route "
+"starts from: we're ready to generate the route lines!"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:256
+msgid ""
+"But first, we need to turn our recursive CTE expression into a function we "
+"can call with parameters."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:283
+msgid "And now we are ready to go!"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:328
+msgid "Here's what our final table looks like visualized in QGIS:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:332
+msgid ""
+"As usual, there are some problems with our simple understanding of the data:"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:334
+msgid ""
+"there are actually two 'S' (short distance \"shuttle\") trains, one in "
+"Manhattan and one in the Rockaways, and we join them together because they "
+"are both called 'S';"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:335
+msgid ""
+"the '4' train (and a few others) splits at the end of one line into two "
+"terminuses, so the \"follow one line\" assumption breaks and the result has "
+"a funny hook on the end."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:337
+msgid ""
+"Hopefully this example has provided a taste of some of the complex data "
+"manipulations that are possible combining the advanced features of "
+"PostgreSQL and PostGIS."
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:341
+msgid "See Also"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:343
+msgid ""
+"`PostgreSQL Arrays <http://www.postgresql.org/docs/current/static/arrays."
+"html>`_"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:344
+msgid ""
+"`PostgreSQL Array Functions <http://www.postgresql.org/docs/current/static/"
+"functions-array.html>`_"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:345
+msgid ""
+"`PostgreSQL Recursive Common TABLE Expressions <http://www.postgresql.org/"
+"docs/current/static/queries-with.html>`_"
+msgstr ""
+
+#: ../../en/advanced_geometry_construction.rst:346
+msgid "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"
+msgstr ""

@@ -4,7 +4,20 @@ Training materials for PostGIS
 
 ## Workshops
 
-The workshop pages are viewable at: https://postgis.net/workshops/postgis-intro/
+The workshop pages are viewable at below.
+Note that we are working on the translations from English to other languages. 
+
+* English:  https://postgis.net/workshops/en/postgis-intro/
+* German:   https://postgis.net/workshops/de/postgis-intro/
+* Japanese: https://postgis.net/workshops/ja/postgis-intro/
+* Italian:  https://postgis.net/workshops/it/postgis-intro/
+* Spanish:  https://postgis.net/workshops/es/postgis-intro/
+
+## Translations
+Currently in testing mode, if you want to help out, log into [OSGeo Weblate](https://weblate.osgeo.org/projects/postgis-workshop/)
+
+If you don't already have an OSGeo account, [you can get one here](https://id.osgeo.org/ldap/create)
+
 
 ## Building the Workshop Content
 
@@ -37,6 +50,7 @@ sphinx-intl update -p _build/gettext -l de -l ja -l es
 
 ## Building translated docs
 ```
+cd postgis-intro/sources/en
 LANG=ja make html-translation
 LANG=de make html-translation
 LANG=es make html-translation

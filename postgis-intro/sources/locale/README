@@ -1,0 +1,45 @@
+Translation files for the postgis-intro workshop
+
+Compilation of the files require the ``pip install sphinx-intl`` python3.
+
+To build localized refer to the README.md in root.
+
+Using Weblate
+---------------
+
+Weblate web-ui for translation is at:
+https://weblate.osgeo.org/projects/postgis-workshop/
+
+There is a web-hook `https://weblate.osgeo.org/hooks/github/` defined in https://github.com/postgis/postgis-workshops/settings/hooks that pushes changes to weblate.
+
+Weblate does require that the pot files be kept up to date.
+To do so:
+
+```
+#if using python virtual env
+python3 -m venv ~/pw-env
+
+cd postgis-intro/sources/en
+make pot
+#test the translations
+LANG=ja make html-translation
+LANG=de make html-translation
+LANG=es make html-translation
+LANG=it make html-translation
+git add .
+git commit -m "Update pots"
+git push
+```
+
+The github account osgeoweblate has commit rights to this repo.
+Any translations that pass approval in the weblate https://weblate.osgeo.org/projects/postgis-workshop/ get pushed and automatically committed.
+
+The postgis.net, has a cronjob that runs every 5 minutes or so checking for updates and runs this script `/var/www/postgis_workshop_update.sh` if any changes.  This builds the main english and all the translations. If new translations are added, then this script needs to be updated to build them.
+
+Respective docs currently set to build are as follows:
+
+* English:  https://postgis.net/workshops/en/postgis-intro/
+* German:   https://postgis.net/workshops/de/postgis-intro/
+* Japanese: https://postgis.net/workshops/ja/postgis-intro/
+* Italian:  https://postgis.net/workshops/it/postgis-intro/
+* Spanish:  https://postgis.net/workshops/es/postgis-intro/

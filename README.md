@@ -46,7 +46,7 @@ pip3 install sphinx-rtd-theme
 ```
 pip install sphinx-intl
 cd postgis-intro/sources/en
-make gettext
+make pot
 #for starters do de, ja, es
 sphinx-intl update -p _build/gettext -l de -l ja -l es
 ```

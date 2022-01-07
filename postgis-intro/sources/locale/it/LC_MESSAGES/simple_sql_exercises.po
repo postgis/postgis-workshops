@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,11 +21,16 @@ msgid "Simple SQL Exercises"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:6
-msgid "Using the ``nyc_census_blocks`` table, answer the following questions (don't peek at the answers!)."
+msgid ""
+"Using the ``nyc_census_blocks`` table, answer the following questions (don't "
+"peek at the answers!)."
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:8
-msgid "Here is some helpful information to get started.  Recall from the :ref:`About Our Data <about_data>` section our ``nyc_census_blocks`` table definition."
+msgid ""
+"Here is some helpful information to get started.  Recall from the :ref:"
+"`About Our Data <about_data>` section our ``nyc_census_blocks`` table "
+"definition."
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:13
@@ -33,7 +38,9 @@ msgid "**blkid**"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:14
-msgid "A 15-digit code that uniquely identifies every census **block**. (\"360050001009000\")"
+msgid ""
+"A 15-digit code that uniquely identifies every census **block**. "
+"(\"360050001009000\")"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:15
@@ -113,7 +120,9 @@ msgid "**boroname**"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:34
-msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
+msgid ""
+"Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, "
+"Queens"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:35
@@ -125,7 +134,8 @@ msgid "Polygon boundary of the block"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:38
-msgid "And, here are some common SQL aggregation functions you might find useful:"
+msgid ""
+"And, here are some common SQL aggregation functions you might find useful:"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:40
@@ -157,7 +167,11 @@ msgid "**What is the population of the City of New York?**"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:83
-msgid "What is this ``AS``? You can give a table or a column another name by using an alias.  Aliases can make queries easier to both write and to read. So instead of our outputted column name as ``sum`` we write it **AS** the more readable ``population``."
+msgid ""
+"What is this ``AS``? You can give a table or a column another name by using "
+"an alias.  Aliases can make queries easier to both write and to read. So "
+"instead of our outputted column name as ``sum`` we write it **AS** the more "
+"readable ``population``."
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:85
@@ -177,13 +191,22 @@ msgid "Function List"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:143
-msgid "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the average value of a numeric column."
+msgid ""
+"`avg(expression) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
+"that returns the average value of a numeric column."
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:145
-msgid "`count(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the number of records in a set of records."
+msgid ""
+"`count(expression) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
+"that returns the number of records in a set of records."
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:147
-msgid "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the sum of records in a set of records."
+msgid ""
+"`sum(expression) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
+"that returns the sum of records in a set of records."
 msgstr ""

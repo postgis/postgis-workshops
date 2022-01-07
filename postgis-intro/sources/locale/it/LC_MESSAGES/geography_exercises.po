@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,7 +21,9 @@ msgid "Geography Exercises"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:6
-msgid "Here's a reminder of all the functions we have seen so far. They should be useful for the exercises!"
+msgid ""
+"Here's a reminder of all the functions we have seen so far. They should be "
+"useful for the exercises!"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:8
@@ -33,11 +35,15 @@ msgid ":command:`ST_GeogFromText(text)` returns a geography"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:10
-msgid ":command:`ST_Distance(geography, geography)` returns the distance between geographies"
+msgid ""
+":command:`ST_Distance(geography, geography)` returns the distance between "
+"geographies"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:11
-msgid ":command:`ST_Transform(geometry, srid)` returns geometry, in the new projection"
+msgid ""
+":command:`ST_Transform(geometry, srid)` returns geometry, in the new "
+"projection"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:12
@@ -45,11 +51,15 @@ msgid ":command:`ST_Length(geography)` returns the length of the line"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:13
-msgid ":command:`ST_Intersects(geometry, geometry)` returns true if the objects are not disjoint in planar space"
+msgid ""
+":command:`ST_Intersects(geometry, geometry)` returns true if the objects are "
+"not disjoint in planar space"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:14
-msgid ":command:`ST_Intersects(geography, geography)` returns true if the objects are not disjoint in spheroidal space"
+msgid ""
+":command:`ST_Intersects(geography, geography)` returns true if the objects "
+"are not disjoint in spheroidal space"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:16
@@ -81,21 +91,34 @@ msgid "**How far is New York from Seattle? What are the units of the answer?**"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:34
-msgid "New York = ``POINT(-74.0064 40.7142)`` and Seattle = ``POINT(-122.3331 47.6097)``"
+msgid ""
+"New York = ``POINT(-74.0064 40.7142)`` and Seattle = ``POINT(-122.3331 "
+"47.6097)``"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:48
-msgid "**What is the total length of all streets in New York, calculated on the spheroid?**"
+msgid ""
+"**What is the total length of all streets in New York, calculated on the "
+"spheroid?**"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:64
-msgid "The length calculated in the planar \"UTM Zone 18\" projection is 10418904.717, 0.02% different. UTM is good at preserving area and distance, within the zone boundaries."
+msgid ""
+"The length calculated in the planar \"UTM Zone 18\" projection is "
+"10418904.717, 0.02% different. UTM is good at preserving area and distance, "
+"within the zone boundaries."
 msgstr ""
 
 #: ../../en/geography_exercises.rst:67
-msgid "**Does ‘POINT(1 2.0001)’ intersect with ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ in geography? In geometry? Why the difference?**"
+msgid ""
+"**Does ‘POINT(1 2.0001)’ intersect with ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ "
+"in geography? In geometry? Why the difference?**"
 msgstr ""
 
 #: ../../en/geography_exercises.rst:87
-msgid "The upper edge of the square is a straight line in geometry, and passes **below** the point, so the square does not contain the point. The upper edge of the square is a great circle in geography, and passes **above** the point, so the square does contain the point."
+msgid ""
+"The upper edge of the square is a straight line in geometry, and passes "
+"**below** the point, so the square does not contain the point. The upper "
+"edge of the square is a great circle in geography, and passes **above** the "
+"point, so the square does contain the point."
 msgstr ""

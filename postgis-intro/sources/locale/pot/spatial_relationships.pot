@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,3 +183,4 @@ msgstr ""
 #: ../../en/spatial_relationships.rst:198
 msgid "`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within.html>`_: Returns true if the geometry A is completely inside geometry B"
 msgstr ""
+

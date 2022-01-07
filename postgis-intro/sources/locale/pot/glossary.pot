@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 19:01-0500\n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,3 +187,4 @@ msgstr ""
 #: ../../en/glossary.rst:69
 msgid "\"`Well-known text <http://en.wikipedia.org/wiki/Well-known_text>`_\". Can refer either to the text representation of geometries, with strings starting \"POINT\", \"LINESTRING\", \"POLYGON\", etc. Or can refer to the text representation of a :term:`CRS`, with strings starting \"PROJCS\", \"GEOGCS\", etc.  Well-known text representations are :term:`OGC` standards, but do not have their own specification documents. The first descriptions of WKT (for geometries and for CRS) appeared in the :term:`SFSQL` 1.0 specification."
 msgstr ""
+

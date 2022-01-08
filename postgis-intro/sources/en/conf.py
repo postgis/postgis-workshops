@@ -166,7 +166,7 @@ latex_elements = {
 # (source start file, target name, title, author, document class [howto/manual]).
 latex_documents = [
   ('index', 'PostGISIntro.tex', u'Introduction to PostGIS',
-   u'Mark Leslie, Paul Ramsey', 'manual', True),
+   u'Mark Leslie, Paul Ramsey, et. al', 'manual', True),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

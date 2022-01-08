@@ -10,8 +10,10 @@ Note that we are working on the translations from English to other languages.
 * English:  https://postgis.net/workshops/en/postgis-intro/
 * German:   https://postgis.net/workshops/de/postgis-intro/
 * Japanese: https://postgis.net/workshops/ja/postgis-intro/
-* Italian:  https://postgis.net/workshops/it/postgis-intro/
+* Korean:   https://postgis.net/workshops/ko/postgis-intro/
 * Spanish:  https://postgis.net/workshops/es/postgis-intro/
+* Italian:  https://postgis.net/workshops/it/postgis-intro/
+* French:  https://postgis.net/workshops/fr/postgis-intro/
 
 ## Translations
 Currently in testing mode, if you want to help out, log into [OSGeo Weblate](https://weblate.osgeo.org/projects/postgis-workshop/)

@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: fr\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+
+#: ../../en/welcome.rst:4
+msgid "Welcome"
+msgstr ""
+
+#: ../../en/welcome.rst:7
+msgid "Workshop Conventions"
+msgstr ""
+
+#: ../../en/welcome.rst:9
+msgid "These sections conform to a number of conventions to make it easier to follow the conversation. This section gives a brief overview of what to expect in the way of typographic conventions, as well as a short overview of the structure of each workbook."
+msgstr ""
+
+#: ../../en/welcome.rst:12
+msgid "Directions"
+msgstr ""
+
+#: ../../en/welcome.rst:14
+msgid "Directions for you, the workshop attendee, will be noted by **bold** font."
+msgstr ""
+
+#: ../../en/welcome.rst:16
+#: ../../en/welcome.rst:43
+#: ../../en/welcome.rst:52
+#: ../../en/welcome.rst:61
+msgid "For example:"
+msgstr ""
+
+#: ../../en/welcome.rst:18
+msgid "Click **Next** to continue."
+msgstr ""
+
+#: ../../en/welcome.rst:21
+msgid "Code"
+msgstr ""
+
+#: ../../en/welcome.rst:23
+msgid "SQL query examples will be displayed in an offset box"
+msgstr ""
+
+#: ../../en/welcome.rst:29
+msgid "These examples can be entered into the query window or command line interface."
+msgstr ""
+
+#: ../../en/welcome.rst:32
+msgid "Notes"
+msgstr ""
+
+#: ../../en/welcome.rst:34
+msgid "Notes are used to provide information that is useful but not critical to the overall understanding of the topic."
+msgstr ""
+
+#: ../../en/welcome.rst:36
+msgid "If you haven't eaten an apple today, the doctor may be on the way."
+msgstr ""
+
+#: ../../en/welcome.rst:39
+msgid "Functions"
+msgstr ""
+
+#: ../../en/welcome.rst:41
+msgid "Where function names are defined in the text, they will be rendered in a :command:`bold` font."
+msgstr ""
+
+#: ../../en/welcome.rst:45
+msgid ":command:`ST_Touches(geometry A, geometry B)` returns TRUE if either of the geometries' boundaries intersect"
+msgstr ""
+
+#: ../../en/welcome.rst:48
+msgid "Files, Tables and Column Names"
+msgstr ""
+
+#: ../../en/welcome.rst:50
+msgid "File names, paths, table names and column names will be shown in ``fixed-width`` font."
+msgstr ""
+
+#: ../../en/welcome.rst:54
+msgid "Select the ``name`` column in the ``nyc_streets`` table."
+msgstr ""
+
+#: ../../en/welcome.rst:57
+msgid "Menus and Form elements"
+msgstr ""
+
+#: ../../en/welcome.rst:59
+msgid "Menus/submenus and form elements such as fields or check boxes and other on-screen artifacts are displayed in *italics*."
+msgstr ""
+
+#: ../../en/welcome.rst:63
+msgid "Click on the *File > New* menu. Check the box that says *Confirm*."
+msgstr ""
+
+#: ../../en/welcome.rst:66
+msgid "Workflow"
+msgstr ""
+
+#: ../../en/welcome.rst:68
+msgid "Sections are designed to be progressive. Each section will start with the assumption that you have completed and understood the previous section in the series and will build on that knowledge. A single section will progress through a handful of ideas and provide working examples wherever possible. At the end of a section, where appropriate, we have included a handful of exercises to allow you to try out the ideas we've presented. In some cases the section will include \"Things To Try\". These tasks contain more complex problems than the exercises and is designed to challenge participants with advanced knowledge."
+msgstr ""

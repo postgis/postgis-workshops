@@ -1,0 +1,401 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/about_data.rst:4
+msgid "About our data"
+msgstr ""
+
+#: ../../en/about_data.rst:6
+msgid "The data for this workshop is four shapefiles for New York City, and one attribute table of sociodemographic variables.  We've loaded our shapefiles as PostGIS tables and will add sociodemographic data later in the workshop."
+msgstr ""
+
+#: ../../en/about_data.rst:8
+msgid "The following describes the number of records and table attributes for each of our datasets.  These attribute values and relationships are fundamental to our future analysis."
+msgstr ""
+
+#: ../../en/about_data.rst:10
+msgid "To explore the nature of your tables in pgAdmin, right-click a highlighted table and select **Properties**.  You will find a summary of table properties, including a list of table attributes within the **Columns** tab."
+msgstr ""
+
+#: ../../en/about_data.rst:15
+msgid "nyc_census_blocks"
+msgstr ""
+
+#: ../../en/about_data.rst:17
+msgid "A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks."
+msgstr ""
+
+#: ../../en/about_data.rst:19
+msgid "Number of records: 36592"
+msgstr ""
+
+#: ../../en/about_data.rst:24
+msgid "**blkid**"
+msgstr ""
+
+#: ../../en/about_data.rst:25
+msgid "A 15-digit code that uniquely identifies every census **block**. Eg: 360050001009000"
+msgstr ""
+
+#: ../../en/about_data.rst:26
+msgid "**popn_total**"
+msgstr ""
+
+#: ../../en/about_data.rst:27
+msgid "Total number of people in the census block"
+msgstr ""
+
+#: ../../en/about_data.rst:28
+msgid "**popn_white**"
+msgstr ""
+
+#: ../../en/about_data.rst:29
+msgid "Number of people self-identifying as \"White\" in the block"
+msgstr ""
+
+#: ../../en/about_data.rst:30
+msgid "**popn_black**"
+msgstr ""
+
+#: ../../en/about_data.rst:31
+msgid "Number of people self-identifying as \"Black\" in the block"
+msgstr ""
+
+#: ../../en/about_data.rst:32
+msgid "**popn_nativ**"
+msgstr ""
+
+#: ../../en/about_data.rst:33
+msgid "Number of people self-identifying as \"Native American\" in the block"
+msgstr ""
+
+#: ../../en/about_data.rst:34
+msgid "**popn_asian**"
+msgstr ""
+
+#: ../../en/about_data.rst:35
+msgid "Number of people self-identifying as \"Asian\" in the block"
+msgstr ""
+
+#: ../../en/about_data.rst:36
+msgid "**popn_other**"
+msgstr ""
+
+#: ../../en/about_data.rst:37
+msgid "Number of people self-identifying with other categories in the block"
+msgstr ""
+
+#: ../../en/about_data.rst:38
+#: ../../en/about_data.rst:63
+msgid "**boroname**"
+msgstr ""
+
+#: ../../en/about_data.rst:39
+#: ../../en/about_data.rst:64
+#: ../../en/about_data.rst:109
+msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
+msgstr ""
+
+#: ../../en/about_data.rst:40
+#: ../../en/about_data.rst:65
+#: ../../en/about_data.rst:88
+#: ../../en/about_data.rst:116
+msgid "**geom**"
+msgstr ""
+
+#: ../../en/about_data.rst:41
+msgid "Polygon boundary of the block"
+msgstr ""
+
+#: ../../en/about_data.rst:45
+msgid "*Black population as a percentage of Total Population*"
+msgstr ""
+
+#: ../../en/about_data.rst:49
+msgid "To get census data into GIS, you need to join two pieces of information: the actual data (text), and the boundary files (spatial).  There are many options for getting the data, including downloading data and boundaries from the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
+msgstr ""
+
+#: ../../en/about_data.rst:52
+msgid "nyc_neighborhoods"
+msgstr ""
+
+#: ../../en/about_data.rst:54
+msgid "New York has a rich history of neighborhood names and extent.  Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as \"South Brooklyn.\" And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!"
+msgstr ""
+
+#: ../../en/about_data.rst:56
+msgid "Number of records: 129"
+msgstr ""
+
+#: ../../en/about_data.rst:61
+#: ../../en/about_data.rst:82
+#: ../../en/about_data.rst:106
+msgid "**name**"
+msgstr ""
+
+#: ../../en/about_data.rst:62
+msgid "Name of the neighborhood"
+msgstr ""
+
+#: ../../en/about_data.rst:66
+msgid "Polygon boundary of the neighborhood"
+msgstr ""
+
+#: ../../en/about_data.rst:70
+msgid "*The neighborhoods of New York City*"
+msgstr ""
+
+#: ../../en/about_data.rst:73
+msgid "nyc_streets"
+msgstr ""
+
+#: ../../en/about_data.rst:75
+msgid "The street centerlines form the transportation network of the city. These streets have been flagged with types in order to distinguish between such thoroughfares as back alleys, arterial streets, freeways, and smaller streets. Desirable areas to live might be on residential streets rather than next to a freeway."
+msgstr ""
+
+#: ../../en/about_data.rst:77
+msgid "Number of records: 19091"
+msgstr ""
+
+#: ../../en/about_data.rst:83
+msgid "Name of the street"
+msgstr ""
+
+#: ../../en/about_data.rst:84
+msgid "**oneway**"
+msgstr ""
+
+#: ../../en/about_data.rst:85
+msgid "Is the street one-way? \"yes\" = yes, \"\" = no"
+msgstr ""
+
+#: ../../en/about_data.rst:86
+msgid "**type**"
+msgstr ""
+
+#: ../../en/about_data.rst:87
+msgid "Road type (primary, secondary, residential, motorway)"
+msgstr ""
+
+#: ../../en/about_data.rst:89
+msgid "Linear centerline of the street"
+msgstr ""
+
+#: ../../en/about_data.rst:93
+msgid "*The streets of New York City. Major roads are in red.*"
+msgstr ""
+
+#: ../../en/about_data.rst:97
+msgid "nyc_subway_stations"
+msgstr ""
+
+#: ../../en/about_data.rst:99
+msgid "The subway stations link the upper world where people live to the invisible network of subways beneath. As portals to the public transportation system, station locations help determine how easy it is for different people to enter the subway system."
+msgstr ""
+
+#: ../../en/about_data.rst:101
+msgid "Number of records: 491"
+msgstr ""
+
+#: ../../en/about_data.rst:107
+msgid "Name of the station"
+msgstr ""
+
+#: ../../en/about_data.rst:108
+msgid "**borough**"
+msgstr ""
+
+#: ../../en/about_data.rst:110
+msgid "**routes**"
+msgstr ""
+
+#: ../../en/about_data.rst:111
+msgid "Subway lines that run through this station"
+msgstr ""
+
+#: ../../en/about_data.rst:112
+msgid "**transfers**"
+msgstr ""
+
+#: ../../en/about_data.rst:113
+msgid "Lines you can transfer to via this station"
+msgstr ""
+
+#: ../../en/about_data.rst:114
+msgid "**express**"
+msgstr ""
+
+#: ../../en/about_data.rst:115
+msgid "Stations where express trains stop, \"express\" = yes, \"\" = no"
+msgstr ""
+
+#: ../../en/about_data.rst:117
+msgid "Point location of the station"
+msgstr ""
+
+#: ../../en/about_data.rst:121
+msgid "*Point locations for New York City subway stations*"
+msgstr ""
+
+#: ../../en/about_data.rst:124
+msgid "nyc_census_sociodata"
+msgstr ""
+
+#: ../../en/about_data.rst:126
+msgid "There is a rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract.  Census blocks combine to form census tracts (and block groups). We have collected some social-economic at a census tract level to answer some of these more interesting questions about New York City."
+msgstr ""
+
+#: ../../en/about_data.rst:130
+msgid "The ``nyc_census_sociodata`` is a data table.  We will need to connect it to Census geographies before conducting any spatial analysis."
+msgstr ""
+
+#: ../../en/about_data.rst:135
+msgid "**tractid**"
+msgstr ""
+
+#: ../../en/about_data.rst:136
+msgid "An 11-digit code that uniquely identifies every census **tract**. (\"36005000100\")"
+msgstr ""
+
+#: ../../en/about_data.rst:137
+msgid "**transit_total**"
+msgstr ""
+
+#: ../../en/about_data.rst:138
+msgid "Number of workers in the tract"
+msgstr ""
+
+#: ../../en/about_data.rst:139
+msgid "**transit_private**"
+msgstr ""
+
+#: ../../en/about_data.rst:140
+msgid "Number of workers in the tract who use private automobiles / motorcycles"
+msgstr ""
+
+#: ../../en/about_data.rst:141
+msgid "**transit_public**"
+msgstr ""
+
+#: ../../en/about_data.rst:142
+msgid "Number of workers in the tract who take public transit"
+msgstr ""
+
+#: ../../en/about_data.rst:143
+msgid "**transit_walk**"
+msgstr ""
+
+#: ../../en/about_data.rst:144
+msgid "Number of workers in the tract who walk"
+msgstr ""
+
+#: ../../en/about_data.rst:145
+msgid "**transit_other**"
+msgstr ""
+
+#: ../../en/about_data.rst:146
+msgid "Number of workers in the tract who use other forms like walking / biking"
+msgstr ""
+
+#: ../../en/about_data.rst:147
+msgid "**transit_none**"
+msgstr ""
+
+#: ../../en/about_data.rst:148
+msgid "Number of workers in the tract who work from home"
+msgstr ""
+
+#: ../../en/about_data.rst:149
+msgid "**transit_time_mins**"
+msgstr ""
+
+#: ../../en/about_data.rst:150
+msgid "Total number of minutes spent in transit by all workers in the tract (minutes)"
+msgstr ""
+
+#: ../../en/about_data.rst:151
+msgid "**family_count**"
+msgstr ""
+
+#: ../../en/about_data.rst:152
+msgid "Number of families in the tract"
+msgstr ""
+
+#: ../../en/about_data.rst:153
+msgid "**family_income_median**"
+msgstr ""
+
+#: ../../en/about_data.rst:154
+msgid "Median family income in the tract (dollars)"
+msgstr ""
+
+#: ../../en/about_data.rst:155
+msgid "**family_income_mean**"
+msgstr ""
+
+#: ../../en/about_data.rst:156
+msgid "Average family income in the tract (dollars)"
+msgstr ""
+
+#: ../../en/about_data.rst:157
+msgid "**family_income_aggregate**"
+msgstr ""
+
+#: ../../en/about_data.rst:158
+msgid "Total income of all families in the tract (dollars)"
+msgstr ""
+
+#: ../../en/about_data.rst:159
+msgid "**edu_total**"
+msgstr ""
+
+#: ../../en/about_data.rst:160
+msgid "Number of people with educational history"
+msgstr ""
+
+#: ../../en/about_data.rst:161
+msgid "**edu_no_highschool_dipl**"
+msgstr ""
+
+#: ../../en/about_data.rst:162
+msgid "Number of people with no high school diploma"
+msgstr ""
+
+#: ../../en/about_data.rst:163
+msgid "**edu_highschool_dipl**"
+msgstr ""
+
+#: ../../en/about_data.rst:164
+msgid "Number of people with high school diploma and no further education"
+msgstr ""
+
+#: ../../en/about_data.rst:165
+msgid "**edu_college_dipl**"
+msgstr ""
+
+#: ../../en/about_data.rst:166
+msgid "Number of people with college diploma and no further education"
+msgstr ""
+
+#: ../../en/about_data.rst:167
+msgid "**edu_graduate_dipl**"
+msgstr ""
+
+#: ../../en/about_data.rst:168
+msgid "Number of people with graduate school diploma"
+msgstr ""

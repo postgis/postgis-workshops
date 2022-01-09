@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-01-09 00:09+0000\nLast-Translator: robe <regina@arrival3d.com>\nLanguage-Team: Korean <https://weblate.osgeo.org/projects/postgis-workshop/index/ko/>\nLanguage: ko\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.9.1\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-01-09 01:55+0000\nLast-Translator: robe <regina@arrival3d.com>\nLanguage-Team: Korean <https://weblate.osgeo.org/projects/postgis-workshop/index/ko/>\nLanguage: ko\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.10.1\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -16,7 +16,7 @@ msgstr "시작하기"
 
 #: ../../en/index.rst:9
 msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr "이 워크샵은 `데이터 번들 <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_을 사용합니다. 다운로드하여 편리한 위치에 압축을 풉니다."
+msgstr "이 워크샵은 `데이터 번들 <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. 을 사용합니다. 다운로드하여 편리한 위치에 압축을 풉니다."
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
@@ -24,7 +24,7 @@ msgstr "이 워크샵과 함께 제공되는 **프레젠테이션 자료**는 `G
 
 #: ../../en/index.rst:13
 msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
-msgstr "이 워크샵에서 실행되는 SQL 명령의 **치트 시트**는 `여기 <workshop-sql.txt>`_에서 볼 수 있습니다."
+msgstr "이 워크샵에서 실행되는 SQL 명령의 **치트 시트**는 `여기 <workshop-sql.txt>`_. 에서 볼 수 있습니다."
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"
@@ -56,7 +56,7 @@ msgstr "라이선스 및 복사"
 
 #: ../../en/index.rst:31
 msgid "All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons \"`share alike with attribution <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\", and is freely redistributable under the terms of that license."
-msgstr "패키지의 모든 데이터는 공개 도메인이며 자유롭게 재배포할 수 있습니다. 패키지의 모든 소프트웨어는 오픈 소스이며 자유롭게 재배포할 수 있습니다. 이 워크숍은 크리에이티브 커먼즈 \"`저작자 표시와 유사하게 공유 <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\"로 라이선스가 부여되었으며 해당 라이선스 조건에 따라 자유롭게 재배포할 수 있습니다."
+msgstr "패키지의 모든 데이터는 공개 도메인이며 자유롭게 재배포할 수 있습니다. 패키지의 모든 소프트웨어는 오픈 소스이며 자유롭게 재배포할 수 있습니다. 이 워크숍은 크리에이티브 커먼즈 \" `저작자 표시와 유사하게 공유 <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\"로 라이선스가 부여되었으며 해당 라이선스 조건에 따라 자유롭게 재배포할 수 있습니다."
 
 #: ../../en/index.rst:35
 msgid "Workshop Modules"

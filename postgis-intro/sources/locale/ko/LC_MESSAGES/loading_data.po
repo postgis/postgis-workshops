@@ -8,21 +8,24 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-01-09 01:55+0000\n"
+"Last-Translator: robe <regina@arrival3d.com>\n"
+"Language-Team: Korean <https://weblate.osgeo.org/projects/postgis-workshop/"
+"loading_data/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: ../../en/loading_data.rst:4
 msgid "Loading spatial data"
-msgstr ""
+msgstr "공간 데이터 로드"
 
 #: ../../en/loading_data.rst:6
 msgid "Supported by a wide variety of libraries and applications, PostGIS provides many options for loading data."
-msgstr ""
+msgstr "다양한 라이브러리와 애플리케이션에서 지원하는 PostGIS는 데이터 로드를 위한 다양한 옵션을 제공합니다."
 
 #: ../../en/loading_data.rst:8
 msgid "We will first load our working data from a database backup file, then review some standard ways of loading different GIS data formats using common tools."

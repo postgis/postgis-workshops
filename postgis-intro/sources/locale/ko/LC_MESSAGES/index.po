@@ -4,120 +4,120 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: ko\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-01-09 00:09+0000\nLast-Translator: robe <regina@arrival3d.com>\nLanguage-Team: Korean <https://weblate.osgeo.org/projects/postgis-workshop/index/ko/>\nLanguage: ko\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.9.1\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
-msgstr ""
+msgstr "PostGIS 소개"
 
 #: ../../en/index.rst:7
 msgid "Getting Started"
-msgstr ""
+msgstr "시작하기"
 
 #: ../../en/index.rst:9
 msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr ""
+msgstr "이 워크샵은 `데이터 번들 <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_을 사용합니다. 다운로드하여 편리한 위치에 압축을 풉니다."
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
-msgstr ""
+msgstr "이 워크샵과 함께 제공되는 **프레젠테이션 자료**는 `Google 프레젠테이션 <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_에서 사용할 수 있습니다."
 
 #: ../../en/index.rst:13
 msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
-msgstr ""
+msgstr "이 워크샵에서 실행되는 SQL 명령의 **치트 시트**는 `여기 <workshop-sql.txt>`_에서 볼 수 있습니다."
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"
-msgstr ""
+msgstr "데이터 번들"
 
 #: ../../en/index.rst:19
 msgid "Inside the data bundle, you will find:"
-msgstr ""
+msgstr "데이터 번들 내에서 다음을 찾을 수 있습니다:"
 
 #: ../../en/index.rst:22
 msgid "**data/**"
-msgstr ""
+msgstr "**data/**"
 
 #: ../../en/index.rst:22
 msgid "a directory containing the data files we will be loading"
-msgstr ""
+msgstr "로드할 데이터 파일이 포함된 디렉토리"
 
 #: ../../en/index.rst:26
 msgid "**printing/**"
-msgstr ""
+msgstr "**printing/**"
 
 #: ../../en/index.rst:25
 msgid "a directory containing the exercise pages and data model pages"
-msgstr ""
+msgstr "연습 페이지 및 데이터 모델 페이지가 포함된 디렉토리"
 
 #: ../../en/index.rst:29
 msgid "License & Copying"
-msgstr ""
+msgstr "라이선스 및 복사"
 
 #: ../../en/index.rst:31
 msgid "All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons \"`share alike with attribution <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\", and is freely redistributable under the terms of that license."
-msgstr ""
+msgstr "패키지의 모든 데이터는 공개 도메인이며 자유롭게 재배포할 수 있습니다. 패키지의 모든 소프트웨어는 오픈 소스이며 자유롭게 재배포할 수 있습니다. 이 워크숍은 크리에이티브 커먼즈 \"`저작자 표시와 유사하게 공유 <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\"로 라이선스가 부여되었으며 해당 라이선스 조건에 따라 자유롭게 재배포할 수 있습니다."
 
 #: ../../en/index.rst:35
 msgid "Workshop Modules"
-msgstr ""
+msgstr "워크샵 모듈"
 
 #: ../../en/index.rst:84
 msgid "Links to have on hand"
-msgstr ""
+msgstr "가지고 있는 링크"
 
 #: ../../en/index.rst:86
 msgid "PostGIS - http://postgis.net/"
-msgstr ""
+msgstr "PostGIS - http://postgis.net/"
 
 #: ../../en/index.rst:88
 msgid "Docs - http://postgis.net/docs/"
-msgstr ""
+msgstr "문서 - http://postgis.net/docs/"
 
 #: ../../en/index.rst:90
 msgid "PostgreSQL - http://www.postgresql.org/"
-msgstr ""
+msgstr "PostgreSQL - http://www.postgresql.org/"
 
 #: ../../en/index.rst:92
 msgid "Docs - https://www.postgresql.org/docs/"
-msgstr ""
+msgstr "문서 - https://www.postgresql.org/docs/"
 
 #: ../../en/index.rst:93
 msgid "Downloads - https://www.postgresql.org/download/"
-msgstr ""
+msgstr "다운로드 - https://www.postgresql.org/download/"
 
 #: ../../en/index.rst:94
 msgid "JDBC Driver - https://jdbc.postgresql.org/"
-msgstr ""
+msgstr "JDBC 드라이버 - https://jdbc.postgresql.org/"
 
 #: ../../en/index.rst:95
 msgid ".Net Driver - https://www.npgsql.org/"
-msgstr ""
+msgstr ".Net 드라이버 - https://www.npgsql.org/"
 
 #: ../../en/index.rst:96
 msgid "Python Driver - http://www.pygresql.org/"
-msgstr ""
+msgstr "파이썬 드라이버 - http://www.pygresql.org/"
 
 #: ../../en/index.rst:97
 msgid "C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html"
-msgstr ""
+msgstr "C/C++ 드라이버 - https://www.postgresql.org/docs/current/static/libpq.html"
 
 #: ../../en/index.rst:99
 msgid "PgAdmin - https://www.pgadmin.org/"
-msgstr ""
+msgstr "PgAdmin - https://www.pgadmin.org/"
 
 #: ../../en/index.rst:101
 msgid "Open Source Desktop Clients"
-msgstr ""
+msgstr "오픈 소스 데스크톱 클라이언트"
 
 #: ../../en/index.rst:103
 msgid "QGIS - https://qgis.org/"
-msgstr ""
+msgstr "QGIS - https://qgis.org/"
 
 #: ../../en/index.rst:104
 msgid "OpenJUMP - http://openjump.org/"
-msgstr ""
+msgstr "OpenJUMP - http://openjump.org/"
 
 #: ../../en/index.rst:105
 msgid "uDig - http://udig.github.io/"
-msgstr ""
+msgstr "uDig - http://udig.github.io/"

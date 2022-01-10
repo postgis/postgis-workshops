@@ -32,7 +32,7 @@ If you don't already have an OSGeo account, [you can get one here](https://id.os
 * Check the outputs: `cd ../../doc/en`
 
 If you get an error about TemplateNotFound('sphinxdoc/layout.html') then
-Try doing:
+Try doing below (for python3, might need to use pip3 instead of pip):
 `pip install sphinx-rtd-theme`
 
 ## running in Python3 with virtual-env
@@ -41,6 +41,7 @@ sudo apt install python3-pip
 sudo apt install python3-venv
 python3 -m venv ~/pw-env
 source ~/pw-env/bin/activate #enter the venv
+pip3 install --upgrade pip
 pip3 install sphinx-rtd-theme
 ```
 
@@ -60,6 +61,20 @@ LANG=ja make html-translation
 LANG=de make html-translation
 LANG=es make html-translation
 LANG=it make html-translation
+
+# to build pdfs
+LANG=de make pdf-translation
+
+# if you get errors building, you might need to install lang specific
+sudo apt install texlive-lang-german
+sudo apt install texlive-lang-japanese
+```
+
+## PDF builds
+```
+make pdf #builds just english
+#if you get errors about cmap.sty missing try doing:
+sudo apt install texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra
 ```
 
 ### Slide Decks

@@ -12,39 +12,37 @@ SOURCE          = .
 CACHE           = $(OUTPUT)/.build/en/doctrees
 ALLSPHINXOPTS   = -d $(CACHE) $(SPHINXOPTS)
 
-.PHONY: help clean html web pickle htmlhelp latex changes linkcheck
+.PHONY: help
+help: ## Show this help screen
+	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-help:
-	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  html      to make standalone HTML files"
-	@echo "  pickle    to make pickle files (usable by e.g. sphinx-web)"
-	@echo "  htmlhelp  to make HTML files and a HTML help project"
-	@echo "  latex     to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
-	@echo "  changes   to make an overview over all changed/added/deprecated items"
-	@echo "  linkcheck to check all external links for integrity"
-	@echo "  clean     to remove built artefacts"
+# @echo "Please use \`make <target>' where <target> is one of"
+# @echo "  pickle    to make pickle files (usable by e.g. sphinx-web)"
+# @echo "  htmlhelp  to make HTML files and a HTML help project"
+# @echo "  latex     to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
+# @echo "  changes   to make an overview over all changed/added/deprecated items"
+# @echo "  linkcheck to check all external links for integrity"
+# @echo "  clean     to remove built artefacts"
 
-clean:
+.PHONY: clean
+clean: ## Remove all output files
 	@rm -rf $(OUTPUT)
 
-html:
+.PHONY: html
+html: ## to make standalone en HTML files
 	mkdir -p $(OUTPUT)/en $(CACHE)
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/en
 	@echo
 	@echo "Build finished. The HTML pages are in $(OUTPUT)."
 
-html-translation:
+.PHONY: html-translation
+html-translation: ## use `LANG=ja make html-translation`, replace ja with language of your choosing 
 	echo "Building for $(LANG)"
 	mkdir -p $(OUTPUT)/$(LANG) $(OUTPUT)/.build/$(LANG)/doctrees
 	$(SPHINXBUILD) -b html -d $(OUTPUT)/.build/$(LANG)/doctrees -D language=$(LANG) $(SOURCE) $(OUTPUT)/$(LANG)
 
-html-all:
-	@for lang in $(translations); do \
-		mkdir -p $(OUTPUT)/de $(OUTPUT)/.build/de/doctrees \
-	done
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-pot: 
+.PHONY: pot
+pot: ## Make translation template files
 	mkdir -p $(OUTPUT) $(CACHE)
 	$(SPHINXBUILD) -M gettext "$(SOURCE)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	mv $(BUILDDIR)/gettext/*.pot ../locale/pot
@@ -74,13 +72,29 @@ htmlhelp:
 	@echo "Build finished; now you can run HTML Help Workshop with the" \
 	      ".hhp project file in $(OUTPUT)/.build/htmlhelp."
 
-latex:
-	mkdir -p $(CACHE) $(OUTPUT)/.build/latex
-	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/latex
+PHONY: latex
+latex: ## to make en LaTeX files, you can set PAPER=a4 or PAPER=letter
+	mkdir -p $(CACHE) $(OUTPUT)/en/.build/latex
+	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/en/.build/latex
 	@echo
-	@echo "Build finished; now you can run 'make' in $(OUTPUT)/.build/latex."
+	@echo "Build finished; now you can run 'make' in $(OUTPUT)/en/.build/latex."
 
-changes:
+PHONY: pdf
+pdf: ## to make en PDF, you can set PAPER=a4 or PAPER=letter
+	mkdir -p $(CACHE) $(OUTPUT)/en/.build/latex
+	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/en/.build/latex && cd $(OUTPUT)/$(LANG)/.build/latex && make && cp *.pdf ../../
+	@echo "Build finished; pdf file is in $(OUTPUT)/en/"
+
+PHONY: pdf-translation
+pdf-translation: ## to make translated LaTeX files, you can set PAPER=a4 or PAPER=letter. Do `LANG=de make pdf-translation` replacing de with language of your choosing
+	mkdir -p $(CACHE) $(OUTPUT)/$(LANG)/.build/latex
+	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) -D language=$(LANG) $(SOURCE) $(OUTPUT)/$(LANG)/.build/latex && cd $(OUTPUT)/$(LANG)/.build/latex && make && cp *.pdf ../../ 
+
+	@echo
+	@echo "Build finished; pdf is located in $(OUTPUT)/$(LANG)"
+
+.PHONY: changes
+changes: ## to make an overview over all changed/added/deprecated items"
 	mkdir -p $(CACHE) $(OUTPUT)/.build/changes
 	$(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/changes
 	@echo

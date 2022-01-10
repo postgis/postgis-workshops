@@ -7,8 +7,8 @@ Training materials for PostGIS
 The workshop pages are viewable at below.
 Note that we are working on the translations from English to other languages. 
 
-* English:  https://postgis.net/workshops/en/postgis-intro/
-* German:   https://postgis.net/workshops/de/postgis-intro/
+* English: [[pdf]](https://postgis.net/workshops/en/postgis-intro/PostGISIntro.pdf) https://postgis.net/workshops/en/postgis-intro/
+* German:  [[pdf]](https://postgis.net/workshops/de/postgis-intro/PostGISIntro.pdf) https://postgis.net/workshops/de/postgis-intro/
 * Japanese: https://postgis.net/workshops/ja/postgis-intro/
 * Korean:   https://postgis.net/workshops/ko/postgis-intro/
 * Spanish:  https://postgis.net/workshops/es/postgis-intro/

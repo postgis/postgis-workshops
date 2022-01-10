@@ -16,14 +16,6 @@ ALLSPHINXOPTS   = -d $(CACHE) $(SPHINXOPTS)
 help: ## Show this help screen
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-# @echo "Please use \`make <target>' where <target> is one of"
-# @echo "  pickle    to make pickle files (usable by e.g. sphinx-web)"
-# @echo "  htmlhelp  to make HTML files and a HTML help project"
-# @echo "  latex     to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
-# @echo "  changes   to make an overview over all changed/added/deprecated items"
-# @echo "  linkcheck to check all external links for integrity"
-# @echo "  clean     to remove built artefacts"
-
 .PHONY: clean
 clean: ## Remove all output files
 	@rm -rf $(OUTPUT)
@@ -42,7 +34,7 @@ html-translation: ## use `LANG=ja make html-translation`, replace ja with langua
 	$(SPHINXBUILD) -b html -d $(OUTPUT)/.build/$(LANG)/doctrees -D language=$(LANG) $(SOURCE) $(OUTPUT)/$(LANG)
 
 .PHONY: pot
-pot: ## Make translation template files
+pot: ## Make or update translation template files
 	mkdir -p $(OUTPUT) $(CACHE)
 	$(SPHINXBUILD) -M gettext "$(SOURCE)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	mv $(BUILDDIR)/gettext/*.pot ../locale/pot
@@ -55,7 +47,8 @@ pot: ## Make translation template files
 
 #	find $(OUTPUT) -name .svn -type d -exec /bin/rm -rf {} ';'
 
-pickle:
+.PHONY: pickle
+pickle: ## to make pickle files (usable by e.g. sphinx-web)
 	mkdir -p $(OUTPUT) $(OUTPUT)/.build/pickle $(CACHE)
 	$(SPHINXBUILD) -b pickle $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/pickle
 	@echo
@@ -65,7 +58,8 @@ pickle:
 
 web: pickle
 
-htmlhelp:
+.PHONY: htmlhelp
+htmlhelp: ## to make HTML files and a HTML help project
 	mkdir -p $(CACHE) $(OUTPUT)/.build/htmlhelp
 	$(SPHINXBUILD) -b htmlhelp $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/htmlhelp
 	@echo
@@ -82,7 +76,7 @@ latex: ## to make en LaTeX files, you can set PAPER=a4 or PAPER=letter
 PHONY: pdf
 pdf: ## to make en PDF, you can set PAPER=a4 or PAPER=letter
 	mkdir -p $(CACHE) $(OUTPUT)/en/.build/latex
-	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/en/.build/latex && cd $(OUTPUT)/$(LANG)/.build/latex && make && cp *.pdf ../../
+	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/en/.build/latex && cd $(OUTPUT)/en/.build/latex && make && cp *.pdf ../../
 	@echo "Build finished; pdf file is in $(OUTPUT)/en/"
 
 PHONY: pdf-translation
@@ -100,7 +94,8 @@ changes: ## to make an overview over all changed/added/deprecated items"
 	@echo
 	@echo "The overview file is in $(OUTPUT)/.build/changes."
 
-linkcheck:
+.PHONY: linkcheck
+linkcheck: ## linkcheck to check all external links for integrity
 	mkdir -p $(CACHE) $(OUTPUT)/.build/linkcheck
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(SOURCE) $(OUTPUT)/.build/linkcheck
 	@echo

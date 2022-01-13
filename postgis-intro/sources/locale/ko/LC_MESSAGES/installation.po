@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-09 01:55+0000\n"
-"Last-Translator: robe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2022-01-13 17:04+0000\n"
+"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
 "Language-Team: Korean <https://weblate.osgeo.org/projects/postgis-workshop/"
 "installation/ko/>\n"
 "Language: ko\n"
@@ -26,95 +26,105 @@ msgstr "설치"
 #: ../../en/installation.rst:6
 msgid "To explore the PostgreSQL/PostGIS database, and learn about writing spatial queries in SQL, we will need some software, either installed locally or available remotely on the cloud."
 msgstr ""
+"PostgreSQL/PostGIS 데이터베이스를 탐색하고 SQL로 공간 쿼리를 작성하는 방법을 배우려면 로컬에 설치하거나 클라우드에서 "
+"원격으로 사용할 수 있는 소프트웨어가 필요합니다."
 
 #: ../../en/installation.rst:8
 msgid "There are instructions below on how to access PostgreSQL for installation on Windows or MacOS. PostgreSQL for Windows and MacOS either include PostGIS or have an easy way to add it on."
 msgstr ""
+"Windows 또는 MacOS에 설치하기 위해 PostgreSQL에 액세스하는 방법에 대한 지침이 아래에 있습니다. Windows 및 "
+"MacOS용 PostgreSQL에는 PostGIS가 포함되어 있거나 쉽게 추가할 수 있습니다."
 
 #: ../../en/installation.rst:9
 msgid "There are instructions below on how to install `PgAdmin <https://www.pgadmin.org/>`_. PgAdmin is a graphical database explorer and SQL editor which provides a \"user facing\" interface to the database engine that does all the world."
 msgstr ""
+"`PgAdmin <https://www.pgadmin.org/>`_ 설치 방법은 다음과 같습니다. PgAdmin은 그래픽 데이터베이스 "
+"탐색기 및 SQL 편집기로, 전 세계를 대상으로 하는 데이터베이스 엔진에 \"사용자 대면\" 인터페이스를 제공합니다."
 
 #: ../../en/installation.rst:11
 msgid "For always up-to-date directions on installing PostgreSQL, go to the `PostgreSQL download page  <https://www.postgresql.org/download/>`_ and select the operating system you are using."
 msgstr ""
+"PostgreSQL 설치에 대한 최신 지침을 보려면 `PostgreSQL 다운로드 페이지 <https://www.postgresql."
+"org/download/>`_로 이동하여 사용 중인 운영 체제를 선택하십시오."
 
 #: ../../en/installation.rst:15
 msgid "PostgreSQL for Microsoft Windows"
-msgstr ""
+msgstr "Microsoft Windows용 PostgreSQL"
 
 #: ../../en/installation.rst:17
 msgid "For a Windows install:"
-msgstr ""
+msgstr "Windows 설치의 경우:"
 
 #: ../../en/installation.rst:19
 msgid "Go to the `Windows PostgreSQL download page <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>`_."
 msgstr ""
+"`Windows PostgreSQL 다운로드 페이지 <https://www.enterprisedb.com/downloads/"
+"postgres-postgresql-downloads>`_로 이동합니다."
 
 #: ../../en/installation.rst:21
 msgid "Select the latest version of PostgreSQL and save the installer to disk."
-msgstr ""
+msgstr "최신 버전의 PostgreSQL을 선택하고 설치 프로그램을 디스크에 저장합니다."
 
 #: ../../en/installation.rst:23
 msgid "Run the installer and accept the defaults."
-msgstr ""
+msgstr "설치 프로그램을 실행하고 기본값을 수락합니다."
 
 #: ../../en/installation.rst:25
 msgid "Find and run the \"StackBuilder\" program that was installed with the database."
-msgstr ""
+msgstr "데이터베이스와 함께 설치된 \"StackBuilder\" 프로그램을 찾아 실행합니다."
 
 #: ../../en/installation.rst:27
 msgid "Select the \"Spatial Extensions\" section and choose latest \"PostGIS ..Bundle\" option."
-msgstr ""
+msgstr "\"Spatial Extensions\" 섹션을 선택하고 최신 \"PostGIS ..Bundle\" 옵션을 선택합니다."
 
 #: ../../en/installation.rst:32
 msgid "Accept the defaults and install."
-msgstr ""
+msgstr "기본값을 수락하고 설치합니다."
 
 #: ../../en/installation.rst:36
 msgid "PostgreSQL for Apple MacOS"
-msgstr ""
+msgstr "Apple MacOS용 PostgreSQL"
 
 #: ../../en/installation.rst:38
 msgid "For a MacOS install:"
-msgstr ""
+msgstr "MacOS 설치의 경우:"
 
 #: ../../en/installation.rst:40
 msgid "Go to the `Postgres.app <https://postgresapp.com/>`_ site, and download the latest release."
-msgstr ""
+msgstr "`Postgres.app <https://postgresapp.com/>`_ 사이트로 이동하여 최신 릴리스를 다운로드합니다."
 
 #: ../../en/installation.rst:42
 msgid "Open the disk image, and drag the **Postgres** icon into the **Applications** folder."
-msgstr ""
+msgstr "디스크 이미지를 열고 **Postgres** 아이콘을 **Applications** 폴더로 드래그합니다."
 
 #: ../../en/installation.rst:47
 msgid "In the **Applications** folder, double-click the **Postgres** icon to start the server."
-msgstr ""
+msgstr "**Applications** 폴더에서 **Postgres** 아이콘을 두 번 클릭하여 서버를 시작합니다."
 
 #: ../../en/installation.rst:49
 msgid "Click the **Initialize** button to create a new blank database instance."
-msgstr ""
+msgstr "**초기화** 버튼을 클릭하여 빈 데이터베이스 인스턴스를 새로 만듭니다."
 
 #: ../../en/installation.rst:54
 msgid "In the **Applications** folder, go to the **Utilities** folder and open **Terminal**."
-msgstr ""
+msgstr "**Applications** 폴더에서 **Utilities** 폴더로 이동하여 **Terminal**을 엽니다."
 
 #: ../../en/installation.rst:56
 msgid "Add the command-line utilities to your `PATH` for convenience."
-msgstr ""
+msgstr "편의를 위해 `PATH`에 명령줄 유틸리티를 추가하세요."
 
 #: ../../en/installation.rst:65
 msgid "PgAdmin for Windows and MacOS"
-msgstr ""
+msgstr "Windows 및 MacOS용 PgAdmin"
 
 #: ../../en/installation.rst:67
 msgid "PgAdmin is available for multiple platforms, at https://www.pgadmin.org/download/."
-msgstr ""
+msgstr "PgAdmin은 https://www.pgadmin.org/download/에서 여러 플랫폼에서 사용할 수 있습니다."
 
 #: ../../en/installation.rst:69
 msgid "Download and install the latest version for your platform."
-msgstr ""
+msgstr "플랫폼에 대한 최신 버전을 다운로드하여 설치합니다."
 
 #: ../../en/installation.rst:71
 msgid "Start PgAdmin!"
-msgstr ""
+msgstr "PgAdmin을 시작하십시오!"

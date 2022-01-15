@@ -16,9 +16,9 @@ Note that we are working on the translations from English to other languages.
 * French:  https://postgis.net/workshops/fr/postgis-intro/
 
 ## Translations
-Currently in testing mode, if you want to help out, log into [OSGeo Weblate](https://weblate.osgeo.org/projects/postgis-workshop/)
+We are using [Weblate software https://weblate.org] for translation.  If you want to help out, log into [OSGeo Weblate](https://weblate.osgeo.org/projects/postgis-workshop/).
 
-If you don't already have an OSGeo account, [you can get one here](https://id.osgeo.org/ldap/create).
+If you don't already have an OSGeo account, [you can get one here](https://id.osgeo.org/ldap/create). An OSGeo account will allow you to participate in translating both the PostGIS workshop and PostGIS documentation.
 
 <a href="https://weblate.osgeo.org/engage/postgis-workshop/">
 <img src="https://weblate.osgeo.org/widgets/postgis-workshop/-/287x66-grey.png" alt="Translation status" />

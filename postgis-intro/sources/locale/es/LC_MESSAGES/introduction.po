@@ -4,28 +4,30 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2022-01-15 00:45+0000\n"
+"Last-Translator: David Mateos <david@dmts.es>\n"
+"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"introduction/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10.1\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/introduction.rst:4
 msgid "Introduction"
-msgstr ""
+msgstr "Introducción"
 
 #: ../../en/introduction.rst:7
 msgid "What is a Spatial Database?"
-msgstr ""
+msgstr "¿Qué es una Base de Datos Espacial?"
 
 #: ../../en/introduction.rst:9
 msgid ""
@@ -33,16 +35,22 @@ msgid ""
 "later) are also spatial databases. But what does that mean; what is it that "
 "makes an ordinary database a spatial database?"
 msgstr ""
+"PostGIS es una base de datos espacial. Oracle Spatial y SQL Server ("
+"versiones de 2008 o posteriores) son también bases de datos espaciales. "
+"Pero, ¿eso qué quiere decir? ¿qué convierte a una base de datos normal en "
+"una base de datos espacial?"
 
 #: ../../en/introduction.rst:11
 msgid "The short answer, is..."
-msgstr ""
+msgstr "La respuesta corta es ..."
 
 #: ../../en/introduction.rst:13
 msgid ""
 "**Spatial databases store and manipulate spatial objects like any other "
 "object in the database.**"
 msgstr ""
+"**Las bases de datos espaciales almacenan y manipulan objetos espaciales "
+"como cualquier otro objeto en la base de datos.**"
 
 #: ../../en/introduction.rst:15
 msgid ""
@@ -50,33 +58,44 @@ msgid ""
 "reviews three aspects that associate *spatial* data with a database -- data "
 "types, indexes, and functions."
 msgstr ""
+"A continuación, se repasa brevemente la evolución de las bases de datos "
+"espaciales y después se repasan tres aspectos de la asociación de datos "
+"*espaciales* con una base de datos -- tipos de dato, índices y funciones."
 
 #: ../../en/introduction.rst:17
 msgid ""
 "**Spatial data types** refer to shapes such as point, line, and polygon;"
 msgstr ""
+"**Tipos de datos espaciales** se refiere a formas como punto, línea y "
+"polígono;"
 
 #: ../../en/introduction.rst:18
 msgid ""
 "Multi-dimensional **spatial indexing** is used for efficient processing of "
 "spatial operations;"
 msgstr ""
+"**Indexado espacial** multi-dimensional que se usa para procesar operaciones "
+"espaciales de forma eficiente;"
 
 #: ../../en/introduction.rst:19
 msgid ""
 "**Spatial functions**, posed in :term:`SQL`, are for querying of spatial "
 "properties and relationships."
 msgstr ""
+"**Funciones espaciales** en :term:`SQL`para consultar propiedades y "
+"relaciones espaciales."
 
 #: ../../en/introduction.rst:21
 msgid ""
 "Combined, spatial data types, indexes, and functions provide a flexible "
 "structure for optimized performance and analysis."
 msgstr ""
+"Combinados, los tipos de dato espaciales, índices y funciones, proporcionan "
+"una estructura flexible para un rendimientos y análisis optimizados."
 
 #: ../../en/introduction.rst:24
 msgid "In the Beginning"
-msgstr ""
+msgstr "Al Principio"
 
 #: ../../en/introduction.rst:26
 msgid ""
@@ -87,6 +106,14 @@ msgid ""
 "within the user's organizational domain.  They are proprietary, self-"
 "contained systems specifically built for handling spatial data."
 msgstr ""
+"En las antiguas implementaciones de :term:`GIS` de primera generación, todos "
+"los datos espaciales se almacenaban en ficheros simples y eran necesarios "
+"programas :term:`GIS` especiales para interpretar y manipular los datos. "
+"Estos sistemas de gestión de primera generación estaban diseñados para "
+"responder a las necesidades de usuarios que disponían de todos los datos "
+"necesarios dentro del ámbito de su propia organización. Se trataba de "
+"sistemas propietarios, auto-contenidos, construidos específicamente para "
+"manejar datos espaciales."
 
 #: ../../en/introduction.rst:28
 msgid ""
@@ -94,18 +121,27 @@ msgid ""
 "(usually the \"attribute\" or non-spatial parts) but still lack the "
 "flexibility afforded with direct integration."
 msgstr ""
+"Los sistemas espaciales de Segunda Generación almacenan parte de los datos "
+"en bases de datos relacionales (normalmente los \"atributos\" o las partes "
+"no-espaciales), pero aún le falta la flexibilidad de una integración directa."
 
 #: ../../en/introduction.rst:30
 msgid ""
 "**True spatial databases were born when people started to treat spatial "
 "features as first class database objects.**"
 msgstr ""
+"**Las auténticas bases de datos espaciales nacieron cuando se empezó a "
+"tratar a las entidades espaciales como objetos de la base de datos de "
+"\"primera clase\" **"
 
 #: ../../en/introduction.rst:32
 msgid ""
 "Spatial databases fully integrate spatial data with a relational database.  "
 "The system orientation changes from GIS-centric to database-centric."
 msgstr ""
+"Las bases de datos espaciales integran completamente los datos espaciales "
+"con una base de datos relacional. La orientación del sistema cambia de ser "
+"GIS-céntrico a ser BaseDeDatos-céntrico."
 
 #: ../../en/introduction.rst:37
 msgid ""
@@ -114,10 +150,15 @@ msgid ""
 "anatomy of the human body, large-scale integrated circuits, molecular "
 "structures, and electro-magnetic fields, among others."
 msgstr ""
+"Un sistema de gestión de bases de datos espacial se puede usar en "
+"aplicaciones más allá del mundo geográfico. Las bases de datos espaciales se "
+"usan para gestionar datos relacionados con la anatomía del cuerpo humano, "
+"circuitos integrados de gran escala, estructuras moleculares y campos "
+"electromagnéticos, entre otras aplicaciones."
 
 #: ../../en/introduction.rst:41
 msgid "Spatial Data Types"
-msgstr ""
+msgstr "Tipos de Datos Espaciales"
 
 #: ../../en/introduction.rst:43
 msgid ""
@@ -127,6 +168,11 @@ msgid ""
 "boundary and dimension. In many respects, spatial data types can be "
 "understood simply as shapes."
 msgstr ""
+"Una base de datos normal tiene cadenas, números y fechas. Una base de datos "
+"espacial añade tipos de datos adicionales para representar **entidades "
+"geográficas**. Estos tipos de dato abstraen y encapsulan estructuras "
+"espaciales tales como límites y dimesión. En muchos aspectos los tipos de "
+"datos espaciales se pueden entender simplemente como formas."
 
 #: ../../en/introduction.rst:49
 msgid ""
@@ -134,10 +180,14 @@ msgid ""
 "inherits the structure (attributes) and the behavior (methods or functions) "
 "of its super-type."
 msgstr ""
+"Los tipos de dato espacial están organizados en un tipo jerárquico. Cada sub-"
+"tipo hereda la estructura (atributos) y comportamiento (métodos o funciones) "
+"de su super-tipo."
 
 #: ../../en/introduction.rst:53
+#, fuzzy
 msgid "Spatial Indexes and Bounding Boxes"
-msgstr ""
+msgstr "Índices espaciales y Cajas"
 
 #: ../../en/introduction.rst:55
 msgid ""
@@ -146,6 +196,10 @@ msgid ""
 "dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ "
 "indexes."
 msgstr ""
+"Una base de datos normal proporciona **índices** para permitir un acceso "
+"rápido y aleatorio a subconjuntos de datos. El indexado para tipos estándar ("
+"números, cadenas y fechas) se hace normalmente con índices de tipo `B-tree "
+"<https://es.wikipedia.org/wiki/%C3%81rbol-B>`_."
 
 #: ../../en/introduction.rst:57
 msgid ""
@@ -154,6 +208,10 @@ msgid ""
 "dates is simple to determine -- every value is less than, greater than or "
 "equal to every other value."
 msgstr ""
+"Un B-tree particiona los datos usando el ordenamiento natural para colocar "
+"los datos en un árbol jerárquico. El orden natural de números, cadenas y "
+"fechas es fácil de determinar -- cada valor es menor que, mayor que o igual "
+"a cada uno de los otros valores."
 
 #: ../../en/introduction.rst:59
 msgid ""
@@ -163,12 +221,19 @@ msgid ""
 "that instead answers the question \"which objects are within this particular "
 "bounding box?\"."
 msgstr ""
+"Pero como los polígonos se pueden superponer, estar contenidos dentro de "
+"otros y están colocados en un espacio bidimensional (o de más dimensiones), "
+"un B-tree no se puede usar para indexarlos de forma eficiente. Las bases de "
+"datos espaciales proporcionan un \"índice espacial\" que responde a la "
+"pregunta \"¿qué objetos están dentro de esta caja particular?\"."
 
 #: ../../en/introduction.rst:61
 msgid ""
 "A **bounding box** is the smallest rectangle -- parallel to the coordinate "
 "axes -- capable of containing a given feature."
 msgstr ""
+"Una **caja ('bounding box')** es el rectángulo más pequeño -- paralelo a los "
+"ejes de coordenadas -- capaz de contener una entidad dada."
 
 #: ../../en/introduction.rst:67
 msgid ""
@@ -177,6 +242,10 @@ msgid ""
 "rectangles.  Even the most complex polygons and linestrings can be "
 "represented by a simple bounding box."
 msgstr ""
+"Las cajas se usan porque responder a la pregunta \"¿está A dentro de B?\" es "
+"muy costoso computacionalmente para polígonos pero muy rápido en el caso de "
+"rectángulos. E incluso los más complejos polígonos o líneas pueden ser "
+"representados por una simple caja."
 
 #: ../../en/introduction.rst:69
 msgid ""
@@ -186,6 +255,12 @@ msgid ""
 "instead interpreted by a spatial index as \"what lines have bounding boxes "
 "that are contained inside this polygon's bounding box?\""
 msgstr ""
+"Los índices tienen que responder rápidamente para ser útiles. Por eso, en "
+"vez de dar resultados exactos como hacen los B-trees, los índices espaciales "
+"dan resultados aproximados. La pregunta \"¿qué lineas están dentro de este "
+"polígono?\" interpretada por un índice espacial se reformularia como \"¿qué "
+"lineas tienen cajas que están contenidas dentro de la caja de este polígono?"
+"\"."
 
 #: ../../en/introduction.rst:71
 msgid ""
@@ -196,10 +271,17 @@ msgid ""
 "wiki/Grid_(spatial_index)>`_ and `GeoHash indexes <https://en.wikipedia.org/"
 "wiki/Geohash>`_ implemented in other spatial databases."
 msgstr ""
+"Los tipos de índices espaciales implementados por distintas bases de datos "
+"varían mucho. Las implementaciones más comunes son el `Árbol-R (R-Tree) "
+"<https://es.wikipedia.org/wiki/%C3%81rbol-R>`_ y `Quadtree <https://es."
+"wikipedia.org/wiki/Quadtree>`_ (usados en PostGIS), pero hay también `"
+"índices basados en grids <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`"
+"_ e `indices GeoHash <https://en.wikipedia.org/wiki/Geohash>`_ implementados "
+"en otras bases de datos espaciales."
 
 #: ../../en/introduction.rst:74
 msgid "Spatial Functions"
-msgstr ""
+msgstr "Funciones Espaciales"
 
 #: ../../en/introduction.rst:76
 msgid ""
@@ -207,6 +289,10 @@ msgid ""
 "**functions** such as concatenating strings, performing hash operations on "
 "strings, doing mathematics on numbers, and extracting information from dates."
 msgstr ""
+"Para manipular datos en una consulta, una base de datos normal proporciona "
+"**funciones** tales como concatenar cadenas, aplicar operaciones de hash "
+"sobre cadenas, hacer cálculos matemáticos con números o extraer información "
+"de fechas."
 
 #: ../../en/introduction.rst:78
 msgid ""
@@ -215,24 +301,34 @@ msgid ""
 "geometries.  These spatial functions serve as the building block for any "
 "spatial project."
 msgstr ""
+"Una bases de datos espacial proporciona un conjunto de funciones para "
+"analizar componentes geométricos, determinar relaciones espaciales y "
+"manipular geometrías. Estas funciones espaciales sirven de \"ladrillos\"para "
+"construir cualquier proyecto espacial."
 
 #: ../../en/introduction.rst:80
 msgid ""
 "The majority of all spatial functions can be grouped into one of the "
 "following five categories:"
 msgstr ""
+"La mayor parte de las funciones espaciales se pueden agrupar en una de las "
+"siguientes cinco categorías:"
 
 #: ../../en/introduction.rst:82
 msgid ""
 "**Conversion**: Functions that *convert* between geometries and external "
 "data formats."
 msgstr ""
+"**Conversión**: Funciones que *convierten* entre geometrías y formatos de "
+"dato externos."
 
 #: ../../en/introduction.rst:83
 msgid ""
 "**Management**: Functions that *manage* information about spatial tables and "
 "PostGIS administration."
 msgstr ""
+"**Gestión**: Funciones que *gestionan* información sobre tablas espaciales y "
+"administración de PostGIS."
 
 #: ../../en/introduction.rst:84
 msgid ""

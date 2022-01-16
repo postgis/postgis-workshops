@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-15 00:45+0000\n"
+"PO-Revision-Date: 2022-01-16 15:45+0000\n"
 "Last-Translator: David Mateos <david@dmts.es>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/es/>\n"
@@ -341,10 +341,13 @@ msgid ""
 "**Comparison**: Functions that *compare* two geometries with respect to "
 "their spatial relation."
 msgstr ""
+"**Comparación**: Funciones que *comparan* la relación espacial de dos "
+"geometrías."
 
 #: ../../en/introduction.rst:86
 msgid "**Generation**: Functions that *generate* new geometries from others."
 msgstr ""
+"**Generación**: Funciones que *generan* nuevas geometrías a partir de otras."
 
 #: ../../en/introduction.rst:88
 msgid ""
@@ -352,12 +355,16 @@ msgid ""
 "is defined by the :term:`OGC` :term:`SFSQL` and implemented (along with "
 "additional useful functions) by PostGIS."
 msgstr ""
+"La lista de posibles funciones es muy grande, pero hay un conjunto de "
+"funciones común, definido por el :term:`OGC` :term:`SFSQL` e implementado ("
+"junto con algunas funciones útiles más) por PostGIS."
 
 #: ../../en/introduction.rst:91
 msgid "What is PostGIS?"
-msgstr ""
+msgstr "¿Qué es PostGIS?"
 
 #: ../../en/introduction.rst:93
+#, fuzzy
 msgid ""
 "PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database "
 "Management System into a spatial database by adding support for the three "
@@ -365,10 +372,16 @@ msgid ""
 "is built on PostgreSQL, PostGIS automatically inherits important \"enterprise"
 "\" features as well as open standards for implementation."
 msgstr ""
+"PostGIS convierte el Sistema Gestor de Bases de Datos `PostgreSQL <http://www"
+".postgresql.org/>`_ en una base de datos espacial añadiendo soporte para "
+"estas tres funcionalidades: tipos espaciales, índices espaciales y funciones "
+"espaciales. Dado que está construido sobre PostgreSQL, PostGIS hereda "
+"automáticamente funcionalidades \"empresariales\" importantes así como "
+"estándares abiertos en su implementación."
 
 #: ../../en/introduction.rst:96
 msgid "But what is PostgreSQL?"
-msgstr ""
+msgstr "Pero, ¿qué es PostgreSQL?"
 
 #: ../../en/introduction.rst:98
 msgid ""
@@ -379,6 +392,13 @@ msgid ""
 "<https://www.postgresql.org/community/contributors/>`_ and companies to "
 "develop it."
 msgstr ""
+"PosgreSQL es un potente sistema gestor de bases de datos (SGBD, o RDBMS, por "
+"sus siglas en inglés). Se publica bajo una licencia parecida a la BSD y es "
+"por lo tanto software libre y de fuentes abiertas. Como sucede con muchos "
+"otros proyectos de fuentes abiertas, PostgreSQL no está controlado por una "
+"sola compañía, si no que cuenta con una `comunidad mundial de "
+"desarrolladores <https://www.postgresql.org/community/contributors/>`_ y "
+"compañías que lo desarrollan."
 
 #: ../../en/introduction.rst:100
 msgid ""
@@ -388,28 +408,36 @@ msgid ""
 "development team, yet still integrate very tightly into the core PostgreSQL "
 "database."
 msgstr ""
+"PostgreSQL fue diseñado desde el primer momento pensando en que se pudieran "
+"extender los tipos -- la habilidad de añadir nuevos tipos de datos, "
+"funciones e índices en tiempo de ejecución. Debido a esto, la extensión "
+"PostGIS puede ser desarrollada por un equipo de desarrollo distinto y aun "
+"así integrarse muy firmemente dentro del núcleo de la base de datos "
+"PostgreSQL."
 
 #: ../../en/introduction.rst:103
 msgid "Why choose PostgreSQL?"
-msgstr ""
+msgstr "¿Por qué elegir PostgreSQL?"
 
 #: ../../en/introduction.rst:105
 msgid ""
 "A common question from people familiar with open source databases is, \"Why "
 "wasn't PostGIS built on MySQL?\"."
 msgstr ""
+"Una pregunta habitual entre la gente que usa bases de datos abiertas es, \"¿"
+"por qué no se construyó PostGIS sobre MySQL?\"."
 
 #: ../../en/introduction.rst:107
 msgid "PostgreSQL has:"
-msgstr ""
+msgstr "PostgreSQL tiene:"
 
 #: ../../en/introduction.rst:109
 msgid "Proven reliability and transactional integrity by default (ACID)"
-msgstr ""
+msgstr "Una fiabilidad probada e integridad transaccional por defecto (ACID)."
 
 #: ../../en/introduction.rst:110
 msgid "Careful support for SQL standards (full SQL92)"
-msgstr ""
+msgstr "Soporte escrupuloso de los estándares SQL (SQL92 completo)."
 
 #: ../../en/introduction.rst:111
 msgid "Pluggable type extension and function extension"
@@ -417,20 +445,25 @@ msgstr ""
 
 #: ../../en/introduction.rst:112
 msgid "Community-oriented development model"
-msgstr ""
+msgstr "Modelo de desarrollo orientado a la comunidad."
 
 #: ../../en/introduction.rst:113
+#, fuzzy
 msgid ""
 "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
 msgstr ""
+"Tamaños de columna no limitados (\"TOAST\"able tuples)  para soportar "
+"objetos GIS grandes."
 
 #: ../../en/introduction.rst:114
 msgid "Generic index structure (GiST) to allow R-Tree index"
 msgstr ""
+"Estructura de índices genéricos (GiST, por sus siglas en inglés) que "
+"permiten el índice R-Tree."
 
 #: ../../en/introduction.rst:115
 msgid "Easy to add custom functions"
-msgstr ""
+msgstr "Facilidad para añadir funciones personalizadas."
 
 #: ../../en/introduction.rst:117
 msgid ""

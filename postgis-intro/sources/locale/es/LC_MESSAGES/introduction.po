@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-16 15:45+0000\n"
+"PO-Revision-Date: 2022-01-18 04:10+0000\n"
 "Last-Translator: David Mateos <david@dmts.es>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/es/>\n"
@@ -481,6 +481,11 @@ msgid ""
 "spatial types in version 4.1, the PostGIS team took a look at their code, "
 "and the exercise reinforced the original decision to use PostgreSQL."
 msgstr ""
+"Dado que la forma de desarrollar nuevos tipos en PostgreSQL era tan clara, "
+"tenía sentido empezar por allí. Cuando MySQL lanzó tipos espaciales básicos "
+"en su versión 4.1, el equipo de PostGIS le echó un vistazo a su código y "
+"dicho ejercicio no hizo si no reforzar la decisión original de elegir "
+"PostgreSQL."
 
 #: ../../en/introduction.rst:121
 msgid ""
@@ -492,7 +497,7 @@ msgstr ""
 
 #: ../../en/introduction.rst:124
 msgid "Why not files?"
-msgstr ""
+msgstr "¿Por qué no ficheros?"
 
 #: ../../en/introduction.rst:126
 msgid ""
@@ -502,6 +507,11 @@ msgid ""
 "data since GIS software was first written. However, these \"flat\" files "
 "have the following disadvantages:"
 msgstr ""
+"Los `Shapefile <http://es.wikipedia.org/wiki/Shapefile>`_ (y otros formatos "
+"como los archivos de Esri Geodatabase y los `GeoPackage <https://www."
+"geopackage.org/>`_) han sido una forma estándar de almacenar e interaccionar "
+"con información espacial desde los primeros programas GIS. No obstante, "
+"estos ficheros \"planos\" tienen las siguientes desventajas:"
 
 #: ../../en/introduction.rst:128
 msgid ""
@@ -509,6 +519,10 @@ msgid ""
 "for random data access and analysis. Without that abstraction, you will need "
 "to write all the access and analysis code yourself."
 msgstr ""
+"**Los archivos necesitan un software especial para leerlos y escribirlos.** "
+"SQL es una abstracción para acceso aleatorio a datos y análisis. Sin esa "
+"abstracción, tendrías que escribir todo el código para acceder y analizar "
+"por tí mismo."
 
 #: ../../en/introduction.rst:129
 msgid ""
@@ -518,6 +532,13 @@ msgid ""
 "the associated performance problem, you will have written the better part of "
 "a database system. Why not just use a standard database?"
 msgstr ""
+"**Usuarios/as concurrentes pueden causar corrupción de archivos y "
+"ralentización**. Aunque es posible escribir código que asegure que múltiples "
+"escrituras en el mismo fichero no corrompan los datos, para cuando se haya "
+"solucionado ese problema y también el problema asociado del rendimiento, nos "
+"encontraremos con que se habrá escrito gran parte de lo que constituye un "
+"sistema de bases de datos. Entonces, ¿por qué no usar una base de datos "
+"estándar?"
 
 #: ../../en/introduction.rst:130
 msgid ""
@@ -526,6 +547,11 @@ msgid ""
 "that are expressible in one line of SQL in the database take hundreds of "
 "lines of specialized code to answer when programming against files."
 msgstr ""
+"**Preguntas complicadas necesitan software complicado para responderlas**. "
+"Las perguntas complicadas e interesantes (uniones espaciales, agresgaciones, "
+"etc) que se pueden expresar en una linea de SQL en la base de datos llevan "
+"cientos de lineas de código especializado cuando se programa para utilizar "
+"archivos."
 
 #: ../../en/introduction.rst:132
 msgid ""
@@ -542,10 +568,14 @@ msgid ""
 "queries, and performance on large data sets are what sets spatial databases "
 "apart from file-based systems."
 msgstr ""
+"En resumen, la combinación del soporte para múltiples usuarios, consultas *"
+"ad hoc* complejas y rendimiento sobre conjuntos de datos grandes son lo que "
+"hace la diferencia entre bases de datos espaciales y sistemas basados en "
+"archivos."
 
 #: ../../en/introduction.rst:137
 msgid "A brief history of PostGIS"
-msgstr ""
+msgstr "Una breve historia de PostGIS"
 
 #: ../../en/introduction.rst:139
 msgid ""
@@ -554,6 +584,10 @@ msgid ""
 "a handful of functions. The result was a database suitable for storage and "
 "retrieval, but not analysis."
 msgstr ""
+"En mayo de 2001, `Refractions Research <http://www.refractions.net/>` lanzó "
+"la primera versión de PostGIS. PostGIS 0.1 tenía objetos, índices y un "
+"puñado de funciones. El resultado fue una base de datos capaz de almacenar y "
+"recuperar, pero no de analizar."
 
 #: ../../en/introduction.rst:141
 msgid ""
@@ -562,6 +596,10 @@ msgid ""
 "from the Open Geospatial Consortium provided such structure with guidelines "
 "for function naming and requirements."
 msgstr ""
+"Según aumentaba el número de funciones, se fue haciendo clara la necesidad "
+"de un principio organizador. La especificación \"Simple Features for SQL\" "
+"(:term:`SFSQL`) del Open Geospatial Consortium proporcionó esa estructura "
+"con guías para nombrar las funciones y requerimientos."
 
 #: ../../en/introduction.rst:143
 msgid ""
@@ -569,6 +607,9 @@ msgid ""
 "<http://mapserver.org/>`_ became the first external application to provide "
 "visualization of data in the database."
 msgstr ""
+"Con el apoyo de PostGIS para analisis simples y uniones espaciales, `"
+"Mapserver <http://mapserver.org/>`_ se convirtió en la primera apliacción "
+"externa en proporcionar una visualización de los datos en la base de datos."
 
 #: ../../en/introduction.rst:145
 msgid ""
@@ -577,6 +618,10 @@ msgid ""
 "ST_Intersects(), ST_Buffer(), ST_Union()) were very difficult to code.  "
 "Writing them from scratch promised years of work."
 msgstr ""
+"En los siguientes años el número de funciones de PostGIS creció, pero su "
+"potencia siguió limitada. Muchas de las funciones más interesantes (p. ej. "
+"ST_Intersects(), ST_Buffer(), ST_Union()) eran muy difíciles de programar. "
+"Escribirlas de cero podía llevar años de trabajo."
 
 #: ../../en/introduction.rst:147
 msgid ""
@@ -586,6 +631,11 @@ msgid ""
 "linking in GEOS, PostGIS provided complete support for :term:`SFSQL` by "
 "version 0.8."
 msgstr ""
+"Por suerte, un segundo proyecto, \"Geometry Engine, Open Source\" or `GEOS "
+"<http://trac.osgeo.org/geos>`_ apareció en ese momento. La biblioteca GEOS "
+"ofrece los algoritmos necesarios para implementar la especificación "
+":term:`SFSQL`. Enlazando con GEOS, PostGIS consiguió dar un soporte completo "
+"para :term:`SFSQL` a partir de la versión 0.8."
 
 #: ../../en/introduction.rst:149
 msgid ""
@@ -597,6 +647,15 @@ msgid ""
 "dimensions, overhead greatly reduced. In PostGIS 1.0, this new, faster, "
 "lightweight representation became the default."
 msgstr ""
+"Según crecía la capacidad de gestión de datos, apareció otro problema: la "
+"representación que se usaba para almacenar las geometrías se demostró "
+"relativamente ineficiente. Para objetos pequeños como puntos y lineas "
+"cortas, los metadatos de la representación llegaban a tener una sobrecarga "
+"del 200%. Por motivos de eficiencia era necesario \"poner en dieta\" la "
+"representación. Encogiendo el cabecero de los metadatos y las dimensiones "
+"necesarias se redujo mucho la sobrecarga. En PostGIS 1.0, esta "
+"representación nueva, más rápida y ligera se había convertido en la opción "
+"por defecto."
 
 #: ../../en/introduction.rst:151
 msgid ""
@@ -604,22 +663,28 @@ msgid ""
 "improvements, as well as support for new features in the PostgreSQL core "
 "system."
 msgstr ""
+"Los lanzamientos recientes de PostGIS siguen añadiendo funcionalidades y "
+"mejoras de rendimiento, así como añadiendo soporte para nuevas "
+"funcionalidades del sistema central de PostgreSQL."
 
 #: ../../en/introduction.rst:154
 msgid "Who uses PostGIS?"
-msgstr ""
+msgstr "¿Quién usa PostGIS?"
 
 #: ../../en/introduction.rst:156
 msgid ""
 "For a complete list of case studies, see the `PostGIS case studies <http://"
 "postgis.net/casestudy>`_ page."
 msgstr ""
+"Para una lista completa de casos de estudio mirar la página `PostGIS case "
+"studies <http://postgis.net/casestudy>`_."
 
 #: ../../en/introduction.rst:159
 msgid "Institut Geographique National, France"
-msgstr ""
+msgstr "Instituto Geográfico Nacional, Francia."
 
 #: ../../en/introduction.rst:161
+#, fuzzy
 msgid ""
 "IGN is the national mapping agency of France, and uses PostGIS to store the "
 "high resolution topographic map of the country, \"BDUni\". BDUni has more "
@@ -630,10 +695,19 @@ msgid ""
 "postgresql.org/docs/devel/warm-standby.html>`_ to maintain uptime in the "
 "event of a system failure."
 msgstr ""
+"IGN es la agencia cartográfica nacional de Francia y usa PostGIS para "
+"almacenar el mapa topográfico de alta resolución del país, el \"BDUni\". "
+"BDUni tiene más de 100 millones de elementos y es mantenido por un equipo de "
+"campo de más de 100 personas quienes verifican las observaciones y añaden "
+"nuevos mapeos a la base de datos diariamente. La instalación del IGN usa el "
+"sistema transaccional de la base de datos para asegurar la consistencia "
+"durante los procesos de actualización y un `warm standby system <https://www."
+"postgresql.org/docs/devel/warm-standby.html>`_  to maintain uptime in the "
+"event of a system failure."
 
 #: ../../en/introduction.rst:164
 msgid "RedFin"
-msgstr ""
+msgstr "RedFin"
 
 #: ../../en/introduction.rst:166
 msgid ""
@@ -643,10 +717,16 @@ msgid ""
 "PostGIS provided `huge benefits in performance and reliability <https://www."
 "redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgstr ""
+"`RedFin <https://www.redfin.com>`_ es una agencia inmobiliaria con un "
+"servicio web para explorar propiedades y estimar su valor. Su sistema fue "
+"originalmente construido sobre MySQL, pero vieron que moverlo a PostgreSQL y "
+"PostGIS proporcionaba `grandes beneficios en rendimiento y fiabilidad "
+"<https://www.redfin.com/news/"
+"elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 
 #: ../../en/introduction.rst:169
 msgid "What applications support PostGIS?"
-msgstr ""
+msgstr "¿Qué aplicaciones soportan PostGIS?"
 
 #: ../../en/introduction.rst:171
 msgid ""
@@ -656,149 +736,159 @@ msgid ""
 "postgis/wiki/UsersWikiToolsSupportPostgis>`_ include both open source and "
 "proprietary software on both server and desktop systems."
 msgstr ""
+"PostGIS se ha convertido en una base de datos espacial ampliamente usada y "
+"el número de terceros programas que lo utilizan para almacenamiento y "
+"recuperación de datos se ha incrementado también. Los `programas que "
+"utilizan PostGIS <http://trac.osgeo.org/postgis/wiki/"
+"UsersWikiToolsSupportPostgis>`_ incluyen tanto software libre como "
+"propietario en sistemas de servidor o de escritorio."
 
 #: ../../en/introduction.rst:173
 msgid ""
 "The following table shows a list of some of the software that leverages "
 "PostGIS:"
 msgstr ""
+"La siguiente tabla muestra una lista de algunos de los programas que "
+"utilizan PostGIS:"
 
 #: ../../en/introduction.rst:176
 msgid "Open/Free"
-msgstr ""
+msgstr "Abiertos/Libres"
 
 #: ../../en/introduction.rst:176
 msgid "Closed/Proprietary"
-msgstr ""
+msgstr "Cerrados/Propietarios"
 
 #: ../../en/introduction.rst:179
 msgid "Loading/Extracting"
-msgstr ""
+msgstr "Carga/Extracción"
 
 #: ../../en/introduction.rst:181
+#, fuzzy
 msgid "Shp2Pgsql"
-msgstr ""
+msgstr "Shp2Pgsql"
 
 #: ../../en/introduction.rst:182
 msgid "ogr2ogr"
-msgstr ""
+msgstr "ogr2ogr"
 
 #: ../../en/introduction.rst:183
 msgid "Dxf2PostGIS"
-msgstr ""
+msgstr "Dxf2PostGIS"
 
 #: ../../en/introduction.rst:185 ../../en/introduction.rst:184
 msgid "Web-Based"
-msgstr ""
+msgstr "Basados en Web"
 
 #: ../../en/introduction.rst:187
 msgid "Mapserver"
-msgstr ""
+msgstr "Mapserver."
 
 #: ../../en/introduction.rst:188
 msgid "GeoServer (Java-based WFS / WMS -server )"
-msgstr ""
+msgstr "GeoServer ( WFS / WMS servidor basado en Java )."
 
 #: ../../en/introduction.rst:189
 msgid "SharpMap SDK - for ASP.NET 2.0"
-msgstr ""
+msgstr "SharpMap SDK - para ASP.NET 2.0."
 
 #: ../../en/introduction.rst:190
 msgid "MapGuide Open Source (using FDO)"
-msgstr ""
+msgstr "MapGuide Open Source (usando FDO)."
 
 #: ../../en/introduction.rst:192 ../../en/introduction.rst:193
 msgid "Desktop"
-msgstr ""
+msgstr "Escritorio"
 
 #: ../../en/introduction.rst:194
 msgid "uDig"
-msgstr ""
+msgstr "uDig."
 
 #: ../../en/introduction.rst:195
 msgid "QGIS"
-msgstr ""
+msgstr "QGIS."
 
 #: ../../en/introduction.rst:196
 msgid "mezoGIS"
-msgstr ""
+msgstr "mezoGIS."
 
 #: ../../en/introduction.rst:197
 msgid "OpenJUMP"
-msgstr ""
+msgstr "OpenJUMP."
 
 #: ../../en/introduction.rst:198
 msgid "OpenEV"
-msgstr ""
+msgstr "OpenEV."
 
 #: ../../en/introduction.rst:199
 msgid "SharpMap SDK for Microsoft.NET 2.0"
-msgstr ""
+msgstr "SharpMap SDK para Microsoft.NET 2.0."
 
 #: ../../en/introduction.rst:200
 msgid "ZigGIS for ArcGIS/ArcObjects.NET"
-msgstr ""
+msgstr "ZigGIS para ArcGIS/ArcObjects.NET."
 
 #: ../../en/introduction.rst:201
 msgid "GvSIG"
-msgstr ""
+msgstr "GvSIG."
 
 #: ../../en/introduction.rst:202
 msgid "GRASS"
-msgstr ""
+msgstr "GRASS."
 
 #: ../../en/introduction.rst:181
 msgid "Safe FME Desktop Translator/Converter"
-msgstr ""
+msgstr "Safe FME Desktop Traductor/Convertidor."
 
 #: ../../en/introduction.rst:186
 msgid "Ionic Red Spider (now ERDAS)"
-msgstr ""
+msgstr "Ionic Red Spider (ahora ERDAS)."
 
 #: ../../en/introduction.rst:187
 msgid "Cadcorp GeognoSIS"
-msgstr ""
+msgstr "Cadcorp GeognoSIS."
 
 #: ../../en/introduction.rst:188
 msgid "Iwan Mapserver"
-msgstr ""
+msgstr "Iwan Mapserver."
 
 #: ../../en/introduction.rst:189
 msgid "MapDotNet Server"
-msgstr ""
+msgstr "MapDotNet Server."
 
 #: ../../en/introduction.rst:190
 msgid "MapGuide Enterprise (using FDO)"
-msgstr ""
+msgstr "MapGuide Enterprise (usando FDO)."
 
 #: ../../en/introduction.rst:191
 msgid "ESRI ArcGIS Server"
-msgstr ""
+msgstr "ESRI ArcGIS Server."
 
 #: ../../en/introduction.rst:195
 msgid "Cadcorp SIS"
-msgstr ""
+msgstr "Cadcorp SIS."
 
 #: ../../en/introduction.rst:196
 msgid "Microimages TNTmips GIS"
-msgstr ""
+msgstr "Microimages TNTmips GIS."
 
 #: ../../en/introduction.rst:197
+#, fuzzy
 msgid "ESRI ArcGIS"
-msgstr ""
+msgstr "ESRI ArcGIS"
 
 #: ../../en/introduction.rst:198
 msgid "Manifold"
-msgstr ""
+msgstr "Manifold."
 
 #: ../../en/introduction.rst:199
 msgid "GeoConcept"
-msgstr ""
+msgstr "GeoConcept."
 
 #: ../../en/introduction.rst:200
 msgid "MapInfo (v10)"
-msgstr ""
+msgstr "MapInfo (v10)."
 
 #: ../../en/introduction.rst:201
 msgid "AutoCAD Map 3D (using FDO)"
-msgstr ""
+msgstr "AutoCAD Map 3D (usando FDO)"

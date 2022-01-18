@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
 "PO-Revision-Date: 2022-01-18 22:45+0000\n"
-"Last-Translator: David Mateos <david@dmts.es>\n"
+"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/es/>\n"
 "Language: es\n"
@@ -782,7 +782,7 @@ msgstr "Basados en Web"
 
 #: ../../en/introduction.rst:187
 msgid "Mapserver"
-msgstr "Mapserver."
+msgstr "Mapserver"
 
 #: ../../en/introduction.rst:188
 msgid "GeoServer (Java-based WFS / WMS -server )"

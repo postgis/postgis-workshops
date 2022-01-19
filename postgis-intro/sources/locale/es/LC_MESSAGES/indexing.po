@@ -4,24 +4,26 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2022-01-18 22:45+0000\n"
+"Last-Translator: David Mateos <david@dmts.es>\n"
+"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"indexing/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10.1\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/indexing.rst:4
 msgid "Spatial Indexing"
-msgstr ""
+msgstr "Indexación espacial"
 
 #: ../../en/indexing.rst:6
 msgid ""
@@ -32,6 +34,13 @@ msgid ""
 "searching by organizing the data into a search tree which can be quickly "
 "traversed to find a particular record."
 msgstr ""
+"Como se ha visto, los índices son una de las tres funcionalidades clave de "
+"una base de datos espacial. Los índices hacen que sea posible usar una base "
+"de datos espacial para conjuntos de datos grandes. Sin los índices, "
+"cualquier búsqueda de un elemento requeriría un \"escáner secuencial\" de "
+"cada registro en la base de datos. El indexado acelera la búsqueda "
+"organizando los datos en un árbol de búsqueda que puede ser atravesado "
+"rápidamente para encontrar un registro concreto."
 
 #: ../../en/indexing.rst:8
 msgid ""
@@ -41,6 +50,11 @@ msgid ""
 "without indexes would require 100,000,000 comparisons; with indexes the cost "
 "could be as low as 20,000 comparisons."
 msgstr ""
+"Los índices espaciales son uno de los grandes valores de PostGIS. En el "
+"ejemplo anterior, realizar uniones espaciales requiere comparar la una con "
+"la otra ambas tablas completas. Esto puede ser muy costoso: unir dos tablas "
+"de 10.000 registros cada una requerirá 100.000.000 comparaciones; con "
+"índices el coste podría ser tan bajo como 20.000 comparaciones."
 
 #: ../../en/indexing.rst:10
 msgid ""
@@ -48,15 +62,20 @@ msgid ""
 "in order to demonstrate the efficacy of indexes we will have to first remove "
 "them."
 msgstr ""
+"Nuestro fichero de carga de datos ya contiene índices espaciales para todas "
+"las tablas, por lo que para demostrar la eficacia de los índices, vamos a "
+"eliminarlos primero."
 
 #: ../../en/indexing.rst:12
 msgid ""
 "Let's run a query on ``nyc_census_blocks`` **without** our spatial index."
 msgstr ""
+"Lancemos una query sobre ``nyc_census_blocks`` **sin** nuestro índice "
+"espacial."
 
 #: ../../en/indexing.rst:14
 msgid "Our first step is to **remove** the index."
-msgstr ""
+msgstr "El primer paso es **eliminar** el índice."
 
 #: ../../en/indexing.rst:22
 msgid ""

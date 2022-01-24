@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
+# David Mateos <david@dmts.es>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-18 22:45+0000\n"
+"PO-Revision-Date: 2022-01-24 01:52+0000\n"
 "Last-Translator: David Mateos <david@dmts.es>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "indexing/es/>\n"
@@ -83,6 +83,9 @@ msgid ""
 "system. For more information, see the PostgreSQL `documentation <http://www."
 "postgresql.org/docs/current/interactive/sql-dropindex.html>`_."
 msgstr ""
+"La sentencia ``DROP INDEX`` elimina un índice ya existente de la base de "
+"datos. Para más información, mirar la `documentación de PostgreSQL "
+"<http://www.postgresql.org/docs/current/interactive/sql-dropindex.html>`_."
 
 #: ../../en/indexing.rst:24
 msgid ""
@@ -91,6 +94,10 @@ msgid ""
 "single census block in order to identify blocks that contain subway stops "
 "that start with \"B\"."
 msgstr ""
+"Ahora, fíjate en el medidor \"Timing\" en la esquina inferior derecha de la "
+"ventana de consultas de pgAdmin y ejecuta lo siguiente. Nuestra consulta "
+"busca a través de cada uno de los bloques del censo para identificar los "
+"bloques que contienen paradas de metro que empiezen por la letra \"B\"."
 
 #: ../../en/indexing.rst:40
 msgid ""
@@ -98,10 +105,14 @@ msgid ""
 "so even without an index, the query only takes **300 ms** on my test "
 "computer."
 msgstr ""
+"La tabla ``nyc_census_blocks`` es muy pequeña (solo unos pocos miles de "
+"registros) así que, incluso sin un índice, la consulta solo tarda **300 ms** "
+"en mi ordenador de pruebas."
 
 #: ../../en/indexing.rst:42
 msgid "Now add the spatial index back in and run the query again."
 msgstr ""
+"Ahora añadimos el índice espacial de nuevo y volvemos a lanzar la consulta."
 
 #: ../../en/indexing.rst:50
 msgid ""
@@ -111,16 +122,24 @@ msgid ""
 "when creating your index, you have likely neglected to add the ``USING "
 "GIST`` clause."
 msgstr ""
+"La cláusula ``USING GIST`` le dice a PostgreSQL que use la estructura "
+"general de índices (GIST, por sus siglas en inglés) para construir el "
+"índice. Si sale un error parecido a ``ERROR: index row requires 11340 bytes, "
+"maximum size is 8191`` al crear el índice, lo más probable es que no se haya "
+"añadido la cláusula ``USING GIST``."
 
 #: ../../en/indexing.rst:52
 msgid ""
 "On my test computer the time drops to **50 ms**. The larger your table, the "
 "larger the relative speed improvement of an indexed query will be."
 msgstr ""
+"En mi ordenador de pruebas el tiempo baja hasta los **50 ms**. Cuanto más "
+"grande sea la tabla, mayor será la mejora en la velocidad relativa de una "
+"consulta que utiliza un índice."
 
 #: ../../en/indexing.rst:55
 msgid "How Spatial Indexes Work"
-msgstr ""
+msgstr "Cómo funcionan los Índices Espaciales"
 
 #: ../../en/indexing.rst:57
 msgid ""
@@ -129,6 +148,10 @@ msgid ""
 "unable to index the geometric features themselves and instead index the "
 "bounding boxes of the features."
 msgstr ""
+"Los índices de las bases de datos estándar crean un árbol jerárquico basado "
+"en los valores de la columna que se está indexando. Los índices espaciales "
+"son un poco diferentes --no pueden indexar los elementos geográficos, si no "
+"que indexan las cajas de los mismos."
 
 #: ../../en/indexing.rst:62
 msgid ""
@@ -145,6 +168,12 @@ msgid ""
 "calculation of \"what lines intersect the yellow star\" **only for those "
 "features returned by the first test**."
 msgstr ""
+"La forma en que la base de datos responde de una forma eficiente a la "
+"pregunta \"¿qué lineas intersecan con la estrella amarilla?\" es responder "
+"primero \"¿qué cajas intersecan con la caja amarilla?\" usando el índice (lo "
+"cual es muy rápido) y entonces hace el cálculo exacto de \"¿qué lineas "
+"intersecan con la estrella amarilla?\" **sólo con aquellas que han sido "
+"devueltas de la primera consulta**."
 
 #: ../../en/indexing.rst:66
 msgid ""
@@ -152,6 +181,9 @@ msgid ""
 "index first, then carrying out an exact test can radically reduce the amount "
 "of calculations necessary to answer a query."
 msgstr ""
+"Para tablas grandes, este sistema de \"dos pasos\" de evaluar el índice "
+"aproximado primero y después determinar el resultado exacto puede reducir de "
+"una forma drástica los cálculos necesarios para responder a una consulta."
 
 #: ../../en/indexing.rst:68
 msgid ""
@@ -161,83 +193,93 @@ msgid ""
 "automatically handles variable data density, differing amounts of object "
 "overlap, and object size."
 msgstr ""
+"Tanto PostGIS como Oracle Spatial comparten la misma estructura de índice "
+"espacial R-Tree\" [#RTree]_. Los R-Trees separan los datos en rectángulos, y "
+"sub-rectángulos y sub-sub-rectángulos, etc. Es una estructura de índices "
+"autoajustable que automáticamente maneja densidades de datos variables, "
+"distintas cantidades de superposiciones de objetos y tamaños de objeto."
 
 #: ../../en/indexing.rst:74
 msgid "Spatially Indexed Functions"
-msgstr ""
+msgstr "Funciones con Indexación Espacial"
 
 #: ../../en/indexing.rst:76
 msgid ""
 "Only a subset of functions will automatically make use of a spatial index, "
 "if one is available."
 msgstr ""
+"Sólo una parte de las funciones usan un índices espacial de forma "
+"automática, en caso de estar disponible."
 
 #: ../../en/indexing.rst:78
 msgid "`ST_Intersects <http://postgis.net/docs/ST_Intersects.html>`_"
-msgstr ""
+msgstr "`ST_Intersects <http://postgis.net/docs/ST_Intersects.html>`_,"
 
 #: ../../en/indexing.rst:79
 msgid "`ST_Contains <http://postgis.net/docs/ST_Contains.html>`_"
-msgstr ""
+msgstr "`ST_Contains <http://postgis.net/docs/ST_Contains.html>`_,"
 
 #: ../../en/indexing.rst:80
 msgid "`ST_Within <http://postgis.net/docs/ST_Within.html>`_"
-msgstr ""
+msgstr "`ST_Within <http://postgis.net/docs/ST_Within.html>`_,"
 
 #: ../../en/indexing.rst:81
 msgid "`ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_"
-msgstr ""
+msgstr "`ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_,"
 
 #: ../../en/indexing.rst:82
 msgid ""
 "`ST_ContainsProperly <http://postgis.net/docs/ST_ContainsProperly.html>`_"
 msgstr ""
+"`ST_ContainsProperly <http://postgis.net/docs/ST_ContainsProperly.html>`_,"
 
 #: ../../en/indexing.rst:83
 msgid "`ST_CoveredBy <http://postgis.net/docs/ST_CoveredBy.html>`_"
-msgstr ""
+msgstr "`ST_CoveredBy <http://postgis.net/docs/ST_CoveredBy.html>`_,"
 
 #: ../../en/indexing.rst:84
 msgid "`ST_Covers <http://postgis.net/docs/ST_Covers.html>`_"
-msgstr ""
+msgstr "`ST_Covers <http://postgis.net/docs/ST_Covers.html>`_,"
 
 #: ../../en/indexing.rst:85
 msgid "`ST_Overlaps <http://postgis.net/docs/ST_Overlaps.html>`_"
-msgstr ""
+msgstr "`ST_Overlaps <http://postgis.net/docs/ST_Overlaps.html>`_,"
 
 #: ../../en/indexing.rst:86
 msgid "`ST_Crosses <http://postgis.net/docs/ST_Crosses.html>`_"
-msgstr ""
+msgstr "`ST_Crosses <http://postgis.net/docs/ST_Crosses.html>`_,"
 
 #: ../../en/indexing.rst:87
 msgid "`ST_DFullyWithin <http://postgis.net/docs/ST_DFullyWithin.html>`_"
-msgstr ""
+msgstr "`ST_DFullyWithin <http://postgis.net/docs/ST_DFullyWithin.html>`_,"
 
 #: ../../en/indexing.rst:88
 msgid "`ST_3DIntersects <http://postgis.net/docs/ST_3DIntersects.html>`_"
-msgstr ""
+msgstr "`ST_3DIntersects <http://postgis.net/docs/ST_3DIntersects.html>`_,"
 
 #: ../../en/indexing.rst:89
 msgid "`ST_3DDWithin <http://postgis.net/docs/ST_3DDWithin.html>`_"
-msgstr ""
+msgstr "`ST_3DDWithin <http://postgis.net/docs/ST_3DDWithin.html>`_,"
 
 #: ../../en/indexing.rst:90
 msgid "`ST_3DDFullyWithin <http://postgis.net/docs/ST_3DDFullyWithin.html>`_"
-msgstr ""
+msgstr "`ST_3DDFullyWithin <http://postgis.net/docs/ST_3DDFullyWithin.html>`_,"
 
 #: ../../en/indexing.rst:91
 msgid ""
 "`ST_LineCrossingDirection <http://postgis.net/docs/ST_LineCrossingDirection."
 "html>`_"
 msgstr ""
+"`ST_LineCrossingDirection <http://postgis.net/docs/ST_LineCrossingDirection."
+"html>`_,"
 
 #: ../../en/indexing.rst:92
 msgid "`ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_"
-msgstr ""
+msgstr "`ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_,"
 
 #: ../../en/indexing.rst:93
 msgid "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_"
-msgstr ""
+msgstr "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_."
 
 #: ../../en/indexing.rst:95
 msgid ""
@@ -246,13 +288,21 @@ msgid ""
 "\"within a distance\" or \"within a radius\" style queries while still "
 "getting a performance boost from the index."
 msgstr ""
+"Los cuatro primeros son los más utilizados en consultas y `ST_DWithin "
+"<http://postgis.net/docs/ST_DWithin.html>`_ es muy importante para hacer "
+"consultas tipo \"dentro de una distancia\" o \"dentro de un radio\" "
+"consiguiendo un rendimiento óptimo por el índice."
 
 #: ../../en/indexing.rst:97
+#, fuzzy
 msgid ""
 "In order to add index acceleration to other functions that are not in this "
 "list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) "
 "add an index-only clause as descibed below."
 msgstr ""
+"Para añadir aceleración por índices a otras funciones que no están en esta "
+"lista (la más habitual ) hay que añadir una clausula de indexación como la "
+"descrita debajo."
 
 #: ../../en/indexing.rst:101
 msgid "Index-Only Queries"

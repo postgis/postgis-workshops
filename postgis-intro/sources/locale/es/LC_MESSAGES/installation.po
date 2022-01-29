@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Jorge Sanz <jsanz@osgeo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-24 01:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2022-01-29 15:52+0000\n"
+"Last-Translator: Jorge Sanz <jsanz@osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "installation/es/>\n"
 "Language: es\n"
@@ -31,6 +32,9 @@ msgid ""
 "queries in SQL, we will need some software, either installed locally or "
 "available remotely on the cloud."
 msgstr ""
+"Para explorar una base de datos PostgreSQL/PostGIS, y aprender a escribir "
+"consultas SQL espaciales, necesitamos algo de software que podrá estar "
+"instalado en local, o bien disponible en la nube."
 
 #: ../../en/installation.rst:8
 msgid ""
@@ -38,6 +42,10 @@ msgid ""
 "Windows or MacOS. PostgreSQL for Windows and MacOS either include PostGIS or "
 "have an easy way to add it on."
 msgstr ""
+"A continuación se muestran instrucciones sobre cómo acceder a PostgreSQL "
+"para instalar en Windows o MacOS. PostgreSQL para Windows o MacOS o incluye "
+"PostGIS directamente o disponen de una forma sencilla para añadir la "
+"extensión."
 
 #: ../../en/installation.rst:9
 msgid ""
@@ -46,6 +54,10 @@ msgid ""
 "provides a \"user facing\" interface to the database engine that does all "
 "the world."
 msgstr ""
+"A continuación hay instrucciones para instalar `PgAdmin <https://www.pgadmin."
+"org/>`_. PgAdmin es una interfaz gráfica y un editor SQL que permite a los "
+"usuarios interactuar con el motor de bases de datos, que es el que hace todo "
+"el trabajo."
 
 #: ../../en/installation.rst:11
 msgid ""
@@ -53,100 +65,124 @@ msgid ""
 "`PostgreSQL download page  <https://www.postgresql.org/download/>`_ and "
 "select the operating system you are using."
 msgstr ""
+"Para acceder a unas instrucciones actualizadas de PostgreSQL, hay que ir a "
+"la `página de descarga de PostgreSQL <https://www.postgresql.org/download/>`"
+"_ y seleccionar el sistema operativo adecuado."
 
 #: ../../en/installation.rst:15
 msgid "PostgreSQL for Microsoft Windows"
-msgstr ""
+msgstr "PostgreSQL para Microsoft Windows"
 
 #: ../../en/installation.rst:17
 msgid "For a Windows install:"
-msgstr ""
+msgstr "Para una instalación en Windows:"
 
 #: ../../en/installation.rst:19
 msgid ""
 "Go to the `Windows PostgreSQL download page <https://www.enterprisedb.com/"
 "downloads/postgres-postgresql-downloads>`_."
 msgstr ""
+"Ir a la `página de descarga de PostgreSQL para Windows <https://www."
+"enterprisedb.com/downloads/postgres-postgresql-downloads>`_."
 
 #: ../../en/installation.rst:21
 msgid "Select the latest version of PostgreSQL and save the installer to disk."
 msgstr ""
+"Seleccionar la última versión de PostgreSQL y guardar el instalador en disco."
 
 #: ../../en/installation.rst:23
 msgid "Run the installer and accept the defaults."
-msgstr ""
+msgstr "Ejecutar el instalador aceptando los valores por defecto."
 
 #: ../../en/installation.rst:25
 msgid ""
 "Find and run the \"StackBuilder\" program that was installed with the "
 "database."
 msgstr ""
+"Buscar y ejecutar el programa \"StackBuilder\" que se instaló con la base de "
+"datos."
 
 #: ../../en/installation.rst:27
 msgid ""
 "Select the \"Spatial Extensions\" section and choose latest \"PostGIS .."
 "Bundle\" option."
 msgstr ""
+"Seleccionar la sección \"Spatial Extensions\" y elegir la última opción "
+"\"PostGIS ..Bundle\"."
 
 #: ../../en/installation.rst:32
 msgid "Accept the defaults and install."
-msgstr ""
+msgstr "Aceptar los valores por defecto e instalar."
 
 #: ../../en/installation.rst:36
 msgid "PostgreSQL for Apple MacOS"
-msgstr ""
+msgstr "PostgreSQL para Apple MacOS"
 
 #: ../../en/installation.rst:38
 msgid "For a MacOS install:"
-msgstr ""
+msgstr "Para una instalación en MacOS:"
 
 #: ../../en/installation.rst:40
 msgid ""
 "Go to the `Postgres.app <https://postgresapp.com/>`_ site, and download the "
 "latest release."
 msgstr ""
+"Ir a la web de `Postgres.app <https://postgresapp.com/>`_ y descargar la "
+"última versión publicada."
 
 #: ../../en/installation.rst:42
 msgid ""
 "Open the disk image, and drag the **Postgres** icon into the "
 "**Applications** folder."
 msgstr ""
+"Abrir la imagen de disco y arrastrar el icono **Postgres** a la carpeta "
+"**Aplicaciones**."
 
 #: ../../en/installation.rst:47
 msgid ""
 "In the **Applications** folder, double-click the **Postgres** icon to start "
 "the server."
 msgstr ""
+"En la carpeta **Aplicaciones**, hacer doble clic en el icono **Postgres** "
+"para arrancar el servidor."
 
 #: ../../en/installation.rst:49
 msgid ""
 "Click the **Initialize** button to create a new blank database instance."
 msgstr ""
+"Hacer clic en el botón **Initialize** para crear una nueva instancia de base "
+"de datos en blanco."
 
 #: ../../en/installation.rst:54
 msgid ""
 "In the **Applications** folder, go to the **Utilities** folder and open "
 "**Terminal**."
 msgstr ""
+"En la carpeta **Applications**, ir a la carpeta **Utilities** y abrir "
+"**Terminal**."
 
 #: ../../en/installation.rst:56
 msgid "Add the command-line utilities to your `PATH` for convenience."
 msgstr ""
+"Por comodidad, añadir la ruta a las utilidades de línea de comandos a tu "
+"`PATH`."
 
 #: ../../en/installation.rst:65
 msgid "PgAdmin for Windows and MacOS"
-msgstr ""
+msgstr "PgAdmin para Windows y MacOS"
 
 #: ../../en/installation.rst:67
 msgid ""
 "PgAdmin is available for multiple platforms, at https://www.pgadmin.org/"
 "download/."
 msgstr ""
+"PgAdmin está disponible para múltiples plataformas en https://www.pgadmin."
+"org/download/."
 
 #: ../../en/installation.rst:69
 msgid "Download and install the latest version for your platform."
-msgstr ""
+msgstr "Descargar e instalar la última versión para tu plataforma."
 
 #: ../../en/installation.rst:71
 msgid "Start PgAdmin!"
-msgstr ""
+msgstr "¡Arranca PgAdmin!"

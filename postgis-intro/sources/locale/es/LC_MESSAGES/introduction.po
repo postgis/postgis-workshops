@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
+# Jorge Sanz <jsanz@osgeo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-20 12:52+0000\n"
-"Last-Translator: David Mateos <david@dmts.es>\n"
+"PO-Revision-Date: 2022-01-29 15:52+0000\n"
+"Last-Translator: Jorge Sanz <jsanz@osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/es/>\n"
 "Language: es\n"
@@ -185,9 +185,8 @@ msgstr ""
 "de su super-tipo."
 
 #: ../../en/introduction.rst:53
-#, fuzzy
 msgid "Spatial Indexes and Bounding Boxes"
-msgstr "Índices espaciales y Cajas"
+msgstr "Índices espaciales y Rectángulos Envolventes"
 
 #: ../../en/introduction.rst:55
 msgid ""
@@ -259,8 +258,8 @@ msgstr ""
 "vez de dar resultados exactos como hacen los B-trees, los índices espaciales "
 "dan resultados aproximados. La pregunta \"¿qué lineas están dentro de este "
 "polígono?\" interpretada por un índice espacial se reformularia como \"¿qué "
-"lineas tienen cajas que están contenidas dentro de la caja de este polígono?"
-"\"."
+"lineas tienen cajas envolventes que están contenidas dentro de la envolvente "
+"de este polígono?\"."
 
 #: ../../en/introduction.rst:71
 msgid ""
@@ -335,6 +334,8 @@ msgid ""
 "**Retrieval**: Functions that *retrieve* properties and measurements of a "
 "Geometry."
 msgstr ""
+"**Recuperación**: Funciones que *recuperan* propiedades y medidas de una "
+"Geometría."
 
 #: ../../en/introduction.rst:85
 msgid ""
@@ -364,7 +365,6 @@ msgid "What is PostGIS?"
 msgstr "¿Qué es PostGIS?"
 
 #: ../../en/introduction.rst:93
-#, fuzzy
 msgid ""
 "PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database "
 "Management System into a spatial database by adding support for the three "
@@ -372,12 +372,12 @@ msgid ""
 "is built on PostgreSQL, PostGIS automatically inherits important \"enterprise"
 "\" features as well as open standards for implementation."
 msgstr ""
-"PostGIS convierte el Sistema Gestor de Bases de Datos `PostgreSQL <http://"
-"www.postgresql.org/>`_ en una base de datos espacial añadiendo soporte para "
+"PostGIS convierte el Sistema Gestor de Bases de Datos `PostgreSQL <http://www"
+".postgresql.org/>`_ en una base de datos espacial añadiendo soporte para "
 "estas tres funcionalidades: tipos espaciales, índices espaciales y funciones "
 "espaciales. Dado que está construido sobre PostgreSQL, PostGIS hereda "
-"automáticamente funcionalidades \"empresariales\" importantes así como "
-"estándares abiertos en su implementación."
+"automáticamente en su implementación importantes funcionalidades "
+"\"empresariales\" así como estándares abiertos."
 
 #: ../../en/introduction.rst:96
 msgid "But what is PostgreSQL?"
@@ -441,7 +441,7 @@ msgstr "Soporte escrupuloso de los estándares SQL (SQL92 completo)."
 
 #: ../../en/introduction.rst:111
 msgid "Pluggable type extension and function extension"
-msgstr ""
+msgstr "Funciones extensibles y tipos conectables y extensibles"
 
 #: ../../en/introduction.rst:112
 msgid "Community-oriented development model"
@@ -451,8 +451,8 @@ msgstr "Modelo de desarrollo orientado a la comunidad."
 msgid ""
 "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
 msgstr ""
-"Tamaños de columna no limitados (\"TOAST\"able tuples) para soportar objetos "
-"GIS grandes."
+"Tamaños de columna no limitados (tuplas \"TOAST\") para soportar objetos SIG "
+"grandes."
 
 #: ../../en/introduction.rst:114
 msgid "Generic index structure (GiST) to allow R-Tree index"
@@ -472,6 +472,12 @@ msgid ""
 "easy extension. This is no coincidence; Illustra is a proprietary re-working "
 "of the original PostgreSQL code base from the 1980's."
 msgstr ""
+"A su vez, PostgreSQL proporciona de manera muy sencilla un mecanismo de "
+"desarrollo de tipos espaciales nuevos. En el ámbito del software propietario "
+"solo `Illustra <https://en.wikipedia.org/wiki/Illustra>`_ (ahora Informix "
+"Universal Server) permitía una extensión así de sencilla. Esto no es una "
+"coincidencia, Illustra es una reingeniería del código fuente original de "
+"PostgreSQL de los años ochenta."
 
 #: ../../en/introduction.rst:119
 msgid ""
@@ -493,6 +499,11 @@ msgid ""
 "Development of PostGIS 0.1 took under a month. Doing a \"MyGIS\" 0.1 would "
 "have taken a lot longer, and as such, might never have seen the light of day."
 msgstr ""
+"Debido a que los tipos de objetos espaciales de MySQL se construyeron como "
+"un caso especial sobre el tipo de cadena de caracteres, las modificaciones a "
+"MySQL se extendieron por toda su base de código. El desarrollo de PostGIS "
+"0.1 llevó un mes aproximadamente. Hacer un \"MyGIS\" 0.1 hubiera costado "
+"muchísimo más, y como tal, nunca hubiera visto la luz del día."
 
 #: ../../en/introduction.rst:124
 msgid "Why not files?"
@@ -560,6 +571,12 @@ msgid ""
 "data sets; with files, they might be segmented into multiple files, but in a "
 "database they can be stored as a single large table."
 msgstr ""
+"Gran parte de los usuarios de PostGIS están desplegando sistemas donde "
+"múltiples aplicaciones deben acceder a los datos, por lo que acceder a ellos "
+"mediante el estándar SQL simplifica el desarrollo y despliegue. Algunos "
+"usuarios trabajan con grandes volúmenes de datos, tal vez incluso repartidos "
+"entre múltiples ficheros, que pueden almacenarse en una única tabla de la "
+"base de datos."
 
 #: ../../en/introduction.rst:134
 msgid ""
@@ -683,7 +700,6 @@ msgid "Institut Geographique National, France"
 msgstr "Instituto Geográfico Nacional, Francia"
 
 #: ../../en/introduction.rst:161
-#, fuzzy
 msgid ""
 "IGN is the national mapping agency of France, and uses PostGIS to store the "
 "high resolution topographic map of the country, \"BDUni\". BDUni has more "
@@ -697,12 +713,12 @@ msgstr ""
 "IGN es la agencia cartográfica nacional de Francia y usa PostGIS para "
 "almacenar el mapa topográfico de alta resolución del país, el \"BDUni\". "
 "BDUni tiene más de 100 millones de elementos y es mantenido por un equipo de "
-"campo de más de 100 personas quienes verifican las observaciones y añaden "
-"nuevos mapeos a la base de datos diariamente. La instalación del IGN usa el "
-"sistema transaccional de la base de datos para asegurar la consistencia "
-"durante los procesos de actualización y un `warm standby system <https://www."
-"postgresql.org/docs/devel/warm-standby.html>`_ to maintain uptime in the "
-"event of a system failure."
+"campo de más de 100 personas quienes verifican las observaciones y "
+"diariamente añaden nuevos registros a la base de datos. La instalación del "
+"IGN usa el sistema transaccional de la base de datos para asegurar la "
+"consistencia durante los procesos de actualización y un `warm standby system "
+"<https://www.postgresql.org/docs/devel/warm-standby.html>`_ para mantener el "
+"sistema funcionando aún en el caso de producirse un fallo del mismo."
 
 #: ../../en/introduction.rst:164
 msgid "RedFin"
@@ -800,75 +816,75 @@ msgstr "Escritorio"
 
 #: ../../en/introduction.rst:194
 msgid "uDig"
-msgstr "uDig."
+msgstr "uDig"
 
 #: ../../en/introduction.rst:195
 msgid "QGIS"
-msgstr "QGIS."
+msgstr "QGIS"
 
 #: ../../en/introduction.rst:196
 msgid "mezoGIS"
-msgstr "mezoGIS."
+msgstr "mezoGIS"
 
 #: ../../en/introduction.rst:197
 msgid "OpenJUMP"
-msgstr "OpenJUMP."
+msgstr "OpenJUMP"
 
 #: ../../en/introduction.rst:198
 msgid "OpenEV"
-msgstr "OpenEV."
+msgstr "OpenEV"
 
 #: ../../en/introduction.rst:199
 msgid "SharpMap SDK for Microsoft.NET 2.0"
-msgstr "SharpMap SDK para Microsoft.NET 2.0."
+msgstr "SharpMap SDK para Microsoft.NET 2.0"
 
 #: ../../en/introduction.rst:200
 msgid "ZigGIS for ArcGIS/ArcObjects.NET"
-msgstr "ZigGIS para ArcGIS/ArcObjects.NET."
+msgstr "ZigGIS para ArcGIS/ArcObjects.NET"
 
 #: ../../en/introduction.rst:201
 msgid "GvSIG"
-msgstr "GvSIG."
+msgstr "gvSIG"
 
 #: ../../en/introduction.rst:202
 msgid "GRASS"
-msgstr "GRASS."
+msgstr "GRASS"
 
 #: ../../en/introduction.rst:181
 msgid "Safe FME Desktop Translator/Converter"
-msgstr "Safe FME Desktop Traductor/Convertidor."
+msgstr "Safe FME Desktop Traductor/Convertidor"
 
 #: ../../en/introduction.rst:186
 msgid "Ionic Red Spider (now ERDAS)"
-msgstr "Ionic Red Spider (ahora ERDAS)."
+msgstr "Ionic Red Spider (ahora ERDAS)"
 
 #: ../../en/introduction.rst:187
 msgid "Cadcorp GeognoSIS"
-msgstr "Cadcorp GeognoSIS."
+msgstr "Cadcorp GeognoSIS"
 
 #: ../../en/introduction.rst:188
 msgid "Iwan Mapserver"
-msgstr "Iwan Mapserver."
+msgstr "Iwan Mapserver"
 
 #: ../../en/introduction.rst:189
 msgid "MapDotNet Server"
-msgstr "MapDotNet Server."
+msgstr "MapDotNet Server"
 
 #: ../../en/introduction.rst:190
 msgid "MapGuide Enterprise (using FDO)"
-msgstr "MapGuide Enterprise (usando FDO)."
+msgstr "MapGuide Enterprise (usando FDO)"
 
 #: ../../en/introduction.rst:191
 msgid "ESRI ArcGIS Server"
-msgstr "ESRI ArcGIS Server."
+msgstr "ESRI ArcGIS Server"
 
 #: ../../en/introduction.rst:195
 msgid "Cadcorp SIS"
-msgstr "Cadcorp SIS."
+msgstr "Cadcorp SIS"
 
 #: ../../en/introduction.rst:196
 msgid "Microimages TNTmips GIS"
-msgstr "Microimages TNTmips GIS."
+msgstr "Microimages TNTmips GIS"
 
 #: ../../en/introduction.rst:197
 msgid "ESRI ArcGIS"
@@ -876,15 +892,15 @@ msgstr "ESRI ArcGIS"
 
 #: ../../en/introduction.rst:198
 msgid "Manifold"
-msgstr "Manifold."
+msgstr "Manifold"
 
 #: ../../en/introduction.rst:199
 msgid "GeoConcept"
-msgstr "GeoConcept."
+msgstr "GeoConcept"
 
 #: ../../en/introduction.rst:200
 msgid "MapInfo (v10)"
-msgstr "MapInfo (v10)."
+msgstr "MapInfo (v10)"
 
 #: ../../en/introduction.rst:201
 msgid "AutoCAD Map 3D (using FDO)"

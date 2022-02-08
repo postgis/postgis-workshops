@@ -44,7 +44,7 @@ Loading with ogr2ogr
 
 **Windows**:
   * Builds of ogr2ogr can be downloaded from `GIS Internals <https://www.gisinternals.com/release.php>`_.
-  * ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/forusers/download.html>`_ and accessible via QGIS4W Shell menu -
+  * ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/forusers/download.html>`_ and accessible via OSGeo4W Shell -
   * Builds of ogr2ogr can be downloaded from `MS4W <https://ms4w.com/download.html>`_.
 
 **MacOS**:
@@ -56,10 +56,18 @@ Loading with ogr2ogr
   * If you installed Linux from packages, :file:`ogr2ogr` should be installed and on your PATH already as part of the **gdal** or *libgdal** packages.
 
 The postgis workshop data directory includes a :file:`2000/` sub-directory, which contains shape files from the 2000 census, that were obsoleted by data from the 2010 census. We can practice data loading using those files, to avoid creating name collisions with the data we already loaded using the backup file.
+Be sure to be in the :file:`2000/` sub-directory with the shell when doing these instructions:
 
 ::
 
   export PGPASSWORD=mydatabasepassword
+
+Rather than passing the password in the connection string, we put it in the environment, so it won't be visible in the process list while the command runs.
+
+Note that on Windows, you will need to use ``set`` instead of ``export``.
+
+::
+
 
   ogr2ogr \
     -nln nyc_census_blocks_2000 \
@@ -70,13 +78,10 @@ The postgis workshop data directory includes a :file:`2000/` sub-directory, whic
     Pg:'dbname=nyc host=localhost user=pramsey port=5432' \
     nyc_census_blocks_2000.shp
 
+
+For more visual clarity, these lines are displayed with ``\``, but they should be written in one line on your shell.
+
 The :file:`ogr2ogr` has a **huge** number of options, and we're only using a handful of them here. Here is a line-by-line explanation of the command.
-
-::
-
-  export PGPASSWORD=mydatabasepassword
-
-Rather than passing the password in the connection string, we put it in the environment, so it won't be visible in the process list while the command runs.
 
 ::
 

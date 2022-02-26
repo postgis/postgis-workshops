@@ -14,6 +14,7 @@ Note that we are working on the translations from English to other languages.
 * Spanish:  https://postgis.net/workshops/es/postgis-intro/
 * Italian:  https://postgis.net/workshops/it/postgis-intro/
 * French:  https://postgis.net/workshops/fr/postgis-intro/
+* Chinese (Simplified): https://postgis.net/workshops/zh_Hans/postgis-intro/
 
 ## Translations
 We are using [Weblate software](https://weblate.org) for translation.  If you want to help out, log into [OSGeo Weblate](https://weblate.osgeo.org/projects/postgis-workshop/).

@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Chen <onsummer@foxmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"PO-Revision-Date: 2022-02-26 02:04+0000\n"
+"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/installation/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.10.1\n"
+
+#: ../../en/installation.rst:4
+msgid "Installation"
+msgstr "安装"
+
+#: ../../en/installation.rst:6
+msgid "To explore the PostgreSQL/PostGIS database, and learn about writing spatial queries in SQL, we will need some software, either installed locally or available remotely on the cloud."
+msgstr ""
+"为了使用 PostgreSQL/PostGIS 数据库，以及学习使用 SQL 来进行空间查询，我们需要一些软件。这些软件可能安装在本机，也可能在云端。"
+
+#: ../../en/installation.rst:8
+msgid "There are instructions below on how to access PostgreSQL for installation on Windows or MacOS. PostgreSQL for Windows and MacOS either include PostGIS or have an easy way to add it on."
+msgstr ""
+
+#: ../../en/installation.rst:9
+msgid "There are instructions below on how to install `PgAdmin <https://www.pgadmin.org/>`_. PgAdmin is a graphical database explorer and SQL editor which provides a \"user facing\" interface to the database engine that does all the world."
+msgstr ""
+
+#: ../../en/installation.rst:11
+msgid "For always up-to-date directions on installing PostgreSQL, go to the `PostgreSQL download page  <https://www.postgresql.org/download/>`_ and select the operating system you are using."
+msgstr ""
+
+#: ../../en/installation.rst:15
+msgid "PostgreSQL for Microsoft Windows"
+msgstr "Windows 安装 PostgreSQL"
+
+#: ../../en/installation.rst:17
+msgid "For a Windows install:"
+msgstr "在 Windows 中的安装步骤："
+
+#: ../../en/installation.rst:19
+msgid "Go to the `Windows PostgreSQL download page <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>`_."
+msgstr ""
+"打开 `Windows PostgreSQL 下载页 <https://www.enterprisedb.com/downloads/postgres-"
+"postgresql-downloads>`_。"
+
+#: ../../en/installation.rst:21
+msgid "Select the latest version of PostgreSQL and save the installer to disk."
+msgstr "选择最新版本的 PostgreSQL 并下载到硬盘中。"
+
+#: ../../en/installation.rst:23
+msgid "Run the installer and accept the defaults."
+msgstr "运行安装包并接受默认条款。"
+
+#: ../../en/installation.rst:25
+msgid "Find and run the \"StackBuilder\" program that was installed with the database."
+msgstr "打开随数据库安装好的 “StackBuilder” 程序。"
+
+#: ../../en/installation.rst:27
+msgid "Select the \"Spatial Extensions\" section and choose latest \"PostGIS ..Bundle\" option."
+msgstr "选择 “Spatial Extensions” 部分并选择最新的 “PostGIS ..Bundle” 选项。"
+
+#: ../../en/installation.rst:32
+msgid "Accept the defaults and install."
+msgstr "接受默认选项并安装。"
+
+#: ../../en/installation.rst:36
+msgid "PostgreSQL for Apple MacOS"
+msgstr "MacOS 安装 PostgreSQL"
+
+#: ../../en/installation.rst:38
+msgid "For a MacOS install:"
+msgstr "在 MacOS 的安装步骤："
+
+#: ../../en/installation.rst:40
+msgid "Go to the `Postgres.app <https://postgresapp.com/>`_ site, and download the latest release."
+msgstr "打开 `Postgres.app <https://postgresapp.com/>`_ 页面并下载最新的发行版。"
+
+#: ../../en/installation.rst:42
+msgid "Open the disk image, and drag the **Postgres** icon into the **Applications** folder."
+msgstr ""
+
+#: ../../en/installation.rst:47
+msgid "In the **Applications** folder, double-click the **Postgres** icon to start the server."
+msgstr ""
+
+#: ../../en/installation.rst:49
+msgid "Click the **Initialize** button to create a new blank database instance."
+msgstr ""
+
+#: ../../en/installation.rst:54
+msgid "In the **Applications** folder, go to the **Utilities** folder and open **Terminal**."
+msgstr ""
+
+#: ../../en/installation.rst:56
+msgid "Add the command-line utilities to your `PATH` for convenience."
+msgstr ""
+
+#: ../../en/installation.rst:65
+msgid "PgAdmin for Windows and MacOS"
+msgstr "在 Windows / MacOS 使用 PgAdmin"
+
+#: ../../en/installation.rst:67
+msgid "PgAdmin is available for multiple platforms, at https://www.pgadmin.org/download/."
+msgstr "PgAdmin 是跨平台可用的，见 https://www.pgadmin.org/download/。"
+
+#: ../../en/installation.rst:69
+msgid "Download and install the latest version for your platform."
+msgstr "为你的操作系统安装最新版。"
+
+#: ../../en/installation.rst:71
+msgid "Start PgAdmin!"
+msgstr "启动 PgAdmin！"

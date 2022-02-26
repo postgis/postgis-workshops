@@ -1,23 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
-# This file is distributed under the same license as the Introduction to
-# PostGIS package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-# Regina Obe <regina@arrival3d.com>, 2022.
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Chen <onsummer@foxmail.com>, 2022.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-02-11 18:52+0000\nLast-Translator: Regina Obe <regina@arrival3d.com>\nLanguage-Team: German <https://weblate.osgeo.org/projects/postgis-workshop/index/de/>\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.10.1\nGenerated-By: Babel 2.9.1\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-02-26 02:04+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.10.1\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
-msgstr "Einführung in PostGIS"
+msgstr "PostGIS 简介"
 
 #: ../../en/index.rst:7
 msgid "Getting Started"
-msgstr ""
+msgstr "起步"
 
 #: ../../en/index.rst:9
 msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr ""
+msgstr "这个 workshop 可以用 `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. 下载它并解压到你觉得方便的位置。"
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
@@ -29,11 +27,11 @@ msgstr ""
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"
-msgstr "Datenpaket"
+msgstr ""
 
 #: ../../en/index.rst:19
 msgid "Inside the data bundle, you will find:"
-msgstr "In dem Datenpaket findest du:"
+msgstr ""
 
 #: ../../en/index.rst:22
 msgid "**data/**"
@@ -53,7 +51,7 @@ msgstr ""
 
 #: ../../en/index.rst:29
 msgid "License & Copying"
-msgstr ""
+msgstr "许可与版权"
 
 #: ../../en/index.rst:31
 msgid "All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons \"`share alike with attribution <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\", and is freely redistributable under the terms of that license."
@@ -61,7 +59,7 @@ msgstr ""
 
 #: ../../en/index.rst:35
 msgid "Workshop Modules"
-msgstr ""
+msgstr "Workshop 模块"
 
 #: ../../en/index.rst:84
 msgid "Links to have on hand"
@@ -69,56 +67,56 @@ msgstr ""
 
 #: ../../en/index.rst:86
 msgid "PostGIS - http://postgis.net/"
-msgstr ""
+msgstr "PostGIS - http://postgis.net/"
 
 #: ../../en/index.rst:88
 msgid "Docs - http://postgis.net/docs/"
-msgstr ""
+msgstr "文档 - http://postgis.net/docs/"
 
 #: ../../en/index.rst:90
 msgid "PostgreSQL - http://www.postgresql.org/"
-msgstr ""
+msgstr "PostgreSQL - http://www.postgresql.org/"
 
 #: ../../en/index.rst:92
 msgid "Docs - https://www.postgresql.org/docs/"
-msgstr ""
+msgstr "文档 - https://www.postgresql.org/docs/"
 
 #: ../../en/index.rst:93
 msgid "Downloads - https://www.postgresql.org/download/"
-msgstr ""
+msgstr "下载 - https://www.postgresql.org/download/"
 
 #: ../../en/index.rst:94
 msgid "JDBC Driver - https://jdbc.postgresql.org/"
-msgstr ""
+msgstr "JAVA数据库连接驱动 - https://jdbc.postgresql.org/"
 
 #: ../../en/index.rst:95
 msgid ".Net Driver - https://www.npgsql.org/"
-msgstr ""
+msgstr ".Net 驱动 - https://www.npgsql.org/"
 
 #: ../../en/index.rst:96
 msgid "Python Driver - http://www.pygresql.org/"
-msgstr ""
+msgstr "Python 驱动 - http://www.pygresql.org/"
 
 #: ../../en/index.rst:97
 msgid "C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html"
-msgstr ""
+msgstr "C/C++ 驱动 - https://www.postgresql.org/docs/current/static/libpq.html"
 
 #: ../../en/index.rst:99
 msgid "PgAdmin - https://www.pgadmin.org/"
-msgstr ""
+msgstr "PgAdmin - https://www.pgadmin.org/"
 
 #: ../../en/index.rst:101
 msgid "Open Source Desktop Clients"
-msgstr ""
+msgstr "开源桌面客户端"
 
 #: ../../en/index.rst:103
 msgid "QGIS - https://qgis.org/"
-msgstr ""
+msgstr "QGIS - https://qgis.org/"
 
 #: ../../en/index.rst:104
 msgid "OpenJUMP - http://openjump.org/"
-msgstr ""
+msgstr "OpenJUMP - http://openjump.org/"
 
 #: ../../en/index.rst:105
 msgid "uDig - http://udig.github.io/"
-msgstr ""
+msgstr "uDig - http://udig.github.io/"

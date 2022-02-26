@@ -1,0 +1,232 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Chen <onsummer@foxmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"PO-Revision-Date: 2022-02-26 02:04+0000\n"
+"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/glossary/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.10.1\n"
+
+#: ../../en/glossary.rst:4
+msgid "Appendix B: Glossary"
+msgstr "附录 B：词汇"
+
+#: ../../en/glossary.rst:7
+msgid "CRS"
+msgstr "CRS"
+
+#: ../../en/glossary.rst:9
+msgid "A \"coordinate reference system\". The combination of a geographic coordinate system and a projected coordinate system."
+msgstr "一个“坐标参考系统”。包括地理坐标系统和投影坐标系统。"
+
+#: ../../en/glossary.rst:10
+msgid "GDAL"
+msgstr "GDAL"
+
+#: ../../en/glossary.rst:12
+msgid "`Geospatial Data Abstraction Library <http://gdal.org>`_, pronounced \"GOO-duhl\", an open source raster access library with support for a large number of formats, used widely in both open source and proprietary software."
+msgstr ""
+"`Geospatial Data Abstraction Library <http://gdal."
+"org>`_，通常称之为“GDAL”，一个开源的栅格数据读取库，支持非常多栅格格式。在各大开源软件中有广泛应用。"
+
+#: ../../en/glossary.rst:13
+msgid "GeoJSON"
+msgstr "GeoJSON"
+
+#: ../../en/glossary.rst:15
+msgid "\"Javascript Object Notation\", a text format that is very fast to parse in Javascript virtual machines. In spatial, the extended specification for `GeoJSON <http://geojson.org>`_ is commonly used."
+msgstr ""
+"\"Javascript Object Notation\"（JSON），一个在 JavaScript 环境中能非常快速地被解析的文本格式。在地理界，"
+"被广泛应用的扩展规范是 `GeoJSON <http://geojson.org>`_。"
+
+#: ../../en/glossary.rst:16
+msgid "GIS"
+msgstr "地理信息系统（GIS）"
+
+#: ../../en/glossary.rst:18
+msgid "`Geographic information system <http://en.wikipedia.org/wiki/Geographic_information_system>`_ or geographical information system captures, stores, analyzes, manages, and presents data that is linked to location."
+msgstr ""
+"`Geographic information system <http://en.wikipedia.org/wiki/"
+"Geographic_information_system>`_（GIS），是用于记录、分析、管理和呈现空间位置数据的信息系统。"
+
+#: ../../en/glossary.rst:19
+msgid "GML"
+msgstr "GML（地理标记语言）"
+
+#: ../../en/glossary.rst:21
+msgid "`Geography Markup Language <http://www.opengeospatial.org/standards/gml>`_.  GML is the :term:`OGC` standard XML format for representing spatial feature information."
+msgstr ""
+"`Geography Markup Language <http://www.opengeospatial.org/standards/gml>`_. "
+"GML 由 :term:`OGC` 定义，它是一个 XML 格式的标准，用于表达空间要素信息。"
+
+#: ../../en/glossary.rst:22
+msgid "JSON"
+msgstr "JSON"
+
+#: ../../en/glossary.rst:24
+msgid "\"`Javascript Object Notation <http://en.wikipedia.org/wiki/JSON>`_\", a text format that is very fast to parse in Javascript virtual machines. In spatial, the extended specification for `GeoJSON <http://geojson.org>`_ is commonly used."
+msgstr ""
+"\"`JavaScript Object Notation <http://en.wikipedia.org/wiki/JSON>`_\"，一个在 "
+"JavaScript 环境中能快速被解析的文本格式。在空间领域，其扩展规范 `GeoJSON <http://geojson.org>`_ 被广泛应用。"
+
+#: ../../en/glossary.rst:25
+msgid "JSTL"
+msgstr "JSTL"
+
+#: ../../en/glossary.rst:27
+msgid "\"JavaServer Page Template Library\", a tag library for :term:`JSP` that encapsulates many of the standard functions handled in JSP (database queries, iteration, conditionals) into a terse syntax."
+msgstr ""
+
+#: ../../en/glossary.rst:28
+msgid "JSP"
+msgstr "JSP"
+
+#: ../../en/glossary.rst:30
+msgid "\"JavaServer Pages\" a scripting system for Java server applications that allows the interleaving of markup and Java procedural code."
+msgstr ""
+
+#: ../../en/glossary.rst:31
+msgid "KML"
+msgstr "KML"
+
+#: ../../en/glossary.rst:33
+msgid "\"Keyhole Markup Language\", the spatial XML format used by Google Earth. Google Earth was originally written by a company named \"Keyhole\", hence the (now obscure) reference in the name."
+msgstr ""
+"\"Keyhole Markup Language\"（KML），一种由 Google Earth 使用的空间 XML 格式。\"K\" 即 "
+"\"Keyhole\"，是 Google Earth 原来的开发公司。"
+
+#: ../../en/glossary.rst:34
+msgid "OGC"
+msgstr "开放地理信息联盟"
+
+#: ../../en/glossary.rst:36
+msgid "The `Open Geospatial Consortium <http://opengeospatial.org/>`_ (OGC) is a standards organization that develops specifications for geospatial services."
+msgstr ""
+"`Open Geospatial Consortium <http://opengeospatial.org/>`_ (OGC) "
+"是一个制定、开发地理空间服务标准的组织。"
+
+#: ../../en/glossary.rst:37
+msgid "OSGeo"
+msgstr "OSGeo"
+
+#: ../../en/glossary.rst:39
+msgid "The `Open Source Geospatial Foundation <http://osgeo.org>`_ (OSGeo) is a non-profit foundation dedicated to the promotion and support of open source geospatial software."
+msgstr ""
+"`Open Source Geospatial Foundation <http://osgeo.org>`_ (OSGeo) "
+"是一个非盈利的基金会，它致力于推广和支撑开源地理空间方面的软件。"
+
+#: ../../en/glossary.rst:40
+msgid "SFSQL"
+msgstr "SFSQL"
+
+#: ../../en/glossary.rst:42
+msgid "The `Simple Features for SQL <http://www.opengeospatial.org/standards/sfs>`_ (SFSQL) specification from the :term:`OGC` defines the types and functions that make up a standard spatial database."
+msgstr ""
+"`Simple Features for SQL <http://www.opengeospatial.org/standards/sfs>`_ "
+"(SFSQL) 规范从 :term:`OGC` 中定义而来，它定义了构成标准空间数据库的类型和函数。"
+
+#: ../../en/glossary.rst:43
+msgid "SLD"
+msgstr "SLD"
+
+#: ../../en/glossary.rst:45
+msgid "The `Styled Layer Descriptor <http://www.opengeospatial.org/standards/sld>`_ (SLD) specification from the :term:`OGC` defines an format for describing cartographic rendering of vector features."
+msgstr ""
+"`Styled Layer Descriptor <http://www.opengeospatial.org/standards/sld>`_ "
+"(SLD) 规范由 :term:`OGC` 定义，它定义了一个用于描述矢量要素的绘图渲染格式信息。"
+
+#: ../../en/glossary.rst:46
+msgid "SRID"
+msgstr "SRID"
+
+#: ../../en/glossary.rst:48
+msgid "\"Spatial reference ID\" a unique number assigned to a particular \"coordinate reference system\". The PostGIS table **spatial_ref_sys** contains a large collection of well-known srid values and text representations of the coordinate reference systems."
+msgstr ""
+"\"Spatial reference ID\"（SRID），是一个用于标识坐标参考系统唯一的数字编号。PostGIS 有一个 "
+"**spatial_ref_sys** 表来存放一大批坐标系统的 SRID 的编号和文本表达格式。"
+
+#: ../../en/glossary.rst:49
+msgid "SQL"
+msgstr "SQL"
+
+#: ../../en/glossary.rst:51
+msgid "\"`Structured query language <http://en.wikipedia.org/wiki/SQL>`_\" is the standard means for querying relational databases."
+msgstr ""
+"\"`Structured query language <http://en.wikipedia.org/wiki/SQL>`_\" "
+"是一个在空间数据库中进行查询的语言。"
+
+#: ../../en/glossary.rst:52
+msgid "SQL/MM"
+msgstr "SQL/MM"
+
+#: ../../en/glossary.rst:54
+msgid "`SQL Multimedia <http://www.fer.hr/_download/repository/SQLMM_Spatial-_The_Standard_to_Manage_Spatial_Data_in_Relational_Database_Systems.pdf>`_; includes several sections on extended types, including a substantial section on spatial types."
+msgstr ""
+"`SQL Multimedia <http://www.fer.hr/_download/repository/SQLMM_Spatial-"
+"_The_Standard_to_Manage_Spatial_Data_in_Relational_Database_Systems.pdf>`_; "
+"包括了几个扩展的类型，其中就有空间类型部分。"
+
+#: ../../en/glossary.rst:55
+msgid "SVG"
+msgstr "SVG"
+
+#: ../../en/glossary.rst:57
+msgid "\"`Scalable vector graphics <http://en.wikipedia.org/wiki/Scalable_Vector_Graphics>`_\" is a family of specifications of an XML-based file format for describing two-dimensional vector graphics, both static and dynamic (i.e. interactive or animated)."
+msgstr ""
+"\"`Scalable vector graphics <http://en.wikipedia.org/wiki/"
+"Scalable_Vector_Graphics>`_\"（可缩放矢量图形，SVG）是一个描述二维矢量图形的一类 XML 文件规范，包含动态图和静态图。"
+
+#: ../../en/glossary.rst:58
+msgid "WFS"
+msgstr "WFS"
+
+#: ../../en/glossary.rst:60
+msgid "The `Web Feature Service <http://www.opengeospatial.org/standards/wfs>`_ (WFS) specification from the :term:`OGC` defines an interface for reading and writing geographic features across the web."
+msgstr ""
+"`Web Feature Service <http://www.opengeospatial.org/standards/wfs>`_ (WFS) "
+"规范由 :term:`OGC` 定义，它定义了一些通过 Web 读写地理要素数据的接口。"
+
+#: ../../en/glossary.rst:61
+msgid "WMS"
+msgstr "WMS"
+
+#: ../../en/glossary.rst:63
+msgid "The `Web Map Service <http://www.opengeospatial.org/standards/wms>`_ (WMS) specification from the :term:`OGC` defines an interface for requesting rendered map images across the web."
+msgstr ""
+"`Web Map Service <http://www.opengeospatial.org/standards/wms>`_ (WMS) 规范由 "
+":term:`OGC` 定义，它定义了通过 Web 请求渲染后的地图图像的接口。"
+
+#: ../../en/glossary.rst:64
+msgid "WKB"
+msgstr "WKB"
+
+#: ../../en/glossary.rst:66
+msgid "\"Well-known binary\". Refers to the binary representation of geometries described in the Simple Features for SQL specification (:term:`SFSQL`)."
+msgstr ""
+"\"Well-known binary\"（WKB），是简单要素规范于 SQL 的标准（:term:`SFSQL`）的中关于几何图形的二进制实现。"
+
+#: ../../en/glossary.rst:67
+msgid "WKT"
+msgstr "WKT"
+
+#: ../../en/glossary.rst:69
+msgid "\"`Well-known text <http://en.wikipedia.org/wiki/Well-known_text>`_\". Can refer either to the text representation of geometries, with strings starting \"POINT\", \"LINESTRING\", \"POLYGON\", etc. Or can refer to the text representation of a :term:`CRS`, with strings starting \"PROJCS\", \"GEOGCS\", etc.  Well-known text representations are :term:`OGC` standards, but do not have their own specification documents. The first descriptions of WKT (for geometries and for CRS) appeared in the :term:`SFSQL` 1.0 specification."
+msgstr ""
+"\"`Well-known text <http://en.wikipedia.org/wiki/Well-known_text>`_\""
+"（WKT），是几何图形的一种文本表达格式，字符串的开头使用诸如 “POINT”、“LINESTRING”、“POLYGON” 等字样。除了几何图形外，"
+"WKT 还可以表达坐标参考系统（:term:`CRS`），字符串的开头通常是 “PROJCS”、“GEOGCS”。WKT 用于呈现 :term:`OGC`"
+" 的各类规范，但是它之前是没有自己的规范的。初次描述 WKT 是在 :term:`SFSQL` 1.0 规范中的几何和坐标参考系统的部分。"
+
+msgid "PostgreSQL"
+msgstr "PostgreSQL"

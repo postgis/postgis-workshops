@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-02-26 02:04+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.10.1\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-02-28 19:52+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.10.1\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -15,39 +15,39 @@ msgstr "起步"
 
 #: ../../en/index.rst:9
 msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr "这个 workshop 可以用 `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. 下载它并解压到你觉得方便的位置。"
+msgstr "这个 Workshop 使用了 `postgis-workshop-2020.zip <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_ 作为基础。你可以下载它并解压到你觉得方便的位置。"
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
-msgstr ""
+msgstr "你也可以在 Google Slides 中找到这个 workshop 的 `PPT 版本 <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_。"
 
 #: ../../en/index.rst:13
 msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
-msgstr ""
+msgstr "在这个 Workshop 中用到的 SQL 代码可以在 `这个文档 <workshop-sql.txt>` 找到。"
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"
-msgstr ""
+msgstr "数据包"
 
 #: ../../en/index.rst:19
 msgid "Inside the data bundle, you will find:"
-msgstr ""
+msgstr "在这个压缩包里，你可以找到："
 
 #: ../../en/index.rst:22
 msgid "**data/**"
-msgstr ""
+msgstr "**data/** 目录"
 
 #: ../../en/index.rst:22
 msgid "a directory containing the data files we will be loading"
-msgstr ""
+msgstr "加载的数据会全部包括在这个文件夹里"
 
 #: ../../en/index.rst:26
 msgid "**printing/**"
-msgstr ""
+msgstr "**printing/** 目录"
 
 #: ../../en/index.rst:25
 msgid "a directory containing the exercise pages and data model pages"
-msgstr ""
+msgstr "这个目录包括了练习页面和数据模型页面"
 
 #: ../../en/index.rst:29
 msgid "License & Copying"
@@ -55,15 +55,15 @@ msgstr "许可与版权"
 
 #: ../../en/index.rst:31
 msgid "All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons \"`share alike with attribution <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\", and is freely redistributable under the terms of that license."
-msgstr ""
+msgstr "这里所有用的数据都是公开的，可以随便使用。下载的压缩包中的所有软件也是开源的，都可以随便用。这个 Workshop 使用“`署名分享 <http://creativecommons.org/licenses/by-sa/3.0/us/>`_” 协议进行知识产权共享，你遵守该许可协议的内容条款即可进行内容共享。"
 
 #: ../../en/index.rst:35
 msgid "Workshop Modules"
-msgstr "Workshop 模块"
+msgstr "Workshop 目录"
 
 #: ../../en/index.rst:84
 msgid "Links to have on hand"
-msgstr ""
+msgstr "顺带的资料"
 
 #: ../../en/index.rst:86
 msgid "PostGIS - http://postgis.net/"
@@ -87,11 +87,11 @@ msgstr "下载 - https://www.postgresql.org/download/"
 
 #: ../../en/index.rst:94
 msgid "JDBC Driver - https://jdbc.postgresql.org/"
-msgstr "JAVA数据库连接驱动 - https://jdbc.postgresql.org/"
+msgstr "JDBC（Java DataBase Connection）驱动 - https://jdbc.postgresql.org/"
 
 #: ../../en/index.rst:95
 msgid ".Net Driver - https://www.npgsql.org/"
-msgstr ".Net 驱动 - https://www.npgsql.org/"
+msgstr ".NET 驱动 - https://www.npgsql.org/"
 
 #: ../../en/index.rst:96
 msgid "Python Driver - http://www.pygresql.org/"

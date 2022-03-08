@@ -1,22 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Regina Obe <regina@arrival3d.com>, 2022.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: fr\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-03-01 18:52+0000\nLast-Translator: Regina Obe <regina@arrival3d.com>\nLanguage-Team: French <https://weblate.osgeo.org/projects/postgis-workshop/welcome/fr/>\nLanguage: fr\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 4.10.1\n"
 
 #: ../../en/welcome.rst:4
 msgid "Welcome"
-msgstr ""
+msgstr "Bienvenue"
 
 #: ../../en/welcome.rst:7
 msgid "Workshop Conventions"
-msgstr ""
+msgstr "Convention de l'atelier"
 
 #: ../../en/welcome.rst:9
 msgid "These sections conform to a number of conventions to make it easier to follow the conversation. This section gives a brief overview of what to expect in the way of typographic conventions, as well as a short overview of the structure of each workbook."
-msgstr ""
+msgstr "Ces sections respectent un certain nombre de conventions pour rendre la conversation plus facile à suivre. Cette section offre une brève vue d'ensemble sur ce à quoi s'attendre en ce qui concerne les conventions typographiques ainsi qu'une courte vue d'ensemble concernant la structure de chaque livre d'exercice."
 
 #: ../../en/welcome.rst:12
 msgid "Directions"
@@ -24,18 +23,18 @@ msgstr ""
 
 #: ../../en/welcome.rst:14
 msgid "Directions for you, the workshop attendee, will be noted by **bold** font."
-msgstr ""
+msgstr "Les instructions qui vous sont destinées, en tant que participant à l'atelier, seront indiquées en caractères **gras**."
 
 #: ../../en/welcome.rst:16
 #: ../../en/welcome.rst:43
 #: ../../en/welcome.rst:52
 #: ../../en/welcome.rst:61
 msgid "For example:"
-msgstr ""
+msgstr "Par exemple:"
 
 #: ../../en/welcome.rst:18
 msgid "Click **Next** to continue."
-msgstr ""
+msgstr "Cliquer sur **Next** pour continuer."
 
 #: ../../en/welcome.rst:21
 msgid "Code"
@@ -43,11 +42,11 @@ msgstr ""
 
 #: ../../en/welcome.rst:23
 msgid "SQL query examples will be displayed in an offset box"
-msgstr ""
+msgstr "Les exemples de requêtes SQL seront affichées dans une case"
 
 #: ../../en/welcome.rst:29
 msgid "These examples can be entered into the query window or command line interface."
-msgstr ""
+msgstr "Ces exemple peuvent être rentrées dans une fenêtre de requête ou dans une interface en ligne de commande."
 
 #: ../../en/welcome.rst:32
 msgid "Notes"
@@ -55,7 +54,7 @@ msgstr ""
 
 #: ../../en/welcome.rst:34
 msgid "Notes are used to provide information that is useful but not critical to the overall understanding of the topic."
-msgstr ""
+msgstr "Les notes sont utilisées pour fournir des informations utiles mais non indispensables à la compréhension globale du thème."
 
 #: ../../en/welcome.rst:36
 msgid "If you haven't eaten an apple today, the doctor may be on the way."
@@ -63,44 +62,44 @@ msgstr ""
 
 #: ../../en/welcome.rst:39
 msgid "Functions"
-msgstr ""
+msgstr "Fonctions"
 
 #: ../../en/welcome.rst:41
 msgid "Where function names are defined in the text, they will be rendered in a :command:`bold` font."
-msgstr ""
+msgstr "Quand des noms de fonctions sont définies dans le texte, elles seront affichées avec une police d'écriture :command:`grasse`."
 
 #: ../../en/welcome.rst:45
 msgid ":command:`ST_Touches(geometry A, geometry B)` returns TRUE if either of the geometries' boundaries intersect"
-msgstr ""
+msgstr ":command:`ST_Touches(geometry A, geometry B)`renvoie TRUE si les limites de deux formes géométrique s'intersectent."
 
 #: ../../en/welcome.rst:48
 msgid "Files, Tables and Column Names"
-msgstr ""
+msgstr "Nons de fichiers, de tables et de colonnes"
 
 #: ../../en/welcome.rst:50
 msgid "File names, paths, table names and column names will be shown in ``fixed-width`` font."
-msgstr ""
+msgstr "Les noms de fichiers, de chemins, de tables et de colonnes seront affichées dans une police d'écriture à ``largeur fixe``."
 
 #: ../../en/welcome.rst:54
 msgid "Select the ``name`` column in the ``nyc_streets`` table."
-msgstr ""
+msgstr "Sélétionne la colonne ``name`` dans la table ``nyc_streets``."
 
 #: ../../en/welcome.rst:57
 msgid "Menus and Form elements"
-msgstr ""
+msgstr "Menus et formulaires"
 
 #: ../../en/welcome.rst:59
 msgid "Menus/submenus and form elements such as fields or check boxes and other on-screen artifacts are displayed in *italics*."
-msgstr ""
+msgstr "Les menus, sous-menus et les formulaires comme les champs de données ou les cases à cocher et les autres artefacts visuels seront affichés en *italique*."
 
 #: ../../en/welcome.rst:63
 msgid "Click on the *File > New* menu. Check the box that says *Confirm*."
-msgstr ""
+msgstr "Cliquer sur le menu *Fichier > Nouveau*. Cocher la case *Confirmer*."
 
 #: ../../en/welcome.rst:66
 msgid "Workflow"
-msgstr ""
+msgstr "Déroulement du travail"
 
 #: ../../en/welcome.rst:68
 msgid "Sections are designed to be progressive. Each section will start with the assumption that you have completed and understood the previous section in the series and will build on that knowledge. A single section will progress through a handful of ideas and provide working examples wherever possible. At the end of a section, where appropriate, we have included a handful of exercises to allow you to try out the ideas we've presented. In some cases the section will include \"Things To Try\". These tasks contain more complex problems than the exercises and is designed to challenge participants with advanced knowledge."
-msgstr ""
+msgstr "Les sections sont faites pour être progressives. Chaque section commencera avec la supposition que vous avec terminé et compris la section précédente. Une unique section se basera sur quelques concepts et des exemples seront fournis chaque fois que cela est possible. À la fin d'une section, quand cela est approprié, nous avons inclus une poignée d'exercices pour vous permettre de tester les idées que nous avons présentées. Dans certains cas, la section inclura \"À tester\". Ces tâches contiennent  des problèmes plus complexes que les exercices et sont faits pour vous mettre au défi avec des connaissances avancées."

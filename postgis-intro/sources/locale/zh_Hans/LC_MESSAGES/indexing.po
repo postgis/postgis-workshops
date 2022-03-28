@@ -1,0 +1,308 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Chen <onsummer@foxmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"PO-Revision-Date: 2022-03-28 18:21+0000\n"
+"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/indexing/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11.2\n"
+
+#: ../../en/indexing.rst:4
+msgid "Spatial Indexing"
+msgstr "空间索引"
+
+#: ../../en/indexing.rst:6
+msgid "Recall that spatial index is one of the three key features of a spatial database. Indexes make using a spatial database for large data sets possible. Without indexing, any search for a feature would require a \"sequential scan\" of every record in the database. Indexing speeds up searching by organizing the data into a search tree which can be quickly traversed to find a particular record."
+msgstr ""
+"回想一下，空间索引是空间数据库的三个关键特征之一。空间索引，使得大型数据集在"
+"空间数据库中的应用成为可能。如果没有索引，任何对空间要素的搜索都需要对数据库"
+"中的每条记录进行“顺序遍历”。空间索引就是把空间数据组织成树结构，树可以加速搜"
+"索过程以便找到特定的记录。"
+
+#: ../../en/indexing.rst:8
+msgid "Spatial indices are one of the greatest assets of PostGIS.  In the previous example building spatial joins requires comparing whole tables with each other. This can get very costly: joining two tables of 10,000 records each without indexes would require 100,000,000 comparisons; with indexes the cost could be as low as 20,000 comparisons."
+msgstr ""
+"空间索引是 PostGIS 最大的本领之一。在之前的例子中，构建空间连接需要把每个空间"
+"数据表进行比较，这样的性能消耗十分巨大，为了连接两个 10000 条记录的数据表，"
+"要进行 100000000 次比较；而使用空间索引的话，最低可以低到 20000 次。"
+
+#: ../../en/indexing.rst:10
+msgid "Our data load file already included spatial indexes for all the tables, so in order to demonstrate the efficacy of indexes we will have to first remove them."
+msgstr "现有的数据已经有空间索引了，为了展示空间索引的表现，先删除空间索引以便比较。"
+
+#: ../../en/indexing.rst:12
+msgid "Let's run a query on ``nyc_census_blocks`` **without** our spatial index."
+msgstr "现在我们对 ``nyc_census_blocks`` 数据表跑一个 **没有** 空间索引的查询。"
+
+#: ../../en/indexing.rst:14
+msgid "Our first step is to **remove** the index."
+msgstr "第一步，先 **移除** 空间索引。"
+
+#: ../../en/indexing.rst:22
+msgid "The ``DROP INDEX`` statement drops an existing index from the database system. For more information, see the PostgreSQL `documentation <http://www.postgresql.org/docs/current/interactive/sql-dropindex.html>`_."
+msgstr ""
+"``DROP INDEX`` 表达式移除数据库中现有的索引。更多信息参考 PostgreSQL `文档 "
+"<http://www.postgresql.org/docs/current/interactive/sql-dropindex.html>`_。"
+
+#: ../../en/indexing.rst:24
+msgid "Now, watch the \"Timing\" meter at the lower right-hand corner of the pgAdmin query window and run the following. Our query searches through every single census block in order to identify blocks that contain subway stops that start with \"B\"."
+msgstr "执行命令后，观察 pgAdmin 查询窗口右下角的 “Timing” 面板。"
+"这个查询搜索的是每个名称以 “B” 开头的地铁站所在地区。"
+
+#: ../../en/indexing.rst:40
+msgid "The ``nyc_census_blocks`` table is very small (only a few thousand records) so even without an index, the query only takes **300 ms** on my test computer."
+msgstr ""
+"``nyc_census_blocks`` 数据表很小（大概千把个记录），所以它甚至都不需要索引，"
+"这个查询在我的电脑上只用了 **300 毫秒**。"
+
+#: ../../en/indexing.rst:42
+msgid "Now add the spatial index back in and run the query again."
+msgstr "现在重新添加空间索引并再次运行查询。"
+
+#: ../../en/indexing.rst:50
+msgid "The ``USING GIST`` clause tells PostgreSQL to use the generic index structure (GIST) when building the index.  If you receive an error that looks like ``ERROR: index row requires 11340 bytes, maximum size is 8191`` when creating your index, you have likely neglected to add the ``USING GIST`` clause."
+msgstr ""
+"``USING GIST`` 子句告诉 PostgreSQL "
+"在创建索引时，使用通用的索引结构（GIST）。若你在创建索引时，报类似于 ``ERROR:"
+" index row requires 11340 bytes, maximum size is 8191`` 的错误，"
+"你可能就是少写了 ``USING GIST`` 子句。"
+
+#: ../../en/indexing.rst:52
+msgid "On my test computer the time drops to **50 ms**. The larger your table, the larger the relative speed improvement of an indexed query will be."
+msgstr "在我的测试机上，查询时间降到了 **50 "
+"毫秒**。你的数据表越大，查询性能提升越明显。"
+
+#: ../../en/indexing.rst:55
+msgid "How Spatial Indexes Work"
+msgstr "空间索引是如何起作用的"
+
+#: ../../en/indexing.rst:57
+msgid "Standard database indexes create a hierarchical tree based on the values of the column being indexed. Spatial indexes are a little different -- they are unable to index the geometric features themselves and instead index the bounding boxes of the features."
+msgstr ""
+"标准的数据库索引，是根据被索引的列的值去创建树结构的。空间索引略不同，"
+"因为数据库并不能索引几何字段的值 —— "
+"也就是几何对象本身，我们改索引要素的范围边界框。"
+
+#: ../../en/indexing.rst:62
+msgid "In the figure above, the number of lines that intersect the yellow star is **one**, the red line. But the bounding boxes of features that intersect the yellow box is **two**, the red and blue ones."
+msgstr "上图中，和黄色星星相交的线的数量是 "
+"**1**，即红色那条线。但是与黄色框相交的范围框有红色和蓝色，共 2 个。"
+
+#: ../../en/indexing.rst:64
+msgid "The way the database efficiently answers the question \"what lines intersect the yellow star\" is to first answer the question \"what boxes intersect the yellow box\" using the index (which is very fast) and then do an exact calculation of \"what lines intersect the yellow star\" **only for those features returned by the first test**."
+msgstr ""
+"数据库求解 “什么线与黄色星相交” 这个问题，是先用空间索引求解 "
+"“什么范围框与黄色范围框相交” 这个问题的（速度非常快），然后才是 "
+"“什么线与黄色的星星相交”。上述过程仅对于第一次测试的空间要素而言。"
+
+#: ../../en/indexing.rst:66
+msgid "For a large table, this \"two pass\" system of evaluating the approximate index first, then carrying out an exact test can radically reduce the amount of calculations necessary to answer a query."
+msgstr "对于数量庞大的数据表，这种索引先行，然后局部精确计算的 “两遍法” "
+"可以在根本上减少查询计算量。"
+
+#: ../../en/indexing.rst:68
+msgid "Both PostGIS and Oracle Spatial share the same \"R-Tree\" [#RTree]_ spatial index structure. R-Trees break up data into rectangles, and sub-rectangles, and sub-sub rectangles, etc.  It is a self-tuning index structure that automatically handles variable data density, differing amounts of object overlap, and object size."
+msgstr ""
+"PostGIS 和 Oracle spatial 都用了 “R-Tree” [#RTree]_ 空间索引结构。R-Tree 把数"
+"据描述成一簇簇的矩形，它是一种自调整的索引结构，可以自动处理数据的数量、密度"
+"和大小等。"
+
+#: ../../en/indexing.rst:74
+msgid "Spatially Indexed Functions"
+msgstr "空间索引函数"
+
+#: ../../en/indexing.rst:76
+msgid "Only a subset of functions will automatically make use of a spatial index, if one is available."
+msgstr "不是所有函数都会使用空间索引的，如果存在空间索引，那么支持使用空间索引的函数"
+"会自动使用它。"
+
+#: ../../en/indexing.rst:78
+msgid "`ST_Intersects <http://postgis.net/docs/ST_Intersects.html>`_"
+msgstr "`ST_Intersects <http://postgis.net/docs/ST_Intersects.html>`_"
+
+#: ../../en/indexing.rst:79
+msgid "`ST_Contains <http://postgis.net/docs/ST_Contains.html>`_"
+msgstr "`ST_Contains <http://postgis.net/docs/ST_Contains.html>`_"
+
+#: ../../en/indexing.rst:80
+msgid "`ST_Within <http://postgis.net/docs/ST_Within.html>`_"
+msgstr "`ST_Within <http://postgis.net/docs/ST_Within.html>`_"
+
+#: ../../en/indexing.rst:81
+msgid "`ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_"
+msgstr "`ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_"
+
+#: ../../en/indexing.rst:82
+msgid "`ST_ContainsProperly <http://postgis.net/docs/ST_ContainsProperly.html>`_"
+msgstr ""
+"`ST_ContainsProperly <http://postgis.net/docs/ST_ContainsProperly.html>`_"
+
+#: ../../en/indexing.rst:83
+msgid "`ST_CoveredBy <http://postgis.net/docs/ST_CoveredBy.html>`_"
+msgstr "`ST_CoveredBy <http://postgis.net/docs/ST_CoveredBy.html>`_"
+
+#: ../../en/indexing.rst:84
+msgid "`ST_Covers <http://postgis.net/docs/ST_Covers.html>`_"
+msgstr "`ST_Covers <http://postgis.net/docs/ST_Covers.html>`_"
+
+#: ../../en/indexing.rst:85
+msgid "`ST_Overlaps <http://postgis.net/docs/ST_Overlaps.html>`_"
+msgstr "`ST_Overlaps <http://postgis.net/docs/ST_Overlaps.html>`_"
+
+#: ../../en/indexing.rst:86
+msgid "`ST_Crosses <http://postgis.net/docs/ST_Crosses.html>`_"
+msgstr "`ST_Crosses <http://postgis.net/docs/ST_Crosses.html>`_"
+
+#: ../../en/indexing.rst:87
+msgid "`ST_DFullyWithin <http://postgis.net/docs/ST_DFullyWithin.html>`_"
+msgstr "`ST_DFullyWithin <http://postgis.net/docs/ST_DFullyWithin.html>`_"
+
+#: ../../en/indexing.rst:88
+msgid "`ST_3DIntersects <http://postgis.net/docs/ST_3DIntersects.html>`_"
+msgstr "`ST_3DIntersects <http://postgis.net/docs/ST_3DIntersects.html>`_"
+
+#: ../../en/indexing.rst:89
+msgid "`ST_3DDWithin <http://postgis.net/docs/ST_3DDWithin.html>`_"
+msgstr "`ST_3DDWithin <http://postgis.net/docs/ST_3DDWithin.html>`_"
+
+#: ../../en/indexing.rst:90
+msgid "`ST_3DDFullyWithin <http://postgis.net/docs/ST_3DDFullyWithin.html>`_"
+msgstr "`ST_3DDFullyWithin <http://postgis.net/docs/ST_3DDFullyWithin.html>`_"
+
+#: ../../en/indexing.rst:91
+msgid "`ST_LineCrossingDirection <http://postgis.net/docs/ST_LineCrossingDirection.html>`_"
+msgstr ""
+"`ST_LineCrossingDirection <http://postgis.net/docs/ST_LineCrossingDirection."
+"html>`_"
+
+#: ../../en/indexing.rst:92
+msgid "`ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_"
+msgstr "`ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_"
+
+#: ../../en/indexing.rst:93
+msgid "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_"
+msgstr "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_"
+
+#: ../../en/indexing.rst:95
+msgid "The first four are the ones most commonly used in queries, and `ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_ is very important for doing \"within a distance\" or \"within a radius\" style queries while still getting a performance boost from the index."
+msgstr ""
+"前四个是查询中最常用的，`ST_DWithin <http://postgis.net/docs/ST_DWithin."
+"html>`_ 对于 “一定距离内”、“一定半径内” "
+"的查询是非常重要的，能获得指数级别的查询性能。"
+
+#: ../../en/indexing.rst:97
+msgid "In order to add index acceleration to other functions that are not in this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) add an index-only clause as descibed below."
+msgstr ""
+"为了把空间索引加速功能添加到不在上述列表中的函数中（譬如，`ST_Relate "
+"<http://postgis.net/docs/ST_Relate.html>`_），你可以想下文的例子一样添加一个 "
+"index-only 子句。"
+
+#: ../../en/indexing.rst:101
+msgid "Index-Only Queries"
+msgstr "仅索引型查询"
+
+#: ../../en/indexing.rst:103
+msgid "Most of the commonly used functions in PostGIS (:command:`ST_Contains`, :command:`ST_Intersects`, :command:`ST_DWithin`, etc) include an index filter automatically. But some functions (e.g., :command:`ST_Relate`) do not include an index filter."
+msgstr ""
+
+#: ../../en/indexing.rst:105
+msgid "To do a bounding-box search using the index (and no filtering), make use of the :command:`&&` operator. For geometries, the :command:`&&` operator means \"bounding boxes overlap or touch\" in the same way that for numbers the :command:`=` operator means \"values are the same\"."
+msgstr ""
+
+#: ../../en/indexing.rst:107
+msgid "Let's compare an index-only query for the population of the 'West Village' to a more exact query. Using :command:`&&` our index-only query looks like the following:"
+msgstr ""
+
+#: ../../en/indexing.rst:121
+msgid "Now let's do the same query using the more exact :command:`ST_Intersects` function."
+msgstr ""
+
+#: ../../en/indexing.rst:135
+msgid "A much lower answer! The first query summed up every block whose bounding box intersects the neighborhood's bounding box; the second query only summed up those blocks that intersect the neighborhood itself."
+msgstr ""
+
+#: ../../en/indexing.rst:138
+msgid "Analyzing"
+msgstr "分析"
+
+#: ../../en/indexing.rst:140
+msgid "The PostgreSQL query planner intelligently chooses when to use or not to use indexes to evaluate a query. Counter-intuitively, it is not always faster to do an index search: if the search is going to return every record in the table, traversing the index tree to get each record will actually be slower than just sequentially reading the whole table from the start."
+msgstr ""
+
+#: ../../en/indexing.rst:142
+msgid "Knowing the size of the query rectangle is not enough to pin down whether a query will return a large number or small number of records. Below, the red square is small, but will return many more records than the blue square."
+msgstr ""
+
+#: ../../en/indexing.rst:146
+msgid "In order to figure out what situation it is dealing with (reading a small part of the table versus reading a large portion of the table), PostgreSQL keeps statistics about the distribution of data in each indexed table column.  By default, PostgreSQL gathers statistics on a regular basis. However, if you dramatically change the contents of your table within a short period of time, the statistics will not be up-to-date."
+msgstr ""
+
+#: ../../en/indexing.rst:148
+msgid "To ensure the statistics match your table contents, it is wise the to run the ``ANALYZE`` command after bulk data loads and deletes in your tables. This force the statistics system to gather data for all your indexed columns."
+msgstr ""
+
+#: ../../en/indexing.rst:150
+msgid "The ``ANALYZE`` command asks PostgreSQL to traverse the table and update its internal statistics used for query plan estimation (query plan analysis will be discussed later)."
+msgstr ""
+
+#: ../../en/indexing.rst:157
+msgid "Vacuuming"
+msgstr "垃圾回收"
+
+#: ../../en/indexing.rst:159
+msgid "It's worth stressing that just creating an index is not enough to allow PostgreSQL to use it effectively.  VACUUMing must be performed whenever a large number of UPDATEs, INSERTs or DELETEs are issued against a table.  The ``VACUUM`` command asks PostgreSQL to reclaim any unused space in the table pages left by updates or deletes to records."
+msgstr ""
+
+#: ../../en/indexing.rst:161
+msgid "Vacuuming is so critical for the efficient running of the database that PostgreSQL provides an \"autovacuum\" facility by default."
+msgstr ""
+
+#: ../../en/indexing.rst:163
+msgid "Autovacuum both vacuums (recovers space) and analyzes (updates statistics) on your tables at sensible intervals determined by the level of activity.  While this is essential for highly transactional databases, it is not advisable to wait for an autovacuum run after adding indices or bulk-loading data.  Whenever a large batch update is performed, you should manually run ``VACUUM``."
+msgstr ""
+
+#: ../../en/indexing.rst:165
+msgid "Vacuuming and analyzing the database can be performed separately as needed.  Issuing ``VACUUM`` command will not update the database statistics; likewise issuing an ``ANALYZE`` command will not recover unused table rows.  Both commands can be run against the entire database, a single table, or a single column."
+msgstr ""
+
+#: ../../en/indexing.rst:172
+msgid "Function List"
+msgstr "函数列表"
+
+#: ../../en/indexing.rst:174
+msgid "`geometry_a && geometry_b <http://postgis.net/docs/geometry_overlaps.html>`_: Returns TRUE if A's bounding box overlaps B's."
+msgstr ""
+"`geometry_a && geometry_b <http://postgis.net/docs/geometry_overlaps."
+"html>`_：若 A 的范围框覆盖了 B 的，则返回 TRUE."
+
+#: ../../en/indexing.rst:176
+msgid "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: Returns TRUE if A's bounding box is the same as B's."
+msgstr ""
+"`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_：若 "
+"A 的空间范围框和 B 的一致，返回 TRUE."
+
+#: ../../en/indexing.rst:178
+msgid "`ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography \"spatially intersect\" - (share any portion of space) and FALSE if they don't (they are Disjoint)."
+msgstr ""
+"`ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/ST_Intersects"
+".html>`_：若 Geometries 对象或 Geography 对象存在 "
+"“空间相交”，即有任意部分重叠，返回 TRUE，否则返回 FALSE."
+
+#: ../../en/indexing.rst:181
+msgid "Footnotes"
+msgstr "脚注"
+
+#: ../../en/indexing.rst:182
+msgid "http://postgis.net/docs/support/rtree.pdf"
+msgstr "http://postgis.net/docs/support/rtree.pdf"

@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Chen <onsummer@foxmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"PO-Revision-Date: 2022-03-28 18:21+0000\n"
+"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/creating_db/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11.2\n"
+
+#: ../../en/creating_db.rst:4
+msgid "Creating a Spatial Database"
+msgstr "创建空间数据库"
+
+#: ../../en/creating_db.rst:7
+msgid "PgAdmin"
+msgstr "PgAdmin"
+
+#: ../../en/creating_db.rst:9
+msgid "PostgreSQL has a number of administrative front-ends.  The primary one is `psql <http://www.postgresql.org/docs/current/static/app-psql.html>`_, a command-line tool for entering SQL queries.  Another popular PostgreSQL front-end is the free and open source graphical tool `pgAdmin <http://www.pgadmin.org/>`_. All queries done in pgAdmin can also be done on the command line with ``psql``."
+msgstr ""
+"PostgreSQL 有很多管理软件。第一个要提到的当然是命令行工具 `psql <http://www."
+"postgresql.org/docs/current/static/app-psql.html>`_。另外受欢迎的还有开源的 `"
+"pgAdmin <http://www.pgadmin.org/>`_，在 pgAdmin 上的查询也可以用 ``psql`` "
+"完成。"
+
+#: ../../en/creating_db.rst:11
+msgid "Find pgAdmin and start it up."
+msgstr "找到安装在电脑上的 pgAdmin 并启动它。"
+
+#: ../../en/creating_db.rst:16
+msgid "If this is the first time you have run pgAdmin, you probably don't have any servers configured. Right click the ``Servers`` item in the Browser panel."
+msgstr "如果你是第一次运行 pgAdmin，有可能没有配置过任何数据库连接。"
+"右键单击浏览器面板中的 ``Servers`` 项。"
+
+#: ../../en/creating_db.rst:18
+msgid "We'll name our server **PostGIS**. In the Connection tab, enter the ``Host name/address``. If you're working with a local PostgreSQL install, you'll be able to use ``localhost``. If you're using a cloud service, you should be able to retrieve the host name from your account."
+msgstr ""
+"命名服务器为 **PostGIS**. 在连接选项卡中，输入 ``Host name/"
+"address``（主机名或地址）。如果你用的是本地安装的 PostgreSQL，可以填 "
+"``localhost``. 如果用的是云端数据库，你可以登陆上去后找到对应的主机名。"
+
+#: ../../en/creating_db.rst:20
+msgid "Leave **Port** set at ``5432``, and both **Maintenance database** and **Username** as ``postgres``. The **Password** should be what you specified with a local install or with your cloud service."
+msgstr ""
+"把 **Port**（端口）设为 ``5432``（默认值），把 **Maintenance database** 和 "
+"**Username** 设为 ``postgres``. **密码** 是你安装时填写的密码。"
+
+#: ../../en/creating_db.rst:26
+msgid "Creating a Database"
+msgstr "创建一个数据库"
+
+#: ../../en/creating_db.rst:28
+msgid "Open the Databases tree item and have a look at the available databases.  The ``postgres`` database is the user database for the default postgres user and is not too interesting to us."
+msgstr "打开数据库树，查看可用的数据库。名为 ``postgres`` 数据库是默认用户 postgres "
+"自己维护的数据库，对我们来说没什么用。"
+
+#: ../../en/creating_db.rst:30
+msgid "Right-click on the ``Databases`` item and select ``New Database``."
+msgstr "右键点击 ``Database`` 项，选择 ``New Database``."
+
+#: ../../en/creating_db.rst:35
+msgid "Fill in the ``Create Database`` form as shown below and click **OK**."
+msgstr "和下面表格一样填写 ``Create Database`` 表单，然后点击 **OK**."
+
+#: ../../en/creating_db.rst:39
+msgid "**Name**"
+msgstr "**名称**"
+
+#: ../../en/creating_db.rst:40
+msgid "``nyc``"
+msgstr "``nyc``"
+
+#: ../../en/creating_db.rst:41
+msgid "**Owner**"
+msgstr "**拥有者**"
+
+#: ../../en/creating_db.rst:42
+msgid "``postgres``"
+msgstr "``postgres``"
+
+#: ../../en/creating_db.rst:48
+msgid "Select the new ``nyc`` database and open it up to display the tree of objects. You'll see the ``public`` schema."
+msgstr "选择新的 ``nyc`` 数据库，打开它，会展开树结构。你能看到 ``public`` 模式。"
+
+#: ../../en/creating_db.rst:52
+msgid "Click on the SQL query button indicated below (or go to *Tools > Query Tool*)."
+msgstr "单击下面的 SQL 查询按钮（或者菜单项 *Tools > Query Tool*）。"
+
+#: ../../en/creating_db.rst:56
+msgid "Enter the following query into the query text field to load the PostGIS spatial extension:"
+msgstr "输入以下 SQL 来加载 PostGIS 扩展："
+
+#: ../../en/creating_db.rst:62
+msgid "Click the **Play** button in the toolbar (or press **F5**) to \"Execute the query.\""
+msgstr "单击工具栏的 **Play** 按钮或者按 **F5** 来执行查询。"
+
+#: ../../en/creating_db.rst:64
+msgid "Now confirm that PostGIS is installed by running a PostGIS function:"
+msgstr "现在运行 PostGIS 函数确定 PostGIS 已经安装好了："
+
+#: ../../en/creating_db.rst:70
+msgid "You have successfully created a PostGIS spatial database!!"
+msgstr "恭喜你，你创建好了 PostGIS 空间数据库。"
+
+#: ../../en/creating_db.rst:74
+msgid "Function List"
+msgstr "函数列表"
+
+#: ../../en/creating_db.rst:76
+msgid "`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: Reports full PostGIS version and build configuration info."
+msgstr ""
+"`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_："
+"显示 PostGIS 的完整版本和构建配置信息。"

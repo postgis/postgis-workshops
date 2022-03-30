@@ -13,6 +13,15 @@ div.wrap
   background-color: #eee;
   border-bottom: 1px solid #468;
   text-align: left;
+  border-top: 8px solid #468;
+}
+
+div.links 
+{
+  margin-top: 6px;
+  margin-right: 40px;
+  text-align: right;
+  float: right;
 }
 
 #content
@@ -31,7 +40,8 @@ h1.logo
   padding-top: 15px;
   padding-bottom: 7px;
   padding-left: 45px;
-  border-top: 8px solid #468;
+  padding-right: 0px;
+  width: 255px;
 }
 
 h1.logo img

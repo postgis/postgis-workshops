@@ -41,9 +41,28 @@
 {% block header %}
     <div class="header">
         <div class="wrap">
-            <h1 class="logo"><a href="https://postgis.net"><img src="_static/img/postgis-logo.png" alt="PostGIS" /></a>
-				      <div style="float:right;font-size:small"><b>Translate this Page with Weblate</b>&nbsp;&nbsp;<a href="https://weblate.osgeo.org/projects/postgis-workshop/{{pagename}}/" target="_blank" alt="Translate this page"><img src="https://weblate.osgeo.org/widgets/postgis-workshop/-/287x66-grey.png" style="vertical-align:middle;height:75px" alt="Translate this page" /></a>&nbsp;&nbsp;<b>Edit This Page On</b> <a class="btn-scm gitlab" href="https://gitlab.com/postgis/postgis-workshops/blob/master/postgis-intro/sources/en/{{pagename}}.rst" target="_blank">Gitlab</a> <a class="btn-scm github" href="https://github.com/postgis/postgis-workshops/edit/master/postgis-intro/sources/en/{{pagename}}.rst" target="_blank">Github</a></div>
-			      </h1>
+            <div class="links">
+                <p>Edit this page on<br>
+                <a href="https://github.com/postgis/postgis-workshops/edit/master/postgis-intro/sources/en/{{pagename}}.rst" target="_blank">GitHub</a> or
+                <a href="https://gitlab.com/postgis/postgis-workshops/blob/master/postgis-intro/sources/en/{{pagename}}.rst" target="_blank">GitLab</a>.<br>
+                Help 
+                <a href="https://weblate.osgeo.org/projects/postgis-workshop/{{pagename}}/" target="_blank">translate</a> this page.</p>
+            </div>
+            <h1 class="logo"><a href="https://postgis.net"><img src="_static/img/postgis-logo.png" alt="PostGIS" /></a></h1>
+
+				      
+                      <!-- <div style="float:right;font-size:small">
+
+                      <b>Translate this Page with Weblate</b>&nbsp;&nbsp;<a href="https://weblate.osgeo.org/projects/postgis-workshop/{{pagename}}/" target="_blank" alt="Translate this page"><img src="https://weblate.osgeo.org/widgets/postgis-workshop/-/287x66-grey.png" style="vertical-align:middle;height:75px" alt="Translate this page" /></a>
+
+                      &nbsp;&nbsp;<b>Edit This Page On</b> 
+
+                      <a class="btn-scm gitlab" href="https://gitlab.com/postgis/postgis-workshops/blob/master/postgis-intro/sources/en/{{pagename}}.rst" target="_blank">Gitlab</a> 
+
+                      <a class="btn-scm github" href="https://github.com/postgis/postgis-workshops/edit/master/postgis-intro/sources/en/{{pagename}}.rst" target="_blank">Github</a>
+                      </div>
+                      -->
+			      
             <h2 class="docstitle"><a href="{{ pathto('index') }}">{{ docstitle }}</a> </h2>
         </div>
     </div>

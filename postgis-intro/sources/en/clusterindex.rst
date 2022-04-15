@@ -33,41 +33,31 @@ Let's cluster our ``nyc_census_blocks`` based on their spatial index:
   -- Cluster the blocks based on their spatial index
   CLUSTER nyc_census_blocks USING nyc_census_blocks_geom_gist;
 
-The command re-writes the ``nyc_census_blocks`` in the order defined by the spatial index ``nyc_census_blocks_geom_gist``. Can you perceive a speed difference? Probably not, because the table is quite small and easily fits into memory, so disk access overhead doesn't affect performance.
+The command re-writes the ``nyc_census_blocks`` in the order defined by the spatial index ``nyc_census_blocks_geom_gist``. Can you perceive a speed difference? Maybe not, because the original data may have already had some pre-existing spatial ordering (this is not uncommon in GIS data sets).
 
-One of the surprises of the R-Tree is that an R-Tree built incrementally on spatial data might not have high spatial coherence of the leaves. For example, see this visualization of the spatial index leaves of an index on roads in the province of British Columbia.
+Disk Versus Memory/SSD
+----------------------
 
-.. image:: ./screenshots/clustering3.jpg
+Most modern databases are run using SSD storage, which is much faster at random access than old spinning magnetic media. Also, most modern databases are running on top of data which is small enough to fit into the RAM of the database server, and ends up there as the operating system "virtual filesystem" caches it.
+
+Is clustering still necessary?
+
+Surprisingly, yes. Keeping records that are "near each other" in space "near each other" in memory increases the odds that related records will move up the servers "memory cache heirarchy" together, and thus make memory accesses faster.
+
+.. image:: ./screenshots/clustering5.jpg
   :class: inline
 
-We would prefer to cluster using a more spatially compact tree, like this balanced R-Tree.
+System RAM is not the fastest memory on a modern computer. There are several levels of cache between system RAM and the actual CPU, and the underlying operating system and processor will move data up and down the cache heirarchy in blocks. If the block getting moved up happens to include the piece of data the system will need next... that's a big win. Correlating the memory structure with the spatial structure is a way in increase the odds of that win happening.
 
-.. image:: ./screenshots/clustering4.jpg
-  :class: inline
+Does Index Structure Matter?
+----------------------------
 
-We don't have a balanced R-Tree algorithm available in PostGIS, but we do have a useful proxy that puts spatial data into a spatially autocorrelated order, the **ST_GeoHash()** function.
+In theory, yes. In practice, no really. As long as the index is a "pretty good" spatial decomposition of the data, the main determinant of performance will be the order of the actual table tuples.
 
-Clustering on GeoHash
----------------------
-
-To cluster on the ST_GeoHash() function, you first need to have a geohash index on your data. Fortunately, they are easy to build.
-
-The geohash algorithm only works on data in geographic (longitude/latitude) coordinates, so we need to transform the geometries (to EPSG:4326, which is longitude/latitude) at the same time as we hash them.
-
-.. code-block:: sql
-
-  CREATE INDEX nyc_census_blocks_geohash ON nyc_census_blocks (ST_GeoHash(ST_Transform(geom,4326)));
-
-Once you have a geohash index, clustering on it uses the same syntax as the R-Tree clustering.
-
-.. code-block:: sql
-
-  CLUSTER nyc_census_blocks USING nyc_census_blocks_geohash;
-
-Now your data is nicely arranged in spatially correlated order!
+The difference between "no index" and "index" is generally huge and highly measurable. The difference between "mediocre index" and "great index" usually takes quite careful measurement to discern, and can be very sensitive to the workload being tested.
 
 
 Function List
 -------------
 
-`ST_GeoHash(geometry A) <http://postgis.net/docs/ST_GeoHash.html>`_: Returns a text string representing the GeoHash of the bounds of the object. 
+`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_: Re-orders the data in a table to match the ordering in the index.

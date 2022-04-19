@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"POT-Creation-Date: 2022-04-16 04:45-0400\n"
 "PO-Revision-Date: 2022-03-28 18:21+0000\n"
 "Last-Translator: Chen <onsummer@foxmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
@@ -23,23 +23,38 @@ msgid "Clustering on Indices"
 msgstr ""
 
 #: ../../en/clusterindex.rst:6
-msgid "Databases can only retrieve information as fast as they can get it off of disk. Small databases will float up entirely into RAM cache, and get away from physical disk limitations, but for large databases, access to the physical disk will be a limiting stop in disk access speed."
+msgid ""
+"Databases can only retrieve information as fast as they can get it off of "
+"disk. Small databases will float up entirely into RAM cache, and get away "
+"from physical disk limitations, but for large databases, access to the "
+"physical disk will be a limiting stop in disk access speed."
 msgstr ""
 
 #: ../../en/clusterindex.rst:8
-msgid "Data is written to disk opportunistically, so there is not necessarily any correlation between the order data is stored on the disk and the way it will be accessed or organized by applications."
+msgid ""
+"Data is written to disk opportunistically, so there is not necessarily any "
+"correlation between the order data is stored on the disk and the way it will "
+"be accessed or organized by applications."
 msgstr ""
 
 #: ../../en/clusterindex.rst:13
-msgid "One way to speed up access to data is to ensure that records which is likely to be retrieved together in the same result set are located in similar physical locations on the hard disk platters. This is called \"clustering\"."
+msgid ""
+"One way to speed up access to data is to ensure that records which is likely "
+"to be retrieved together in the same result set are located in similar "
+"physical locations on the hard disk platters. This is called \"clustering\"."
 msgstr ""
 
 #: ../../en/clusterindex.rst:15
-msgid "The right clustering scheme to use can be tricky, but a general rule applies: indexes define a natural ordering scheme for data which is similar to the access pattern that will be used in retrieving the data."
+msgid ""
+"The right clustering scheme to use can be tricky, but a general rule "
+"applies: indexes define a natural ordering scheme for data which is similar "
+"to the access pattern that will be used in retrieving the data."
 msgstr ""
 
 #: ../../en/clusterindex.rst:20
-msgid "Because of this, ordering the data on the disk in the same order as the index can provide a speed advantage in some cases."
+msgid ""
+"Because of this, ordering the data on the disk in the same order as the "
+"index can provide a speed advantage in some cases."
 msgstr ""
 
 #: ../../en/clusterindex.rst:23
@@ -47,11 +62,17 @@ msgid "Clustering on the R-Tree"
 msgstr ""
 
 #: ../../en/clusterindex.rst:25
-msgid "Spatial data tends to be accessed in spatially correlated windows: think of the map window in a web or desktop application. All the data in the windows has similar location value (or it wouldn't be in the window!)"
+msgid ""
+"Spatial data tends to be accessed in spatially correlated windows: think of "
+"the map window in a web or desktop application. All the data in the windows "
+"has similar location value (or it wouldn't be in the window!)"
 msgstr ""
 
 #: ../../en/clusterindex.rst:27
-msgid "So, clustering based on a spatial index makes sense for spatial data that is going to be accessed with spatial queries: similar things tend to have similar locations."
+msgid ""
+"So, clustering based on a spatial index makes sense for spatial data that is "
+"going to be accessed with spatial queries: similar things tend to have "
+"similar locations."
 msgstr ""
 
 #: ../../en/clusterindex.rst:29
@@ -59,45 +80,74 @@ msgid "Let's cluster our ``nyc_census_blocks`` based on their spatial index:"
 msgstr ""
 
 #: ../../en/clusterindex.rst:36
-msgid "The command re-writes the ``nyc_census_blocks`` in the order defined by the spatial index ``nyc_census_blocks_geom_gist``. Can you perceive a speed difference? Probably not, because the table is quite small and easily fits into memory, so disk access overhead doesn't affect performance."
+msgid ""
+"The command re-writes the ``nyc_census_blocks`` in the order defined by the "
+"spatial index ``nyc_census_blocks_geom_gist``. Can you perceive a speed "
+"difference? Maybe not, because the original data may have already had some "
+"pre-existing spatial ordering (this is not uncommon in GIS data sets)."
 msgstr ""
 
-#: ../../en/clusterindex.rst:38
-msgid "One of the surprises of the R-Tree is that an R-Tree built incrementally on spatial data might not have high spatial coherence of the leaves. For example, see this visualization of the spatial index leaves of an index on roads in the province of British Columbia."
+#: ../../en/clusterindex.rst:39
+msgid "Disk Versus Memory/SSD"
+msgstr ""
+
+#: ../../en/clusterindex.rst:41
+msgid ""
+"Most modern databases are run using SSD storage, which is much faster at "
+"random access than old spinning magnetic media. Also, most modern databases "
+"are running on top of data which is small enough to fit into the RAM of the "
+"database server, and ends up there as the operating system \"virtual "
+"filesystem\" caches it."
 msgstr ""
 
 #: ../../en/clusterindex.rst:43
-msgid "We would prefer to cluster using a more spatially compact tree, like this balanced R-Tree."
+msgid "Is clustering still necessary?"
 msgstr ""
 
-#: ../../en/clusterindex.rst:48
-msgid "We don't have a balanced R-Tree algorithm available in PostGIS, but we do have a useful proxy that puts spatial data into a spatially autocorrelated order, the **ST_GeoHash()** function."
+#: ../../en/clusterindex.rst:45
+msgid ""
+"Surprisingly, yes. Keeping records that are \"near each other\" in space "
+"\"near each other\" in memory increases the odds that related records will "
+"move up the servers \"memory cache heirarchy\" together, and thus make "
+"memory accesses faster."
 msgstr ""
 
-#: ../../en/clusterindex.rst:51
-msgid "Clustering on GeoHash"
+#: ../../en/clusterindex.rst:50
+msgid ""
+"System RAM is not the fastest memory on a modern computer. There are several "
+"levels of cache between system RAM and the actual CPU, and the underlying "
+"operating system and processor will move data up and down the cache "
+"heirarchy in blocks. If the block getting moved up happens to include the "
+"piece of data the system will need next... that's a big win. Correlating the "
+"memory structure with the spatial structure is a way in increase the odds of "
+"that win happening."
 msgstr ""
 
 #: ../../en/clusterindex.rst:53
-msgid "To cluster on the ST_GeoHash() function, you first need to have a geohash index on your data. Fortunately, they are easy to build."
+msgid "Does Index Structure Matter?"
 msgstr ""
 
 #: ../../en/clusterindex.rst:55
-msgid "The geohash algorithm only works on data in geographic (longitude/latitude) coordinates, so we need to transform the geometries (to EPSG:4326, which is longitude/latitude) at the same time as we hash them."
+msgid ""
+"In theory, yes. In practice, no really. As long as the index is a \"pretty "
+"good\" spatial decomposition of the data, the main determinant of "
+"performance will be the order of the actual table tuples."
+msgstr ""
+
+#: ../../en/clusterindex.rst:57
+msgid ""
+"The difference between \"no index\" and \"index\" is generally huge and "
+"highly measurable. The difference between \"mediocre index\" and \"great "
+"index\" usually takes quite careful measurement to discern, and can be very "
+"sensitive to the workload being tested."
 msgstr ""
 
 #: ../../en/clusterindex.rst:61
-msgid "Once you have a geohash index, clustering on it uses the same syntax as the R-Tree clustering."
-msgstr ""
-
-#: ../../en/clusterindex.rst:67
-msgid "Now your data is nicely arranged in spatially correlated order!"
-msgstr ""
-
-#: ../../en/clusterindex.rst:71
 msgid "Function List"
 msgstr "函数列表"
 
-#: ../../en/clusterindex.rst:73
-msgid "`ST_GeoHash(geometry A) <http://postgis.net/docs/ST_GeoHash.html>`_: Returns a text string representing the GeoHash of the bounds of the object."
+#: ../../en/clusterindex.rst:63
+msgid ""
+"`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_: Re-"
+"orders the data in a table to match the ordering in the index."
 msgstr ""

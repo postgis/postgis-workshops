@@ -27,7 +27,7 @@ Here's an example of why structure matters. This polygon is invalid:
 ::
 
   POLYGON((0 0, 0 1, 2 1, 2 2, 1 2, 1 0, 0 0));
-  
+
 You can see the invalidity a little more clearly in this diagram:
 
 .. image:: ./validity/figure_eight.png
@@ -41,10 +41,10 @@ Let's see what the database thinks the area of our polygon is:
   SELECT ST_Area(ST_GeometryFromText(
            'POLYGON((0 0, 0 1, 1 1, 2 1, 2 2, 1 2, 1 1, 1 0, 0 0))'
          ));
-  
+
 ::
 
-    st_area 
+    st_area
    ---------
           0
 
@@ -62,7 +62,7 @@ In the previous example we had one polygon that we **knew** was invalid. How do 
            'POLYGON((0 0, 0 1, 1 1, 2 1, 2 2, 1 2, 1 1, 1 0, 0 0))'
          ));
 
-:: 
+::
 
   f
 
@@ -148,7 +148,7 @@ Here's an example of SQL to flag invalid geometries for review while adding a re
   -- Fix invalid and save the original
   UPDATE nyc_neighborhoods
     SET geom = ST_MakeValid(geom),
-        invalid_geom = geom
+        geom_invalid = geom
     WHERE NOT ST_IsValid(geom);
 
   -- Review the invalid cases

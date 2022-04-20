@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"POT-Creation-Date: 2022-04-20 10:34-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,4 +151,3 @@ msgstr ""
 #: ../../en/validity.rst:169
 msgid "`ST_MakeValid(geometry A) <http://postgis.net/docs/ST_MakeValid.html>`_: Returns a geometry re-constructed to obey the validity rules."
 msgstr ""
-

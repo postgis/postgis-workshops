@@ -53,7 +53,7 @@ Loading with ogr2ogr
   * Finally, if you have installed `HomeBrew <https://brew.sh/>`_ you can install the **gdal** package to get access to :file:`ogr2ogr`
 
 **Linux**:
-  * If you installed Linux from packages, :file:`ogr2ogr` should be installed and on your PATH already as part of the **gdal** or *libgdal** packages.
+  * If you installed QGIS from packages, :file:`ogr2ogr` should be installed and on your PATH already as part of the **gdal** or *libgdal** packages.
 
 The postgis workshop data directory includes a :file:`2000/` sub-directory, which contains shape files from the 2000 census, that were obsoleted by data from the 2010 census. We can practice data loading using those files, to avoid creating name collisions with the data we already loaded using the backup file.
 Be sure to be in the :file:`2000/` sub-directory with the shell when doing these instructions:

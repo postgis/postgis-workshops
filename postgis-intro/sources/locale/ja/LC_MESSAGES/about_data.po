@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-06 21:27+0000\n"
-"Last-Translator: robe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2022-09-30 12:04+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/ja/>\n"
 "Language: ja\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 4.14.1\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/about_data.rst:4
@@ -37,7 +37,8 @@ msgid ""
 "The following describes the number of records and table attributes for each "
 "of our datasets.  These attribute values and relationships are fundamental "
 "to our future analysis."
-msgstr ""
+msgstr "次に、データセットごとのレコード数とテーブル属性を示します。属性値と関係性は"
+"分析の基礎となります。"
 
 #: ../../en/about_data.rst:10
 msgid ""
@@ -45,10 +46,13 @@ msgid ""
 "table and select **Properties**.  You will find a summary of table "
 "properties, including a list of table attributes within the **Columns** tab."
 msgstr ""
+"テーブルをpgAdminで見て回るには、選択したテーブルを右クリックして**Properties"
+"**を選択します。テーブルのプロパティの要約が表示され、**Columns**タブにテーブ"
+"ル属性の一覧があります。"
 
 #: ../../en/about_data.rst:15
 msgid "nyc_census_blocks"
-msgstr ""
+msgstr "nyc_census_blocks"
 
 #: ../../en/about_data.rst:17
 msgid ""
@@ -57,88 +61,95 @@ msgid ""
 "counties, etc) can be built from unions of census blocks. We have attached "
 "some demographic data to our collection of blocks."
 msgstr ""
+"センサスのblockは、センサスデータの報告に使われる最小のジオグラフィです。"
+"より高いレベルのセンサスジオグラフィ (block groups, tracts, metro areas, coun"
+"tiesなど)は全てセンサスblockの結合から構築することができます。blockのコレクシ"
+"ョンに取り付けられた人口統計データがあります。"
 
 #: ../../en/about_data.rst:19
 msgid "Number of records: 36592"
-msgstr ""
+msgstr "レコード数: 36592"
 
 #: ../../en/about_data.rst:24
+#, fuzzy
 msgid "**blkid**"
-msgstr ""
+msgstr "**blkid**"
 
 #: ../../en/about_data.rst:25
 msgid ""
 "A 15-digit code that uniquely identifies every census **block**. Eg: "
 "360050001009000"
-msgstr ""
+msgstr "**block**を一意に識別する15桁のコードです。例: 360050001009000"
 
 #: ../../en/about_data.rst:26
+#, fuzzy
 msgid "**popn_total**"
-msgstr ""
+msgstr "**popn_total**"
 
 #: ../../en/about_data.rst:27
 msgid "Total number of people in the census block"
-msgstr ""
+msgstr "block内の人の合計"
 
 #: ../../en/about_data.rst:28
 msgid "**popn_white**"
-msgstr ""
+msgstr "**popn_white**"
 
 #: ../../en/about_data.rst:29
 msgid "Number of people self-identifying as \"White\" in the block"
-msgstr ""
+msgstr "block内で「白人」を自認する人の数"
 
 #: ../../en/about_data.rst:30
 msgid "**popn_black**"
-msgstr ""
+msgstr "**popn_black**"
 
 #: ../../en/about_data.rst:31
 msgid "Number of people self-identifying as \"Black\" in the block"
-msgstr ""
+msgstr "block内で「黒人」を自認する人の数"
 
 #: ../../en/about_data.rst:32
 msgid "**popn_nativ**"
-msgstr ""
+msgstr "**popn_nativ**"
 
 #: ../../en/about_data.rst:33
 msgid "Number of people self-identifying as \"Native American\" in the block"
-msgstr ""
+msgstr "block内で「ネイティブアメリカン」と自認する人の数"
 
 #: ../../en/about_data.rst:34
 msgid "**popn_asian**"
-msgstr ""
+msgstr "**popn_asian**"
 
 #: ../../en/about_data.rst:35
 msgid "Number of people self-identifying as \"Asian\" in the block"
-msgstr ""
+msgstr "block内で「アジア人」と自認する人の数"
 
 #: ../../en/about_data.rst:36
 msgid "**popn_other**"
-msgstr ""
+msgstr "**popn_other**"
 
 #: ../../en/about_data.rst:37
 msgid "Number of people self-identifying with other categories in the block"
-msgstr ""
+msgstr "blockで他のカテゴリを自認する人の数"
 
 #: ../../en/about_data.rst:38 ../../en/about_data.rst:63
 msgid "**boroname**"
-msgstr ""
+msgstr "**boroname**"
 
 #: ../../en/about_data.rst:39 ../../en/about_data.rst:64
 #: ../../en/about_data.rst:109
 msgid ""
 "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, "
 "Queens"
-msgstr ""
+msgstr "ニューヨーク市の行政区名。マンハッタン区、ブロンクス区、ブルックリン区、スタ"
+"テンアイランド区、クイーンズ区"
 
 #: ../../en/about_data.rst:40 ../../en/about_data.rst:65
 #: ../../en/about_data.rst:88 ../../en/about_data.rst:116
 msgid "**geom**"
-msgstr ""
+msgstr "**geom**"
 
 #: ../../en/about_data.rst:41
 msgid "Polygon boundary of the block"
-msgstr ""
+msgstr "blockのポリゴン"
 
 #: ../../en/about_data.rst:45
 msgid "*Black population as a percentage of Total Population*"

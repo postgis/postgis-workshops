@@ -2,13 +2,14 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
+# Regina Obe <regina@arrival3d.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-02-28 19:52+0000\n"
-"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"PO-Revision-Date: 2022-10-02 03:04+0000\n"
+"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/introduction/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: ../../en/introduction.rst:4
 msgid "Introduction"
@@ -42,23 +43,24 @@ msgstr "**空间数据库在数据库中，可以像操作普通数据一样操�
 
 #: ../../en/introduction.rst:15
 msgid "The following briefly covers the evolution of spatial databases, and then reviews three aspects that associate *spatial* data with a database -- data types, indexes, and functions."
-msgstr ""
+msgstr "下面将简要介绍空间数据库的发展，然后回顾将*空间*数据与数据库关联起来的三个方"
+"面——数据类型、索引和函数。"
 
 #: ../../en/introduction.rst:17
 msgid "**Spatial data types** refer to shapes such as point, line, and polygon;"
-msgstr ""
+msgstr "**空间数据类型**是指形状，例如点、线、面；"
 
 #: ../../en/introduction.rst:18
 msgid "Multi-dimensional **spatial indexing** is used for efficient processing of spatial operations;"
-msgstr ""
+msgstr "多维**空间索引**用于提升空间数据处理的效率;"
 
 #: ../../en/introduction.rst:19
 msgid "**Spatial functions**, posed in :term:`SQL`, are for querying of spatial properties and relationships."
-msgstr ""
+msgstr "**空间函数**，是定义在:term: ' SQL '中，用于处理空间属性和关系。"
 
 #: ../../en/introduction.rst:21
 msgid "Combined, spatial data types, indexes, and functions provide a flexible structure for optimized performance and analysis."
-msgstr ""
+msgstr "空间数据类型、索引和函数相结合为优化性能和分析提供了灵活的结构。"
 
 #: ../../en/introduction.rst:24
 msgid "In the Beginning"

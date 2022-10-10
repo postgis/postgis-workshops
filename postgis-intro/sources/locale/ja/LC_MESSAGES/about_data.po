@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-09-30 12:04+0000\n"
+"PO-Revision-Date: 2022-10-04 11:04+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/ja/>\n"
@@ -31,6 +31,9 @@ msgid ""
 "attribute table of sociodemographic variables.  We've loaded our shapefiles "
 "as PostGIS tables and will add sociodemographic data later in the workshop."
 msgstr ""
+"このワークショップのデータは四つのニューヨーク市のシェープファイルと一つの人"
+"口統計の属性テーブルです。このワークショップでは、シェープファイルをPostGISテ"
+"ーブルとしてロードしている状態から、人口統計データを追加します。"
 
 #: ../../en/about_data.rst:8
 msgid ""
@@ -71,7 +74,6 @@ msgid "Number of records: 36592"
 msgstr "レコード数: 36592"
 
 #: ../../en/about_data.rst:24
-#, fuzzy
 msgid "**blkid**"
 msgstr "**blkid**"
 
@@ -82,7 +84,6 @@ msgid ""
 msgstr "**block**を一意に識別する15桁のコードです。例: 360050001009000"
 
 #: ../../en/about_data.rst:26
-#, fuzzy
 msgid "**popn_total**"
 msgstr "**popn_total**"
 
@@ -153,7 +154,7 @@ msgstr "blockのポリゴン"
 
 #: ../../en/about_data.rst:45
 msgid "*Black population as a percentage of Total Population*"
-msgstr ""
+msgstr "*総人口に占める黒人の割合*"
 
 #: ../../en/about_data.rst:49
 msgid ""
@@ -162,10 +163,14 @@ msgid ""
 "options for getting the data, including downloading data and boundaries from "
 "the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
 msgstr ""
+"センサスデータをGISに取り込むには、実データ (テキスト)と境界ファイル (空間デ"
+"ータ)の二つの情報のピースを繋げる必要があります。データを取得するには、"
+"アメリカ国勢調査局の `American FactFinder <http://factfinder.census.gov>`_ "
+"からデータと境界をダウンロードする等の多数の選択肢があります。"
 
 #: ../../en/about_data.rst:52
 msgid "nyc_neighborhoods"
-msgstr ""
+msgstr "nyc_neighborhoods"
 
 #: ../../en/about_data.rst:54
 msgid ""
@@ -177,31 +182,37 @@ msgid ""
 "the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia "
 "Heights, Carroll Gardens West, or Red Hook!"
 msgstr ""
+"ニューヨークには地域名と地域範囲の豊富な歴史があります。地域は社会的に構築さ"
+"れたもので、役所が定めた線に従っていません。たとえば、キャロルガーデン、レッ"
+"ドフック、コブルヒルのブルックリン地域は、まとめて「南ブルックリン」と呼ばれ"
+"ていました。現在では、あなたが話をしている実際の不動産業者に依存して、かつて"
+"レッドフックとして知られていた地域にある同じ四つのブロックがコロンビアハイツ"
+"、キャロルガーデンズウエスト、レッドフックと呼ばれます!"
 
 #: ../../en/about_data.rst:56
 msgid "Number of records: 129"
-msgstr ""
+msgstr "レコード数: 129"
 
 #: ../../en/about_data.rst:61 ../../en/about_data.rst:82
 #: ../../en/about_data.rst:106
 msgid "**name**"
-msgstr ""
+msgstr "**name**"
 
 #: ../../en/about_data.rst:62
 msgid "Name of the neighborhood"
-msgstr ""
+msgstr "地域名"
 
 #: ../../en/about_data.rst:66
 msgid "Polygon boundary of the neighborhood"
-msgstr ""
+msgstr "地域境界ポリゴン"
 
 #: ../../en/about_data.rst:70
 msgid "*The neighborhoods of New York City*"
-msgstr ""
+msgstr "*ニューヨーク市の地域*"
 
 #: ../../en/about_data.rst:73
 msgid "nyc_streets"
-msgstr ""
+msgstr "nyc_streets"
 
 #: ../../en/about_data.rst:75
 msgid ""
@@ -211,42 +222,46 @@ msgid ""
 "streets. Desirable areas to live might be on residential streets rather than "
 "next to a freeway."
 msgstr ""
+"ストリートの中心線は市の交通網を形成します。これらのストリートには、大通り、"
+"裏通り、幹線道路、高速道路、小さい通りなどにタイプ付けされています。住むのに"
+"望ましい地域は、高速道路の近くでなく、住宅街にあるかも知れません。"
 
 #: ../../en/about_data.rst:77
 msgid "Number of records: 19091"
-msgstr ""
+msgstr "レコード数: 19091"
 
 #: ../../en/about_data.rst:83
 msgid "Name of the street"
-msgstr ""
+msgstr "ストリートの名前"
 
 #: ../../en/about_data.rst:84
 msgid "**oneway**"
-msgstr ""
+msgstr "**oneway**"
 
 #: ../../en/about_data.rst:85
 msgid "Is the street one-way? \"yes\" = yes, \"\" = no"
-msgstr ""
+msgstr "ストリートが一方通行かどうかを示します。\"yes\"だと一方通行、\""
+"\"だとそうでない、という意味です。"
 
 #: ../../en/about_data.rst:86
 msgid "**type**"
-msgstr ""
+msgstr "**type**"
 
 #: ../../en/about_data.rst:87
 msgid "Road type (primary, secondary, residential, motorway)"
-msgstr ""
+msgstr "道路タイプ (主要道路、周辺道路、生活道路、自動車専用道路)"
 
 #: ../../en/about_data.rst:89
 msgid "Linear centerline of the street"
-msgstr ""
+msgstr "ストリートの線形の中心線"
 
 #: ../../en/about_data.rst:93
 msgid "*The streets of New York City. Major roads are in red.*"
-msgstr ""
+msgstr "*ニューヨーク市のストリートです。主要道路は赤色です。*"
 
 #: ../../en/about_data.rst:97
 msgid "nyc_subway_stations"
-msgstr ""
+msgstr "nyc_subway_stations"
 
 #: ../../en/about_data.rst:99
 msgid ""
@@ -255,54 +270,57 @@ msgid ""
 "station locations help determine how easy it is for different people to "
 "enter the subway system."
 msgstr ""
+"地下鉄駅は人々が生活する地上世界とそこから下にあって見えない地下鉄ネットワー"
+"クとを繋げています。公共交通システムへの玄関として、駅の位置は、どれだけ簡単"
+"に様々な人々が地下鉄システムに入るかを判断するのに役立ちます。"
 
 #: ../../en/about_data.rst:101
 msgid "Number of records: 491"
-msgstr ""
+msgstr "レコード数: 491"
 
 #: ../../en/about_data.rst:107
 msgid "Name of the station"
-msgstr ""
+msgstr "駅名"
 
 #: ../../en/about_data.rst:108
 msgid "**borough**"
-msgstr ""
+msgstr "**borough**"
 
 #: ../../en/about_data.rst:110
 msgid "**routes**"
-msgstr ""
+msgstr "**routes**"
 
 #: ../../en/about_data.rst:111
 msgid "Subway lines that run through this station"
-msgstr ""
+msgstr "この駅を通る地下鉄路線"
 
 #: ../../en/about_data.rst:112
 msgid "**transfers**"
-msgstr ""
+msgstr "**transfers**"
 
 #: ../../en/about_data.rst:113
 msgid "Lines you can transfer to via this station"
-msgstr ""
+msgstr "この駅で乗り換えられる路線"
 
 #: ../../en/about_data.rst:114
 msgid "**express**"
-msgstr ""
+msgstr "**express**"
 
 #: ../../en/about_data.rst:115
 msgid "Stations where express trains stop, \"express\" = yes, \"\" = no"
-msgstr ""
+msgstr "急行停車駅、\"express\"=急行停車、\"\"=急行停車しない"
 
 #: ../../en/about_data.rst:117
 msgid "Point location of the station"
-msgstr ""
+msgstr "駅のポイント位置"
 
 #: ../../en/about_data.rst:121
 msgid "*Point locations for New York City subway stations*"
-msgstr ""
+msgstr "*ニューヨーク市の地下鉄駅のポイント位置*"
 
 #: ../../en/about_data.rst:124
 msgid "nyc_census_sociodata"
-msgstr ""
+msgstr "nyc_census_sociodata"
 
 #: ../../en/about_data.rst:126
 msgid ""
@@ -321,7 +339,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:135
 msgid "**tractid**"
-msgstr ""
+msgstr "**tractid**"
 
 #: ../../en/about_data.rst:136
 msgid ""
@@ -331,7 +349,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:137
 msgid "**transit_total**"
-msgstr ""
+msgstr "**transit_total**"
 
 #: ../../en/about_data.rst:138
 msgid "Number of workers in the tract"
@@ -339,7 +357,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:139
 msgid "**transit_private**"
-msgstr ""
+msgstr "**transit_private**"
 
 #: ../../en/about_data.rst:140
 msgid ""
@@ -348,7 +366,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:141
 msgid "**transit_public**"
-msgstr ""
+msgstr "**transit_public**"
 
 #: ../../en/about_data.rst:142
 msgid "Number of workers in the tract who take public transit"
@@ -356,7 +374,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:143
 msgid "**transit_walk**"
-msgstr ""
+msgstr "**transit_walk**"
 
 #: ../../en/about_data.rst:144
 msgid "Number of workers in the tract who walk"
@@ -364,7 +382,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:145
 msgid "**transit_other**"
-msgstr ""
+msgstr "**transit_other**"
 
 #: ../../en/about_data.rst:146
 msgid ""
@@ -373,7 +391,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:147
 msgid "**transit_none**"
-msgstr ""
+msgstr "**transit_none**"
 
 #: ../../en/about_data.rst:148
 msgid "Number of workers in the tract who work from home"
@@ -381,7 +399,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:149
 msgid "**transit_time_mins**"
-msgstr ""
+msgstr "**transit_time_mins**"
 
 #: ../../en/about_data.rst:150
 msgid ""
@@ -391,7 +409,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:151
 msgid "**family_count**"
-msgstr ""
+msgstr "**family_count**"
 
 #: ../../en/about_data.rst:152
 msgid "Number of families in the tract"
@@ -399,7 +417,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:153
 msgid "**family_income_median**"
-msgstr ""
+msgstr "**family_income_median**"
 
 #: ../../en/about_data.rst:154
 msgid "Median family income in the tract (dollars)"
@@ -407,7 +425,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:155
 msgid "**family_income_mean**"
-msgstr ""
+msgstr "**family_income_mean**"
 
 #: ../../en/about_data.rst:156
 msgid "Average family income in the tract (dollars)"
@@ -415,7 +433,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:157
 msgid "**family_income_aggregate**"
-msgstr ""
+msgstr "**family_income_aggregate**"
 
 #: ../../en/about_data.rst:158
 msgid "Total income of all families in the tract (dollars)"
@@ -423,7 +441,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:159
 msgid "**edu_total**"
-msgstr ""
+msgstr "**edu_total**"
 
 #: ../../en/about_data.rst:160
 msgid "Number of people with educational history"
@@ -431,7 +449,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:161
 msgid "**edu_no_highschool_dipl**"
-msgstr ""
+msgstr "**edu_no_highschool_dipl**"
 
 #: ../../en/about_data.rst:162
 msgid "Number of people with no high school diploma"
@@ -439,7 +457,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:163
 msgid "**edu_highschool_dipl**"
-msgstr ""
+msgstr "**edu_highschool_dipl**"
 
 #: ../../en/about_data.rst:164
 msgid "Number of people with high school diploma and no further education"
@@ -447,7 +465,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:165
 msgid "**edu_college_dipl**"
-msgstr ""
+msgstr "**edu_college_dipl**"
 
 #: ../../en/about_data.rst:166
 msgid "Number of people with college diploma and no further education"
@@ -455,7 +473,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:167
 msgid "**edu_graduate_dipl**"
-msgstr ""
+msgstr "**edu_graduate_dipl**"
 
 #: ../../en/about_data.rst:168
 msgid "Number of people with graduate school diploma"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-10-04 11:04+0000\n"
+"PO-Revision-Date: 2022-10-11 11:30+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/ja/>\n"
@@ -330,12 +330,18 @@ msgid ""
 "collected some social-economic at a census tract level to answer some of "
 "these more interesting questions about New York City."
 msgstr ""
+"国勢調査で集められた社会経済データの豊富なコレクションがありますが、国勢統計"
+"区より大きい地理レベルでのみ集められています。国勢調査細分区は統計区 (と調査"
+"細分区グループ)を形成するために結合します。私たちはニューヨーク市に関する興味"
+"深い質問に答えるために統計区レベルで社会経済データを集めました。"
 
 #: ../../en/about_data.rst:130
 msgid ""
 "The ``nyc_census_sociodata`` is a data table.  We will need to connect it to "
 "Census geographies before conducting any spatial analysis."
 msgstr ""
+"``nyc_census_sociodata``はデータテーブルです。空間解析を行う前に、このデータ"
+"テーブルを国勢調査の地理データに接続しなければなりません。"
 
 #: ../../en/about_data.rst:135
 msgid "**tractid**"
@@ -345,7 +351,7 @@ msgstr "**tractid**"
 msgid ""
 "An 11-digit code that uniquely identifies every census **tract**. "
 "(\"36005000100\")"
-msgstr ""
+msgstr "**統計区**を一意に識別する11桁のコード。(\"36005000100\")"
 
 #: ../../en/about_data.rst:137
 msgid "**transit_total**"
@@ -353,7 +359,7 @@ msgstr "**transit_total**"
 
 #: ../../en/about_data.rst:138
 msgid "Number of workers in the tract"
-msgstr ""
+msgstr "統計区内の労働者数"
 
 #: ../../en/about_data.rst:139
 msgid "**transit_private**"
@@ -362,7 +368,7 @@ msgstr "**transit_private**"
 #: ../../en/about_data.rst:140
 msgid ""
 "Number of workers in the tract who use private automobiles / motorcycles"
-msgstr ""
+msgstr "統計区内の自家用車/二輪車を使用する労働者数"
 
 #: ../../en/about_data.rst:141
 msgid "**transit_public**"
@@ -370,7 +376,7 @@ msgstr "**transit_public**"
 
 #: ../../en/about_data.rst:142
 msgid "Number of workers in the tract who take public transit"
-msgstr ""
+msgstr "統計区内の公共交通機関を利用する労働者数"
 
 #: ../../en/about_data.rst:143
 msgid "**transit_walk**"
@@ -378,7 +384,7 @@ msgstr "**transit_walk**"
 
 #: ../../en/about_data.rst:144
 msgid "Number of workers in the tract who walk"
-msgstr ""
+msgstr "統計区内の徒歩通勤する労働者数"
 
 #: ../../en/about_data.rst:145
 msgid "**transit_other**"
@@ -387,7 +393,7 @@ msgstr "**transit_other**"
 #: ../../en/about_data.rst:146
 msgid ""
 "Number of workers in the tract who use other forms like walking / biking"
-msgstr ""
+msgstr "統計区内の徒歩/自転車などの他の形式を利用する労働者数"
 
 #: ../../en/about_data.rst:147
 msgid "**transit_none**"
@@ -395,7 +401,7 @@ msgstr "**transit_none**"
 
 #: ../../en/about_data.rst:148
 msgid "Number of workers in the tract who work from home"
-msgstr ""
+msgstr "統計区内の自宅で作業する労働者数"
 
 #: ../../en/about_data.rst:149
 msgid "**transit_time_mins**"
@@ -405,7 +411,7 @@ msgstr "**transit_time_mins**"
 msgid ""
 "Total number of minutes spent in transit by all workers in the tract "
 "(minutes)"
-msgstr ""
+msgstr "統計内の全ての労働者数が移動に費やした時間 (分)"
 
 #: ../../en/about_data.rst:151
 msgid "**family_count**"
@@ -413,7 +419,7 @@ msgstr "**family_count**"
 
 #: ../../en/about_data.rst:152
 msgid "Number of families in the tract"
-msgstr ""
+msgstr "統計区内の世帯数"
 
 #: ../../en/about_data.rst:153
 msgid "**family_income_median**"
@@ -421,7 +427,7 @@ msgstr "**family_income_median**"
 
 #: ../../en/about_data.rst:154
 msgid "Median family income in the tract (dollars)"
-msgstr ""
+msgstr "統計区内の世帯収入の中央値 (ドル)"
 
 #: ../../en/about_data.rst:155
 msgid "**family_income_mean**"
@@ -429,7 +435,7 @@ msgstr "**family_income_mean**"
 
 #: ../../en/about_data.rst:156
 msgid "Average family income in the tract (dollars)"
-msgstr ""
+msgstr "統計区内の世帯収入の平均値 (ドル)"
 
 #: ../../en/about_data.rst:157
 msgid "**family_income_aggregate**"
@@ -437,7 +443,7 @@ msgstr "**family_income_aggregate**"
 
 #: ../../en/about_data.rst:158
 msgid "Total income of all families in the tract (dollars)"
-msgstr ""
+msgstr "統計内の全世帯の総収入 (ドル)"
 
 #: ../../en/about_data.rst:159
 msgid "**edu_total**"
@@ -445,7 +451,7 @@ msgstr "**edu_total**"
 
 #: ../../en/about_data.rst:160
 msgid "Number of people with educational history"
-msgstr ""
+msgstr "教育を受けたことのある人の数"
 
 #: ../../en/about_data.rst:161
 msgid "**edu_no_highschool_dipl**"
@@ -453,7 +459,7 @@ msgstr "**edu_no_highschool_dipl**"
 
 #: ../../en/about_data.rst:162
 msgid "Number of people with no high school diploma"
-msgstr ""
+msgstr "高校卒業していない人の数"
 
 #: ../../en/about_data.rst:163
 msgid "**edu_highschool_dipl**"
@@ -461,7 +467,7 @@ msgstr "**edu_highschool_dipl**"
 
 #: ../../en/about_data.rst:164
 msgid "Number of people with high school diploma and no further education"
-msgstr ""
+msgstr "高校卒業してそれ以上の教育を受けていない人の数"
 
 #: ../../en/about_data.rst:165
 msgid "**edu_college_dipl**"
@@ -469,7 +475,7 @@ msgstr "**edu_college_dipl**"
 
 #: ../../en/about_data.rst:166
 msgid "Number of people with college diploma and no further education"
-msgstr ""
+msgstr "大学卒業してそれ以上の教育を受けていない人の数"
 
 #: ../../en/about_data.rst:167
 msgid "**edu_graduate_dipl**"
@@ -477,4 +483,4 @@ msgstr "**edu_graduate_dipl**"
 
 #: ../../en/about_data.rst:168
 msgid "Number of people with graduate school diploma"
-msgstr ""
+msgstr "大学院修了した人の数"

@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-24 01:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2022-10-15 02:30+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "advanced_geometry_construction/ja/>\n"
 "Language: ja\n"
@@ -18,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.14.1\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/advanced_geometry_construction.rst:4
 msgid "Advanced Geometry Constructions"
-msgstr ""
+msgstr "高度なジオメトリ構築"
 
 #: ../../en/advanced_geometry_construction.rst:6
 msgid ""
@@ -38,10 +39,13 @@ msgid ""
 "PostgreSQL and PostGIS to build up a new linear routes layer from the point "
 "layer of subway stations."
 msgstr ""
+"全ての駅のデータベースですが、経路の簡単な可視化ができません! 本章ではPostgre"
+"SQLとPostGISの高度な機能を使って、地下鉄駅のポイントレイヤから新しい経路レイ"
+"ヤを構築します。"
 
 #: ../../en/advanced_geometry_construction.rst:12
 msgid "Our task is made especially difficult by two issues:"
-msgstr ""
+msgstr "ここでの作業は、次に示す二つの問題のため特に難しくなっています:"
 
 #: ../../en/advanced_geometry_construction.rst:14
 msgid ""
@@ -49,6 +53,8 @@ msgid ""
 "identifiers in each row, so a station that might appear in multiple routes "
 "appears only once in the table."
 msgstr ""
+"``nyc_subway_stations``の``routes``カラムには、行ごとに重複する経路識別子があ"
+"り、複数経路で出現する可能性のある駅がテーブルに一度しか出現しません。"
 
 #: ../../en/advanced_geometry_construction.rst:15
 msgid ""
@@ -57,45 +63,55 @@ msgid ""
 "particular route, it's not possible using the attributes to determine what "
 "the order in which trains travel through the stations."
 msgstr ""
+"先の問題と関連しますが、駅テーブルには経路の順序情報がありません。特定のルー"
+"ト上の全ての駅が発見できても、属性を使って電車が駅を通る順番を決定することが"
+"できません。"
 
 #: ../../en/advanced_geometry_construction.rst:17
 msgid ""
 "The second problem is the harder one: given an unordered set of points in a "
 "route, how do we order them to match the actual route."
 msgstr ""
+"二つ目の問題は、一つ目より大変です: 経路の点の集合が順序付けされていない場合"
+"に、どのようにして実際の経路と合致するように順序付けをするかです。"
 
 #: ../../en/advanced_geometry_construction.rst:19
 msgid "Here are the stops for the 'Q' train:"
-msgstr ""
+msgstr "'Q'列車の停車駅は次の通りです:"
 
 #: ../../en/advanced_geometry_construction.rst:27
 msgid ""
 "In this picture, the stops are labelled with their unique ``gid`` primary "
 "key."
-msgstr ""
+msgstr "この図では、停車駅のラベルに一意の値を取る主キー``gid``を使っています。"
 
 #: ../../en/advanced_geometry_construction.rst:31
 msgid ""
 "If we start at one of the end stations, the next station on the line seems "
 "to always be the closest. We can repeat the process each time as long as we "
 "exclude all the previously found stations from our search."
-msgstr ""
+msgstr "末端駅の一つから出発したとして、戦場の次の駅は常に最短であるようです。前に発"
+"見された駅を検索対象から外す限り処理を繰り返すことができます。"
 
 #: ../../en/advanced_geometry_construction.rst:33
 msgid "There are two ways to run such an iterative routine in a database:"
-msgstr ""
+msgstr "このようなデータベース内の反復ルーチンの実行には二つの方法があります:"
 
 #: ../../en/advanced_geometry_construction.rst:35
 msgid ""
 "Using a procedural language, like `PL/PgSQL <http://www.postgresql.org/docs/"
 "current/static/plpgsql.html>`_."
 msgstr ""
+"`PL/PgSQL <http://www.postgresql.org/docs/current/static/plpgsql.html>`_ "
+"のような手続き言語を使う。"
 
 #: ../../en/advanced_geometry_construction.rst:36
 msgid ""
 "Using recursive `common table expressions <http://www.postgresql.org/docs/"
 "current/static/queries-with.html>`_."
 msgstr ""
+"再帰的な `共通テーブル式 <https://www.postgresql.jp/document/current/html/"
+"queries-with.html>`_ を使う。"
 
 #: ../../en/advanced_geometry_construction.rst:38
 msgid ""
@@ -103,6 +119,9 @@ msgid ""
 "definition to run. Here's the CTE to calculate the route line of the 'Q' "
 "train, starting from the northernmost stop (where ``gid`` is 304)."
 msgstr ""
+"共通テーブル式 (Common Table Expression, "
+"CTE)は、実行に関数定義が費用である長所があります。最北の停車駅 "
+"(``gid``は304)から始めた'Q'列車の経路の計算のためのCTEを示します。"
 
 #: ../../en/advanced_geometry_construction.rst:60
 msgid "The CTE consists of two halves, unioned together:"

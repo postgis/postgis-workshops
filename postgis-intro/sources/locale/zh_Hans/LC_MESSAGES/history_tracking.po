@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Baifan Mei <meibaifan@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/history_tracking.rst:4
+msgid "Tracking Edit History using Triggers"
+msgstr ""
+
+#: ../../en/history_tracking.rst:6
+msgid "A common requirement for production databases is the ability to track history: how has the data changed between two dates, who made the changes, and where did they occur? Some GIS systems track changes by including change management in the client interface, but that adds a lot of **complexity** to editing tools."
+msgstr ""
+
+#: ../../en/history_tracking.rst:8
+msgid "Using the database and the trigger system, it's possible to add history tracking to any table, while maintaining simple \"direct edit\" access to the primary table."
+msgstr ""
+
+#: ../../en/history_tracking.rst:10
+msgid "History tracking works by keeping a history table that records, for every edit:"
+msgstr ""
+
+#: ../../en/history_tracking.rst:12
+msgid "If a record was created, when it was added and by whom."
+msgstr ""
+
+#: ../../en/history_tracking.rst:13
+msgid "If a record was deleted, when it was deleted and by whom."
+msgstr ""
+
+#: ../../en/history_tracking.rst:14
+msgid "If a record was updated, adding a deletion record (for the old state) and a creation record (for the new state)."
+msgstr ""
+
+#: ../../en/history_tracking.rst:17
+msgid "Using TSTZRANGE"
+msgstr ""
+
+#: ../../en/history_tracking.rst:19
+msgid "The history table uses a PostgreSQL-specific feature--the \"`timestamp range <https://www.postgresql.org/docs/current/rangetypes.html>`_\" type--to store the time range that a history record was the \"live\" record. All the timestamp ranges in the history table for a particular feature can be expected to be non-overlapping but adjacent."
+msgstr ""
+
+#: ../../en/history_tracking.rst:21
+msgid "The range for a new record will start at ``now()`` and have an open end point, so that the range covers all time from the current time into the future."
+msgstr ""
+
+#: ../../en/history_tracking.rst:34
+msgid "Similarly, the time range for a deleted record will be updated to include the current time as the end point of the time range."
+msgstr ""
+
+#: ../../en/history_tracking.rst:36
+msgid "Searching time ranges is much simpler than searching a pair of timestamps, because of the way an open time range encompasses all time from the start point to infinity. The \"contains\" operator ``@>`` for ranges is the one we will use."
+msgstr ""
+
+#: ../../en/history_tracking.rst:47
+msgid "Ranges can be very efficiently indexed using a GIST index, just like spatial data, as we will show below. This makes history queries very efficient."
+msgstr ""
+
+#: ../../en/history_tracking.rst:51
+msgid "Building the History Table"
+msgstr ""
+
+#: ../../en/history_tracking.rst:53
+msgid "Using this information it is possible to reconstruct the state of the edit table at any point in time. In this example, we will add history tracking to our **nyc_streets** table."
+msgstr ""
+
+#: ../../en/history_tracking.rst:55
+msgid "First, add a new **nyc_streets_history** table. This is the table we will use to store all the historical edit information. In addition to all the fields from **nyc_streets**, we add five more fields."
+msgstr ""
+
+#: ../../en/history_tracking.rst:57
+msgid "**hid** the primary key for the history table"
+msgstr ""
+
+#: ../../en/history_tracking.rst:58
+msgid "**created_by** the database user that caused the record to be created"
+msgstr ""
+
+#: ../../en/history_tracking.rst:59
+msgid "**deleted_by** the database user that caused the record to be marked as deleted"
+msgstr ""
+
+#: ../../en/history_tracking.rst:60
+msgid "**valid_range** the time range within which the record was \"live\""
+msgstr ""
+
+#: ../../en/history_tracking.rst:62
+msgid "Note that we don't actually delete any records in the history table, we just mark the time they ceased to be part of the current state of the edit table."
+msgstr ""
+
+#: ../../en/history_tracking.rst:87
+msgid "Next, we import the current state of the active table, **nyc_streets** into the history table, so we have a starting point to trace history from. Note that we fill in the creation time and creation user, but leave the end of the time range and the deleted by information NULL."
+msgstr ""
+
+#: ../../en/history_tracking.rst:98
+msgid "Now we need three triggers on the active table, for INSERT, DELETE and UPDATE actions. First we create the trigger functions, then bind them to the table as triggers."
+msgstr ""
+
+#: ../../en/history_tracking.rst:100
+msgid "For an insert, we just add a new record into the history table with the creation time/user."
+msgstr ""
+
+#: ../../en/history_tracking.rst:123
+msgid "For a deletion, we just mark the currently active history record (the one with a NULL deletion time) as deleted."
+msgstr ""
+
+#: ../../en/history_tracking.rst:145
+msgid "For an update, we first mark the active history record as deleted, then insert a new record for the updated state."
+msgstr ""
+
+#: ../../en/history_tracking.rst:176
+msgid "Editing the Table"
+msgstr ""
+
+#: ../../en/history_tracking.rst:178
+msgid "Now that the history table is enabled, we can make edits on the main table and watch the log entries appear in the history table."
+msgstr ""
+
+#: ../../en/history_tracking.rst:180
+msgid "Note the power of this database-backed approach to history: **no matter what tool is used to make the edits, whether the SQL command line, a web-based JDBC tool, or a desktop tool like QGIS, the history is consistently tracked.**"
+msgstr ""
+
+#: ../../en/history_tracking.rst:183
+msgid "SQL Edits"
+msgstr ""
+
+#: ../../en/history_tracking.rst:185
+msgid "Let's turn the two streets named \"Cumberland Walk\" to the more stylish \"Cumberland Wynde\":"
+msgstr ""
+
+#: ../../en/history_tracking.rst:193
+msgid "Updating the two streets will cause the original streets to be marked as deleted in the history table, with a deletion time of now, and two new streets with the new name added, with an addition time of now. You can inspect the historical records:"
+msgstr ""
+
+#: ../../en/history_tracking.rst:202
+msgid "Querying the History Table"
+msgstr ""
+
+#: ../../en/history_tracking.rst:204
+msgid "Now that we have a history table, what use is it? It's useful for time travel! To travel to a particular time **T**, you need to construct a query that includes:"
+msgstr ""
+
+#: ../../en/history_tracking.rst:206
+msgid "All records created before T, and not yet deleted; and also"
+msgstr ""
+
+#: ../../en/history_tracking.rst:207
+msgid "All records created before T, but deleted **after** T."
+msgstr ""
+
+#: ../../en/history_tracking.rst:209
+msgid "We can use this logic to create a query, or a view, of the state of the data in the past. Since presumably all your test edits have happened in the past couple minutes, let's create a view of the history table that shows the state of the table 10 minutes ago, **before you started editing** (so, the original data)."
+msgstr ""
+
+#: ../../en/history_tracking.rst:221
+msgid "We can also create views that show just what a particular used has added, for example:"
+msgstr ""
+
+#: ../../en/history_tracking.rst:231
+msgid "See Also"
+msgstr ""
+
+#: ../../en/history_tracking.rst:233
+msgid "`QGIS open source GIS <http://qgis.org>`_"
+msgstr ""
+
+#: ../../en/history_tracking.rst:234
+msgid "`PostgreSQL Triggers <http://www.postgresql.org/docs/current/static/plpgsql-trigger.html>`_"
+msgstr ""
+
+#: ../../en/history_tracking.rst:235
+msgid "`PostgreSQL Range Types <https://www.postgresql.org/docs/current/rangetypes.html>`_"
+msgstr ""

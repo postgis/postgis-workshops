@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-01-24 01:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2022-11-22 02:30+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.14.1\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/introduction.rst:4
@@ -27,7 +28,7 @@ msgstr "導入"
 
 #: ../../en/introduction.rst:7
 msgid "What is a Spatial Database?"
-msgstr ""
+msgstr "空間データベースとは?"
 
 #: ../../en/introduction.rst:9
 msgid ""
@@ -35,16 +36,20 @@ msgid ""
 "later) are also spatial databases. But what does that mean; what is it that "
 "makes an ordinary database a spatial database?"
 msgstr ""
+"PostGISは空間データベースです。Oracle SpatialやSQL Server (2008以降)も空間デ"
+"ータベースです。これはどういう意味でしょうか？通常のデータベースを空間データ"
+"ベースにするにはどうすればいいでしょうか？"
 
 #: ../../en/introduction.rst:11
 msgid "The short answer, is..."
-msgstr ""
+msgstr "短い答えとしては..."
 
 #: ../../en/introduction.rst:13
 msgid ""
 "**Spatial databases store and manipulate spatial objects like any other "
 "object in the database.**"
-msgstr ""
+msgstr "**空間データベースは空間オブジェクトを、データベース内の他のオブジェクトのよ"
+"うに格納して操作するものです。**"
 
 #: ../../en/introduction.rst:15
 msgid ""
@@ -52,33 +57,38 @@ msgid ""
 "reviews three aspects that associate *spatial* data with a database -- data "
 "types, indexes, and functions."
 msgstr ""
+"ここでは、空間データベースの進化について簡単に説明し、データタイプ、インデッ"
+"クス、関数という*空間*データをデータベースに関連づける三つの側面を見ていきま"
+"す。"
 
 #: ../../en/introduction.rst:17
 msgid ""
 "**Spatial data types** refer to shapes such as point, line, and polygon;"
-msgstr ""
+msgstr "**空間データタイプ**はポイント、ライン、ポリゴンといった形状を指します。"
 
 #: ../../en/introduction.rst:18
 msgid ""
 "Multi-dimensional **spatial indexing** is used for efficient processing of "
 "spatial operations;"
-msgstr ""
+msgstr "多次元**空間インデックス**は空間演算の効率的な処理に使用されます。"
 
 #: ../../en/introduction.rst:19
 msgid ""
 "**Spatial functions**, posed in :term:`SQL`, are for querying of spatial "
 "properties and relationships."
-msgstr ""
+msgstr "**空間関数**は :term:`SQL` "
+"で示されていますが、空間プロパティと空間関係に関するクエリに使われます。"
 
 #: ../../en/introduction.rst:21
 msgid ""
 "Combined, spatial data types, indexes, and functions provide a flexible "
 "structure for optimized performance and analysis."
-msgstr ""
+msgstr "空間データタイプ、インデックス、関数を組み合わせることで、能率と解析の最適化"
+"のための柔軟な構造が得られます。"
 
 #: ../../en/introduction.rst:24
 msgid "In the Beginning"
-msgstr ""
+msgstr "はじめに"
 
 #: ../../en/introduction.rst:26
 msgid ""
@@ -89,6 +99,11 @@ msgid ""
 "within the user's organizational domain.  They are proprietary, self-"
 "contained systems specifically built for handling spatial data."
 msgstr ""
+"従来の第1世代の :term:`GIS` 実装では、全ての空間データがフラットなファイルに"
+"格納され、データの解釈と操作に、専用の :term:`GIS` ソフトウェアが必要です。こ"
+"れらの第1世代の管理システムはユーザのニーズに合わせたデザインになっていて、全"
+"ての求められるデータがユーザの組織の内部にありました。これらはプロプライエタ"
+"リで、空間データを処理するために作られた自己完結型システムです。"
 
 #: ../../en/introduction.rst:28
 msgid ""
@@ -96,18 +111,22 @@ msgid ""
 "(usually the \"attribute\" or non-spatial parts) but still lack the "
 "flexibility afforded with direct integration."
 msgstr ""
+"第2世代の空間システムはリレーショナルデータベース (通常は「属性」または非空間"
+"部)内のデータを格納しますが、直接統合するだけの柔軟性はありませんでした。"
 
 #: ../../en/introduction.rst:30
 msgid ""
 "**True spatial databases were born when people started to treat spatial "
 "features as first class database objects.**"
-msgstr ""
+msgstr "**空間の地物を第一級データベースオブジェクトとして扱うようになった時に真の空"
+"間データベースが生まれました。**"
 
 #: ../../en/introduction.rst:32
 msgid ""
 "Spatial databases fully integrate spatial data with a relational database.  "
 "The system orientation changes from GIS-centric to database-centric."
-msgstr ""
+msgstr "空間データベースは完全に空間データをリレーショナルデータベースに統合します。"
+"システムの方向性がGIS中心からデータベース中手に変わります。"
 
 #: ../../en/introduction.rst:37
 msgid ""
@@ -116,10 +135,13 @@ msgid ""
 "anatomy of the human body, large-scale integrated circuits, molecular "
 "structures, and electro-magnetic fields, among others."
 msgstr ""
+"空間データベース管理システムは地理世界以外のアプリケーションでも使われること"
+"があります。空間データベースは人体解剖、大規模集積回路、分子構造、電磁場等に"
+"関連するデータを管理するために使用されます。"
 
 #: ../../en/introduction.rst:41
 msgid "Spatial Data Types"
-msgstr ""
+msgstr "空間データタイプ"
 
 #: ../../en/introduction.rst:43
 msgid ""
@@ -129,17 +151,20 @@ msgid ""
 "boundary and dimension. In many respects, spatial data types can be "
 "understood simply as shapes."
 msgstr ""
+"通常のデータベースは文字列、数字、日付を持ちます。空間データベースでは、追加"
+"的な**地理フィーチャー**タイプを表現する空間タイプが追加されています。"
 
 #: ../../en/introduction.rst:49
 msgid ""
 "Spatial data types are organized in a type hierarchy.  Each sub-type "
 "inherits the structure (attributes) and the behavior (methods or functions) "
 "of its super-type."
-msgstr ""
+msgstr "空間データ型は階層構造をなしています。各サブタイプは、スーパタイプの構造 "
+"(属性)と振る舞い (メソッドや関数)を継承します。"
 
 #: ../../en/introduction.rst:53
 msgid "Spatial Indexes and Bounding Boxes"
-msgstr ""
+msgstr "空間インデックスとバウンディングボックス"
 
 #: ../../en/introduction.rst:55
 msgid ""
@@ -148,6 +173,10 @@ msgid ""
 "dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ "
 "indexes."
 msgstr ""
+"通常のデータベースは、データの部分集合に対する高速かつランダムなアクセスのた"
+"めに**インデックス**を提供します。標準の型 "
+"(数値、文字列、日付)のインデックスには、 `B木 <https://ja.wikipedia.org/wiki/"
+"B%E6%9C%A8>`_ が使われます。"
 
 #: ../../en/introduction.rst:57
 msgid ""
@@ -156,6 +185,9 @@ msgid ""
 "dates is simple to determine -- every value is less than, greater than or "
 "equal to every other value."
 msgstr ""
+"B木は、階層木にデータを入れるために自然な並び替え順序を使用してデータを区分け"
+"します。数値、文字列、日付の自然な並び順は簡単に決まります。ある値が、他の値"
+"と比較して、小さいか、大きいか、同じか、を見ます。"
 
 #: ../../en/introduction.rst:59
 msgid ""
@@ -165,12 +197,18 @@ msgid ""
 "that instead answers the question \"which objects are within this particular "
 "bounding box?\"."
 msgstr ""
+"しかし、ポリゴンは他のポリゴンにオーバラップすることや、包含することがありま"
+"すし、2次元 (以上) の空間に配列されます。このため、効率的なインデックスとして"
+"はB木は使えません。実際の空間データベースでは、B木に代わって「指定したバウン"
+"ディングボックス内にあるオブジェクトはどれか」という質問に答える「空間インデ"
+"ックス」が提供されます。"
 
 #: ../../en/introduction.rst:61
 msgid ""
 "A **bounding box** is the smallest rectangle -- parallel to the coordinate "
 "axes -- capable of containing a given feature."
-msgstr ""
+msgstr "**バウンディングボックス**は、座標軸に平行で、指定された地物を含むことができ"
+"る最小の長方形です。"
 
 #: ../../en/introduction.rst:67
 msgid ""
@@ -179,6 +217,10 @@ msgid ""
 "rectangles.  Even the most complex polygons and linestrings can be "
 "represented by a simple bounding box."
 msgstr ""
+"「AはBの内側にあるか?」という質問に対する計算は、ポリゴンを使う場合には計算負"
+"荷が非常に高くなり、長方形の場合には非常に速い処理になるため、バウンディング"
+"ボックスが使われます。最も複雑なポリゴンとラインストリングでも、簡単な長方形"
+"で表現できます。"
 
 #: ../../en/introduction.rst:69
 msgid ""
@@ -188,6 +230,11 @@ msgid ""
 "instead interpreted by a spatial index as \"what lines have bounding boxes "
 "that are contained inside this polygon's bounding box?\""
 msgstr ""
+"インデックスは、役に立たせるためには迅速な処理が必要です。空間インデックスはB"
+"木で行っているような正確な結果を提供する代わりに、おおよその答えを出します。"
+"「どの線がこのポリゴンの内側にあるか?」という問いは、空間インデックスでは「ど"
+"のラインのバウンディングボックスがポリゴンのバウンディングボックスの内側にあ"
+"るか?」に解釈されます。"
 
 #: ../../en/introduction.rst:71
 msgid ""
@@ -198,10 +245,17 @@ msgid ""
 "wiki/Grid_(spatial_index)>`_ and `GeoHash indexes <https://en.wikipedia.org/"
 "wiki/Geohash>`_ implemented in other spatial databases."
 msgstr ""
+"空間インデックスの実装はデータベースシステムによって大きく異なります。最も一"
+"般的な実装は`R木 <https://ja.wikipedia.org/wiki/R%E6%9C%A8>`_ と "
+"`四分木<https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%88%86%E6%9C%A8>`_ です "
+"(PostGISで使われています)。しかし、他の空間データベースシステムでは`grid-"
+"based indexes <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ と `"
+"ジオハッシュ <https://ja.wikipedia.org/wiki/"
+"%E3%82%B8%E3%82%AA%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5>`_ の実装もあります。"
 
 #: ../../en/introduction.rst:74
 msgid "Spatial Functions"
-msgstr ""
+msgstr "空間関数"
 
 #: ../../en/introduction.rst:76
 msgid ""
@@ -261,7 +315,7 @@ msgstr ""
 
 #: ../../en/introduction.rst:91
 msgid "What is PostGIS?"
-msgstr ""
+msgstr "PostGISとは?"
 
 #: ../../en/introduction.rst:93
 msgid ""
@@ -274,7 +328,7 @@ msgstr ""
 
 #: ../../en/introduction.rst:96
 msgid "But what is PostgreSQL?"
-msgstr ""
+msgstr "ではPostgreSQLとは?"
 
 #: ../../en/introduction.rst:98
 msgid ""
@@ -506,7 +560,7 @@ msgstr ""
 
 #: ../../en/introduction.rst:164
 msgid "RedFin"
-msgstr ""
+msgstr "RedFin"
 
 #: ../../en/introduction.rst:166
 msgid ""
@@ -516,10 +570,16 @@ msgid ""
 "PostGIS provided `huge benefits in performance and reliability <https://www."
 "redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgstr ""
+"`RedFin <https://www.redfin.com>`_ は実在する不動産会社で、不動産の探索や価格"
+"の見積もりを行うウェブベースのサービスを提供しています。この会社のシステムは"
+"元はMySQLベースで作られていましたが、PostgreSQLとPostGISへの移行で`"
+"効率と信頼性の利益が大きい <https://www.redfin.com/news/"
+"elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_ "
+"ことが分かりました。"
 
 #: ../../en/introduction.rst:169
 msgid "What applications support PostGIS?"
-msgstr ""
+msgstr "PostGISに対応したアプリケーションはどれですか?"
 
 #: ../../en/introduction.rst:171
 msgid ""
@@ -529,149 +589,154 @@ msgid ""
 "postgis/wiki/UsersWikiToolsSupportPostgis>`_ include both open source and "
 "proprietary software on both server and desktop systems."
 msgstr ""
+"PostGISは空間データベースとして広く使われ、PostGISを使った格納と検索に対応す"
+"るサードパーティのプログラムも非常に増加しました。`programs that support "
+"PostGIS <http://trac.osgeo.org/postgis/wiki/UsersWikiToolsSupportPostgis>`_ "
+"には、オープンソースとプロプライエタリの両方、かつサーバとデスクトップの両方"
+"のソフトウェアの一覧があります。"
 
 #: ../../en/introduction.rst:173
 msgid ""
 "The following table shows a list of some of the software that leverages "
 "PostGIS:"
-msgstr ""
+msgstr "次にPostGISを利用するソフトウェアの一覧を示します:"
 
 #: ../../en/introduction.rst:176
 msgid "Open/Free"
-msgstr ""
+msgstr "オープン/フリー"
 
 #: ../../en/introduction.rst:176
 msgid "Closed/Proprietary"
-msgstr ""
+msgstr "クローズ/プロプライエタリ"
 
 #: ../../en/introduction.rst:179
 msgid "Loading/Extracting"
-msgstr ""
+msgstr "ロード/抽出"
 
 #: ../../en/introduction.rst:181
 msgid "Shp2Pgsql"
-msgstr ""
+msgstr "Shp2Pgsql"
 
 #: ../../en/introduction.rst:182
 msgid "ogr2ogr"
-msgstr ""
+msgstr "ogr2ogr"
 
 #: ../../en/introduction.rst:183
 msgid "Dxf2PostGIS"
-msgstr ""
+msgstr "Dxf2PostGIS"
 
 #: ../../en/introduction.rst:185 ../../en/introduction.rst:184
 msgid "Web-Based"
-msgstr ""
+msgstr "ウェブベース"
 
 #: ../../en/introduction.rst:187
 msgid "Mapserver"
-msgstr ""
+msgstr "Mapserver"
 
 #: ../../en/introduction.rst:188
 msgid "GeoServer (Java-based WFS / WMS -server )"
-msgstr ""
+msgstr "GeoServer (Javaベースの WFS / WMS サーバ)"
 
 #: ../../en/introduction.rst:189
 msgid "SharpMap SDK - for ASP.NET 2.0"
-msgstr ""
+msgstr "SharpMap SDK - ASP.NET 2.0用"
 
 #: ../../en/introduction.rst:190
 msgid "MapGuide Open Source (using FDO)"
-msgstr ""
+msgstr "MapGuide Open Source (FDO使用)"
 
 #: ../../en/introduction.rst:192 ../../en/introduction.rst:193
 msgid "Desktop"
-msgstr ""
+msgstr "デスクトップ"
 
 #: ../../en/introduction.rst:194
 msgid "uDig"
-msgstr ""
+msgstr "uDig"
 
 #: ../../en/introduction.rst:195
 msgid "QGIS"
-msgstr ""
+msgstr "QGIS"
 
 #: ../../en/introduction.rst:196
 msgid "mezoGIS"
-msgstr ""
+msgstr "mezoGIS"
 
 #: ../../en/introduction.rst:197
 msgid "OpenJUMP"
-msgstr ""
+msgstr "OpenJUMP"
 
 #: ../../en/introduction.rst:198
 msgid "OpenEV"
-msgstr ""
+msgstr "OpenEV"
 
 #: ../../en/introduction.rst:199
 msgid "SharpMap SDK for Microsoft.NET 2.0"
-msgstr ""
+msgstr "Microsoft.NET 2.0用SharpMap SDK"
 
 #: ../../en/introduction.rst:200
 msgid "ZigGIS for ArcGIS/ArcObjects.NET"
-msgstr ""
+msgstr "ArcGIS/ArcObjects.NET用ZigGIS"
 
 #: ../../en/introduction.rst:201
 msgid "GvSIG"
-msgstr ""
+msgstr "GvSIG"
 
 #: ../../en/introduction.rst:202
 msgid "GRASS"
-msgstr ""
+msgstr "GRASS"
 
 #: ../../en/introduction.rst:181
 msgid "Safe FME Desktop Translator/Converter"
-msgstr ""
+msgstr "Safe FME Desktop Translator/Converter"
 
 #: ../../en/introduction.rst:186
 msgid "Ionic Red Spider (now ERDAS)"
-msgstr ""
+msgstr "Ionic Red Spider (現ERDAS)"
 
 #: ../../en/introduction.rst:187
 msgid "Cadcorp GeognoSIS"
-msgstr ""
+msgstr "Cadcorp GeognoSIS"
 
 #: ../../en/introduction.rst:188
 msgid "Iwan Mapserver"
-msgstr ""
+msgstr "Iwan Mapserver"
 
 #: ../../en/introduction.rst:189
 msgid "MapDotNet Server"
-msgstr ""
+msgstr "MapDotNet Server"
 
 #: ../../en/introduction.rst:190
 msgid "MapGuide Enterprise (using FDO)"
-msgstr ""
+msgstr "MapGuide Enterprise (FDO使用)"
 
 #: ../../en/introduction.rst:191
 msgid "ESRI ArcGIS Server"
-msgstr ""
+msgstr "ESRI ArcGIS Server"
 
 #: ../../en/introduction.rst:195
 msgid "Cadcorp SIS"
-msgstr ""
+msgstr "Cadcorp SIS"
 
 #: ../../en/introduction.rst:196
 msgid "Microimages TNTmips GIS"
-msgstr ""
+msgstr "Microimages TNTmips GIS"
 
 #: ../../en/introduction.rst:197
 msgid "ESRI ArcGIS"
-msgstr ""
+msgstr "ESRI ArcGIS"
 
 #: ../../en/introduction.rst:198
 msgid "Manifold"
-msgstr ""
+msgstr "Manifold"
 
 #: ../../en/introduction.rst:199
 msgid "GeoConcept"
-msgstr ""
+msgstr "GeoConcept"
 
 #: ../../en/introduction.rst:200
 msgid "MapInfo (v10)"
-msgstr ""
+msgstr "MapInfo (v10)"
 
 #: ../../en/introduction.rst:201
 msgid "AutoCAD Map 3D (using FDO)"
-msgstr ""
+msgstr "AutoCAD Map 3D (FDO使用)"

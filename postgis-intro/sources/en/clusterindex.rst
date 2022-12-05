@@ -31,7 +31,7 @@ Let's cluster our ``nyc_census_blocks`` based on their spatial index:
 .. code-block:: sql
 
   -- Cluster the blocks based on their spatial index
-  CLUSTER nyc_census_blocks USING nyc_census_blocks_geom_gist;
+  CLUSTER nyc_census_blocks USING nyc_census_blocks_geom_idx;
 
 The command re-writes the ``nyc_census_blocks`` in the order defined by the spatial index ``nyc_census_blocks_geom_gist``. Can you perceive a speed difference? Maybe not, because the original data may have already had some pre-existing spatial ordering (this is not uncommon in GIS data sets).
 

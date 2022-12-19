@@ -48,7 +48,7 @@ pip3 install sphinx-rtd-theme
 
 ## setting up po
 ```
-pip install sphinx-intl
+pip3 install sphinx-intl
 cd postgis-intro/sources/en
 make pot
 #for starters do de, ja, es

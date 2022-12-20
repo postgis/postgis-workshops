@@ -14,7 +14,7 @@ The short answer, is...
 
 The following briefly covers the evolution of spatial databases, and then reviews three aspects that associate *spatial* data with a database -- data types, indexes, and functions.
 
-#. **Spatial data types** refer to shapes such as point, line, and polygon; 
+#. **Spatial data types** refer to shapes such as point, line, and polygon;
 #. Multi-dimensional **spatial indexing** is used for efficient processing of spatial operations;
 #. **Spatial functions**, posed in :term:`SQL`, are for querying of spatial properties and relationships.
 
@@ -23,13 +23,13 @@ Combined, spatial data types, indexes, and functions provide a flexible structur
 In the Beginning
 ----------------
 
-In legacy first-generation :term:`GIS` implementations, all spatial data is stored in flat files and special :term:`GIS` software is required to interpret and manipulate the data.  These first-generation management systems are designed to meet the needs of users where all required data is within the user's organizational domain.  They are proprietary, self-contained systems specifically built for handling spatial data.  
+In legacy first-generation :term:`GIS` implementations, all spatial data is stored in flat files and special :term:`GIS` software is required to interpret and manipulate the data.  These first-generation management systems are designed to meet the needs of users where all required data is within the user's organizational domain.  They are proprietary, self-contained systems specifically built for handling spatial data.
 
-Second-generation spatial systems store some data in relational databases (usually the "attribute" or non-spatial parts) but still lack the flexibility afforded with direct integration.  
+Second-generation spatial systems store some data in relational databases (usually the "attribute" or non-spatial parts) but still lack the flexibility afforded with direct integration.
 
-**True spatial databases were born when people started to treat spatial features as first class database objects.**  
+**True spatial databases were born when people started to treat spatial features as first class database objects.**
 
-Spatial databases fully integrate spatial data with a relational database.  The system orientation changes from GIS-centric to database-centric.     
+Spatial databases fully integrate spatial data with a relational database.  The system orientation changes from GIS-centric to database-centric.
 
 .. image:: ./introduction/beginning.png
   :class: inline
@@ -46,17 +46,17 @@ An ordinary database has strings, numbers, and dates. A spatial database adds ad
   :align: center
   :class: inline
 
-Spatial data types are organized in a type hierarchy.  Each sub-type inherits the structure (attributes) and the behavior (methods or functions) of its super-type. 
+Spatial data types are organized in a type hierarchy.  Each sub-type inherits the structure (attributes) and the behavior (methods or functions) of its super-type.
 
 
 Spatial Indexes and Bounding Boxes
 ----------------------------------
 
-An ordinary database provides **indexes** to allow for fast and random access to subsets of data.  Indexing for standard types (numbers, strings, dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ indexes.  
+An ordinary database provides **indexes** to allow for fast and random access to subsets of data.  Indexing for standard types (numbers, strings, dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ indexes.
 
-A B-tree partitions the data using the natural sort order to put the data into a hierarchical tree. The natural sort order of numbers, strings, and dates is simple to determine -- every value is less than, greater than or equal to every other value. 
+A B-tree partitions the data using the natural sort order to put the data into a hierarchical tree. The natural sort order of numbers, strings, and dates is simple to determine -- every value is less than, greater than or equal to every other value.
 
-But because polygons can overlap, can be contained in one another, and are arrayed in a two-dimensional (or more) space, a B-tree cannot be used to efficiently index them. Real spatial databases provide a "spatial index" that instead answers the question "which objects are within this particular bounding box?".  
+But because polygons can overlap, can be contained in one another, and are arrayed in a two-dimensional (or more) space, a B-tree cannot be used to efficiently index them. Real spatial databases provide a "spatial index" that instead answers the question "which objects are within this particular bounding box?".
 
 A **bounding box** is the smallest rectangle -- parallel to the coordinate axes -- capable of containing a given feature.
 
@@ -66,23 +66,23 @@ A **bounding box** is the smallest rectangle -- parallel to the coordinate axes 
 
 Bounding boxes are used because answering the question "is A inside B?" is very computationally intensive for polygons but very fast in the case of rectangles.  Even the most complex polygons and linestrings can be represented by a simple bounding box.
 
-Indexes have to perform quickly in order to be useful. So instead of providing exact results, as B-trees do, spatial indexes provide approximate results. The question "what lines are inside this polygon?" will be instead interpreted by a spatial index as "what lines have bounding boxes that are contained inside this polygon's bounding box?" 
+Indexes have to perform quickly in order to be useful. So instead of providing exact results, as B-trees do, spatial indexes provide approximate results. The question "what lines are inside this polygon?" will be instead interpreted by a spatial index as "what lines have bounding boxes that are contained inside this polygon's bounding box?"
 
 The actual spatial indexes implemented by various databases vary widely. The most common implementations are the `R-Tree <http://en.wikipedia.org/wiki/R-tree>`_ and `Quadtree <http://en.wikipedia.org/wiki/Quadtree>`_ (used in PostGIS), but there are also `grid-based indexes <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ and `GeoHash indexes <https://en.wikipedia.org/wiki/Geohash>`_ implemented in other spatial databases.
 
 Spatial Functions
 -----------------
 
-For manipulating data during a query, an ordinary database provides **functions** such as concatenating strings, performing hash operations on strings, doing mathematics on numbers, and extracting information from dates.  
+For manipulating data during a query, an ordinary database provides **functions** such as concatenating strings, performing hash operations on strings, doing mathematics on numbers, and extracting information from dates.
 
 A spatial database provides a complete set of functions for analyzing geometric components, determining spatial relationships, and manipulating geometries.  These spatial functions serve as the building block for any spatial project.
 
 The majority of all spatial functions can be grouped into one of the following five categories:
 
-#. **Conversion**: Functions that *convert* between geometries and external data formats. 
+#. **Conversion**: Functions that *convert* between geometries and external data formats.
 #. **Management**: Functions that *manage* information about spatial tables and PostGIS administration.
-#. **Retrieval**: Functions that *retrieve* properties and measurements of a Geometry. 
-#. **Comparison**: Functions that *compare* two geometries with respect to their spatial relation. 
+#. **Retrieval**: Functions that *retrieve* properties and measurements of a Geometry.
+#. **Comparison**: Functions that *compare* two geometries with respect to their spatial relation.
 #. **Generation**: Functions that *generate* new geometries from others.
 
 The list of possible functions is very large, but a common set of functions is defined by the :term:`OGC` :term:`SFSQL` and implemented (along with additional useful functions) by PostGIS.
@@ -114,9 +114,9 @@ PostgreSQL has:
 * Generic index structure (GiST) to allow R-Tree index
 * Easy to add custom functions
 
-Combined, PostgreSQL provides a very easy development path to add new spatial types. In the proprietary world, only `Illustra <https://en.wikipedia.org/wiki/Illustra>`_ (now Informix Universal Server) allowed such easy extension. This is no coincidence; Illustra is a proprietary re-working of the original PostgreSQL code base from the 1980's. 
+Combined, PostgreSQL provides a very easy development path to add new spatial types. In the proprietary world, only `Illustra <https://en.wikipedia.org/wiki/Illustra>`_ (now Informix Universal Server) allowed such easy extension. This is no coincidence; Illustra is a proprietary re-working of the original PostgreSQL code base from the 1980's.
 
-Because the development path for adding types to PostgreSQL was so straightforward, it made sense to start there. When MySQL released basic spatial types in version 4.1, the PostGIS team took a look at their code, and the exercise reinforced the original decision to use PostgreSQL. 
+Because the development path for adding types to PostgreSQL was so straightforward, it made sense to start there. When MySQL released basic spatial types in version 4.1, the PostGIS team took a look at their code, and the exercise reinforced the original decision to use PostgreSQL.
 
 Because MySQL spatial objects had to be hacked on top of the string type as a special case, the MySQL code was spread over the entire code base. Development of PostGIS 0.1 took under a month. Doing a "MyGIS" 0.1 would have taken a lot longer, and as such, might never have seen the light of day.
 
@@ -140,7 +140,7 @@ In the May of 2001, `Refractions Research <http://www.refractions.net/>`_  relea
 
 As the number of functions increased, the need for an organizing principle became clear.  The "Simple Features for SQL" (:term:`SFSQL`) specification from the Open Geospatial Consortium provided such structure with guidelines for function naming and requirements.
 
-With PostGIS support for simple analysis and spatial joins, `Mapserver <http://mapserver.org/>`_ became the first external application to provide visualization of data in the database. 
+With PostGIS support for simple analysis and spatial joins, `Mapserver <http://mapserver.org/>`_ became the first external application to provide visualization of data in the database.
 
 Over the next several years the number of PostGIS functions grew, but its power remained limited. Many of the most interesting functions (e.g., ST_Intersects(), ST_Buffer(), ST_Union()) were very difficult to code.  Writing them from scratch promised years of work.
 
@@ -153,7 +153,7 @@ Recent releases of PostGIS continue to add features and performance improvements
 Who uses PostGIS?
 -----------------
 
-For a complete list of case studies, see the `PostGIS case studies <http://postgis.net/casestudy>`_ page.
+For a complete list of case studies, see the `PostGIS case studies <https://postgis.net/category/casestudy/>`_ page.
 
 Institut Geographique National, France
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,7 +163,7 @@ IGN is the national mapping agency of France, and uses PostGIS to store the high
 RedFin
 ~~~~~~
 
-`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based service for exploring properties and estimate values. Their system was originally build on MySQL, but they found that moving to PostgreSQL and PostGIS provided `huge benefits in performance and reliability <https://www.redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_.
+`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based service for exploring properties and estimate values. Their system was originally built on MySQL, but they found that moving to PostgreSQL and PostGIS provided `huge benefits in performance and reliability <https://www.redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_.
 
 What applications support PostGIS?
 ----------------------------------
@@ -173,33 +173,40 @@ PostGIS has become a widely used spatial database, and the number of third-party
 The following table shows a list of some of the software that leverages PostGIS:
 
 +-------------------------------------------------+----------------------------------------------+
-| Open/Free                                       | Closed/Proprietary                           |
+| Open/Free                                       | Closed/Proprietary/Paid services             |
 +=================================================+==============================================+
-|                                                 |                                              |   
-| * Loading/Extracting                            | * Loading/Extracting                         |   
-|                                                 |                                              |     
-|   * Shp2Pgsql                                   |   * Safe FME Desktop Translator/Converter    |      
-|   * ogr2ogr                                     |                                              |        
-|   * Dxf2PostGIS                                 |                                              |          
-|                                                 | * Web-Based                                  |         
-| * Web-Based                                     |                                              |             
-|                                                 |   * Ionic Red Spider (now ERDAS)             |              
-|   * Mapserver                                   |   * Cadcorp GeognoSIS                        |            
-|   * GeoServer (Java-based WFS / WMS -server )   |   * Iwan Mapserver                           |     
-|   * SharpMap SDK - for ASP.NET 2.0              |   * MapDotNet Server                         |      
-|   * MapGuide Open Source (using FDO)            |   * MapGuide Enterprise (using FDO)          |   
-|                                                 |   * ESRI ArcGIS Server                       |         
-| * Desktop                                       |                                              |           
-|                                                 | * Desktop                                    |               
-|   * uDig                                        |                                              |           
-|   * QGIS                                        |   * Cadcorp SIS                              |      
-|   * mezoGIS                                     |   * Microimages TNTmips GIS                  |         
-|   * OpenJUMP                                    |   * ESRI ArcGIS                              |           
-|   * OpenEV                                      |   * Manifold                                 |   
-|   * SharpMap SDK for Microsoft.NET 2.0          |   * GeoConcept                               |       
-|   * ZigGIS for ArcGIS/ArcObjects.NET            |   * MapInfo (v10)                            |           
-|   * GvSIG                                       |   * AutoCAD Map 3D (using FDO)               |   
-|   * GRASS                                       |                                              |           
-|                                                 |                                              |             
+|                                                 |                                              |
+| * Loading/Extracting                            | * Loading/Extracting                         |
+|                                                 |                                              |
+|   * Shp2Pgsql                                   |   * Safe FME Desktop Translator/Converter    |
+|   * ogr2ogr                                     |   * Dbt                                      |
+|   * Dxf2PostGIS                                 |                                              |
+|   * GeoKettle                                   |                                              |
+|                                                 |                                              |
+|                                                 | * Web-Based                                  |
+| * Web-Based                                     |                                              |
+|                                                 |   * Cadcorp GeognoSIS                        |
+|   * Mapserver                                   |   * ESRI ArcGIS Server / Online              |
+|   * GeoServer /geoNode                          |                                              |
+|   * pg_tileserv                                 |                                              |
+|   * pg_featureserv                              |                                              |
+|   * Deegree                                     | * Services / DbaaS                           |
+|   * Carto                                       |                                              |
+|   * QGIS Server                                 |   * Aiven for PostgreSQL                     |
+|   * MapGuide Open Source (using FDO)            |   * Amazon RDS / Aurora for PostgreSQL       |
+|                                                 |   * Carto                                    |
+|                                                 |   * Crunchy Bridge                           |
+|                                                 |   * Microsoft Azure for PostgreSQL           |
+|                                                 |   * Google Cloud SQL for PostgreSQL          |
+|   * Desktop                                     |                                              |
+|                                                 |  * Desktop                                   |
+|   * QGIS                                        |                                              |
+|   * OpenJUMP                                    |    * Cadcorp SIS                             |
+|   * GRASS                                       |    * ESRI Desktop/Pro                        |
+|   * pgAdmin                                     |    * GeoConcept                              |
+|   * DBeaver                                     |    * Global Mapper                           |
+|   * GvSIG                                       |    * Manifold                                |
+|   * SAGA                                        |    * MapInfo                                 |
+|   * uDig                                        |    * Microimages TNTmips GIS                 |
 +-------------------------------------------------+----------------------------------------------+
 

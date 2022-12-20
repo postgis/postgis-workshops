@@ -199,14 +199,14 @@ The following table shows a list of some of the software that leverages PostGIS:
 |                                                 |   * Microsoft Azure for PostgreSQL           |
 |                                                 |   * Google Cloud SQL for PostgreSQL          |
 |   * Desktop                                     |                                              |
-|                                                 |  * Desktop                                   |
+|                                                 | * Desktop                                    |
 |   * QGIS                                        |                                              |
-|   * OpenJUMP                                    |    * Cadcorp SIS                             |
-|   * GRASS                                       |    * ESRI Desktop/Pro                        |
-|   * pgAdmin                                     |    * GeoConcept                              |
-|   * DBeaver                                     |    * Global Mapper                           |
-|   * GvSIG                                       |    * Manifold                                |
-|   * SAGA                                        |    * MapInfo                                 |
-|   * uDig                                        |    * Microimages TNTmips GIS                 |
+|   * OpenJUMP                                    |   * Cadcorp SIS                              |
+|   * GRASS                                       |   * ESRI Desktop/Pro                         |
+|   * pgAdmin                                     |   * GeoConcept                               |
+|   * DBeaver                                     |   * Global Mapper                            |
+|   * GvSIG                                       |   * Manifold                                 |
+|   * SAGA                                        |   * MapInfo                                  |
+|   * uDig                                        |   * Microimages TNTmips GIS                  |
 +-------------------------------------------------+----------------------------------------------+
 

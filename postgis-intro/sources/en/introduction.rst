@@ -198,7 +198,7 @@ The following table shows a list of some of the software that leverages PostGIS:
 |                                                 |   * Crunchy Bridge                           |
 |                                                 |   * Microsoft Azure for PostgreSQL           |
 |                                                 |   * Google Cloud SQL for PostgreSQL          |
-|   * Desktop                                     |                                              |
+| * Desktop                                       |                                              |
 |                                                 | * Desktop                                    |
 |   * QGIS                                        |                                              |
 |   * OpenJUMP                                    |   * Cadcorp SIS                              |

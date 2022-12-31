@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-10-15 02:30+0000\n"
+"PO-Revision-Date: 2022-12-28 10:30+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "advanced_geometry_construction/ja/>\n"
@@ -31,6 +31,8 @@ msgid ""
 "The ``nyc_subway_stations`` layer has provided us with lots of interesting "
 "examples so far, but there is something striking about it:"
 msgstr ""
+"ここまで、``nyc_subway_stations``レイヤは多数の興味深い例を提供してきました。"
+"しかし、次の図の通り、印象深いものがあります:"
 
 #: ../../en/advanced_geometry_construction.rst:10
 msgid ""
@@ -125,7 +127,7 @@ msgstr ""
 
 #: ../../en/advanced_geometry_construction.rst:60
 msgid "The CTE consists of two halves, unioned together:"
-msgstr ""
+msgstr "CTEは、次の二つのものを結合しています:"
 
 #: ../../en/advanced_geometry_construction.rst:62
 msgid ""
@@ -133,6 +135,8 @@ msgid ""
 "initial geometry and initialize the array of visited identifiers, using the "
 "record of \"gid\" 304 (the end of the line)."
 msgstr ""
+"一つ目は、式の開始点を確立するものです。初期ジオメトリを得て、"
+"訪問した駅の識別子の配列を\"gid\" 304 (経路の端点)の行で初期化します。"
 
 #: ../../en/advanced_geometry_construction.rst:63
 msgid ""
@@ -143,12 +147,18 @@ msgid ""
 "idlist @> ARRAY[s.gid]**) and order them by their distance from the previous "
 "point, taking just the first one (the nearest)."
 msgstr ""
+"二つ目は、それ以上の行がなくなるまでの繰り返しです。繰り返し毎に、前回の繰り"
+"返しの時の値を、\"next_stop\"への自己参照から取得します。訪問済みリスト (**"
+"NOT n.idlist @> ARRAY[s.gid]**)に追加していないQ線 (**strpos(s."
+"routes,'Q')**)上の全ての駅を探し、前のポイントからの距離で並べ替えを施し、"
+"最初の行を得ます (最短になります)。"
 
 #: ../../en/advanced_geometry_construction.rst:65
 msgid ""
 "Beyond the recursive CTE itself, there are a number of advanced PostgreSQL "
 "array features being used here:"
-msgstr ""
+msgstr "再帰的CTE自体以外にも、ここで仕様される高度なPostgreSQL配列機能がいくつかあり"
+"ます:"
 
 #: ../../en/advanced_geometry_construction.rst:67
 msgid ""
@@ -156,11 +166,14 @@ msgid ""
 "have an array of integers, but we could also build an array of geometries, "
 "or any other PostgreSQL type."
 msgstr ""
+"私たちは配列を使用しています! PostgreSQLは任意型の配列をサポートしています。"
+"この場合、整数配列がありますが、ジオメトリ配列や他のPostgreSQL型の配列を作る"
+"ことができます。"
 
 #: ../../en/advanced_geometry_construction.rst:68
 msgid ""
 "We are using **array_append** to build up our array of visited identifiers."
-msgstr ""
+msgstr "訪問した駅の識別子の配列の構築に **array_append** を使います。"
 
 #: ../../en/advanced_geometry_construction.rst:69
 msgid ""
@@ -169,6 +182,10 @@ msgid ""
 "ARRAY values on both sides, so we have to turn the individual \"gid\" "
 "numbers into single-entry arrays using the ARRAY[] syntax."
 msgstr ""
+"Q列車の駅のうちどれが訪問済みかを見つけるのに、配列演算子 **@>** "
+"(「配列に含まれる」)を使います。**@>** "
+"演算子は両側がARRAYである必要があるので、個々の \"gid\" "
+"番号をARRAY[]構文で1要素の配列にする必要があります。"
 
 #: ../../en/advanced_geometry_construction.rst:71
 msgid ""
@@ -178,50 +195,59 @@ msgid ""
 "postgis.net/docs/ST_MakeLine.html>`_ aggregate function turns the set of "
 "geometries into a single linear output, constructed in the provided order."
 msgstr ""
+"クエリを実行する時、見つかった順 "
+"(順路順)で個々のジオメトリと、既に訪問した駅識別子の一覧とが得られます。"
+"ジオメトリをPostGISの集約関数 `ST_MakeLine <http://postgis.net/docs/"
+"ST_MakeLine.html>`_ "
+"に与えると、ジオメトリ集合を与えられた順序の単一の線に変換して出力しあｍす。"
 
 #: ../../en/advanced_geometry_construction.rst:93
 msgid "Which looks like this:"
-msgstr ""
+msgstr "次のようになります:"
 
 #: ../../en/advanced_geometry_construction.rst:97
 msgid "*Success!*"
-msgstr ""
+msgstr "*成功!*"
 
 #: ../../en/advanced_geometry_construction.rst:99
 msgid "Except, two problems:"
-msgstr ""
+msgstr "ただし二つの問題があります:"
 
 #: ../../en/advanced_geometry_construction.rst:101
 msgid ""
 "We are only calculating one subway route here, we want to calculate all the "
 "routes."
-msgstr ""
+msgstr "私たちは一つの地下鉄の経路を計算しただけです。全ての経路を計算したいのです。"
 
 #: ../../en/advanced_geometry_construction.rst:102
 msgid ""
 "Our query includes a piece of *a priori* knowledge, the initial station "
 "identifier that serves as the seed for the search algorithm that builds the "
 "route."
-msgstr ""
+msgstr "クエリには*先験的*知識の一部である、順路を構築する探索アルゴリズムのシードと"
+"して機能する初期の駅の識別子が含まれています。"
 
 #: ../../en/advanced_geometry_construction.rst:104
 msgid ""
 "Let's tackle the hard problem first, figuring out the first station on a "
 "route without manually eyeballing the set of stations that make up the route."
-msgstr ""
+msgstr "先に難しい問題から挑戦してみましょう。ある順路の最初の駅を、順路を作る駅の集"
+"合を、目で見たり手計算をしたりせずに出してみましょう。"
 
 #: ../../en/advanced_geometry_construction.rst:106
 msgid ""
 "Our 'Q' train stops can serve as a starting point. What characterizes the "
 "end stations of the route?"
-msgstr ""
+msgstr "Q列車の停車駅は始点として使うことができます。順路の終着駅の特徴は何でしょうか"
+"?"
 
 #: ../../en/advanced_geometry_construction.rst:110
 msgid ""
 "One answer is \"they are the most northerly and southerly stations\". "
 "However, imagine if the 'Q' train ran from east to west. Would the condition "
 "still hold?"
-msgstr ""
+msgstr "一つの答えが「最も北と南にある駅です」となります。しかしながら、Q列車が西から"
+"東に走ると想像してみましょう。条件は維持されるでしょうか?"
 
 #: ../../en/advanced_geometry_construction.rst:112
 msgid ""
@@ -235,24 +261,27 @@ msgstr ""
 msgid ""
 "Since there is no 100% heuristic to figure out the end points, let's try "
 "this second rule out."
-msgstr ""
+msgstr "終了点を算定する100%のヒューリスティックは存在しないので、2番目の規則を試して"
+"みましょう。"
 
 #: ../../en/advanced_geometry_construction.rst:118
 msgid ""
 "An obvious failure mode of the \"furthest from middle\" rule is a circular "
 "line, like the Circle Line in London, UK. Fortunately, New York doesn't have "
 "any such lines!"
-msgstr ""
+msgstr "「中央から最も遠い」規則の明らかな失敗例は、ロンドンなどにある環状線です。幸"
+"運なことにニューヨークにはそのような路線はないのです!"
 
 #: ../../en/advanced_geometry_construction.rst:120
 msgid ""
 "To work out the end stations of every route, we first have to work out what "
 "routes there are! We find the distinct routes."
-msgstr ""
+msgstr "あらゆる順路の終着駅を計算するには、どういう順路が存在するかをまず計算しなく"
+"てはいけません。別個の順路を見つけていきます。"
 
 #: ../../en/advanced_geometry_construction.rst:130
 msgid "Note the use of two advanced PostgreSQL ARRAY functions:"
-msgstr ""
+msgstr "二つの高度なPostgreSQL配列関数を使っていることにご注意ください:"
 
 #: ../../en/advanced_geometry_construction.rst:132
 msgid ""
@@ -262,6 +291,11 @@ msgid ""
 "arrays of strings, as in this case, but also of geometries and geographies "
 "as we'll see later in this example."
 msgstr ""
+"**string_to_array**は文字列を取り、区切り文字を使って配列に分割します。`"
+"PostgreSQLは配列をサポートします <https://www.postgresql.jp/document/current/"
+"html/arrays.html>`_ が要素はどの型でも対応できます。ですから、文字列配列を構"
+"築できますし、この例の後半で見ることになりますが、ジオメトリとジオグラフィの"
+"配列も構築できます。"
 
 #: ../../en/advanced_geometry_construction.rst:133
 msgid ""
@@ -269,38 +303,44 @@ msgid ""
 "array. The effect is to take a \"horizontal\" array embedded in a single row "
 "and turn it into a \"vertical\" array with a row for each value."
 msgstr ""
+"**unnest**は、配列を取り、配列の個々の要素の新しい行を構築します。一つの行に"
+"埋め込まれた「水平」配列を取り、要素ごとの値の行を持つ「垂直」配列に変換する"
+"効果を持ちます。"
 
 #: ../../en/advanced_geometry_construction.rst:135
 msgid "The result is a list of all the unique subway route identifiers."
-msgstr ""
+msgstr "結果は一意の地下鉄順路識別子のリストです。"
 
 #: ../../en/advanced_geometry_construction.rst:167
 msgid ""
 "We can build on this result by joining it back to the "
 "``nyc_subway_stations`` table to create a new table that has, for each "
 "route, a row for every station on that route."
-msgstr ""
+msgstr "この結果を``nyc_subway_stations``テーブルに結合して、順路ごとに駅の行を持つ新"
+"しいテーブルを作ることで構築できます。"
 
 #: ../../en/advanced_geometry_construction.rst:193
 msgid ""
 "Now we can find the center point by collecting all the stations for each "
 "route into a single multi-point, and calculating the centroid of that multi-"
 "point."
-msgstr ""
+msgstr "順路ごとの全ての駅を集めてマルチポイントにしたうえで、マルチポイントの重心を"
+"計算することで、中心点を得ることができます。"
 
 #: ../../en/advanced_geometry_construction.rst:214
 msgid "The center point of the collection of 'Q' train stops looks like this:"
-msgstr ""
+msgstr "Q列車の停車駅のコレクションの中心点は次のようになります:"
 
 #: ../../en/advanced_geometry_construction.rst:218
 msgid ""
 "So the northern most stop, the end point, appears to also be the stop "
 "furthest from the center. Let's calculate the furthest point for every route."
-msgstr ""
+msgstr "最も北で終着駅となる駅は、中心から最も遠い駅でもあります。順路ごとに最も遠い"
+"ポイントを計算してみましょう。"
 
 #: ../../en/advanced_geometry_construction.rst:249
 msgid "We've added two sub-queries this time:"
-msgstr ""
+msgstr "今回は二つのサブクエリを追加しました:"
 
 #: ../../en/advanced_geometry_construction.rst:251
 msgid ""
@@ -373,19 +413,25 @@ msgid ""
 "`PostgreSQL Arrays <http://www.postgresql.org/docs/current/static/arrays."
 "html>`_"
 msgstr ""
+"`PostgreSQL 配列<https://www.postgresql.jp/document/current/html/arrays."
+"html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:344
 msgid ""
 "`PostgreSQL Array Functions <http://www.postgresql.org/docs/current/static/"
 "functions-array.html>`_"
 msgstr ""
+"`PostgreSQL 配列関数 <https://www.postgresql.jp/document/current/html/"
+"functions-array.html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:345
 msgid ""
 "`PostgreSQL Recursive Common TABLE Expressions <http://www.postgresql.org/"
 "docs/current/static/queries-with.html>`_"
 msgstr ""
+"`PostgreSQL WITH問い合わせ (共通テーブル式) <https://www.postgresql.jp/"
+"document/current/html/queries-with.html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:346
 msgid "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"
-msgstr ""
+msgstr "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"

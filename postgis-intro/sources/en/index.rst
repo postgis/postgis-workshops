@@ -67,6 +67,7 @@ Workshop Modules
   clusterindex
   3d
   knn
+  rasters
   history_tracking
   tuning
   security

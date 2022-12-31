@@ -83,11 +83,11 @@ Workshop Modules
 Links to have on hand
 ---------------------
 
-* PostGIS - http://postgis.net/
+* PostGIS - https://postgis.net/
 
-  - Docs - http://postgis.net/docs/
+  - Docs - https://postgis.net/docs/
 
-* PostgreSQL - http://www.postgresql.org/
+* PostgreSQL - https://www.postgresql.org/
 
   - Docs - https://www.postgresql.org/docs/
   - Downloads - https://www.postgresql.org/download/
@@ -101,6 +101,6 @@ Links to have on hand
 * Open Source Desktop Clients
 
   - QGIS - https://qgis.org/
-  - OpenJUMP - http://openjump.org/
-  - uDig - http://udig.github.io/
+  - OpenJUMP - https://openjump.org/
+  - uDig - https://udig.github.io/
 

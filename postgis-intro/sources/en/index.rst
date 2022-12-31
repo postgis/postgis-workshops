@@ -101,6 +101,6 @@ Links to have on hand
 * Open Source Desktop Clients
 
   - QGIS - https://qgis.org/
-  - OpenJUMP - https://openjump.org/
+  - OpenJUMP - http://openjump.org/
   - uDig - https://udig.github.io/
 

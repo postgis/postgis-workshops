@@ -69,6 +69,7 @@ functions like `ST_AsPNG` or `ST_AsGDALRaster`. As your rasters get larger, you'
 such as QGIS to view them in all their glory.  Remember though, postgis rasters are built for analysis,
 not for generating big pretty pictures.
 
+Run the below query and copy and paste the output into the address bar of your web browser.
 
 .. code-block:: sql
 

@@ -3,7 +3,19 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-02-28 19:52+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.10.1\n"
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-30 19:57-0500\n"
+"PO-Revision-Date: 2022-02-28 19:52+0000\n"
+"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -66,15 +78,21 @@ msgid "Links to have on hand"
 msgstr "顺带的资料"
 
 #: ../../en/index.rst:86
-msgid "PostGIS - http://postgis.net/"
+#, fuzzy
+#| msgid "PostGIS - http://postgis.net/"
+msgid "PostGIS - https://postgis.net/"
 msgstr "PostGIS - http://postgis.net/"
 
 #: ../../en/index.rst:88
-msgid "Docs - http://postgis.net/docs/"
+#, fuzzy
+#| msgid "Docs - http://postgis.net/docs/"
+msgid "Docs - https://postgis.net/docs/"
 msgstr "文档 - http://postgis.net/docs/"
 
 #: ../../en/index.rst:90
-msgid "PostgreSQL - http://www.postgresql.org/"
+#, fuzzy
+#| msgid "PostgreSQL - http://www.postgresql.org/"
+msgid "PostgreSQL - https://www.postgresql.org/"
 msgstr "PostgreSQL - http://www.postgresql.org/"
 
 #: ../../en/index.rst:92
@@ -114,9 +132,13 @@ msgid "QGIS - https://qgis.org/"
 msgstr "QGIS - https://qgis.org/"
 
 #: ../../en/index.rst:104
-msgid "OpenJUMP - http://openjump.org/"
+#, fuzzy
+#| msgid "OpenJUMP - http://openjump.org/"
+msgid "OpenJUMP - https://openjump.org/"
 msgstr "OpenJUMP - http://openjump.org/"
 
 #: ../../en/index.rst:105
-msgid "uDig - http://udig.github.io/"
+#, fuzzy
+#| msgid "uDig - http://udig.github.io/"
+msgid "uDig - https://udig.github.io/"
 msgstr "uDig - http://udig.github.io/"

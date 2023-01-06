@@ -4,13 +4,13 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 12:48-0500\n"
-"PO-Revision-Date: 2022-12-28 10:30+0000\n"
+"PO-Revision-Date: 2023-01-06 09:50+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "advanced_geometry_construction/ja/>\n"
@@ -256,6 +256,9 @@ msgid ""
 "it doesn't matter if the route runs north/south or east/west, just that it "
 "run in more-or-less one direction, particularly at the ends."
 msgstr ""
+"終着駅の最も方向と関係の薄い特徴は「順路の中央から最も遠い駅です」。この特徴"
+"を使うと、順路が南北あるいは東西に進んでも問題にならず、程度の差はありますが"
+"一方向に進みます。特に終着駅ではそうなります。"
 
 #: ../../en/advanced_geometry_construction.rst:114
 msgid ""
@@ -349,6 +352,9 @@ msgid ""
 "result is ordered such that the records come out in batches for each route, "
 "with the furthest station as the first record of the batch."
 msgstr ""
+"**stops_distance** は、順路の中心の点を駅テーブルに結合し、駅と順路ごとの中心"
+"との距離を計算します。結果に対してレコードが順路ごとのかたまりで出力され、最"
+"も遠い駅を、かたまりの最初のレコードとするよう並べ替えを行っています。"
 
 #: ../../en/advanced_geometry_construction.rst:252
 msgid ""
@@ -357,31 +363,37 @@ msgid ""
 "**stops_distance** the first record is the furthest record, which means it's "
 "the station we want to use as our starting seed to build each subway route."
 msgstr ""
+"**first_stops** は、かたまりごとの最初のレコードの取得だけを行って "
+"**stops_distance** の出力をフィルタリングします。**stops_distance** に最初の"
+"レコードが最も遠いレコードとなるよう並べ替えているため、それが個々の地下鉄の"
+"順路を構築するための開始シードとして使う駅となります。"
 
 #: ../../en/advanced_geometry_construction.rst:254
 msgid ""
 "Now we know every route, and we know (approximately) what station each route "
 "starts from: we're ready to generate the route lines!"
-msgstr ""
+msgstr "現在、全ての順路を知っていて、かつ、おおよそで順路ごとのどの駅から開始される"
+"かを知っています。これで順路の線を生成する準備ができました!"
 
 #: ../../en/advanced_geometry_construction.rst:256
 msgid ""
 "But first, we need to turn our recursive CTE expression into a function we "
 "can call with parameters."
-msgstr ""
+msgstr "ただし、最初に、再帰的CTE式を、パラメータ付きで呼び出すことができる関数に変換"
+"する必要があります。"
 
 #: ../../en/advanced_geometry_construction.rst:283
 msgid "And now we are ready to go!"
-msgstr ""
+msgstr "そうして、実行準備が整います!"
 
 #: ../../en/advanced_geometry_construction.rst:328
 msgid "Here's what our final table looks like visualized in QGIS:"
-msgstr ""
+msgstr "最終テーブルをQGISで可視化すると次のようになります:"
 
 #: ../../en/advanced_geometry_construction.rst:332
 msgid ""
 "As usual, there are some problems with our simple understanding of the data:"
-msgstr ""
+msgstr "いつものように、データの単純な理解では問題があります:"
 
 #: ../../en/advanced_geometry_construction.rst:334
 msgid ""
@@ -389,6 +401,8 @@ msgid ""
 "Manhattan and one in the Rockaways, and we join them together because they "
 "are both called 'S';"
 msgstr ""
+"実は二つの 'S' (短距離の「シャトル」)列車がマンハッタンとロックウエイにあり、"
+"どちらも 'S' と呼ばれるので、これをつなげてしまっています。"
 
 #: ../../en/advanced_geometry_construction.rst:335
 msgid ""
@@ -396,13 +410,16 @@ msgid ""
 "terminuses, so the \"follow one line\" assumption breaks and the result has "
 "a funny hook on the end."
 msgstr ""
+"'4'列車 (と他少数の列車) は一つの線の終着駅がが二つの終端に分割され、「一つの"
+"線になる」仮定が壊れ、結果の終わりに、おかしなフックがあります。"
 
 #: ../../en/advanced_geometry_construction.rst:337
 msgid ""
 "Hopefully this example has provided a taste of some of the complex data "
 "manipulations that are possible combining the advanced features of "
 "PostgreSQL and PostGIS."
-msgstr ""
+msgstr "うまくいけば、この例で、PostgreSQLとPostGISの高度な機能の組み合わせである複雑"
+"なデータ処理を味わってもらえます。"
 
 #: ../../en/advanced_geometry_construction.rst:341
 msgid "See Also"

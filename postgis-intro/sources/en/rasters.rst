@@ -134,6 +134,7 @@ What is more telling, if we rerun the
     FROM rasters, ST_MetaData(rast) AS md;
 
 .. code-block::
+
         name        | num_pixels | upperleftx |    upperlefty     | width | height |       scalex       |       scaley        | skewx | skewy | srid  | numbands
   --------------------+------------+------------+-------------------+-------+--------+--------------------+---------------------+-------+-------+-------+----------
   Hello              |      13926 |          0 | 77.10000000000001 |   150 |    150 |  1.226888888888889 | -0.5173333333333334 |     0 |     0 |     0 |        1

@@ -36,11 +36,12 @@ We'll start by converting our earlier geometries into rasters using `ST_AsRaster
   CREATE TABLE rasters (name varchar, rast raster);
 
   INSERT INTO rasters(name, rast)
-  SELECT name, ST_AsRaster(geom, width=>150, height=>150)
-  FROM geometries;
+  SELECT f.word, ST_AsRaster(geom, width=>150, height=>150)
+  FROM (VALUES ('Hello'), ('Raster') ) AS f(word)
+    , ST_Letters(word) AS geom;
 
-The above example CREATEs a table (**rasters**) from geometries created earlier. You can see some useful metadata of your rasters
-with the following query:
+The above example CREATEs a table (**rasters**) from geometries formed from letters using the PostGIS 3.2+ `ST_Letters <https://postgis.net/docs/ST_Letters.html>`_ function. You can see some useful metadata of your rasters
+with the following query which utilizes the postgis raster functions `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters.
 
 .. code-block:: sql
 
@@ -50,32 +51,29 @@ with the following query:
 
 .. code-block::
 
-      name       | num_pixels | upperleftx | upperlefty | width | height |        scalex        |        scaley         | skewx | skewy | srid | numbands
-  -----------------+------------+------------+------------+-------+--------+----------------------+-----------------------+-------+-------+------+----------
-  Point           |          1 |          0 |          0 |   150 |    150 |                    1 |                    -1 |     0 |     0 |    0 |        1
-  Linestring      |        149 |          0 |          2 |   150 |    150 | 0.013333333333333334 | -0.013333333333333334 |     0 |     0 |    0 |        1
-  Polygon         |      22500 |          0 |          1 |   150 |    150 | 0.006666666666666667 | -0.006666666666666667 |     0 |     0 |    0 |        1
-  PolygonWithHole |      22275 |          0 |         10 |   150 |    150 |  0.06666666666666667 |  -0.06666666666666667 |     0 |     0 |    0 |        1
-  Collection      |      11250 |          0 |          1 |   150 |    150 | 0.013333333333333334 | -0.006666666666666667 |     0 |     0 |    0 |        1
-  (5 rows)
+  name  | num_pixels | upperleftx |    upperlefty     | width | height |       scalex       |       scaley        | skewx | skewy | srid | numbands
+  --------+------------+------------+-------------------+-------+--------+--------------------+---------------------+-------+-------+------+----------
+  Hello  |      13926 |          0 | 77.10000000000001 |   150 |    150 |  1.226888888888889 | -0.5173333333333334 |     0 |     0 |    0 |        1
+  Raster |      11967 |          0 |              75.4 |   150 |    150 | 1.7226319023207244 | -0.5086666666666667 |     0 |     0 |    0 |        1
+  (2 rows)
 
 
 Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that,
 our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us.
 
-Although pgAdmin has no mechanism yet to view postgis rasters, we have a couple of options. The easiest is
-to output to a web-friendly raster format such as PNG using batteries included postgis raster
-functions like `ST_AsPNG` or `ST_AsGDALRaster`. As your rasters get larger, you'll want to graduate to a tool
-such as QGIS to view them in all their glory.  Remember though, postgis rasters are built for analysis,
-not for generating big pretty pictures.
+Although pgAdmin and psql have no mechanism yet to view postgis rasters, we have a couple of options. For smallish rasters
+the easiest is to output to a web-friendly raster format such as PNG using batteries included postgis raster
+functions like `ST_AsPNG` or `ST_AsGDALRaster` listed in `PostGIS Raster output functions <https://postgis.net/docs/RT_reference.html#Raster_Output>`_. As your rasters get larger, you'll want to graduate to a tool
+such as QGIS to view them in all their glory or the GDAL family of commandline tools such as gdal_translate to export them to other raster formats.  Remember though, postgis rasters are built for analysis,
+not for generating pretty pictures for you to look at.
 
 Run the below query and copy and paste the output into the address bar of your web browser.
 
 .. code-block:: sql
 
- SELECT 'data:image/jpeg;base64,' ||
-    encode(ST_AsJPEG(rast),'base64')
+ SELECT 'data:image/png;base64,' ||
+    encode(ST_AsPNG(rast),'base64')
     FROM rasters
-    WHERE name = 'PolygonWithHole';
+    WHERE name = 'Hello';
 
-.. image:: ./rasters/polygonwithhole.png
+.. image:: ./rasters/hello.png

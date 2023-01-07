@@ -133,6 +133,9 @@ What is more telling, if we rerun the
   SELECT name, ST_Count(rast) As num_pixels, md.*
     FROM rasters, ST_MetaData(rast) AS md;
 
+Observe the metadata of the New York entries. They have the New York state plane meter spatial reference system.
+They also have the same scale.  Since each unit is 1x1 meter, the width of the work 'Raster' is now wider than 'Hello'.
+
 .. code-block::
 
         name        | num_pixels | upperleftx |    upperlefty     | width | height |       scalex       |       scaley        | skewx | skewy | srid  | numbands
@@ -143,5 +146,4 @@ What is more telling, if we rerun the
   Raster in New York |      10544 |     586467 |         4504800.4 |   258 |     76 |                  1 |                  -1 |     0 |     0 | 26918 |        3
   (4 rows)
 
-Observe the metadata of the New York entries. They have the New York state plane meter spatial reference system.
-They also have the same scale.  Since each unit is 1x1 meter, the width of the work 'Raster' is now wider than 'Hello'.
+

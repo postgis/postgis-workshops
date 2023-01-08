@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2022-11-22 02:30+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
@@ -36,9 +36,9 @@ msgid ""
 "later) are also spatial databases. But what does that mean; what is it that "
 "makes an ordinary database a spatial database?"
 msgstr ""
-"PostGISは空間データベースです。Oracle SpatialやSQL Server (2008以降)も空間デ"
-"ータベースです。これはどういう意味でしょうか？通常のデータベースを空間データ"
-"ベースにするにはどうすればいいでしょうか？"
+"PostGISは空間データベースです。Oracle SpatialやSQL Server (2008以降)も空間"
+"データベースです。これはどういう意味でしょうか？通常のデータベースを空間デー"
+"タベースにするにはどうすればいいでしょうか？"
 
 #: ../../en/introduction.rst:11
 msgid "The short answer, is..."
@@ -48,7 +48,8 @@ msgstr "短い答えとしては..."
 msgid ""
 "**Spatial databases store and manipulate spatial objects like any other "
 "object in the database.**"
-msgstr "**空間データベースは空間オブジェクトを、データベース内の他のオブジェクトのよ"
+msgstr ""
+"**空間データベースは空間オブジェクトを、データベース内の他のオブジェクトのよ"
 "うに格納して操作するものです。**"
 
 #: ../../en/introduction.rst:15
@@ -64,7 +65,8 @@ msgstr ""
 #: ../../en/introduction.rst:17
 msgid ""
 "**Spatial data types** refer to shapes such as point, line, and polygon;"
-msgstr "**空間データタイプ**はポイント、ライン、ポリゴンといった形状を指します。"
+msgstr ""
+"**空間データタイプ**はポイント、ライン、ポリゴンといった形状を指します。"
 
 #: ../../en/introduction.rst:18
 msgid ""
@@ -76,14 +78,16 @@ msgstr "多次元**空間インデックス**は空間演算の効率的な処�
 msgid ""
 "**Spatial functions**, posed in :term:`SQL`, are for querying of spatial "
 "properties and relationships."
-msgstr "**空間関数**は :term:`SQL` "
-"で示されていますが、空間プロパティと空間関係に関するクエリに使われます。"
+msgstr ""
+"**空間関数**は :term:`SQL` で示されていますが、空間プロパティと空間関係に関す"
+"るクエリに使われます。"
 
 #: ../../en/introduction.rst:21
 msgid ""
 "Combined, spatial data types, indexes, and functions provide a flexible "
 "structure for optimized performance and analysis."
-msgstr "空間データタイプ、インデックス、関数を組み合わせることで、能率と解析の最適化"
+msgstr ""
+"空間データタイプ、インデックス、関数を組み合わせることで、能率と解析の最適化"
 "のための柔軟な構造が得られます。"
 
 #: ../../en/introduction.rst:24
@@ -118,14 +122,16 @@ msgstr ""
 msgid ""
 "**True spatial databases were born when people started to treat spatial "
 "features as first class database objects.**"
-msgstr "**空間の地物を第一級データベースオブジェクトとして扱うようになった時に真の空"
+msgstr ""
+"**空間の地物を第一級データベースオブジェクトとして扱うようになった時に真の空"
 "間データベースが生まれました。**"
 
 #: ../../en/introduction.rst:32
 msgid ""
 "Spatial databases fully integrate spatial data with a relational database.  "
 "The system orientation changes from GIS-centric to database-centric."
-msgstr "空間データベースは完全に空間データをリレーショナルデータベースに統合します。"
+msgstr ""
+"空間データベースは完全に空間データをリレーショナルデータベースに統合します。"
 "システムの方向性がGIS中心からデータベース中手に変わります。"
 
 #: ../../en/introduction.rst:37
@@ -159,8 +165,9 @@ msgid ""
 "Spatial data types are organized in a type hierarchy.  Each sub-type "
 "inherits the structure (attributes) and the behavior (methods or functions) "
 "of its super-type."
-msgstr "空間データ型は階層構造をなしています。各サブタイプは、スーパタイプの構造 "
-"(属性)と振る舞い (メソッドや関数)を継承します。"
+msgstr ""
+"空間データ型は階層構造をなしています。各サブタイプは、スーパタイプの構造 (属"
+"性)と振る舞い (メソッドや関数)を継承します。"
 
 #: ../../en/introduction.rst:53
 msgid "Spatial Indexes and Bounding Boxes"
@@ -174,9 +181,8 @@ msgid ""
 "indexes."
 msgstr ""
 "通常のデータベースは、データの部分集合に対する高速かつランダムなアクセスのた"
-"めに**インデックス**を提供します。標準の型 "
-"(数値、文字列、日付)のインデックスには、 `B木 <https://ja.wikipedia.org/wiki/"
-"B%E6%9C%A8>`_ が使われます。"
+"めに**インデックス**を提供します。標準の型 (数値、文字列、日付)のインデックス"
+"には、 `B木 <https://ja.wikipedia.org/wiki/B%E6%9C%A8>`_ が使われます。"
 
 #: ../../en/introduction.rst:57
 msgid ""
@@ -200,14 +206,15 @@ msgstr ""
 "しかし、ポリゴンは他のポリゴンにオーバラップすることや、包含することがありま"
 "すし、2次元 (以上) の空間に配列されます。このため、効率的なインデックスとして"
 "はB木は使えません。実際の空間データベースでは、B木に代わって「指定したバウン"
-"ディングボックス内にあるオブジェクトはどれか」という質問に答える「空間インデ"
-"ックス」が提供されます。"
+"ディングボックス内にあるオブジェクトはどれか」という質問に答える「空間イン"
+"デックス」が提供されます。"
 
 #: ../../en/introduction.rst:61
 msgid ""
 "A **bounding box** is the smallest rectangle -- parallel to the coordinate "
 "axes -- capable of containing a given feature."
-msgstr "**バウンディングボックス**は、座標軸に平行で、指定された地物を含むことができ"
+msgstr ""
+"**バウンディングボックス**は、座標軸に平行で、指定された地物を含むことができ"
 "る最小の長方形です。"
 
 #: ../../en/introduction.rst:67
@@ -246,12 +253,12 @@ msgid ""
 "wiki/Geohash>`_ implemented in other spatial databases."
 msgstr ""
 "空間インデックスの実装はデータベースシステムによって大きく異なります。最も一"
-"般的な実装は`R木 <https://ja.wikipedia.org/wiki/R%E6%9C%A8>`_ と "
-"`四分木<https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%88%86%E6%9C%A8>`_ です "
-"(PostGISで使われています)。しかし、他の空間データベースシステムでは`grid-"
-"based indexes <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ と `"
-"ジオハッシュ <https://ja.wikipedia.org/wiki/"
-"%E3%82%B8%E3%82%AA%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5>`_ の実装もあります。"
+"般的な実装は`R木 <https://ja.wikipedia.org/wiki/R%E6%9C%A8>`_ と `四分木"
+"<https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%88%86%E6%9C%A8>`_ です (PostGISで"
+"使われています)。しかし、他の空間データベースシステムでは`grid-based indexes "
+"<http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ と `ジオハッシュ "
+"<https://ja.wikipedia.org/wiki/%E3%82%B8%E3%82%AA%E3%83%8F"
+"%E3%83%83%E3%82%B7%E3%83%A5>`_ の実装もあります。"
 
 #: ../../en/introduction.rst:74
 msgid "Spatial Functions"
@@ -538,8 +545,8 @@ msgstr ""
 
 #: ../../en/introduction.rst:156
 msgid ""
-"For a complete list of case studies, see the `PostGIS case studies <http://"
-"postgis.net/casestudy>`_ page."
+"For a complete list of case studies, see the `PostGIS case studies <https://"
+"postgis.net/category/casestudy/>`_ page."
 msgstr ""
 
 #: ../../en/introduction.rst:159
@@ -563,19 +570,27 @@ msgid "RedFin"
 msgstr "RedFin"
 
 #: ../../en/introduction.rst:166
+#, fuzzy
+#| msgid ""
+#| "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-"
+#| "based service for exploring properties and estimate values. Their system "
+#| "was originally build on MySQL, but they found that moving to PostgreSQL "
+#| "and PostGIS provided `huge benefits in performance and reliability "
+#| "<https://www.redfin.com/news/"
+#| "elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgid ""
 "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based "
 "service for exploring properties and estimate values. Their system was "
-"originally build on MySQL, but they found that moving to PostgreSQL and "
+"originally built on MySQL, but they found that moving to PostgreSQL and "
 "PostGIS provided `huge benefits in performance and reliability <https://www."
 "redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgstr ""
 "`RedFin <https://www.redfin.com>`_ は実在する不動産会社で、不動産の探索や価格"
 "の見積もりを行うウェブベースのサービスを提供しています。この会社のシステムは"
-"元はMySQLベースで作られていましたが、PostgreSQLとPostGISへの移行で`"
-"効率と信頼性の利益が大きい <https://www.redfin.com/news/"
-"elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_ "
-"ことが分かりました。"
+"元はMySQLベースで作られていましたが、PostgreSQLとPostGISへの移行で`効率と信頼"
+"性の利益が大きい <https://www.redfin.com/news/"
+"elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_ ことが分かりまし"
+"た。"
 
 #: ../../en/introduction.rst:169
 msgid "What applications support PostGIS?"
@@ -606,7 +621,9 @@ msgid "Open/Free"
 msgstr "オープン/フリー"
 
 #: ../../en/introduction.rst:176
-msgid "Closed/Proprietary"
+#, fuzzy
+#| msgid "Closed/Proprietary"
+msgid "Closed/Proprietary/Paid services"
 msgstr "クローズ/プロプライエタリ"
 
 #: ../../en/introduction.rst:179
@@ -625,118 +642,190 @@ msgstr "ogr2ogr"
 msgid "Dxf2PostGIS"
 msgstr "Dxf2PostGIS"
 
-#: ../../en/introduction.rst:185 ../../en/introduction.rst:184
+#: ../../en/introduction.rst:184
+msgid "GeoKettle"
+msgstr ""
+
+#: ../../en/introduction.rst:186 ../../en/introduction.rst:187
 msgid "Web-Based"
 msgstr "ウェブベース"
 
-#: ../../en/introduction.rst:187
+#: ../../en/introduction.rst:189
 msgid "Mapserver"
 msgstr "Mapserver"
 
-#: ../../en/introduction.rst:188
-msgid "GeoServer (Java-based WFS / WMS -server )"
-msgstr "GeoServer (Javaベースの WFS / WMS サーバ)"
-
-#: ../../en/introduction.rst:189
-msgid "SharpMap SDK - for ASP.NET 2.0"
-msgstr "SharpMap SDK - ASP.NET 2.0用"
-
 #: ../../en/introduction.rst:190
+msgid "GeoServer /geoNode"
+msgstr ""
+
+#: ../../en/introduction.rst:191
+msgid "pg_tileserv"
+msgstr ""
+
+#: ../../en/introduction.rst:192
+msgid "pg_featureserv"
+msgstr ""
+
+#: ../../en/introduction.rst:193
+msgid "Deegree"
+msgstr ""
+
+#: ../../en/introduction.rst:194 ../../en/introduction.rst:197
+msgid "Carto"
+msgstr ""
+
+#: ../../en/introduction.rst:195
+#, fuzzy
+#| msgid "ESRI ArcGIS Server"
+msgid "QGIS Server"
+msgstr "ESRI ArcGIS Server"
+
+#: ../../en/introduction.rst:196
 msgid "MapGuide Open Source (using FDO)"
 msgstr "MapGuide Open Source (FDO使用)"
 
-#: ../../en/introduction.rst:192 ../../en/introduction.rst:193
+#: ../../en/introduction.rst:201 ../../en/introduction.rst:202
 msgid "Desktop"
 msgstr "デスクトップ"
 
-#: ../../en/introduction.rst:194
-msgid "uDig"
-msgstr "uDig"
-
-#: ../../en/introduction.rst:195
+#: ../../en/introduction.rst:203
 msgid "QGIS"
 msgstr "QGIS"
 
-#: ../../en/introduction.rst:196
-msgid "mezoGIS"
-msgstr "mezoGIS"
-
-#: ../../en/introduction.rst:197
+#: ../../en/introduction.rst:204
 msgid "OpenJUMP"
 msgstr "OpenJUMP"
 
-#: ../../en/introduction.rst:198
-msgid "OpenEV"
-msgstr "OpenEV"
+#: ../../en/introduction.rst:205
+msgid "GRASS"
+msgstr "GRASS"
 
-#: ../../en/introduction.rst:199
-msgid "SharpMap SDK for Microsoft.NET 2.0"
-msgstr "Microsoft.NET 2.0用SharpMap SDK"
+#: ../../en/introduction.rst:206
+msgid "pgAdmin"
+msgstr ""
 
-#: ../../en/introduction.rst:200
-msgid "ZigGIS for ArcGIS/ArcObjects.NET"
-msgstr "ArcGIS/ArcObjects.NET用ZigGIS"
+#: ../../en/introduction.rst:207
+msgid "DBeaver"
+msgstr ""
 
-#: ../../en/introduction.rst:201
+#: ../../en/introduction.rst:208
 msgid "GvSIG"
 msgstr "GvSIG"
 
-#: ../../en/introduction.rst:202
-msgid "GRASS"
-msgstr "GRASS"
+#: ../../en/introduction.rst:209
+msgid "SAGA"
+msgstr ""
+
+#: ../../en/introduction.rst:210
+msgid "uDig"
+msgstr "uDig"
 
 #: ../../en/introduction.rst:181
 msgid "Safe FME Desktop Translator/Converter"
 msgstr "Safe FME Desktop Translator/Converter"
 
-#: ../../en/introduction.rst:186
-msgid "Ionic Red Spider (now ERDAS)"
-msgstr "Ionic Red Spider (現ERDAS)"
+#: ../../en/introduction.rst:182
+msgid "Dbt"
+msgstr ""
 
-#: ../../en/introduction.rst:187
+#: ../../en/introduction.rst:188
 msgid "Cadcorp GeognoSIS"
 msgstr "Cadcorp GeognoSIS"
 
-#: ../../en/introduction.rst:188
-msgid "Iwan Mapserver"
-msgstr "Iwan Mapserver"
-
 #: ../../en/introduction.rst:189
-msgid "MapDotNet Server"
-msgstr "MapDotNet Server"
-
-#: ../../en/introduction.rst:190
-msgid "MapGuide Enterprise (using FDO)"
-msgstr "MapGuide Enterprise (FDO使用)"
-
-#: ../../en/introduction.rst:191
-msgid "ESRI ArcGIS Server"
+#, fuzzy
+#| msgid "ESRI ArcGIS Server"
+msgid "ESRI ArcGIS Server / Online"
 msgstr "ESRI ArcGIS Server"
 
+#: ../../en/introduction.rst:193
+msgid "Services / DbaaS"
+msgstr ""
+
 #: ../../en/introduction.rst:195
+msgid "Aiven for PostgreSQL"
+msgstr ""
+
+#: ../../en/introduction.rst:196
+msgid "Amazon RDS / Aurora for PostgreSQL"
+msgstr ""
+
+#: ../../en/introduction.rst:198
+msgid "Crunchy Bridge"
+msgstr ""
+
+#: ../../en/introduction.rst:199
+msgid "Microsoft Azure for PostgreSQL"
+msgstr ""
+
+#: ../../en/introduction.rst:200
+msgid "Google Cloud SQL for PostgreSQL"
+msgstr ""
+
+#: ../../en/introduction.rst:204
 msgid "Cadcorp SIS"
 msgstr "Cadcorp SIS"
 
-#: ../../en/introduction.rst:196
-msgid "Microimages TNTmips GIS"
-msgstr "Microimages TNTmips GIS"
+#: ../../en/introduction.rst:205
+#, fuzzy
+#| msgid "Desktop"
+msgid "ESRI Desktop/Pro"
+msgstr "デスクトップ"
 
-#: ../../en/introduction.rst:197
-msgid "ESRI ArcGIS"
-msgstr "ESRI ArcGIS"
-
-#: ../../en/introduction.rst:198
-msgid "Manifold"
-msgstr "Manifold"
-
-#: ../../en/introduction.rst:199
+#: ../../en/introduction.rst:206
 msgid "GeoConcept"
 msgstr "GeoConcept"
 
-#: ../../en/introduction.rst:200
-msgid "MapInfo (v10)"
+#: ../../en/introduction.rst:207
+msgid "Global Mapper"
+msgstr ""
+
+#: ../../en/introduction.rst:208
+msgid "Manifold"
+msgstr "Manifold"
+
+#: ../../en/introduction.rst:209
+#, fuzzy
+#| msgid "MapInfo (v10)"
+msgid "MapInfo"
 msgstr "MapInfo (v10)"
 
-#: ../../en/introduction.rst:201
-msgid "AutoCAD Map 3D (using FDO)"
-msgstr "AutoCAD Map 3D (FDO使用)"
+#: ../../en/introduction.rst:210
+msgid "Microimages TNTmips GIS"
+msgstr "Microimages TNTmips GIS"
+
+#~ msgid "GeoServer (Java-based WFS / WMS -server )"
+#~ msgstr "GeoServer (Javaベースの WFS / WMS サーバ)"
+
+#~ msgid "SharpMap SDK - for ASP.NET 2.0"
+#~ msgstr "SharpMap SDK - ASP.NET 2.0用"
+
+#~ msgid "mezoGIS"
+#~ msgstr "mezoGIS"
+
+#~ msgid "OpenEV"
+#~ msgstr "OpenEV"
+
+#~ msgid "SharpMap SDK for Microsoft.NET 2.0"
+#~ msgstr "Microsoft.NET 2.0用SharpMap SDK"
+
+#~ msgid "ZigGIS for ArcGIS/ArcObjects.NET"
+#~ msgstr "ArcGIS/ArcObjects.NET用ZigGIS"
+
+#~ msgid "Ionic Red Spider (now ERDAS)"
+#~ msgstr "Ionic Red Spider (現ERDAS)"
+
+#~ msgid "Iwan Mapserver"
+#~ msgstr "Iwan Mapserver"
+
+#~ msgid "MapDotNet Server"
+#~ msgstr "MapDotNet Server"
+
+#~ msgid "MapGuide Enterprise (using FDO)"
+#~ msgstr "MapGuide Enterprise (FDO使用)"
+
+#~ msgid "ESRI ArcGIS"
+#~ msgstr "ESRI ArcGIS"
+
+#~ msgid "AutoCAD Map 3D (using FDO)"
+#~ msgstr "AutoCAD Map 3D (FDO使用)"

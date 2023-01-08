@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-30 19:57-0500\n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2022-02-28 19:52+0000\n"
 "Last-Translator: Chen <onsummer@foxmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\n"
@@ -73,71 +73,71 @@ msgstr "这里所有用的数据都是公开的，可以随便使用。下载的
 msgid "Workshop Modules"
 msgstr "Workshop 目录"
 
-#: ../../en/index.rst:84
+#: ../../en/index.rst:85
 msgid "Links to have on hand"
 msgstr "顺带的资料"
 
-#: ../../en/index.rst:86
+#: ../../en/index.rst:87
 #, fuzzy
 #| msgid "PostGIS - http://postgis.net/"
 msgid "PostGIS - https://postgis.net/"
 msgstr "PostGIS - http://postgis.net/"
 
-#: ../../en/index.rst:88
+#: ../../en/index.rst:89
 #, fuzzy
 #| msgid "Docs - http://postgis.net/docs/"
 msgid "Docs - https://postgis.net/docs/"
 msgstr "文档 - http://postgis.net/docs/"
 
-#: ../../en/index.rst:90
+#: ../../en/index.rst:91
 #, fuzzy
 #| msgid "PostgreSQL - http://www.postgresql.org/"
 msgid "PostgreSQL - https://www.postgresql.org/"
 msgstr "PostgreSQL - http://www.postgresql.org/"
 
-#: ../../en/index.rst:92
+#: ../../en/index.rst:93
 msgid "Docs - https://www.postgresql.org/docs/"
 msgstr "文档 - https://www.postgresql.org/docs/"
 
-#: ../../en/index.rst:93
+#: ../../en/index.rst:94
 msgid "Downloads - https://www.postgresql.org/download/"
 msgstr "下载 - https://www.postgresql.org/download/"
 
-#: ../../en/index.rst:94
+#: ../../en/index.rst:95
 msgid "JDBC Driver - https://jdbc.postgresql.org/"
 msgstr "JDBC（Java DataBase Connection）驱动 - https://jdbc.postgresql.org/"
 
-#: ../../en/index.rst:95
+#: ../../en/index.rst:96
 msgid ".Net Driver - https://www.npgsql.org/"
 msgstr ".NET 驱动 - https://www.npgsql.org/"
 
-#: ../../en/index.rst:96
+#: ../../en/index.rst:97
 msgid "Python Driver - http://www.pygresql.org/"
 msgstr "Python 驱动 - http://www.pygresql.org/"
 
-#: ../../en/index.rst:97
+#: ../../en/index.rst:98
 msgid "C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html"
 msgstr "C/C++ 驱动 - https://www.postgresql.org/docs/current/static/libpq.html"
 
-#: ../../en/index.rst:99
+#: ../../en/index.rst:100
 msgid "PgAdmin - https://www.pgadmin.org/"
 msgstr "PgAdmin - https://www.pgadmin.org/"
 
-#: ../../en/index.rst:101
+#: ../../en/index.rst:102
 msgid "Open Source Desktop Clients"
 msgstr "开源桌面客户端"
 
-#: ../../en/index.rst:103
+#: ../../en/index.rst:104
 msgid "QGIS - https://qgis.org/"
 msgstr "QGIS - https://qgis.org/"
 
-#: ../../en/index.rst:104
+#: ../../en/index.rst:105
 #, fuzzy
 #| msgid "OpenJUMP - http://openjump.org/"
-msgid "OpenJUMP - https://openjump.org/"
+msgid "OpenJUMP - http://openjump.org/"
 msgstr "OpenJUMP - http://openjump.org/"
 
-#: ../../en/index.rst:105
+#: ../../en/index.rst:106
 #, fuzzy
 #| msgid "uDig - http://udig.github.io/"
 msgid "uDig - https://udig.github.io/"

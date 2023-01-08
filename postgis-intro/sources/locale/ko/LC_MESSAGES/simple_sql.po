@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2022-01-09 01:55+0000\n"
 "Last-Translator: robe <regina@arrival3d.com>\n"
 "Language-Team: Korean <https://weblate.osgeo.org/projects/postgis-workshop/"
@@ -24,11 +24,16 @@ msgid "Simple SQL"
 msgstr "단순 SQL"
 
 #: ../../en/simple_sql.rst:6
-msgid ":term:`SQL`, or \"Structured Query Language\", is a means of asking questions of, and updating data in, relational databases. You have already seen SQL when we created our first database.  Recall:"
+msgid ""
+":term:`SQL`, or \"Structured Query Language\", is a means of asking "
+"questions of, and updating data in, relational databases. You have already "
+"seen SQL when we created our first database.  Recall:"
 msgstr ""
 
 #: ../../en/simple_sql.rst:12
-msgid "But that was a question about the database.  Now that we've loaded data into our database, let's use SQL to ask questions of the data! For example,"
+msgid ""
+"But that was a question about the database.  Now that we've loaded data into "
+"our database, let's use SQL to ask questions of the data! For example,"
 msgstr ""
 
 #: ../../en/simple_sql.rst:14
@@ -36,7 +41,9 @@ msgid "\"What are the names of all the neighborhoods in New York City?\""
 msgstr ""
 
 #: ../../en/simple_sql.rst:16
-msgid "Open up the SQL query window in pgAdmin by clicking the \"Query Tool\" button."
+msgid ""
+"Open up the SQL query window in pgAdmin by clicking the \"Query Tool\" "
+"button."
 msgstr ""
 
 #: ../../en/simple_sql.rst:20
@@ -52,7 +59,9 @@ msgid "The query will run for a few (milli)seconds and return the 129 results."
 msgstr ""
 
 #: ../../en/simple_sql.rst:35
-msgid "But what exactly happened here?  To understand, let's begin with the four \"verbs\" of SQL,"
+msgid ""
+"But what exactly happened here?  To understand, let's begin with the four "
+"\"verbs\" of SQL,"
 msgstr ""
 
 #: ../../en/simple_sql.rst:37
@@ -72,7 +81,9 @@ msgid "``DELETE``, removes rows from a table"
 msgstr ""
 
 #: ../../en/simple_sql.rst:42
-msgid "We will be working almost exclusively with ``SELECT`` in order to ask questions of tables using spatial functions."
+msgid ""
+"We will be working almost exclusively with ``SELECT`` in order to ask "
+"questions of tables using spatial functions."
 msgstr ""
 
 #: ../../en/simple_sql.rst:45
@@ -84,11 +95,18 @@ msgid "A select query is generally of the form::"
 msgstr ""
 
 #: ../../en/simple_sql.rst:53
-msgid "For a synopsis of all ``SELECT`` parameters, see the `PostgresSQL documentation  <http://www.postgresql.org/docs/current/interactive/sql-select.html>`_."
+msgid ""
+"For a synopsis of all ``SELECT`` parameters, see the `PostgresSQL "
+"documentation  <http://www.postgresql.org/docs/current/interactive/sql-"
+"select.html>`_."
 msgstr ""
 
 #: ../../en/simple_sql.rst:55
-msgid "The ``some_columns`` are either column names or functions of column values. The ``some_data_source`` is either a single table, or a composite table created by joining two tables on a key or condition. The ``some_condition`` is a filter that restricts the number of rows to be returned."
+msgid ""
+"The ``some_columns`` are either column names or functions of column values. "
+"The ``some_data_source`` is either a single table, or a composite table "
+"created by joining two tables on a key or condition. The ``some_condition`` "
+"is a filter that restricts the number of rows to be returned."
 msgstr ""
 
 #: ../../en/simple_sql.rst:57
@@ -96,47 +114,78 @@ msgid "\"What are the names of all the neighborhoods in Brooklyn?\""
 msgstr ""
 
 #: ../../en/simple_sql.rst:59
-msgid "We return to our ``nyc_neighborhoods`` table with a filter in hand.  The table contains all the neighborhoods in New York, but we only want the ones in Brooklyn."
+msgid ""
+"We return to our ``nyc_neighborhoods`` table with a filter in hand.  The "
+"table contains all the neighborhoods in New York, but we only want the ones "
+"in Brooklyn."
 msgstr ""
 
 #: ../../en/simple_sql.rst:67
-msgid "The query will run for even fewer (milli)seconds and return the 23 results."
+msgid ""
+"The query will run for even fewer (milli)seconds and return the 23 results."
 msgstr ""
 
 #: ../../en/simple_sql.rst:69
-msgid "Sometimes we will need to apply a function to the results of our query. For example,"
+msgid ""
+"Sometimes we will need to apply a function to the results of our query. For "
+"example,"
 msgstr ""
 
 #: ../../en/simple_sql.rst:71
-msgid "\"What is the number of letters in the names of all the neighborhoods in Brooklyn?\""
+msgid ""
+"\"What is the number of letters in the names of all the neighborhoods in "
+"Brooklyn?\""
 msgstr ""
 
 #: ../../en/simple_sql.rst:73
-msgid "Fortunately, PostgreSQL has a string length function, :command:`char_length(string)`."
+msgid ""
+"Fortunately, PostgreSQL has a string length function, :command:"
+"`char_length(string)`."
 msgstr ""
 
 #: ../../en/simple_sql.rst:81
-msgid "Often, we are less interested in the individual rows than in a statistic that applies to all of them. So knowing the lengths of the neighborhood names might be less interesting than knowing the average length of the names. Functions that take in multiple rows and return a single result are called \"aggregate\" functions."
+msgid ""
+"Often, we are less interested in the individual rows than in a statistic "
+"that applies to all of them. So knowing the lengths of the neighborhood "
+"names might be less interesting than knowing the average length of the "
+"names. Functions that take in multiple rows and return a single result are "
+"called \"aggregate\" functions."
 msgstr ""
 
 #: ../../en/simple_sql.rst:83
-msgid "PostgreSQL has a series of built-in aggregate functions, including the general purpose :command:`avg()` for average values and :command:`stddev()` for standard deviations."
+msgid ""
+"PostgreSQL has a series of built-in aggregate functions, including the "
+"general purpose :command:`avg()` for average values and :command:`stddev()` "
+"for standard deviations."
 msgstr ""
 
 #: ../../en/simple_sql.rst:85
-msgid "\"What is the average number of letters and standard deviation of number of letters in the names of all the neighborhoods in Brooklyn?\""
+msgid ""
+"\"What is the average number of letters and standard deviation of number of "
+"letters in the names of all the neighborhoods in Brooklyn?\""
 msgstr ""
 
 #: ../../en/simple_sql.rst:99
-msgid "The aggregate functions in our last example were applied to every row in the result set. What if we want the summaries to be carried out over smaller groups within the overall result set? For that we add a ``GROUP BY`` clause. Aggregate functions often need an added ``GROUP BY`` statement to group the result-set by one or more columns."
+msgid ""
+"The aggregate functions in our last example were applied to every row in the "
+"result set. What if we want the summaries to be carried out over smaller "
+"groups within the overall result set? For that we add a ``GROUP BY`` clause. "
+"Aggregate functions often need an added ``GROUP BY`` statement to group the "
+"result-set by one or more columns."
 msgstr ""
 
 #: ../../en/simple_sql.rst:101
-msgid "\"What is the average number of letters in the names of all the neighborhoods in New York City, reported by borough?\""
+msgid ""
+"\"What is the average number of letters in the names of all the "
+"neighborhoods in New York City, reported by borough?\""
 msgstr ""
 
 #: ../../en/simple_sql.rst:109
-msgid "We include the ``boroname`` column in the output result so we can determine which statistic applies to which borough. In an aggregate query, you can only output columns that are either (a) members of the grouping clause or (b) aggregate functions."
+msgid ""
+"We include the ``boroname`` column in the output result so we can determine "
+"which statistic applies to which borough. In an aggregate query, you can "
+"only output columns that are either (a) members of the grouping clause or "
+"(b) aggregate functions."
 msgstr ""
 
 #: ../../en/simple_sql.rst:122
@@ -144,13 +193,22 @@ msgid "Function List"
 msgstr ""
 
 #: ../../en/simple_sql.rst:124
-msgid "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the average value of a numeric column."
+msgid ""
+"`avg(expression) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
+"that returns the average value of a numeric column."
 msgstr ""
 
 #: ../../en/simple_sql.rst:126
-msgid "`char_length(string) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function that returns the number of character in a string."
+msgid ""
+"`char_length(string) <http://www.postgresql.org/docs/current/static/"
+"functions-string.html>`_: PostgreSQL string function that returns the number "
+"of character in a string."
 msgstr ""
 
 #: ../../en/simple_sql.rst:128
-msgid "`stddev(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: PostgreSQL aggregate function that returns the standard deviation of input values."
+msgid ""
+"`stddev(expression) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: PostgreSQL aggregate "
+"function that returns the standard deviation of input values."
 msgstr ""

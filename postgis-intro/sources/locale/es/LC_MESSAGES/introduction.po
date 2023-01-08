@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2022-01-29 15:52+0000\n"
 "Last-Translator: Jorge Sanz <jsanz@osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
@@ -372,8 +372,8 @@ msgid ""
 "is built on PostgreSQL, PostGIS automatically inherits important \"enterprise"
 "\" features as well as open standards for implementation."
 msgstr ""
-"PostGIS convierte el Sistema Gestor de Bases de Datos `PostgreSQL <http://www"
-".postgresql.org/>`_ en una base de datos espacial añadiendo soporte para "
+"PostGIS convierte el Sistema Gestor de Bases de Datos `PostgreSQL <http://"
+"www.postgresql.org/>`_ en una base de datos espacial añadiendo soporte para "
 "estas tres funcionalidades: tipos espaciales, índices espaciales y funciones "
 "espaciales. Dado que está construido sobre PostgreSQL, PostGIS hereda "
 "automáticamente en su implementación importantes funcionalidades "
@@ -688,9 +688,13 @@ msgid "Who uses PostGIS?"
 msgstr "¿Quién usa PostGIS?"
 
 #: ../../en/introduction.rst:156
+#, fuzzy
+#| msgid ""
+#| "For a complete list of case studies, see the `PostGIS case studies "
+#| "<http://postgis.net/casestudy>`_ page."
 msgid ""
-"For a complete list of case studies, see the `PostGIS case studies <http://"
-"postgis.net/casestudy>`_ page."
+"For a complete list of case studies, see the `PostGIS case studies <https://"
+"postgis.net/category/casestudy/>`_ page."
 msgstr ""
 "Para una lista completa de casos de estudio mirar la página `PostGIS case "
 "studies <http://postgis.net/casestudy>`_."
@@ -725,10 +729,18 @@ msgid "RedFin"
 msgstr "RedFin"
 
 #: ../../en/introduction.rst:166
+#, fuzzy
+#| msgid ""
+#| "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-"
+#| "based service for exploring properties and estimate values. Their system "
+#| "was originally build on MySQL, but they found that moving to PostgreSQL "
+#| "and PostGIS provided `huge benefits in performance and reliability "
+#| "<https://www.redfin.com/news/"
+#| "elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgid ""
 "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based "
 "service for exploring properties and estimate values. Their system was "
-"originally build on MySQL, but they found that moving to PostgreSQL and "
+"originally built on MySQL, but they found that moving to PostgreSQL and "
 "PostGIS provided `huge benefits in performance and reliability <https://www."
 "redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgstr ""
@@ -771,7 +783,9 @@ msgid "Open/Free"
 msgstr "Abiertos/Libres"
 
 #: ../../en/introduction.rst:176
-msgid "Closed/Proprietary"
+#, fuzzy
+#| msgid "Closed/Proprietary"
+msgid "Closed/Proprietary/Paid services"
 msgstr "Cerrados/Propietarios"
 
 #: ../../en/introduction.rst:179
@@ -790,118 +804,192 @@ msgstr "ogr2ogr"
 msgid "Dxf2PostGIS"
 msgstr "Dxf2PostGIS"
 
-#: ../../en/introduction.rst:185 ../../en/introduction.rst:184
+#: ../../en/introduction.rst:184
+msgid "GeoKettle"
+msgstr ""
+
+#: ../../en/introduction.rst:186 ../../en/introduction.rst:187
 msgid "Web-Based"
 msgstr "Basados en Web"
 
-#: ../../en/introduction.rst:187
+#: ../../en/introduction.rst:189
 msgid "Mapserver"
 msgstr "Mapserver"
 
-#: ../../en/introduction.rst:188
-msgid "GeoServer (Java-based WFS / WMS -server )"
-msgstr "GeoServer ( WFS / WMS servidor basado en Java )"
-
-#: ../../en/introduction.rst:189
-msgid "SharpMap SDK - for ASP.NET 2.0"
-msgstr "SharpMap SDK - para ASP.NET 2.0"
-
 #: ../../en/introduction.rst:190
+msgid "GeoServer /geoNode"
+msgstr ""
+
+#: ../../en/introduction.rst:191
+msgid "pg_tileserv"
+msgstr ""
+
+#: ../../en/introduction.rst:192
+msgid "pg_featureserv"
+msgstr ""
+
+#: ../../en/introduction.rst:193
+msgid "Deegree"
+msgstr ""
+
+#: ../../en/introduction.rst:194 ../../en/introduction.rst:197
+msgid "Carto"
+msgstr ""
+
+#: ../../en/introduction.rst:195
+#, fuzzy
+#| msgid "ESRI ArcGIS Server"
+msgid "QGIS Server"
+msgstr "ESRI ArcGIS Server"
+
+#: ../../en/introduction.rst:196
 msgid "MapGuide Open Source (using FDO)"
 msgstr "MapGuide Open Source (usando FDO)"
 
-#: ../../en/introduction.rst:192 ../../en/introduction.rst:193
+#: ../../en/introduction.rst:201 ../../en/introduction.rst:202
 msgid "Desktop"
 msgstr "Escritorio"
 
-#: ../../en/introduction.rst:194
-msgid "uDig"
-msgstr "uDig"
-
-#: ../../en/introduction.rst:195
+#: ../../en/introduction.rst:203
 msgid "QGIS"
 msgstr "QGIS"
 
-#: ../../en/introduction.rst:196
-msgid "mezoGIS"
-msgstr "mezoGIS"
-
-#: ../../en/introduction.rst:197
+#: ../../en/introduction.rst:204
 msgid "OpenJUMP"
 msgstr "OpenJUMP"
 
-#: ../../en/introduction.rst:198
-msgid "OpenEV"
-msgstr "OpenEV"
+#: ../../en/introduction.rst:205
+msgid "GRASS"
+msgstr "GRASS"
 
-#: ../../en/introduction.rst:199
-msgid "SharpMap SDK for Microsoft.NET 2.0"
-msgstr "SharpMap SDK para Microsoft.NET 2.0"
+#: ../../en/introduction.rst:206
+msgid "pgAdmin"
+msgstr ""
 
-#: ../../en/introduction.rst:200
-msgid "ZigGIS for ArcGIS/ArcObjects.NET"
-msgstr "ZigGIS para ArcGIS/ArcObjects.NET"
+#: ../../en/introduction.rst:207
+msgid "DBeaver"
+msgstr ""
 
-#: ../../en/introduction.rst:201
+#: ../../en/introduction.rst:208
 msgid "GvSIG"
 msgstr "gvSIG"
 
-#: ../../en/introduction.rst:202
-msgid "GRASS"
-msgstr "GRASS"
+#: ../../en/introduction.rst:209
+msgid "SAGA"
+msgstr ""
+
+#: ../../en/introduction.rst:210
+msgid "uDig"
+msgstr "uDig"
 
 #: ../../en/introduction.rst:181
 msgid "Safe FME Desktop Translator/Converter"
 msgstr "Safe FME Desktop Traductor/Convertidor"
 
-#: ../../en/introduction.rst:186
-msgid "Ionic Red Spider (now ERDAS)"
-msgstr "Ionic Red Spider (ahora ERDAS)"
+#: ../../en/introduction.rst:182
+msgid "Dbt"
+msgstr ""
 
-#: ../../en/introduction.rst:187
+#: ../../en/introduction.rst:188
 msgid "Cadcorp GeognoSIS"
 msgstr "Cadcorp GeognoSIS"
 
-#: ../../en/introduction.rst:188
-msgid "Iwan Mapserver"
-msgstr "Iwan Mapserver"
-
 #: ../../en/introduction.rst:189
-msgid "MapDotNet Server"
-msgstr "MapDotNet Server"
-
-#: ../../en/introduction.rst:190
-msgid "MapGuide Enterprise (using FDO)"
-msgstr "MapGuide Enterprise (usando FDO)"
-
-#: ../../en/introduction.rst:191
-msgid "ESRI ArcGIS Server"
+#, fuzzy
+#| msgid "ESRI ArcGIS Server"
+msgid "ESRI ArcGIS Server / Online"
 msgstr "ESRI ArcGIS Server"
 
+#: ../../en/introduction.rst:193
+msgid "Services / DbaaS"
+msgstr ""
+
 #: ../../en/introduction.rst:195
+#, fuzzy
+#| msgid "Why choose PostgreSQL?"
+msgid "Aiven for PostgreSQL"
+msgstr "¿Por qué elegir PostgreSQL?"
+
+#: ../../en/introduction.rst:196
+msgid "Amazon RDS / Aurora for PostgreSQL"
+msgstr ""
+
+#: ../../en/introduction.rst:198
+msgid "Crunchy Bridge"
+msgstr ""
+
+#: ../../en/introduction.rst:199
+msgid "Microsoft Azure for PostgreSQL"
+msgstr ""
+
+#: ../../en/introduction.rst:200
+msgid "Google Cloud SQL for PostgreSQL"
+msgstr ""
+
+#: ../../en/introduction.rst:204
 msgid "Cadcorp SIS"
 msgstr "Cadcorp SIS"
 
-#: ../../en/introduction.rst:196
-msgid "Microimages TNTmips GIS"
-msgstr "Microimages TNTmips GIS"
+#: ../../en/introduction.rst:205
+#, fuzzy
+#| msgid "Desktop"
+msgid "ESRI Desktop/Pro"
+msgstr "Escritorio"
 
-#: ../../en/introduction.rst:197
-msgid "ESRI ArcGIS"
-msgstr "ESRI ArcGIS"
-
-#: ../../en/introduction.rst:198
-msgid "Manifold"
-msgstr "Manifold"
-
-#: ../../en/introduction.rst:199
+#: ../../en/introduction.rst:206
 msgid "GeoConcept"
 msgstr "GeoConcept"
 
-#: ../../en/introduction.rst:200
-msgid "MapInfo (v10)"
+#: ../../en/introduction.rst:207
+msgid "Global Mapper"
+msgstr ""
+
+#: ../../en/introduction.rst:208
+msgid "Manifold"
+msgstr "Manifold"
+
+#: ../../en/introduction.rst:209
+#, fuzzy
+#| msgid "MapInfo (v10)"
+msgid "MapInfo"
 msgstr "MapInfo (v10)"
 
-#: ../../en/introduction.rst:201
-msgid "AutoCAD Map 3D (using FDO)"
-msgstr "AutoCAD Map 3D (usando FDO)"
+#: ../../en/introduction.rst:210
+msgid "Microimages TNTmips GIS"
+msgstr "Microimages TNTmips GIS"
+
+#~ msgid "GeoServer (Java-based WFS / WMS -server )"
+#~ msgstr "GeoServer ( WFS / WMS servidor basado en Java )"
+
+#~ msgid "SharpMap SDK - for ASP.NET 2.0"
+#~ msgstr "SharpMap SDK - para ASP.NET 2.0"
+
+#~ msgid "mezoGIS"
+#~ msgstr "mezoGIS"
+
+#~ msgid "OpenEV"
+#~ msgstr "OpenEV"
+
+#~ msgid "SharpMap SDK for Microsoft.NET 2.0"
+#~ msgstr "SharpMap SDK para Microsoft.NET 2.0"
+
+#~ msgid "ZigGIS for ArcGIS/ArcObjects.NET"
+#~ msgstr "ZigGIS para ArcGIS/ArcObjects.NET"
+
+#~ msgid "Ionic Red Spider (now ERDAS)"
+#~ msgstr "Ionic Red Spider (ahora ERDAS)"
+
+#~ msgid "Iwan Mapserver"
+#~ msgstr "Iwan Mapserver"
+
+#~ msgid "MapDotNet Server"
+#~ msgstr "MapDotNet Server"
+
+#~ msgid "MapGuide Enterprise (using FDO)"
+#~ msgstr "MapGuide Enterprise (usando FDO)"
+
+#~ msgid "ESRI ArcGIS"
+#~ msgstr "ESRI ArcGIS"
+
+#~ msgid "AutoCAD Map 3D (using FDO)"
+#~ msgstr "AutoCAD Map 3D (usando FDO)"

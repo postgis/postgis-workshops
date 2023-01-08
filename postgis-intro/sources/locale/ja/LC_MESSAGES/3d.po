@@ -5,7 +5,20 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2022-01-07 12:48-0500\nPO-Revision-Date: 2022-09-16 02:55+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/3d/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.13.1\nGenerated-By: Babel 2.9.1\n"
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2022-09-16 02:55+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/3d/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.13.1\n"
+"Generated-By: Babel 2.9.1\n"
 
 #: ../../en/3d.rst:4
 msgid "3-D"
@@ -16,21 +29,11 @@ msgid "3-D Geometries"
 msgstr "3次元ジオメトリ"
 
 #: ../../en/3d.rst:9
-msgid ""
-"So far, we have been working with 2-D geometries, with only X and Y "
-"coordinates. But PostGIS supports additional dimensions on all geometry "
-"types, a \"Z\" dimension to add height information and a \"M\" dimension for "
-"additional dimensional information (commonly time, or road-mile, or upstream-"
-"distance information) for each coordinate."
+msgid "So far, we have been working with 2-D geometries, with only X and Y coordinates. But PostGIS supports additional dimensions on all geometry types, a \"Z\" dimension to add height information and a \"M\" dimension for additional dimensional information (commonly time, or road-mile, or upstream-distance information) for each coordinate."
 msgstr "ここまでX,Y座標だけを持つ2次元ジオメトリで作業をしてきていました。しかしPostGISは全てのジオメトリタイプでさらなる次元に対応しています。\"Z\"座標で高さ情報を追加できますし、\"M\"座標値で付加的な次元情報 (一般的には時間、道路距離、河川距離)を追加できます。"
 
 #: ../../en/3d.rst:11
-msgid ""
-"For 3-D and 4-D geometries, the extra dimensions are added as extra "
-"coordinates for each vertex in the geometry, and the geometry type is "
-"enhanced to indicate how to interpret the extra dimensions. Adding the extra "
-"dimensions results in three extra possible geometry types for each geometry "
-"primitive:"
+msgid "For 3-D and 4-D geometries, the extra dimensions are added as extra coordinates for each vertex in the geometry, and the geometry type is enhanced to indicate how to interpret the extra dimensions. Adding the extra dimensions results in three extra possible geometry types for each geometry primitive:"
 msgstr "3次元と4次元のジオメトリでは、座標次元は頂点の座標値として追加され、追加次元をどう解釈するかを示すようにジオメトリタイプが拡張されます。追加次元によってプリミティブなジオメトリから三つずつの拡張ジオメトリタイプが作られます。"
 
 #: ../../en/3d.rst:13
@@ -38,14 +41,11 @@ msgid "Point (a 2-D type) is joined by PointZ, PointM and PointZM types."
 msgstr "Point (2次元)はPointZ, PointM, PointZMタイプに変化します。"
 
 #: ../../en/3d.rst:14
-msgid ""
-"Linestring (a 2-D type) is joined by LinestringZ, LinestringM and "
-"LinestringZM types."
+msgid "Linestring (a 2-D type) is joined by LinestringZ, LinestringM and LinestringZM types."
 msgstr "Linestring (2次元)はLinestringZ, LinestringM, LinestringZMタイプに変化します。"
 
 #: ../../en/3d.rst:15
-msgid ""
-"Polygon (a 2-D type) is joined by PolygonZ, PolygonM and PolygonZM types."
+msgid "Polygon (a 2-D type) is joined by PolygonZ, PolygonM and PolygonZM types."
 msgstr "Polygon (2次元)はPolygonZ, PolygonM, PolygonZMタイプに変化します。"
 
 #: ../../en/3d.rst:16
@@ -53,11 +53,7 @@ msgid "And so on."
 msgstr "他も同じようになります。"
 
 #: ../../en/3d.rst:18
-msgid ""
-"For well-known text (:term:`WKT`) representation, the format for higher "
-"dimensional geometries is given by the ISO SQL/MM specification. The extra "
-"dimensionality information is simply added to the text string after the type "
-"name, and the extra coordinates added after the X/Y information. For example:"
+msgid "For well-known text (:term:`WKT`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The extra dimensionality information is simply added to the text string after the type name, and the extra coordinates added after the X/Y information. For example:"
 msgstr "Well-Known Text (:term:`WKT`)では、高次元ジオメトリのフォーマットはISO SQL/MM仕様で与えられています。高次元情報は、タイプ名の後に文字列を追加するだけです。高次元座標値は X/Y 情報の後に追加されます。次のようになります。"
 
 #: ../../en/3d.rst:20
@@ -73,41 +69,27 @@ msgid "POLYGON Z ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0))"
 msgstr "POLYGON Z ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0))"
 
 #: ../../en/3d.rst:24
-msgid ""
-"The ST_AsText() function will return the above representations when dealing "
-"with 3-D and 4-D geometries."
+msgid "The ST_AsText() function will return the above representations when dealing with 3-D and 4-D geometries."
 msgstr "ST_AsText()関数は3次元や4次元を扱う時には上のような表現を返します。"
 
 #: ../../en/3d.rst:26
-msgid ""
-"For well-known binary (:term:`WKB`) representation, the format for higher "
-"dimensional geometries is given by the ISO SQL/MM specification. The BNF "
-"form of the format is available from https://git.osgeo.org/gitea/postgis/"
-"postgis/src/branch/master/doc/bnf-wkb.txt."
+msgid "For well-known binary (:term:`WKB`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The BNF form of the format is available from https://git.osgeo.org/gitea/postgis/postgis/src/branch/master/doc/bnf-wkb.txt."
 msgstr "Well-Known Binary (:term:`WKB`)では、高次元ジオメトリのフォーマットはISO SQL/MM仕様で与えられています。BNF形式のフォーマットについては　https://git.osgeo.org/gitea/postgis/postgis/src/branch/master/doc/bnf-wkb.txt にあります。"
 
 #: ../../en/3d.rst:28
-msgid ""
-"In addition to higher-dimensional forms of the standard types, PostGIS "
-"includes a few new types that make sense in a 3-D space:"
+msgid "In addition to higher-dimensional forms of the standard types, PostGIS includes a few new types that make sense in a 3-D space:"
 msgstr "標準タイプの高次元形式だけでなく、PostGISには3次元空間で意味を持つ新タイプは次の通りです。"
 
 #: ../../en/3d.rst:30
-msgid ""
-"The TIN type allows you to model triangular meshes as rows in your database."
+msgid "The TIN type allows you to model triangular meshes as rows in your database."
 msgstr "TINはデータベース内の行を三角網を作る時に使います。"
 
 #: ../../en/3d.rst:31
-msgid ""
-"The POLYHEDRALSURFACE allows you to model volumetric objects in your "
-"database."
+msgid "The POLYHEDRALSURFACE allows you to model volumetric objects in your database."
 msgstr "POLYHEDRALSURFACEはデータベースで立体オブジェクトを作りたい時に使います。"
 
 #: ../../en/3d.rst:33
-msgid ""
-"Since both these types are for modelling 3-D objects, it only really makes "
-"sense to use the Z variants.  An example of a POLYHEDRALSURFACE Z would be "
-"the 1 unit cube:"
+msgid "Since both these types are for modelling 3-D objects, it only really makes sense to use the Z variants.  An example of a POLYHEDRALSURFACE Z would be the 1 unit cube:"
 msgstr "これらのタイプは3次元オブジェクトのモデルのためのものですのでZ形式を使うことで意味が出ます。POLYHEDRALSURFACE Zの例として1単位の立方体を次に示します。"
 
 #: ../../en/3d.rst:48
@@ -115,65 +97,43 @@ msgid "3-D Functions"
 msgstr "3次元関数"
 
 #: ../../en/3d.rst:50
-msgid ""
-"There are a number of functions built to calculate relationships between 3-D "
-"objects:"
+msgid "There are a number of functions built to calculate relationships between 3-D objects:"
 msgstr "3次元オブジェクト間の関係を計算するために作られた関数が多数あります。次の通りです。"
 
 #: ../../en/3d.rst:52
-msgid ""
-"ST_3DClosestPoint — Returns the 3-dimensional point on g1 that is closest to "
-"g2. This is the first point of the 3D shortest line."
+msgid "ST_3DClosestPoint — Returns the 3-dimensional point on g1 that is closest to g2. This is the first point of the 3D shortest line."
 msgstr "ST_3DClosestPoint — g1上のg2に最も近い3次元ポイントを返します。これは3次元最短線の始点です。"
 
 #: ../../en/3d.rst:53
-msgid ""
-"ST_3DDistance — For geometry type Returns the 3-dimensional cartesian "
-"minimum distance (based on spatial ref) between two geometries in projected "
-"units."
+msgid "ST_3DDistance — For geometry type Returns the 3-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units."
 msgstr "ST_3DDistance — ジオメトリ型に対しては、二つのジオメトリの3次元デカルト距離 (空間参照系に基づく)の最小値を投影参照系の単位で返します。"
 
 #: ../../en/3d.rst:54
-msgid ""
-"ST_3DDWithin — For 3d (z) geometry type Returns true if two geometries 3d "
-"distance is within number of units."
+msgid "ST_3DDWithin — For 3d (z) geometry type Returns true if two geometries 3d distance is within number of units."
 msgstr "ST_3DDWithin — 3次元 (XYZ)ジオメトリタイプに対して、二つのジオメトリが3次元距離が指定した距離以内ならtrueを返します。"
 
 #: ../../en/3d.rst:55
-msgid ""
-"ST_3DDFullyWithin — Returns true if all of the 3D geometries are within the "
-"specified distance of one another."
+msgid "ST_3DDFullyWithin — Returns true if all of the 3D geometries are within the specified distance of one another."
 msgstr "ST_3DDFullyWithin — 全ての3次元ジオメトリの互いの距離が指定した距離以内ならtrueを返します。"
 
 #: ../../en/3d.rst:56
-msgid ""
-"ST_3DIntersects — Returns TRUE if the Geometries \"spatially intersect\" in "
-"3d - only for points and linestrings"
+msgid "ST_3DIntersects — Returns TRUE if the Geometries \"spatially intersect\" in 3d - only for points and linestrings"
 msgstr "ST_3DIntersects — ジオメトリが3次元空間で「空間的にインタセクトする」場合にはTRUEを返します。ポイントとラインストリングのみ有効です。"
 
 #: ../../en/3d.rst:57
-msgid ""
-"ST_3DLongestLine — Returns the 3-dimensional longest line between two "
-"geometries"
+msgid "ST_3DLongestLine — Returns the 3-dimensional longest line between two geometries"
 msgstr "ST_3DLongestLine — 二つのジオメトリの間の3次元最長距離を返します。"
 
 #: ../../en/3d.rst:58
-msgid ""
-"ST_3DMaxDistance — For geometry type Returns the 3-dimensional cartesian "
-"maximum distance (based on spatial ref) between two geometries in projected "
-"units."
+msgid "ST_3DMaxDistance — For geometry type Returns the 3-dimensional cartesian maximum distance (based on spatial ref) between two geometries in projected units."
 msgstr "ST_3DMaxDistance — ジオメトリ型に対しては、二つのジオメトリの3次元デカルト距離 (空間参照系に基づく)の最大値を投影参照系の単位で返します。"
 
 #: ../../en/3d.rst:59
-msgid ""
-"ST_3DShortestLine — Returns the 3-dimensional shortest line between two "
-"geometries"
+msgid "ST_3DShortestLine — Returns the 3-dimensional shortest line between two geometries"
 msgstr "ST_3DShortestLine — 二つのジオメトリの3次元最短ラインを返します。"
 
 #: ../../en/3d.rst:61
-msgid ""
-"For example, we can calculate the distance between our unit cube and a point "
-"using the ST_3DDistance function:"
+msgid "For example, we can calculate the distance between our unit cube and a point using the ST_3DDistance function:"
 msgstr "ST_3DDistance関数を使って単位立方体とポイントとの間の距離の計算は次のようにできます。"
 
 #: ../../en/3d.rst:89
@@ -181,66 +141,37 @@ msgid "N-D Indexes"
 msgstr "N次元インデックス"
 
 #: ../../en/3d.rst:91
-msgid ""
-"Once you have data in higher dimensions it may make sense to index it. "
-"However, you should think carefully about the distribution of your data in "
-"all dimensions before applying a multi-dimensional index."
+msgid "Once you have data in higher dimensions it may make sense to index it. However, you should think carefully about the distribution of your data in all dimensions before applying a multi-dimensional index."
 msgstr "高次元データを持つと、インデックスを有効にすることになるかも知れません。しかしながら、多次元インデックスを適用する前に全ての次元内でのデータの分布について十分に検討するべきです。"
 
 #: ../../en/3d.rst:93
-msgid ""
-"Indexes are only useful when they allow the database to drastically reduce "
-"the number of return rows as a result of a WHERE condition. For a higher "
-"dimension index to be useful, the data must cover a wide range of that "
-"dimension, relative to the kinds of queries you are constructing."
+msgid "Indexes are only useful when they allow the database to drastically reduce the number of return rows as a result of a WHERE condition. For a higher dimension index to be useful, the data must cover a wide range of that dimension, relative to the kinds of queries you are constructing."
 msgstr "インデックスはデータベースがWHERE条件の結果として返す行を大幅に削減する場合に限って使えます。高次元インデックスを有効に使用するには、ユーザが作ろうとするクエリに対してデータが次元の広い範囲にわたっていなければなりません。"
 
 #: ../../en/3d.rst:95
-msgid ""
-"A set of DEM points would probably be a *poor* candidate for a 3-D index, "
-"since the queries would usually be extracting a 2-D box of points, and "
-"rarely attempting to select a Z-slice of points."
+msgid "A set of DEM points would probably be a *poor* candidate for a 3-D index, since the queries would usually be extracting a 2-D box of points, and rarely attempting to select a Z-slice of points."
 msgstr "DEMポイント集合は3次元インデックスの「不十分な」候補になるかも知れません。クエリがポイントの2次元ボックスを抽出することになり、ポイント集合をZ値で薄切りにしようとすることはほぼありません。"
 
 #: ../../en/3d.rst:96
-msgid ""
-"A set of GPS traces in X/Y/T space might be a *good* candidate for a 3-D "
-"index, if the GPS tracks overlapped each other frequently in all dimensions "
-"(for example, driving the same route over and over at different times), "
-"since there would be large variability in all dimensions of the data set."
+msgid "A set of GPS traces in X/Y/T space might be a *good* candidate for a 3-D index, if the GPS tracks overlapped each other frequently in all dimensions (for example, driving the same route over and over at different times), since there would be large variability in all dimensions of the data set."
 msgstr "X/Y/T空間でのGPSトラックは、GPSトラックが互いに周期的に全ての次元に及ぶ (たとえば同じ道程を違う時刻に何度も通る)場合には、3次元インデックスの「良い」候補になるかも知れません。データセットの全ての次元で大きなばらつきが出るためです。"
 
 #: ../../en/3d.rst:98
-msgid ""
-"You can create a multi-dimensional index on data of any dimensionality (even "
-"mixed dimensionality). For example, to create a multi-dimensional index on "
-"the ``nyc_streets`` table,"
+msgid "You can create a multi-dimensional index on data of any dimensionality (even mixed dimensionality). For example, to create a multi-dimensional index on the ``nyc_streets`` table,"
 msgstr "多次元インデックスを任意次元のデータに作ることができます (混合次元であっても)。たとえば、``nyc_streets``テーブル上に多次元インデックスを作るには次のようにします。"
 
 #: ../../en/3d.rst:105
-msgid ""
-"The ``gist_geometry_ops_nd`` parameter tells PostGIS to use the N-D index "
-"instead of the standard 2-D index."
+msgid "The ``gist_geometry_ops_nd`` parameter tells PostGIS to use the N-D index instead of the standard 2-D index."
 msgstr "``gist_geometry_ops_nd``パラメータで、PostGISに標準の2次元インデックスでなくN次元インデックスを使うようになります。"
 
 #: ../../en/3d.rst:107
-msgid ""
-"Once you have the index built, you can use it in queries with the ``&&&`` "
-"index operator. ``&&&`` has the same semantics as ``&&``, \"bounding boxes "
-"interact\", but applies those semantics using all the dimensions of the "
-"input geometries. Geometries with mis-matching dimensionality do not "
-"interact."
+msgid "Once you have the index built, you can use it in queries with the ``&&&`` index operator. ``&&&`` has the same semantics as ``&&``, \"bounding boxes interact\", but applies those semantics using all the dimensions of the input geometries. Geometries with mis-matching dimensionality do not interact."
 msgstr "インデックスを構築すると、クエリ内でインデックス演算子``&&&``によってインデックスを使えるようになります。``&&&``は「バウンディングボックスの相互作用」としては``&&``と同じ意味ですが、入力ジオメトリの次元の全てを使うという意味が適用されます。次元が合致しないジオメトリは相互作用しません。"
 
 #: ../../en/3d.rst:123
-msgid ""
-"To search the ``nyc_streets`` table using the N-D index, just replace the "
-"usual ``&&`` 2-D index operator with the ``&&&`` operator."
+msgid "To search the ``nyc_streets`` table using the N-D index, just replace the usual ``&&`` 2-D index operator with the ``&&&`` operator."
 msgstr "N次元インデックスを使って``nyc_streets``テーブル内を探索するには、2次元インデックス演算子``&&``から``&&&``演算子に変更するだけです。"
 
 #: ../../en/3d.rst:139
-msgid ""
-"The results should be the same. In general the N-D index is very slightly "
-"slower than the 2-D index, so only use the N-D index where you are certain "
-"that N-D queries will improve the selectivity of your queries."
+msgid "The results should be the same. In general the N-D index is very slightly slower than the 2-D index, so only use the N-D index where you are certain that N-D queries will improve the selectivity of your queries."
 msgstr "結果は同じなはずです。一般にN次元インデックスは2次元インデックスと比べて少し遅いです。N次元インデックスの使用は、N次元クエリで実行するクエリの選択性が向上すると確信できる場合だけにしてください。"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-10 01:24-0500\n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2022-01-24 01:52+0000\n"
 "Last-Translator: Regina Obe <regina@arrival3d.com>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
@@ -133,8 +133,8 @@ msgstr ""
 
 #: ../../en/loading_data.rst:56
 msgid ""
-"If you installed Linux from packages, :file:`ogr2ogr` should be installed "
-"and on your PATH already as part of the **gdal** or *libgdal** packages."
+"If you installed QGIS from packages, :file:`ogr2ogr` should be installed and "
+"on your PATH already as part of the **gdal** or *libgdal** packages."
 msgstr ""
 
 #: ../../en/loading_data.rst:58

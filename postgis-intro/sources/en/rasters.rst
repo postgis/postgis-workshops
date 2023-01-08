@@ -273,7 +273,7 @@ there really isn't any ambiguity on how to combine two vectors when they interse
 Another feature of the raster :command:`ST_Union` we glossed over,
 is this idea of if you should return all bands or just some bands.
 When you don't specify what bands to union, :command:`ST_Union` will combine
-same banded numbers and use the `LAST` unioning
+same banded numbers and use the :command:`LAST` unioning
 strategy.  If you have multiple bands, this may not be what you want to do.
 Perhaps you only want to union, the second band.
 In this case, the Green Band and you want the count of pixel values.

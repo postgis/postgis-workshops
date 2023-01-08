@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2023-01-07 22:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -186,7 +186,7 @@ msgid "So instead of **Raster** trumping **Hello**, we'd see a blending of the t
 msgstr ""
 
 #: ../../en/rasters.rst:273
-msgid "Another feature of the raster :command:`ST_Union` we glossed over, is this idea of if you should return all bands or just some bands. When you don't specify what bands to union, :command:`ST_Union` will combine same banded numbers and use the `LAST` unioning strategy.  If you have multiple bands, this may not be what you want to do. Perhaps you only want to union, the second band. In this case, the Green Band and you want the count of pixel values."
+msgid "Another feature of the raster :command:`ST_Union` we glossed over, is this idea of if you should return all bands or just some bands. When you don't specify what bands to union, :command:`ST_Union` will combine same banded numbers and use the :command:`LAST` unioning strategy.  If you have multiple bands, this may not be what you want to do. Perhaps you only want to union, the second band. In this case, the Green Band and you want the count of pixel values."
 msgstr ""
 
 #: ../../en/rasters.rst:287

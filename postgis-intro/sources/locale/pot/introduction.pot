@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 12:48-0500\n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -301,7 +301,7 @@ msgid "Who uses PostGIS?"
 msgstr ""
 
 #: ../../en/introduction.rst:156
-msgid "For a complete list of case studies, see the `PostGIS case studies <http://postgis.net/casestudy>`_ page."
+msgid "For a complete list of case studies, see the `PostGIS case studies <https://postgis.net/category/casestudy/>`_ page."
 msgstr ""
 
 #: ../../en/introduction.rst:159
@@ -317,7 +317,7 @@ msgid "RedFin"
 msgstr ""
 
 #: ../../en/introduction.rst:166
-msgid "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based service for exploring properties and estimate values. Their system was originally build on MySQL, but they found that moving to PostgreSQL and PostGIS provided `huge benefits in performance and reliability <https://www.redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
+msgid "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based service for exploring properties and estimate values. Their system was originally built on MySQL, but they found that moving to PostgreSQL and PostGIS provided `huge benefits in performance and reliability <https://www.redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgstr ""
 
 #: ../../en/introduction.rst:169
@@ -337,10 +337,9 @@ msgid "Open/Free"
 msgstr ""
 
 #: ../../en/introduction.rst:176
-msgid "Closed/Proprietary"
+msgid "Closed/Proprietary/Paid services"
 msgstr ""
 
-#: ../../en/introduction.rst:179
 #: ../../en/introduction.rst:179
 msgid "Loading/Extracting"
 msgstr ""
@@ -357,121 +356,149 @@ msgstr ""
 msgid "Dxf2PostGIS"
 msgstr ""
 
-#: ../../en/introduction.rst:185
 #: ../../en/introduction.rst:184
+msgid "GeoKettle"
+msgstr ""
+
+#: ../../en/introduction.rst:186
+#: ../../en/introduction.rst:187
 msgid "Web-Based"
 msgstr ""
 
-#: ../../en/introduction.rst:187
+#: ../../en/introduction.rst:189
 msgid "Mapserver"
 msgstr ""
 
-#: ../../en/introduction.rst:188
-msgid "GeoServer (Java-based WFS / WMS -server )"
-msgstr ""
-
-#: ../../en/introduction.rst:189
-msgid "SharpMap SDK - for ASP.NET 2.0"
-msgstr ""
-
 #: ../../en/introduction.rst:190
-msgid "MapGuide Open Source (using FDO)"
+msgid "GeoServer /geoNode"
+msgstr ""
+
+#: ../../en/introduction.rst:191
+msgid "pg_tileserv"
 msgstr ""
 
 #: ../../en/introduction.rst:192
+msgid "pg_featureserv"
+msgstr ""
+
 #: ../../en/introduction.rst:193
-msgid "Desktop"
+msgid "Deegree"
 msgstr ""
 
 #: ../../en/introduction.rst:194
-msgid "uDig"
+#: ../../en/introduction.rst:197
+msgid "Carto"
 msgstr ""
 
 #: ../../en/introduction.rst:195
-msgid "QGIS"
+msgid "QGIS Server"
 msgstr ""
 
 #: ../../en/introduction.rst:196
-msgid "mezoGIS"
-msgstr ""
-
-#: ../../en/introduction.rst:197
-msgid "OpenJUMP"
-msgstr ""
-
-#: ../../en/introduction.rst:198
-msgid "OpenEV"
-msgstr ""
-
-#: ../../en/introduction.rst:199
-msgid "SharpMap SDK for Microsoft.NET 2.0"
-msgstr ""
-
-#: ../../en/introduction.rst:200
-msgid "ZigGIS for ArcGIS/ArcObjects.NET"
+msgid "MapGuide Open Source (using FDO)"
 msgstr ""
 
 #: ../../en/introduction.rst:201
+#: ../../en/introduction.rst:202
+msgid "Desktop"
+msgstr ""
+
+#: ../../en/introduction.rst:203
+msgid "QGIS"
+msgstr ""
+
+#: ../../en/introduction.rst:204
+msgid "OpenJUMP"
+msgstr ""
+
+#: ../../en/introduction.rst:205
+msgid "GRASS"
+msgstr ""
+
+#: ../../en/introduction.rst:206
+msgid "pgAdmin"
+msgstr ""
+
+#: ../../en/introduction.rst:207
+msgid "DBeaver"
+msgstr ""
+
+#: ../../en/introduction.rst:208
 msgid "GvSIG"
 msgstr ""
 
-#: ../../en/introduction.rst:202
-msgid "GRASS"
+#: ../../en/introduction.rst:209
+msgid "SAGA"
+msgstr ""
+
+#: ../../en/introduction.rst:210
+msgid "uDig"
 msgstr ""
 
 #: ../../en/introduction.rst:181
 msgid "Safe FME Desktop Translator/Converter"
 msgstr ""
 
-#: ../../en/introduction.rst:186
-msgid "Ionic Red Spider (now ERDAS)"
-msgstr ""
-
-#: ../../en/introduction.rst:187
-msgid "Cadcorp GeognoSIS"
+#: ../../en/introduction.rst:182
+msgid "Dbt"
 msgstr ""
 
 #: ../../en/introduction.rst:188
-msgid "Iwan Mapserver"
+msgid "Cadcorp GeognoSIS"
 msgstr ""
 
 #: ../../en/introduction.rst:189
-msgid "MapDotNet Server"
+msgid "ESRI ArcGIS Server / Online"
 msgstr ""
 
-#: ../../en/introduction.rst:190
-msgid "MapGuide Enterprise (using FDO)"
-msgstr ""
-
-#: ../../en/introduction.rst:191
-msgid "ESRI ArcGIS Server"
+#: ../../en/introduction.rst:193
+msgid "Services / DbaaS"
 msgstr ""
 
 #: ../../en/introduction.rst:195
-msgid "Cadcorp SIS"
+msgid "Aiven for PostgreSQL"
 msgstr ""
 
 #: ../../en/introduction.rst:196
-msgid "Microimages TNTmips GIS"
-msgstr ""
-
-#: ../../en/introduction.rst:197
-msgid "ESRI ArcGIS"
+msgid "Amazon RDS / Aurora for PostgreSQL"
 msgstr ""
 
 #: ../../en/introduction.rst:198
-msgid "Manifold"
+msgid "Crunchy Bridge"
 msgstr ""
 
 #: ../../en/introduction.rst:199
-msgid "GeoConcept"
+msgid "Microsoft Azure for PostgreSQL"
 msgstr ""
 
 #: ../../en/introduction.rst:200
-msgid "MapInfo (v10)"
+msgid "Google Cloud SQL for PostgreSQL"
 msgstr ""
 
-#: ../../en/introduction.rst:201
-msgid "AutoCAD Map 3D (using FDO)"
+#: ../../en/introduction.rst:204
+msgid "Cadcorp SIS"
 msgstr ""
 
+#: ../../en/introduction.rst:205
+msgid "ESRI Desktop/Pro"
+msgstr ""
+
+#: ../../en/introduction.rst:206
+msgid "GeoConcept"
+msgstr ""
+
+#: ../../en/introduction.rst:207
+msgid "Global Mapper"
+msgstr ""
+
+#: ../../en/introduction.rst:208
+msgid "Manifold"
+msgstr ""
+
+#: ../../en/introduction.rst:209
+msgid "MapInfo"
+msgstr ""
+
+#: ../../en/introduction.rst:210
+msgid "Microimages TNTmips GIS"
+msgstr ""

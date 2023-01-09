@@ -75,7 +75,7 @@ Note that on Windows, you will need to use ``set`` instead of ``export``.
     -lco GEOMETRY_NAME=geom \
     -lco FID=gid \
     -lco PRECISION=NO \
-    Pg:'dbname=nyc host=localhost user=pramsey port=5432' \
+    Pg:"dbname=nyc host=localhost user=pramsey port=5432" \
     nyc_census_blocks_2000.shp
 
 
@@ -115,7 +115,7 @@ The **lco** option stands for "layer create option". Different drivers have diff
 
 ::
 
-  Pg:'dbname=nyc host=localhost user=pramsey port=5432' \
+  Pg:"dbname=nyc host=localhost user=pramsey port=5432" \
 
 The order of arguments in :file:`ogr2ogr` is, roughly: executable, then options, then **destination** location, then **source location**. So this is the destination, the connection string for our PostgreSQL database. The "Pg:" portion is the driver name, and then the `connection string <https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING>`_ is contained in quotation marks (because it might have embedded spaces).
 

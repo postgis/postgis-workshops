@@ -4,19 +4,21 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-01-09 05:42+0000\n"
+"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"geometries_exercises/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.15\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geometries_exercises.rst:4
@@ -173,7 +175,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:41
 msgid "``nyc_census_blocks``"
-msgstr ""
+msgstr "nyc_census_blocks"
 
 #: ../../en/geometries_exercises.rst:43
 msgid "blkid, popn_total, boroname, geom"
@@ -189,7 +191,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:49
 msgid "``nyc_subway_stations``"
-msgstr ""
+msgstr "nyc_subway_stations"
 
 #: ../../en/geometries_exercises.rst:51
 msgid "name, geom"
@@ -197,7 +199,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:53
 msgid "``nyc_neighborhoods``"
-msgstr ""
+msgstr "nyc_neighborhoods"
 
 #: ../../en/geometries_exercises.rst:55
 msgid "name, boroname, geom"

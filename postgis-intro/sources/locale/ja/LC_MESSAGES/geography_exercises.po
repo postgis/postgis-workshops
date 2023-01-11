@@ -3,20 +3,22 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Regina Obe <regina@arrival3d.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-01-09 05:42+0000\n"
+"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"geography_exercises/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.15\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geography_exercises.rst:4
@@ -79,7 +81,7 @@ msgstr ""
 
 #: ../../en/geography_exercises.rst:22
 msgid "``nyc_neighborhoods``"
-msgstr ""
+msgstr "nyc_neighborhoods"
 
 #: ../../en/geography_exercises.rst:24
 msgid "name, boroname, geom"

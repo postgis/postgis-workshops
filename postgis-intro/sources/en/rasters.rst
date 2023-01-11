@@ -20,7 +20,7 @@ as shown below.
 
 The raster format is commonly used to store elevation data, temperature data, satellite data, and thematic data representing things like environmental contamination, population density, and environmental hazard occurrences.
 
-Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the `raster2pgsql` command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:
+Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the `raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_ command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:
 
 .. code-block:: sql
 
@@ -46,16 +46,17 @@ We'll start by converting some geometries into rasters using `ST_AsRaster <https
     ON rasters USING gist(ST_ConvexHull(rast));
 
 The above example CREATEs a table (**rasters**) from geometries formed from letters using the PostGIS 3.2+ `ST_Letters <https://postgis.net/docs/ST_Letters.html>`_ function. Rasters similar to geometries, can take advantage of spatial indexes. The spatial index used for raster
-is a functional index that indexes the geometry envelope (or convexhull) of the raster.
+is a functional index that indexes the geometry convexhull of the raster.
+When loading data with :command:`raster2pgsql` with the :command:`I` switch, the :command:`CREATE INDEX`
+step is done for you.
 
 You can see some useful metadata of your rasters
-with the following query which utilizes the postgis raster functions `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters.
+with the following query which utilizes the postgis raster functions `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels that have data and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters.
 
 .. code-block:: sql
 
  SELECT name, ST_Count(rast) As num_pixels, md.*
     FROM rasters, ST_MetaData(rast) AS md;
-
 
 .. code-block::
 
@@ -65,9 +66,20 @@ with the following query which utilizes the postgis raster functions `ST_Count <
   Raster |      11967 |          0 |              75.4 |   150 |    150 | 1.7226319023207244 | -0.5086666666666667 |     0 |     0 |    0 |        1
   (2 rows)
 
+.. note::
+
+  There are two levels of raster functions.
+  There are functions such as ST_MetaData that work at the raster level and there are functions such as
+  ::command::`ST_Count` function and ::command::`ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_
+  function that work at the band level.
+  Most functions in postgis raster that work at the
+  band level, work with only one band at a time, and assume the band you want is `1`.
 
 Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that,
 our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us.
+
+If you have a multi-band raster, and you need to count the pixel not no-data values in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`.
+
 
 Viewing Rasters in Browser
 ------------------------------
@@ -116,8 +128,7 @@ meaning we want each pixel (rectangle) to represent some meaningful plot of spac
 The `ST_AsRaster` has many overloaded representations. The earlier example used the simplest such implementation
 and accepted the default arguments which are 8BUI and 1 band, with no data being 0.
 If you need to use the other variants, you should use the named arguments call syntax so that you don't accidentally
-fall into the wrong variant of the function or get *function is not unique* errors.
-
+fall into the wrong variant of the function or get **function is not unique** errors.
 
 If you start with a geometry that has a spatial reference system, you'll end up with a raster
 with same spatial reference system.  In this next example, we'll plop our words in New York in
@@ -142,7 +153,6 @@ our raster pixel sizes represent 1 meter x 1 meter of space.
       ) AS geom;
 
 If we then look at this, we'll see a non-squashed colored geometry.
-Your color may be different from the below since we used a random generate to choose the colors.
 
 .. code-block:: sql
 
@@ -185,12 +195,88 @@ the width of the word **Raster** is now wider than **Hello**.
   Raster in New York |      10544 |     586467 |         4504800.4 |   258 |     76 |                  1 |                  -1 |     0 |     0 | 26918 |        3
   (4 rows)
 
+Raster Spatial Catalog tables
+===============================
+Similar to the geometry and geography types, raster has a set of catalogs that show you
+all raster columns in your database.
+These are `raster_columns and raster_overviews <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Catalog>`_.
+Both of these are views similar to the `geometry_columns` and `geography_columns`.
+
+.. code-block:: sql
+
+  SELECT *
+      FROM raster_columns;
+
+Explore the table, and you'll find this:
+
+.. code-block:: sql
+
+  r_table_catalog | r_table_schema | r_table_name | r_raster_column | srid | scale_x | scale_y | blocksize_x | blocksize_y | same_alignment | regular_blocking | num_bands | pixel_types | nodata_values | out_db | extent | spatial_index
+  -----------------+----------------+--------------+-----------------+------+---------+---------+-------------+-------------+----------------+------------------+-----------+-------------+---------------+--------+--------+---------------
+  nyc             | public         | rasters      | rast            |    0 |         |         |             |             | f              | f                |           |             |               |        |        | t
+  (1 row)
+
+a very disappointing row of largely unfilled information.
+
+Unlike geometry and geography, raster does not support type modifiers, because type modifier space is too
+limited and there are more critical properties than what can fit in a type modifier.
+
+Raster instead relies on constraints, and reads these constraints back as part of the view.
+So let's try to add some constraints to our table.
+
+.. code-block:: sql
+
+  SELECT AddRasterConstraints('public'::name, 'rasters'::name, 'rast'::name);
+
+
+And you'll be bombarded with a whole bunch of notices about how your raster data is mess
+and nothing can be constrained. If you look at raster_columns again, still the same disappointing
+story of many blank rows.
+
+In order for constraints to be applied,
+all rasters in your table must be constrainable by at least one rule.
+
+We can perhaps do this, let's just lie and say all our data is in New York State plane.
+
+.. code-block:: sql
+
+  UPDATE rasters SET rast = ST_SetSRID(rast,26918)
+    WHERE ST_SRID(rast) <> 26918;
+
+  SELECT AddRasterConstraints('public'::name, 'rasters'::name, 'rast'::name);
+  SELECT r_table_name AS t, r_raster_column AS c, srid,
+    blocksize_x AS bx, blocksize_y AS by, scale_x AS sx, scale_y AS sy,
+    ST_AsText(extent) AS e
+    FROM raster_columns;
+
+Ah progress:
+
+.. code-block::
+
+  t         |  c   | srid  | bx  | by  | sx | sy |  e
+  ----------+------+-------+-----+-----+----+----+------------------------------------------
+  rasters   | rast | 26918 | 150 | 150 |    |    | POLYGON((0 -0.90000000000..
+  (1 row)
+
+The more you can constrain all your rasters, the more columns you'll see filled in
+and also the more operations you'll be able to do across all the tiles in your raster.
+Keep in mind that in some cases, you may not want to apply all constraints.
+
+For example, if you plan to load more data into your raster table,
+you'll want to skip the extent constraint since that
+would require that all rasters are within the extent of the extent constraint.
+
+You'll often here in PostGIS lingo, the term **raster tile** and **raster** used somewhat interchangeably.
+A raster tile really corresponds to a particular raster in a raster column which is a subset of a bigger raster.
+This is because when rasters are loaded into PostGIS from big raster files, they are often chopped up to make them
+manageable.
+
 Exploring Raster Functions
 ===========================
 The postgis_raster extension has over 100 functions to choose from.  We'll focus on the ones you will commonly use.
 PostGIS raster functionality was patterned after the PostGIS geometry support.  As such you'll
 find an overlap of functions between raster and geometry where it makes sense.
-Common ones you'll use are :command:`ST_Intersects`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`.
+Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`.
 In addition to those overlapping functions, it offers many functions that work in conjunction with geometry
 or are very specific to rasters.
 
@@ -259,11 +345,12 @@ Voila it worked, and if we were to view, we'd see something like this:
 One major way in which the `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates
 from the `ST_Union <https://postgis.net/docs/ST_Union.html>`_ geometry function is that
 it allows for an argument called *uniontype*.  This argument by default is set to `LAST` if you don't specify it,
-which means, take the **LAST** raster pixel values in occasions where the rasters overlap.
+which means, take the **LAST** raster pixel values in occasions where the raster pixel values overlap.
+As a general rule, pixels in a band that are marked as no-data are ignored.
 
 Just as with most aggregates in PostgreSQL, you can put a :command:`ORDER BY` clause as part of the function call
-as is done in the prior example.  Specifying the order, allows you to control which raster tile takes priority.
-So in our prior example, Raster trumped Hello because Raster is alphabetically last.
+as is done in the prior example.  Specifying the order, allows you to control which raster takes priority.
+So in our prior example, *Raster* trumped *Hello* because *Raster* is alphabetically last.
 
 Observe, if you switch the order:
 
@@ -275,7 +362,7 @@ Observe, if you switch the order:
 
 .. image:: ./rasters/raster-hello-ny.png
 
-Then Hello trumps Raster because Hello is now the last overlaid.
+Then *Hello* trumps *Raster* because Hello is now the last overlaid.
 
 The :command:`FIRST` union type is the reverse of :command:`LAST`.
 
@@ -296,7 +383,7 @@ Voila it worked, and if we were to view, we'd see something like this:
 .. image:: ./rasters/hello-raster-ny-mean.png
 
 So instead of trumping, we have a blending of the two forces.
-In the case of :command:`MEAN` union type, there is no point is specifying order,
+In the case of :command:`MEAN` union type, there is no point in specifying order,
 because the result would be the average of overlapping pixel values.
 
 Note that for geometries
@@ -317,8 +404,15 @@ In this case, the Green Band and you want the count of pixel values.
     FROM rasters
     WHERE name LIKE '%New York%';
 
+.. code-block::
+
+  st_bandpixeltype
+  ------------------
+  32BUI
+  (1 row)
+
 Note in the case of the **COUNT** union type, which counts the number of pixels filled in and returns that value,
-The result is always a **32BUI** similar to how when you do a :command:`COUNT` in sql, the result is always a bigint,
+the result is always a **32BUI** similar to how when you do a :command:`COUNT` in sql, the result is always a bigint,
 to accommodate large counts.
 
 In other cases, the band pixel type does not change and is set to the max value or rounded
@@ -368,7 +462,7 @@ can take advantage of spatial indexes on the raster or geometry tables.
 Converting Rasters to Geometries
 ---------------------------------
 Rasters can just as easily be morphed into geometries.
-Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_
+Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_ function.
 
 .. code-block:: sql
 
@@ -379,10 +473,32 @@ Lets start with our prior example, but convert it to a polygon using `ST_Polygon
             ON ST_Intersects(r.rast, g.geom)
     WHERE r.name LIKE '%New York%';
 
-If you click on the geometry viewer in pgAdmin, you can see this in all it's glory with any hacks.
+If you click on the geometry viewer in pgAdmin, you can see this in all it's glory without any hacks.
 
 .. image:: ./rasters/raster_as_geometry.png
 
-ST_Polygon considers all the pixels that have values (no data),
+ST_Polygon considers all the pixels that have values (not no-data) in a particular band,
 and converts them to geometry.  Like many other functions in raster, ST_Polygon only considers 1 band.
 If no band is specified, it will consider only the first band.
+
+Map Algebra Functions
+-----------------------------------
+Map algebra is the idea that you can do math on your pixel values.
+The :command:`ST_Union` function covered earlier is a special fast case of map algebra.
+Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_
+family of functions which allow you to define your own
+crazy math, but at cost of performance.
+
+People have the habit of jumping to  :command:`ST_MapAlgebra`,
+probably cause the name sounds so cool and sophisticated.
+Who wouldn't want to tell their friends, "I'm using a function called ST_MapAlgebra."
+My advice, explore other functions before you jump for that shot-gun.
+Your life will be simpler and your performance will be 100 times better, and your code will be shorter.
+
+An often overlooked map-algebraish
+function is the `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_ function, who sits in the background
+waiting for someone to discover the power and speed it can offer.
+
+What does **ST_Reclass** do.  It as the name implies, reclassifies your pixel values based on minimalist range algebra.
+
+.. TODO continue here

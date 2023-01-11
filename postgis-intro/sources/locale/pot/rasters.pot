@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 22:15-0500\n"
+"POT-Creation-Date: 2023-01-11 14:11-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgid "The raster format is commonly used to store elevation data, temperature d
 msgstr ""
 
 #: ../../en/rasters.rst:23
-msgid "Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the `raster2pgsql` command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:"
+msgid "Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the `raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_ command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:"
 msgstr ""
 
 #: ../../en/rasters.rst:30
@@ -49,174 +49,294 @@ msgid "We'll start off by first creating raster data from vector data, and then 
 msgstr ""
 
 #: ../../en/rasters.rst:34
-msgid "We'll start by converting our earlier geometries into rasters using `ST_AsRaster <https://postgis.net/docs/RT_ST_AsRaster.html>`_ function as follows."
+msgid "We'll start by converting some geometries into rasters using `ST_AsRaster <https://postgis.net/docs/RT_ST_AsRaster.html>`_ function as follows."
 msgstr ""
 
 #: ../../en/rasters.rst:48
-msgid "The above example CREATEs a table (**rasters**) from geometries formed from letters using the PostGIS 3.2+ `ST_Letters <https://postgis.net/docs/ST_Letters.html>`_ function. Rasters similar to geometries, can take advantage of spatial indexes. The spatial index used for raster is a functional index that indexes the geometry envelope (or convexhull) of the raster."
+msgid "The above example CREATEs a table (**rasters**) from geometries formed from letters using the PostGIS 3.2+ `ST_Letters <https://postgis.net/docs/ST_Letters.html>`_ function. Rasters similar to geometries, can take advantage of spatial indexes. The spatial index used for raster is a functional index that indexes the geometry convexhull of the raster. When loading data with :command:`raster2pgsql` with the :command:`I` switch, the :command:`CREATE INDEX` step is done for you."
 msgstr ""
 
-#: ../../en/rasters.rst:51
-msgid "You can see some useful metadata of your rasters with the following query which utilizes the postgis raster functions `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters."
+#: ../../en/rasters.rst:53
+msgid "You can see some useful metadata of your rasters with the following query which utilizes the postgis raster functions `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels that have data and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters."
 msgstr ""
 
-#: ../../en/rasters.rst:69
+#: ../../en/rasters.rst:71
+msgid "There are two levels of raster functions. There are functions such as ST_MetaData that work at the raster level and there are functions such as ::command::`ST_Count` function and ::command::`ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_ function that work at the band level. Most functions in postgis raster that work at the band level, work with only one band at a time, and assume the band you want is `1`."
+msgstr ""
+
+#: ../../en/rasters.rst:78
 msgid "Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that, our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us."
 msgstr ""
 
-#: ../../en/rasters.rst:73
+#: ../../en/rasters.rst:81
+msgid "If you have a multi-band raster, and you need to count the pixel not no-data values in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`."
+msgstr ""
+
+#: ../../en/rasters.rst:85
 msgid "Viewing Rasters in Browser"
 msgstr ""
 
-#: ../../en/rasters.rst:74
+#: ../../en/rasters.rst:86
 msgid "Although pgAdmin and psql have no mechanism yet to view postgis rasters, we have a couple of options. For smallish rasters the easiest is to output to a web-friendly raster format such as PNG using batteries included postgis raster functions like `ST_AsPNG` or `ST_AsGDALRaster` listed in `PostGIS Raster output functions <https://postgis.net/docs/RT_reference.html#Raster_Outputs>`_. As your rasters get larger, you'll want to graduate to a tool such as QGIS to view them in all their glory or the GDAL family of commandline tools such as gdal_translate to export them to other raster formats.  Remember though, postgis rasters are built for analysis, not for generating pretty pictures for you to look at."
 msgstr ""
 
-#: ../../en/rasters.rst:81
-msgid "One caveat, by default all different raster types outputs are disabled. In order to utilize these, you'll need to enable drivers, all or a subset as detailed in `PostGIS Raster output functions <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>` _"
+#: ../../en/rasters.rst:93
+msgid "One caveat, by default all different raster types outputs are disabled. In order to utilize these, you'll need to enable drivers, all or a subset as detailed in `PostGIS Raster output functions <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_"
 msgstr ""
 
-#: ../../en/rasters.rst:89
+#: ../../en/rasters.rst:101
 msgid "If you don't want to have to do this for each connection, you can set at the database level using:"
 msgstr ""
 
-#: ../../en/rasters.rst:95
+#: ../../en/rasters.rst:107
 msgid "Each new connection to the database will use that setting."
 msgstr ""
 
-#: ../../en/rasters.rst:97
+#: ../../en/rasters.rst:109
 msgid "Run the below query and copy and paste the output into the address bar of your web browser."
 msgstr ""
 
-#: ../../en/rasters.rst:109
+#: ../../en/rasters.rst:120
 msgid "For the rasters created thus far, we didn't specify the number of bands nor did we even define their relation to earth.  As such our rasters have an unknown spatial reference system (0)."
 msgstr ""
 
-#: ../../en/rasters.rst:112
+#: ../../en/rasters.rst:123
 msgid "You can think of a rasters exoskeletal as a geometry. A matrix encased in a geometric envelop. In order to do useful analysis, we need to georeference our rasters, meaning we want each pixel (rectangle) to represent some meaningful plot of space."
 msgstr ""
 
-#: ../../en/rasters.rst:117
-msgid "The `ST_AsRaster` has many overloaded representations. The earlier example used the simplest such implementation and accepted the default arguments which are 8BUI and 1 band, with no data being 0. If you need to use the other variants, you should use the named arguments call syntax so that you don't accidentally fall into the wrong variant of the function or get *function is not unique* errors."
+#: ../../en/rasters.rst:128
+msgid "The `ST_AsRaster` has many overloaded representations. The earlier example used the simplest such implementation and accepted the default arguments which are 8BUI and 1 band, with no data being 0. If you need to use the other variants, you should use the named arguments call syntax so that you don't accidentally fall into the wrong variant of the function or get **function is not unique** errors."
 msgstr ""
 
-#: ../../en/rasters.rst:123
+#: ../../en/rasters.rst:133
 msgid "If you start with a geometry that has a spatial reference system, you'll end up with a raster with same spatial reference system.  In this next example, we'll plop our words in New York in bright cheery colors. We will also use pixel scale instead of width and height so that our raster pixel sizes represent 1 meter x 1 meter of space."
 msgstr ""
 
-#: ../../en/rasters.rst:145
-msgid "If we then look at this, we'll see a non-squashed colored geometry. Your color may be different from the below since we used a random generate to choose the colors."
+#: ../../en/rasters.rst:155
+msgid "If we then look at this, we'll see a non-squashed colored geometry."
 msgstr ""
 
-#: ../../en/rasters.rst:157
+#: ../../en/rasters.rst:166
+msgid "Repeat for Raster:"
+msgstr ""
+
+#: ../../en/rasters.rst:177
 msgid "What is more telling, if we rerun the"
 msgstr ""
 
-#: ../../en/rasters.rst:164
+#: ../../en/rasters.rst:184
 msgid "Observe the metadata of the New York entries. They have the New York state plane meter spatial reference system. They also have the same scale.  Since each unit is 1x1 meter, the width of the word **Raster** is now wider than **Hello**."
 msgstr ""
 
-#: ../../en/rasters.rst:179
-msgid "Exploring Raster Functions"
+#: ../../en/rasters.rst:199
+msgid "Raster Spatial Catalog tables"
 msgstr ""
 
-#: ../../en/rasters.rst:180
-msgid "The postgis_raster extension has over 100 functions to choose from.  We'll focus on the ones you will commonly use. PostGIS raster functionality was patterned after the PostGIS geometry support.  As such you'll find an overlap of functions between raster and geometry where it makes sense. Common ones you'll use are :command:`ST_Intersects`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`. In addition to those overlapping functions, it offers many functions that work in conjunction with geometry or are very specific to rasters."
+#: ../../en/rasters.rst:200
+msgid "Similar to the geometry and geography types, raster has a set of catalogs that show you all raster columns in your database. These are `raster_columns and raster_overviews <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Catalog>`_. Both of these are views similar to the `geometry_columns` and `geography_columns`."
 msgstr ""
 
-#: ../../en/rasters.rst:188
-msgid "Unioning Rasters"
+#: ../../en/rasters.rst:210
+msgid "Explore the table, and you'll find this:"
 msgstr ""
 
-#: ../../en/rasters.rst:189
-msgid "The `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ function for raster, just as the geometry equivalent :command:`ST_Union`, aggregates a set of rasters together into a single raster.  However, just as with geometry, not all rasters can be combined together, but the rules for raster unioning are more complicated than geometry rules. In the case of geometries, all you need is to have the same spatial reference system, but for rasters that is not sufficient."
-msgstr ""
-
-#: ../../en/rasters.rst:197
-msgid "If you were to attempt, the following"
-msgstr ""
-
-#: ../../en/rasters.rst:204
-msgid "You'd be summarily punished with an error:"
-msgstr ""
-
-#: ../../en/rasters.rst:206
-msgid "**ERROR:  rt_raster_from_two_rasters: The two rasters provided do not have the same alignment SQL state: XX000**"
-msgstr ""
-
-#: ../../en/rasters.rst:209
-msgid "What is this same alignment thing, that is preventing you from unioning your precious rasters?"
-msgstr ""
-
-#: ../../en/rasters.rst:211
-msgid "In order for rasters to be combined, they need to be on the same grid so to speak. Meaning they must have same pixel sizes, same orientation (the skew), same spatial reference system, and their pixels must not cut into each other, meaning they share the same worldly pixel grid."
-msgstr ""
-
-#: ../../en/rasters.rst:215
-msgid "If you try the same query, but just with words we carefully placed in New York."
-msgstr ""
-
-#: ../../en/rasters.rst:217
-msgid "Again, the same error. These are the same spatial ref system, the same pixel sizes, and yet it's still not good enough. Because their grids are off."
+#: ../../en/rasters.rst:219
+msgid "a very disappointing row of largely unfilled information."
 msgstr ""
 
 #: ../../en/rasters.rst:221
-msgid "We can fix this by shifting the upper left y coordinates ever so slightly and then trying again. If our grids start at integer level since our pixel sizes are whole integer, then the pixels won't cut into each other."
+msgid "Unlike geometry and geography, raster does not support type modifiers, because type modifier space is too limited and there are more critical properties than what can fit in a type modifier."
+msgstr ""
+
+#: ../../en/rasters.rst:224
+msgid "Raster instead relies on constraints, and reads these constraints back as part of the view. So let's try to add some constraints to our table."
+msgstr ""
+
+#: ../../en/rasters.rst:232
+msgid "And you'll be bombarded with a whole bunch of notices about how your raster data is mess and nothing can be constrained. If you look at raster_columns again, still the same disappointing story of many blank rows."
 msgstr ""
 
 #: ../../en/rasters.rst:236
-#: ../../en/rasters.rst:264
-msgid "Voila it worked, and if we were to view, we'd see something like this:"
+msgid "In order for constraints to be applied, all rasters in your table must be constrainable by at least one rule."
 msgstr ""
 
-#: ../../en/rasters.rst:240
-msgid "If ever you are unclear why your rasters don't have the same alignment, you can use the function `ST_SameAlignment <https://postgis.net/docs/RT_ST_SameAlignment.html>`_, which will compare 2 rasters or a set of rasters and tell you if they have the same alignment.  If you have notices enabled, the NOTICE will tell you what is off with the rasters in question. The `ST_NotSameAlignmentReason <https://postgis.net/docs/RT_ST_NotSameAlignmentReason.html>`_, instead of just a notice will output the reason. It however only works with two rasters at a time."
-msgstr ""
-
-#: ../../en/rasters.rst:247
-msgid "One major way in which the `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates from the `ST_Union <https://postgis.net/docs/ST_Union.html>`_ geometry function is that it allows for an argument called *uniontype*.  This argument by default is set to `LAST` if you don't specify it, which means, take the **LAST** raster pixel values in occasions where the rasters overlap."
+#: ../../en/rasters.rst:239
+msgid "We can perhaps do this, let's just lie and say all our data is in New York State plane."
 msgstr ""
 
 #: ../../en/rasters.rst:252
-msgid "But on occassion, **LAST** may not be the right operation. Let's suppose our rasters represented two different sets of observations from two different devices. These devices measure the same, thing, and we aren't sure which is right when they cross paths, so we'd instead like to take the `MEAN` of the results.  We'd do this:"
+msgid "Ah progress:"
 msgstr ""
 
-#: ../../en/rasters.rst:268
-msgid "So instead of **Raster** trumping **Hello**, we'd see a blending of the two forces. Note that for geometries since geometries are vector and thus have no values besides there or not there, there really isn't any ambiguity on how to combine two vectors when they intersect."
+#: ../../en/rasters.rst:261
+msgid "The more you can constrain all your rasters, the more columns you'll see filled in and also the more operations you'll be able to do across all the tiles in your raster. Keep in mind that in some cases, you may not want to apply all constraints."
 msgstr ""
 
-#: ../../en/rasters.rst:273
-msgid "Another feature of the raster :command:`ST_Union` we glossed over, is this idea of if you should return all bands or just some bands. When you don't specify what bands to union, :command:`ST_Union` will combine same banded numbers and use the :command:`LAST` unioning strategy.  If you have multiple bands, this may not be what you want to do. Perhaps you only want to union, the second band. In this case, the Green Band and you want the count of pixel values."
+#: ../../en/rasters.rst:265
+msgid "For example, if you plan to load more data into your raster table, you'll want to skip the extent constraint since that would require that all rasters are within the extent of the extent constraint."
 msgstr ""
 
-#: ../../en/rasters.rst:287
-msgid "Note in the case of the **COUNT** union type, which counts the number of pixels filled in and returns that value, The result is always a **32BUI** similar to how when you do a :command:`COUNT` in sql, the result is always a bigint, to accommodate large counts."
+#: ../../en/rasters.rst:269
+msgid "You'll often here in PostGIS lingo, the term **raster tile** and **raster** used somewhat interchangeably. A raster tile really corresponds to a particular raster in a raster column which is a subset of a bigger raster. This is because when rasters are loaded into PostGIS from big raster files, they are often chopped up to make them manageable."
 msgstr ""
 
-#: ../../en/rasters.rst:291
-msgid "In other cases, the band pixel type does not change and is set to the max value or rounded if the amounts exceed the bounds of the type. Why would anyone ever want to count pixels that intersect at a location. Well suppose each of your rasters represent police squadrons and incidents of arrests in the areas. Each value, might represent a different kind of arrest reason. You are doing stats on how many arrests in each region, therefore you only care about the count of arrests."
+#: ../../en/rasters.rst:275
+msgid "Exploring Raster Functions"
+msgstr ""
+
+#: ../../en/rasters.rst:276
+msgid "The postgis_raster extension has over 100 functions to choose from.  We'll focus on the ones you will commonly use. PostGIS raster functionality was patterned after the PostGIS geometry support.  As such you'll find an overlap of functions between raster and geometry where it makes sense. Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`. In addition to those overlapping functions, it offers many functions that work in conjunction with geometry or are very specific to rasters."
+msgstr ""
+
+#: ../../en/rasters.rst:284
+msgid "Unioning Rasters"
+msgstr ""
+
+#: ../../en/rasters.rst:285
+msgid "The `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ function for raster, just as the geometry equivalent :command:`ST_Union`, aggregates a set of rasters together into a single raster.  However, just as with geometry, not all rasters can be combined together, but the rules for raster unioning are more complicated than geometry rules. In the case of geometries, all you need is to have the same spatial reference system, but for rasters that is not sufficient."
+msgstr ""
+
+#: ../../en/rasters.rst:293
+msgid "If you were to attempt, the following"
 msgstr ""
 
 #: ../../en/rasters.rst:300
-msgid "Or perhaps, you want to do all bands, but you want different strategies."
+msgid "You'd be summarily punished with an error:"
 msgstr ""
 
-#: ../../en/rasters.rst:310
-msgid "Using the *unionarg[]* variant of the :command:`ST_Union` function, also allows you to shuffle the order of the bands."
+#: ../../en/rasters.rst:302
+msgid "**ERROR:  rt_raster_from_two_rasters: The two rasters provided do not have the same alignment SQL state: XX000**"
+msgstr ""
+
+#: ../../en/rasters.rst:305
+msgid "What is this same alignment thing, that is preventing you from unioning your precious rasters?"
+msgstr ""
+
+#: ../../en/rasters.rst:307
+msgid "In order for rasters to be combined, they need to be on the same grid so to speak. Meaning they must have same pixel sizes, same orientation (the skew), same spatial reference system, and their pixels must not cut into each other, meaning they share the same worldly pixel grid."
+msgstr ""
+
+#: ../../en/rasters.rst:311
+msgid "If you try the same query, but just with words we carefully placed in New York."
 msgstr ""
 
 #: ../../en/rasters.rst:313
+msgid "Again, the same error. These are the same spatial ref system, the same pixel sizes, and yet it's still not good enough. Because their grids are off."
+msgstr ""
+
+#: ../../en/rasters.rst:317
+msgid "We can fix this by shifting the upper left y coordinates ever so slightly and then trying again. If our grids start at integer level since our pixel sizes are whole integer, then the pixels won't cut into each other."
+msgstr ""
+
+#: ../../en/rasters.rst:332
+#: ../../en/rasters.rst:381
+msgid "Voila it worked, and if we were to view, we'd see something like this:"
+msgstr ""
+
+#: ../../en/rasters.rst:338
+msgid "If ever you are unclear why your rasters don't have the same alignment, you can use the function `ST_SameAlignment <https://postgis.net/docs/RT_ST_SameAlignment.html>`_, which will compare 2 rasters or a set of rasters and tell you if they have the same alignment.  If you have notices enabled, the NOTICE will tell you what is off with the rasters in question. The `ST_NotSameAlignmentReason <https://postgis.net/docs/RT_ST_NotSameAlignmentReason.html>`_, instead of just a notice will output the reason. It however only works with two rasters at a time."
+msgstr ""
+
+#: ../../en/rasters.rst:345
+msgid "One major way in which the `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates from the `ST_Union <https://postgis.net/docs/ST_Union.html>`_ geometry function is that it allows for an argument called *uniontype*.  This argument by default is set to `LAST` if you don't specify it, which means, take the **LAST** raster pixel values in occasions where the raster pixel values overlap. As a general rule, pixels in a band that are marked as no-data are ignored."
+msgstr ""
+
+#: ../../en/rasters.rst:351
+msgid "Just as with most aggregates in PostgreSQL, you can put a :command:`ORDER BY` clause as part of the function call as is done in the prior example.  Specifying the order, allows you to control which raster takes priority. So in our prior example, *Raster* trumped *Hello* because *Raster* is alphabetically last."
+msgstr ""
+
+#: ../../en/rasters.rst:355
+msgid "Observe, if you switch the order:"
+msgstr ""
+
+#: ../../en/rasters.rst:365
+msgid "Then *Hello* trumps *Raster* because Hello is now the last overlaid."
+msgstr ""
+
+#: ../../en/rasters.rst:367
+msgid "The :command:`FIRST` union type is the reverse of :command:`LAST`."
+msgstr ""
+
+#: ../../en/rasters.rst:369
+msgid "But on occassion, **LAST** may not be the right operation. Let's suppose our rasters represented two different sets of observations from two different devices. These devices measure the same thing, and we aren't sure which is right when they cross paths, so we'd instead like to take the `MEAN` of the results.  We'd do this:"
+msgstr ""
+
+#: ../../en/rasters.rst:385
+msgid "So instead of trumping, we have a blending of the two forces. In the case of :command:`MEAN` union type, there is no point in specifying order, because the result would be the average of overlapping pixel values."
+msgstr ""
+
+#: ../../en/rasters.rst:389
+msgid "Note that for geometries since geometries are vector and thus have no values besides there or not there, there really isn't any ambiguity on how to combine two vectors when they intersect."
+msgstr ""
+
+#: ../../en/rasters.rst:393
+msgid "Another feature of the raster :command:`ST_Union` we glossed over, is this idea of if you should return all bands or just some bands. When you don't specify what bands to union, :command:`ST_Union` will combine same banded numbers and use the :command:`LAST` unioning strategy.  If you have multiple bands, this may not be what you want to do. Perhaps you only want to union, the second band. In this case, the Green Band and you want the count of pixel values."
+msgstr ""
+
+#: ../../en/rasters.rst:414
+msgid "Note in the case of the **COUNT** union type, which counts the number of pixels filled in and returns that value, the result is always a **32BUI** similar to how when you do a :command:`COUNT` in sql, the result is always a bigint, to accommodate large counts."
+msgstr ""
+
+#: ../../en/rasters.rst:418
+msgid "In other cases, the band pixel type does not change and is set to the max value or rounded if the amounts exceed the bounds of the type. Why would anyone ever want to count pixels that intersect at a location. Well suppose each of your rasters represent police squadrons and incidents of arrests in the areas. Each value, might represent a different kind of arrest reason. You are doing stats on how many arrests in each region, therefore you only care about the count of arrests."
+msgstr ""
+
+#: ../../en/rasters.rst:427
+msgid "Or perhaps, you want to do all bands, but you want different strategies."
+msgstr ""
+
+#: ../../en/rasters.rst:437
+msgid "Using the *unionarg[]* variant of the :command:`ST_Union` function, also allows you to shuffle the order of the bands."
+msgstr ""
+
+#: ../../en/rasters.rst:440
 msgid "Clipping Rasters"
 msgstr ""
 
-#: ../../en/rasters.rst:314
+#: ../../en/rasters.rst:441
 msgid "The `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ function is one of the most widely used functions for PostGIS rasters.  The main reason is the more pixels you need to inspect or do operations on, the slower your processing. **ST_Clip** clips your raster to just the area of interest, so you can isolate your operations to just that area."
 msgstr ""
 
-#: ../../en/rasters.rst:318
+#: ../../en/rasters.rst:445
 msgid "This function is also special in that it utilizes the power of geometry to help raster analysis. To reduce the number of pixels, :command:`ST_Union` has to handle, each raster is clipped first to the area we are interested in."
 msgstr ""
 
-#: ../../en/rasters.rst:330
+#: ../../en/rasters.rst:457
 msgid "This example showcases several functions working in unison.  The :command:`ST_Intersects` function employed is the one packaged with **postgis_raster** and can intersect 2 rasters or a raster and a geometry. Similar to the geometry :command:`ST_Intersects` the raster :command:`ST_Intersects` can take advantage of spatial indexes on the raster or geometry tables."
+msgstr ""
+
+#: ../../en/rasters.rst:463
+msgid "Converting Rasters to Geometries"
+msgstr ""
+
+#: ../../en/rasters.rst:464
+msgid "Rasters can just as easily be morphed into geometries. Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_ function."
+msgstr ""
+
+#: ../../en/rasters.rst:476
+msgid "If you click on the geometry viewer in pgAdmin, you can see this in all it's glory without any hacks."
+msgstr ""
+
+#: ../../en/rasters.rst:480
+msgid "ST_Polygon considers all the pixels that have values (not no-data) in a particular band, and converts them to geometry.  Like many other functions in raster, ST_Polygon only considers 1 band. If no band is specified, it will consider only the first band."
+msgstr ""
+
+#: ../../en/rasters.rst:485
+msgid "Map Algebra Functions"
+msgstr ""
+
+#: ../../en/rasters.rst:486
+msgid "Map algebra is the idea that you can do math on your pixel values. The :command:`ST_Union` function covered earlier is a special fast case of map algebra. Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_ family of functions which allow you to define your own crazy math, but at cost of performance."
+msgstr ""
+
+#: ../../en/rasters.rst:492
+msgid "People have the habit of jumping to  :command:`ST_MapAlgebra`, probably cause the name sounds so cool and sophisticated. Who wouldn't want to tell their friends, \"I'm using a function called ST_MapAlgebra.\" My advice, explore other functions before you jump for that shot-gun. Your life will be simpler and your performance will be 100 times better, and your code will be shorter."
+msgstr ""
+
+#: ../../en/rasters.rst:498
+msgid "An often overlooked map-algebraish function is the `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_ function, who sits in the background waiting for someone to discover the power and speed it can offer."
+msgstr ""
+
+#: ../../en/rasters.rst:502
+msgid "What does **ST_Reclass** do.  It as the name implies, reclassifies your pixel values based on minimalist range algebra."
 msgstr ""

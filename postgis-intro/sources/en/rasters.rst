@@ -31,7 +31,7 @@ Creating Rasters From Geometries
 We'll start off by first creating raster data from vector data, and then move on to the more exciting approach of loading data from a raster source.
 You will find that raster data is available in abundance and often free from various government sites.
 
-We'll start by converting our earlier geometries into rasters using `ST_AsRaster <https://postgis.net/docs/RT_ST_AsRaster.html>`_ function as follows.
+We'll start by converting some geometries into rasters using `ST_AsRaster <https://postgis.net/docs/RT_ST_AsRaster.html>`_ function as follows.
 
 .. code-block:: sql
 
@@ -80,7 +80,7 @@ not for generating pretty pictures for you to look at.
 
 One caveat, by default all different raster types outputs are disabled. In order to utilize these,
 you'll need to enable drivers, all or a subset as detailed
-in `PostGIS Raster output functions <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>` _
+in `PostGIS Raster output functions <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_
 
 .. code-block:: sql
 
@@ -98,7 +98,6 @@ Run the below query and copy and paste the output into the address bar of your w
 
 .. code-block:: sql
 
- SET postgis.gdal_drivers
  SELECT 'data:image/png;base64,' ||
     encode(ST_AsPNG(rast),'base64')
     FROM rasters
@@ -132,8 +131,8 @@ our raster pixel sizes represent 1 meter x 1 meter of space.
     ST_AsRaster(geom,
       scalex => 1.0, scaley => -1.0,
       pixeltype => ARRAY['8BUI', '8BUI', '8BUI'],
-      value => ARRAY[ (random()*255)::integer,
-         (random()*255)::integer, (random()*255)::integer ],
+      value => CASE WHEN word = 'Hello' THEN
+        ARRAY[10,10,100] ELSE ARRAY[10,100,10] END,
       nodataval => ARRAY[0,0,0], gridx => NULL, gridy => NULL
       ) AS rast
   FROM (
@@ -153,6 +152,17 @@ Your color may be different from the below since we used a random generate to ch
     WHERE name = 'Hello in New York';
 
 .. image:: ./rasters/hello-ny.png
+
+Repeat for Raster:
+
+.. code-block:: sql
+
+ SELECT 'data:image/png;base64,' ||
+    encode(ST_AsPNG(rast),'base64')
+    FROM rasters
+    WHERE name = 'Raster in New York';
+
+.. image:: ./rasters/raster-ny.png
 
 What is more telling, if we rerun the
 
@@ -180,7 +190,7 @@ Exploring Raster Functions
 The postgis_raster extension has over 100 functions to choose from.  We'll focus on the ones you will commonly use.
 PostGIS raster functionality was patterned after the PostGIS geometry support.  As such you'll
 find an overlap of functions between raster and geometry where it makes sense.
-Common ones you'll use are :command:`ST_Intersects`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`.
+Common ones you'll use are :command:`ST_Intersects`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`.
 In addition to those overlapping functions, it offers many functions that work in conjunction with geometry
 or are very specific to rasters.
 
@@ -229,7 +239,7 @@ then the pixels won't cut into each other.
     ST_UpperLeftY(rast)::integer)
   WHERE name LIKE '%New York';
 
-  SELECT ST_Union(rast)
+  SELECT ST_Union(rast ORDER BY name)
     FROM rasters
     WHERE name LIKE '%New York%';
 
@@ -237,21 +247,41 @@ Voila it worked, and if we were to view, we'd see something like this:
 
 .. image:: ./rasters/hello-raster-ny.png
 
-If ever you are unclear why your rasters don't have the same alignment, you can use the function
-`ST_SameAlignment <https://postgis.net/docs/RT_ST_SameAlignment.html>`_, which will compare 2 rasters
-or a set of rasters and tell you if they have the same alignment.  If you have notices enabled, the
-NOTICE will tell you what is off with the rasters in question. The
-`ST_NotSameAlignmentReason <https://postgis.net/docs/RT_ST_NotSameAlignmentReason.html>`_, instead of just a notice
-will output the reason. It however only works with two rasters at a time.
+.. note::
+
+  If ever you are unclear why your rasters don't have the same alignment, you can use the function
+  `ST_SameAlignment <https://postgis.net/docs/RT_ST_SameAlignment.html>`_, which will compare 2 rasters
+  or a set of rasters and tell you if they have the same alignment.  If you have notices enabled, the
+  NOTICE will tell you what is off with the rasters in question. The
+  `ST_NotSameAlignmentReason <https://postgis.net/docs/RT_ST_NotSameAlignmentReason.html>`_, instead of just a notice
+  will output the reason. It however only works with two rasters at a time.
 
 One major way in which the `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates
 from the `ST_Union <https://postgis.net/docs/ST_Union.html>`_ geometry function is that
 it allows for an argument called *uniontype*.  This argument by default is set to `LAST` if you don't specify it,
 which means, take the **LAST** raster pixel values in occasions where the rasters overlap.
 
+Just as with most aggregates in PostgreSQL, you can put a :command:`ORDER BY` clause as part of the function call
+as is done in the prior example.  Specifying the order, allows you to control which raster tile takes priority.
+So in our prior example, Raster trumped Hello because Raster is alphabetically last.
+
+Observe, if you switch the order:
+
+.. code-block:: sql
+
+  SELECT ST_Union(rast ORDER BY name DESC)
+    FROM rasters
+    WHERE name LIKE '%New York%';
+
+.. image:: ./rasters/raster-hello-ny.png
+
+Then Hello trumps Raster because Hello is now the last overlaid.
+
+The :command:`FIRST` union type is the reverse of :command:`LAST`.
+
 But on occassion, **LAST** may not be the right operation.
 Let's suppose our rasters represented two different sets of
-observations from two different devices. These devices measure the same,
+observations from two different devices. These devices measure the same
 thing, and we aren't sure which is right when they cross paths,
 so we'd instead like to take the `MEAN` of the results.  We'd do this:
 
@@ -265,7 +295,10 @@ Voila it worked, and if we were to view, we'd see something like this:
 
 .. image:: ./rasters/hello-raster-ny-mean.png
 
-So instead of **Raster** trumping **Hello**, we'd see a blending of the two forces.
+So instead of trumping, we have a blending of the two forces.
+In the case of :command:`MEAN` union type, there is no point is specifying order,
+because the result would be the average of overlapping pixel values.
+
 Note that for geometries
 since geometries are vector and thus have no values besides there or not there,
 there really isn't any ambiguity on how to combine two vectors when they intersect.
@@ -331,3 +364,25 @@ This example showcases several functions working in unison.  The :command:`ST_In
 is the one packaged with **postgis_raster** and can intersect 2 rasters or a raster and a geometry.
 Similar to the geometry :command:`ST_Intersects` the raster :command:`ST_Intersects`
 can take advantage of spatial indexes on the raster or geometry tables.
+
+Converting Rasters to Geometries
+---------------------------------
+Rasters can just as easily be morphed into geometries.
+Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_
+
+.. code-block:: sql
+
+  SELECT ST_Polygon(ST_Union( ST_Clip(r.rast, g.geom) ))
+    FROM rasters AS r
+        INNER JOIN
+          ST_Buffer(ST_Point(586598, 4504816, 26918), 100 ) AS g(geom)
+            ON ST_Intersects(r.rast, g.geom)
+    WHERE r.name LIKE '%New York%';
+
+If you click on the geometry viewer in pgAdmin, you can see this in all it's glory with any hacks.
+
+.. image:: ./rasters/raster_as_geometry.png
+
+ST_Polygon considers all the pixels that have values (no data),
+and converts them to geometry.  Like many other functions in raster, ST_Polygon only considers 1 band.
+If no band is specified, it will consider only the first band.

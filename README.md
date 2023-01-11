@@ -28,6 +28,8 @@ If you don't already have an OSGeo account, [you can get one here](https://id.os
 ## Building the Workshop Content
 
 * Install Sphinx: http://www.sphinx-doc.org/en/1.8/usage/installation.html
+* python3 -m venv ~/pw-env
+* source ~/pw-env/bin/activate
 * Go to the source directory: `cd postgis-intro/sources/en/`
 * Build the HTML: `make html`
 * Check the outputs: `cd ../../doc/en`

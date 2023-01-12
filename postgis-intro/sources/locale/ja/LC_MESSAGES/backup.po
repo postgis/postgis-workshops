@@ -3,43 +3,49 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-01-09 05:42+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"backup/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.15\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/backup.rst:4
 msgid "PostgreSQL Backup and Restore"
-msgstr ""
+msgstr "PostgreSQLのバックアップとレストア"
 
 #: ../../en/backup.rst:6
 msgid ""
 "There are lots of ways to backup a PostgreSQL database, and the one you "
 "choose will depend a great deal on how you are using the database."
-msgstr ""
+msgstr "PostgreSQLデータベースのバックアップの方法が多数あり、どれを選ぶかはデータベ"
+"ースをどう使うかに大きく依存しています。"
 
 #: ../../en/backup.rst:8
 msgid ""
 "For relatively static databases, the basic pg_dump/pg_restore tools can be "
 "used to take periodic snapshots of the data."
-msgstr ""
+msgstr "比較的静的なデータベースでは、基本的に、"
+"定期的なデータのスナップショットを取るのに pg_dump/pg_restore "
+"ツールが使えます。"
 
 #: ../../en/backup.rst:9
 msgid ""
 "For frequently changing data, using an \"online backup\" scheme allows "
 "continuous archiving of updates to a secure location."
-msgstr ""
+msgstr "データが頻繁に変更される場合には、「オンラインバックアップ」の枠組みを使いま"
+"す。更新の継続的なアーカイブを安全な場所に保存できます。"
 
 #: ../../en/backup.rst:11
 msgid ""
@@ -47,10 +53,13 @@ msgid ""
 "availability <http://www.postgresql.org/docs/current/static/high-"
 "availability.html>`_, particularly for versions of PostgreSQL >= 9.0."
 msgstr ""
+"オンラインバックアップは、特に PostgreSQL 9.0 以上では `高可用性<http://www."
+"postgresql.org/docs/current/static/high-availability.html>`_ "
+"のレプリケーションと待機システムの基礎となります。"
 
 #: ../../en/backup.rst:15
 msgid "Laying Out your Data"
-msgstr ""
+msgstr "データのレイアウト"
 
 #: ../../en/backup.rst:17
 msgid ""
@@ -58,22 +67,28 @@ msgid ""
 "stored in separate schemas is a very important **best practice** in managing "
 "data. There are two reasons:"
 msgstr ""
+":ref:`schemas` で説明した通り、生成データが常に分割されたスキーマに格納されて"
+"いるようにすることが、データ管理において非常に重要な **ベストプラクティス** "
+"となります。次に二つの理由を示します:"
 
 #: ../../en/backup.rst:19
 msgid ""
 "Backing up and restoring data in schemas is much simpler than managing lists "
 "of tables to be backed up individually."
-msgstr ""
+msgstr "個々にバックアップする場合ではテーブルの一覧の管理を行いますが、スキーマ内の"
+"データのバックアップとレストアの方がずっと単純です。"
 
 #: ../../en/backup.rst:20
 msgid ""
 "Keeping data tables out of the \"public\" schema allows far easier upgrades, "
 "as discussed in :ref:`upgrades`."
 msgstr ""
+"データテーブルを \"public\" スキーマから除外することで、:ref:`upgrades` "
+"で説明している通り、ずっと簡単なアップグレードが可能になります。"
 
 #: ../../en/backup.rst:24
 msgid "Basic Backup and Restore"
-msgstr ""
+msgstr "基本的なバックアップとレストア"
 
 #: ../../en/backup.rst:26
 msgid ""

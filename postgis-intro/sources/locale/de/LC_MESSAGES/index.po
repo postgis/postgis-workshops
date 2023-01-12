@@ -3,22 +3,9 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-# Regina Obe <regina@arrival3d.com>, 2022.
+# Regina Obe <regina@arrival3d.com>, 2022, 2023.
 msgid ""
-msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-02-11 18:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
-"Language-Team: German <https://weblate.osgeo.org/projects/postgis-workshop/index/de/>\n"
-"Language: de\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
-"Generated-By: Babel 2.9.1\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2023-01-09 05:42+0000\nLast-Translator: Regina Obe <regina@arrival3d.com>\nLanguage-Team: German <https://weblate.osgeo.org/projects/postgis-workshop/index/de/>\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.15\nGenerated-By: Babel 2.9.1\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -26,19 +13,19 @@ msgstr "Einführung in PostGIS"
 
 #: ../../en/index.rst:7
 msgid "Getting Started"
-msgstr ""
+msgstr "Der Start"
 
 #: ../../en/index.rst:9
 msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr ""
+msgstr "Dieser Workshop benutzt ein komprimiertes Datenpaket <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>. Lade es herunter und dekomprimiere es in ein beliebiges Verzeichnis."
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
-msgstr ""
+msgstr "Das \"Präsentationsdeck\" dieses Workshops ist verfügbar unter Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>"
 
 #: ../../en/index.rst:13
 msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
-msgstr ""
+msgstr "Der \"Spickzettel\" der SQL-Befehle die in diesem Workshop laufen ist hier verfügbar <workshop-sql.txt>"
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"

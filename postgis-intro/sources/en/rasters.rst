@@ -70,7 +70,7 @@ with the following query which utilizes the postgis raster functions `ST_Count <
 
   There are two levels of raster functions.
   There are functions such as ST_MetaData that work at the raster level and there are functions such as
-  ::command::`ST_Count` function and ::command::`ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_
+  :command:`ST_Count` function and :command:`ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_
   function that work at the band level.
   Most functions in postgis raster that work at the
   band level, work with only one band at a time, and assume the band you want is `1`.
@@ -92,7 +92,7 @@ not for generating pretty pictures for you to look at.
 
 One caveat, by default all different raster types outputs are disabled. In order to utilize these,
 you'll need to enable drivers, all or a subset as detailed
-in `PostGIS Raster output functions <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_
+in `Enable GDAL Raster drivers <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_
 
 .. code-block:: sql
 
@@ -273,10 +273,11 @@ manageable.
 
 Exploring Raster Functions
 ===========================
-The postgis_raster extension has over 100 functions to choose from.  We'll focus on the ones you will commonly use.
-PostGIS raster functionality was patterned after the PostGIS geometry support.  As such you'll
+The :command:`postgis_raster` extension has over 100 functions to choose from.
+We'll focus on the ones you will commonly use.
+PostGIS raster functionality was patterned after the PostGIS geometry support. As such you'll
 find an overlap of functions between raster and geometry where it makes sense.
-Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`.
+Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`.
 In addition to those overlapping functions, it offers many functions that work in conjunction with geometry
 or are very specific to rasters.
 
@@ -342,8 +343,8 @@ Voila it worked, and if we were to view, we'd see something like this:
   `ST_NotSameAlignmentReason <https://postgis.net/docs/RT_ST_NotSameAlignmentReason.html>`_, instead of just a notice
   will output the reason. It however only works with two rasters at a time.
 
-One major way in which the `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates
-from the `ST_Union <https://postgis.net/docs/ST_Union.html>`_ geometry function is that
+One major way in which the `ST_Union(raster) <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates
+from the `ST_Union(geometry) <https://postgis.net/docs/ST_Union.html>`_ geometry function is that
 it allows for an argument called *uniontype*.  This argument by default is set to `LAST` if you don't specify it,
 which means, take the **LAST** raster pixel values in occasions where the raster pixel values overlap.
 As a general rule, pixels in a band that are marked as no-data are ignored.
@@ -481,6 +482,105 @@ ST_Polygon considers all the pixels that have values (not no-data) in a particul
 and converts them to geometry.  Like many other functions in raster, ST_Polygon only considers 1 band.
 If no band is specified, it will consider only the first band.
 
+Another popularly used function is the `ST_PixelAsPolygons <https://postgis.net/docs/RT_ST_PixelAsPolygons.html>`_ function. You should rarely use :command:`ST_PixelAsPolygons` on a large raster without first
+clipping because you will end up with millions of rows, one for each pixel.
+
+:command:`ST_PixelAsPolygons` returns a table consisting of geom, val, x, and y.
+Where x is the column number, and y is the row number in the raster.
+
+:command:`ST_PixelAsPolygons` similar to other raster functions works
+on one band at a time and works on band 1 if no band is specified.
+It also by default returns only pixels that have values.
+
+.. code-block:: sql
+
+  SELECT gv.*
+    FROM rasters AS r
+      CROSS JOIN LATERAL ST_PixelAsPolygons(rast) AS gv
+    WHERE r.name LIKE '%New York%'
+    LIMIT 10;
+
+Which outputs:
+
+.. image:: ./rasters/raster-st-pixel-as-polygons-pgAdmin-Grid.png
+
+and if we inspect using the geometry viewer, we'd see:
+
+.. image:: ./rasters/raster-st-pixel-as-polygons-pgAdmin-geomviewer.png
+
+If we want all pixels of all our bands, we'd need to do something like below.
+Note the differences in this example from previous.
+
+  1. Setting  :command:`exclude_nodata_value` to make sure all pixels are returned so that
+  our sets of calls return the same number of rows. The rows out of the function will be naturally in the same order.
+
+  2. Using the `PostgreSQL ROWS FROM constructor <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_ , and aliasing each set of columns
+  from our function output with names. So for example the band 1 columns (geom, val, x, y)
+  are renamed to g1, v1, x1, x2
+
+.. code-block:: sql
+
+  SELECT pp.g1, pp.v1, pp.v2, pp.v3
+    FROM rasters AS r
+      CROSS JOIN LATERAL
+      ROWS FROM (
+        ST_PixelAsPolygons(rast, 1, exclude_nodata_value => false ),
+        ST_PixelAsPolygons(rast, 2, exclude_nodata_value => false),
+        ST_PixelAsPolygons(rast, 3, exclude_nodata_value => false )
+        ) AS pp(g1, v1, x1, y1,
+          g2, v2, x2, y2,
+          g3, v3, x3, y3 )
+    WHERE r.name LIKE '%New York%'
+     AND ( pp.v1 = 0 OR  pp.v2 > 0 OR pp.v3 > 0) ;
+
+.. note::
+
+  We used CROSS JOIN LATERAL in these examples because
+  we wanted to be explicit what we are doing.
+  Since these are all set returning functions, you can replace CROSS JOIN LATERAL
+  with , for short-hand.  We'll use a , in the next set of examples
+
+Raster also introduces an additional composite type called a :command:`geomval`.
+Consider a :command:`geomval` as the offspring of a geometry and raster.
+It contains a geometry and it contains a pixel value.
+
+You will find several raster functions that return geomvals.
+
+A commonly used function that outputs geomvals is `ST_DumpAsPolygons <https://postgis.net/docs/RT_ST_DumpAsPolygons.html>`_,
+which returns a set of contiguous pixels with the same value as a polygon.  Again this by default will only check band 1 and exclude no data values
+unless you override. This example selects only polygons from band 2.
+You can also apply filters to the values. For most use cases, :command:`ST_DumpAsPolygons` is a better option than :command:`ST_PixelAsPolygons` as it will return far fewer rows.
+
+This will output 6 rows, and return polygons corresponding to the letters
+in "Raster".
+
+.. code-block:: sql
+
+  SELECT gv.geom , gv.val
+    FROM rasters AS r,
+      ST_DumpAsPolygons(rast, 2) AS gv
+    WHERE r.name LIKE '%New York%'
+        AND gv.val = 100;
+
+Note that it doesn't return a single geometry, because it finds continguous set of pixels
+with the same value that form a polygon.
+Even though all these values are the same, they are not continguous.
+
+.. image:: ./rasters/st-dump-as-polygons.png
+
+A common approach to produce more complex geometries is to group by the values and union.
+
+.. code-block:: sql
+
+  SELECT ST_Union(gv.geom) AS geom , gv.val
+    FROM rasters AS r,
+      ST_DumpAsPolygons(rast, 2) AS gv
+    WHERE r.name LIKE '%New York%'
+    GROUP BY gv.val;
+
+This will give you 2 rows back corresponding to the words "Raster" and "Hello".
+
+
 Map Algebra Functions
 -----------------------------------
 Map algebra is the idea that you can do math on your pixel values.
@@ -499,6 +599,6 @@ An often overlooked map-algebraish
 function is the `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_ function, who sits in the background
 waiting for someone to discover the power and speed it can offer.
 
-What does **ST_Reclass** do.  It as the name implies, reclassifies your pixel values based on minimalist range algebra.
+What does **ST_Reclass** do? It as the name implies, reclassifies your pixel values based on minimalist range algebra.
 
 .. TODO continue here

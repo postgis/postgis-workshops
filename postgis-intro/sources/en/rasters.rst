@@ -26,6 +26,31 @@ Although raster data can be created from scratch in PostGIS, a more common appro
 
   CREATE EXTENSION postgis_raster;
 
+
+Loading Rasters using raster2pgsql
+-----------------------------------
+raster2pgsql is a command-line tool often packaged with PostGIS.
+If you are on windows and used application stackbuilder PostGIS Bundle, you'll find :command:`raster2pgsql.exe` in the folder ``C:\Program Files\PostgreSQL\15\bin``  where the *15* should be replaced with the version of PostgreSQL you are running.
+
+If you are using Postgres.App, you'll find raster2pgsql among the other `Postgres.app CLI Tools <https://postgresapp.com/documentation/cli-tools.html>`_.
+On Ubuntu and Debian, you will need
+
+.. code-block:: sh
+
+  apt install postgis
+
+To have the PostGIS commandline tools installed.
+This may install an older version of PostgreSQL as well.
+Any old cluster it creates you can drop.
+
+For this exercise, we'll use data from `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_.
+
+.. note::
+
+  This digital elevation file is 3GB in size, we have a subset of it already prepped in the backup file
+  `PG Raster Backup <https://postgis.net/stuff/workshop-data/pg_postgis_raster.backup>`_.  Feel free to restore that file in your database using the :command:`pg_restore` commandline tool or the pgAdmin **Restore** menu instead of loading the raw files with :command:`raster2pgsql`.
+
+
 Creating Rasters From Geometries
 --------------------------------
 We'll start off by first creating raster data from vector data, and then move on to the more exciting approach of loading data from a raster source.

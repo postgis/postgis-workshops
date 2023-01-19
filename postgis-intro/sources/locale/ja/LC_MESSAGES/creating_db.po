@@ -3,29 +3,31 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-01-19 07:42+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"creating_db/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.15\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/creating_db.rst:4
 msgid "Creating a Spatial Database"
-msgstr ""
+msgstr "空間データベースの作成"
 
 #: ../../en/creating_db.rst:7
 msgid "PgAdmin"
-msgstr ""
+msgstr "PgAdmin"
 
 #: ../../en/creating_db.rst:9
 msgid ""
@@ -37,16 +39,27 @@ msgid ""
 "line with ``psql``. pgAdmin also includes a geometry viewer you can use to "
 "spatial view PostGIS queries."
 msgstr ""
+"PostgreSQLはいくつかの管理フロントエンドがあります。主要なものとしては、"
+"SQLクエリを入力するコマンドラインツールの `psql <https://www.postgresql.jp/"
+"document/current/html/app-psql.html>`_ があります。他の人気のある PostgreSQL "
+"フロントエンドとしては、フリーでオープンソースの GUI ツール `pgAdmin "
+"<http://www.pgadmin.org/>`_ があります。pgAdmin "
+"で実行された全てのクエリは、``psql`` でコマンドラインから実行することもできま"
+"す。pgAdminはジオメトリビューア持っていて、PostGIS "
+"クエリの空間ビューに使うことができます。"
 
 #: ../../en/creating_db.rst:12
 msgid "Find pgAdmin and start it up."
-msgstr ""
+msgstr "pgAdmin を見つけて、起動します。"
 
 #: ../../en/creating_db.rst:17
 msgid ""
 "If this is the first time you have run pgAdmin, you probably don't have any "
 "servers configured. Right click the ``Servers`` item in the Browser panel."
 msgstr ""
+"pgAdmin "
+"の実行が初めての場合には、設定済みのサーバを持っていない可能性があります。"
+"ブラウザパネル内の ``Servers`` を右クリックします。"
 
 #: ../../en/creating_db.rst:19
 msgid ""
@@ -55,6 +68,10 @@ msgid ""
 "able to use ``localhost``. If you're using a cloud service, you should be "
 "able to retrieve the host name from your account."
 msgstr ""
+"**PostGIS** という名前を付けておきます。Connection タブの ``Host name/"
+"address`` に入ります。ローカルにインストールした PostgreSQL "
+"で作業している場合には ``localhost`` を使うことができます。クラウドサービスを"
+"使っている場合には、アカウントからホスト名を取得できるはずです。"
 
 #: ../../en/creating_db.rst:21
 msgid ""
@@ -62,10 +79,13 @@ msgid ""
 "**Username** as ``postgres``. The **Password** should be what you specified "
 "with a local install or with your cloud service."
 msgstr ""
+"**Port** は ``5432`` のままとし、**Maintenance database** と **Username** は "
+"``postgres`` のままにしておきます。**Password** はローカルにインストールした"
+"時に指定した、あるいは、クラウドサービスで指定したパスワードを入れます。"
 
 #: ../../en/creating_db.rst:27
 msgid "Creating a Database"
-msgstr ""
+msgstr "データベースの作成"
 
 #: ../../en/creating_db.rst:29
 msgid ""
@@ -73,69 +93,79 @@ msgid ""
 "The ``postgres`` database is the user database for the default postgres user "
 "and is not too interesting to us."
 msgstr ""
+"データベースのツリーを開いて、現在有効なデータベースを確認します。``postgres`"
+"` データベースは、デフォルトユーザの postgres "
+"のデータベースですが、これは気にしません。"
 
 #: ../../en/creating_db.rst:31
 msgid "Right-click on the ``Databases`` item and select ``New Database``."
-msgstr ""
+msgstr "``Databases`` を右クリックし、``New Database`` を選択します。"
 
 #: ../../en/creating_db.rst:36
 msgid "Fill in the ``Create Database`` form as shown below and click **OK**."
-msgstr ""
+msgstr "``Create Database`` フォームに次に示すことを記入して **OK** "
+"をクリックします。"
 
 #: ../../en/creating_db.rst:40
 msgid "**Name**"
-msgstr ""
+msgstr "**名前**"
 
 #: ../../en/creating_db.rst:41
 msgid "``nyc``"
-msgstr ""
+msgstr "``nyc``"
 
 #: ../../en/creating_db.rst:42
 msgid "**Owner**"
-msgstr ""
+msgstr "**所有者**"
 
 #: ../../en/creating_db.rst:43
 msgid "``postgres``"
-msgstr ""
+msgstr "``postgres``"
 
 #: ../../en/creating_db.rst:49
 msgid ""
 "Select the new ``nyc`` database and open it up to display the tree of "
 "objects. You'll see the ``public`` schema."
-msgstr ""
+msgstr "``nyc``データベースを選択して開くと、オブジェクトのツリーが表示されます。``pu"
+"blic`` スキーマが表示されます。"
 
 #: ../../en/creating_db.rst:53
 msgid ""
 "Click on the SQL query button indicated below (or go to *Tools > Query "
 "Tool*)."
-msgstr ""
+msgstr "次に示すSQLクエリボタンをクリックします (もしくは *Tools > Query Tool* "
+"に移動します)。"
 
 #: ../../en/creating_db.rst:57
 msgid ""
 "Enter the following query into the query text field to load the PostGIS "
 "spatial extension:"
-msgstr ""
+msgstr "次のクエリをクエリテキストフィールドに入力して PostGIS "
+"エクステンションをロードします。"
 
 #: ../../en/creating_db.rst:63
 msgid ""
 "Click the **Play** button in the toolbar (or press **F5**) to \"Execute the "
 "query.\""
-msgstr ""
+msgstr "「クエリの実行」にはツールバーの **Play** ボタンをクリックします (もしくは "
+"**F5** キーを押します)。"
 
 #: ../../en/creating_db.rst:65
 msgid "Now confirm that PostGIS is installed by running a PostGIS function:"
-msgstr ""
+msgstr "PostGISをインストールされているか確認するには次の関数を実行します:"
 
 #: ../../en/creating_db.rst:71
 msgid "You have successfully created a PostGIS spatial database!!"
-msgstr ""
+msgstr "これで PostGIS 空間データベースの生成に成功しました!!"
 
 #: ../../en/creating_db.rst:75
 msgid "Function List"
-msgstr ""
+msgstr "関数リスト"
 
 #: ../../en/creating_db.rst:77
 msgid ""
 "`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: "
 "Reports full PostGIS version and build configuration info."
 msgstr ""
+"`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: "
+"完全な PostGIS のバージョン情報とコンフィギュレーション情報を報告します。"

@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-14 16:42+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-01-19 07:42+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "backup/ja/>\n"
 "Language: ja\n"
@@ -97,21 +97,25 @@ msgid ""
 "is a command-line tool, which makes it easy to automate with scripting, and "
 "it can also be invoke via a GUI in the PgAdmin utility."
 msgstr ""
+"データベースの全体のバックアップは pg_dump ユーティリティを使うと簡単です。こ"
+"のユーティリティはコマンドラインツールなので、スクリプトで自動化がやりやすい"
+"です。また、pgAdminユーティリティないのGUIを介して実行することもできます。"
 
 #: ../../en/backup.rst:28
 msgid ""
 "To backup our ``nyc`` database, we can use the GUI, just right-click the "
 "database you want to backup:"
-msgstr ""
+msgstr "``nyc``データベースのバックアップにGUIを使います。バックアップを取りたいデー"
+"タベースを右クリックします:"
 
 #: ../../en/backup.rst:32
 msgid "Enter the name of the backup file you want to create."
-msgstr ""
+msgstr "生成したバックアップファイルのファイル名を入力します。"
 
 #: ../../en/backup.rst:36
 msgid ""
 "Note that there are three backup format options: compress, tar and plain."
-msgstr ""
+msgstr "バックアップフォーマットには、copress、tar、plainの三つの選択肢があります。"
 
 #: ../../en/backup.rst:38
 msgid ""
@@ -120,6 +124,9 @@ msgid ""
 "then loaded back into a database, allowing offline changes to things like "
 "ownership or other global information."
 msgstr ""
+"**Plain** は、単なる文字のSQLファイルです。これは最も単純なフォーマットです。"
+"また、簡単に編集、変更してデータベースに戻すことができ、所有者や他のグローバ"
+"ル情報といったもののオフラインで変更できるので、最も柔軟です。"
 
 #: ../../en/backup.rst:39
 msgid ""
@@ -127,6 +134,9 @@ msgid ""
 "separate files. Using the tar format allows the pg_restore_ utility to "
 "selectively restore parts of the dump."
 msgstr ""
+"**Tar** は UNIX アーカイブのフォーマットを使って、別々のファイルにダンプのコ"
+"ンポーネントを保持します。tar フォーマットでは、pg_restore_ "
+"ユーティリティを使ってダンプの一部を選択して格納することができます。"
 
 #: ../../en/backup.rst:40
 msgid ""
@@ -134,14 +144,18 @@ msgid ""
 "individually, allowing them to be selectively restored without decompressing "
 "the entire archive."
 msgstr ""
+"**Compress** は tar フォーマットのようなものですが、内部のコンポーネントを個"
+"別に圧縮しています。アーカイブ全体を復元せずに選択したものだけを格納すること"
+"ができます。"
 
 #: ../../en/backup.rst:42
 msgid "We'll check the Compress option and go, saving out a backup file."
-msgstr ""
+msgstr "バックアップファイルを保存する時には Compress "
+"オプションにチェックを入れてから行います。"
 
 #: ../../en/backup.rst:44
 msgid "The same operation can be done with the command line like this:"
-msgstr ""
+msgstr "コマンドラインでの同じ操作は次のようになります:"
 
 #: ../../en/backup.rst:50
 msgid ""
@@ -243,7 +257,7 @@ msgstr ""
 
 #: ../../en/backup.rst:134
 msgid "Online Backup and Restore"
-msgstr "基本的なバックアップとレストア"
+msgstr "オンラインでのバックアップと格納"
 
 #: ../../en/backup.rst:136
 msgid ""
@@ -452,33 +466,42 @@ msgstr ""
 
 #: ../../en/backup.rst:231
 msgid "Links"
-msgstr ""
+msgstr "リンク"
 
 #: ../../en/backup.rst:233
 msgid ""
 "`pg_dump <http://www.postgresql.org/docs/current/static/app-pgdump.html>`_"
 msgstr ""
+"`pg_dump <https://www.postgresql.jp/document/current/html/app-pgdump.html>`_"
 
 #: ../../en/backup.rst:234
 msgid ""
 "`pg_dumpall <http://www.postgresql.org/docs/current/static/app-pg-dumpall."
 "html>`_"
 msgstr ""
+"`pg_dumpall <https://www.postgresql.jp/document/current/html/app-pg-dumpall."
+"html>`_"
 
 #: ../../en/backup.rst:235
 msgid ""
 "`pg_restore <http://www.postgresql.org/docs/current/static/app-pgrestore."
 "html>`_"
 msgstr ""
+"`pg_restore <https://www.postgresql.jp/document/current/html/app-pgrestore."
+"html>`_"
 
 #: ../../en/backup.rst:236
 msgid ""
 "`PostgreSQL High Availability <http://www.postgresql.org/docs/current/static/"
 "high-availability.html>`_"
 msgstr ""
+"`高可用性、負荷分散およびレプリケーション <https://www.postgresql.jp/"
+"document/current/html/high-availability.html>`_"
 
 #: ../../en/backup.rst:237
 msgid ""
 "`PostgreSQL High Availability Continuous Archiving and PITR <http://www."
 "postgresql.org/docs/current/static/continuous-archiving.html>`_"
 msgstr ""
+"`継続的アーカイブとポイントインタイムリカバリ（PITR） <https://www.postgresql"
+".jp/document/current/html/continuous-archiving.html>`_"

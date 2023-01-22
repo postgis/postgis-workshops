@@ -9,46 +9,28 @@ However instead of vector data, raster data is represented as an n-dimensional m
 The bands defines the number of matrices you have. Each pixel stores a value corresponding to each band.
 So a 3-banded raster such as an RGB image, would have 3 values for each pixel corresponding to the Red-Green-Blue bands.
 
-Although pretty pictures such as those you see on your TV screen are rasters, rasters may not be that exciting to look at.
-In a nutshell, a raster is a matrix, pinned on a coordinate system, that has values that can represent anything you want them to represent.
+Although pretty pictures such as those you see on your TV screen are rasters,
+rasters may not be that exciting to look at.
+In a nutshell, a raster is a matrix, pinned on a coordinate system,
+that has values that can represent anything you want them to represent.
 
-Since rasters live in cartesian space, rasters can interact with geometries.  PostGIS offers many functions that take as input both rasters and geometries.
-Also many operations applied to rasters will result in geometries. Common ones are the `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, and `ST_MinConvexHull`
-as shown below.
+Since rasters live in cartesian space, rasters can interact with geometries.
+PostGIS offers many functions that take as input both rasters and geometries.
+Many operations applied to rasters will result in geometries. Common ones are the `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, and `ST_MinConvexHull`
+as shown below.  When you cast a raster to a geometry, what is output is the `ST_ConvexHull` of the raster.
 
 .. image:: ./rasters/postgis_raster.jpg
 
 The raster format is commonly used to store elevation data, temperature data, satellite data, and thematic data representing things like environmental contamination, population density, and environmental hazard occurrences.
+You can use rasters to store any numeric data that has a meaningful coordinate location.
+The only restriction is that for all data in a specific band the numeric data types have to be the same.
 
-Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the `raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_ command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:
+Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the :command:`raster2pgsql` command line tool packaged with PostGIS.
+Before all of that, you must enable raster support in your database by running the command:
 
 .. code-block:: sql
 
   CREATE EXTENSION postgis_raster;
-
-
-Loading Rasters using raster2pgsql
------------------------------------
-raster2pgsql is a command-line tool often packaged with PostGIS.
-If you are on windows and used application stackbuilder PostGIS Bundle, you'll find :command:`raster2pgsql.exe` in the folder ``C:\Program Files\PostgreSQL\15\bin``  where the *15* should be replaced with the version of PostgreSQL you are running.
-
-If you are using Postgres.App, you'll find raster2pgsql among the other `Postgres.app CLI Tools <https://postgresapp.com/documentation/cli-tools.html>`_.
-On Ubuntu and Debian, you will need
-
-.. code-block:: sh
-
-  apt install postgis
-
-To have the PostGIS commandline tools installed.
-This may install an older version of PostgreSQL as well.
-Any old cluster it creates you can drop.
-
-For this exercise, we'll use data from `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_.
-
-.. note::
-
-  This digital elevation file is 3GB in size, we have a subset of it already prepped in the backup file
-  `PG Raster Backup <https://postgis.net/stuff/workshop-data/pg_postgis_raster.backup>`_.  Feel free to restore that file in your database using the :command:`pg_restore` commandline tool or the pgAdmin **Restore** menu instead of loading the raw files with :command:`raster2pgsql`.
 
 
 Creating Rasters From Geometries
@@ -72,11 +54,9 @@ We'll start by converting some geometries into rasters using `ST_AsRaster <https
 
 The above example CREATEs a table (**rasters**) from geometries formed from letters using the PostGIS 3.2+ `ST_Letters <https://postgis.net/docs/ST_Letters.html>`_ function. Rasters similar to geometries, can take advantage of spatial indexes. The spatial index used for raster
 is a functional index that indexes the geometry convexhull of the raster.
-When loading data with :command:`raster2pgsql` with the :command:`I` switch, the :command:`CREATE INDEX`
-step is done for you.
 
 You can see some useful metadata of your rasters
-with the following query which utilizes the postgis raster functions `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels that have data and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters.
+with the following query which utilizes the postgis raster `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels that have data and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters.
 
 .. code-block:: sql
 
@@ -95,16 +75,94 @@ with the following query which utilizes the postgis raster functions `ST_Count <
 
   There are two levels of raster functions.
   There are functions such as ST_MetaData that work at the raster level and there are functions such as
-  :command:`ST_Count` function and :command:`ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_
+  :command:`ST_Count` function and `ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_
   function that work at the band level.
   Most functions in postgis raster that work at the
   band level, work with only one band at a time, and assume the band you want is `1`.
 
+If you have a multi-band raster, and you need to count the pixel not no-data values in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`.
+
 Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that,
 our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us.
 
-If you have a multi-band raster, and you need to count the pixel not no-data values in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`.
+Loading Rasters using raster2pgsql
+-----------------------------------
+`raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Loader>`_ is a command-line tool often packaged with PostGIS.
+If you are on windows and used application stackbuilder PostGIS Bundle, you'll find :command:`raster2pgsql.exe` in the folder ``C:\Program Files\PostgreSQL\15\bin``  where the *15* should be replaced with the version of PostgreSQL you are running.
 
+If you are using Postgres.App, you'll find raster2pgsql among the other `Postgres.app CLI Tools <https://postgresapp.com/documentation/cli-tools.html>`_.
+
+On Ubuntu and Debian, you will need
+
+.. code-block:: sh
+
+  apt install postgis
+
+to have the PostGIS commandline tools installed.
+This may install an additional version of PostgreSQL as well.
+You can see a list of clusters in Debian/Ubuntu using the :command:`pg_lsclusters` command
+and drop them using the :command:`pg_dropcluster` command.
+
+For this exercise, we'll use data from `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_.
+
+.. note::
+
+  This digital elevation file is 3GB in size, we created a lower res version of it call `nyc_dem.tif`
+  in the https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip
+  `PG Raster Data Set <https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip>`_.
+  In-lieu of loading the tif, restore the `nyc_dem.backup` included in the zip file
+  in your database using the :command:`pg_restore` commandline tool or the pgAdmin **Restore** menu.
+
+The :command:`rasterpgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into
+raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source.
+Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata.
+
+For a full exposure of all the possible switches offered refer to `raster2pgsql options <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_.
+
+Some other notable options :command:`raster2pgsql` offers which we will not cover are:
+
+* Ability to transform a raster spatial reference from its source to a preferred target srid
+* Ability to set the `nodata` value, when not specified, raster2pgsql tries to infer from the file
+
+To load all the tif files in our folder and also create overviews, we would run the below.
+
+.. code-block:: sh
+
+  raster2pgsql -d -e -l 2,3 -I -C -M -x -F -Y -t 256x256 *.tif nyc_dem | psql -d nyc
+
+* -d to drop the tables if they already exist
+* The above command uses `-e` to do load immediately instead of committing in a transaction
+* `-C` set raster constraints, this is useful for `raster_columns` to show info.
+  You may wnat to combine with `-x` to exclude the extent constraint,
+  which is a slow constraint to check and also hampers future loads in the table.
+* `-Y` to use copy in batches of 50. If you are running PostGIS 3.3 or higher, you can use `-Y 1000`
+  to have copy be in batches of 1000. This will run faster, but will use more memory.
+* `-l 2,3` to create over view tables: `o_2_ncy_dem` and `o_3_nyc_dem`. This is useful for viewing data.
+* -I to create a spatial index
+* `-F` to add file name, if you have only one tif file, this is kinda pointless.
+  If you had multiple, this would be useful to tell you what file each row came from.
+* `-t` to set the block size. Note if you are not sure the best size use, use `-t auto`
+  instead and raster2pgql will use the same tiling as what was in the tif. The output
+  will tell you what the blocksize is it chose. Cancel if it looks huge or weird.
+  The original file had a size of 300x7 which is not ideal.
+* Use :command:`psql` to run the generated sql against the database.
+  If you want to dump to a file instead, use `> nyc_dem.sql`
+
+
+For this example, we have only one tif file, so we could instead specify the full file name, instead of
+`*.tif`.  If the files are not in your current directory, you can also specify a folder path with `*.tif`.
+
+.. note::
+
+  If you are on windows and need to reference the folder, make sure to
+  include the drive letter such as `C:/workshop/*.tif`
+
+You'll often hear in PostGIS lingo, the term **raster tile** and **raster** used somewhat interchangeably.
+A raster tile really corresponds to a particular raster in a raster column which is a subset of a bigger raster, such as this
+NYC dem data we just loaded.
+This is because when rasters are loaded into PostGIS from big raster files, they are often chopped up into many many rows to make them
+manageable.  Rasters are sadly limited by the 1GB PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_ limit
+and also the slow process of detoasting and so we need to chop up our raster data.
 
 Viewing Rasters in Browser
 ------------------------------
@@ -112,7 +170,7 @@ Although pgAdmin and psql have no mechanism yet to view postgis rasters, we have
 the easiest is to output to a web-friendly raster format such as PNG using batteries included postgis raster
 functions like `ST_AsPNG` or `ST_AsGDALRaster` listed in `PostGIS Raster output functions <https://postgis.net/docs/RT_reference.html#Raster_Outputs>`_.
 As your rasters get larger, you'll want to graduate to a tool
-such as QGIS to view them in all their glory or the GDAL family of commandline tools such as gdal_translate to export them to other raster formats.  Remember though, postgis rasters are built for analysis,
+such as QGIS to view them in all their glory or the GDAL family of commandline tools such as :command:`gdal_translate` to export them to other raster formats.  Remember though, postgis rasters are built for analysis,
 not for generating pretty pictures for you to look at.
 
 One caveat, by default all different raster types outputs are disabled. In order to utilize these,
@@ -150,13 +208,17 @@ A matrix encased in a geometric envelop. In order to do useful analysis,
 we need to georeference our rasters,
 meaning we want each pixel (rectangle) to represent some meaningful plot of space.
 
-The `ST_AsRaster` has many overloaded representations. The earlier example used the simplest such implementation
+The `ST_AsRaster` has many overloaded representations.
+The earlier example used the simplest such implementation
 and accepted the default arguments which are 8BUI and 1 band, with no data being 0.
-If you need to use the other variants, you should use the named arguments call syntax so that you don't accidentally
-fall into the wrong variant of the function or get **function is not unique** errors.
+If you need to use the other variants, you should use the
+named arguments call syntax so that you don't accidentally
+fall into the wrong variant of
+the function or get **function is not unique** errors.
 
-If you start with a geometry that has a spatial reference system, you'll end up with a raster
-with same spatial reference system.  In this next example, we'll plop our words in New York in
+If you start with a geometry that has a spatial reference system,
+you'll end up with a raster with same spatial reference system.
+In this next example, we'll plop our words in New York in
 bright cheery colors. We will also use pixel scale instead of width and height so that
 our raster pixel sizes represent 1 meter x 1 meter of space.
 
@@ -221,11 +283,17 @@ the width of the word **Raster** is now wider than **Hello**.
   (4 rows)
 
 Raster Spatial Catalog tables
-===============================
+------------------------------
 Similar to the geometry and geography types, raster has a set of catalogs that show you
 all raster columns in your database.
 These are `raster_columns and raster_overviews <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Catalog>`_.
-Both of these are views similar to the `geometry_columns` and `geography_columns`.
+
+
+raster_columns
+~~~~~~~~~~~~~~~
+
+The `raster_columns` view to the sibling to the  `geometry_columns` and `geography_columns`, providing much the same
+data and more, but for raster columns.
 
 .. code-block:: sql
 
@@ -234,29 +302,36 @@ Both of these are views similar to the `geometry_columns` and `geography_columns
 
 Explore the table, and you'll find this:
 
-.. code-block:: sql
+.. code-block::
 
   r_table_catalog | r_table_schema | r_table_name | r_raster_column | srid | scale_x | scale_y | blocksize_x | blocksize_y | same_alignment | regular_blocking | num_bands | pixel_types | nodata_values | out_db | extent | spatial_index
-  -----------------+----------------+--------------+-----------------+------+---------+---------+-------------+-------------+----------------+------------------+-----------+-------------+---------------+--------+--------+---------------
+  ----------------+----------------+--------------+-----------------+------+---------+---------+-------------+-------------+----------------+------------------+-----------+-------------+---------------+--------+--------+---------------
   nyc             | public         | rasters      | rast            |    0 |         |         |             |             | f              | f                |           |             |               |        |        | t
-  (1 row)
+  nyc             | public         | nyc_dem      | rast            | 2263 |      10 |     -10 |         256 |         256 | t              | f                |         1 | {16BUI}     | {NULL}        | {f}    |        | t
+  nyc             | public         | o_2_nyc_dem  | rast            | 2263 |      20 |     -20 |         256 |         256 | t              | f                |         1 | {16BUI}     | {NULL}        | {f}    |        | t
+  nyc             | public         | o_3_nyc_dem  | rast            | 2263 |      30 |     -30 |         256 |         256 | t              | f                |         1 | {16BUI}     | {NULL}        | {f}    |        | t
+  (4 rows)
 
-a very disappointing row of largely unfilled information.
+a very disappointing row of largely unfilled information for the `rasters` table.
 
 Unlike geometry and geography, raster does not support type modifiers, because type modifier space is too
 limited and there are more critical properties than what can fit in a type modifier.
 
 Raster instead relies on constraints, and reads these constraints back as part of the view.
-So let's try to add some constraints to our table.
+
+Look at the other rows from the tables we loaded using :command:`raster2pgsql`.
+Because we used the `-C` switch :command:`raster2pgsql` added constraints for the srid and other info it was able to read from the tif or that we passed in. The overview tables generated with the `-l` switch `o_2_nyc_dem` and `o_3_nyc_dem` show up as well.
+
+Let's try to add some constraints to our table.
 
 .. code-block:: sql
 
   SELECT AddRasterConstraints('public'::name, 'rasters'::name, 'rast'::name);
 
 
-And you'll be bombarded with a whole bunch of notices about how your raster data is mess
+And you'll be bombarded with a whole bunch of notices about how your raster data is a mess
 and nothing can be constrained. If you look at raster_columns again, still the same disappointing
-story of many blank rows.
+story of many blank rows for `rasters`.
 
 In order for constraints to be applied,
 all rasters in your table must be constrainable by at least one rule.
@@ -291,13 +366,42 @@ For example, if you plan to load more data into your raster table,
 you'll want to skip the extent constraint since that
 would require that all rasters are within the extent of the extent constraint.
 
-You'll often here in PostGIS lingo, the term **raster tile** and **raster** used somewhat interchangeably.
-A raster tile really corresponds to a particular raster in a raster column which is a subset of a bigger raster.
-This is because when rasters are loaded into PostGIS from big raster files, they are often chopped up to make them
-manageable.
+raster_overviews
+~~~~~~~~~~~~~~~~~
+Raster overview columns appear both in the `raster_columns` meta catalog and another meta catalog called
+`raster_overviews`. Overviews are used mostly to speed up viewing at higher zoom levels.
+They can also be used for quick back of the envelop analysis, providing less accurate stats, but at a much faster
+speed than applying to the raw raster table.
+
+To inspect the overviews, run:
+
+.. code-block:: sql
+
+  SELECT *
+      FROM raster_overviews;
+
+and you'll see the output:
+
+.. code-block::
+
+  o_table_catalog | o_table_schema | o_table_name | o_raster_column | r_table_catalog | r_table_schema | r_table_name | r_raster_column | overview_factor
+  ----------------+----------------+--------------+-----------------+-----------------+----------------+--------------+-----------------+-----------------
+  nyc             | public         | o_2_nyc_dem  | rast            | nyc             | public         | nyc_dem      | rast            |               2
+  nyc             | public         | o_3_nyc_dem  | rast            | nyc             | public         | nyc_dem      | rast            |               3
+  (2 rows)
+
+The `raster_overviews` table only provides you the overview_factor and the name of the parent table.
+All this information is something you could have
+figured out yourself by the `raster2pgsql` naming convention for overviews.
+
+The `overview_factor` tells you at what resolution the row is with respect to it's parent.
+An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile.
+Similarly an overview_factor of `1` meants that 2x2x2 = 8 tiles
+of the original can be shoved into an overview_3 tile.
+
 
 Exploring Raster Functions
-===========================
+------------------------------
 The :command:`postgis_raster` extension has over 100 functions to choose from.
 We'll focus on the ones you will commonly use.
 PostGIS raster functionality was patterned after the PostGIS geometry support. As such you'll
@@ -307,7 +411,7 @@ In addition to those overlapping functions, it offers many functions that work i
 or are very specific to rasters.
 
 Unioning Rasters
---------------------------
+~~~~~~~~~~~~~~~~~
 The `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ function for raster,
 just as the geometry equivalent :command:`ST_Union`, aggregates a set of rasters together
 into a single raster.  However, just as with geometry,
@@ -463,7 +567,7 @@ Or perhaps, you want to do all bands, but you want different strategies.
 Using the *unionarg[]* variant of the :command:`ST_Union` function, also allows you to shuffle the order of the bands.
 
 Clipping Rasters
------------------
+~~~~~~~~~~~~~~~~~
 The `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ function is one of the most widely used functions
 for PostGIS rasters.  The main reason is the more pixels you need to inspect or do operations on, the slower your processing.
 **ST_Clip** clips your raster to just the area of interest, so you can isolate your operations to just that area.
@@ -486,7 +590,7 @@ Similar to the geometry :command:`ST_Intersects` the raster :command:`ST_Interse
 can take advantage of spatial indexes on the raster or geometry tables.
 
 Converting Rasters to Geometries
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Rasters can just as easily be morphed into geometries.
 Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_ function.
 
@@ -605,9 +709,85 @@ A common approach to produce more complex geometries is to group by the values a
 
 This will give you 2 rows back corresponding to the words "Raster" and "Hello".
 
+Basic statistics
+~~~~~~~~~~~~~~~~~
+The most important thing to understand about rasters is that they are statistical tools
+for storing data in arrays, that you may happen to be able to make look pretty on a screen.
+
+You can find a menu of these statistical functions
+in `Raster Band Statistics <https://postgis.net/docs/RT_reference.html#RasterBand_Stats>` _.
+
+This query takes about 10 seconds:
+.. code-block:: sql
+
+  SELECT (ST_SummaryStatsAgg(rast, 1, true, 1)).* AS sa
+      FROM nyc_dem;
+
+Outputs:
+
+.. code-block::
+
+  count      |    sum     |       mean       |      stddev      | min | max
+  -----------+------------+------------------+------------------+-----+-----
+  246794100  | 4555256024 | 18.4577184948911 | 39.4416860598687 |   0 | 411
+  (1 row)
+
+Which tells we have a lot of pixels and our max elevation is 411 ft.
+
+Now armed with this bit of information, we can ask more questions.
+
+The intersection and transformation of rasters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Just as you can compute the intersection of two geometries using `ST_Intersection`,
+you can compute intersection of two rasters or a raster and a geometry
+using `raster ST_Interection <https://postgis.net/docs/RT_ST_Intersection.html>`_.
+
+What you get out of this beast, are two different kinds of things:
+
+* Intersect a geometry with a raster, and you get a set of `geomval` offspring.
+  Not just one but possibly many.
+* Intersect 2 rasters and you get a single `raster` back
+
+The golden rule for both raster intersection and geometry intersection
+is that both parties involved must have the same spatial reference system.
+For raster/raster, they have to have same alignment.
+
+We'll have no problem intersecting our geometry with our `Hello Raster` rasters,
+because they are both in NY State plane meters,
+however the story is not so simple with
+our elevation data which is in NY State plane feet.
+
+As a general rule, transforming geometries, is an easier process than transforming rasters,
+so when you need to do on the fly, transform the geometry. If you plan to do this often
+rebuild one of tables so that your datasets are in the same spatial reference system.
+
+Here is an example of on-the-fly transformation of the geometry.
+Which answers a very important question.
+If we bucket our elevations into 5 buckets of elevation values,
+which elevation range results in the most gun fatalities.
+
+.. code-block:: sql
+
+  SELECT ST_Transform(ST_Union(gv.geom),4326) AS geom ,
+    MIN(gv.val) AS min_elev, MAX(gv.val) AS max_elev,
+      count(g.id) AS count_guns
+    FROM nyc_dem AS r
+      INNER JOIN
+      (SELECT id, ST_Transform(geom, 2263) AS geom
+        FROM nyc_homicides
+        WHERE weapon = 'gun') AS g
+        ON ST_Intersects(r.rast, g.geom) ,
+       ST_Intersection( g.geom, ST_Clip(r.rast,ST_Expand(g.geom, 4) ) ) AS gv
+    GROUP BY width_bucket(gv.val, 1, 411, 5)
+    ORDER BY width_bucket(gv.val, 1, 411, 5);
+
+Is there an important correlation between gun homicides and elevation?
+Probably not.
+
 
 Map Algebra Functions
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~
 Map algebra is the idea that you can do math on your pixel values.
 The :command:`ST_Union` function covered earlier is a special fast case of map algebra.
 Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_

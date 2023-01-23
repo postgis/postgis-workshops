@@ -103,15 +103,14 @@ This may install an additional version of PostgreSQL as well.
 You can see a list of clusters in Debian/Ubuntu using the :command:`pg_lsclusters` command
 and drop them using the :command:`pg_dropcluster` command.
 
-For this exercise, we'll use data from `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_.
+For this and later exercises, we'll be using `nyc_dem.tif` found in the file
+`PG Raster Workshop Dataset https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip <https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip>`_. For some geometry/raster examples, we will also be using NYC data loaded from prior chapters.  In-lieu of loading the tif, you can restore the `nyc_dem.backup` included in the zip file
+in your database using the :command:`pg_restore` commandline tool or the pgAdmin **Restore** menu.
 
 .. note::
 
-  This digital elevation file is 3GB in size, we created a lower res version of it call `nyc_dem.tif`
-  in the https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip
-  `PG Raster Data Set <https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip>`_.
-  In-lieu of loading the tif, restore the `nyc_dem.backup` included in the zip file
-  in your database using the :command:`pg_restore` commandline tool or the pgAdmin **Restore** menu.
+  This raster data was sourced from `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_ which is a 3GB DEM tif representing elevation relative to sea level with buildings and overwater removed. We then created a lower res version of it.
+
 
 The :command:`rasterpgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into
 raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source.
@@ -121,22 +120,24 @@ For a full exposure of all the possible switches offered refer to `raster2pgsql 
 
 Some other notable options :command:`raster2pgsql` offers which we will not cover are:
 
-* Ability to transform a raster spatial reference from its source to a preferred target srid
-* Ability to set the `nodata` value, when not specified, raster2pgsql tries to infer from the file
+* Ability to denote the SRID of the source. Instead, we'll rely on raster2pgsql guessing skills.
+* Ability to set the `nodata` value, when not specified, raster2pgsql tries to infer from the file.
+* Abiliity to load out-of-database rasters.
 
 To load all the tif files in our folder and also create overviews, we would run the below.
 
 .. code-block:: sh
 
-  raster2pgsql -d -e -l 2,3 -I -C -M -x -F -Y -t 256x256 *.tif nyc_dem | psql -d nyc
+  raster2pgsql -d -e -l 2,3 -I -C -M -F -Y -t 256x256 *.tif nyc_dem | psql -d nyc
 
 * -d to drop the tables if they already exist
 * The above command uses `-e` to do load immediately instead of committing in a transaction
 * `-C` set raster constraints, this is useful for `raster_columns` to show info.
-  You may wnat to combine with `-x` to exclude the extent constraint,
+  You may want to combine with `-x` to exclude the extent constraint,
   which is a slow constraint to check and also hampers future loads in the table.
+* `-M` to vacuum and analyze after load, to improve query planner statistics
 * `-Y` to use copy in batches of 50. If you are running PostGIS 3.3 or higher, you can use `-Y 1000`
-  to have copy be in batches of 1000. This will run faster, but will use more memory.
+  to have copy be in batches of 1000, or even higher number. This will run faster, but will use more memory.
 * `-l 2,3` to create over view tables: `o_2_ncy_dem` and `o_3_nyc_dem`. This is useful for viewing data.
 * -I to create a spatial index
 * `-F` to add file name, if you have only one tif file, this is kinda pointless.
@@ -160,9 +161,10 @@ For this example, we have only one tif file, so we could instead specify the ful
 You'll often hear in PostGIS lingo, the term **raster tile** and **raster** used somewhat interchangeably.
 A raster tile really corresponds to a particular raster in a raster column which is a subset of a bigger raster, such as this
 NYC dem data we just loaded.
-This is because when rasters are loaded into PostGIS from big raster files, they are often chopped up into many many rows to make them
-manageable.  Rasters are sadly limited by the 1GB PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_ limit
-and also the slow process of detoasting and so we need to chop up our raster data.
+This is because when rasters are loaded into PostGIS from big raster files, they chopped into many rows to make them
+manageable.  Each raster in each row then is a part of a bigger raster.  Each tile covers same size area denoted by the blocksize you specified.
+Rasters are sadly limited by the 1GB PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_ limit
+and also the slow process of detoasting and so we need to chop up in order to achieve decent performance or to even store them.
 
 Viewing Rasters in Browser
 ------------------------------
@@ -400,18 +402,30 @@ Similarly an overview_factor of `1` meants that 2x2x2 = 8 tiles
 of the original can be shoved into an overview_3 tile.
 
 
-Exploring Raster Functions
-------------------------------
+Common Raster Functions
+--------------------------
 The :command:`postgis_raster` extension has over 100 functions to choose from.
-We'll focus on the ones you will commonly use.
-PostGIS raster functionality was patterned after the PostGIS geometry support. As such you'll
-find an overlap of functions between raster and geometry where it makes sense.
-Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`.
+PostGIS raster functionality was patterned after the PostGIS geometry support.
+You'll find an overlap of functions between raster and geometry where it makes sense.
+Common ones you'll use that have equivalent in geometry world are
+:command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`,
+:command:`ST_Intersection`, and :command:`ST_Transform`.
 In addition to those overlapping functions, it offers many functions that work in conjunction with geometry
 or are very specific to rasters.
 
-Unioning Rasters
-~~~~~~~~~~~~~~~~~
+The most common functions used in raster functionality are the :command:`ST_Union`, :command:`ST_Clip`,
+and :command:`ST_Intersects`.  Because rasters are chopped into tiles,
+you need a function like :command:`ST_Union` to reconstitute a region.
+Because performance gets slow, the more pixels a function needs to analyse, you need a fast acting function
+:command:`ST_Clip` to clip the rasters to just the portions of interest for your analysis.
+
+Finally you need :command:`ST_Intersects` to zoom in on the raster tiles that contain your areas of interest.
+We'll cover these bread and butter functions first before moving on to other sections where we will use them in concert
+with other raster and geometry functions.
+
+
+Unioning Rasters with ST_Union
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ function for raster,
 just as the geometry equivalent :command:`ST_Union`, aggregates a set of rasters together
 into a single raster.  However, just as with geometry,
@@ -566,8 +580,8 @@ Or perhaps, you want to do all bands, but you want different strategies.
 
 Using the *unionarg[]* variant of the :command:`ST_Union` function, also allows you to shuffle the order of the bands.
 
-Clipping Rasters
-~~~~~~~~~~~~~~~~~
+Clipping Rasters with help of ST_Intersects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ function is one of the most widely used functions
 for PostGIS rasters.  The main reason is the more pixels you need to inspect or do operations on, the slower your processing.
 **ST_Clip** clips your raster to just the area of interest, so you can isolate your operations to just that area.
@@ -586,12 +600,16 @@ To reduce the number of pixels, :command:`ST_Union` has to handle, each raster i
 
 This example showcases several functions working in unison.  The :command:`ST_Intersects` function employed
 is the one packaged with **postgis_raster** and can intersect 2 rasters or a raster and a geometry.
-Similar to the geometry :command:`ST_Intersects` the raster :command:`ST_Intersects`
+Similar to the geometry :command:`ST_Intersects` the `raster ST_Intersects <https://postgis.net/docs/RT_ST_Intersects.html>`_
 can take advantage of spatial indexes on the raster or geometry tables.
 
+
 Converting Rasters to Geometries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 Rasters can just as easily be morphed into geometries.
+
+The polygon of a raster with ST_Polygon
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_ function.
 
 .. code-block:: sql
@@ -607,10 +625,12 @@ If you click on the geometry viewer in pgAdmin, you can see this in all it's glo
 
 .. image:: ./rasters/raster_as_geometry.png
 
-ST_Polygon considers all the pixels that have values (not no-data) in a particular band,
-and converts them to geometry.  Like many other functions in raster, ST_Polygon only considers 1 band.
+:command:`ST_Polygon` considers all the pixels that have values (not no-data) in a particular band,
+and converts them to geometry.  Like many other functions in raster, :command:`ST_Polygon` only considers 1 band.
 If no band is specified, it will consider only the first band.
 
+The pixel rectangles of a raster with ST_PixelAsPolygons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Another popularly used function is the `ST_PixelAsPolygons <https://postgis.net/docs/RT_ST_PixelAsPolygons.html>`_ function. You should rarely use :command:`ST_PixelAsPolygons` on a large raster without first
 clipping because you will end up with millions of rows, one for each pixel.
 
@@ -669,6 +689,9 @@ Note the differences in this example from previous.
   Since these are all set returning functions, you can replace CROSS JOIN LATERAL
   with , for short-hand.  We'll use a , in the next set of examples
 
+Dumping polygons with ST_DumpAsPolygons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Raster also introduces an additional composite type called a :command:`geomval`.
 Consider a :command:`geomval` as the offspring of a geometry and raster.
 It contains a geometry and it contains a pixel value.
@@ -709,19 +732,25 @@ A common approach to produce more complex geometries is to group by the values a
 
 This will give you 2 rows back corresponding to the words "Raster" and "Hello".
 
-Basic statistics
-~~~~~~~~~~~~~~~~~
+Statistics
+-----------------------
 The most important thing to understand about rasters is that they are statistical tools
 for storing data in arrays, that you may happen to be able to make look pretty on a screen.
 
 You can find a menu of these statistical functions
-in `Raster Band Statistics <https://postgis.net/docs/RT_reference.html#RasterBand_Stats>` _.
+in `Raster Band Statistics <https://postgis.net/docs/RT_reference.html#RasterBand_Stats>`_.
 
-This query takes about 10 seconds:
+ST_SummaryStatsAgg and ST_SummaryStats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Want all stats for a set or rasters, reach for the function `ST_SummaryStatsAgg <https://postgis.net/docs/RT_ST_SummaryStatsAgg.html>`_.
+
+This query takes about 10 seconds and gives you a summary of the whole table:
+
 .. code-block:: sql
 
   SELECT (ST_SummaryStatsAgg(rast, 1, true, 1)).* AS sa
-      FROM nyc_dem;
+      FROM o_3_nyc_dem;
 
 Outputs:
 
@@ -734,20 +763,159 @@ Outputs:
 
 Which tells we have a lot of pixels and our max elevation is 411 ft.
 
+If you have built overviews, and just need a rough estimate of your mins, maxs, and means
+use one of your overviews. This next query returns roughly the same values for mins, maxs, and means
+as the prior but in about 1 second instead of 10.
+
+.. code-block:: sql
+
+  SELECT (ST_SummaryStatsAgg(rast, 1, true, 1)).* AS sa
+      FROM o_3_nyc_dem ;
+
 Now armed with this bit of information, we can ask more questions.
 
-The intersection and transformation of rasters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ST_Histogram
+~~~~~~~~~~~~~~~~~~~~
 
-Just as you can compute the intersection of two geometries using `ST_Intersection`,
+Generally you won't want stats for your whole table, but instead just stats for a particular area,
+in that case, you'll want to also employ our old friends :command:`ST_Intersects` and :command:`ST_Clip`.
+If you are also in need of a raster statistics function that doesn't have an aggregate version, you'll want to carry
+:command:`ST_Union` along for the ride.
+
+For this next example we'll use a different stats function `ST_Histogram <https://postgis.net/docs/RT_ST_Histogram.html>`_
+which has no aggregate equivalent, and for this particular variant, is a set returning function.
+We are using the same area of interest as some prior examples,
+but we also need to employ geometry :command:`ST_Transform` to transform our NY state plane meters geometry
+to our NYC State Plane feet rasters.  It is almost always more performant to transform the geometry instead of raster
+and definitely if your geometry is just a single one.
+
+.. code-block:: sql
+
+  SELECT (ST_Quantile( ST_Union( ST_Clip(r.rast, g.geom) ), ARRAY[0.25,0.50,0.75, 1.0] )).*
+      FROM nyc_dem AS r
+         INNER JOIN
+          ST_Transform(
+            ST_Buffer(ST_Point(586598, 4504816, 26918), 100 ),
+              2263) AS g(geom)
+          ON  ST_Intersects(r.rast, g.geom);
+
+the above query completes in under 60ms and outputs:
+
+.. code-block::
+
+  quantile  | value
+  ----------+-------
+      0.25  |    52
+      0.5   |    57
+      0.75  |    68
+      1     |    78
+  (4 rows)
+
+
+Creating Derivative Rasters
+----------------------------
+PostGIS raster comes packaged with a number of functions for editing rasters.
+These functions are both used for editing as well as creating derivative raster data sets.
+You will find these listed in `Raster Editors <https://postgis.net/docs/RT_reference.html#Raster_Editors>`_
+and `Raster Management https://postgis.net/docs/RT_reference.html#Raster_Management_Functions`-.
+
+Transforming rasters with ST_Transform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Most of our data is in NY State Plane meters (SRID: 26918),
+however our DEM raster dataset is in NY State Plane feet (SRID: 2263).
+For the least cumbersome workflow, we need our core datasets to be in the same spatial reference system.
+
+The `raster ST_Transform <https://postgis.net/docs/RT_ST_Transform.html>`_ is the function most suited for this job.
+
+In order to create a new nyc dem dataset in NY State Plane meters, we'll do the following:
+
+.. code-block:: sql
+
+  CREATE TABLE nyc_dem_26918 AS
+  WITH ref AS (SELECT ST_Transform(rast,26918) AS rast
+              FROM nyc_dem LIMIT 1)
+  SELECT r.rid, ST_Transform(r.rast, ref.rast) AS rast, r.filename
+  FROM nyc_dem AS r, ref;
+
+The above on my system took about 1.5 minutes.
+For a larger data set it would take much longer.
+
+The aforementioned examples used two variants of the :command:`ST_Transform` raster function.
+The first was to get a reference raster that will be used to transform the other raster tiles to guarantee that all tiles
+have the same alignment.  Note the second variant of :command:`ST_Transform` used doesn't even take an input SRID.
+This is because the SRID and all the pixel scale and block sizes are read from the reference raster.
+If you do simply used `ST_Transform(rast, srid)` form, then all your rasters might come out with different alignment
+making it impossible to apply an operation such as :command:`ST_Union` on them.
+
+After the creation of the table, we'll want to do the usual of adding
+a spatial index, primary key, and constraints as follows:
+
+.. code-block:: sql
+
+  ALTER TABLE nyc_dem_26918
+    ADD CONSTRAINT pk_nyc_dem_26918 PRIMARY KEY(rid);
+
+  CREATE INDEX ix_nyc_dem_26918_st_convexhull_gist
+      ON nyc_dem_26918 USING gist( ST_ConvexHull(rast) );
+
+  SELECT AddRasterConstraints('nyc_dem_26918'::name, 'rast'::name);
+  ANALYZE nyc_dem_26918;
+
+Which should take under 2 minutes for this dataset.
+
+Creating overview tables with ST_CreateOverview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Just as with our original dataset, it would be useful to have overview tables
+to speed up performance of some operations.
+`ST_CreateOverview <https://postgis.net/docs/RT_CreateOverview.html>`_ is a function fit for that purpose.
+You can use :command:`ST_CreateOverview` to create overviews also
+if you neglected to create one during the raster2pgsql load or  you decided, you need more overviews.
+
+We'll create level 2 and 3 overviews as we had done with our original using this code.
+
+.. code-block:: sql
+
+  SELECT ST_CreateOverview('nyc_dem_26918'::regclass, 'rast', 2);
+  SELECT ST_CreateOverview('nyc_dem_26918'::regclass, 'rast', 3);
+
+This process sadly takes a while, and a longer while the more rows you have so be patient.
+For this dataset it took about 15 minutes for the overview factor `2` and 1 minute for the overview factor `3`.
+
+The :command:`ST_CreateOverView` function also adds in the needed constraints so the columns appear with full detail in the
+`raster_columns` and `raster_overviews` catalogs. It does not add indexes to them though and also does not add an rid column.
+The rid column is probably not necessary unless you need a primary key to edit with. You would probably want an index
+which you can create with the following:
+
+.. code-block:: sql
+
+  CREATE INDEX ix_o_2_nyc_dem_26918_st_convexhull_gist
+      ON o_2_nyc_dem_26918 USING gist( ST_ConvexHull(rast) );
+
+  CREATE INDEX ix_o_3_nyc_dem_26918_st_convexhull_gist
+      ON o_3_nyc_dem_26918 USING gist( ST_ConvexHull(rast) );
+
+
+.. note::
+
+  ST_CreateOverview has an optional argument for denoting the sampling method.
+  If not specified it uses the default `NearestNeighbor` which is generally the fastest to compute
+  but may not be ideal. Resampling methods is beyond the scope of this workshop.
+
+
+The intersection of rasters and geometries
+-------------------------------------------
+
+Just as you can compute the intersection of two geometries using :command:`ST_Intersection`,
 you can compute intersection of two rasters or a raster and a geometry
 using `raster ST_Interection <https://postgis.net/docs/RT_ST_Intersection.html>`_.
 
 What you get out of this beast, are two different kinds of things:
 
 * Intersect a geometry with a raster, and you get a set of `geomval` offspring.
-  Not just one but possibly many.
-* Intersect 2 rasters and you get a single `raster` back
+  Perhaps one, but most often many.
+  I think of it as the bunny rabbit intersection.
+* Intersect 2 rasters and you get a single `raster` back.
 
 The golden rule for both raster intersection and geometry intersection
 is that both parties involved must have the same spatial reference system.
@@ -762,32 +930,34 @@ As a general rule, transforming geometries, is an easier process than transformi
 so when you need to do on the fly, transform the geometry. If you plan to do this often
 rebuild one of tables so that your datasets are in the same spatial reference system.
 
-Here is an example of on-the-fly transformation of the geometry.
-Which answers a very important question.
+Here is an example which answers a question you may have been curious about.
 If we bucket our elevations into 5 buckets of elevation values,
 which elevation range results in the most gun fatalities.
+We know based on our earlier summary statistics
+that `0` is the lowest value and `411` is the highest value for elevation in our nyc dem dataset,
+so we use that as min and max value for our `width_bucket <https://www.postgresql.org/docs/current/functions-math.html>`_ call.
 
 .. code-block:: sql
 
   SELECT ST_Transform(ST_Union(gv.geom),4326) AS geom ,
     MIN(gv.val) AS min_elev, MAX(gv.val) AS max_elev,
       count(g.id) AS count_guns
-    FROM nyc_dem AS r
+    FROM nyc_dem_26918 AS r
       INNER JOIN
-      (SELECT id, ST_Transform(geom, 2263) AS geom
+      (SELECT id, geom
         FROM nyc_homicides
         WHERE weapon = 'gun') AS g
         ON ST_Intersects(r.rast, g.geom) ,
        ST_Intersection( g.geom, ST_Clip(r.rast,ST_Expand(g.geom, 4) ) ) AS gv
-    GROUP BY width_bucket(gv.val, 1, 411, 5)
-    ORDER BY width_bucket(gv.val, 1, 411, 5);
+    GROUP BY width_bucket(gv.val, 0, 411, 5)
+    ORDER BY width_bucket(gv.val, 0, 411, 5);
 
 Is there an important correlation between gun homicides and elevation?
 Probably not.
 
 
 Map Algebra Functions
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 Map algebra is the idea that you can do math on your pixel values.
 The :command:`ST_Union` function covered earlier is a special fast case of map algebra.
 Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_

@@ -314,7 +314,7 @@ Explore the table, and you'll find this:
   nyc             | public         | o_3_nyc_dem  | rast            | 2263 |      30 |     -30 |         256 |         256 | t              | f                |         1 | {16BUI}     | {NULL}        | {f}    |        | t
   (4 rows)
 
-a very disappointing row of largely unfilled information for the `rasters` table.
+a disappointing row of largely unfilled information for the `rasters` table.
 
 Unlike geometry and geography, raster does not support type modifiers, because type modifier space is too
 limited and there are more critical properties than what can fit in a type modifier.
@@ -349,7 +349,8 @@ We can perhaps do this, let's just lie and say all our data is in New York State
   SELECT r_table_name AS t, r_raster_column AS c, srid,
     blocksize_x AS bx, blocksize_y AS by, scale_x AS sx, scale_y AS sy,
     ST_AsText(extent) AS e
-    FROM raster_columns;
+    FROM raster_columns
+  WHERE r_table_name = 'rasters';
 
 Ah progress:
 
@@ -410,19 +411,19 @@ You'll find an overlap of functions between raster and geometry where it makes s
 Common ones you'll use that have equivalent in geometry world are
 :command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`,
 :command:`ST_Intersection`, and :command:`ST_Transform`.
-In addition to those overlapping functions, it offers many functions that work in conjunction with geometry
+
+In addition to those overlapping functions, it supports the `&&` overlap operator between rasters and between a raster and geometry.
+It also offers many functions that work in conjunction with geometry
 or are very specific to rasters.
 
-The most common functions used in raster functionality are the :command:`ST_Union`, :command:`ST_Clip`,
-and :command:`ST_Intersects`.  Because rasters are chopped into tiles,
 you need a function like :command:`ST_Union` to reconstitute a region.
 Because performance gets slow, the more pixels a function needs to analyse, you need a fast acting function
 :command:`ST_Clip` to clip the rasters to just the portions of interest for your analysis.
 
-Finally you need :command:`ST_Intersects` to zoom in on the raster tiles that contain your areas of interest.
+Finally you need :command:`ST_Intersects` or :command:`&&` to zoom in on the raster tiles that contain your areas of interest.
+The `&&` operator, is a much faster process than the `ST_Intersects`. Both can take advantage of raster spatial indexes.
 We'll cover these bread and butter functions first before moving on to other sections where we will use them in concert
 with other raster and geometry functions.
-
 
 Unioning Rasters with ST_Union
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -434,12 +435,12 @@ but the rules for raster unioning are more complicated than geometry rules.
 In the case of geometries, all you need is to have the same spatial reference system,
 but for rasters that is not sufficient.
 
-If you were to attempt, the following
+If you were to attempt, the following:
 
 .. code-block:: sql
 
- SELECT ST_Union(rast)
-    FROM rasters;
+  SELECT ST_Union(rast)
+      FROM rasters;
 
 You'd be summarily punished with an error:
 
@@ -817,7 +818,7 @@ Creating Derivative Rasters
 PostGIS raster comes packaged with a number of functions for editing rasters.
 These functions are both used for editing as well as creating derivative raster data sets.
 You will find these listed in `Raster Editors <https://postgis.net/docs/RT_reference.html#Raster_Editors>`_
-and `Raster Management https://postgis.net/docs/RT_reference.html#Raster_Management_Functions`-.
+and `Raster Management <https://postgis.net/docs/RT_reference.html#Raster_Management_Functions>`_.
 
 Transforming rasters with ST_Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -844,9 +845,72 @@ The aforementioned examples used two variants of the :command:`ST_Transform` ras
 The first was to get a reference raster that will be used to transform the other raster tiles to guarantee that all tiles
 have the same alignment.  Note the second variant of :command:`ST_Transform` used doesn't even take an input SRID.
 This is because the SRID and all the pixel scale and block sizes are read from the reference raster.
-If you do simply used `ST_Transform(rast, srid)` form, then all your rasters might come out with different alignment
+If you used `ST_Transform(rast, srid)` form, then all your rasters might come out with different alignment
 making it impossible to apply an operation such as :command:`ST_Union` on them.
 
+The only problem with the aforementioned :command:`ST_Transform`
+approach is that when you transform, the transformed often exists in other tiles.
+If you looked at the above output closely enough by outputting the convex hull of the rasters,
+in the next example
+ you'd see annoying gaps around the borders.
+
+.. code-block:: sql
+
+  SELECT rast::geometry
+    FROM nyc_dem_26918
+    ORDER BY rid
+  LIMIT 100;
+
+viewed in pgAdmin would look something like:
+
+.. image:: ./rasters/st_transform_overlaps.png
+
+
+Using ST_MakeEmptyCoverage to create even tiled rasters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A better approach, albeit a bit slower, is to define your own coverage tile structure from scratch using
+`ST_MakeEmptyCoverage <https://postgis.net/docs/RT_ST_MakeEmptyCoverage.html>`_ and then find the intersecting tiles
+for each new tile, and ST_Union these and then use `ST_Transform(ref, ST_Union...)` to create each tile.
+
+For this we'll be using quite a few functions, we learned about earlier.
+
+.. code-block:: sql
+
+  DROP TABLE IF EXISTS nyc_dem_26918;
+  CREATE TABLE nyc_dem_26918 AS
+  SELECT ROW_NUMBER() OVER(ORDER BY t.rast::geometry) AS rid,
+    ST_Clip(ST_Transform( ST_Union(r.rast), t.rast ), t.rast::geometry) AS rast
+  FROM (SELECT ST_Transform(
+      ST_SetSRID(ST_Extent(rast::geometry),2263)
+          , 26918) AS geom
+        FROM nyc_dem
+      ) AS g, ST_MakeEmptyCoverage(tilewidth => 256, tileheight => 256,
+                    width => (ST_XMax(g.geom) - ST_XMin(g.geom))::integer,
+                    height => (ST_YMax(g.geom) - ST_YMin(g.geom))::integer,
+                    upperleftx => ST_XMin(g.geom),
+                    upperlefty => ST_YMax(g.geom),
+                    scalex =>  3.048,
+                    scaley => -3.048,
+                    skewx => 0., skewy => 0., srid => 26918) AS t(rast)
+            INNER JOIN nyc_dem AS r
+              ON ST_Transform(t.rast::geometry, 2263) && r.rast
+  GROUP BY t.rast;
+
+
+Repeating the same exercise as earlier:
+
+.. code-block:: sql
+
+  SELECT rast::geometry
+    FROM nyc_dem_26918
+    ORDER BY rid
+  LIMIT 100;
+
+viewed in pgAdmin we no longer have overlaps:
+
+.. image:: ./rasters/st_transform_nooverlaps.png
+
+On my system this took ~10 minutes and returned 3879 rows.
 After the creation of the table, we'll want to do the usual of adding
 a spatial index, primary key, and constraints as follows:
 
@@ -880,7 +944,7 @@ We'll create level 2 and 3 overviews as we had done with our original using this
   SELECT ST_CreateOverview('nyc_dem_26918'::regclass, 'rast', 3);
 
 This process sadly takes a while, and a longer while the more rows you have so be patient.
-For this dataset it took about 15 minutes for the overview factor `2` and 1 minute for the overview factor `3`.
+For this dataset it took about 3-5 minutes for the overview factor `2` and 1 minute for the overview factor `3`.
 
 The :command:`ST_CreateOverView` function also adds in the needed constraints so the columns appear with full detail in the
 `raster_columns` and `raster_overviews` catalogs. It does not add indexes to them though and also does not add an rid column.
@@ -895,7 +959,6 @@ which you can create with the following:
   CREATE INDEX ix_o_3_nyc_dem_26918_st_convexhull_gist
       ON o_3_nyc_dem_26918 USING gist( ST_ConvexHull(rast) );
 
-
 .. note::
 
   ST_CreateOverview has an optional argument for denoting the sampling method.
@@ -905,34 +968,60 @@ which you can create with the following:
 
 The intersection of rasters and geometries
 -------------------------------------------
+There are a couple of functions commonly used to compute intersections of
+rasters and geometries.
+We've already seen :command:`ST_Clip` in action which returns the intersection of a raster and geometry
+as a raster, but there are others. For point data, the most commonly used is :command:`ST_Value`
+and then there is the :command:`ST_Intersection`
+which has several overloads some returning rasters and some returning a set of `geomval`.
 
+Pixel values at a geometric Point
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you need to return values from rasters based on intersection of several ad-hoc geometry points,
+you'll use `ST_Value <https://postgis.net/docs/RT_ST_Value.html>`_
+or it's nearest relative `ST_NearestValue <https://postgis.net/docs/RT_ST_NearestValue.html>`_.
+
+.. code-block:: sql
+
+  SELECT g.geom, ST_Value(r.rast, g.geom) AS elev
+    FROM nyc_dem_26918 AS r
+      INNER JOIN
+      (SELECT id, geom
+        FROM nyc_homicides
+        WHERE weapon = 'gun') AS g
+        ON r.rast && g.geom;
+
+This example takes about 1 second to return 2525 rows.
+If you used :command:`ST_Intersects` instead of :command:`&&`, the process would take about 3 seconds.
+The reason `ST_Intersects` is slower is that it performs an additional recheck in some cases a pixel by pixel check.
+If you expect all your points to be represented with data in your raster set and your rasters represent a coverage (a continguous set non-overlapping raster tiles), then `&&` is generally a speedier option.
+
+If your raster data is not densely populated or you have overlapping rasters
+(e.g. they represent different observations in time), or they are skewed (not axis aligned)
+then there is an advantage to having ST_Intersects weed out the false positives.
+
+
+ST_Intersection raster style
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Just as you can compute the intersection of two geometries using :command:`ST_Intersection`,
 you can compute intersection of two rasters or a raster and a geometry
-using `raster ST_Interection <https://postgis.net/docs/RT_ST_Intersection.html>`_.
+using `raster ST_Intersection <https://postgis.net/docs/RT_ST_Intersection.html>`_.
 
 What you get out of this beast, are two different kinds of things:
 
 * Intersect a geometry with a raster, and you get a set of `geomval` offspring.
   Perhaps one, but most often many.
-  I think of it as the bunny rabbit intersection.
+
 * Intersect 2 rasters and you get a single `raster` back.
 
 The golden rule for both raster intersection and geometry intersection
 is that both parties involved must have the same spatial reference system.
-For raster/raster, they have to have same alignment.
-
-We'll have no problem intersecting our geometry with our `Hello Raster` rasters,
-because they are both in NY State plane meters,
-however the story is not so simple with
-our elevation data which is in NY State plane feet.
-
-As a general rule, transforming geometries, is an easier process than transforming rasters,
-so when you need to do on the fly, transform the geometry. If you plan to do this often
-rebuild one of tables so that your datasets are in the same spatial reference system.
+For raster/raster, they also have to have same alignment.
 
 Here is an example which answers a question you may have been curious about.
 If we bucket our elevations into 5 buckets of elevation values,
-which elevation range results in the most gun fatalities.
+which elevation range results in the most gun fatalities?
 We know based on our earlier summary statistics
 that `0` is the lowest value and `411` is the highest value for elevation in our nyc dem dataset,
 so we use that as min and max value for our `width_bucket <https://www.postgresql.org/docs/current/functions-math.html>`_ call.
@@ -956,11 +1045,59 @@ Is there an important correlation between gun homicides and elevation?
 Probably not.
 
 
+Let's take a look at raster / raster intersection:
+
+.. code-block:: sql
+
+  SELECT ST_Intersection(r1.rast, 1, r2.rast, 1, 'BAND1')
+    FROM nyc_dem_26918 AS r1
+      INNER JOIN
+          rasters AS r2 ON ST_Intersects(r1.rast,1, r2.rast, 1);
+
+What we get are two rows with NULLLs, and if you have your PostgreSQL set to show notices, you'll see:
+
+**NOTICE:  The two rasters provided do not have the same alignment.  Returning NULL**
+
+In order to fix this, we can align one to the other as it's coming out of the gate using
+`ST_Resample <https://postgis.net/docs/RT_ST_Resample.html>`_.
+
+.. code-block:: sql
+
+  SELECT ST_Intersection(r1.rast, 1, ST_Resample( r2.rast, r1.rast ), 1, 'BAND1')
+    FROM nyc_dem_26918 AS r1
+      INNER JOIN
+          rasters AS r2 ON ST_Intersects(r1.rast,1, r2.rast, 1);
+
+Let's also roll it up into a single stats record
+
+.. code-block:: sql
+
+  SELECT (
+    ST_SummaryStatsAgg(
+      ST_Intersection(r1.rast, 1, ST_Resample( r2.rast, r1.rast ), 1, 'BAND1'), 1, true)
+      ).*
+    FROM nyc_dem_26918 AS r1
+      INNER JOIN
+          rasters AS r2 ON ST_Intersects(r1.rast,1, r2.rast, 1);
+
+which outputs:
+
+.. code-block:: sql
+
+  count  |  sum  |       mean       |      stddev      | min | max
+  -------+-------+------------------+------------------+-----+-----
+    2075 | 99438 | 47.9219277108434 | 9.58757610457614 |  33 |  62
+  (1 row)
+
+
+
 Map Algebra Functions
 ----------------------
 Map algebra is the idea that you can do math on your pixel values.
-The :command:`ST_Union` function covered earlier is a special fast case of map algebra.
-Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_
+The :command:`ST_Union` and :command:`ST_Intersection` functions
+covered earlier are a special fast case of map algebra.
+Then there are
+the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_
 family of functions which allow you to define your own
 crazy math, but at cost of performance.
 
@@ -970,10 +1107,64 @@ Who wouldn't want to tell their friends, "I'm using a function called ST_MapAlge
 My advice, explore other functions before you jump for that shot-gun.
 Your life will be simpler and your performance will be 100 times better, and your code will be shorter.
 
+Before we showcase `ST_MapAlgebra`, we'll explore other functions that fit under the `Map Algebra` family of functions
+and generally have better performance than `ST_MapAlgebra`.
+
+Reclassify your raster using ST_Reclass
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 An often overlooked map-algebraish
 function is the `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_ function, who sits in the background
 waiting for someone to discover the power and speed it can offer.
 
 What does **ST_Reclass** do? It as the name implies, reclassifies your pixel values based on minimalist range algebra.
 
-.. TODO continue here
+Lets revisit our NYC Dems.  Perhaps we only care about classifying our elevations as 1) low, 2) medium, 3) high , and 4) really high.
+We don't need 411 values, we just need 4.  With that said lets do some reclassifying.
+
+The classification scheme is governed by the `reclass expression <https://postgis.net/docs/reclassarg.html>`_.
+
+.. code-block:: sql
+
+  WITH r AS ( SELECT ST_Union(newrast) As rast
+    FROM nyc_dem_26918 AS r
+          INNER JOIN ST_Buffer(ST_Point(586598, 4504816, 26918), 1000 ) AS g(geom)
+            ON ST_Intersects( r.rast, g.geom )
+          , ST_Reclass( ST_Clip(r.rast,g.geom), 1,
+            '[0-10):1, [10-50):2, [50-100):3,[100-:4','4BUI',0) AS newrast
+          )
+  SELECT SUM(ST_Area(gv.geom)::numeric(10,2)) AS area, gv.val
+      FROM r, ST_DumpAsPolygons(rast) AS gv
+      GROUP BY gv.val
+      ORDER BY gv.val;
+
+Which would output:
+
+.. code-block::
+
+      area    | val
+  ------------+-----
+      6754.04 |   1
+   1753117.51 |   2
+   1355232.37 |   3
+      1848.75 |   4
+  (4 rows)
+
+If this were a classification scheme we preferred, we could create a new table using the ST_Reclass to recompute each tile.
+
+Coloring your rasters with ST_ColorMap
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The `ST_ColorMap <https://postgis.net/docs/RT_ST_ColorMap.html>`_ function is another mapalgebraish function
+that reclassifies your pixel values.  Except it is band creating. It converts a single band raster such as our Dems
+into a visually presentable 3 or 4 banded raster.
+
+You could use one of the built-in colormaps as below if you don't want to fuss with creating one.
+
+.. code-block:: sql
+
+ SELECT ST_Union(newrast) As rast
+    FROM nyc_dem_26918 AS r
+        INNER JOIN
+          ST_Buffer(ST_Point(586598, 4504816, 26918), 1000 ) AS g(geom)
+        ON ST_Intersects( r.rast, g.geom)
+         , ST_ColorMap( ST_Clip(rast, g.geom),'bluered') AS newrast;

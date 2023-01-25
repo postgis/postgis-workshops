@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 02:07-0500\n"
+"POT-Creation-Date: 2023-01-25 04:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -337,11 +337,11 @@ msgid "In addition to those overlapping functions, it supports the `&&` overlap 
 msgstr ""
 
 #: ../../en/rasters.rst:419
-msgid "you need a function like :command:`ST_Union` to reconstitute a region. Because performance gets slow, the more pixels a function needs to analyse, you need a fast acting function :command:`ST_Clip` to clip the rasters to just the portions of interest for your analysis."
+msgid "You need a function like :command:`ST_Union` to reconstitute a region. Because performance gets slow, the more pixels a function needs to analyse, you need a fast acting function :command:`ST_Clip` to clip the rasters to just the portions of interest for your analysis."
 msgstr ""
 
 #: ../../en/rasters.rst:423
-msgid "Finally you need :command:`ST_Intersects` or :command:`&&` to zoom in on the raster tiles that contain your areas of interest. The `&&` operator, is a much faster process than the `ST_Intersects`. Both can take advantage of raster spatial indexes. We'll cover these bread and butter functions first before moving on to other sections where we will use them in concert with other raster and geometry functions."
+msgid "Finally you need :command:`ST_Intersects` or :command:`&&` to zoom in on the raster tiles that contain your areas of interest. The `&&` operator, is a faster process than the `ST_Intersects`. Both can take advantage of raster spatial indexes. We'll cover these bread and butter functions first before moving on to other sections where we will use them in concert with other raster and geometry functions."
 msgstr ""
 
 #: ../../en/rasters.rst:429
@@ -650,7 +650,7 @@ msgid "The only problem with the aforementioned :command:`ST_Transform` approach
 msgstr ""
 
 #: ../../en/rasters.rst:855
-msgid "you'd see annoying gaps around the borders."
+msgid "you'd see annoying overlaps around the borders."
 msgstr ""
 
 #: ../../en/rasters.rst:864
@@ -726,7 +726,7 @@ msgid "If you need to return values from rasters based on intersection of severa
 msgstr ""
 
 #: ../../en/rasters.rst:995
-msgid "This example takes about 1 second to return 2525 rows. If you used :command:`ST_Intersects` instead of :command:`&&`, the process would take about 3 seconds. The reason `ST_Intersects` is slower is that it performs an additional recheck in some cases a pixel by pixel check. If you expect all your points to be represented with data in your raster set and your rasters represent a coverage (a continguous set non-overlapping raster tiles), then `&&` is generally a speedier option."
+msgid "This example takes about 1 second to return 2444 rows. If you used :command:`ST_Intersects` instead of :command:`&&`, the process would take about 3 seconds. The reason `ST_Intersects` is slower is that it performs an additional recheck in some cases a pixel by pixel check. If you expect all your points to be represented with data in your raster set and your rasters represent a coverage (a continguous set non-overlapping raster tiles), then `&&` is generally a speedier option."
 msgstr ""
 
 #: ../../en/rasters.rst:1000
@@ -789,58 +789,66 @@ msgstr ""
 msgid "which outputs:"
 msgstr ""
 
-#: ../../en/rasters.rst:1095
+#: ../../en/rasters.rst:1094
 msgid "Map Algebra Functions"
 msgstr ""
 
-#: ../../en/rasters.rst:1096
+#: ../../en/rasters.rst:1095
 msgid "Map algebra is the idea that you can do math on your pixel values. The :command:`ST_Union` and :command:`ST_Intersection` functions covered earlier are a special fast case of map algebra. Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_ family of functions which allow you to define your own crazy math, but at cost of performance."
 msgstr ""
 
-#: ../../en/rasters.rst:1104
+#: ../../en/rasters.rst:1103
 msgid "People have the habit of jumping to  :command:`ST_MapAlgebra`, probably cause the name sounds so cool and sophisticated. Who wouldn't want to tell their friends, \"I'm using a function called ST_MapAlgebra.\" My advice, explore other functions before you jump for that shot-gun. Your life will be simpler and your performance will be 100 times better, and your code will be shorter."
 msgstr ""
 
-#: ../../en/rasters.rst:1110
+#: ../../en/rasters.rst:1109
 msgid "Before we showcase `ST_MapAlgebra`, we'll explore other functions that fit under the `Map Algebra` family of functions and generally have better performance than `ST_MapAlgebra`."
 msgstr ""
 
-#: ../../en/rasters.rst:1114
+#: ../../en/rasters.rst:1113
 msgid "Reclassify your raster using ST_Reclass"
 msgstr ""
 
-#: ../../en/rasters.rst:1116
+#: ../../en/rasters.rst:1115
 msgid "An often overlooked map-algebraish function is the `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_ function, who sits in the background waiting for someone to discover the power and speed it can offer."
 msgstr ""
 
-#: ../../en/rasters.rst:1120
+#: ../../en/rasters.rst:1119
 msgid "What does **ST_Reclass** do? It as the name implies, reclassifies your pixel values based on minimalist range algebra."
 msgstr ""
 
-#: ../../en/rasters.rst:1122
+#: ../../en/rasters.rst:1121
 msgid "Lets revisit our NYC Dems.  Perhaps we only care about classifying our elevations as 1) low, 2) medium, 3) high , and 4) really high. We don't need 411 values, we just need 4.  With that said lets do some reclassifying."
 msgstr ""
 
-#: ../../en/rasters.rst:1125
+#: ../../en/rasters.rst:1124
 msgid "The classification scheme is governed by the `reclass expression <https://postgis.net/docs/reclassarg.html>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:1141
+#: ../../en/rasters.rst:1140
 msgid "Which would output:"
 msgstr ""
 
-#: ../../en/rasters.rst:1153
+#: ../../en/rasters.rst:1152
 msgid "If this were a classification scheme we preferred, we could create a new table using the ST_Reclass to recompute each tile."
 msgstr ""
 
-#: ../../en/rasters.rst:1156
+#: ../../en/rasters.rst:1155
 msgid "Coloring your rasters with ST_ColorMap"
 msgstr ""
 
-#: ../../en/rasters.rst:1157
+#: ../../en/rasters.rst:1156
 msgid "The `ST_ColorMap <https://postgis.net/docs/RT_ST_ColorMap.html>`_ function is another mapalgebraish function that reclassifies your pixel values.  Except it is band creating. It converts a single band raster such as our Dems into a visually presentable 3 or 4 banded raster."
 msgstr ""
 
-#: ../../en/rasters.rst:1161
+#: ../../en/rasters.rst:1160
 msgid "You could use one of the built-in colormaps as below if you don't want to fuss with creating one."
+msgstr ""
+
+#: ../../en/rasters.rst:1171
+msgid "Which looks like:"
+msgstr ""
+
+#: ../../en/rasters.rst:1175
+msgid "The bluer the color the lower the elevation and the redder the color the higher the elevation."
 msgstr ""

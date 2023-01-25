@@ -416,12 +416,12 @@ In addition to those overlapping functions, it supports the `&&` overlap operato
 It also offers many functions that work in conjunction with geometry
 or are very specific to rasters.
 
-you need a function like :command:`ST_Union` to reconstitute a region.
+You need a function like :command:`ST_Union` to reconstitute a region.
 Because performance gets slow, the more pixels a function needs to analyse, you need a fast acting function
 :command:`ST_Clip` to clip the rasters to just the portions of interest for your analysis.
 
 Finally you need :command:`ST_Intersects` or :command:`&&` to zoom in on the raster tiles that contain your areas of interest.
-The `&&` operator, is a much faster process than the `ST_Intersects`. Both can take advantage of raster spatial indexes.
+The `&&` operator, is a faster process than the `ST_Intersects`. Both can take advantage of raster spatial indexes.
 We'll cover these bread and butter functions first before moving on to other sections where we will use them in concert
 with other raster and geometry functions.
 
@@ -879,7 +879,7 @@ For this we'll be using quite a few functions, we learned about earlier.
   DROP TABLE IF EXISTS nyc_dem_26918;
   CREATE TABLE nyc_dem_26918 AS
   SELECT ROW_NUMBER() OVER(ORDER BY t.rast::geometry) AS rid,
-    ST_Clip(ST_Transform( ST_Union(r.rast), t.rast ), t.rast::geometry) AS rast
+    ST_Union(ST_Clip( ST_Transform( r.rast, t.rast, 'Bilinear' ), t.rast::geometry ), 'MAX') AS rast
   FROM (SELECT ST_Transform(
       ST_SetSRID(ST_Extent(rast::geometry),2263)
           , 26918) AS geom
@@ -992,7 +992,7 @@ or it's nearest relative `ST_NearestValue <https://postgis.net/docs/RT_ST_Neares
         WHERE weapon = 'gun') AS g
         ON r.rast && g.geom;
 
-This example takes about 1 second to return 2525 rows.
+This example takes about 1 second to return 2444 rows.
 If you used :command:`ST_Intersects` instead of :command:`&&`, the process would take about 3 seconds.
 The reason `ST_Intersects` is slower is that it performs an additional recheck in some cases a pixel by pixel check.
 If you expect all your points to be represented with data in your raster set and your rasters represent a coverage (a continguous set non-overlapping raster tiles), then `&&` is generally a speedier option.
@@ -1084,11 +1084,10 @@ which outputs:
 
 .. code-block:: sql
 
-  count  |  sum  |       mean       |      stddev      | min | max
-  -------+-------+------------------+------------------+-----+-----
-    2075 | 99438 | 47.9219277108434 | 9.58757610457614 |  33 |  62
+  count  |  sum  |      mean       |      stddev      | min | max
+  -------+-------+-----------------+------------------+-----+-----
+    2075 | 99536 | 47.969156626506 | 9.57974836865737 |  33 |  62
   (1 row)
-
 
 
 Map Algebra Functions
@@ -1142,11 +1141,11 @@ Which would output:
 
 .. code-block::
 
-      area    | val
+    area      | val
   ------------+-----
       6754.04 |   1
-   1753117.51 |   2
-   1355232.37 |   3
+  1753117.51  |   2
+  1355232.37  |   3
       1848.75 |   4
   (4 rows)
 
@@ -1162,9 +1161,15 @@ You could use one of the built-in colormaps as below if you don't want to fuss w
 
 .. code-block:: sql
 
- SELECT ST_Union(newrast) As rast
+ SELECT ST_ColorMap( ST_Union(newrast), 'bluered') As rast
     FROM nyc_dem_26918 AS r
         INNER JOIN
           ST_Buffer(ST_Point(586598, 4504816, 26918), 1000 ) AS g(geom)
         ON ST_Intersects( r.rast, g.geom)
-         , ST_ColorMap( ST_Clip(rast, g.geom),'bluered') AS newrast;
+         , ST_Clip(rast, g.geom) AS newrast;
+
+Which looks like:
+
+.. image:: ./rasters/st_colormap_ny_dem.png
+
+The bluer the color the lower the elevation and the redder the color the higher the elevation.

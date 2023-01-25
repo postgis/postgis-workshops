@@ -16,7 +16,7 @@ nyc_census_blocks
 
 A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
 
-Number of records: 36592
+Number of records: 38794
 
 .. list-table::
    :widths: 20 80 

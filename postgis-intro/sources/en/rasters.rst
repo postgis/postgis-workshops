@@ -1032,12 +1032,13 @@ so we use that as min and max value for our `width_bucket <https://www.postgresq
     MIN(gv.val) AS min_elev, MAX(gv.val) AS max_elev,
       count(g.id) AS count_guns
     FROM nyc_dem_26918 AS r
-      INNER JOIN
-      (SELECT id, geom
-        FROM nyc_homicides
-        WHERE weapon = 'gun') AS g
-        ON ST_Intersects(r.rast, g.geom) ,
-       ST_Intersection( g.geom, ST_Clip(r.rast,ST_Expand(g.geom, 4) ) ) AS gv
+      INNER JOIN nyc_homicides AS g
+        ON ST_Intersects(r.rast, g.geom)
+      CROSS JOIN
+       ST_Intersection( g.geom,
+        ST_Clip(r.rast,ST_Expand(g.geom, 4) )
+        ) AS gv
+    WHERE g.weapon = 'gun'
     GROUP BY width_bucket(gv.val, 0, 411, 5)
     ORDER BY width_bucket(gv.val, 0, 411, 5);
 
@@ -1063,7 +1064,9 @@ In order to fix this, we can align one to the other as it's coming out of the ga
 
 .. code-block:: sql
 
-  SELECT ST_Intersection(r1.rast, 1, ST_Resample( r2.rast, r1.rast ), 1, 'BAND1')
+  SELECT ST_Intersection(r1.rast, 1,
+    ST_Resample( r2.rast, r1.rast ), 1,
+      'BAND1')
     FROM nyc_dem_26918 AS r1
       INNER JOIN
           rasters AS r2 ON ST_Intersects(r1.rast,1, r2.rast, 1);
@@ -1074,7 +1077,9 @@ Let's also roll it up into a single stats record
 
   SELECT (
     ST_SummaryStatsAgg(
-      ST_Intersection(r1.rast, 1, ST_Resample( r2.rast, r1.rast ), 1, 'BAND1'), 1, true)
+      ST_Intersection(r1.rast, 1,
+        ST_Resample( r2.rast, r1.rast ), 1, 'BAND1'),
+          1, true)
       ).*
     FROM nyc_dem_26918 AS r1
       INNER JOIN
@@ -1129,7 +1134,7 @@ The classification scheme is governed by the `reclass expression <https://postgi
     FROM nyc_dem_26918 AS r
           INNER JOIN ST_Buffer(ST_Point(586598, 4504816, 26918), 1000 ) AS g(geom)
             ON ST_Intersects( r.rast, g.geom )
-          , ST_Reclass( ST_Clip(r.rast,g.geom), 1,
+          CROSS JOIN ST_Reclass( ST_Clip(r.rast,g.geom), 1,
             '[0-10):1, [10-50):2, [50-100):3,[100-:4','4BUI',0) AS newrast
           )
   SELECT SUM(ST_Area(gv.geom)::numeric(10,2)) AS area, gv.val
@@ -1164,9 +1169,11 @@ You could use one of the built-in colormaps as below if you don't want to fuss w
  SELECT ST_ColorMap( ST_Union(newrast), 'bluered') As rast
     FROM nyc_dem_26918 AS r
         INNER JOIN
-          ST_Buffer(ST_Point(586598, 4504816, 26918), 1000 ) AS g(geom)
+          ST_Buffer(
+            ST_Point(586598, 4504816, 26918), 1000
+            ) AS g(geom)
         ON ST_Intersects( r.rast, g.geom)
-         , ST_Clip(rast, g.geom) AS newrast;
+         CROSS JOIN ST_Clip(rast, g.geom) AS newrast;
 
 Which looks like:
 

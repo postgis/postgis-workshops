@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-25 04:15-0500\n"
+"POT-Creation-Date: 2023-01-26 13:20-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -761,94 +761,94 @@ msgstr ""
 msgid "Here is an example which answers a question you may have been curious about. If we bucket our elevations into 5 buckets of elevation values, which elevation range results in the most gun fatalities? We know based on our earlier summary statistics that `0` is the lowest value and `411` is the highest value for elevation in our nyc dem dataset, so we use that as min and max value for our `width_bucket <https://www.postgresql.org/docs/current/functions-math.html>`_ call."
 msgstr ""
 
-#: ../../en/rasters.rst:1044
+#: ../../en/rasters.rst:1045
 msgid "Is there an important correlation between gun homicides and elevation? Probably not."
 msgstr ""
 
-#: ../../en/rasters.rst:1048
+#: ../../en/rasters.rst:1049
 msgid "Let's take a look at raster / raster intersection:"
 msgstr ""
 
-#: ../../en/rasters.rst:1057
+#: ../../en/rasters.rst:1058
 msgid "What we get are two rows with NULLLs, and if you have your PostgreSQL set to show notices, you'll see:"
 msgstr ""
 
-#: ../../en/rasters.rst:1059
+#: ../../en/rasters.rst:1060
 msgid "**NOTICE:  The two rasters provided do not have the same alignment.  Returning NULL**"
 msgstr ""
 
-#: ../../en/rasters.rst:1061
+#: ../../en/rasters.rst:1062
 msgid "In order to fix this, we can align one to the other as it's coming out of the gate using `ST_Resample <https://postgis.net/docs/RT_ST_Resample.html>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:1071
+#: ../../en/rasters.rst:1074
 msgid "Let's also roll it up into a single stats record"
 msgstr ""
 
-#: ../../en/rasters.rst:1083
+#: ../../en/rasters.rst:1088
 msgid "which outputs:"
 msgstr ""
 
-#: ../../en/rasters.rst:1094
+#: ../../en/rasters.rst:1099
 msgid "Map Algebra Functions"
 msgstr ""
 
-#: ../../en/rasters.rst:1095
+#: ../../en/rasters.rst:1100
 msgid "Map algebra is the idea that you can do math on your pixel values. The :command:`ST_Union` and :command:`ST_Intersection` functions covered earlier are a special fast case of map algebra. Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_ family of functions which allow you to define your own crazy math, but at cost of performance."
 msgstr ""
 
-#: ../../en/rasters.rst:1103
+#: ../../en/rasters.rst:1108
 msgid "People have the habit of jumping to  :command:`ST_MapAlgebra`, probably cause the name sounds so cool and sophisticated. Who wouldn't want to tell their friends, \"I'm using a function called ST_MapAlgebra.\" My advice, explore other functions before you jump for that shot-gun. Your life will be simpler and your performance will be 100 times better, and your code will be shorter."
 msgstr ""
 
-#: ../../en/rasters.rst:1109
+#: ../../en/rasters.rst:1114
 msgid "Before we showcase `ST_MapAlgebra`, we'll explore other functions that fit under the `Map Algebra` family of functions and generally have better performance than `ST_MapAlgebra`."
 msgstr ""
 
-#: ../../en/rasters.rst:1113
+#: ../../en/rasters.rst:1118
 msgid "Reclassify your raster using ST_Reclass"
 msgstr ""
 
-#: ../../en/rasters.rst:1115
+#: ../../en/rasters.rst:1120
 msgid "An often overlooked map-algebraish function is the `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_ function, who sits in the background waiting for someone to discover the power and speed it can offer."
 msgstr ""
 
-#: ../../en/rasters.rst:1119
+#: ../../en/rasters.rst:1124
 msgid "What does **ST_Reclass** do? It as the name implies, reclassifies your pixel values based on minimalist range algebra."
 msgstr ""
 
-#: ../../en/rasters.rst:1121
+#: ../../en/rasters.rst:1126
 msgid "Lets revisit our NYC Dems.  Perhaps we only care about classifying our elevations as 1) low, 2) medium, 3) high , and 4) really high. We don't need 411 values, we just need 4.  With that said lets do some reclassifying."
 msgstr ""
 
-#: ../../en/rasters.rst:1124
+#: ../../en/rasters.rst:1129
 msgid "The classification scheme is governed by the `reclass expression <https://postgis.net/docs/reclassarg.html>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:1140
+#: ../../en/rasters.rst:1145
 msgid "Which would output:"
 msgstr ""
 
-#: ../../en/rasters.rst:1152
+#: ../../en/rasters.rst:1157
 msgid "If this were a classification scheme we preferred, we could create a new table using the ST_Reclass to recompute each tile."
 msgstr ""
 
-#: ../../en/rasters.rst:1155
+#: ../../en/rasters.rst:1160
 msgid "Coloring your rasters with ST_ColorMap"
 msgstr ""
 
-#: ../../en/rasters.rst:1156
+#: ../../en/rasters.rst:1161
 msgid "The `ST_ColorMap <https://postgis.net/docs/RT_ST_ColorMap.html>`_ function is another mapalgebraish function that reclassifies your pixel values.  Except it is band creating. It converts a single band raster such as our Dems into a visually presentable 3 or 4 banded raster."
 msgstr ""
 
-#: ../../en/rasters.rst:1160
+#: ../../en/rasters.rst:1165
 msgid "You could use one of the built-in colormaps as below if you don't want to fuss with creating one."
 msgstr ""
 
-#: ../../en/rasters.rst:1171
+#: ../../en/rasters.rst:1178
 msgid "Which looks like:"
 msgstr ""
 
-#: ../../en/rasters.rst:1175
+#: ../../en/rasters.rst:1182
 msgid "The bluer the color the lower the elevation and the redder the color the higher the elevation."
 msgstr ""

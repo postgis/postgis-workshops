@@ -4,13 +4,13 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-11-22 02:30+0000\n"
+"PO-Revision-Date: 2023-03-10 04:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/introduction.rst:4
@@ -36,9 +36,9 @@ msgid ""
 "later) are also spatial databases. But what does that mean; what is it that "
 "makes an ordinary database a spatial database?"
 msgstr ""
-"PostGISは空間データベースです。Oracle SpatialやSQL Server (2008以降)も空間"
-"データベースです。これはどういう意味でしょうか？通常のデータベースを空間デー"
-"タベースにするにはどうすればいいでしょうか？"
+"PostGISは空間データベースです。Oracle SpatialやSQL Server (2008以降)も空間デ"
+"ータベースです。これはどういう意味でしょうか？通常のデータベースを空間データ"
+"ベースにするにはどうすればいいでしょうか？"
 
 #: ../../en/introduction.rst:11
 msgid "The short answer, is..."
@@ -48,8 +48,7 @@ msgstr "短い答えとしては..."
 msgid ""
 "**Spatial databases store and manipulate spatial objects like any other "
 "object in the database.**"
-msgstr ""
-"**空間データベースは空間オブジェクトを、データベース内の他のオブジェクトのよ"
+msgstr "**空間データベースは空間オブジェクトを、データベース内の他のオブジェクトのよ"
 "うに格納して操作するものです。**"
 
 #: ../../en/introduction.rst:15
@@ -65,8 +64,7 @@ msgstr ""
 #: ../../en/introduction.rst:17
 msgid ""
 "**Spatial data types** refer to shapes such as point, line, and polygon;"
-msgstr ""
-"**空間データタイプ**はポイント、ライン、ポリゴンといった形状を指します。"
+msgstr "**空間データタイプ**はポイント、ライン、ポリゴンといった形状を指します。"
 
 #: ../../en/introduction.rst:18
 msgid ""
@@ -78,23 +76,23 @@ msgstr "多次元**空間インデックス**は空間演算の効率的な処�
 msgid ""
 "**Spatial functions**, posed in :term:`SQL`, are for querying of spatial "
 "properties and relationships."
-msgstr ""
-"**空間関数**は :term:`SQL` で示されていますが、空間プロパティと空間関係に関す"
-"るクエリに使われます。"
+msgstr "**空間関数**は :term:`SQL` "
+"で示されていますが、空間プロパティと空間関係に関するクエリに使われます。"
 
 #: ../../en/introduction.rst:21
 msgid ""
 "Combined, spatial data types, indexes, and functions provide a flexible "
 "structure for optimized performance and analysis."
-msgstr ""
-"空間データタイプ、インデックス、関数を組み合わせることで、能率と解析の最適化"
+msgstr "空間データタイプ、インデックス、関数を組み合わせることで、能率と解析の最適化"
 "のための柔軟な構造が得られます。"
 
 #: ../../en/introduction.rst:24
+#, fuzzy
 msgid "In the Beginning"
 msgstr "はじめに"
 
 #: ../../en/introduction.rst:26
+#, fuzzy
 msgid ""
 "In legacy first-generation :term:`GIS` implementations, all spatial data is "
 "stored in flat files and special :term:`GIS` software is required to "
@@ -110,6 +108,7 @@ msgstr ""
 "リで、空間データを処理するために作られた自己完結型システムです。"
 
 #: ../../en/introduction.rst:28
+#, fuzzy
 msgid ""
 "Second-generation spatial systems store some data in relational databases "
 "(usually the \"attribute\" or non-spatial parts) but still lack the "
@@ -119,22 +118,23 @@ msgstr ""
 "部)内のデータを格納しますが、直接統合するだけの柔軟性はありませんでした。"
 
 #: ../../en/introduction.rst:30
+#, fuzzy
 msgid ""
 "**True spatial databases were born when people started to treat spatial "
 "features as first class database objects.**"
-msgstr ""
-"**空間の地物を第一級データベースオブジェクトとして扱うようになった時に真の空"
+msgstr "**空間の地物を第一級データベースオブジェクトとして扱うようになった時に真の空"
 "間データベースが生まれました。**"
 
 #: ../../en/introduction.rst:32
+#, fuzzy
 msgid ""
 "Spatial databases fully integrate spatial data with a relational database.  "
 "The system orientation changes from GIS-centric to database-centric."
-msgstr ""
-"空間データベースは完全に空間データをリレーショナルデータベースに統合します。"
+msgstr "空間データベースは完全に空間データをリレーショナルデータベースに統合します。"
 "システムの方向性がGIS中心からデータベース中手に変わります。"
 
 #: ../../en/introduction.rst:37
+#, fuzzy
 msgid ""
 "A spatial database management system may be used in applications besides the "
 "geographic world.  Spatial databases are used to manage data related to the "
@@ -146,10 +146,12 @@ msgstr ""
 "関連するデータを管理するために使用されます。"
 
 #: ../../en/introduction.rst:41
+#, fuzzy
 msgid "Spatial Data Types"
 msgstr "空間データタイプ"
 
 #: ../../en/introduction.rst:43
+#, fuzzy
 msgid ""
 "An ordinary database has strings, numbers, and dates. A spatial database "
 "adds additional (spatial) types for representing **geographic features**. "
@@ -161,19 +163,21 @@ msgstr ""
 "的な**地理フィーチャー**タイプを表現する空間タイプが追加されています。"
 
 #: ../../en/introduction.rst:49
+#, fuzzy
 msgid ""
 "Spatial data types are organized in a type hierarchy.  Each sub-type "
 "inherits the structure (attributes) and the behavior (methods or functions) "
 "of its super-type."
-msgstr ""
-"空間データ型は階層構造をなしています。各サブタイプは、スーパタイプの構造 (属"
-"性)と振る舞い (メソッドや関数)を継承します。"
+msgstr "空間データ型は階層構造をなしています。各サブタイプは、スーパタイプの構造 "
+"(属性)と振る舞い (メソッドや関数)を継承します。"
 
 #: ../../en/introduction.rst:53
+#, fuzzy
 msgid "Spatial Indexes and Bounding Boxes"
 msgstr "空間インデックスとバウンディングボックス"
 
 #: ../../en/introduction.rst:55
+#, fuzzy
 msgid ""
 "An ordinary database provides **indexes** to allow for fast and random "
 "access to subsets of data.  Indexing for standard types (numbers, strings, "
@@ -181,10 +185,12 @@ msgid ""
 "indexes."
 msgstr ""
 "通常のデータベースは、データの部分集合に対する高速かつランダムなアクセスのた"
-"めに**インデックス**を提供します。標準の型 (数値、文字列、日付)のインデックス"
-"には、 `B木 <https://ja.wikipedia.org/wiki/B%E6%9C%A8>`_ が使われます。"
+"めに**インデックス**を提供します。標準の型 "
+"(数値、文字列、日付)のインデックスには、 `B木 <https://ja.wikipedia.org/wiki/"
+"B%E6%9C%A8>`_ が使われます。"
 
 #: ../../en/introduction.rst:57
+#, fuzzy
 msgid ""
 "A B-tree partitions the data using the natural sort order to put the data "
 "into a hierarchical tree. The natural sort order of numbers, strings, and "
@@ -196,6 +202,7 @@ msgstr ""
 "と比較して、小さいか、大きいか、同じか、を見ます。"
 
 #: ../../en/introduction.rst:59
+#, fuzzy
 msgid ""
 "But because polygons can overlap, can be contained in one another, and are "
 "arrayed in a two-dimensional (or more) space, a B-tree cannot be used to "
@@ -206,18 +213,19 @@ msgstr ""
 "しかし、ポリゴンは他のポリゴンにオーバラップすることや、包含することがありま"
 "すし、2次元 (以上) の空間に配列されます。このため、効率的なインデックスとして"
 "はB木は使えません。実際の空間データベースでは、B木に代わって「指定したバウン"
-"ディングボックス内にあるオブジェクトはどれか」という質問に答える「空間イン"
-"デックス」が提供されます。"
+"ディングボックス内にあるオブジェクトはどれか」という質問に答える「空間インデ"
+"ックス」が提供されます。"
 
 #: ../../en/introduction.rst:61
+#, fuzzy
 msgid ""
 "A **bounding box** is the smallest rectangle -- parallel to the coordinate "
 "axes -- capable of containing a given feature."
-msgstr ""
-"**バウンディングボックス**は、座標軸に平行で、指定された地物を含むことができ"
+msgstr "**バウンディングボックス**は、座標軸に平行で、指定された地物を含むことができ"
 "る最小の長方形です。"
 
 #: ../../en/introduction.rst:67
+#, fuzzy
 msgid ""
 "Bounding boxes are used because answering the question \"is A inside B?\" is "
 "very computationally intensive for polygons but very fast in the case of "
@@ -230,6 +238,7 @@ msgstr ""
 "で表現できます。"
 
 #: ../../en/introduction.rst:69
+#, fuzzy
 msgid ""
 "Indexes have to perform quickly in order to be useful. So instead of "
 "providing exact results, as B-trees do, spatial indexes provide approximate "
@@ -244,6 +253,7 @@ msgstr ""
 "るか?」に解釈されます。"
 
 #: ../../en/introduction.rst:71
+#, fuzzy
 msgid ""
 "The actual spatial indexes implemented by various databases vary widely. The "
 "most common implementations are the `R-Tree <http://en.wikipedia.org/wiki/R-"
@@ -253,78 +263,98 @@ msgid ""
 "wiki/Geohash>`_ implemented in other spatial databases."
 msgstr ""
 "空間インデックスの実装はデータベースシステムによって大きく異なります。最も一"
-"般的な実装は`R木 <https://ja.wikipedia.org/wiki/R%E6%9C%A8>`_ と `四分木"
-"<https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%88%86%E6%9C%A8>`_ です (PostGISで"
-"使われています)。しかし、他の空間データベースシステムでは`grid-based indexes "
-"<http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ と `ジオハッシュ "
-"<https://ja.wikipedia.org/wiki/%E3%82%B8%E3%82%AA%E3%83%8F"
-"%E3%83%83%E3%82%B7%E3%83%A5>`_ の実装もあります。"
+"般的な実装は`R木 <https://ja.wikipedia.org/wiki/R%E6%9C%A8>`_ と "
+"`四分木<https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%88%86%E6%9C%A8>`_ です "
+"(PostGISで使われています)。しかし、他の空間データベースシステムでは`grid-"
+"based indexes <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ と `"
+"ジオハッシュ <https://ja.wikipedia.org/wiki/"
+"%E3%82%B8%E3%82%AA%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5>`_ の実装もあります。"
 
 #: ../../en/introduction.rst:74
+#, fuzzy
 msgid "Spatial Functions"
 msgstr "空間関数"
 
 #: ../../en/introduction.rst:76
+#, fuzzy
 msgid ""
 "For manipulating data during a query, an ordinary database provides "
 "**functions** such as concatenating strings, performing hash operations on "
 "strings, doing mathematics on numbers, and extracting information from dates."
 msgstr ""
+"クエリ中のデータ操作のために、通常のデータベースは、文字列結合、文字列のハッ"
+"シュ演算、数値計算、日付からの情報展開等を行う**関数**を提供します。"
 
 #: ../../en/introduction.rst:78
+#, fuzzy
 msgid ""
 "A spatial database provides a complete set of functions for analyzing "
 "geometric components, determining spatial relationships, and manipulating "
 "geometries.  These spatial functions serve as the building block for any "
 "spatial project."
 msgstr ""
+"空間データベースは、ジオメトリ要素の解析、空間関係の計算、ジオメトリ操作に使"
+"う関数の完全なセットを提供します。これらの空間関数は、空間プロジェクトの構成"
+"要素として機能します。"
 
 #: ../../en/introduction.rst:80
+#, fuzzy
 msgid ""
 "The majority of all spatial functions can be grouped into one of the "
 "following five categories:"
-msgstr ""
+msgstr "全ての空間関数は次の5個のカテゴリのいずれかに入ります:"
 
 #: ../../en/introduction.rst:82
+#, fuzzy
 msgid ""
 "**Conversion**: Functions that *convert* between geometries and external "
 "data formats."
-msgstr ""
+msgstr "**変換**: ジオメトリの外部データフォーマットとの*変換*を担う関数。"
 
 #: ../../en/introduction.rst:83
+#, fuzzy
 msgid ""
 "**Management**: Functions that *manage* information about spatial tables and "
 "PostGIS administration."
-msgstr ""
+msgstr "**管理**: 空間テーブルとPostGISシステムの*管理*を担う関数。"
 
 #: ../../en/introduction.rst:84
+#, fuzzy
 msgid ""
 "**Retrieval**: Functions that *retrieve* properties and measurements of a "
 "Geometry."
-msgstr ""
+msgstr "**検索**: 属性やジオメトリの測定の*検索*を担う関数。"
 
 #: ../../en/introduction.rst:85
+#, fuzzy
 msgid ""
 "**Comparison**: Functions that *compare* two geometries with respect to "
 "their spatial relation."
-msgstr ""
+msgstr "**比較**: 空間関係に関する二つのジオメトリの*比較*を担う関数。"
 
 #: ../../en/introduction.rst:86
+#, fuzzy
 msgid "**Generation**: Functions that *generate* new geometries from others."
-msgstr ""
+msgstr "**生成**: 他からの新しいジオメトリの*生成*を担う関数。"
 
 #: ../../en/introduction.rst:88
+#, fuzzy
 msgid ""
 "The list of possible functions is very large, but a common set of functions "
 "is defined by the :term:`OGC` :term:`SFSQL` and implemented (along with "
 "additional useful functions) by PostGIS."
 msgstr ""
+"考えられる関数を一覧にすると非常に大きいですが、一般的な関数のセットは:term:`"
+"OGC` :term:`SFSQL`で定義されていて、PostGISで (便利な追加関数とともに) "
+"実装されています。"
 
 #: ../../en/introduction.rst:91
+#, fuzzy
 msgid "What is PostGIS?"
 msgstr "PostGISとは?"
 
 #: ../../en/introduction.rst:93
+#, fuzzy
 msgid ""
 "PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database "
 "Management System into a spatial database by adding support for the three "
@@ -332,12 +362,18 @@ msgid ""
 "is built on PostgreSQL, PostGIS automatically inherits important \"enterprise"
 "\" features as well as open standards for implementation."
 msgstr ""
+"PostGISは `PostgreSQL <http://www.postgresql.org/>`_ データベース管理システム"
+"に、空間型、空間インデックス、空間関数の三つを追加することで、空間データベー"
+"スに変えるものです。PostGISは、PostgreSQL上で構築されているので、重要な「エン"
+"タープライズ」機能と実装のオープン標準を自動的に継承します。"
 
 #: ../../en/introduction.rst:96
+#, fuzzy
 msgid "But what is PostgreSQL?"
 msgstr "ではPostgreSQLとは?"
 
 #: ../../en/introduction.rst:98
+#, fuzzy
 msgid ""
 "PostgreSQL is a powerful relational database management system (RDBMS). It "
 "is released under a BSD-style license and is thus free and open source "
@@ -346,8 +382,14 @@ msgid ""
 "<https://www.postgresql.org/community/contributors/>`_ and companies to "
 "develop it."
 msgstr ""
+"PostgreSQLは強力な関係データベース管理システム (RDBMS) です。BSDスタイルライ"
+"センスでリリースされていて、よって、無償のオープンソースソフトウェアです。多"
+"数のオープンソースプログラムと同じで、PostgreSQLは単一の企業に制御されてはい"
+"ません。`開発者のグローバルコミュニティ <https://www.postgresql.org/"
+"community/contributors/>`_ と複数の開発企業とがあります。"
 
 #: ../../en/introduction.rst:100
+#, fuzzy
 msgid ""
 "PostgreSQL was designed from the very start with type extension in mind -- "
 "the ability to add new data types, functions and indexes at run-time. "
@@ -355,45 +397,60 @@ msgid ""
 "development team, yet still integrate very tightly into the core PostgreSQL "
 "database."
 msgstr ""
+"PostgreSQL は、型の拡張を念頭に置いてデザインされたので、新しいデータ型、関数"
+"、インデックスを実行時に追加する能力を持っています。このため、PostGIS "
+"エクステンションは別の開発チームが開発することができるのに、PostgreSQL "
+"データベースに非常に緊密に統合できます。"
 
 #: ../../en/introduction.rst:103
+#, fuzzy
 msgid "Why choose PostgreSQL?"
-msgstr ""
+msgstr "なぜ PostgreSQL を選んだ？"
 
 #: ../../en/introduction.rst:105
+#, fuzzy
 msgid ""
 "A common question from people familiar with open source databases is, \"Why "
 "wasn't PostGIS built on MySQL?\"."
-msgstr ""
+msgstr "オープンソースデータベースに精通している人々からのよくある質問に「なぜ "
+"PostGIS は MySQL で作らなかったのか？」があります。"
 
 #: ../../en/introduction.rst:107
+#, fuzzy
 msgid "PostgreSQL has:"
-msgstr ""
+msgstr "PostgreSQL は次の機能を持っています:"
 
 #: ../../en/introduction.rst:109
+#, fuzzy
 msgid "Proven reliability and transactional integrity by default (ACID)"
-msgstr ""
+msgstr "証明されたデフォルトの信頼性とトランザクション完全性 (ACID)"
 
 #: ../../en/introduction.rst:110
+#, fuzzy
 msgid "Careful support for SQL standards (full SQL92)"
-msgstr ""
+msgstr "SQL標準 (完全なSQL92) の慎重な対応"
 
 #: ../../en/introduction.rst:111
+#, fuzzy
 msgid "Pluggable type extension and function extension"
-msgstr ""
+msgstr "入れ替え可能な型拡張と関数拡張"
 
 #: ../../en/introduction.rst:112
+#, fuzzy
 msgid "Community-oriented development model"
-msgstr ""
+msgstr "コミュニティ指向の開発モデル"
 
 #: ../../en/introduction.rst:113
+#, fuzzy
 msgid ""
 "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
-msgstr ""
+msgstr "大きな GIS オブジェクトに対応するために必要なカラムサイズ無制限 (\"TOAST"
+"\"可能なタプル) 機能"
 
 #: ../../en/introduction.rst:114
+#, fuzzy
 msgid "Generic index structure (GiST) to allow R-Tree index"
-msgstr ""
+msgstr "R木インデックスを可能にした一般性のあるインデックス構造 (GiST)"
 
 #: ../../en/introduction.rst:115
 msgid "Easy to add custom functions"
@@ -566,6 +623,7 @@ msgid ""
 msgstr ""
 
 #: ../../en/introduction.rst:164
+#, fuzzy
 msgid "RedFin"
 msgstr "RedFin"
 
@@ -593,10 +651,12 @@ msgstr ""
 "た。"
 
 #: ../../en/introduction.rst:169
+#, fuzzy
 msgid "What applications support PostGIS?"
 msgstr "PostGISに対応したアプリケーションはどれですか?"
 
 #: ../../en/introduction.rst:171
+#, fuzzy
 msgid ""
 "PostGIS has become a widely used spatial database, and the number of third-"
 "party programs that support storing and retrieving data using it has "
@@ -611,12 +671,14 @@ msgstr ""
 "のソフトウェアの一覧があります。"
 
 #: ../../en/introduction.rst:173
+#, fuzzy
 msgid ""
 "The following table shows a list of some of the software that leverages "
 "PostGIS:"
 msgstr "次にPostGISを利用するソフトウェアの一覧を示します:"
 
 #: ../../en/introduction.rst:176
+#, fuzzy
 msgid "Open/Free"
 msgstr "オープン/フリー"
 
@@ -624,111 +686,136 @@ msgstr "オープン/フリー"
 #, fuzzy
 #| msgid "Closed/Proprietary"
 msgid "Closed/Proprietary/Paid services"
-msgstr "クローズ/プロプライエタリ"
+msgstr "クローズ/プロプライエタリ/有料サービス"
 
 #: ../../en/introduction.rst:179
+#, fuzzy
 msgid "Loading/Extracting"
 msgstr "ロード/抽出"
 
 #: ../../en/introduction.rst:181
+#, fuzzy
 msgid "Shp2Pgsql"
 msgstr "Shp2Pgsql"
 
 #: ../../en/introduction.rst:182
+#, fuzzy
 msgid "ogr2ogr"
 msgstr "ogr2ogr"
 
 #: ../../en/introduction.rst:183
+#, fuzzy
 msgid "Dxf2PostGIS"
 msgstr "Dxf2PostGIS"
 
 #: ../../en/introduction.rst:184
+#, fuzzy
 msgid "GeoKettle"
-msgstr ""
+msgstr "GeoKettle"
 
 #: ../../en/introduction.rst:186 ../../en/introduction.rst:187
+#, fuzzy
 msgid "Web-Based"
 msgstr "ウェブベース"
 
 #: ../../en/introduction.rst:189
+#, fuzzy
 msgid "Mapserver"
 msgstr "Mapserver"
 
 #: ../../en/introduction.rst:190
+#, fuzzy
 msgid "GeoServer /geoNode"
-msgstr ""
+msgstr "GeoServer /geoNode"
 
 #: ../../en/introduction.rst:191
+#, fuzzy
 msgid "pg_tileserv"
-msgstr ""
+msgstr "pg_tileserv"
 
 #: ../../en/introduction.rst:192
+#, fuzzy
 msgid "pg_featureserv"
-msgstr ""
+msgstr "pg_featureserv"
 
 #: ../../en/introduction.rst:193
+#, fuzzy
 msgid "Deegree"
-msgstr ""
+msgstr "Deegree"
 
 #: ../../en/introduction.rst:194 ../../en/introduction.rst:197
+#, fuzzy
 msgid "Carto"
-msgstr ""
+msgstr "Carto"
 
 #: ../../en/introduction.rst:195
 #, fuzzy
 #| msgid "ESRI ArcGIS Server"
 msgid "QGIS Server"
-msgstr "ESRI ArcGIS Server"
+msgstr "QGIS Server"
 
 #: ../../en/introduction.rst:196
+#, fuzzy
 msgid "MapGuide Open Source (using FDO)"
 msgstr "MapGuide Open Source (FDO使用)"
 
 #: ../../en/introduction.rst:201 ../../en/introduction.rst:202
+#, fuzzy
 msgid "Desktop"
 msgstr "デスクトップ"
 
 #: ../../en/introduction.rst:203
+#, fuzzy
 msgid "QGIS"
 msgstr "QGIS"
 
 #: ../../en/introduction.rst:204
+#, fuzzy
 msgid "OpenJUMP"
 msgstr "OpenJUMP"
 
 #: ../../en/introduction.rst:205
+#, fuzzy
 msgid "GRASS"
 msgstr "GRASS"
 
 #: ../../en/introduction.rst:206
+#, fuzzy
 msgid "pgAdmin"
-msgstr ""
+msgstr "pgAdmin"
 
 #: ../../en/introduction.rst:207
+#, fuzzy
 msgid "DBeaver"
-msgstr ""
+msgstr "DBeaver"
 
 #: ../../en/introduction.rst:208
+#, fuzzy
 msgid "GvSIG"
 msgstr "GvSIG"
 
 #: ../../en/introduction.rst:209
+#, fuzzy
 msgid "SAGA"
-msgstr ""
+msgstr "SAGA"
 
 #: ../../en/introduction.rst:210
+#, fuzzy
 msgid "uDig"
 msgstr "uDig"
 
 #: ../../en/introduction.rst:181
+#, fuzzy
 msgid "Safe FME Desktop Translator/Converter"
 msgstr "Safe FME Desktop Translator/Converter"
 
 #: ../../en/introduction.rst:182
+#, fuzzy
 msgid "Dbt"
-msgstr ""
+msgstr "Dbt"
 
 #: ../../en/introduction.rst:188
+#, fuzzy
 msgid "Cadcorp GeognoSIS"
 msgstr "Cadcorp GeognoSIS"
 
@@ -736,33 +823,40 @@ msgstr "Cadcorp GeognoSIS"
 #, fuzzy
 #| msgid "ESRI ArcGIS Server"
 msgid "ESRI ArcGIS Server / Online"
-msgstr "ESRI ArcGIS Server"
+msgstr "ESRI ArcGIS Server / Online"
 
 #: ../../en/introduction.rst:193
+#, fuzzy
 msgid "Services / DbaaS"
-msgstr ""
+msgstr "Services / DbaaS"
 
 #: ../../en/introduction.rst:195
+#, fuzzy
 msgid "Aiven for PostgreSQL"
-msgstr ""
+msgstr "Aiven for PostgreSQL"
 
 #: ../../en/introduction.rst:196
+#, fuzzy
 msgid "Amazon RDS / Aurora for PostgreSQL"
-msgstr ""
+msgstr "Amazon RDS / Aurora for PostgreSQL"
 
 #: ../../en/introduction.rst:198
+#, fuzzy
 msgid "Crunchy Bridge"
-msgstr ""
+msgstr "Crunchy Bridge"
 
 #: ../../en/introduction.rst:199
+#, fuzzy
 msgid "Microsoft Azure for PostgreSQL"
-msgstr ""
+msgstr "Microsoft Azure for PostgreSQL"
 
 #: ../../en/introduction.rst:200
+#, fuzzy
 msgid "Google Cloud SQL for PostgreSQL"
-msgstr ""
+msgstr "Google Cloud SQL for PostgreSQL"
 
 #: ../../en/introduction.rst:204
+#, fuzzy
 msgid "Cadcorp SIS"
 msgstr "Cadcorp SIS"
 
@@ -770,17 +864,20 @@ msgstr "Cadcorp SIS"
 #, fuzzy
 #| msgid "Desktop"
 msgid "ESRI Desktop/Pro"
-msgstr "デスクトップ"
+msgstr "ESRI Desktop/Pro"
 
 #: ../../en/introduction.rst:206
+#, fuzzy
 msgid "GeoConcept"
 msgstr "GeoConcept"
 
 #: ../../en/introduction.rst:207
+#, fuzzy
 msgid "Global Mapper"
-msgstr ""
+msgstr "Global Mapper"
 
 #: ../../en/introduction.rst:208
+#, fuzzy
 msgid "Manifold"
 msgstr "Manifold"
 
@@ -788,9 +885,10 @@ msgstr "Manifold"
 #, fuzzy
 #| msgid "MapInfo (v10)"
 msgid "MapInfo"
-msgstr "MapInfo (v10)"
+msgstr "MapInfo"
 
 #: ../../en/introduction.rst:210
+#, fuzzy
 msgid "Microimages TNTmips GIS"
 msgstr "Microimages TNTmips GIS"
 

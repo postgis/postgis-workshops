@@ -6,7 +6,7 @@ Introduction to PostGIS
 Getting Started
 ---------------
 
-* This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location.
+* This workshop uses a `data bundle <https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location.
 
 * The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_.
 

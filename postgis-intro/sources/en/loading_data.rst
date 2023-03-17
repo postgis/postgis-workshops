@@ -36,6 +36,13 @@ Loading the Backup File
    .. image:: ./screenshots/data_loading_4.png
      :class: inline, border
 
+.. note::
+
+  If you want to practice loading data from the native spatial formats,
+  instead of using the PostgreSQL db backup files just covered, the next couple of sections
+  will guide you thru loading using various command-line tools and QGIS DbManager.
+  Note you can skip these sections, if you have already loaded the data with pgAdmin.
+
 
 Loading with ogr2ogr
 --------------------
@@ -264,6 +271,23 @@ Things to Try: View data using QGIS
 
 `QGIS <http://qgis.org>`_, is a desktop GIS viewer/editor for quickly looking at data. You can view a number of data formats including flat shapefiles and a PostGIS database. Its graphical interface allows for easy exploration of your data, as well as simple testing and fast styling.
 
-Try using this software to connect your PostGIS database.  The application can be downloaded from http://qgis.org
+Try using this software to connect your PostGIS database.  The application can be downloaded from https://qgis.org
+
+You'll first want to create a connection to a PostGIS database using menu :command:`Layer->Add Layer->PostGIS Layers->New` and then filling in the prompts. Once you have a connection, you can add Layers by clicking connect and selecting a table to display.
+
+
+Loading data using QGIS DbManager
+-------------------------------------
+QGIS comes with a tool called `DbManager <https://docs.qgis.org/3.28/en/docs/user_manual/plugins/core_plugins/plugins_db_manager.html#dbmanager>`_  that allows you to connect to various different kinds of databases, including
+a PostGIS enabled one.  After you have a PostGIS Database connection configured, go to :command:`Database->DbManager`
+and expand to your database as shown below:
+
+   .. image:: ./screenshots/qgis_dbmanager.png
+     :class: inline, border
+
+From there you can use the :command:`Import Layer/File` menu option to load numerous different spatial formats.
+In addition to being able to load data from many spatial formats and export data to many formats, you can also add ad-hoc queries to the canvas or define views in your database, using the highlighted wrench icon.
+
+
 
 

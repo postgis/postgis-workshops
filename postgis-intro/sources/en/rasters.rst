@@ -852,7 +852,7 @@ The only problem with the aforementioned :command:`ST_Transform`
 approach is that when you transform, the transformed often exists in other tiles.
 If you looked at the above output closely enough by outputting the convex hull of the rasters,
 in the next example
- you'd see annoying overlaps around the borders.
+you'd see annoying overlaps around the borders.
 
 .. code-block:: sql
 

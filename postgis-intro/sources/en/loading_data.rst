@@ -49,7 +49,6 @@ Loading with ogr2ogr
 
 **MacOS**:
   * If you installed `Postgres.app <https://postgresapp.com/>`_, then you will find :file:`ogr2ogr` in the :file:`/Applications/Postgres.app/Contents/Versions/*/bin` directory.
-  * Alternately, you can download an independent build of GDAL from `KyngChaos <https://www.kyngchaos.com/software/frameworks/>`_ and install that.
   * Finally, if you have installed `HomeBrew <https://brew.sh/>`_ you can install the **gdal** package to get access to :file:`ogr2ogr`
 
 **Linux**:

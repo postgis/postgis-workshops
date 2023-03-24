@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-19 07:42+0000\n"
+"PO-Revision-Date: 2023-03-24 09:18+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "backup/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.15.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/backup.rst:4
@@ -163,18 +163,24 @@ msgid ""
 "using the pg_restore_ command to list the manifest. In the PgAdmin GUI, "
 "\"View\" is an option in the panel."
 msgstr ""
+"バックアップファイルは Compress 書式なので、マニフェストの一覧を表示する "
+"pg_restore_ コマンドを使ってコンテンツを見ることができます。pgAdmin GUI "
+"では、パネルで \"View\" が任意選択できます。"
 
 #: ../../en/backup.rst:54
 msgid ""
 "When you look at the manifest, one of the things you might notice is that "
 "there are a lot of \"FUNCTION\" signatures in there."
-msgstr ""
+msgstr "マニフェストを見るとき、多数の \"FUNCTION\" "
+"があることに気づくかもしれません。"
 
 #: ../../en/backup.rst:58
 msgid ""
 "That's because the pg_dump_ utility dumps **every** non-system object in the "
 "database, and that includes the PostGIS function definitions."
 msgstr ""
+"pg_dump_ ユーティリティは、データベースの **簡単な** 非システムオブジェクトを"
+"ダンプするので、PostGIS関数の定義を含むことになります。"
 
 #: ../../en/backup.rst:62
 msgid ""
@@ -183,18 +189,24 @@ msgid ""
 "therefore excluded from pg_dump_ output. PostGIS 2.0 and higher support "
 "installation using this extension system."
 msgstr ""
+"PostgreSQL 9.1以上では \"EXTENSION\" 機能があり、PostGISのようなパッケージを"
+"システムコンポーネントに登録したうえで追加できるので、pg_dump_ "
+"出力から除かれます。PostGIS 2."
+"0以上では、エクステンションシステムを使ったインストールに対応しています。"
 
 #: ../../en/backup.rst:64
 msgid ""
 "We can see the same manifest from the command-line using pg_restore_ "
 "directly:"
-msgstr ""
+msgstr "同じマニフェストをコマンドラインから pg_restore_ "
+"を使って直接得ることができます:"
 
 #: ../../en/backup.rst:70
 msgid ""
 "The problem with a dump file full of PostGIS function signatures is that we "
 "really wanted a dump of our data, not our system functions."
-msgstr ""
+msgstr "PostGIS関数のシグネチャが多数あるダンプファイルは、データだけが欲しくてシステ"
+"ム関数は不要ですので、問題があります。"
 
 #: ../../en/backup.rst:72
 msgid ""
@@ -204,10 +216,16 @@ msgid ""
 "from (since the function signature definitions reference a particular "
 "version of the PostGIS shared library)."
 msgstr ""
+"あらゆるオブジェクトはダンプファイル内にあるため、データの無いデータベースの"
+"レストアを行おうとしても、全ての機能が得られます。そうすることで、レストアし"
+"ようとしているシステムが、"
+"ダンプ元のものと確実に同じバージョンのPostGISを持っていることが期待されます ("
+"関数シグネチャ定義は特定のバーうじょんのPostGISの共有ライブラリを参照している"
+"ためです)。"
 
 #: ../../en/backup.rst:74
 msgid "From the command-line the restore looks like this:"
-msgstr ""
+msgstr "コマンドラインからレストアは次のように見えます:"
 
 #: ../../en/backup.rst:81
 msgid ""
@@ -215,12 +233,16 @@ msgid ""
 "schemas is handy, because there is a command-line flag to only dump a "
 "particular schema:"
 msgstr ""
+"関数シグネチャが無いデータだけのダンプは、スキーマ内のデータを保持するもので"
+"、便利です。特定のスキーマだけをダンプするコマンドラインのフラグがあるからで"
+"す。次のようにします:"
 
 #: ../../en/backup.rst:87
 msgid ""
 "Now when we list the contents of the dump, we see just the data tables we "
 "wanted::"
-msgstr ""
+msgstr "ダンプのコンテント一覧を表示すると求めるデータテーブルだけを見ることができま"
+"す:"
 
 #: ../../en/backup.rst:116
 msgid ""
@@ -228,10 +250,12 @@ msgid ""
 "database with any version of PostGIS installed, as we talk about in :ref:"
 "`upgrades`."
 msgstr ""
+"データテーブルだけを持つのは :ref:`upgrades` で言及しているように、"
+"どのバージョンの PostGIS であってもデータベースに格納できるので、便利です。"
 
 #: ../../en/backup.rst:120
 msgid "Backing Up Users"
-msgstr ""
+msgstr "ユーザーのバックアップ"
 
 #: ../../en/backup.rst:122
 msgid ""
@@ -239,12 +263,16 @@ msgid ""
 "a time, if you restrict it). However, information about users is is stored "
 "across an entire cluster, it's not stored in any one database!"
 msgstr ""
+"pg_dump_ ユーティリティは、データベースを一度に "
+"(あるいは、制限した場合にはスキーマやテーブルを一度に) 操作します。しかし、ユ"
+"ーザまわりの情報はクラスタ全体に格納され、どのデータベースにも保存されません!"
 
 #: ../../en/backup.rst:124
 msgid ""
 "To backup your user information, use the pg_dumpall_ utility, with the \"--"
 "globals-only\" flag."
-msgstr ""
+msgstr "ユーザ情報をバックアップするには pg_dumpall_ ユーティリティを使用し \""
+"--globals-only\" フラグを付けます。"
 
 #: ../../en/backup.rst:130
 msgid ""
@@ -254,6 +282,11 @@ msgid ""
 "identical software installation, it can't be used as part of an upgrade "
 "process."
 msgstr ""
+"pg_dumpall_ をクラスタ全体のバックアップに使うデフォルトモードも可能ですが、"
+"pg_dump_ を使うのと同じに PostGIS 関数シグネチャをバックアップすることになる"
+"るので、ダンプは同じソフトウェアインストール状況になっているところにレストア"
+"する必要があり、また、アップグレード処理の一部としては使えないので、ご注意下"
+"さい。"
 
 #: ../../en/backup.rst:134
 msgid "Online Backup and Restore"
@@ -266,6 +299,11 @@ msgid ""
 "entire database. If the database is under frequent insert and update load, "
 "then online backup might be preferable to basic backup."
 msgstr ""
+"オンラインでのバックアップとレストアによって、管理者が、データベース全体のダ"
+"ンプを反復して行うことで発生するオーバヘッドもなく、バックアップファイルのセ"
+"ットの最新版を非常によく保持できます。データベースが頻繁な追加と更新の負荷が"
+"かかっている場合には、オンラインバックアップは基本的なバックアップより好まし"
+"くなることもあります。"
 
 #: ../../en/backup.rst:140
 msgid ""
@@ -275,10 +313,15 @@ msgid ""
 "This section of the PostGIS workshop will just provide a brief snapshot of "
 "online backup set-up."
 msgstr ""
+"オンラインバックアップを習得する最善の方法は、PostgreSQLマニュアルの ` "
+"継続的アーカイブとポイントインタイムリカバリ（PITR） <https://www.postgresql."
+"jp/document/current/html/continuous-archiving.html>`_ "
+"などのセクションを読むことです。PostGIS ワークショップでは、オンラインバック"
+"アップの簡単なスナップショットを提供します。"
 
 #: ../../en/backup.rst:144
 msgid "How it Works"
-msgstr ""
+msgstr "仕組み"
 
 #: ../../en/backup.rst:146
 msgid ""
@@ -288,6 +331,12 @@ msgid ""
 "consists of taking a copy of the database main data table, then taking a "
 "copy of each WAL that is generated from then on."
 msgstr ""
+"PostgreSQL "
+"は変更されると、最初は、メインデータテーブルへの継続的な書き込みでなく"
+"、\"write-ahead logs\" (WAL) に保存します。まとめると、これらのログはデータベ"
+"ースで発生した全ての変更の完全な記録です。オンラインバックアップではデータベ"
+"ースのメインテーブルの複写を取得し、その後に生成される個々のWALの複製を取得し"
+"ます。"
 
 #: ../../en/backup.rst:150
 msgid ""
@@ -296,6 +345,9 @@ msgid ""
 "is a restored database in the same state as the original at the time of the "
 "last WAL received."
 msgstr ""
+"新しいデータベースへの回復を行うべき時になると、システムはメインデータの複写"
+"物から起動し、すべてのWALファイルをデータベースで実行します。最終的な結果は、"
+"最後にWALを受信した時点でのオリジナルと同じ状態の復元されたデータベースです。"
 
 #: ../../en/backup.rst:152
 msgid ""
@@ -304,10 +356,13 @@ msgid ""
 "keeping a very up-to-date backup of a system without resorting to intensive "
 "regular full dumps."
 msgstr ""
+"WALはとにかく書き込まれていて、複写物のアーカイブサーバへの転送は計算コストが"
+"低いので、オンラインバックアップは、計算集中となる定期的なフルダンプを行わず"
+"に、システムのバックアップをごく最近のものとして維持する効果的な手段です。"
 
 #: ../../en/backup.rst:156
 msgid "Archiving the WAL Files"
-msgstr ""
+msgstr "WALファイルのアーカイブ"
 
 #: ../../en/backup.rst:158
 msgid ""
@@ -316,6 +371,10 @@ msgid ""
 "PostgreSQL backend simply calls a script specified in the "
 "``archive_command`` configuration parameter."
 msgstr ""
+"オンラインバックのセットアップで最初に行うべきことは、アーカイブ方法を作成す"
+"ることです。PostgreSQLアーカイブ方法は、柔軟性が非常に高いです。PostgreSQL "
+"バックエンドはコンフィギュレーションパラメータ ``archive_command`` "
+"で指定されるスクリプトを呼ぶだけです。"
 
 #: ../../en/backup.rst:160
 msgid ""
@@ -323,18 +382,25 @@ msgid ""
 "mounted drive, and as complex as encrypting and emailing the files to the "
 "remote archive. Any process you can script you can use to archive the files."
 msgstr ""
+"これはつまり、ファイルをネットワークドライブに複製するので、アーカイブは単純"
+"にすることができます。また、ファイルのリモートアーカイブへの暗号化とメール送"
+"信と同じくらいの複雑性を持ちます。ユーザがスクリプトとして書くことができる処"
+"理は全てファイルをアーカイブ化するのに使うことができます。"
 
 #: ../../en/backup.rst:162
 msgid ""
 "To turn on archiving we will edit ``postgresql.conf``, first turning on WAL "
 "archiving:"
-msgstr ""
+msgstr "アーカイブを有効にする員は ``postgresql.conf`` を編集します。まず次のように "
+"WAL アーカイブを有効にします:"
 
 #: ../../en/backup.rst:169
 msgid ""
 "And then setting the ``archive_command`` to copy our archive files to a safe "
 "location (changing the destination paths as appropriate):"
 msgstr ""
+"それから ``archive_command`` を設定して、アーカイブファイルを安全な位置 "
+"(複写先パスは必要に応じて変更します) に複写します。次のようにします:"
 
 #: ../../en/backup.rst:179
 msgid ""
@@ -343,20 +409,24 @@ msgid ""
 "already there. It is also important that the command returns a non-zero "
 "status if the copy process fails."
 msgstr ""
+"アーカイブコマンドが存在するファイルの上書きを行わないようにすることが重要で"
+"すので、UNIX "
+"コマンドは、ファイルが既に存在していないか初期テストを行います。また、"
+"複写が失敗した場合にコマンドが 0 でないステータスを返すことも重要です。"
 
 #: ../../en/backup.rst:181
 msgid ""
 "Once the changes are made you can re-start PostgreSQL to make them effective."
-msgstr ""
+msgstr "変更を行ったら、PostgreSQLを再起動して、設定を有効化させることができます。"
 
 #: ../../en/backup.rst:185
 msgid "Taking the Base Backup"
-msgstr ""
+msgstr "基本バックアップの取得"
 
 #: ../../en/backup.rst:187
 msgid ""
 "Once the archiving process is in place, you need to take a base back-up."
-msgstr ""
+msgstr "アーカイブプロセスが用意できたら、基本バックアップを取る必要があります。"
 
 #: ../../en/backup.rst:189
 msgid ""
@@ -364,28 +434,33 @@ msgid ""
 "operation of queries or data updates, it just forces a checkpoint and writes "
 "a label file indicating when the backup was taken)."
 msgstr ""
+"データベースをバックアップモードにします (クエリやデータ更新の処理の変更に関"
+"することは行わず、チェックポイントの強制とバックアップの取られた時を示すラベ"
+"ルファイルを書くだけです)。"
 
 #: ../../en/backup.rst:195
 msgid ""
 "For the label, using the path to the backup file is a good practice, as it "
 "helps you track down where the backup was stored."
-msgstr ""
+msgstr "ラベルの場合、バックファイルへのパスを使うのが良い方法です。バックアップが保"
+"存されている場所を追跡するのに役立つからです。"
 
 #: ../../en/backup.rst:197
 msgid "Copy the database to an archival location:"
-msgstr ""
+msgstr "データベースをアーカイブ位置に複写します:"
 
 #: ../../en/backup.rst:204
 msgid "Then tell the database the backup process is complete."
-msgstr ""
+msgstr "次に、バックアップ処理を完了したことをデータベースに通知します。"
 
 #: ../../en/backup.rst:210
 msgid "All these steps can of course be scripted for regular base backups."
-msgstr ""
+msgstr "これらの手順の全ては、もちろん、定期的な基本バックアップに使うスクリプトにす"
+"ることができます。"
 
 #: ../../en/backup.rst:214
 msgid "Restoring from the Archive"
-msgstr ""
+msgstr "アーカイブからのレストア"
 
 #: ../../en/backup.rst:216
 msgid ""
@@ -393,10 +468,13 @@ msgid ""
 "and point-in-time recovery <http://www.postgresql.org/docs/current/static/"
 "continuous-archiving.html>`_."
 msgstr ""
+"これらの手順は PostgreSQL マニュアル "
+"`継続的アーカイブとポイントインタイムリカバリ（PITR） <https://www.postgresql"
+".jp/document/current/html/continuous-archiving.html>`_ から取得しました。"
 
 #: ../../en/backup.rst:218
 msgid "Stop the server, if it's running."
-msgstr ""
+msgstr "サーバが動いている場合には止めます。"
 
 #: ../../en/backup.rst:219
 msgid ""
@@ -408,12 +486,20 @@ msgid ""
 "subdirectory, as it might contain logs which were not archived before the "
 "system went down."
 msgstr ""
+"そのためのスペースがある場合には、クラスタデータディレクトリ全体と全てのテー"
+"ブルスペースとを、後に必要になる場合のために、一時的な場所に複写します。この"
+"予防措置を行うには、既存のデータベースの二つの複写物を保持するだけの十分なフ"
+"リースペースがシステム上に存在している必要があります。十分なスペースが無い場"
+"合には、少なくともクラスタの pg_xlog サブディレクトリの内容を保存すべきです。"
+"システムが落ちる前にアーカイブされなかったログを含んでいる可能性があるためで"
+"す。"
 
 #: ../../en/backup.rst:220
 msgid ""
 "Remove all existing files and subdirectories under the cluster data "
 "directory and under the root directories of any tablespaces you are using."
-msgstr ""
+msgstr "クラスタデータディレクトリ内とテーブルスペースのルートディレクトリ内の、全て"
+"の存在するファイルとサブディレクトリを削除します。"
 
 #: ../../en/backup.rst:221
 msgid ""
@@ -422,6 +508,10 @@ msgid ""
 "and with the right permissions. If you are using tablespaces, you should "
 "verify that the symbolic links in pg_tblspc/ were correctly restored."
 msgstr ""
+"システムバックアップからデータベースをレストアします。正しい所有権 "
+"(データベースシステムユーザであって、root ではダメです!) を持ち、正しいパーミ"
+"ッションを持つようにして下さい。テーブルスペースを使用している場合には、"
+"pg_tblspc/ 内のシンボリックリンクが正しくレストアされたか確認して下さい。"
 
 #: ../../en/backup.rst:222
 msgid ""
@@ -431,6 +521,10 @@ msgid ""
 "careful to ensure that you re-establish it as a symbolic link if you had it "
 "set up that way before."
 msgstr ""
+"pg_xlog/ 内に存在するファイルを全て削除します。このファイルはファイルシステム"
+"のバックアップから来たもので、今より前の者です。pg_xlog/ を全くアーカイブして"
+"いなかった場合には、適切な権限で再生成します。以前にシンボリックリンクで作っ"
+"ていた場合には、そのように再確立するように注意して下さい。"
 
 #: ../../en/backup.rst:223
 msgid ""
@@ -438,6 +532,10 @@ msgid ""
 "into pg_xlog/. (It is best to copy them, not move them, so you still have "
 "the unmodified files if a problem occurs and you have to start over.)"
 msgstr ""
+"手順 2 で保存したアーカイブしていない WAL "
+"セグメントファイルがある場合にはそれらを pg_xlog/ の下に複写します。(複写が最"
+"善です。移動はよくありません。問題が発生して、やり直しになった場合でも、変更"
+"されていないファイルがまだ手元に残っているからです。)"
 
 #: ../../en/backup.rst:224
 msgid ""
@@ -446,6 +544,9 @@ msgid ""
 "prevent ordinary users from connecting until you are sure the recovery was "
 "successful."
 msgstr ""
+"リカバリコマンドファイル recovery.conf をクラスタデータディレクトリ "
+"(26章参照) 内に作ります。リカバリ成功が確認できるまで、一時的に pg_hba.conf "
+"を編集して、一般ユーザからの接続を防いだ方がいいかも知れません。"
 
 #: ../../en/backup.rst:225
 msgid ""
@@ -456,6 +557,11 @@ msgid ""
 "rename recovery.conf to recovery.done (to prevent accidentally re-entering "
 "recovery mode later) and then commence normal database operations."
 msgstr ""
+"サーバを起動します。サーバはリカバリモードになり、必要なアーカイブ WAL ファイ"
+"ルが読まれます。外部エラーのためにリカバリが終わらされると、サーバは単に再起"
+"動され、リカバリが継続されます。リカバリ処理が完了すると、サーバは "
+"recovery.conf というファイル名を recovery.done に変え (誤ってリカバリモードに"
+"再び入るのを防ぐためです)、通常のデータベース操作を開始します。"
 
 #: ../../en/backup.rst:226
 msgid ""
@@ -463,6 +569,9 @@ msgid ""
 "desired state. If not, return to step 1. If all is well, allow your users to "
 "connect by restoring pg_hba.conf to normal."
 msgstr ""
+"求める状態へのリカバリに成功したことを確認するためにデータベースの内容を調査"
+"します。もしうまくいっていなかったら、手順 1 に戻ります。うまくいったなら、"
+"pg_hba.conf を通常に戻して、ユーザが接続できるようにします。"
 
 #: ../../en/backup.rst:231
 msgid "Links"

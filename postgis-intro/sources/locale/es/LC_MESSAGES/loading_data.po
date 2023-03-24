@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2023-03-17 01:29-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,71 +71,74 @@ msgid ""
 msgstr ""
 
 #: ../../en/loading_data.rst:41
+msgid ""
+"If you want to practice loading data from the native spatial formats, "
+"instead of using the PostgreSQL db backup files just covered, the next "
+"couple of sections will guide you thru loading using various command-line "
+"tools and QGIS DbManager. Note you can skip these sections, if you have "
+"already loaded the data with pgAdmin."
+msgstr ""
+
+#: ../../en/loading_data.rst:48
 msgid "Loading with ogr2ogr"
 msgstr ""
 
-#: ../../en/loading_data.rst:43
+#: ../../en/loading_data.rst:50
 msgid ""
 ":file:`ogr2ogr` is a commandline utility for converting data between GIS "
 "data formats, including common file formats and common spatial databases."
 msgstr ""
 
-#: ../../en/loading_data.rst:48
+#: ../../en/loading_data.rst:55
 msgid "**Windows**:"
 msgstr ""
 
-#: ../../en/loading_data.rst:46
+#: ../../en/loading_data.rst:53
 msgid ""
 "Builds of ogr2ogr can be downloaded from `GIS Internals <https://www."
 "gisinternals.com/release.php>`_."
 msgstr ""
 
-#: ../../en/loading_data.rst:47
+#: ../../en/loading_data.rst:54
 msgid ""
 "ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/"
 "forusers/download.html>`_ and accessible via OSGeo4W Shell -"
 msgstr ""
 
-#: ../../en/loading_data.rst:48
+#: ../../en/loading_data.rst:55
 msgid ""
 "Builds of ogr2ogr can be downloaded from `MS4W <https://ms4w.com/download."
 "html>`_."
 msgstr ""
 
-#: ../../en/loading_data.rst:53
+#: ../../en/loading_data.rst:59
 msgid "**MacOS**:"
 msgstr ""
 
-#: ../../en/loading_data.rst:51
+#: ../../en/loading_data.rst:58
 msgid ""
 "If you installed `Postgres.app <https://postgresapp.com/>`_, then you will "
 "find :file:`ogr2ogr` in the :file:`/Applications/Postgres.app/Contents/"
 "Versions/*/bin` directory."
 msgstr ""
 
-#: ../../en/loading_data.rst:52
-msgid ""
-"Alternately, you can download an independent build of GDAL from `KyngChaos "
-"<https://www.kyngchaos.com/software/frameworks/>`_ and install that."
-msgstr ""
-
-#: ../../en/loading_data.rst:53
+#: ../../en/loading_data.rst:59
 msgid ""
 "Finally, if you have installed `HomeBrew <https://brew.sh/>`_ you can "
 "install the **gdal** package to get access to :file:`ogr2ogr`"
 msgstr ""
 
-#: ../../en/loading_data.rst:56
+#: ../../en/loading_data.rst:62
 msgid "**Linux**:"
 msgstr ""
 
-#: ../../en/loading_data.rst:56
+#: ../../en/loading_data.rst:62
 msgid ""
 "If you installed QGIS from packages, :file:`ogr2ogr` should be installed and "
 "on your PATH already as part of the **gdal** or *libgdal** packages."
 msgstr ""
 
-#: ../../en/loading_data.rst:58
+#: ../../en/loading_data.rst:64
 msgid ""
 "The postgis workshop data directory includes a :file:`2000/` sub-directory, "
 "which contains shape files from the 2000 census, that were obsoleted by data "
@@ -145,43 +148,43 @@ msgid ""
 "when doing these instructions:"
 msgstr ""
 
-#: ../../en/loading_data.rst:65
+#: ../../en/loading_data.rst:71
 msgid ""
 "Rather than passing the password in the connection string, we put it in the "
 "environment, so it won't be visible in the process list while the command "
 "runs."
 msgstr ""
 
-#: ../../en/loading_data.rst:67
+#: ../../en/loading_data.rst:73
 msgid ""
 "Note that on Windows, you will need to use ``set`` instead of ``export``."
 msgstr ""
 
-#: ../../en/loading_data.rst:82
+#: ../../en/loading_data.rst:88
 msgid ""
 "For more visual clarity, these lines are displayed with ``\\``, but they "
 "should be written in one line on your shell."
 msgstr ""
 
-#: ../../en/loading_data.rst:84
+#: ../../en/loading_data.rst:90
 msgid ""
 "The :file:`ogr2ogr` has a **huge** number of options, and we're only using a "
 "handful of them here. Here is a line-by-line explanation of the command."
 msgstr ""
 
-#: ../../en/loading_data.rst:90
+#: ../../en/loading_data.rst:96
 msgid ""
 "The executable name! You may need to ensure the executable location is in "
 "your `PATH` or use the full path to the executable, depending on your setup."
 msgstr ""
 
-#: ../../en/loading_data.rst:96
+#: ../../en/loading_data.rst:102
 msgid ""
 "The **nln** option stands for \"new layer name\", and sets the table name "
 "that will be created in the target database."
 msgstr ""
 
-#: ../../en/loading_data.rst:102
+#: ../../en/loading_data.rst:108
 msgid ""
 "The **nlt** option stands for \"new layer type\". For shape file input in "
 "particular, the new layer type is often a \"multi-part geometry\", so the "
@@ -189,27 +192,27 @@ msgid ""
 "\"Polygon\" for the geometry type."
 msgstr ""
 
-#: ../../en/loading_data.rst:110
+#: ../../en/loading_data.rst:116
 msgid ""
 "The **lco** option stands for \"layer create option\". Different drivers "
 "have different create options, and we are using three options for the "
 "`PostgreSQL driver <https://gdal.org/drivers/vector/pg.html>`_ here."
 msgstr ""
 
-#: ../../en/loading_data.rst:112
+#: ../../en/loading_data.rst:118
 msgid ""
 "**GEOMETRY_NAME** sets the column name for the geometry column. We prefer "
 "\"geom\" over the default, so that our tables match the standard column "
 "names in the workshop."
 msgstr ""
 
-#: ../../en/loading_data.rst:113
+#: ../../en/loading_data.rst:119
 msgid ""
 "**FID** sets the primary key column name. Again we prefer \"gid\" which is "
 "the standard used in the workshop."
 msgstr ""
 
-#: ../../en/loading_data.rst:114
+#: ../../en/loading_data.rst:120
 msgid ""
 "**PRECISION** controls how numeric fields are represented in the database. "
 "The default when loading a shape file is to use the database \"numeric\" "
@@ -218,7 +221,7 @@ msgid ""
 "turn off the \"numeric\" type."
 msgstr ""
 
-#: ../../en/loading_data.rst:120
+#: ../../en/loading_data.rst:126
 msgid ""
 "The order of arguments in :file:`ogr2ogr` is, roughly: executable, then "
 "options, then **destination** location, then **source location**. So this is "
@@ -228,7 +231,7 @@ msgid ""
 "contained in quotation marks (because it might have embedded spaces)."
 msgstr ""
 
-#: ../../en/loading_data.rst:126
+#: ../../en/loading_data.rst:132
 msgid ""
 "The source data set in this case is the shape file we are reading. It is "
 "possible to read multiple layers in one invocation by putting the connection "
@@ -236,11 +239,11 @@ msgid ""
 "case we have just the one shape file to load."
 msgstr ""
 
-#: ../../en/loading_data.rst:130
+#: ../../en/loading_data.rst:136
 msgid "Shapefiles? What's that?"
 msgstr ""
 
-#: ../../en/loading_data.rst:132
+#: ../../en/loading_data.rst:138
 msgid ""
 "You may be asking yourself -- \"What's this shapefile thing?\"  A \"shapefile"
 "\" commonly refers to a collection of files with ``.shp``, ``.shx``, ``."
@@ -250,46 +253,46 @@ msgid ""
 "distribution without the required supporting files."
 msgstr ""
 
-#: ../../en/loading_data.rst:134
+#: ../../en/loading_data.rst:140
 msgid "Mandatory files:"
 msgstr ""
 
-#: ../../en/loading_data.rst:136
+#: ../../en/loading_data.rst:142
 msgid "``.shp``—shape format; the feature geometry itself"
 msgstr ""
 
-#: ../../en/loading_data.rst:137
+#: ../../en/loading_data.rst:143
 msgid "``.shx``—shape index format; a positional index of the feature geometry"
 msgstr ""
 
-#: ../../en/loading_data.rst:138
+#: ../../en/loading_data.rst:144
 msgid ""
 "``.dbf``—attribute format; columnar attributes for each shape, in dBase III"
 msgstr ""
 
-#: ../../en/loading_data.rst:140
+#: ../../en/loading_data.rst:146
 msgid "Optional files include:"
 msgstr ""
 
-#: ../../en/loading_data.rst:142
+#: ../../en/loading_data.rst:148
 msgid ""
 "``.prj``—projection format; the coordinate system and projection "
 "information, a plain text file describing the projection using well-known "
 "text format"
 msgstr ""
 
-#: ../../en/loading_data.rst:144
+#: ../../en/loading_data.rst:150
 msgid ""
 "The :file:`shp2pgsql` utility makes shape data usable in PostGIS by "
 "converting it from binary data into a series of SQL commands that are then "
 "run in the database to load the data."
 msgstr ""
 
-#: ../../en/loading_data.rst:148
+#: ../../en/loading_data.rst:154
 msgid "Loading with shp2pgsql"
 msgstr ""
 
-#: ../../en/loading_data.rst:150
+#: ../../en/loading_data.rst:156
 msgid ""
 "The :file:`shp2pgsql` converts Shape files into SQL. It is a conversion "
 "utility that is part of the PostGIS code base and ships with PostGIS "
@@ -298,7 +301,7 @@ msgid ""
 "in the executable directory of your installation."
 msgstr ""
 
-#: ../../en/loading_data.rst:152
+#: ../../en/loading_data.rst:158
 msgid ""
 "Unlike :file:`ogr2ogr`, :file:`shp2pgsql` does not connect directly to the "
 "destination database, it just emits the SQL equivalent to the input shape "
@@ -306,49 +309,49 @@ msgid ""
 "\"pipe\" or by saving the SQL to file and then loading it."
 msgstr ""
 
-#: ../../en/loading_data.rst:154
+#: ../../en/loading_data.rst:160
 msgid "Here is an example invocation, loading the same data as before:"
 msgstr ""
 
-#: ../../en/loading_data.rst:168
+#: ../../en/loading_data.rst:174
 msgid "Here is a line-by-line explanation of the command."
 msgstr ""
 
-#: ../../en/loading_data.rst:174
+#: ../../en/loading_data.rst:180
 msgid ""
 "The executable program! It reads the source data file, and emits SQL which "
 "can be directed to a file or piped to :file:`psql` to load directly into the "
 "database."
 msgstr ""
 
-#: ../../en/loading_data.rst:180
+#: ../../en/loading_data.rst:186
 msgid ""
 "The **D** flag tells the program to generate \"dump format\" which is much "
 "faster to load than the default \"insert format\"."
 msgstr ""
 
-#: ../../en/loading_data.rst:186
+#: ../../en/loading_data.rst:192
 msgid ""
 "The **I** flag tells the program to create a spatial index on the table "
 "after loading is complete."
 msgstr ""
 
-#: ../../en/loading_data.rst:192
+#: ../../en/loading_data.rst:198
 msgid ""
 "The **s** flag tells the program what the \"spatial reference identifier "
 "(SRID)\" of the data is. The source data for this workshop is all in \"UTM "
 "18\", for which the SRID is **26918** (see below)."
 msgstr ""
 
-#: ../../en/loading_data.rst:199
+#: ../../en/loading_data.rst:205
 msgid "The source shape file to read."
 msgstr ""
 
-#: ../../en/loading_data.rst:205
+#: ../../en/loading_data.rst:211
 msgid "The table name to use when creating the destination table."
 msgstr ""
 
-#: ../../en/loading_data.rst:211
+#: ../../en/loading_data.rst:217
 msgid ""
 "The utility program is generating a stream of SQL. The \"|\" operator takes "
 "that stream and uses it as input to the :file:`psql` database terminal "
@@ -356,17 +359,17 @@ msgid ""
 "the destination database."
 msgstr ""
 
-#: ../../en/loading_data.rst:215
+#: ../../en/loading_data.rst:221
 msgid "SRID 26918? What's with that?"
 msgstr ""
 
-#: ../../en/loading_data.rst:217
+#: ../../en/loading_data.rst:223
 msgid ""
 "Most of the import process is self-explanatory, but even experienced GIS "
 "professionals can trip over an **SRID**."
 msgstr ""
 
-#: ../../en/loading_data.rst:219
+#: ../../en/loading_data.rst:225
 msgid ""
 "An \"SRID\" stands for \"Spatial Reference IDentifier.\" It defines all the "
 "parameters of our data's geographic coordinate system and projection. An "
@@ -374,22 +377,22 @@ msgid ""
 "projection (which can be quite complex) into a single number."
 msgstr ""
 
-#: ../../en/loading_data.rst:221
+#: ../../en/loading_data.rst:227
 msgid ""
 "You can see the definition of our workshop map projection by looking it up "
 "either in an online database,"
 msgstr ""
 
-#: ../../en/loading_data.rst:223
+#: ../../en/loading_data.rst:229
 msgid "https://epsg.io/26918"
 msgstr ""
 
-#: ../../en/loading_data.rst:225
+#: ../../en/loading_data.rst:231
 msgid ""
 "or directly inside PostGIS with a query to the ``spatial_ref_sys`` table."
 msgstr ""
 
-#: ../../en/loading_data.rst:233
+#: ../../en/loading_data.rst:239
 msgid ""
 "The PostGIS ``spatial_ref_sys`` table is an :term:`OGC`-standard table that "
 "defines all the spatial reference systems known to the database. The data "
@@ -397,30 +400,30 @@ msgid ""
 "details needed to transform/re-project between them."
 msgstr ""
 
-#: ../../en/loading_data.rst:235
+#: ../../en/loading_data.rst:241
 msgid ""
 "In both cases, you see a textual representation of the **26918** spatial "
 "reference system (pretty-printed here for clarity):"
 msgstr ""
 
-#: ../../en/loading_data.rst:258
+#: ../../en/loading_data.rst:264
 msgid ""
 "If you open up the ``nyc_neighborhoods.prj`` file from the data directory, "
 "you'll see the same projection definition."
 msgstr ""
 
-#: ../../en/loading_data.rst:260
+#: ../../en/loading_data.rst:266
 msgid ""
 "Data you receive from local agencies—such as New York City—will usually be "
 "in a local projection noted by \"state plane\" or \"UTM\".  Our projection "
 "is \"Universal Transverse Mercator (UTM) Zone 18 North\" or EPSG:26918."
 msgstr ""
 
-#: ../../en/loading_data.rst:264
+#: ../../en/loading_data.rst:270
 msgid "Things to Try: View data using QGIS"
 msgstr ""
 
-#: ../../en/loading_data.rst:266
+#: ../../en/loading_data.rst:272
 msgid ""
 "`QGIS <http://qgis.org>`_, is a desktop GIS viewer/editor for quickly "
 "looking at data. You can view a number of data formats including flat "
@@ -428,8 +431,39 @@ msgid ""
 "exploration of your data, as well as simple testing and fast styling."
 msgstr ""
 
-#: ../../en/loading_data.rst:268
+#: ../../en/loading_data.rst:274
 msgid ""
 "Try using this software to connect your PostGIS database.  The application "
-"can be downloaded from http://qgis.org"
+"can be downloaded from https://qgis.org"
+msgstr ""
+
+#: ../../en/loading_data.rst:276
+msgid ""
+"You'll first want to create a connection to a PostGIS database using menu :"
+"command:`Layer->Add Layer->PostGIS Layers->New` and then filling in the "
+"prompts. Once you have a connection, you can add Layers by clicking connect "
+"and selecting a table to display."
+msgstr ""
+
+#: ../../en/loading_data.rst:280
+msgid "Loading data using QGIS DbManager"
+msgstr ""
+
+#: ../../en/loading_data.rst:281
+msgid ""
+"QGIS comes with a tool called `DbManager <https://docs.qgis.org/3.28/en/docs/"
+"user_manual/plugins/core_plugins/plugins_db_manager.html#dbmanager>`_  that "
+"allows you to connect to various different kinds of databases, including a "
+"PostGIS enabled one.  After you have a PostGIS Database connection "
+"configured, go to :command:`Database->DbManager` and expand to your database "
+"as shown below:"
+msgstr ""
+
+#: ../../en/loading_data.rst:288
+msgid ""
+"From there you can use the :command:`Import Layer/File` menu option to load "
+"numerous different spatial formats. In addition to being able to load data "
+"from many spatial formats and export data to many formats, you can also add "
+"ad-hoc queries to the canvas or define views in your database, using the "
+"highlighted wrench icon."
 msgstr ""

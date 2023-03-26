@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-# Regina Obe <regina@arrival3d.com>, 2022.
+# Regina Obe <regina@arrival3d.com>, 2022, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-03-10 04:23+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2023-03-26 22:18+0000\n"
+"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/ja/>\n"
 "Language: ja\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.2\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/introduction.rst:4
@@ -628,14 +628,6 @@ msgid "RedFin"
 msgstr "RedFin"
 
 #: ../../en/introduction.rst:166
-#, fuzzy
-#| msgid ""
-#| "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-"
-#| "based service for exploring properties and estimate values. Their system "
-#| "was originally build on MySQL, but they found that moving to PostgreSQL "
-#| "and PostGIS provided `huge benefits in performance and reliability "
-#| "<https://www.redfin.com/news/"
-#| "elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgid ""
 "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based "
 "service for exploring properties and estimate values. Their system was "
@@ -645,10 +637,10 @@ msgid ""
 msgstr ""
 "`RedFin <https://www.redfin.com>`_ は実在する不動産会社で、不動産の探索や価格"
 "の見積もりを行うウェブベースのサービスを提供しています。この会社のシステムは"
-"元はMySQLベースで作られていましたが、PostgreSQLとPostGISへの移行で`効率と信頼"
-"性の利益が大きい <https://www.redfin.com/news/"
-"elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_ ことが分かりまし"
-"た。"
+"元はMySQLベースで作られていましたが、PostgreSQLとPostGISへの移行で`"
+"効率と信頼性の利益が大きい <https://www.redfin.com/news/"
+"elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_ "
+"ことが分かりました。"
 
 #: ../../en/introduction.rst:169
 #, fuzzy
@@ -744,7 +736,6 @@ msgid "Deegree"
 msgstr "Deegree"
 
 #: ../../en/introduction.rst:194 ../../en/introduction.rst:197
-#, fuzzy
 msgid "Carto"
 msgstr "Carto"
 
@@ -780,9 +771,8 @@ msgid "GRASS"
 msgstr "GRASS"
 
 #: ../../en/introduction.rst:206
-#, fuzzy
 msgid "pgAdmin"
-msgstr "pgAdmin"
+msgstr "PgAdmin"
 
 #: ../../en/introduction.rst:207
 #, fuzzy

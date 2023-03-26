@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
+# Regina Obe <regina@arrival3d.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-19 07:42+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2023-03-26 22:18+0000\n"
+"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "security/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/security.rst:4
@@ -170,7 +171,7 @@ msgstr ""
 
 #: ../../en/security.rst:127
 msgid "Encryption"
-msgstr ""
+msgstr "暗号化"
 
 #: ../../en/security.rst:129
 msgid ""
@@ -290,7 +291,7 @@ msgstr ""
 
 #: ../../en/security.rst:212
 msgid "Authentication"
-msgstr ""
+msgstr "認証"
 
 #: ../../en/security.rst:214
 msgid ""

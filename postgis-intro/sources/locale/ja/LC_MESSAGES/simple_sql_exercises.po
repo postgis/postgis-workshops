@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023.
+# Regina Obe <regina@arrival3d.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-19 07:42+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2023-03-26 22:18+0000\n"
+"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql_exercises/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/simple_sql_exercises.rst:4
@@ -46,7 +47,7 @@ msgstr "**blkid**"
 msgid ""
 "A 15-digit code that uniquely identifies every census **block**. "
 "(\"360050001009000\")"
-msgstr ""
+msgstr "**block**を一意に識別する15桁のコードです。例: 360050001009000"
 
 #: ../../en/simple_sql_exercises.rst:15
 msgid "**popn_total**"
@@ -62,7 +63,7 @@ msgstr "**popn_white**"
 
 #: ../../en/simple_sql_exercises.rst:18
 msgid "Number of people self-identifying as \"white\" in the block"
-msgstr ""
+msgstr "block内で「白人」を自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:19
 msgid "**popn_black**"
@@ -70,7 +71,7 @@ msgstr "**popn_black**"
 
 #: ../../en/simple_sql_exercises.rst:20
 msgid "Number of people self-identifying as \"black\" in the block"
-msgstr ""
+msgstr "block内で「黒人」を自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:21
 msgid "**popn_nativ**"
@@ -78,7 +79,7 @@ msgstr "**popn_nativ**"
 
 #: ../../en/simple_sql_exercises.rst:22
 msgid "Number of people self-identifying as \"native american\" in the block"
-msgstr ""
+msgstr "block内で「ネイティブアメリカン」と自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:23
 msgid "**popn_asian**"
@@ -86,7 +87,7 @@ msgstr "**popn_asian**"
 
 #: ../../en/simple_sql_exercises.rst:24
 msgid "Number of people self-identifying as \"asias\" in the block"
-msgstr ""
+msgstr "block内で「アジア人」と自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:25
 msgid "**popn_other**"

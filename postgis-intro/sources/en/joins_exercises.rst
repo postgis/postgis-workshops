@@ -89,19 +89,19 @@ Exercises
   
     We used the ``DISTINCT`` keyword to remove duplicate values from our result set where there were more than one subway station in a neighborhood.
     
-* **After 9/11, the 'Battery Park' neighborhood was off limits for several days. How many people had to be evacuated?**
+* **After 9/11, the 'Battery Park' neighborhood was off limits for several days. How many people had to be evacuated?** (Hint: See Section 5.2 for detail on how to load relevant census data.)
  
   .. code-block:: sql
  
     SELECT Sum(popn_total)
     FROM nyc_neighborhoods AS n
-    JOIN nyc_census_blocks AS c 
+    JOIN nyc_census_blocks_2000 AS c 
     ON ST_Intersects(n.geom, c.geom)  
     WHERE n.name = 'Battery Park';
    
   :: 
 
-    17153
+    9928
     
 * **What neighborhood has the highest population density (persons/km2)?**
  
@@ -118,9 +118,8 @@ Exercises
      
   ::
    
-          name       |  popn_per_sqkm   
-    -----------------+------------------
-     Upper East Side | 48524.4877489857
-     Upper West Side | 40152.4896080024
+          name         |  popn_per_sqkm   
+    -------------------+------------------
+     North Sutton Area | 68435.13283772678   
 
      

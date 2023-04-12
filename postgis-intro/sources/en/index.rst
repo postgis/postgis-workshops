@@ -68,6 +68,7 @@ Workshop Modules
   3d
   knn
   rasters
+  topology
   history_tracking
   tuning
   security

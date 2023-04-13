@@ -262,13 +262,13 @@ The output is:
   (5 rows)
 
 Which tells us that Queens and Brooklyn are in the middle of border wars.
-In this query we use the  `GetTopoElements <https://postgis.net/docs/GetTopoElements.html>`_
+In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_
 function to declaritively state what components are shared across boroughs.
 
 What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number
-being the id of the element, and the second, being the layer type of the element.
-All types lower than 4 are primitives corresponding to (1 nodes, 2 edges, 3 faces).
-All these are type 3, which corresponds to a face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_
+being the id of the element, and the second, being the layer (or primitive type) of the element.
+PostGIS GetTopoElements returns the primitives of a topoelemnt with types number 1-3 corresponding to (1 nodes, 2 edges, 3 faces).
+All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_
 to get a visual representation of these shared faces as folows:
 
 .. code-block:: sql
@@ -318,6 +318,7 @@ The result of the above is 29 neighborhoods were updated.
 IF you rerun the border dispute queries for neighborhoods and boros, you'll find you have no more border disputes.
 
 We do still have gaps of empty space between neighborhoods caused by intensive simplication.
-Such issues would need to be fixed by directly editing the topology using the
-`Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_.
+Such issues can be fixed by directly editing the topology using the
+`Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_
+and filling in the holes.
 

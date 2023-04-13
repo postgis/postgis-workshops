@@ -296,7 +296,7 @@ If we look at our neighborhoods, we'll see a similar story but with 44 border di
 Because boroughs are an aggregation of neighborhoods, we can fix the borough issue by fixing the neighborhood border disputes.
 
 There are a number of ways we could fix this. We could go out surveying asking people
-what neighbhood do they thing they are standing in.  Alternatively we could just assign slivers of
+what neighbhood do they think they are standing in.  Alternatively we could just assign slivers of
 land to the neighborhood with the least amount of area or to the highest bidder.
 
 Removing elements from Topogeometries is handled using the `TopoGeom_remElement <https://postgis.net/docs/TopoGeom_remElement.html>`_ function.  So lets get on with it, removing element from neighborhoods with the most amount of area as follows:
@@ -320,5 +320,5 @@ IF you rerun the border dispute queries for neighborhoods and boros, you'll find
 We do still have gaps of empty space between neighborhoods caused by intensive simplication.
 Such issues can be fixed by directly editing the topology using the
 `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_
-and filling in the holes.
+and/or filling in the holes and assigning those to neighborhoods.
 

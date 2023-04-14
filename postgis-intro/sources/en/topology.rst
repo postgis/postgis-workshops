@@ -5,7 +5,7 @@ Topology
 
 PostGIS supports the SQL/MM SQL-MM 3 Topo-Geo and Topo-Net 3 specifications
 via an extension called **postgis_topology**. You can learn about all the functions and types provided by this extension in
-`Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_
+`Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_.
 The *postgis_topology* extension
 includes another kind of core spatial type, called a **topogeometry**.
 In addition to the *topogeometry* spatial type, you will find functions for building
@@ -29,6 +29,8 @@ The `topology` schema contains two tables and all the helper functions for topol
 The *layer* table is very similar to the `raster_columns`, `geometry_columns`, and `geography_columns`
 catalogs we learned about earlier, but specifically for topogeometries.
 
+Creating topologies
+--------------------------------
 What exactly is a topology and a topogeometry, and how are they related?
 Before we explain, let's start by creating
 a topology to house our NYC topologically perfect data using the `CreateTopology <https://postgis.net/docs/CreateTopology.html>`_
@@ -66,6 +68,8 @@ You will see:
     1 | nyc_topo | 26918 |         0 | f
   (1 row)
 
+Storage of topologies and topogeometries
+----------------------------------------------
 A topology is implemented as a schema in a PostgreSQL database.
 If you explore the `nyc_topo` schema, you will see these tables and views:
 
@@ -77,7 +81,7 @@ If you explore the `nyc_topo` schema, you will see these tables and views:
 * node - Contains all the start and end points of all edges as well as points not connected to anything (isolated nodes)
 * relation - this defines what elements in a topology make up a topogeometry.
 
-So what is a topogeometry again?  A topogeometry is a representation of a geometry formed from the
+So what is a topogeometry?  A topogeometry is a representation of a geometry formed from the
 edges, faces, nodes, and other topogeometries in a topology.
 
 Where does a topogeometry reside?  It resides somewhere else which references elements of a topology via the *relation* table.
@@ -85,26 +89,33 @@ Although we could throw the topogeometries
 in our `nyc_topo` schema, the general convention, is to define other tables in other schemas
 that have a topogeometry, and also have any other kind of data you might be interested in tracking.
 
+Why use topogeometries?
+-----------------------
 Using topogeometries keeps your data tidy and connected.
 Topogeometries are very useful for Cadastral work, where you want to make sure two parcels of land don't overlap each
-other even if you change the boundaries of one or you want to make sure roads stay connected as you change their geometries.
+other even if you change the boundaries of one or you want to make sure roads stay connected as you change the geometries that form them.
 Geometries live in an island of their own, you can duplicate them, morph them.
 Geometries are carefree, not caring about other geometries that share space with them.
 Topogeometries, in contrast, follow the rules of their topology; they can't exist unless there is an
 edge, node, face, or other topogeometry
 that defines them. A topogeometry belongs to one and only one topology.
+A topogeometry is a relational model of a geometry and as such as each component (edges/faces/nodes) are moved, added etc, they change
+not one topogeometry shape, but all topogeometries that have components in common.
 
 We have an `nyc_topo` topology devoid of any data.  Let's populate it with our NYC data.
 Topology edges, faces, and nodes can be created in 2 keys ways.
 
-* Edges, Faces, and Nodes can also be created directly using topology primitive functions.
-* Edges, Faces, and Nodes can also be formed by creating topogeometries.
+* Edges, Faces, and Nodes can be created directly using topology primitive functions.
+* Edges, Faces, and Nodes can be formed by creating topogeometries.
   When a topogeometry is created from a geometry and their are missing edges, faces,
-  or nodes that match its coordinates, then new edges, faces, and nodes are created as part of the process
+  or nodes that match its coordinates, then new edges, faces, and nodes are created as part of the process.
 
+
+Defining topogeometry columns and creating topogeometries
+-------------------------------------------------------------
 The most common way to populate topologies is to create topogeometries.
 Lets start by creating a table to hold neighborhoods and then add a topogeometry column
-using the `AddTopoGeometryColumn <https://postgis.net/docs/AddTopoGeometryColumn.html>`_
+using the `AddTopoGeometryColumn <https://postgis.net/docs/AddTopoGeometryColumn.html>`_ function.
 
 .. code-block:: sql
 
@@ -114,8 +125,9 @@ using the `AddTopoGeometryColumn <https://postgis.net/docs/AddTopoGeometryColumn
     'topo', 'POLYGON') As  layer_id;
 
 
-The output of the above is
-..code-block::
+The output of the above is:
+
+.. code-block::
 
   layer_id
   --------
@@ -128,6 +140,12 @@ SQL\MM geometry is not simple.
 So lets start by adding valid ones.  The 1 used here refers to the layer_id generated from the
 previous query. If you don't know the layer id, you would look it up using the `FindLayer <https://postgis.net/docs/FindLayer.html>`_ function
 which we'll use in later examples.
+
+For these examples you'll use the function `toTopoGeom <https://postgis.net/docs/toTopoGeom.html>`_ function to convert
+a geometry to it's topogeometry equivalent.  toTopoGeom function handles a lot of book-keeping for you.
+
+The `toTopoGeom` function inspects the geometry passed in and injects nodes, edges, and faces as needed into your topology to form the shape of the geometry.  It will then add relationships to the `relation` table that defines how this new topogeometry is related to these new and existing topology elements.
+In some cases pieces of the geometry may exist or existing pieces need to be split to form the new geometry.
 
 .. code-block:: sql
 
@@ -200,7 +218,9 @@ Which outputs:
   (1 row)
 
 
-In order to populate this new table, we'll use the CreateTopoGeom function.
+In order to populate this new table, we'll use the `CreateTopoGeom <https://postgis.net/docs/CreateTopoGeom.html>`_ function.
+Instead of starting with geometries to form a new topogeometry, the CreateTopoGeom starts with existing topology elements
+which may be primitives or other topogeometries to define a new topogeometry.
 
 .. code-block:: sql
 
@@ -212,8 +232,14 @@ In order to populate this new table, we'll use the CreateTopoGeom function.
     FROM nyc_neighborhoods_t AS n
   GROUP BY n.boroname;
 
-
 Which will insert 5 records corresponding to the boroughs of New York.
+
+.. note::
+
+  If you are using PostGIS 3.4 or higher, you can use the new cast to cast a topogeometry to a topoelement,
+  and replace `topology.TopoElementArray_Agg( ARRAY[ (n.topo).id, (n.topo).layer_id ]::topoelement ) )` in the above example
+  with the shorter `topology.TopoElementArray_Agg( n.topo::topoelement )`
+
 
 To view these in pgAdmin, you can cast the topogeometry to a geometry as follows:
 
@@ -233,10 +259,10 @@ where each geometry is treated as a separate unit.  You get gaps, you get dangli
 Luckily we can use topology to clean up this mess and to help us maintain good clean connected data.
 
 Let's put our land surveyor hat on and ask the question, if we are dividing our plots of land into
-districts (boros or neighborhoods) such that each district may border other neighborhoodsdistricts
+districts (boros or neighborhoods) such that each district may border other districts
 but should not share any area in common,
 does it make sense for districts to have areas in common?  No it does not make sense.
-And here we are:  because we said so. But our data says otherwise.
+And here we are with our data pointing out some areas belong to more than one neighborhood or more than one borough.
 
 Lets first look at neighborhoods and look for neighborhoods that share elements in common:
 
@@ -267,8 +293,8 @@ function to declaritively state what components are shared across boroughs.
 
 What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number
 being the id of the element, and the second, being the layer (or primitive type) of the element.
-PostGIS GetTopoElements returns the primitives of a topoelemnt with types number 1-3 corresponding to (1 nodes, 2 edges, 3 faces).
-All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_
+PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces).
+All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_
 to get a visual representation of these shared faces as folows:
 
 .. code-block:: sql
@@ -293,13 +319,14 @@ If we look at our neighborhoods, we'll see a similar story but with 44 border di
   HAVING count(DISTINCT d.name) > 1
   ORDER BY area;
 
-Because boroughs are an aggregation of neighborhoods, we can fix the borough issue by fixing the neighborhood border disputes.
+Because boroughs are an aggregation of neighborhoods,
+we can fix the borough issue by fixing the neighborhood border disputes.
 
 There are a number of ways we could fix this. We could go out surveying asking people
 what neighbhood do they think they are standing in.  Alternatively we could just assign slivers of
 land to the neighborhood with the least amount of area or to the highest bidder.
 
-Removing elements from Topogeometries is handled using the `TopoGeom_remElement <https://postgis.net/docs/TopoGeom_remElement.html>`_ function.  So lets get on with it, removing element from neighborhoods with the most amount of area as follows:
+Removing elements from Topogeometries is handled using the `TopoGeom_remElement <https://postgis.net/docs/TopoGeom_remElement.html>`_ function.  So lets get on with it, removing duplicaed elements from neighborhoods with the most amount of area as follows:
 
 .. code-block:: sql
 

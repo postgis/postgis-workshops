@@ -255,7 +255,9 @@ The output will look like below:
 
 If you are thinking, what a total mess, yes it is a total mess.
 This is what happens after numerous cycles of simplification and other geometry processes
-where each geometry is treated as a separate unit.  You get gaps, you get dangling islands.
+where each geometry is treated as a separate unit.  You get gaps, you get dangling islands, and neighborhoods
+encroaching on each other's territory.
+
 Luckily we can use topology to clean up this mess and to help us maintain good clean connected data.
 
 Let's put our land surveyor hat on and ask the question, if we are dividing our plots of land into

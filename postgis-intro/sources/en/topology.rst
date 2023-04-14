@@ -266,7 +266,7 @@ but should not share any area in common,
 does it make sense for districts to have areas in common?  No it does not make sense.
 And here we are with our data pointing out some areas belong to more than one neighborhood or more than one borough.
 
-Lets first look at neighborhoods and look for neighborhoods that share elements in common:
+Lets first look at boros and look for neighborhoods that share elements in common:
 
 .. code-block:: sql
 
@@ -291,7 +291,7 @@ The output is:
 
 Which tells us that Queens and Brooklyn are in the middle of border wars.
 In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_
-function to declaritively state what components are shared across boroughs.
+function to declaritively inspect what components are shared across boroughs.
 
 What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number
 being the id of the element, and the second, being the layer (or primitive type) of the element.
@@ -344,7 +344,7 @@ Removing elements from Topogeometries is handled using the `TopoGeom_remElement 
 
 
 The result of the above is 29 neighborhoods were updated.
-IF you rerun the border dispute queries for neighborhoods and boros, you'll find you have no more border disputes.
+If you rerun the border dispute queries for neighborhoods and boroughs, you'll find you have no more border disputes.
 
 We do still have gaps of empty space between neighborhoods caused by intensive simplication.
 Such issues can be fixed by directly editing the topology using the

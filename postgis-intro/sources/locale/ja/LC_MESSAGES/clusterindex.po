@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-19 07:42+0000\n"
+"PO-Revision-Date: 2023-04-21 01:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "clusterindex/ja/>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/clusterindex.rst:4
 msgid "Clustering on Indices"
-msgstr ""
+msgstr "インデックスでのクラスタリング"
 
 #: ../../en/clusterindex.rst:6
 msgid ""
@@ -32,6 +32,10 @@ msgid ""
 "from physical disk limitations, but for large databases, access to the "
 "physical disk will be a limiting stop in disk access speed."
 msgstr ""
+"データベースの情報取得速度はディスクからの情報取得速度と同じです。"
+"小さいデータベースは RAM キャッシュに全体を入れて、物理ディスクの制約から自由"
+"になりますが、大きなデータベースでは、物理ディスクへのアクセスがディスクアク"
+"セス速度に制限をかけることになります。"
 
 #: ../../en/clusterindex.rst:8
 msgid ""
@@ -39,6 +43,9 @@ msgid ""
 "correlation between the order data is stored on the disk and the way it will "
 "be accessed or organized by applications."
 msgstr ""
+"データは都合のいいようにディスクに書き込まれます。ディスクに格納されているデ"
+"ータの並び順と、アプリケーションによるアクセスや整理の方法との関係は、重要で"
+"はありません。"
 
 #: ../../en/clusterindex.rst:13
 msgid ""
@@ -46,6 +53,9 @@ msgid ""
 "to be retrieved together in the same result set are located in similar "
 "physical locations on the hard disk platters. This is called \"clustering\"."
 msgstr ""
+"データアクセス速度向上の一つの方法に、同じ結果集合を得る際に一緒に取得されそ"
+"うなレコードを、ハードディスクの円盤上で物理的に近い位置に置くというのがあり"
+"ます。これは「クラスタリング」と呼ばれます。"
 
 #: ../../en/clusterindex.rst:15
 msgid ""
@@ -53,16 +63,20 @@ msgid ""
 "applies: indexes define a natural ordering scheme for data which is similar "
 "to the access pattern that will be used in retrieving the data."
 msgstr ""
+"正しいクラスタリングの枠組みは扱いにくいこともありますが、一般的な規則が適用"
+"します:インデックスは、データの取得に使われるアクセスパターンに似た、自然なデ"
+"ータ並び順の枠組みを定義します。"
 
 #: ../../en/clusterindex.rst:20
 msgid ""
 "Because of this, ordering the data on the disk in the same order as the "
 "index can provide a speed advantage in some cases."
-msgstr ""
+msgstr "このため、ディスク上のデータの並べ替えをインデックスと同じにすると、速度が向"
+"上する場合があります。"
 
 #: ../../en/clusterindex.rst:23
 msgid "Clustering on the R-Tree"
-msgstr ""
+msgstr "R木でのクラスタリング"
 
 #: ../../en/clusterindex.rst:25
 msgid ""
@@ -70,17 +84,23 @@ msgid ""
 "the map window in a web or desktop application. All the data in the windows "
 "has similar location value (or it wouldn't be in the window!)"
 msgstr ""
+"空間データは空間的に相関するウィンドウ内でアクセスされる傾向にあります。ウェ"
+"ブやデスクトップのアプリケーションにおける地図のウィンドウを考えてみて下さい"
+"。ウィンドウ内のデータの全ては、位置を示す値としては似ています "
+"(似ていないならウィンドウ内にありません!)"
 
 #: ../../en/clusterindex.rst:27
 msgid ""
 "So, clustering based on a spatial index makes sense for spatial data that is "
 "going to be accessed with spatial queries: similar things tend to have "
 "similar locations."
-msgstr ""
+msgstr "空間インデックスに基づくクラスタリングは、空間クエリがアクセスする空間データ"
+"にとって理にかなっています。似た物は似た位置を持ちます。"
 
 #: ../../en/clusterindex.rst:29
 msgid "Let's cluster our ``nyc_census_blocks`` based on their spatial index:"
-msgstr ""
+msgstr "空間インデックスに基づく ``nyc_census_blocks`` "
+"のクラスタリングを行いましょう:"
 
 #: ../../en/clusterindex.rst:36
 msgid ""
@@ -89,10 +109,15 @@ msgid ""
 "difference? Maybe not, because the original data may have already had some "
 "pre-existing spatial ordering (this is not uncommon in GIS data sets)."
 msgstr ""
+"コマンドは、``nyc_census_blocks`` を、空間インデックス "
+"``nyc_census_blocks_geom_gist`` で定義される並び順に書き換えます。"
+"速度差が感じられるでしょうか? 感じられないかも知れません。"
+"元のデータは既に既存の空間の並び順を持っていたからかも知れないからです "
+"(GISデータセットで珍しいことではありません)。"
 
 #: ../../en/clusterindex.rst:39
 msgid "Disk Versus Memory/SSD"
-msgstr ""
+msgstr "ディスク対メモリ/SSD"
 
 #: ../../en/clusterindex.rst:41
 msgid ""
@@ -102,10 +127,15 @@ msgid ""
 "database server, and ends up there as the operating system \"virtual "
 "filesystem\" caches it."
 msgstr ""
+"最近のデータベースの多くは SSD ストレージを使っています。ランダムアクセスにお"
+"いては、古い回転磁性体よりもずっと早いです。最近のデータベースの多くは、"
+"データベースサーバの RAM に収まるぐらい十分に小さいデータ上で実行されていて、"
+"オペレーティングシステムの仮想ファイルシステムがデータをキャッシュするにつれ"
+"て、そこに落ち着きます。"
 
 #: ../../en/clusterindex.rst:43
 msgid "Is clustering still necessary?"
-msgstr ""
+msgstr "クラスタリングはなお重要なのでしょうか?"
 
 #: ../../en/clusterindex.rst:45
 msgid ""
@@ -114,6 +144,9 @@ msgid ""
 "move up the servers \"memory cache heirarchy\" together, and thus make "
 "memory accesses faster."
 msgstr ""
+"驚くべきことに、そうなのです。空間で「互いに近い」ものをメモリ上で「互いに近"
+"い」レコードとして保持すると、関連するレコード同士がサーバの「メモリキャッシ"
+"ュ階層」を一緒に移動し、メモリアクセスが高速になります。"
 
 #: ../../en/clusterindex.rst:50
 msgid ""
@@ -125,10 +158,16 @@ msgid ""
 "memory structure with the spatial structure is a way in increase the odds of "
 "that win happening."
 msgstr ""
+"システム RAM は、最新のコンピュータでは早いメモリではありません。"
+"数レベルの階層を持つキャッシュがシステム RAM と実際の CPU との間にあり、オペ"
+"レーティングシステムとプロセッサはデータをブロック単位で上層下層に異動させま"
+"す。ブロックが上層に挙がると、システムが次に求めるとみられるデータの一部を含"
+"んでいるなら…それは大勝利となります。メモリ構造と空間構造とを相関させることは"
+"、この勝利を得る確率を高める方法です。"
 
 #: ../../en/clusterindex.rst:53
 msgid "Does Index Structure Matter?"
-msgstr ""
+msgstr "インデックス構造は重要ですか?"
 
 #: ../../en/clusterindex.rst:55
 msgid ""
@@ -136,6 +175,9 @@ msgid ""
 "good\" spatial decomposition of the data, the main determinant of "
 "performance will be the order of the actual table tuples."
 msgstr ""
+"理論的には、そうです。実際には、そうではありません。インデックスが「かなり良"
+"い」空間分解であるなら、パフォーマンスを決める主な要因はテーブルのタプルの順"
+"序になります。"
 
 #: ../../en/clusterindex.rst:57
 msgid ""
@@ -144,6 +186,10 @@ msgid ""
 "index\" usually takes quite careful measurement to discern, and can be very "
 "sensitive to the workload being tested."
 msgstr ""
+"「インデックスなし」と「インデックスあり」との間の違いは、一般的には大きく、"
+"計測は問題なく可能です。「平凡なインデックス」と「素晴らしいインデックス」と"
+"の差では、見定めるのには非常に慎重な測定が必要で、この差は、テストしている仕"
+"事量に対して非常に敏感になることがあります。"
 
 #: ../../en/clusterindex.rst:61
 msgid "Function List"
@@ -154,3 +200,6 @@ msgid ""
 "`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_: Re-"
 "orders the data in a table to match the ordering in the index."
 msgstr ""
+"`CLUSTER <https://www.postgresql.jp/document/current/html/sql-cluster."
+"html>`_: "
+"テーブル内のデータの並びをインデックスの並びと合致するよう並べ替えます。"

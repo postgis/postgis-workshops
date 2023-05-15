@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-03-26 22:18+0000\n"
+"PO-Revision-Date: 2023-05-15 03:08+0000\n"
 "Last-Translator: Regina Obe <regina@arrival3d.com>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/ja/>\n"
@@ -87,12 +87,10 @@ msgstr "空間データタイプ、インデックス、関数を組み合わせ
 "のための柔軟な構造が得られます。"
 
 #: ../../en/introduction.rst:24
-#, fuzzy
 msgid "In the Beginning"
 msgstr "はじめに"
 
 #: ../../en/introduction.rst:26
-#, fuzzy
 msgid ""
 "In legacy first-generation :term:`GIS` implementations, all spatial data is "
 "stored in flat files and special :term:`GIS` software is required to "
@@ -108,7 +106,6 @@ msgstr ""
 "リで、空間データを処理するために作られた自己完結型システムです。"
 
 #: ../../en/introduction.rst:28
-#, fuzzy
 msgid ""
 "Second-generation spatial systems store some data in relational databases "
 "(usually the \"attribute\" or non-spatial parts) but still lack the "
@@ -118,7 +115,6 @@ msgstr ""
 "部)内のデータを格納しますが、直接統合するだけの柔軟性はありませんでした。"
 
 #: ../../en/introduction.rst:30
-#, fuzzy
 msgid ""
 "**True spatial databases were born when people started to treat spatial "
 "features as first class database objects.**"
@@ -126,7 +122,6 @@ msgstr "**空間の地物を第一級データベースオブジェクトとし�
 "間データベースが生まれました。**"
 
 #: ../../en/introduction.rst:32
-#, fuzzy
 msgid ""
 "Spatial databases fully integrate spatial data with a relational database.  "
 "The system orientation changes from GIS-centric to database-centric."
@@ -134,7 +129,6 @@ msgstr "空間データベースは完全に空間データをリレーショナ
 "システムの方向性がGIS中心からデータベース中手に変わります。"
 
 #: ../../en/introduction.rst:37
-#, fuzzy
 msgid ""
 "A spatial database management system may be used in applications besides the "
 "geographic world.  Spatial databases are used to manage data related to the "
@@ -146,7 +140,6 @@ msgstr ""
 "関連するデータを管理するために使用されます。"
 
 #: ../../en/introduction.rst:41
-#, fuzzy
 msgid "Spatial Data Types"
 msgstr "空間データタイプ"
 
@@ -163,7 +156,6 @@ msgstr ""
 "的な**地理フィーチャー**タイプを表現する空間タイプが追加されています。"
 
 #: ../../en/introduction.rst:49
-#, fuzzy
 msgid ""
 "Spatial data types are organized in a type hierarchy.  Each sub-type "
 "inherits the structure (attributes) and the behavior (methods or functions) "
@@ -172,12 +164,10 @@ msgstr "空間データ型は階層構造をなしています。各サブタイ
 "(属性)と振る舞い (メソッドや関数)を継承します。"
 
 #: ../../en/introduction.rst:53
-#, fuzzy
 msgid "Spatial Indexes and Bounding Boxes"
 msgstr "空間インデックスとバウンディングボックス"
 
 #: ../../en/introduction.rst:55
-#, fuzzy
 msgid ""
 "An ordinary database provides **indexes** to allow for fast and random "
 "access to subsets of data.  Indexing for standard types (numbers, strings, "
@@ -190,7 +180,6 @@ msgstr ""
 "B%E6%9C%A8>`_ が使われます。"
 
 #: ../../en/introduction.rst:57
-#, fuzzy
 msgid ""
 "A B-tree partitions the data using the natural sort order to put the data "
 "into a hierarchical tree. The natural sort order of numbers, strings, and "
@@ -202,7 +191,6 @@ msgstr ""
 "と比較して、小さいか、大きいか、同じか、を見ます。"
 
 #: ../../en/introduction.rst:59
-#, fuzzy
 msgid ""
 "But because polygons can overlap, can be contained in one another, and are "
 "arrayed in a two-dimensional (or more) space, a B-tree cannot be used to "
@@ -217,7 +205,6 @@ msgstr ""
 "ックス」が提供されます。"
 
 #: ../../en/introduction.rst:61
-#, fuzzy
 msgid ""
 "A **bounding box** is the smallest rectangle -- parallel to the coordinate "
 "axes -- capable of containing a given feature."
@@ -225,7 +212,6 @@ msgstr "**バウンディングボックス**は、座標軸に平行で、指�
 "る最小の長方形です。"
 
 #: ../../en/introduction.rst:67
-#, fuzzy
 msgid ""
 "Bounding boxes are used because answering the question \"is A inside B?\" is "
 "very computationally intensive for polygons but very fast in the case of "
@@ -253,7 +239,6 @@ msgstr ""
 "るか?」に解釈されます。"
 
 #: ../../en/introduction.rst:71
-#, fuzzy
 msgid ""
 "The actual spatial indexes implemented by various databases vary widely. The "
 "most common implementations are the `R-Tree <http://en.wikipedia.org/wiki/R-"
@@ -349,7 +334,6 @@ msgstr ""
 "実装されています。"
 
 #: ../../en/introduction.rst:91
-#, fuzzy
 msgid "What is PostGIS?"
 msgstr "PostGISとは?"
 
@@ -368,7 +352,6 @@ msgstr ""
 "タープライズ」機能と実装のオープン標準を自動的に継承します。"
 
 #: ../../en/introduction.rst:96
-#, fuzzy
 msgid "But what is PostgreSQL?"
 msgstr "ではPostgreSQLとは?"
 
@@ -643,7 +626,6 @@ msgstr ""
 "ことが分かりました。"
 
 #: ../../en/introduction.rst:169
-#, fuzzy
 msgid "What applications support PostGIS?"
 msgstr "PostGISに対応したアプリケーションはどれですか?"
 
@@ -663,14 +645,12 @@ msgstr ""
 "のソフトウェアの一覧があります。"
 
 #: ../../en/introduction.rst:173
-#, fuzzy
 msgid ""
 "The following table shows a list of some of the software that leverages "
 "PostGIS:"
 msgstr "次にPostGISを利用するソフトウェアの一覧を示します:"
 
 #: ../../en/introduction.rst:176
-#, fuzzy
 msgid "Open/Free"
 msgstr "オープン/フリー"
 

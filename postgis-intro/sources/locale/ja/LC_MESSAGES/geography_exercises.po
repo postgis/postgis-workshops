@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2023.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-09 05:42+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-06-15 08:08+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geography_exercises/ja/>\n"
 "Language: ja\n"
@@ -18,66 +19,70 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geography_exercises.rst:4
 msgid "Geography Exercises"
-msgstr ""
+msgstr "ジオグラフィ演習"
 
 #: ../../en/geography_exercises.rst:6
 msgid ""
 "Here's a reminder of all the functions we have seen so far. They should be "
 "useful for the exercises!"
-msgstr ""
+msgstr "これまでに見た全ての関数のリマインダです。演習に役立つはずです!"
 
 #: ../../en/geography_exercises.rst:8
 msgid ":command:`Sum(number)` adds up all the numbers in the result set"
-msgstr ""
+msgstr ":command:`Sum(number)` 結果集合の全ての数値を合計します"
 
 #: ../../en/geography_exercises.rst:9
 msgid ":command:`ST_GeogFromText(text)` returns a geography"
-msgstr ""
+msgstr ":command:`ST_GeogFromText(text)` はジオグラフィを返します"
 
 #: ../../en/geography_exercises.rst:10
 msgid ""
 ":command:`ST_Distance(geography, geography)` returns the distance between "
 "geographies"
-msgstr ""
+msgstr ":command:`ST_Distance(geography, geography)` ジオグラフィ間の距離を返します"
 
 #: ../../en/geography_exercises.rst:11
 msgid ""
 ":command:`ST_Transform(geometry, srid)` returns geometry, in the new "
 "projection"
-msgstr ""
+msgstr ":command:`ST_Transform(geometry, srid)` 新しい投影法でのジオメトリを返します"
 
 #: ../../en/geography_exercises.rst:12
 msgid ":command:`ST_Length(geography)` returns the length of the line"
-msgstr ""
+msgstr ":command:`ST_Length(geography)` 線長を返します"
 
 #: ../../en/geography_exercises.rst:13
 msgid ""
 ":command:`ST_Intersects(geometry, geometry)` returns true if the objects are "
 "not disjoint in planar space"
 msgstr ""
+":command:`ST_Intersects(geometry, geometry)` "
+"オブジェクトが平面空間でつながっているなら TRUE を返します"
 
 #: ../../en/geography_exercises.rst:14
 msgid ""
 ":command:`ST_Intersects(geography, geography)` returns true if the objects "
 "are not disjoint in spheroidal space"
 msgstr ""
+":command:`ST_Intersects(geography, geography)` "
+"オブジェクトが球面空間でつながっているなら TRUE を返します"
 
 #: ../../en/geography_exercises.rst:16
 msgid "Also remember the tables we have available:"
-msgstr ""
+msgstr "次の利用可能なテーブルも覚えておいてください:"
 
 #: ../../en/geography_exercises.rst:18
 msgid "``nyc_streets``"
-msgstr ""
+msgstr "``nyc_streets``"
 
 #: ../../en/geography_exercises.rst:20
 msgid "name, type, geom"
-msgstr ""
+msgstr "name, type, geom"
 
 #: ../../en/geography_exercises.rst:22
 msgid "``nyc_neighborhoods``"
@@ -85,27 +90,30 @@ msgstr "nyc_neighborhoods"
 
 #: ../../en/geography_exercises.rst:24
 msgid "name, boroname, geom"
-msgstr ""
+msgstr "name, boroname, geom"
 
 #: ../../en/geography_exercises.rst:28
 msgid "Exercises"
-msgstr ""
+msgstr "演習"
 
 #: ../../en/geography_exercises.rst:30
 msgid "**How far is New York from Seattle? What are the units of the answer?**"
-msgstr ""
+msgstr "**シアトルからニューヨークはどれぐらい遠いでしょう? 答の単位は何ですか?**"
 
 #: ../../en/geography_exercises.rst:34
 msgid ""
 "New York = ``POINT(-74.0064 40.7142)`` and Seattle = ``POINT(-122.3331 "
 "47.6097)``"
 msgstr ""
+"ニューヨークは ``POINT(-74.0064 40.7142)`` で、シアトルは ``POINT(-122.3331 "
+"47.6097)``"
 
 #: ../../en/geography_exercises.rst:48
 msgid ""
 "**What is the total length of all streets in New York, calculated on the "
 "spheroid?**"
-msgstr ""
+msgstr "**球面で計算した場合の、ニューヨークの全てのストリートの長さの合計はいくつで"
+"しょう?**"
 
 #: ../../en/geography_exercises.rst:64
 msgid ""
@@ -113,12 +121,17 @@ msgid ""
 "10418904.717, 0.02% different. UTM is good at preserving area and distance, "
 "within the zone boundaries."
 msgstr ""
+"\"UTM Zone 18\" 投影平面で計算した長さは 10418904.717 で 0.02% "
+"の違いがありました。UTM は、ゾーン内では、面積と距離を維持するのが得意です。"
 
 #: ../../en/geography_exercises.rst:67
 msgid ""
 "**Does ‘POINT(1 2.0001)’ intersect with ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ "
 "in geography? In geometry? Why the difference?**"
 msgstr ""
+"**‘POINT(1 2.0001)’ は ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ "
+"とジオグラフィでインタセクトするでしょうか? ジオメトリではどうでしょう? "
+"なぜ違うのでしょう?**"
 
 #: ../../en/geography_exercises.rst:87
 msgid ""
@@ -127,3 +140,6 @@ msgid ""
 "edge of the square is a great circle in geography, and passes **above** the "
 "point, so the square does contain the point."
 msgstr ""
+"ジオメトリでは正方形の上辺は直線で、ポイントの**下**を通るので、正方形はポイ"
+"ントを含みません。ジオグラフィでは正方形の上辺は大円で、ポイントの**上**を通"
+"るので、正方形はポイントを含みます。"

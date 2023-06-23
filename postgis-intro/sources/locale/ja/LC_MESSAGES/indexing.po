@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-19 07:42+0000\n"
+"PO-Revision-Date: 2023-06-21 08:47+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "indexing/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/indexing.rst:4
@@ -35,6 +35,12 @@ msgid ""
 "searching by organizing the data into a search tree which can be quickly "
 "traversed to find a particular record."
 msgstr ""
+"空間インデックスは空間データベースの主要3機能の一つであることを思い出して下さ"
+"い。インデックスによって、空間データベースで大きなデータ集合を使えるようにな"
+"ります。インデックスなしでは、地物の検索に、データベースのレコードの全てを「"
+"シーケンシャルスキャン」で検索する必要があります。インデックスによって、デー"
+"タを検索木に整理して、特定のレコードを素早く検索できるようにできるので、検索"
+"速度が向上します。"
 
 #: ../../en/indexing.rst:8
 msgid ""
@@ -44,6 +50,11 @@ msgid ""
 "without indexes would require 100,000,000 comparisons; with indexes the cost "
 "could be as low as 20,000 comparisons."
 msgstr ""
+"空間インデックスは、PostGIS の最大の財産の一つです。かつての例では、空間結合"
+"を構築するには、テーブル全体の各レコードを互いに比較していく必要がありました"
+"。これは非常にコストがかかります。10,000レコードのテーブルが二つあって、"
+"インデックス無しで計算しようとすると 100,000,000 回の比較が必要となります。"
+"対してインデックスでは 20,000 回まで下がる可能性があります。"
 
 #: ../../en/indexing.rst:10
 msgid ""
@@ -51,15 +62,19 @@ msgid ""
 "in order to demonstrate the efficacy of indexes we will have to first remove "
 "them."
 msgstr ""
+"データロードファイルには、全てのテーブルに対する空間インデックスが既に含まれ"
+"ているので、インデックスの効果を示すには、まずインデックスを削除する必要があ"
+"ります。"
 
 #: ../../en/indexing.rst:12
 msgid ""
 "Let's run a query on ``nyc_census_blocks`` **without** our spatial index."
-msgstr ""
+msgstr "``nyc_census_blocks`` "
+"テーブル上で空間インデックス**なしで**クエリを実行してみましょう。"
 
 #: ../../en/indexing.rst:14
 msgid "Our first step is to **remove** the index."
-msgstr ""
+msgstr "最初に、インデックスを**削除します**。"
 
 #: ../../en/indexing.rst:22
 msgid ""
@@ -67,6 +82,9 @@ msgid ""
 "system. For more information, see the PostgreSQL `documentation <http://www."
 "postgresql.org/docs/current/interactive/sql-dropindex.html>`_."
 msgstr ""
+"``DROP INDEX`` 文で、既存のインデックスをデータベースシステムから削除します。"
+"詳細については、PostgreSQLの `文書 <https://www.postgresql.jp/document/"
+"current/html/sql-dropindex.html>`_ をご覧下さい。"
 
 #: ../../en/indexing.rst:24
 msgid ""
@@ -75,6 +93,9 @@ msgid ""
 "single census block in order to identify blocks that contain subway stops "
 "that start with \"B\"."
 msgstr ""
+"pgAdmin のクエリウィンドウの右下隅にある \"Timing\" "
+"メーターを見て、次を実行して下さい。クエリは、\"B\" で始まる地下鉄駅を含む街"
+"区を特定するために、統計調査街区を一つ一つ探索していきます。"
 
 #: ../../en/indexing.rst:40
 msgid ""
@@ -82,10 +103,13 @@ msgid ""
 "so even without an index, the query only takes **300 ms** on my test "
 "computer."
 msgstr ""
+"``nyc_census_blocks`` テーブルは非常に小さい (数千レコードのみ) "
+"ので、インデックス無しでも、クエリは、こちらのコンピュータ上では、 "
+"**300ミリ秒** しかかかりませんでした。"
 
 #: ../../en/indexing.rst:42
 msgid "Now add the spatial index back in and run the query again."
-msgstr ""
+msgstr "空間インデックスを追加しなおして、クエリをもう一度実行します。"
 
 #: ../../en/indexing.rst:50
 msgid ""
@@ -95,16 +119,24 @@ msgid ""
 "when creating your index, you have likely neglected to add the ``USING "
 "GIST`` clause."
 msgstr ""
+"\"USING GiST\" 句で、PostgreSQLに、インデックス作成時に汎用インデックス構造 ("
+"Generic Index STructure) "
+"を使うように指示を出しています。インデックス作成時に``ERROR: index row "
+"requires 11340 bytes, maximum size is 8191`` "
+"のようなエラーを受け取った場合には、\"USING GiST\" "
+"句の追加を怠った可能性があります。"
 
 #: ../../en/indexing.rst:52
 msgid ""
 "On my test computer the time drops to **50 ms**. The larger your table, the "
 "larger the relative speed improvement of an indexed query will be."
 msgstr ""
+"こちらのコンピュータでは **50ミリ秒** に低下します。より大きなテーブルでは、"
+"インデックス付きのクエリの相対的な速度向上が、より大きくなります。"
 
 #: ../../en/indexing.rst:55
 msgid "How Spatial Indexes Work"
-msgstr ""
+msgstr "どのように空間インデックスが動作するか"
 
 #: ../../en/indexing.rst:57
 msgid ""
@@ -113,6 +145,10 @@ msgid ""
 "unable to index the geometric features themselves and instead index the "
 "bounding boxes of the features."
 msgstr ""
+"標準のデータベースインデックスは、インデックス化されるカラムの値に基づいて階"
+"層ツリーを生成します。空間インデックスは少し違います。ジオメトリの地物自体の"
+"インデックス化することができず、代わりに地物のバウンディングボックスについて"
+"インデックス化します。"
 
 #: ../../en/indexing.rst:62
 msgid ""
@@ -120,6 +156,9 @@ msgid ""
 "**one**, the red line. But the bounding boxes of features that intersect the "
 "yellow box is **two**, the red and blue ones."
 msgstr ""
+"上の図では、黄色の星とインタセクトするラインの数は、赤いラインの**一つ**です"
+"。しかし、黄色のボックスとインタセクトする地物のバウンディングボックスは、赤"
+"いラインと青いラインの**二つ**です。"
 
 #: ../../en/indexing.rst:64
 msgid ""
@@ -129,6 +168,11 @@ msgid ""
 "calculation of \"what lines intersect the yellow star\" **only for those "
 "features returned by the first test**."
 msgstr ""
+"「どのラインが黄色い星とインタセクトするか」という質問にデータベースが効率的"
+"に答える方法は、最初にインデックスを使って (非常に速いです) 「どのボックスが"
+"黄色いボックスとインタセクトするのか」という質問に答え、その後に、「どのライ"
+"ンが黄色い星とインタセクトするか」の確実な計算を、**最初のテストによって返さ"
+"れた地物だけについて**行います。"
 
 #: ../../en/indexing.rst:66
 msgid ""
@@ -136,6 +180,9 @@ msgid ""
 "index first, then carrying out an exact test can radically reduce the amount "
 "of calculations necessary to answer a query."
 msgstr ""
+"大きなテーブルでは、近似的なインデックスの評価を行ってから、確実なテストを実"
+"行する「二つの関門」システムによって、クエリの答を得るのに必要な計算量を大幅"
+"に減らすことができます。"
 
 #: ../../en/indexing.rst:68
 msgid ""
@@ -145,83 +192,120 @@ msgid ""
 "automatically handles variable data density, differing amounts of object "
 "overlap, and object size."
 msgstr ""
+"PostGIS と Oracle Spatial は、どちらも「R木」[#RTree]_ 空間インデックス構造を"
+"持っています。R木はデータを長方形に分割し、さらに小さな長方形に分割し、さらに"
+"文化地していきます。可変データ密度、オブジェクトの異なるオーバラップ量、オブ"
+"ジェクトサイズを自動的に処理する自己調整インデックス構造です。"
 
 #: ../../en/indexing.rst:74
 msgid "Spatially Indexed Functions"
-msgstr ""
+msgstr "空間インデックス関数"
 
 #: ../../en/indexing.rst:76
 msgid ""
 "Only a subset of functions will automatically make use of a spatial index, "
 "if one is available."
-msgstr ""
+msgstr "空間インデックスが有効な時に自動的に空間インデックスを使用する関数は一部だけ"
+"です。"
 
 #: ../../en/indexing.rst:78
 msgid "`ST_Intersects <http://postgis.net/docs/ST_Intersects.html>`_"
 msgstr ""
+"`ST_Intersects <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_Intersects.html>`_"
 
 #: ../../en/indexing.rst:79
 msgid "`ST_Contains <http://postgis.net/docs/ST_Contains.html>`_"
 msgstr ""
+"`ST_Contains <https://boiledorange73.github.io/pgismanja/latest/ST_Contains."
+"html>`_"
 
 #: ../../en/indexing.rst:80
 msgid "`ST_Within <http://postgis.net/docs/ST_Within.html>`_"
 msgstr ""
+"`ST_Within <https://boiledorange73.github.io/pgismanja/latest/ST_Within."
+"html>`_"
 
 #: ../../en/indexing.rst:81
 msgid "`ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_"
 msgstr ""
+"`ST_DWithin <https://boiledorange73.github.io/pgismanja/latest/ST_DWithin."
+"html>`_"
 
 #: ../../en/indexing.rst:82
 msgid ""
 "`ST_ContainsProperly <http://postgis.net/docs/ST_ContainsProperly.html>`_"
 msgstr ""
+"`ST_ContainsProperly <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_ContainsProperly.html>`_"
 
 #: ../../en/indexing.rst:83
 msgid "`ST_CoveredBy <http://postgis.net/docs/ST_CoveredBy.html>`_"
 msgstr ""
+"`ST_CoveredBy <https://boiledorange73.github.io/pgismanja/latest/ST_CoveredBy"
+".html>`_"
 
 #: ../../en/indexing.rst:84
 msgid "`ST_Covers <http://postgis.net/docs/ST_Covers.html>`_"
 msgstr ""
+"`ST_Covers <https://boiledorange73.github.io/pgismanja/latest/ST_Covers."
+"html>`_"
 
 #: ../../en/indexing.rst:85
 msgid "`ST_Overlaps <http://postgis.net/docs/ST_Overlaps.html>`_"
 msgstr ""
+"`ST_Overlaps <https://boiledorange73.github.io/pgismanja/latest/ST_Overlaps."
+"html>`_"
 
 #: ../../en/indexing.rst:86
 msgid "`ST_Crosses <http://postgis.net/docs/ST_Crosses.html>`_"
 msgstr ""
+"`ST_Crosses <https://boiledorange73.github.io/pgismanja/latest/ST_Crosses."
+"html>`_"
 
 #: ../../en/indexing.rst:87
 msgid "`ST_DFullyWithin <http://postgis.net/docs/ST_DFullyWithin.html>`_"
 msgstr ""
+"`ST_DFullyWithin <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_DFullyWithin.html>`_"
 
 #: ../../en/indexing.rst:88
 msgid "`ST_3DIntersects <http://postgis.net/docs/ST_3DIntersects.html>`_"
 msgstr ""
+"`ST_3DIntersects <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_3DIntersects.html>`_"
 
 #: ../../en/indexing.rst:89
 msgid "`ST_3DDWithin <http://postgis.net/docs/ST_3DDWithin.html>`_"
 msgstr ""
+"`ST_3DDWithin <https://boiledorange73.github.io/pgismanja/latest/ST_3DDWithin"
+".html>`_"
 
 #: ../../en/indexing.rst:90
 msgid "`ST_3DDFullyWithin <http://postgis.net/docs/ST_3DDFullyWithin.html>`_"
 msgstr ""
+"`ST_3DDFullyWithin <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_3DDFullyWithin.html>`_"
 
 #: ../../en/indexing.rst:91
 msgid ""
 "`ST_LineCrossingDirection <http://postgis.net/docs/ST_LineCrossingDirection."
 "html>`_"
 msgstr ""
+"`ST_LineCrossingDirection <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_LineCrossingDirection.html>`_"
 
 #: ../../en/indexing.rst:92
 msgid "`ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_"
 msgstr ""
+"`ST_OrderingEquals <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_OrderingEquals.html>`_"
 
 #: ../../en/indexing.rst:93
 msgid "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_"
 msgstr ""
+"`ST_Equals <https://boiledorange73.github.io/pgismanja/latest/ST_Equals."
+"html>`_"
 
 #: ../../en/indexing.rst:95
 msgid ""
@@ -230,6 +314,10 @@ msgid ""
 "\"within a distance\" or \"within a radius\" style queries while still "
 "getting a performance boost from the index."
 msgstr ""
+"最初の4関数はクエリで最も一般的に使われます。`ST_DWithin "
+"<https://boiledorange73.github.io/pgismanja/latest/ST_DWithin.html>`_ は、イ"
+"ンデックスからパフォーマンスを向上させつつ「距離内」「半径内」を求めるクエリ"
+"において非常に重要です。"
 
 #: ../../en/indexing.rst:97
 msgid ""
@@ -237,10 +325,13 @@ msgid ""
 "list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) "
 "add an index-only clause as descibed below."
 msgstr ""
+"このリストに無い関数 (`ST_Relate <https://boiledorange73.github.io/pgismanja/"
+"latest/ST_Relate.html>`_ が最も一般的です) へのインデックスによる高速化機能を"
+"追加するには、インデックスのみの句を追加します。下のようにします。"
 
 #: ../../en/indexing.rst:101
 msgid "Index-Only Queries"
-msgstr ""
+msgstr "インデックスだけのクエリ"
 
 #: ../../en/indexing.rst:103
 msgid ""
@@ -249,6 +340,10 @@ msgid ""
 "automatically. But some functions (e.g., :command:`ST_Relate`) do not "
 "include an index filter."
 msgstr ""
+"PostGIS で一般的に使用される関数の多く (:command:`ST_Contains`, "
+":command:`ST_Intersects`, :command:`ST_DWithin`, etc) "
+"は、インデックスフィルタを自動的に実行します。しかし、"
+"インデックスフィルタを実行しない関数もあります (例 :command:`ST_Relate`)。"
 
 #: ../../en/indexing.rst:105
 msgid ""
@@ -257,6 +352,11 @@ msgid ""
 "\"bounding boxes overlap or touch\" in the same way that for numbers the :"
 "command:`=` operator means \"values are the same\"."
 msgstr ""
+"インデックスを使った (かつフィルタリングなしの) "
+"バウンディングボックス検索を実行するには、:command:`&&` 演算子を使います。"
+"ジオメトリでは :command:`=` "
+"演算子が「同じ値である」を意味するのと同じように、:command:`&&` 演算子は「バ"
+"ウンディングボックスがオーバラップするか接触している」を意味します。"
 
 #: ../../en/indexing.rst:107
 msgid ""
@@ -264,12 +364,15 @@ msgid ""
 "to a more exact query. Using :command:`&&` our index-only query looks like "
 "the following:"
 msgstr ""
+"`West Village`の人口について、インデックスのみのクエリと正確なクエリとを比較"
+"してみましょう。:command:`&&` "
+"を使ったインデックスのみのクエリは次のように見えます:"
 
 #: ../../en/indexing.rst:121
 msgid ""
 "Now let's do the same query using the more exact :command:`ST_Intersects` "
 "function."
-msgstr ""
+msgstr "同じクエリで、より確実な :command:`ST_Intersects` 関数を使ってみましょう。"
 
 #: ../../en/indexing.rst:135
 msgid ""
@@ -277,10 +380,14 @@ msgid ""
 "box intersects the neighborhood's bounding box; the second query only summed "
 "up those blocks that intersect the neighborhood itself."
 msgstr ""
+"より少ない答になりました。一つ目のクエリでは、街区のバウンディングボックスが"
+"隣の街区のバウンディングボックスとインタセクトする街区について合計しましたが"
+"、二つ目のクエリでは、街区が隣の街区とインタセクトする街区のみについて合計し"
+"ました。"
 
 #: ../../en/indexing.rst:138
 msgid "Analyzing"
-msgstr ""
+msgstr "分析"
 
 #: ../../en/indexing.rst:140
 msgid ""
@@ -290,6 +397,11 @@ msgid ""
 "table, traversing the index tree to get each record will actually be slower "
 "than just sequentially reading the whole table from the start."
 msgstr ""
+"PostgreSQL クエリプランナは、クエリの評価にインデックスを使うべきか使わないべ"
+"きかをインテリジェントに選択します。直感に反して、インデックス検索は必ず速く"
+"なるわけではありません。検索がテーブルのすべてのレコードを返そうとしたり、レ"
+"コードごとの取得でインデックス木を横断するような場合には、はじめからテーブル"
+"全体をシーケンシャルスキャンするよりも実際には遅くなる場合があります。"
 
 #: ../../en/indexing.rst:142
 msgid ""
@@ -297,6 +409,9 @@ msgid ""
 "query will return a large number or small number of records. Below, the red "
 "square is small, but will return many more records than the blue square."
 msgstr ""
+"クエリ矩形のサイズを知るだけでは、クエリが多数または少数のレコードを返すかと"
+"うかを知るには十分ではありません。次に示す図で、赤の四角形は小さいですが、青"
+"の四角形より多くのレコードを返します。"
 
 #: ../../en/indexing.rst:146
 msgid ""
@@ -307,6 +422,11 @@ msgid ""
 "However, if you dramatically change the contents of your table within a "
 "short period of time, the statistics will not be up-to-date."
 msgstr ""
+"どの状況を取り扱うのか (テーブルの小さい部分を読むか、大きい部分を読むか)を算"
+"定するために、PostgreSQLは、インデックスの付けられたカラムごとに、データの分"
+"散に関する統計情報を保持します。デフォルトでは、PostgreSQLは定期的に統計情報"
+"を収集します。しかしながら、短期間にテーブルの中身が劇的に変化する時には、統"
+"計情報は更新されません。"
 
 #: ../../en/indexing.rst:148
 msgid ""
@@ -314,6 +434,10 @@ msgid ""
 "the ``ANALYZE`` command after bulk data loads and deletes in your tables. "
 "This force the statistics system to gather data for all your indexed columns."
 msgstr ""
+"統計情報がテーブル内容と合致するようにするために、"
+"一括データ読み込みや一括削除の後に\"ANALYZE\"コマンドを実行するのが賢明です。"
+"これにより、統計情報システムが全てのインデックス付きカラムのデータを収集する"
+"よう強制されます。"
 
 #: ../../en/indexing.rst:150
 msgid ""
@@ -321,10 +445,13 @@ msgid ""
 "internal statistics used for query plan estimation (query plan analysis will "
 "be discussed later)."
 msgstr ""
+"\"ANALYZE\"コマンドはPostgreSQLにテーブルを横断して、"
+"クエリプランの推定に使われる内部の統計情報を更新するよう求めます "
+"(クエリプランの解析については後で議論します)。"
 
 #: ../../en/indexing.rst:157
 msgid "Vacuuming"
-msgstr ""
+msgstr "VACUUMの実行"
 
 #: ../../en/indexing.rst:159
 msgid ""
@@ -334,12 +461,18 @@ msgid ""
 "``VACUUM`` command asks PostgreSQL to reclaim any unused space in the table "
 "pages left by updates or deletes to records."
 msgstr ""
+"インデックスを作るだけではPostgreQLがインデックスを効果的に使えるようになるに"
+"は十分ではないことは、強調すべきところです。VACUUM実行には、いつでも膨大なUPD"
+"ATE、INSERT、DELETEがテーブルに対して発行する必要があります。\"VACUUM"
+"\"コマンドはPostgreSQLに、テーブルページ内にあある、UPDATEやDELETEによって放"
+"置されて使っていない領域を取り戻すよう求めます。"
 
 #: ../../en/indexing.rst:161
 msgid ""
 "Vacuuming is so critical for the efficient running of the database that "
 "PostgreSQL provides an \"autovacuum\" facility by default."
-msgstr ""
+msgstr "VACUUM実行は効率的なデータベースの実行に非常に重要ですので、PostgreSQLはデフ"
+"ォルトで「自動VACUUM」機能を提供しています。"
 
 #: ../../en/indexing.rst:163
 msgid ""
@@ -350,6 +483,11 @@ msgid ""
 "data.  Whenever a large batch update is performed, you should manually run "
 "``VACUUM``."
 msgstr ""
+"自動VACUUMは、活動水準によって決定される適切な時間間隔で、テーブル上でVACUUM "
+"(領域回復)と分析 (統計情報の更新)の両方を行います。これがトランザクションの多"
+"いデータベースには不可欠ですが、インデックス追加やデータの一括読み込みの後に"
+"実行される自動VACUUMを待つのはお勧めしません。大規模なバッチ更新が実行された"
+"ときはいつでも、\"VACUUM\"の手動実行を行うべきです。"
 
 #: ../../en/indexing.rst:165
 msgid ""
@@ -359,6 +497,10 @@ msgid ""
 "commands can be run against the entire database, a single table, or a single "
 "column."
 msgstr ""
+"VACUUM実行とデータベースの分析は、必要に応じて個別に実行できます。\"VACUUM"
+"\"コマンドの発行では、データベースの統計情報は更新されません。同様に、"
+"\"ANALYZE\"コマンドの発行では未使用の領域が回復されません。両方のコマンドはデ"
+"ータベース全体、単一のテーブル、または単一のカラムに対して実行できます。"
 
 #: ../../en/indexing.rst:172
 msgid "Function List"
@@ -369,12 +511,18 @@ msgid ""
 "`geometry_a && geometry_b <http://postgis.net/docs/geometry_overlaps."
 "html>`_: Returns TRUE if A's bounding box overlaps B's."
 msgstr ""
+"`geometry_a && geometry_b <https://boiledorange73.github.io/pgismanja/latest/"
+"geometry_overlaps.html>`_: AのバウンディングボックスとBのバウンディングボック"
+"スがオーバラップする場合にはTRUEを返します。"
 
 #: ../../en/indexing.rst:176
 msgid ""
 "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
 "Returns TRUE if A's bounding box is the same as B's."
 msgstr ""
+"`geometry_a = geometry_b <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_Geometry_EQ.html>`_: AのバウンディングボックスとBのバウンディングボックス"
+"と同じ場合にはTRUEを返します。"
 
 #: ../../en/indexing.rst:178
 msgid ""
@@ -383,11 +531,16 @@ msgid ""
 "intersect\" - (share any portion of space) and FALSE if they don't (they are "
 "Disjoint)."
 msgstr ""
+"`ST_Intersects(geometry_a, geometry_b) <https://boiledorange73.github.io/"
+"pgismanja/latest/ST_Intersects.html>`_: "
+"ジオメトリ/ジオグラフィが「空間的にインタセクトする」 - (空間の任意部分を共有"
+"する)場合にはTRUEを返し、そうでない(接続されていない、Disjoint)場合にはFALSE"
+"を返します。"
 
 #: ../../en/indexing.rst:181
 msgid "Footnotes"
-msgstr ""
+msgstr "脚注"
 
 #: ../../en/indexing.rst:182
 msgid "http://postgis.net/docs/support/rtree.pdf"
-msgstr ""
+msgstr "http://postgis.net/docs/support/rtree.pdf"

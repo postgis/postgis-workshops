@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-19 07:42+0000\n"
+"PO-Revision-Date: 2023-06-21 08:47+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geography/ja/>\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geography.rst:4
 msgid "Geography"
-msgstr ""
+msgstr "ジオグラフィ"
 
 #: ../../en/geography.rst:6
 msgid ""
 "It is very common to have data in which the coordinate are \"geographics\" "
 "or \"latitude/longitude\"."
-msgstr ""
+msgstr "座標が「地理座標系」または「緯度/経度」のデータを持つことは極めて一般的です。"
 
 #: ../../en/geography.rst:8
 msgid ""
@@ -41,6 +41,11 @@ msgid ""
 "spherical coordinates a point is specified by the angle of rotation from a "
 "reference meridian (longitude), and the angle from the equator (latitude)."
 msgstr ""
+"地理座標系は、メルカトル、UTM、州平面、座標と違い、**デカルト座標ではありませ"
+"ん**。地理座標系では、平面上にプロットするような原点からの線形距離を表現しな"
+"い座標系です。これらの**球面座標**は、地球上の角度の座標を表します。球面座標"
+"では、ポイントは基準子午線からの回転角度 (経度) と赤道からの角度 (緯度) "
+"で指定されます。"
 
 #: ../../en/geography.rst:13
 msgid ""
@@ -52,18 +57,24 @@ msgid ""
 "become terribly wrong. The distance between points get larger as problem "
 "areas like the poles or the international dateline are approached."
 msgstr ""
+"地理座標をデカルト座標系の近似のように扱えますし、空間計算を続行できます。し"
+"かしながら、距離、長さ、面積の計測は**無意味**です。球面座標系は**角度**の距"
+"離を計測し、単位は「度」となるためです。さらに、インデックスとインタセクトや"
+"包含といった真偽テストからの近似的な結果が、ひどく悪くなる可能性があります。"
+"ポイント間の距離は、極 (北極や南極) "
+"や日付変更線といった問題の領域では大きくなります。"
 
 #: ../../en/geography.rst:15
 msgid "For example, here are the coordinates of Los Angeles and Paris."
-msgstr ""
+msgstr "たとえば、ロサンゼルスとパリの座標です。"
 
 #: ../../en/geography.rst:17
 msgid "Los Angeles: ``POINT(-118.4079 33.9434)``"
-msgstr ""
+msgstr "ロサンゼルス: ``POINT(-118.4079 33.9434)``"
 
 #: ../../en/geography.rst:18
 msgid "Paris: ``POINT(2.3490 48.8533)``"
-msgstr ""
+msgstr "パリ: ``POINT(2.3490 48.8533)``"
 
 #: ../../en/geography.rst:20
 msgid ""
@@ -71,16 +82,20 @@ msgid ""
 "the standard PostGIS Cartesian :command:`ST_Distance(geometry, geometry)`.  "
 "Note that the SRID of 4326 declares a geographic spatial reference system."
 msgstr ""
+"通常のPostGISデカルト距離の計算である  :command:`ST_Distance(geometry, "
+"geometry)` を使ってロサンゼルスとパリの間の距離の計算は次のように行います。SR"
+"IDが4326で地理空間参照系を宣言していることに注意して下さい。"
 
 #: ../../en/geography.rst:33
 msgid "Aha! 122! But, what does that mean?"
-msgstr ""
+msgstr "わっ! 122! でもこれはどういう意味でしょう?"
 
 #: ../../en/geography.rst:35
 msgid ""
 "The units for spatial reference 4326 are degrees. So our answer is 122 "
 "degrees. But (again), what does that mean?"
-msgstr ""
+msgstr "空間参照系 4326 の単位は度です。結果は 122 度でした。でも "
+"(二度目)、これはどういう意味でしょう?"
 
 #: ../../en/geography.rst:37
 msgid ""
@@ -90,6 +105,10 @@ msgid ""
 "poles. So, a distance of 122 degrees doesn't *mean* anything. It is a "
 "nonsense number."
 msgstr ""
+"球面では、「1平方度」は非常に可変的です。赤道から離れるにつれ小さくなります。"
+"極に向かって進むにつれ、地球上の子午線 (垂直線) が他の子午線と近くなっていく"
+"と考えて下さい。122度という距離は、全く*意味がありません*。無意味な数字なので"
+"す。"
 
 #: ../../en/geography.rst:39
 msgid ""
@@ -98,52 +117,62 @@ msgid ""
 "spherical coordinates.  We must measure the distances between points as true "
 "paths over a sphere -- a portion of a great circle."
 msgstr ""
+"意味のある距離を計算するためには、地理座標を近似的なデカルト座標として扱わず"
+"に、本当の球面座標系として扱わなければなりません。ポイント間の距離について、"
+"本当の球面上の経路である大円の一部に沿った計測が必要です。"
 
 #: ../../en/geography.rst:41
 msgid "PostGIS provides this functionality through the ``geography`` type."
-msgstr ""
+msgstr "PostGISはこの機能を「ジオグラフィ (geography)」型を通して提供しています。"
 
 #: ../../en/geography.rst:45
 msgid ""
 "Different spatial databases have different approaches for \"handling "
 "geographics\""
-msgstr ""
+msgstr "空間データベースが異なると、「ジオグラフィの処理」のアプローチも異なります"
 
 #: ../../en/geography.rst:47
 msgid ""
 "Oracle attempts to paper over the differences by transparently doing "
 "geographic calculations when the SRID is geographic."
-msgstr ""
+msgstr "ORACLEは、SRIDが地理座標系の時に、透過的な地理座標系計算によって、違いを覆い"
+"隠そうとします。"
 
 #: ../../en/geography.rst:48
 msgid ""
 "SQL Server uses two spatial types, \"STGeometry\" for Cartesian data and "
 "\"STGeography\" for geographics."
-msgstr ""
+msgstr "SQL Serverでは、デカルト座標では\"STGeometry\"、地理座標では\"STGeography\"を"
+"、それおれ使います。"
 
 #: ../../en/geography.rst:49
 msgid ""
 "Informix Spatial is a pure Cartesian extension to Informix, while Informix "
 "Geodetic is a pure geographic extension."
 msgstr ""
+"Informix Spatial は、純粋なデカルト座標のInformix拡張で、また、Informix "
+"Gedeticが純粋な地理座標拡張です。"
 
 #: ../../en/geography.rst:50
 msgid ""
 "Similar to SQL Server, PostGIS uses two types, \"geometry\" and \"geography"
 "\"."
-msgstr ""
+msgstr "PostGISは「ジオメトリ」と「ジオグラフィ」の二つの型を使っていて、SQL "
+"Serverと近いです。"
 
 #: ../../en/geography.rst:52
 msgid ""
 "Using the ``geography`` instead of ``geometry`` type, let's try again to "
 "measure the distance between Los Angeles and Paris."
-msgstr ""
+msgstr "では、``geometry`` のかわりに ``geography`` "
+"を使って、ロサンゼルスとパリの間の距離の計測を、もう一度やってみます。"
 
 #: ../../en/geography.rst:65
 msgid ""
 "A big number! All return values from ``geography`` calculations are in "
 "**meters**, so our answer is 9125km."
-msgstr ""
+msgstr "大きい値ですね! 「ジオグラフィ」計算からの返り値は全て**メートル**単位で、"
+"結果が 9125km です。"
 
 #: ../../en/geography.rst:67
 msgid ""
@@ -153,6 +182,11 @@ msgid ""
 "The function only works on points and provides no support for indexing "
 "across the poles or international dateline."
 msgstr ""
+"古いバージョンのPostGISでは、:command:`ST_Distance_Spheroid(point, point, "
+"measurement)` を使った球面上の非常に基本的な計算がサポートされていました。し"
+"かしながら、:command:`ST_Distance_Spheroid` は実質的に制限されます。この関数"
+"はポイント同士でのみ有効であり、極や日付変更線を越えるインデックスのサポート"
+"はありません。"
 
 #: ../../en/geography.rst:69
 msgid ""
@@ -160,6 +194,9 @@ msgid ""
 "question like \"How close will a flight from Los Angeles to Paris come to "
 "Iceland?\""
 msgstr ""
+"「ロサンゼルスからパリまでのフライトでどれだけアイスランドに近づくか」等の問"
+"題が出る時に、ポイント以外のジオメトリのサポートの必要性が非常にはっきりしま"
+"した。"
 
 #: ../../en/geography.rst:73
 msgid ""
@@ -169,12 +206,18 @@ msgid ""
 "string and calculate the distance to a point in Iceland using ``geography`` "
 "we'll get the right answer (recall) in meters."
 msgstr ""
+"デカルト平面 (紫線) で地理座標を使うと、確かに、*非常に*"
+"誤った答えが得られます! 大円ルート (赤線) "
+"を使うと正しい答えが得られます。「ジオグラフィ」を使ってLAX-CDG "
+"(ロサンゼルス-ド・ゴール) のフライトをラインストリングに変換して、アイスラン"
+"ドのあるポイントまでの距離を計算すると、メートル単位の正しい答が得られます。"
 
 #: ../../en/geography.rst:86
 msgid ""
 "So the closest approach to Iceland (as measured from its international "
 "airport) on the LAX-CDG route is a relatively small 502km."
-msgstr ""
+msgstr "LAX-CDGルートでアイスランドに最も接近する距離 "
+"(アイスランドの国際空港からの距離とします) は比較的小さな502kmです。"
 
 #: ../../en/geography.rst:88
 msgid ""
@@ -183,10 +226,13 @@ msgid ""
 "great-circle route from Los Angeles to Tokyo crosses the Pacific Ocean. The "
 "shortest Cartesian route crosses the Atlantic and Indian Oceans."
 msgstr ""
+"ジオグラフィ座標の処理へのデカルトのアプローチは、日付変更線をクロスする地物"
+"について、完全に分解します。ロサンゼルスから東京までの最短大円ルートは太平洋"
+"とクロスします。デカルトでの最短ルートは大西洋とインド洋とクロスします。"
 
 #: ../../en/geography.rst:111
 msgid "Using Geography"
-msgstr ""
+msgstr "ジオグラフィを使う"
 
 #: ../../en/geography.rst:113
 msgid ""
@@ -197,12 +243,19 @@ msgid ""
 "`Geography(geometry)` function or the ``::geography`` suffix \"casts\" to "
 "geography."
 msgstr ""
+"ジオメトリデータをジオグラフィテーブルにロードするために、ジオメトリは最初に "
+"EPSG:4326 (経度/緯度) "
+"に投影変換する必要があります。それから、ジオグラフィに変換します。 "
+":command:`ST_Transform(geometry,srid)` 関数は座標で地理座標系に変換し、 "
+":command:`Geography(geometry)` 関数または ``::geography`` "
+"後置詞でジオグラフィに「キャスト」します。"
 
 #: ../../en/geography.rst:124
 msgid ""
 "Building a spatial index on a geography table is exactly the same as for "
 "geometry:"
-msgstr ""
+msgstr "ジオグラフィテーブルで空間インデックスを構築することは、全くジオメトリと同じ"
+"です:"
 
 #: ../../en/geography.rst:131
 msgid ""
@@ -210,89 +263,99 @@ msgid ""
 "handle queries that cover the poles or the international date-line, while "
 "the geometry one will not."
 msgstr ""
+"違いは極または日付変更線をまたぐ場合にでてきます。ジオグラフィインデックスは"
+"極または日付変更線をまたぐクエリを正しく処理しますが、ジオメトリは正しくは処"
+"理しません。"
 
 #: ../../en/geography.rst:133
 msgid ""
 "Here's a query to find all the subway stations within 500 meters of the "
 "Empire State Building."
-msgstr ""
+msgstr "次に、エンパイアステートビルから500メートル圏内にある全ての地下鉄の駅を検索す"
+"るクエリを示します。"
 
 #: ../../en/geography.rst:148
 msgid ""
 "There are only a small number of native functions for the geography type:"
-msgstr ""
+msgstr "ジオグラフィ型用のネイティブ関数だけが少数存在します:"
 
 #: ../../en/geography.rst:150
 msgid ":command:`ST_AsText(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsText(geography)` は ``text`` 型を返します"
 
 #: ../../en/geography.rst:151
 msgid ":command:`ST_GeographyFromText(text)` returns ``geography``"
-msgstr ""
+msgstr ":command:`ST_GeographyFromText(text)` は ``geography`` 型を返します"
 
 #: ../../en/geography.rst:152
 msgid ":command:`ST_AsBinary(geography)` returns ``bytea``"
-msgstr ""
+msgstr ":command:`ST_AsBinary(geography)` は ``bytea`` 型を返します"
 
 #: ../../en/geography.rst:153
 msgid ":command:`ST_GeogFromWKB(bytea)` returns ``geography``"
-msgstr ""
+msgstr ":command:`ST_GeogFromWKB(bytea)` は ``geography`` 型を返します"
 
 #: ../../en/geography.rst:154
 msgid ":command:`ST_AsSVG(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsSVG(geography)` は ``text`` 型を返します"
 
 #: ../../en/geography.rst:155
 msgid ":command:`ST_AsGML(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGML(geography)` は ``text`` 型を返します"
 
 #: ../../en/geography.rst:156
 msgid ":command:`ST_AsKML(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsKML(geography)` は ``text`` 型を返します"
 
 #: ../../en/geography.rst:157
 msgid ":command:`ST_AsGeoJson(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGeoJson(geography)` は ``text`` 型を返します"
 
 #: ../../en/geography.rst:158
 msgid ":command:`ST_Distance(geography, geography)` returns ``double``"
-msgstr ""
+msgstr ":command:`ST_Distance(geography, geography)` は ``double`` 型を返します"
 
 #: ../../en/geography.rst:159
 msgid ":command:`ST_DWithin(geography, geography, float8)` returns ``boolean``"
 msgstr ""
+":command:`ST_DWithin(geography, geography, float8)` は ``boolean`` "
+"型を返します"
 
 #: ../../en/geography.rst:160
 msgid ":command:`ST_Area(geography)` returns ``double``"
-msgstr ""
+msgstr ":command:`ST_Area(geography)` は ``double`` 型を返します"
 
 #: ../../en/geography.rst:161
 msgid ":command:`ST_Length(geography)` returns ``double``"
-msgstr ""
+msgstr ":command:`ST_Length(geography)` は ``double`` 型を返します"
 
 #: ../../en/geography.rst:162
 msgid ":command:`ST_Covers(geography, geography)` returns ``boolean``"
-msgstr ""
+msgstr ":command:`ST_Covers(geography, geography)` は ``boolean`` 型を返します"
 
 #: ../../en/geography.rst:163
 msgid ":command:`ST_CoveredBy(geography, geography)` returns ``boolean``"
-msgstr ""
+msgstr ":command:`ST_CoveredBy(geography, geography)` は ``boolean`` 型を返します"
 
 #: ../../en/geography.rst:164
 msgid ":command:`ST_Intersects(geography, geography)` returns ``boolean``"
-msgstr ""
+msgstr ":command:`ST_Intersects(geography, geography)` は ``boolean`` 型を返します"
 
 #: ../../en/geography.rst:165
 msgid ""
 ":command:`ST_Buffer(geography, float8)` returns ``geography`` "
 "[#Casting_note]_"
 msgstr ""
+":command:`ST_Buffer(geography, float8)` は ``geography`` [#Casting_note]_ "
+"型を返します"
 
 #: ../../en/geography.rst:166
 msgid ""
 ":command:`ST_Intersection(geography, geography)` returns ``geography`` "
 "[#Casting_note]_"
 msgstr ""
+":command:`ST_Intersection(geography, geography)` は ``geography`` "
+"[#Casting_note]_ 型を返します"
 
 #: ../../en/geography.rst:169
 msgid "Creating a Geography Table"
@@ -304,6 +367,9 @@ msgid ""
 "for creating a geometry table. However, geography includes the ability to "
 "specify the object type directly at the time of table creation. For example:"
 msgstr ""
+"ジオグラフィカラムを持つテーブルの新規作成のSQLはジオメトリテーブルの生成とよ"
+"く似ています。しかしながら、ジオグラフィはテーブル生成時にオブジェクトタイプ"
+"を直接指定する機能が含まれます。例を示します:"
 
 #: ../../en/geography.rst:187
 msgid ""
@@ -312,14 +378,18 @@ msgid ""
 "``geometry_columns`` view. Instead, they are registered in a view called "
 "``geography_columns``."
 msgstr ""
+"テーブル定義では ``GEOGRAPHY(Point)`` "
+"は空港データタイプをポイントとして指定します。新しいジオグラフィフィールドは "
+"``geometry_columns`` ビューには登録されません。かわりに ``geography_columns``"
+" と呼ばれるビューに登録されます。"
 
 #: ../../en/geography.rst:200
 msgid "Some columns were omitted from the above output."
-msgstr ""
+msgstr "上の出力から一部のカラムが省略されました。"
 
 #: ../../en/geography.rst:203
 msgid "Casting to Geometry"
-msgstr ""
+msgstr "ジオメトリへのキャスト"
 
 #: ../../en/geography.rst:205
 msgid ""
@@ -328,6 +398,9 @@ msgid ""
 "by the geometry type. Fortunately, you can convert objects back and forth "
 "from geography to geometry."
 msgstr ""
+"ジオグラフィ型の基本関数が多数のユースケースを処理できる一方、ジオメトリ型に"
+"しか対応しない関数にアクセスする必要がある場合があります。幸運なことに、ジオ"
+"メトリとジオグラフィは相互に変換できます。"
 
 #: ../../en/geography.rst:207
 msgid ""
@@ -336,12 +409,18 @@ msgid ""
 "numeric two to a text string '2'. And ``'POINT(0 0)'::geometry`` will "
 "convert the text representation of point into a geometry point."
 msgstr ""
+"PostgreSQLのキャストに関する構文規則では、キャストしたい値の後ろに ``::型名``"
+" を追加します。よって ``2::text`` は 2 という数値を '2' "
+"という文字列に変換します。また、``'POINT(0 0)'::geometry`` "
+"はポイントの文字列表現をジオメトリのポイントに変換します。"
 
 #: ../../en/geography.rst:209
 msgid ""
 "The :command:`ST_X(point)` function only supports the geometry type. How can "
 "we read the X coordinate from our geographies?"
 msgstr ""
+":command:`ST_X(point)` 関数はジオメトリ型だけに対応しています。では、ジオグラ"
+"フィからX値を読むにはどうすればいいでしょうか?"
 
 #: ../../en/geography.rst:223
 msgid ""
@@ -351,10 +430,14 @@ msgid ""
 "geometry, the coordinates will be interpretted as Cartesian coordinates, not "
 "spherical ones."
 msgstr ""
+"ジオグラフィ値の後ろに ``::geometry`` を追加して、SRID が 4326 のジオメトリに"
+"変換します。そこから、興味の数だけジオメトリ関数を使うことができます。しかし"
+"、今、オブジェクトはジオメトリで、座標は球面座標でなくデカルト座標として解釈"
+"されることを忘れないでください。"
 
 #: ../../en/geography.rst:227
 msgid "Why (Not) Use Geography"
-msgstr ""
+msgstr "なぜジオグラフィを使うのか/使わないのか"
 
 #: ../../en/geography.rst:229
 msgid ""
@@ -362,6 +445,9 @@ msgid ""
 "what latitude/longitude mean, but very few people understand what UTM "
 "coordinates mean. Why not use geography all the time?"
 msgstr ""
+"地理座標は普遍的に受け入れられる座標で、誰もが緯度/経度がどういう意味かを理解"
+"していますが、UTM座標がどういう意味かを理解している人はまずいません。なのにな"
+"ぜ地理座標系を常に使うことにならないのでしょうか?"
 
 #: ../../en/geography.rst:231
 msgid ""
@@ -369,6 +455,8 @@ msgid ""
 "that directly support the geography type. You may spend a lot of time "
 "working around geography type limitations."
 msgstr ""
+"まず、前述の通り、ジオグラフィ型を直接サポートする関数は (今のところ) "
+"ごく少数です。ジオグラフィ型の制限の回避に多くの時間を費やす場合もあります。"
 
 #: ../../en/geography.rst:232
 msgid ""
@@ -379,10 +467,15 @@ msgid ""
 "and two cos() calls. Trigonometric functions are very costly, and spherical "
 "calculations involve a lot of them."
 msgstr ""
+"それと、球面上の計算は、デカルト計算よりも非常に計算量が多くなります。たとえ"
+"ば、デカルト空間の距離に関する式 (ピタゴラスの定理) は、sqrt() "
+"を1回呼びます。球面上の距離に関する式 (半正矢関数) は、sqrt() "
+"を2回呼び、arctan() を1回呼び、sin() を4回呼び、cos() を2回呼びます。三角関数"
+"は非常に計算コストがかかり、球面計算には多数の三角関数が使われます。"
 
 #: ../../en/geography.rst:234
 msgid "The conclusion?"
-msgstr ""
+msgstr "結論は?"
 
 #: ../../en/geography.rst:236
 msgid ""
@@ -391,6 +484,9 @@ msgid ""
 "sense with your data. See the http://epsg.io site and type in the name of "
 "your region for a selection of possible reference systems."
 msgstr ""
+"**データが地理的にコンパクトな場合** (州、郡、市に含まれる場合)、**ジオメトリ"
+"型とデカルト投影を使います**。http://epsg.io/ サイトを見て、使用可能な空間参"
+"照系を選択するために、お住いの地域の名前を入力してみて下さい。"
 
 #: ../../en/geography.rst:238
 msgid ""
@@ -400,6 +496,11 @@ msgid ""
 "performance issues. And casting to ``geometry`` can offset most "
 "functionality limitations."
 msgstr ""
+"**地理的に分散したデータセットで距離を測定する必要がある場合には** (世界の大"
+"部分をカバーする場合)、**ジオグラフィ型を使います**。「ジオグラフィ」の作業で"
+"アプリケーションの複雑性が節約できるので、あらゆるパフォーマンス上の問題を埋"
+"め合わせてくれます。そして、「ジオメトリ」は多くの機能制限を埋め合わす能力が"
+"あります。"
 
 #: ../../en/geography.rst:241
 msgid "Function List"
@@ -413,6 +514,10 @@ msgid ""
 "For geography type defaults to return spheroidal minimum distance between "
 "two geographies in meters."
 msgstr ""
+"`ST_Distance(geometry, geometry) <http://postgis.net/docs/ST_Distance."
+"html>`_: ジオメトリ型については、二つのジオメトリの2次元デカルト距離の最小値 "
+"(空間参照系に基づく) を空間参照系の単位で返します。ジオグラフィ型については、"
+"デフォルトでは二つのジオメトリの球面の最小距離をメートル単位で返します。"
 
 #: ../../en/geography.rst:245
 msgid ""
@@ -420,6 +525,9 @@ msgid ""
 "html>`_: Returns a specified geography value from Well-Known Text "
 "representation or extended (WKT)."
 msgstr ""
+"`ST_GeographyFromText(text) <http://postgis.net/docs/ST_GeographyFromText."
+"html>`_: Well-Known Text (WKT) 表現または拡張 WKT (EWKT) "
+"表現から、ジオグラフィを返します。"
 
 #: ../../en/geography.rst:247
 msgid ""
@@ -427,28 +535,37 @@ msgid ""
 "Returns a new geometry with its coordinates transformed to the SRID "
 "referenced by the integer parameter."
 msgstr ""
+"`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: "
+"整数パラメータで指定される SRID に座標変換した新しいジオメトリを返します。"
 
 #: ../../en/geography.rst:249
 msgid ""
 "`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate "
 "of the point, or NULL if not available. Input must be a point."
 msgstr ""
+"`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: "
+"ポイントのX座標値を返します。有効でないなら NULL "
+"を返します。入力はポイントでなければなりません。"
 
 #: ../../en/geography.rst:251
 msgid ""
 "`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth."
 "html>`_: Returns the direction from A to B in radians."
 msgstr ""
+"`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth."
+"html>`_: AからBの方向をラジアン単位で返します。"
 
 #: ../../en/geography.rst:253
 msgid ""
 "`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin."
 "html>`_: Returns true if A is within R meters of B."
 msgstr ""
+"`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin."
+"html>`_: AがBのRメートル以内であるなら TRUE を返します。"
 
 #: ../../en/geography.rst:257
 msgid "Footnotes"
-msgstr ""
+msgstr "脚注"
 
 #: ../../en/geography.rst:258
 msgid ""
@@ -457,6 +574,10 @@ msgid ""
 "result, they may fail to return correct results for objects with very large "
 "extents that cannot be cleanly converted to a planar representation."
 msgstr ""
+"バッファとインタセクションの関数は実際には、ジオメトリへのキャストの上にかぶ"
+"せているラッパであす、空間座標系のままでは実行できません。結果として、平面座"
+"標系への変換できれいに表現できないような非常に大きい範囲のオブジェクトでは、"
+"正しい結果を返すのに失敗する可能性があります。"
 
 #: ../../en/geography.rst:260
 msgid ""
@@ -466,3 +587,7 @@ msgid ""
 "(the object is too large), the operation can fail or return a malformed "
 "buffer."
 msgstr ""
+"たとえば、:command:`ST_Buffer(geography,distance)` 関数はジオグラフィオブジェ"
+"クトを「最良の」投影法に変換し、バッファを生成して、地理座標系に戻します。「"
+"最適な」投影法が無い (オブジェクトが大きすぎる) "
+"場合には、計算が失敗して、不正なバッファが返されます。"

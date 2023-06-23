@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2023.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-09 05:42+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-06-15 08:08+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning_exercises/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geometry_returning_exercises.rst:4
@@ -97,11 +98,11 @@ msgstr ""
 
 #: ../../en/geometry_returning_exercises.rst:26
 msgid "``nyc_streets``"
-msgstr ""
+msgstr "``nyc_streets``"
 
 #: ../../en/geometry_returning_exercises.rst:28
 msgid "name, type, geom"
-msgstr ""
+msgstr "name, type, geom"
 
 #: ../../en/geometry_returning_exercises.rst:30
 msgid "``nyc_subway_stations``"
@@ -117,11 +118,11 @@ msgstr "nyc_neighborhoods"
 
 #: ../../en/geometry_returning_exercises.rst:36
 msgid "name, boroname, geom"
-msgstr ""
+msgstr "name, boroname, geom"
 
 #: ../../en/geometry_returning_exercises.rst:39
 msgid "Exercises"
-msgstr ""
+msgstr "演習"
 
 #: ../../en/geometry_returning_exercises.rst:41
 msgid "**How many census blocks don’t contain their own centroid?**"

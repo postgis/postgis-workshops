@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-19 07:42+0000\n"
+"PO-Revision-Date: 2023-06-23 10:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "de9im/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/de9im.rst:4
@@ -32,50 +32,56 @@ msgid ""
 "wiki/DE-9IM>`_\" (DE9IM) is a framework for modelling how two spatial "
 "objects interact."
 msgstr ""
+"\"`Dimensionally Extended 9-Intersection Model <http://en.wikipedia.org/wiki/"
+"DE-9IM>`_\" (DE9IM) は、二つの空間オブジェクトがどのように相互作用しているか"
+"をモデル化するためのフレームワークです。"
 
 #: ../../en/de9im.rst:8
 msgid "First, every spatial object has:"
-msgstr ""
+msgstr "最初に、あらゆる空間オブジェクトは次に示すものを持っています:"
 
 #: ../../en/de9im.rst:10
 msgid "An interior"
-msgstr ""
+msgstr "内部"
 
 #: ../../en/de9im.rst:11
 msgid "A boundary"
-msgstr ""
+msgstr "境界"
 
 #: ../../en/de9im.rst:12
 msgid "An exterior"
-msgstr ""
+msgstr "外部"
 
 #: ../../en/de9im.rst:14
 msgid "For polygons, the interior, boundary and exterior are obvious:"
-msgstr ""
+msgstr "ポリゴンの場合、内部、境界、外部は明確です:"
 
 #: ../../en/de9im.rst:19
 msgid ""
 "The interior is the part bounded by the rings; the boundary is the rings "
 "themselves; the exterior is everything else in the plane."
-msgstr ""
+msgstr "内部はリングで囲まれた部分で、境界はリング自体です。外部は平面上のポリゴンを"
+"除く全てです。"
 
 #: ../../en/de9im.rst:21
 msgid ""
 "For linear features, the interior, boundary and exterior are less well-known:"
-msgstr ""
+msgstr "線についての内部、境界と外部はあまり知られていません:"
 
 #: ../../en/de9im.rst:26
 msgid ""
 "The interior is the part of the line bounded by the ends; the boundary is "
 "the ends of the linear feature, and the exterior is everything else in the "
 "plane."
-msgstr ""
+msgstr "内部は端点に挟まれたラインの一部です。境界は線の端点です。外部は平面上の他の"
+"すべてです。"
 
 #: ../../en/de9im.rst:28
 msgid ""
 "For points, things are even stranger: the interior is the point; the "
 "boundary is the empty set and the exterior is everything else in the plane."
-msgstr ""
+msgstr "ポイントでは、さらに奇妙です: "
+"内部はポイントで、境界は空集合で、外部は平面上の他のすべてです。"
 
 #: ../../en/de9im.rst:30
 msgid ""
@@ -84,6 +90,9 @@ msgid ""
 "using the dimensionality of the nine possible intersections between the "
 "interiors/boundaries/exteriors of a pair of objects."
 msgstr ""
+"これらの内部、外部、境界の定義を使うと、二つの空間地物間の内部/境界/外部につ"
+"いて9個の可能性のある交差の次元を使って、二つの空間地物の間の関係を特徴づける"
+"ことができます。"
 
 #: ../../en/de9im.rst:35
 msgid ""
@@ -92,20 +101,24 @@ msgid ""
 "\"2\". The boundaries only intersect at points, which are zero-dimensional, "
 "so that portion of the matrix is filled out with a 0."
 msgstr ""
+"上の例のポリゴンについては、内部の交差は2次元領域ですので、"
+"マトリクスの一部に \"2\" "
+"が入ります。境界はポイントで交差していますが、0次元ですので、"
+"マトリクスの一部に 0 が入ります。"
 
 #: ../../en/de9im.rst:37
 msgid ""
 "When there is no intersection between components, the square the matrix is "
 "filled out with an \"F\"."
-msgstr ""
+msgstr "要素間に交差が無いときは、正方行列は \"F\" で埋められます。"
 
 #: ../../en/de9im.rst:39
 msgid "Here's another example, of a linestring partially entering a polygon:"
-msgstr ""
+msgstr "他の例を示します。ポリゴンに一部が入っているラインストリングです:"
 
 #: ../../en/de9im.rst:44
 msgid "The DE9IM matrix for the interaction is this:"
-msgstr ""
+msgstr "この場合のDE9IM行列は次のようになります:"
 
 #: ../../en/de9im.rst:49
 msgid ""
@@ -113,6 +126,9 @@ msgid ""
 "(the end point of the line interacts with the interior of the polygon, not "
 "the boundary, and vice versa), so the B/B cell is filled in with an \"F\"."
 msgstr ""
+"二つのオブジェクトの境界は実際には交差していない (ラインの端点がポリゴンの内"
+"部に影響していますが、境界には影響しておらず、逆も同様です) ため、B/C セルは "
+"\"F\" で埋められます。"
 
 #: ../../en/de9im.rst:51
 msgid ""
@@ -120,23 +136,27 @@ msgid ""
 "computer could do it, and that's what the :command:`ST_Relate` function is "
 "for."
 msgstr ""
+"DE9IM行列を埋めるのは視覚的には楽しいですが、コンピュータに任せられるなら、そ"
+"の方がいいです。:command:`ST_Relate` 関数がそのためにあります。"
 
 #: ../../en/de9im.rst:53
 msgid ""
 "The previous example can be simplified using a simple box and line, with the "
 "same spatial relationship as our polygon and linestring:"
-msgstr ""
+msgstr "前の例では、単純なボックスとラインを使って、ポリゴンとラインストリングと同じ"
+"空間関係となるよう単純化できました:"
 
 #: ../../en/de9im.rst:58
 msgid "And we can generate the DE9IM information in SQL:"
-msgstr ""
+msgstr "SQLでDE9IM情報を生成することができます:"
 
 #: ../../en/de9im.rst:67
 msgid ""
 "The answer (1010F0212) is the same as we calculated visually, but returned "
 "as a 9-character string, with the first row, second row and third row of the "
 "table appended together."
-msgstr ""
+msgstr "答 (1010F0212) は視覚的に計算したものと同じですが、1行目、2行目、3行目がまと"
+"めて追加された9文字の文字列として返されています。"
 
 #: ../../en/de9im.rst:75
 msgid ""
@@ -144,6 +164,9 @@ msgid ""
 "them as a matching key to find geometries with very specific relationships "
 "to one another."
 msgstr ""
+"しかしながら、DE9IM の威力はこれらを生成することではなく、非常に限定的な相互"
+"関係を持つジオメトリを探索するための一致するキーとして使われることで発揮され"
+"ます。"
 
 #: ../../en/de9im.rst:94
 msgid ""
@@ -152,32 +175,35 @@ msgid ""
 "of their containing lake at one end. Can we find all the docks in our "
 "database that obey that rule?"
 msgstr ""
+"**湖**と**ドック**が存在するデータモデルを考えます。ドックは湖の内側になけれ"
+"ばならず、ドックの一方の端点はドックのある湖の境界に接している必要があるとし"
+"ます。このルールに従うドックを見つけることができるでしょうか?"
 
 #: ../../en/de9im.rst:99
 msgid "Our legal docks have the following characteristics:"
-msgstr ""
+msgstr "要件に合致するドックには次の特徴があります:"
 
 #: ../../en/de9im.rst:101
 msgid "Their interiors have a linear (1D) intersection with the lake interior"
-msgstr ""
+msgstr "ドックの内部と湖の内部との交差は線形 (1次元)"
 
 #: ../../en/de9im.rst:102
 msgid "Their boundaries have a point (0D) intersection with the lake interior"
-msgstr ""
+msgstr "ドックの境界は湖の内部と点 (0次元) の交差"
 
 #: ../../en/de9im.rst:103
 msgid ""
 "Their boundaries **also** have a point (0D) intersection with the lake "
 "boundary"
-msgstr ""
+msgstr "ドックの境界は湖の境界*とも*点 (0次元) の交差"
 
 #: ../../en/de9im.rst:104
 msgid "Their interiors have no intersection (F) with the lake exterior"
-msgstr ""
+msgstr "ドックの内部は湖の外部と交差しない (F)"
 
 #: ../../en/de9im.rst:106
 msgid "So their DE9IM matrix looks like this:"
-msgstr ""
+msgstr "これらより DE9IM 行列は次のようになります。"
 
 #: ../../en/de9im.rst:111
 msgid ""
@@ -186,6 +212,9 @@ msgid ""
 "key), and then find all the docks in that set which have the legal relate "
 "pattern."
 msgstr ""
+"全てのドックを見つけるには、湖とインタセクトするドック "
+"(結合のキーに使用する**潜在的な**候補のスーパーセット) "
+"を見つけて、その後、要件に合致する全てのドックを見つけます。"
 
 #: ../../en/de9im.rst:121
 msgid ""
@@ -194,26 +223,33 @@ msgid ""
 "defined pattern like this one, the three-parameter version is not needed -- "
 "we could have just used a string equality operator."
 msgstr ""
+":command:`ST_Relate` の3パラメータ版は、パターンに合致すると TRUE を返し、"
+"合致しないと FALSE "
+"を返すことに注意して下さい。これのように完全に定義されたパターンについては、"
+"3パラメータ版は必要ではありません "
+"--文字列の等価演算子を使うことができたかも知れません。"
 
 #: ../../en/de9im.rst:123
 msgid ""
 "However, for looser pattern searches, the three-parameter allows "
 "substitution characters in the pattern string:"
-msgstr ""
+msgstr "しかしながら、緩いパターンの検索では、3パラメータでパターン文字列に代用文字を"
+"入れることが可能です。次のようになります:"
 
 #: ../../en/de9im.rst:125
 msgid "\"*\" means \"any value in this cell is acceptable\""
-msgstr ""
+msgstr "\"*\" は「このセルには任意の値が受け入れられる」ことを示しています"
 
 #: ../../en/de9im.rst:126
 msgid "\"T\" means \"any non-false value (0, 1 or 2) is acceptable\""
-msgstr ""
+msgstr "\"T\" は「FALSE でない値 (0, 1, 2) が受け入れられる」ことを示しています"
 
 #: ../../en/de9im.rst:128
 msgid ""
 "So for example, one possible dock we did not include in our example graphic "
 "is a dock with a two-dimensional intersection with the lake boundary:"
-msgstr ""
+msgstr "たとえば、本例の図で含まれなかった、可能性のあるドックの一つは、湖の境界との"
+"インタセクト部分が2次元になるドックです:"
 
 #: ../../en/de9im.rst:138
 msgid ""
@@ -222,20 +258,24 @@ msgid ""
 "the dock interior lake boundary can now be either 1 (our new case) or F (our "
 "original case). So we use the \"*\" catchall in the pattern."
 msgstr ""
+"この例を「要件に合致する」ドックに入れる場合には、クエリの関連パターンを変更"
+"する必要があります。特に、ドックの内部と湖の境界とのインタセクトする部分は、"
+"1 (新しいケース) または F (元からのケース) のどちらかになりえます。"
+"パターンで \"*\" によってすべて受け入れるようにします。"
 
 #: ../../en/de9im.rst:143
 msgid "And the SQL looks like this:"
-msgstr ""
+msgstr "SQLは次のようになります:"
 
 #: ../../en/de9im.rst:153
 msgid ""
 "Confirm that the stricter SQL from the previous example does *not* return "
 "the new dock."
-msgstr ""
+msgstr "前の例からより厳格な SQL が新しいドックを\"返さない\"ことを確認します。"
 
 #: ../../en/de9im.rst:157
 msgid "Data Quality Testing"
-msgstr ""
+msgstr "データ品質テスト"
 
 #: ../../en/de9im.rst:159
 msgid ""
@@ -243,10 +283,13 @@ msgid ""
 "expect our data to meet strict standards. For example: no census block "
 "should overlap any other census block. Can we test for that?"
 msgstr ""
+"TIGER データは、準備される時に、慎重な品質管理がされています。厳格な標準を満"
+"たすことを期待しています。例えば、統計調査街区で他の街区とオーバラップするこ"
+"とはありません。それをテストできるでしょうか?"
 
 #: ../../en/de9im.rst:164
 msgid "Sure!"
-msgstr ""
+msgstr "もちろんです!"
 
 #: ../../en/de9im.rst:177
 msgid ""
@@ -254,6 +297,8 @@ msgid ""
 "expect that intersections only occur at the ends of lines, not at the mid-"
 "points."
 msgstr ""
+"同様に、道路データが全て端点にしかノードが無いと期待されます。つまり、インタ"
+"セクトする部分はラインの端点で発生し、中間点では発生しないと期待されます。"
 
 #: ../../en/de9im.rst:182
 msgid ""
@@ -261,6 +306,8 @@ msgid ""
 "join) but where the intersection between the boundaries is not zero-"
 "dimensional (that is, the end points don't touch):"
 msgstr ""
+"インタセクトする (結合する) けれども境界間でインタセクトしている部分が 0 "
+"次元でない (つまり端点が接触しない) ストリートを探すことでテストできます:"
 
 #: ../../en/de9im.rst:198
 msgid "Function List"
@@ -272,3 +319,6 @@ msgid ""
 "html>`_: Returns a text string representing the DE9IM relationship between "
 "the geometries."
 msgstr ""
+"`ST_Relate(geometry A, geometry B) <https://boiledorange73.github.io/"
+"pgismanja/latest/ST_Relate.html>`_: ジオメトリ間の DE9IM "
+"の関係を表現するテキスト文字列を返します。"

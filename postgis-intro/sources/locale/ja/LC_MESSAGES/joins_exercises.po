@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2023-06-15 08:08+0000\n"
+"PO-Revision-Date: 2023-06-29 09:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_exercises/ja/>\n"
@@ -45,7 +45,7 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:10
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)` ポリゴンの面積を返します"
 
 #: ../../en/joins_exercises.rst:11
 msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"

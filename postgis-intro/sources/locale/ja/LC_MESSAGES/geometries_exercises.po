@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-15 08:08+0000\n"
+"PO-Revision-Date: 2023-06-29 09:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries_exercises/ja/>\n"
@@ -43,19 +43,19 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:10
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
-msgstr ""
+msgstr ":command:`ST_GeometryType(geometry)` はジオメトリのタイプを返します"
 
 #: ../../en/geometries_exercises.rst:11
 msgid ""
 ":command:`ST_NDims(geometry)` returns the number of dimensions of the "
 "geometry"
-msgstr ""
+msgstr ":command:`ST_NDims(geometry)` はジオメトリの次元数を返します"
 
 #: ../../en/geometries_exercises.rst:12
 msgid ""
 ":command:`ST_SRID(geometry)` returns the spatial reference identifier number "
 "of the geometry"
-msgstr ""
+msgstr ":command:`ST_SRID(geometry)` はジオメトリの空間参照系識別子の番号を返します"
 
 #: ../../en/geometries_exercises.rst:13
 msgid ":command:`ST_X(point)` returns the X ordinate"
@@ -72,27 +72,28 @@ msgstr ""
 #: ../../en/geometries_exercises.rst:16
 msgid ""
 ":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
-msgstr ""
+msgstr ":command:`ST_StartPoint(geometry)` は最初の座標をポイントとして返します"
 
 #: ../../en/geometries_exercises.rst:17
 msgid ":command:`ST_EndPoint(geometry)` returns the last coordinate as a point"
-msgstr ""
+msgstr ":command:`ST_EndPoint(geometry)` 最後の座標をポイントとして返します"
 
 #: ../../en/geometries_exercises.rst:18
 msgid ""
 ":command:`ST_NPoints(geometry)` returns the number of coordinates in the "
 "linestring"
-msgstr ""
+msgstr ":command:`ST_NPoints(geometry)` ラインストリングの座標数を返します"
 
 #: ../../en/geometries_exercises.rst:19
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)` ポリゴンの面積を返します"
 
 #: ../../en/geometries_exercises.rst:20
 msgid ""
 ":command:`ST_NRings(geometry)` returns the number of rings (usually 1, more "
 "if there are holes)"
-msgstr ""
+msgstr ":command:`ST_NRings(geometry)` リング数を返します (通常は 1 "
+"で、穴があると多くなります)"
 
 #: ../../en/geometries_exercises.rst:21
 msgid ""
@@ -107,7 +108,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:23
 msgid ":command:`ST_Perimeter(geometry)` returns the length of all the rings"
-msgstr ""
+msgstr ":command:`ST_Perimeter(geometry)` 全てのリングの長さを返します"
 
 #: ../../en/geometries_exercises.rst:24
 msgid ""
@@ -135,7 +136,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:29
 msgid ":command:`ST_GeomFromWKB(bytea)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromWKB(bytea)` は ``geometry`` を返します"
 
 #: ../../en/geometries_exercises.rst:30
 msgid ":command:`ST_AsBinary(geometry)` returns WKB ``bytea``"
@@ -147,7 +148,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:32
 msgid ":command:`ST_GeomFromGML(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromGML(text)` は ``geometry`` を返します"
 
 #: ../../en/geometries_exercises.rst:33
 msgid ":command:`ST_AsGML(geometry)` returns GML ``text``"
@@ -155,7 +156,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:34
 msgid ":command:`ST_GeomFromKML(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromKML(text)` は ``geometry`` を返します"
 
 #: ../../en/geometries_exercises.rst:35
 msgid ":command:`ST_AsKML(geometry)` returns KML ``text``"

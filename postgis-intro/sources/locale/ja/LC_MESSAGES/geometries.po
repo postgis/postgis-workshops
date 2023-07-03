@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-21 08:47+0000\n"
+"PO-Revision-Date: 2023-07-01 10:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries/ja/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../../en/geometries.rst:4
 msgid "Geometries"
-msgstr ""
+msgstr "ジオメトリ"
 
 #: ../../en/geometries.rst:7
 msgid "Introduction"
@@ -37,6 +37,11 @@ msgid ""
 "SQL query tool.  Paste this example SQL code into the pgAdmin SQL Editor "
 "window (removing any text that may be there by default) and then execute."
 msgstr ""
+"前の :ref:`セクション <loading_data>` では、様々なデータを読み込みました。デ"
+"ータで遊び始める前に、より単純な例を見てみましょう。pgAdminで、再び **nyc** "
+"データベースを選択して、SQL クエリツールを開きます。この例の SQL コードを "
+"pgAdmin SQL エディタウィンドウにペーストします "
+"(デフォルトで存在する文字列を削除します)。"
 
 #: ../../en/geometries.rst:26
 msgid ""
@@ -45,10 +50,14 @@ msgid ""
 "collection. Finally, the inserted rows are SELECTed and displayed in the "
 "Output pane."
 msgstr ""
+"上の例でテーブル (**geometries**) を CREATE "
+"して、ポイント、ライン、ポリゴン、穴付きポリゴン、コレクションの "
+"5個のジオメトリを INSERT します。最後に、挿入した行を SELECT して、Output "
+"ペインに表示します。"
 
 #: ../../en/geometries.rst:29
 msgid "Metadata Tables"
-msgstr ""
+msgstr "メタデータテーブル"
 
 #: ../../en/geometries.rst:31
 msgid ""
@@ -56,12 +65,17 @@ msgid ""
 "specification, PostGIS provides two tables to track and report on the "
 "geometry types available in a given database."
 msgstr ""
+"PostGIS は、Simple Features for SQL (:term:`SFSQL`) 仕様に準拠して、与えられ"
+"たデータベースで使用可能なジオメトリタイプに関する追跡と報告のための二つのテ"
+"ーブルを提供します。"
 
 #: ../../en/geometries.rst:33
 msgid ""
 "The first table, ``spatial_ref_sys``, defines all the spatial reference "
 "systems known to the database and will be described in greater detail later."
 msgstr ""
+"一つ目は ``spatial_ref_sys`` で、データベースに認識されるべき空間参照系の全て"
+"を定義しています。後でたっぷり詳細説明します。"
 
 #: ../../en/geometries.rst:34
 msgid ""
@@ -69,12 +83,18 @@ msgid ""
 "listing of all \"features\" (defined as an object with geometric "
 "attributes), and the basic details of those features."
 msgstr ""
+"二つ目のテーブルは ``geometry_columns`` で、「地物」 "
+"(ジオメトリ属性を持つオブジェクトとして定義されています) "
+"の全ての一覧と、これらの地物の基本的な詳細説明を提供しています。"
 
 #: ../../en/geometries.rst:39
 msgid ""
 "Let's have a look at the ``geometry_columns`` table in our database.  Paste "
 "this command in the Query Tool as before:"
 msgstr ""
+"データベース内の ``geometry_columns`` "
+"テーブルを見てみましょう。先ほどと同じように、このコマンドを Query Tool "
+"にペーストします:"
 
 #: ../../en/geometries.rst:47
 msgid ""
@@ -83,6 +103,9 @@ msgid ""
 "Because PostgreSQL doesn't make use of catalogs, ``f_table_catalog`` will "
 "tend to be empty."
 msgstr ""
+"``f_table_catalog``, ``f_table_schema``, ``f_table_name`` "
+"は、与えられたジオメトリを含む地物テーブルの完全修飾名を提供します。"
+"PostgreSQL はカタログを使わないので、``f_table_catalog`` は空になります。"
 
 #: ../../en/geometries.rst:48
 msgid ""
@@ -90,6 +113,8 @@ msgid ""
 "column -- for feature tables with multiple geometry columns, there will be "
 "one record for each."
 msgstr ""
+"``f_geometry_column`` はジオメトリのカラム名です。複数のジオメトリカラムを持"
+"つ地物テーブルについては、それぞれの一つのレコードがあります。"
 
 #: ../../en/geometries.rst:49
 msgid ""
@@ -97,12 +122,15 @@ msgid ""
 "(2-, 3- or 4-dimensional) and the Spatial Reference system identifier that "
 "refers to the ``spatial_ref_sys`` table respectively."
 msgstr ""
+"``coord_dimension`` と ``srid`` はジオメトリの次元 (2, 3, 4次元) と "
+"\"spatial_ref_sys\" テーブルを参照する空間参照系識別子を定義しています。"
 
 #: ../../en/geometries.rst:50
 msgid ""
 "The ``type`` column defines the type of geometry as described below; we've "
 "seen Point and Linestring types so far."
-msgstr ""
+msgstr "``type`` カラムは次に示す通り、ジオメトリのタイプを定義しています。今のところ"
+"、ポイントとラインストリングのタイプを見てきました。"
 
 #: ../../en/geometries.rst:52
 msgid ""
@@ -110,16 +138,21 @@ msgid ""
 "expect when retrieving data and can perform any necessary projection, "
 "processing or rendering without needing to inspect each geometry."
 msgstr ""
+"このテーブルのクエリによって、GISクライアントとライブラリはデータ検索時に何を"
+"期待すべきかを判定できますし、個々のジオメトリを検査することなく、必要な投影"
+"、処理、描画を実行できます。"
 
 #: ../../en/geometries.rst:56
 msgid ""
 "Do some or all of your ``nyc`` tables not have an ``srid`` of 26918? It's "
 "easy to fix by updating the table."
 msgstr ""
+"``nyc`` テーブルの一部または全ては ``srid`` 26918 を持っていないでしょうか? "
+"テーブルを更新することにより簡単に修正できます。"
 
 #: ../../en/geometries.rst:67
 msgid "Representing Real World Objects"
-msgstr ""
+msgstr "現実世界のオブジェクトの表現"
 
 #: ../../en/geometries.rst:69
 msgid ""
@@ -132,6 +165,14 @@ msgid ""
 "3 (:term:`SQL/MM`) specification has officially defined their own "
 "representation."
 msgstr ""
+"PostGIS 開発の元々のガイドとなる標準である Simple Features for SQL "
+"(:term:`SFSQL`) 仕様は、現実世界のオブジェクトがどのように表現されるかを定義"
+"しています。継続的な形状を取得して、固定解像度でデジタル化を行うことによって"
+"、オブジェクトの受け渡し可能な表現を実現します。SFSQL は "
+"2次元表現だけを処理しました。PostGIS "
+"は、3次元、4次元を四方源を取り込むための拡張がなされています。最近の SQL-"
+"Multimedia Part 3 (:term:`SQL/MM`) "
+"仕様では、公式にそれらの表現が定義されました。"
 
 #: ../../en/geometries.rst:71
 msgid ""
@@ -139,26 +180,29 @@ msgid ""
 "collect general information about each object using functions that read the "
 "geometry metadata."
 msgstr ""
+"ここでの例のテーブルには異なるジオメトリタイプが混在しています。ジオメトリの"
+"メタデータを読む関数を使って、個々のオブジェクトの一般的な情報を集めることが"
+"できます。"
 
 #: ../../en/geometries.rst:73
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
-msgstr ""
+msgstr ":command:`ST_GeometryType(geometry)` はジオメトリのタイプを返します"
 
 #: ../../en/geometries.rst:74
 msgid ""
 ":command:`ST_NDims(geometry)` returns the number of dimensions of the "
 "geometry"
-msgstr ""
+msgstr ":command:`ST_NDims(geometry)` はジオメトリの次元数を返します"
 
 #: ../../en/geometries.rst:75
 msgid ""
 ":command:`ST_SRID(geometry)` returns the spatial reference identifier number "
 "of the geometry"
-msgstr ""
+msgstr ":command:`ST_SRID(geometry)` はジオメトリの空間参照系識別子の番号を返します"
 
 #: ../../en/geometries.rst:94
 msgid "Points"
-msgstr ""
+msgstr "ポイント"
 
 #: ../../en/geometries.rst:100
 msgid ""
@@ -169,22 +213,27 @@ msgid ""
 "cities on a map of the world can be described as points, while a map of a "
 "single state might represent cities as polygons."
 msgstr ""
+"空間**ポイント**は、地球上の単一の位置を表現するものです。"
+"ポイントは単一の座標 (2次元、3次元、4次元) で表現されます。ポイントは、表示す"
+"る縮尺の場合に形状や大きさ等の正確な詳細が重要でない時に使われます。たとえば"
+"、市は、単一の州の地図ではポリゴンになりえますが、世界地図上の市ではポイント"
+"で記述できます。"
 
 #: ../../en/geometries.rst:112
 msgid "Some of the specific spatial functions for working with points are:"
-msgstr ""
+msgstr "ポイントで動作する特定の空間関数は次の通りです:"
 
 #: ../../en/geometries.rst:114
 msgid ":command:`ST_X(geometry)` returns the X ordinate"
-msgstr ""
+msgstr ":command:`ST_X(geometry)` は X 座標を返します"
 
 #: ../../en/geometries.rst:115
 msgid ":command:`ST_Y(geometry)` returns the Y ordinate"
-msgstr ""
+msgstr ":command:`ST_Y(geometry)` は Y 座標を返します"
 
 #: ../../en/geometries.rst:117
 msgid "So, we can read the ordinates from a point like this:"
-msgstr ""
+msgstr "そして、次のように点から座標値を読むことができます:"
 
 #: ../../en/geometries.rst:125
 msgid ""
@@ -192,10 +241,13 @@ msgid ""
 "set represented as points. The following SQL query will return the geometry "
 "associated with one point (in the :command:`ST_AsText` column)."
 msgstr ""
+"ニューヨーク市の地下鉄駅 (``nyc_subway_stations``) "
+"テーブルはポイントで表現されるデータセットです。次の SQL クエリは、"
+"一つのポイントのジオメトリを ( :command:`ST_AsText` カラムで) 返します。"
 
 #: ../../en/geometries.rst:135
 msgid "Linestrings"
-msgstr ""
+msgstr "ラインストリング"
 
 #: ../../en/geometries.rst:141
 msgid ""
@@ -206,6 +258,12 @@ msgid ""
 "not cross or touch itself (except at its endpoints if it is closed).  A "
 "linestring can be both **closed** and **simple**."
 msgstr ""
+"**ラインストリング**は位置間の順路です。順序の付いた 2以上のポイントの形式を"
+"取ります。道路や河川は通常はラインストリングで表現されます。始端と終端が同じ"
+"位置の場合にはラインストリングは**閉じている**と言われます。"
+"自分にクロスも接触もしない (閉じている場合の始端と終端は除く) 場合にはライン"
+"ストリングは**単純**と言われます。ラインストリングは**閉じている**かつ**単純*"
+"*になりえます。"
 
 #: ../../en/geometries.rst:143
 msgid ""
@@ -214,44 +272,49 @@ msgid ""
 "real world street may consist of many linestrings, each representing a "
 "segment of road with different attributes."
 msgstr ""
+"ニューヨークのストリート網 (``nyc_streets``) はワークショップの初めの方でロー"
+"ドしました。このデータセットには、名前とタイプといった詳細情報が含まれていま"
+"す。実世界における一つのストリートは、異なる属性を持つ道路の一部を表現する多"
+"数のラインストリングで構成されています。"
 
 #: ../../en/geometries.rst:145
 msgid ""
 "The following SQL query will return the geometry associated with one "
 "linestring (in the :command:`ST_AsText` column)."
-msgstr ""
+msgstr "次の SQL クエリは、一つのラインストリングのジオメトリを ( "
+":command:`ST_AsText` カラムで) 返します。"
 
 #: ../../en/geometries.rst:157
 msgid ""
 "Some of the specific spatial functions for working with linestrings are:"
-msgstr ""
+msgstr "ラインストリングで動作する特定の空間関数は次の通りです:"
 
 #: ../../en/geometries.rst:159
 msgid ":command:`ST_Length(geometry)` returns the length of the linestring"
-msgstr ""
+msgstr ":command:`ST_Length(geometry)` はラインストリングの長さを返します"
 
 #: ../../en/geometries.rst:160
 msgid ""
 ":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
-msgstr ""
+msgstr ":command:`ST_StartPoint(geometry)` は最初の座標をポイントとして返します"
 
 #: ../../en/geometries.rst:161
 msgid ":command:`ST_EndPoint(geometry)` returns the last coordinate as a point"
-msgstr ""
+msgstr ":command:`ST_EndPoint(geometry)` 最後の座標をポイントとして返します"
 
 #: ../../en/geometries.rst:162
 msgid ""
 ":command:`ST_NPoints(geometry)` returns the number of coordinates in the "
 "linestring"
-msgstr ""
+msgstr ":command:`ST_NPoints(geometry)` ラインストリングの座標数を返します"
 
 #: ../../en/geometries.rst:164
 msgid "So, the length of our linestring is:"
-msgstr ""
+msgstr "そして、ラインストリングの長さは次のようになります:"
 
 #: ../../en/geometries.rst:178
 msgid "Polygons"
-msgstr ""
+msgstr "ポリゴン"
 
 #: ../../en/geometries.rst:184
 msgid ""
@@ -260,6 +323,9 @@ msgid ""
 "simple as defined above.  Holes within the polygon are also represented by "
 "rings."
 msgstr ""
+"ポリゴンは領域の表現です。ポリゴンの外側の境界はリングで表現されます。このリ"
+"ングは、上の定義で言うところの、閉じていて、かつ単純なラインストリングです。"
+"ポリゴン内の穴もリングで表現されます。"
 
 #: ../../en/geometries.rst:186
 msgid ""
@@ -268,12 +334,16 @@ msgid ""
 "represented as polygons when the scale is sufficiently high to see their "
 "area.  Roads and rivers can sometimes be represented as polygons."
 msgstr ""
+"ポリゴンはサイズと形状が重要なオブジェクトの表現に使われます。市の境界、講演"
+"、建物の投影面、水域は、その領域を見るのに十分な縮尺の時に、全て一般的にポリ"
+"ゴンで表現されます。道路と河川はポリゴンで表現され得ることがあります。"
 
 #: ../../en/geometries.rst:188
 msgid ""
 "The following SQL query will return the geometry associated with one polygon "
 "(in the :command:`ST_AsText` column)."
-msgstr ""
+msgstr "次の SQL クエリは、一つのポリゴンのジオメトリを (:command:`ST_AsText` "
+"カラムで) 返します。"
 
 #: ../../en/geometries.rst:198
 msgid ""
@@ -283,6 +353,11 @@ msgid ""
 "``%`` symbol is used**, along with the ``LIKE`` operator to tell the system "
 "to do globbing."
 msgstr ""
+"文字列照合演算を行うには \"WHERE\" 句で \"=\" を使うより \"LIKE\" "
+"演算子を使います。\"LIKE\" "
+"演算子でシステムにワイルドカードを使った文字列照合を行う場合、**"
+"パターンマッチングのワイルドカードに \"*\" 記号に慣れているかもしれませんが、"
+"SQL では \"%\" 記号を使います **。"
 
 #: ../../en/geometries.rst:205
 msgid ""
@@ -290,73 +365,82 @@ msgid ""
 "\". Most graphics systems include the concept of a \"polygon\", but GIS "
 "systems are relatively unique in allowing polygons to explicitly have holes."
 msgstr ""
+"最初のポリゴンは一つしかリングを持ちません。二つ目のポリゴンは内部に一つの「"
+"穴」を持ちます。ほとんどのグラフィックシステムでは、「ポリゴン」の概念が導入"
+"されていますが、GIS "
+"システムは、明示的に穴を持つポリゴンを許す点でやや独特です。"
 
 #: ../../en/geometries.rst:209
 msgid "Some of the specific spatial functions for working with polygons are:"
-msgstr ""
+msgstr "ポリゴンで動作する特定の空間関数の一部を次に示します:"
 
 #: ../../en/geometries.rst:211
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)` ポリゴンの面積を返します"
 
 #: ../../en/geometries.rst:212
 msgid ""
 ":command:`ST_NRings(geometry)` returns the number of rings (usually 1, more "
 "if there are holes)"
-msgstr ""
+msgstr ":command:`ST_NRings(geometry)` リング数を返します (通常は 1 "
+"で、穴があると多くなります)"
 
 #: ../../en/geometries.rst:213
 msgid ""
 ":command:`ST_ExteriorRing(geometry)` returns the outer ring as a linestring"
-msgstr ""
+msgstr ":command:`ST_ExteriorRing(geometry)` 外側リングをラインストリングで返します"
 
 #: ../../en/geometries.rst:214
 msgid ""
 ":command:`ST_InteriorRingN(geometry,n)` returns a specified interior ring as "
 "a linestring"
-msgstr ""
+msgstr ":command:`ST_InteriorRingN(geometry,n)` "
+"指定した内側リングをラインストリングで返します"
 
 #: ../../en/geometries.rst:215
 msgid ":command:`ST_Perimeter(geometry)` returns the length of all the rings"
-msgstr ""
+msgstr ":command:`ST_Perimeter(geometry)` 全てのリングの長さを返します"
 
 #: ../../en/geometries.rst:217
 msgid "We can calculate the area of our polygons using the area function:"
-msgstr ""
+msgstr "免責関数を用いてポリゴンの面積を計算できます:"
 
 #: ../../en/geometries.rst:230
 msgid ""
 "Note that the polygon with a hole has an area that is the area of the outer "
 "shell (a 10x10 square) minus the area of the hole (a 1x1 square)."
-msgstr ""
+msgstr "穴のあいたポリゴンの面積は外側のリング (10x10 平方) から穴の面積 (1x1 "
+"平方)を引いたものです。"
 
 #: ../../en/geometries.rst:233
 msgid "Collections"
-msgstr ""
+msgstr "コレクション"
 
 #: ../../en/geometries.rst:235
 msgid ""
 "There are four collection types, which group multiple simple geometries into "
 "sets."
-msgstr ""
+msgstr "四つのコレクションタイプがありますが、単純ジオメトリをグループ化したものです"
+"。"
 
 #: ../../en/geometries.rst:237
 msgid "**MultiPoint**, a collection of points"
-msgstr ""
+msgstr "**MULTIPOINT** ポイントのコレクション"
 
 #: ../../en/geometries.rst:238
 msgid "**MultiLineString**, a collection of linestrings"
-msgstr ""
+msgstr "**MULTILINESTRING** ラインストリングのコレクション"
 
 #: ../../en/geometries.rst:239
 msgid "**MultiPolygon**, a collection of polygons"
-msgstr ""
+msgstr "**MULTIPOLYGON** ポリゴンのコレクション"
 
 #: ../../en/geometries.rst:240
 msgid ""
 "**GeometryCollection**, a heterogeneous collection of any geometry "
 "(including other collections)"
-msgstr ""
+msgstr "**GEOMETRYCOLLECTION** 任意のジオメトリ (他のコレクションも含む) "
+"の異種コレクション"
 
 #: ../../en/geometries.rst:242
 msgid ""
@@ -369,36 +453,36 @@ msgstr ""
 
 #: ../../en/geometries.rst:246
 msgid "Our example collection contains a polygon and a point:"
-msgstr ""
+msgstr "ポリゴンとポイントを含むコレクションの例:"
 
 #: ../../en/geometries.rst:260
 msgid ""
 "Some of the specific spatial functions for working with collections are:"
-msgstr ""
+msgstr "コレクションで動作する特別な空間関数の一部を次に示します:"
 
 #: ../../en/geometries.rst:262
 msgid ""
 ":command:`ST_NumGeometries(geometry)` returns the number of parts in the "
 "collection"
-msgstr ""
+msgstr ":command:`ST_NumGeometries(geometry)` コレクションの要素数を返します"
 
 #: ../../en/geometries.rst:263
 msgid ":command:`ST_GeometryN(geometry,n)` returns the specified part"
-msgstr ""
+msgstr ":command:`ST_GeometryN(geometry,n)` 指定した要素を返します"
 
 #: ../../en/geometries.rst:264
 msgid ""
 ":command:`ST_Area(geometry)` returns the total area of all polygonal parts"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)` は、全てのポリゴン要素の面積の合計を返します"
 
 #: ../../en/geometries.rst:265
 msgid ""
 ":command:`ST_Length(geometry)` returns the total length of all linear parts"
-msgstr ""
+msgstr ":command:`ST_Length(geometry)` は、全てのライン要素の長さの合計を返します"
 
 #: ../../en/geometries.rst:270
 msgid "Geometry Input and Output"
-msgstr ""
+msgstr "ジオメトリの入力と出力"
 
 #: ../../en/geometries.rst:272
 msgid ""
@@ -408,78 +492,83 @@ msgid ""
 "applications can understand. Fortunately, PostGIS supports emitting and "
 "consuming geometries in a large number of formats:"
 msgstr ""
+"データベース内では、ジオメトリは PostGIS プログラムでのみ使用されるフォーマッ"
+"トでディスクに保存されています。外部プログラムが使いたいジオメトリの挿入や検"
+"索を行うためには、他のアプリケーションが理解できるフォーマットに変換する必要"
+"があります。幸運なことに、PostGIS "
+"は多数のフォーマットの入出力に対応しています:"
 
 #: ../../en/geometries.rst:274
 msgid "Well-known text (:term:`WKT`)"
-msgstr ""
+msgstr "Well-Known Text (:term:`WKT`)"
 
 #: ../../en/geometries.rst:276
 msgid ":command:`ST_GeomFromText(text, srid)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromText(text, srid)` は ``geometry`` を返します"
 
 #: ../../en/geometries.rst:277
 msgid ":command:`ST_AsText(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsText(geometry)` は ``text`` を返します"
 
 #: ../../en/geometries.rst:278
 msgid ":command:`ST_AsEWKT(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsEWKT(geometry)` は ``text`` を返します"
 
 #: ../../en/geometries.rst:280
 msgid "Well-known binary (:term:`WKB`)"
-msgstr ""
+msgstr "Well-Known Binary (:term:`WKB`)"
 
 #: ../../en/geometries.rst:282
 msgid ":command:`ST_GeomFromWKB(bytea)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromWKB(bytea)` は ``geometry`` を返します"
 
 #: ../../en/geometries.rst:283
 msgid ":command:`ST_AsBinary(geometry)` returns ``bytea``"
-msgstr ""
+msgstr ":command:`ST_AsBinary(geometry)` は `bytea`` を返します"
 
 #: ../../en/geometries.rst:284
 msgid ":command:`ST_AsEWKB(geometry)` returns ``bytea``"
-msgstr ""
+msgstr ":command:`ST_AsEWKB(geometry)` は ``bytea`` を返します"
 
 #: ../../en/geometries.rst:286
 msgid "Geographic Mark-up Language (:term:`GML`)"
-msgstr ""
+msgstr "Geographic Mark-up Language (:term:`GML`)"
 
 #: ../../en/geometries.rst:288
 msgid ":command:`ST_GeomFromGML(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromGML(text)` は ``geometry`` を返します"
 
 #: ../../en/geometries.rst:289
 msgid ":command:`ST_AsGML(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGML(geometry)` は ``text`` を返します"
 
 #: ../../en/geometries.rst:291
 msgid "Keyhole Mark-up Language (:term:`KML`)"
-msgstr ""
+msgstr "Keyhole Mark-up Language (:term:`KML`)"
 
 #: ../../en/geometries.rst:293
 msgid ":command:`ST_GeomFromKML(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromKML(text)` は ``geometry`` を返します"
 
 #: ../../en/geometries.rst:294
 msgid ":command:`ST_AsKML(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsKML(geometry)` は ``text`` を返します"
 
 #: ../../en/geometries.rst:296
 msgid ":term:`GeoJSON`"
-msgstr ""
+msgstr ":term:`GeoJSON`"
 
 #: ../../en/geometries.rst:298
 msgid ":command:`ST_AsGeoJSON(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGeoJSON(geometry)` は ``text`` を返します"
 
 #: ../../en/geometries.rst:300
 msgid "Scalable Vector Graphics (:term:`SVG`)"
-msgstr ""
+msgstr "Scalable Vector Graphics (:term:`SVG`)"
 
 #: ../../en/geometries.rst:302
 msgid ":command:`ST_AsSVG(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsSVG(geometry)` は ``text`` を返します"
 
 #: ../../en/geometries.rst:304
 msgid ""
@@ -519,31 +608,33 @@ msgstr ""
 
 #: ../../en/geometries.rst:328
 msgid "Here is an example of a 3D linestring in WKT:"
-msgstr ""
+msgstr "WKT の 3次元ラインストリングの例を示します:"
 
 #: ../../en/geometries.rst:338
 msgid ""
 "Note that the text representation changes! This is because the text input "
 "routine for PostGIS is liberal in what it consumes. It will consume"
-msgstr ""
+msgstr "文字列表現が変わることに注意して下さい! PostGIS "
+"の文字列入力ルーチンでは入力が自由であるためです。出力は次のものが対象です"
 
 #: ../../en/geometries.rst:340
 msgid "hex-encoded EWKB,"
-msgstr ""
+msgstr "16進数エンコードされた EWKB,"
 
 #: ../../en/geometries.rst:341
 msgid "extended well-known text, and"
-msgstr ""
+msgstr "拡張 Well-Known Text および"
 
 #: ../../en/geometries.rst:342
 msgid "ISO standard well-known text."
-msgstr ""
+msgstr "ISO標準 Well-Known Text。"
 
 #: ../../en/geometries.rst:344
 msgid ""
 "On the output side, the :command:`ST_AsText` function is conservative, and "
 "only emits ISO standard well-known text."
-msgstr ""
+msgstr "出力について、:command:`ST_AsText` 関数は保守的で、ISO標準の Well-Known Text "
+"いか出力しません。"
 
 #: ../../en/geometries.rst:346
 msgid ""
@@ -551,6 +642,8 @@ msgid ""
 "other ways to create geometries from well-known text or similar formatted "
 "inputs:"
 msgstr ""
+":command:`ST_GeometryFromText` 関数に加えて、Well-Known Text "
+"や類似フォーマットの入力からジオメトリを生成する方法がほかにも多数あります:"
 
 #: ../../en/geometries.rst:366
 msgid ""
@@ -559,10 +652,15 @@ msgid ""
 "applications use the WKT or WKB geometry creation functions, but the others "
 "work too. Here's an example that consumes GML and output JSON:"
 msgstr ""
+"さまざまな形式 (WKT, WKB, GML, KML, JSON, SVG) の出力に加えて、PostGIS には、"
+"4件の入力フォーマット (WKT, WKB, GML, KML) "
+"があります。ほとんどのアプリケーションは、ジオメトリ生成関数に対して WKT "
+"または WKB を使いますが、他を使うものもあります。GML 入力と JSON "
+"出力の例を示します:"
 
 #: ../../en/geometries.rst:376
 msgid "Casting from Text"
-msgstr ""
+msgstr "文字列からのキャスト"
 
 #: ../../en/geometries.rst:378
 msgid ""
@@ -570,6 +668,9 @@ msgid ""
 "have been converting them to type 'geometry' using PostGIS functions like :"
 "command:`ST_GeomFromText()`."
 msgstr ""
+"これまで見てきた :term:`WKT` "
+"文字列は「文字列」型であり、:command:`ST_GeomFromText()` のような PostGIS "
+"関数を使って「ジオメトリ」型に変換していました。"
 
 #: ../../en/geometries.rst:380
 msgid ""
@@ -577,10 +678,13 @@ msgid ""
 "from one type to another, the casting syntax, `oldata::newtype`. So for "
 "example, this SQL converts a double into a text string."
 msgstr ""
+"PostgreSQL にはある型から別の型に変換するのに、キャスト構文という "
+"`oldata::newtype` のように短い形式の構文があります。たとえば、次の SQL "
+"は倍精度浮動小数点数を文字列に変換します。"
 
 #: ../../en/geometries.rst:386
 msgid "Less trivially, this SQL converts a :term:`WKT` string into a geometry:"
-msgstr ""
+msgstr "より重要なのは、この SQL は :term:`WKT` 文字列をジオメトリに変換します:"
 
 #: ../../en/geometries.rst:392
 msgid ""
@@ -589,12 +693,19 @@ msgid ""
 "specify the SRID using the \"extended\" well-known text form, which includes "
 "an SRID block at the front:"
 msgstr ""
+"ジオメトリを生成するためのキャストの使用での注意点: SRID "
+"を指定しない場合には、SRID 不明のジオメトリが得られます。「拡張」Well-Known "
+"Text 形式を使うと、先頭に SRID ブロックを取り込めるので、SRID "
+"を指定することができます:"
 
 #: ../../en/geometries.rst:398
 msgid ""
 "It's very common to use the casting notation when working with :term:`WKT`, "
 "as well as `geometry` and `geography` columns (see :ref:`geography`)."
 msgstr ""
+"「ジオメトリ」と「ジオグラフィ」 (:ref:`geography` 参照) "
+"のカラムと同じように :term:`WKT` "
+"を使うときにキャスト標記を使つかうのは非常に一般的です。"
 
 #: ../../en/geometries.rst:402
 msgid "Function List"
@@ -606,6 +717,9 @@ msgid ""
 "surface if it is a polygon or multi-polygon. For \"geometry\" type area is "
 "in SRID units. For \"geography\" area is in square meters."
 msgstr ""
+"`ST_Area <https://boiledorange73.github.io/pgismanja/latest/ST_Area.html>`_: "
+"ポリゴン化マルチポリゴンの場合には、表面の面積を返します。ジオメトリ型では "
+"SRID の単位です。ジオグラフィ型では平方メートル単位です。"
 
 #: ../../en/geometries.rst:406
 msgid ""
@@ -613,6 +727,9 @@ msgid ""
 "Known Text (WKT) representation of the geometry/geography without SRID "
 "metadata."
 msgstr ""
+"`ST_AsText <https://boiledorange73.github.io/pgismanja/latest/ST_AsText."
+"html>`_: ジオメトリ/ジオグラフィの SRID メタデータを持たない Well-Known Text "
+"(WKT) 表現を返します。"
 
 #: ../../en/geometries.rst:408
 msgid ""
@@ -620,48 +737,69 @@ msgid ""
 "Known Binary (WKB) representation of the geometry/geography without SRID "
 "meta data."
 msgstr ""
+"`ST_AsBinary <https://boiledorange73.github.io/pgismanja/latest/ST_AsBinary."
+"html>`_: ジオメトリ/ジオグラフィの SRID メタデータを持たない Well-Known "
+"Binary (WKB) 表現を返します。"
 
 #: ../../en/geometries.rst:410
 msgid ""
 "`ST_EndPoint <http://postgis.net/docs/ST_EndPoint.html>`_: Returns the last "
 "point of a LINESTRING geometry as a POINT."
 msgstr ""
+"`ST_EndPoint <https://boiledorange73.github.io/pgismanja/latest/ST_EndPoint."
+"html>`_: LINESTRING ジオメトリの最後のポイントを POINT として返します。"
 
 #: ../../en/geometries.rst:412
 msgid ""
 "`ST_AsEWKB <http://postgis.net/docs/ST_AsEWKB.html>`_: Returns the Well-"
 "Known Binary (WKB) representation of the geometry with SRID meta data."
 msgstr ""
+"`ST_AsEWKB <https://boiledorange73.github.io/pgismanja/latest/ST_AsEWKB."
+"html>`_: ジオメトリの SRID メタデータを持つ Well-Known Binary (WKB) "
+"表現を返します。"
 
 #: ../../en/geometries.rst:414
 msgid ""
 "`ST_AsEWKT <http://postgis.net/docs/ST_AsEWKT.html>`_: Returns the Well-"
 "Known Text (WKT) representation of the geometry with SRID meta data."
 msgstr ""
+"`ST_AsEWKT <https://boiledorange73.github.io/pgismanja/latest/ST_AsEWKT."
+"html>`_: ジオメトリの SRID メタデータを持つ Well-Known Text (WKT) "
+"表現を返します。"
 
 #: ../../en/geometries.rst:416
 msgid ""
 "`ST_AsGeoJSON <http://postgis.net/docs/ST_AsGeoJSON.html>`_: Returns the "
 "geometry as a GeoJSON element."
 msgstr ""
+"`ST_AsGeoJSON <https://boiledorange73.github.io/pgismanja/latest/ST_AsGeoJSON"
+".html>`_: ジオメトリを GeoJSON 要素として返します。"
 
 #: ../../en/geometries.rst:418
 msgid ""
 "`ST_AsGML <http://postgis.net/docs/ST_AsGML.html>`_: Returns the geometry as "
 "a GML version 2 or 3 element."
 msgstr ""
+"`ST_AsGML <https://boiledorange73.github.io/pgismanja/latest/ST_AsGML."
+"html>`_: ジオメトリを GML バージョン 2 または 3 として返します。"
 
 #: ../../en/geometries.rst:420
 msgid ""
 "`ST_AsKML <http://postgis.net/docs/ST_AsKML.html>`_: Returns the geometry as "
 "a KML element. Several variants. Default version=2, default precision=15."
 msgstr ""
+"`ST_AsKML <https://boiledorange73.github.io/pgismanja/latest/ST_AsKML."
+"html>`_: ジオメトリを KML 要素として返します。いくつかの形式があり、"
+"デフォルトバージョンは 2 で、デフォルト精度は 15 です。"
 
 #: ../../en/geometries.rst:422
 msgid ""
 "`ST_AsSVG <http://postgis.net/docs/ST_AsSVG.html>`_: Returns a Geometry in "
 "SVG path data given a geometry or geography object."
 msgstr ""
+"`ST_AsSVG <https://boiledorange73.github.io/pgismanja/latest/ST_AsSVG."
+"html>`_: ジオメトリまたはジオグラフィを与えるとジオメトリを SVG path "
+"データで返します。"
 
 #: ../../en/geometries.rst:424
 msgid ""
@@ -669,6 +807,11 @@ msgid ""
 "line string representing the exterior ring of the POLYGON geometry. Return "
 "NULL if the geometry is not a polygon. Will not work with MULTIPOLYGON"
 msgstr ""
+"`ST_ExteriorRing <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_ExteriorRing.html>`_: POLYGON "
+"ジオメトリの外側リングを表現するラインストリングを返します。"
+"ジオメトリがポリゴンでない場合には NULL を返します。MULTIPOLYGON "
+"では動作しません"
 
 #: ../../en/geometries.rst:426
 msgid ""
@@ -676,24 +819,37 @@ msgid ""
 "based Nth geometry if the geometry is a GEOMETRYCOLLECTION, MULTIPOINT, "
 "MULTILINESTRING, MULTICURVE or MULTIPOLYGON. Otherwise, return NULL."
 msgstr ""
+"`ST_GeometryN <https://boiledorange73.github.io/pgismanja/latest/ST_GeometryN"
+".html>`_: ジオメトリが GEOMETRYCOLLECTION, MULTIPOINT, MULTILINESTRING, "
+"MULTICURVE, MULTIPOLYGON の場合には、1 始まりで N "
+"番目のジオメトリを返します。他のタイプでは NULL を返します。"
 
 #: ../../en/geometries.rst:428
 msgid ""
 "`ST_GeomFromGML <http://postgis.net/docs/ST_GeomFromGML.html>`_: Takes as "
 "input GML representation of geometry and outputs a PostGIS geometry object."
 msgstr ""
+"`ST_GeomFromGML <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_GeomFromGML.html>`_: 入力としてジオメトリの GML 表現を取って、PostGIS "
+"ジオメトリオブジェクトを出力します。"
 
 #: ../../en/geometries.rst:430
 msgid ""
 "`ST_GeomFromKML <http://postgis.net/docs/ST_GeomFromKML.html>`_: Takes as "
 "input KML representation of geometry and outputs a PostGIS geometry object"
 msgstr ""
+"`ST_GeomFromKML <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_GeomFromKML.html>`_: 入力としてジオメトリを表現する KML を取り、PostGIS "
+"ジオメトリを出力します"
 
 #: ../../en/geometries.rst:432
 msgid ""
 "`ST_GeomFromText <http://postgis.net/docs/ST_GeomFromText.html>`_: Returns a "
 "specified ST_Geometry value from Well-Known Text representation (WKT)."
 msgstr ""
+"`ST_GeomFromText <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_GeomFromText.html>`_: Well-Known Text (WKT) 表現から、指定した "
+"ST_Geometry 値を返します。"
 
 #: ../../en/geometries.rst:434
 msgid ""
@@ -701,12 +857,17 @@ msgid ""
 "geometry instance from a Well-Known Binary geometry representation (WKB) and "
 "optional SRID."
 msgstr ""
+"`ST_GeomFromWKB <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_GeomFromWKB.html>`_: Well-Known Binary (WKB) 表現と任意引数 SRID "
+"からジオメトリを生成します。"
 
 #: ../../en/geometries.rst:436
 msgid ""
 "`ST_GeometryType <http://postgis.net/docs/ST_GeometryType.html>`_: Returns "
 "the geometry type of the ST_Geometry value."
 msgstr ""
+"`ST_GeometryType <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_GeometryType.html>`_: ＳT_Geometry 値のジオメトリタイプを返します。"
 
 #: ../../en/geometries.rst:438
 msgid ""
@@ -714,6 +875,10 @@ msgid ""
 "the Nth interior linestring ring of the polygon geometry. Return NULL if the "
 "geometry is not a polygon or the given N is out of range."
 msgstr ""
+"`ST_InteriorRingN <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_InteriorRingN.html>`_: ポリゴンジオメトリの N 番目の内部リングであるライン"
+"ストリングを返します。ジオメトリがポリゴンでなく、N "
+"番目が範囲外である場合には NULL を返します。"
 
 #: ../../en/geometries.rst:440
 msgid ""
@@ -721,24 +886,36 @@ msgid ""
 "of the geometry if it is a linestring or multilinestring. geometry are in "
 "units of spatial reference and geography are in meters (default spheroid)"
 msgstr ""
+"`ST_Length <https://boiledorange73.github.io/pgismanja/latest/ST_Length."
+"html>`_: ジオメトリが LINESTRING または MULTILINETRING である場合には、2次元"
+"長を返します。返り値の単位は、ジオメトリでは空間参照系の単位で、"
+"ジオグラフィではメートルです (回転楕円体がデフォルト)"
 
 #: ../../en/geometries.rst:442
 msgid ""
 "`ST_NDims <http://postgis.net/docs/ST_NDims.html>`_: Returns coordinate "
 "dimension of the geometry as a small int. Values are: 2,3 or 4."
 msgstr ""
+"`ST_NDims <https://boiledorange73.github.io/pgismanja/latest/ST_NDims."
+"html>`_: ジオメトリの座標次元を smallint で返します。値は 2, 3, 4 "
+"のいずれかです。"
 
 #: ../../en/geometries.rst:444
 msgid ""
 "`ST_NPoints <http://postgis.net/docs/ST_NPoints.html>`_: Returns the number "
 "of points (vertexes) in a geometry."
 msgstr ""
+"`ST_NPoints <https://boiledorange73.github.io/pgismanja/latest/ST_NPoints."
+"html>`_: ジオメトリのポイント (頂点) 数を返します。"
 
 #: ../../en/geometries.rst:446
 msgid ""
 "`ST_NRings <http://postgis.net/docs/ST_NRings.html>`_: If the geometry is a "
 "polygon or multi-polygon returns the number of rings."
 msgstr ""
+"`ST_NRings <https://boiledorange73.github.io/pgismanja/latest/ST_NRings."
+"html>`_: "
+"ジオメトリがポリゴンまたはマルチポリゴンである場合に、リング数を返します。"
 
 #: ../../en/geometries.rst:448
 msgid ""
@@ -746,6 +923,9 @@ msgid ""
 "geometry is a GEOMETRYCOLLECTION (or MULTI*) returns the number of "
 "geometries, otherwise return NULL."
 msgstr ""
+"`ST_NumGeometries <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_NumGeometries.html>`_: ジオメトリが　GEOMETRYCOLLECTION (またはマルチ系) "
+"の場合にはジオメトリ数を返します。その他の場合には NULL を返します。"
 
 #: ../../en/geometries.rst:450
 msgid ""
@@ -753,27 +933,42 @@ msgid ""
 "length measurement of the boundary of an ST_Surface or ST_MultiSurface "
 "value. (Polygon, Multipolygon)"
 msgstr ""
+"`ST_Perimeter <https://boiledorange73.github.io/pgismanja/latest/ST_Perimeter"
+".html>`_: ST_Surface 値または ST_MultiSurface 値 "
+"の境界の長さの測定値を返します (POLYGON, MULTIPOLYGON)"
 
 #: ../../en/geometries.rst:452
 msgid ""
 "`ST_SRID <http://postgis.net/docs/ST_SRID.html>`_: Returns the spatial "
 "reference identifier for the ST_Geometry as defined in spatial_ref_sys table."
 msgstr ""
+"`ST_SRID <https://boiledorange73.github.io/pgismanja/latest/ST_SRID.html>`_: "
+"ST_Geometry の、spatial_ref_sys "
+"テーブルで定義されている空間参照系識別子を返します。"
 
 #: ../../en/geometries.rst:454
 msgid ""
 "`ST_StartPoint <http://postgis.net/docs/ST_StartPoint.html>`_: Returns the "
 "first point of a LINESTRING geometry as a POINT."
 msgstr ""
+"`ST_StartPoint <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_StartPoint.html>`_: LINESTRING ｊにお目取りの最初のポイントを POINT "
+"として返します。"
 
 #: ../../en/geometries.rst:456
 msgid ""
 "`ST_X <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate of the "
 "point, or NULL if not available. Input must be a point."
 msgstr ""
+"`ST_X <https://boiledorange73.github.io/pgismanja/latest/ST_X.html>`_: POINT "
+"の X座標値を返します。有効でないなら NULL "
+"を返します。入力はポイントでなければなりません。"
 
 #: ../../en/geometries.rst:458
 msgid ""
 "`ST_Y <http://postgis.net/docs/ST_Y.html>`_: Returns the Y coordinate of the "
 "point, or NULL if not available. Input must be a point."
 msgstr ""
+"`ST_Y <https://boiledorange73.github.io/pgismanja/latest/ST_Y.html>`_: POINT "
+"の Y座標値を返します。有効でないなら NULL "
+"を返します。入力はポイントでなければなりません。"

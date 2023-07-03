@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-06-27 06:16+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"equality/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/equality.rst:4 ../../en/equality.rst:7
 msgid "Equality"
-msgstr ""
+msgstr "等価性"
 
 #: ../../en/equality.rst:9
 msgid ""
@@ -30,14 +32,18 @@ msgid ""
 "levels of equality, though for clarity we will use the definitions below.  "
 "To illustrate these functions, we will use the following polygons."
 msgstr ""
+"ジオメトリを処理する時に同等性の判断が難しいことがあります。PostGIS は、異な"
+"る同等性レベルを判定するために使える、三つの異なる機能に対応していますが、分"
+"かりやすくするため、下のように定義します。これらの関数を説明するために、次の"
+"ポリゴンを使用します。"
 
 #: ../../en/equality.rst:14
 msgid "These polygons are loaded using the following commands."
-msgstr ""
+msgstr "これらのポリゴンは次のコマンドを使ってロードされます。"
 
 #: ../../en/equality.rst:36
 msgid "Exactly Equal"
-msgstr ""
+msgstr "確実に等価"
 
 #: ../../en/equality.rst:38
 msgid ""
@@ -45,6 +51,9 @@ msgid ""
 "in order, to ensure they are identical in position.  The following examples "
 "show how this method can be limited in its effectiveness."
 msgstr ""
+"確実な等価性は二つのジオメトリの頂点と頂点を順序も含めて、同一の位置にあるか"
+"を比較して決めます。次の例ではこのメソッドでの有効性がどれだけ制限されるかを"
+"示しています。"
 
 #: ../../en/equality.rst:50
 msgid ""
@@ -54,10 +63,15 @@ msgid ""
 "but are defined in differing orders.  Polygon 4 has colinear (and thus "
 "redundant) vertices on the hexagon edges causing inequality with Polygon 1."
 msgstr ""
+"この例では、ポリゴンは自身としか等しくなく、"
+"他の等価に見えるポリゴンとは等しくありません (ポリゴン1から3の場合)。"
+"ポリゴン 1, 2, 3 の場合は、頂点は同じ位置にありますが、順序が異なります。"
+"ポリゴン 4 は、六角形の辺の上で共線が存在する (ゆえに冗長です) ので、"
+"ポリゴン 1 と等価でなくなります。"
 
 #: ../../en/equality.rst:53
 msgid "Spatially Equal"
-msgstr ""
+msgstr "空間的に等価"
 
 #: ../../en/equality.rst:55
 msgid ""
@@ -66,6 +80,9 @@ msgid ""
 "`ST_Equals`, available to test the spatial equality or equivalence of "
 "geometries."
 msgstr ""
+"上に見る通り、確実な等価性は、ジオメトリの空間の性質を考慮に入れていません。"
+"適切に名付けられた :command:`ST_Equals` 関数があり、空間的な等価性のテスト、"
+"もしくは、ジオメトリの等価性のテストができます。"
 
 #: ../../en/equality.rst:67
 msgid ""
@@ -76,10 +93,14 @@ msgid ""
 "important here.  What is important is that the polygons contain the same "
 "space."
 msgstr ""
+"これらの結果は、等価性の直感的な理解との一致がよりよくなります。ポリゴン 1 "
+"から 4 は、同じ領域を囲んでいるので、等価とみなされます。ポリゴンの方向、ポリ"
+"ゴンの定義のための開始点、ポイント数のいずれもが、ここでは重要ではないことに"
+"注意して下さい。重要なのは、ポリゴンが同じ空間を含むことなのです。"
 
 #: ../../en/equality.rst:70
 msgid "Equal Bounds"
-msgstr ""
+msgstr "境界が等価"
 
 #: ../../en/equality.rst:72
 msgid ""
@@ -91,6 +112,13 @@ msgid ""
 "geometries occupy the same two dimensional extent, but not necessarily the "
 "same space."
 msgstr ""
+"確実な等価性には、最悪の場合には、等価性を判断するためにジオメトリの各々の頂"
+"点の比較が求められます。これは非常に遅くなりますし、多数のジオメトリの比較に"
+"は適切でない場合があります。より高速な比較のために、"
+"バウンディングボックスの等価性を見る演算子である :command:`~=` "
+"が提供されています。この演算子はバウンディングボックス (長方形) だけで計算し"
+"ていて、ジオメトリが同じ二次元範囲を占めるのを保証しますが、同じ空間を占めて"
+"いる保証はしません。"
 
 #: ../../en/equality.rst:84
 msgid ""
@@ -102,3 +130,9 @@ msgid ""
 "reduce huge comparison sets into more manageable blocks when joining or "
 "filtering data."
 msgstr ""
+"ご覧の通り、全ての空間的に等価はバウンディングボックスも等価です。不幸なこと"
+"に、ポリゴン 5 はこのテストしたで等価とされます。他のジオメトリと同じバウンデ"
+"ィングボックスとなるためです。ではなぜこれが便利なのでしょうか？後で詳細説明"
+"をしますが、簡単に言うと、この方法だと、空間インデックスを使えて、データの結"
+"合やフィルタリングの時に、巨大な比較対象の集合を、より管理しやすいブロックに"
+"素早く減らすことができるためです。"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-15 08:08+0000\n"
+"PO-Revision-Date: 2023-07-04 04:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "projection_exercises/ja/>\n"
@@ -35,11 +35,11 @@ msgstr ""
 #: ../../en/projection_exercises.rst:8
 msgid ""
 ":command:`sum(expression)` aggregate to return a sum for a set of records"
-msgstr ""
+msgstr ":command:`sum(expression)` はレコードの集合の合計を返す集約関数です"
 
 #: ../../en/projection_exercises.rst:9
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
-msgstr ""
+msgstr ":command:`ST_Length(linestring)` はラインストリングの長さを返します"
 
 #: ../../en/projection_exercises.rst:10
 msgid ":command:`ST_SRID(geometry)` returns the SRID of the geometry"
@@ -53,15 +53,15 @@ msgstr ""
 
 #: ../../en/projection_exercises.rst:12
 msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromText(text)` は ``geometry`` を返します"
 
 #: ../../en/projection_exercises.rst:13
 msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
-msgstr ""
+msgstr ":command:`ST_AsText(geometry)` は WKT ``text`` を返します"
 
 #: ../../en/projection_exercises.rst:14
 msgid ":command:`ST_AsGML(geometry)` returns GML ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGML(geometry)` は GML ``text`` を返します"
 
 #: ../../en/projection_exercises.rst:16
 msgid "Remember the online resources that are available to you:"
@@ -97,7 +97,7 @@ msgstr "nyc_subway_stations"
 
 #: ../../en/projection_exercises.rst:32
 msgid "name, geom"
-msgstr ""
+msgstr "name, geom"
 
 #: ../../en/projection_exercises.rst:34
 msgid "``nyc_neighborhoods``"

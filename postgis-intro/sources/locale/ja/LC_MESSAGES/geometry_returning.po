@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-21 08:47+0000\n"
+"PO-Revision-Date: 2023-07-08 03:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning/ja/>\n"
@@ -24,45 +24,52 @@ msgstr ""
 
 #: ../../en/geometry_returning.rst:4
 msgid "Geometry Constructing Functions"
-msgstr ""
+msgstr "ジオメトリ構築関数"
 
 #: ../../en/geometry_returning.rst:6
 msgid ""
 "All the functions we have seen so far work with geometries \"as they are\" "
 "and returns"
-msgstr ""
+msgstr "これまでに見た関数は、全てジオメトリを「そのまま」動作させ、次のように返して"
+"いました"
 
 #: ../../en/geometry_returning.rst:8
 msgid ""
 "analyses of the objects (:command:`ST_Length(geometry)`, :command:"
 "`ST_Area(geometry)`),"
 msgstr ""
+"オブジェクトの分析 (:command:`ST_Length(geometry)`, "
+":command:`ST_Area(geometry)`) や、"
 
 #: ../../en/geometry_returning.rst:9
 msgid ""
 "serializations of the objects (:command:`ST_AsText(geometry)`, :command:"
 "`ST_AsGML(geometry)`),"
 msgstr ""
+"オブジェクトの直列化 (:command:`ST_AsText(geometry)`, "
+":command:`ST_AsGML(geometry)`) や、"
 
 #: ../../en/geometry_returning.rst:10
 msgid "parts of the object (:command:`ST_RingN(geometry,n)`) or"
-msgstr ""
+msgstr "オブジェクトの一部 (:command:`ST_RingN(geometry,n)`) または"
 
 #: ../../en/geometry_returning.rst:11
 msgid ""
 "true/false tests (:command:`ST_Contains(geometry,geometry)`, :command:"
 "`ST_Intersects(geometry,geometry)`)."
 msgstr ""
+"TRUE / FALSE のテスト (:command:`ST_Contains(geometry,geometry)`, "
+":command:`ST_Intersects(geometry,geometry)`) です。"
 
 #: ../../en/geometry_returning.rst:13
 msgid ""
 "\"Geometry constructing functions\" take geometries as inputs and output new "
 "shapes."
-msgstr ""
+msgstr "「ジオメトリ構築関数」はジオメトリを入力に取り新しい形状を出力にします。"
 
 #: ../../en/geometry_returning.rst:17
 msgid "ST_Centroid / ST_PointOnSurface"
-msgstr ""
+msgstr "ST_Centroid / ST_PointOnSurface"
 
 #: ../../en/geometry_returning.rst:19
 msgid ""
@@ -74,6 +81,13 @@ msgid ""
 "sides; replacing it with a point forces it to be on one side or the other, "
 "not both."
 msgstr ""
+"ポリゴン地物を地物のポイント表現に入れ替える空間クエリを作成するとき一般に必"
+"要となります。これは空間結合 (:ref:`polypolyjoins` で触れます) "
+"に使うといいです。二つのポリゴンレイヤでの "
+":command:`ST_Intersects(geometry,geometry)` は、ポリゴンが複数オブジェクト境"
+"界上にあると、両方とインタセクトしたりして、しばしば数え上げが二重になること"
+"があるためです。変換したポイントがどちらか一方について、両方にはつかないよう"
+"に強制します。"
 
 #: ../../en/geometry_returning.rst:21
 msgid ""
@@ -84,6 +98,10 @@ msgid ""
 "(imagine the letter 'C') the returned centroid might not be in the interior "
 "of the feature."
 msgstr ""
+":command:`ST_Centroid(geometry)` は入力引数の中心におおむね来るポイントを返し"
+"ます。この単純計算は非常に速いですが、返されるポイントが地物の中にあるとは限"
+"らず、望ましいものではない場合があります。入力地物が凸でない場合 (欧字の 'C' "
+"を想像して下さい) には、重心は地物の内部にない場合があります。"
 
 #: ../../en/geometry_returning.rst:22
 msgid ""
@@ -91,6 +109,9 @@ msgid ""
 "be inside the input argument. This makes it more useful for computing "
 "\"proxy points\" for spatial joins."
 msgstr ""
+":command:`ST_PointOnSurface(geometry)` は入力引数の内側にあることを保証するポ"
+"イントを返します。これは、空間結合で「代理ポイント」を計算するのに、もっとベ"
+"ンチです。"
 
 #: ../../en/geometry_returning.rst:45
 msgid "ST_Buffer"
@@ -103,6 +124,10 @@ msgid ""
 "and geometry type and outputs a polygon with a boundary the buffer distance "
 "away from the input geometry."
 msgstr ""
+"バッファ処理は GIS の作業手順では一般的に行われていて、PostGIS "
+"でも使用できます。 :command:`ST_Buffer(geometry,distance)` はバッファ距離とジ"
+"オメトリタイプを受け取り、入力ジオメトリからバッファ距離だけ離れた境界を持つ"
+"ポリゴンを出力します。"
 
 #: ../../en/geometry_returning.rst:52
 msgid ""
@@ -111,6 +136,10 @@ msgid ""
 "the island. Liberty Island is a single census block in our "
 "``nyc_census_blocks`` table, so we can easily extract and buffer it."
 msgstr ""
+"たとえば、米国国立公園局は、リバティ島の周りの海上交通ゾーンを設定したいとす"
+"ると、島の周囲500mのバッファとなるポリゴンを構築できます。リバティ島は、"
+"このワークショップで使用している ``nyc_census_blocks`` "
+"テーブル内の単一街区ですので、簡単に抽出してバッファ処理を実行できます。"
 
 #: ../../en/geometry_returning.rst:65
 msgid ""
@@ -118,6 +147,8 @@ msgid ""
 "inscribed polygons within polygonal inputs. For lines and points you will "
 "just get an empty return."
 msgstr ""
+":command:`ST_Buffer` 関数も、負の距離を受け付け、ポリゴンの入力から内側に入り"
+"込んだポリゴンを構築します。ラインとポイントでは、空ポリゴンが返されます。"
 
 #: ../../en/geometry_returning.rst:72
 msgid "ST_Intersection"
@@ -137,6 +168,9 @@ msgid ""
 "spatial area (or line, or point) that both arguments have in common. If the "
 "arguments are disjoint, the function returns an empty geometry."
 msgstr ""
+":command:`ST_Intersection(geometry A, geometry B)` 関数は、"
+"引数の両方が共有する空間の面 (または線または点) "
+"を返します。引数が接続していない場合には、関数は空ジオメトリを返します。"
 
 #: ../../en/geometry_returning.rst:94
 msgid "ST_Union"
@@ -218,6 +252,9 @@ msgid ""
 "`ST_Centroid(geometry) <http://postgis.net/docs/ST_Centroid.html>`_: Returns "
 "a point geometry that represents the center of mass of the input geometry."
 msgstr ""
+"`ST_Centroid(geometry) <https://boiledorange73.github.io/pgismanja/latest/"
+"ST_Centroid.html>`_: "
+"入力ジオメトリの重心を表現するポイントジオメトリを返します。"
 
 #: ../../en/geometry_returning.rst:216
 msgid ""
@@ -225,6 +262,9 @@ msgid ""
 "html>`_: Returns a point geometry that is guaranteed to be in the interior "
 "of the input geometry."
 msgstr ""
+"`ST_PointOnSurface(geometry) <https://boiledorange73.github.io/pgismanja/"
+"latest/ST_PointOnSurface.html>`_: "
+"入力ジオメトリの内部にあることが保証されたポイントジオメトリを返します。"
 
 #: ../../en/geometry_returning.rst:218
 msgid ""
@@ -234,6 +274,11 @@ msgid ""
 "the Spatial Reference System of this Geometry. For geography: Uses a planar "
 "transform wrapper."
 msgstr ""
+"`ST_Buffer(geometry, distance) <https://boiledorange73.github.io/pgismanja/"
+"latest/ST_Buffer.html>`_: ジオメトリ版: 指定したジオメトリからの距離が指定し"
+"た距離以下である点の全てを表現するジオメトリを返します。ジオメトリの計算は、"
+"指定したジオメトリの空間参照系で行われます。ジオグラフィ版: "
+"投影座標系に変換する薄いラッパです。"
 
 #: ../../en/geometry_returning.rst:220
 msgid ""
@@ -242,12 +287,18 @@ msgid ""
 "portion of geomA and geomB. The geography implementation does a transform to "
 "geometry to do the intersection and then transform back to WGS84."
 msgstr ""
+"`ST_Intersection(geometry A, geometry B) <https://boiledorange73.github.io/"
+"pgismanja/latest/ST_Intersection.html>`_: geomA と geomB との共有部を表現する"
+"ジオメトリを返します。ジオグラフィ実装では、ジオメトリに変換して、インタセク"
+"ションを得て、 WGS84 に戻します。"
 
 #: ../../en/geometry_returning.rst:222
 msgid ""
 "`ST_Union() <http://postgis.net/docs/ST_Union.html>`_: Returns a geometry "
 "that represents the point set union of the Geometries."
 msgstr ""
+"`ST_Union() <https://boiledorange73.github.io/pgismanja/latest/ST_Union."
+"html>`_: ジオメトリ群の和集合を表現するジオメトリを返します。"
 
 #: ../../en/geometry_returning.rst:224
 msgid ""
@@ -255,6 +306,9 @@ msgid ""
 "Well-Known Text (WKT) representation of the geometry/geography without SRID "
 "metadata."
 msgstr ""
+"`ST_AsText(text) <https://boiledorange73.github.io/pgismanja/latest/ST_AsText"
+".html>`_: SRIDメタデータを持たないジオメトリ/ジオグラフィの Well-Known Text "
+"(WKT) 表現を返します。"
 
 #: ../../en/geometry_returning.rst:226
 msgid ""
@@ -262,6 +316,9 @@ msgid ""
 "current/static/functions-string.html>`_: PostgreSQL string function to "
 "extract substring matching SQL regular expression."
 msgstr ""
+"`substring(string [from int] [for int]) <https://www.postgresql.jp/document/"
+"current/html/functions-string.html>`_: SQL "
+"正規表現に合致する部分文字列を抽出する PostgreSQL 文字列関数です。"
 
 #: ../../en/geometry_returning.rst:228
 msgid ""
@@ -269,3 +326,6 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the sum of records in a set of records."
 msgstr ""
+"`sum(expression) <https://www.postgresql.jp/document/current/html/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: "
+"レコード集合のレコードの合計を返すPostgreSQL 集約関数です。"

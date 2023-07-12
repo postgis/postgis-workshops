@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-07-04 04:08+0000\n"
+"PO-Revision-Date: 2023-07-12 07:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning_exercises/ja/>\n"
@@ -24,13 +24,13 @@ msgstr ""
 
 #: ../../en/geometry_returning_exercises.rst:4
 msgid "Geometry Constructing Exercises"
-msgstr ""
+msgstr "ジオメトリ構築演習"
 
 #: ../../en/geometry_returning_exercises.rst:6
 msgid ""
 "Here's a reminder of some of the functions we have seen.  Hint: they should "
 "be useful for the exercises!"
-msgstr ""
+msgstr "これまでに見た全ての関数のリマインダです。演習に役立つはずです!"
 
 #: ../../en/geometry_returning_exercises.rst:8
 msgid ""
@@ -39,34 +39,40 @@ msgstr ":command:`sum(expression)` はレコードの集合の合計を返す集
 
 #: ../../en/geometry_returning_exercises.rst:9
 msgid ":command:`ST_Area(geometry)` returns the area of the geometry"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)` はジオメトリの面積を返します"
 
 #: ../../en/geometry_returning_exercises.rst:10
 msgid ":command:`ST_Centroid(geometry)` returns the ``geometry`` centroid"
-msgstr ""
+msgstr ":command:`ST_Centroid(geometry)` ``geometry`` の重心を返します"
 
 #: ../../en/geometry_returning_exercises.rst:11
 msgid ""
 ":command:`ST_Transform(geometry, srid)` converts ``geometries`` into "
 "different spatial reference systems"
 msgstr ""
+":command:`ST_Transform(geometry, srid)` は ``geometries`` "
+"を異なる空間参照系に変換します"
 
 #: ../../en/geometry_returning_exercises.rst:12
 msgid ""
 ":command:`ST_Buffer(geometry, radius)` returns an expanded ``geometry`` shape"
-msgstr ""
+msgstr ":command:`ST_Buffer(geometry, radius)` は ``geometry`` "
+"形状を拡張したものを返します"
 
 #: ../../en/geometry_returning_exercises.rst:13
 msgid ""
 ":command:`ST_Contains(geometry1, geometry2)` returns truw if geometry1 "
 "contains geometry2"
 msgstr ""
+":command:`ST_Contains(geometry1, geometry2)` は geometry1 が geometry2 "
+"を含む場合に TRUE を返します"
 
 #: ../../en/geometry_returning_exercises.rst:14
 msgid ""
 ":command:`ST_Union(geometry[])` returns the aggregate union of all "
 "geometries in the group"
-msgstr ""
+msgstr ":command:`ST_Union(geometry[])` "
+"はグループ内の全てのジオメトリの結合を行う集約関数です"
 
 #: ../../en/geometry_returning_exercises.rst:15
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
@@ -76,17 +82,19 @@ msgstr ":command:`ST_GeometryType(geometry)` はジオメトリのタイプを�
 msgid ""
 ":command:`ST_NumGeometries(geometry)` returns the number of geometries in a "
 "collection or 1 for simple geometries"
-msgstr ""
+msgstr ":command:`ST_NumGeometries(geometry)` はジオメトリの数を返し、"
+"単純なジオメトリについては 1 を返します"
 
 #: ../../en/geometry_returning_exercises.rst:17
 msgid ""
 ":command:`ST_Intersection(geometry, geometry)` returns the area that the two "
 "input geometries share in common"
-msgstr ""
+msgstr ":command:`ST_Intersection(geometry, geometry)` "
+"は二つの入力ジオメトリが共有する領域を返します"
 
 #: ../../en/geometry_returning_exercises.rst:20
 msgid "Remember the tables we have available:"
-msgstr ""
+msgstr "次のテーブルを覚えておいてください:"
 
 #: ../../en/geometry_returning_exercises.rst:22
 msgid "``nyc_census_blocks``"
@@ -94,7 +102,7 @@ msgstr "nyc_census_blocks"
 
 #: ../../en/geometry_returning_exercises.rst:24
 msgid "name, popn_total, boroname, geom"
-msgstr ""
+msgstr "name, popn_total, boroname, geom"
 
 #: ../../en/geometry_returning_exercises.rst:26
 msgid "``nyc_streets``"
@@ -126,19 +134,21 @@ msgstr "演習"
 
 #: ../../en/geometry_returning_exercises.rst:41
 msgid "**How many census blocks don’t contain their own centroid?**"
-msgstr ""
+msgstr "**自身の重心を含まない国勢調査区はいくつありますか? **"
 
 #: ../../en/geometry_returning_exercises.rst:57
 msgid ""
 "**Union all the census blocks into a single output. What kind of geometry is "
 "it? How many parts does it have?**"
-msgstr ""
+msgstr "**全ての国勢調査区を単一の出力に結合します。どういうジオメトリでしょうか? "
+"要素数はいくつになりますか? **"
 
 #: ../../en/geometry_returning_exercises.rst:82
 msgid ""
 "**What is the area of a one unit buffer around the origin? How different is "
 "it from what you would expect? Why?**"
-msgstr ""
+msgstr "**原点から周囲1単位の範囲内の面積はいくつでしょうか? "
+"予想とどれぐらい違いましたか? また理由は何でしょう? **"
 
 #: ../../en/geometry_returning_exercises.rst:94
 msgid ""
@@ -148,6 +158,10 @@ msgid ""
 "of edges in the buffer will get the value closer to pi, but it will always "
 "be smaller due to the linearization."
 msgstr ""
+"単位円 (半径1単位の円) の面積は π (3.1415926...) となります。結果との差は、バ"
+"ッファのエッジの線形描画によるものです。バッファは有限数のエッジでできていま"
+"す。バッファ内のエッジ数の増加でπに近づいていきますが、線形化のため常に小さく"
+"なります。"
 
 #: ../../en/geometry_returning_exercises.rst:96
 msgid ""
@@ -155,6 +169,9 @@ msgid ""
 "to war! Construct a polygon delineating a 100 meter wide DMZ on the border "
 "between the neighborhoods. What is the area of the DMZ?**"
 msgstr ""
+"**ブルックリンの ‘Park Slope’ 街区と ‘Carroll Gardens’ "
+"街区とが戦争を起こしました! 街区間の境界に100m幅のDMZ (中立地帯) "
+"を描くポリゴンを構築します。DMZ の面積はいくらでしょう? **"
 
 #: ../../en/geometry_returning_exercises.rst:116
 msgid ""
@@ -164,3 +181,8 @@ msgid ""
 "the \"Carroll Gardens\" record. Note that the area of the intersection is in "
 "square meters because we are still working in UTM 18 (EPSG:26918)."
 msgstr ""
+"両方の対象街区のバッファを生成すると簡単ですが、共有領域の抽出にはテーブルの"
+"自己結合が必要です。\"Park Slope\" で一方のリレーション (``ps``) を作り、"
+"\"Carroll Gardens\" でもう一方のリレーション (``cg``) を作ります。UTM 18 "
+"(EPSG:26918) "
+"を使っているので共有領域の面積は平方メートル単位であることにご注意下さい。"

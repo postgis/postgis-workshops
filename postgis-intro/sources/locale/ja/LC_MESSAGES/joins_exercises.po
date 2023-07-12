@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2023-07-04 04:08+0000\n"
+"PO-Revision-Date: 2023-07-12 07:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_exercises/ja/>\n"
@@ -30,7 +30,7 @@ msgstr ""
 msgid ""
 "Here's a reminder of some of the functions we have seen.  Hint: they should "
 "be useful for the exercises!"
-msgstr ""
+msgstr "これまでに見た全ての関数のリマインダです。演習に役立つはずです!"
 
 #: ../../en/joins_exercises.rst:8
 msgid ""
@@ -105,7 +105,7 @@ msgstr "nyc_census_blocks"
 
 #: ../../en/joins_exercises.rst:25
 msgid "name, popn_total, boroname, geom"
-msgstr ""
+msgstr "name, popn_total, boroname, geom"
 
 #: ../../en/joins_exercises.rst:27
 msgid "``nyc_streets``"

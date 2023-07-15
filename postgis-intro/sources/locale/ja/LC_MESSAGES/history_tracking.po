@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-01-24 01:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-07-15 10:08+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "history_tracking/ja/>\n"
 "Language: ja\n"
@@ -18,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/history_tracking.rst:4
 msgid "Tracking Edit History using Triggers"
-msgstr ""
+msgstr "トリガを使用した編集履歴の追跡"
 
 #: ../../en/history_tracking.rst:6
 msgid ""
@@ -33,6 +34,10 @@ msgid ""
 "management in the client interface, but that adds a lot of **complexity** to "
 "editing tools."
 msgstr ""
+"本番データベースの一般的な要件に、二つの日付の間でデータがどのくらい変わった"
+"か、誰が変更したか、どこで発生したか、といった履歴追跡機能があります。GIS シ"
+"ステムの中には、クライアントインタフェースに変更管理機能を持たせることで変更"
+"を追跡するものがありますが、編集ツールに多くの**複雑性**が加わります。"
 
 #: ../../en/history_tracking.rst:8
 msgid ""
@@ -40,30 +45,34 @@ msgid ""
 "tracking to any table, while maintaining simple \"direct edit\" access to "
 "the primary table."
 msgstr ""
+"データベースとトリガシステムを使って、どのテーブルにでも履歴追跡の追加は可能"
+"です。単純な「直接編集」を維持することで、主要テーブルにアクセスきるようにな"
+"ります。"
 
 #: ../../en/history_tracking.rst:10
 msgid ""
 "History tracking works by keeping a history table that records, for every "
 "edit:"
-msgstr ""
+msgstr "編集操作ごとに記録する履歴テーブルを維持することで履歴追跡が働きます。"
 
 #: ../../en/history_tracking.rst:12
 msgid "If a record was created, when it was added and by whom."
-msgstr ""
+msgstr "レコードが生成された場合は、いつ、誰によって追加されたか。"
 
 #: ../../en/history_tracking.rst:13
 msgid "If a record was deleted, when it was deleted and by whom."
-msgstr ""
+msgstr "レコードが削除された場合は、いつ、誰によって削除されたか。"
 
 #: ../../en/history_tracking.rst:14
 msgid ""
 "If a record was updated, adding a deletion record (for the old state) and a "
 "creation record (for the new state)."
-msgstr ""
+msgstr "レコードが更新された場合は、削除レコード (古い状態) と生成レコード "
+"(新しい状態) を追加します。"
 
 #: ../../en/history_tracking.rst:17
 msgid "Using TSTZRANGE"
-msgstr ""
+msgstr "TSTZRANGE を使う"
 
 #: ../../en/history_tracking.rst:19
 msgid ""
@@ -73,19 +82,26 @@ msgid ""
 "timestamp ranges in the history table for a particular feature can be "
 "expected to be non-overlapping but adjacent."
 msgstr ""
+"履歴テーブルは PostgreSQL 特有の機能である「`タイムスタンプ範囲 <https://www."
+"postgresql.jp/document/current/html/rangetypes.html>`_」型を使います。履歴レ"
+"コードが「生きている」レコードであった時刻範囲を保存します。特定の地物の履歴"
+"テーブルのタイムスタンプ範囲は全てオーバラップせずに隣接していると期待できま"
+"す。"
 
 #: ../../en/history_tracking.rst:21
 msgid ""
 "The range for a new record will start at ``now()`` and have an open end "
 "point, so that the range covers all time from the current time into the "
 "future."
-msgstr ""
+msgstr "新しいレコードの範囲は「now()」で始まり、閉じてない終了点を持ちます。そのため"
+"、範囲は現在時刻から未来までの時刻の全てに対応します。"
 
 #: ../../en/history_tracking.rst:34
 msgid ""
 "Similarly, the time range for a deleted record will be updated to include "
 "the current time as the end point of the time range."
-msgstr ""
+msgstr "同様に、削除レコードの時刻範囲は、時刻範囲の終点として更新時の時刻を含むよう"
+"に更新されます。"
 
 #: ../../en/history_tracking.rst:36
 msgid ""
@@ -94,16 +110,22 @@ msgid ""
 "point to infinity. The \"contains\" operator ``@>`` for ranges is the one we "
 "will use."
 msgstr ""
+"時刻範囲の検索は、時刻を二つ使った検索よりはるかに単純です。閉じていない時刻"
+"範囲は、始点から無限大までの時刻の全てを包含するためです。範囲用の「含む」"
+"演算子 ``@>`` は、後で使用します。"
 
 #: ../../en/history_tracking.rst:47
 msgid ""
 "Ranges can be very efficiently indexed using a GIST index, just like spatial "
 "data, as we will show below. This makes history queries very efficient."
 msgstr ""
+"下に示すように、範囲はGiSTインデックスを使って、空間データのように、非常に効"
+"率的なインデックスを作ることができます。これによって履歴クエリは非常に効率的"
+"になります。"
 
 #: ../../en/history_tracking.rst:51
 msgid "Building the History Table"
-msgstr ""
+msgstr "履歴テーブルの構築"
 
 #: ../../en/history_tracking.rst:53
 msgid ""
@@ -178,7 +200,7 @@ msgstr ""
 
 #: ../../en/history_tracking.rst:176
 msgid "Editing the Table"
-msgstr ""
+msgstr "テーブルの編集"
 
 #: ../../en/history_tracking.rst:178
 msgid ""
@@ -196,7 +218,7 @@ msgstr ""
 
 #: ../../en/history_tracking.rst:183
 msgid "SQL Edits"
-msgstr ""
+msgstr "SQL 編集"
 
 #: ../../en/history_tracking.rst:185
 msgid ""
@@ -214,7 +236,7 @@ msgstr ""
 
 #: ../../en/history_tracking.rst:202
 msgid "Querying the History Table"
-msgstr ""
+msgstr "履歴テーブルのクエリ"
 
 #: ../../en/history_tracking.rst:204
 msgid ""

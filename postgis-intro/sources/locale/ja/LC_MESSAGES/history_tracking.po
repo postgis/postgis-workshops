@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-07-15 10:08+0000\n"
+"PO-Revision-Date: 2023-07-22 08:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "history_tracking/ja/>\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid ""
 "History tracking works by keeping a history table that records, for every "
 "edit:"
-msgstr "編集操作ごとに記録する履歴テーブルを維持することで履歴追跡が働きます。"
+msgstr "編集操作ごとに記録する履歴テーブルを維持することで履歴追跡が働きます:"
 
 #: ../../en/history_tracking.rst:12
 msgid "If a record was created, when it was added and by whom."
@@ -133,6 +133,8 @@ msgid ""
 "table at any point in time. In this example, we will add history tracking to "
 "our **nyc_streets** table."
 msgstr ""
+"この情報を使うと、任意の時点での編集テーブルの状態を再構築できます。この例で"
+"は、履歴追跡を **nyc_streets** テーブルに追加しています。"
 
 #: ../../en/history_tracking.rst:55
 msgid ""
@@ -140,30 +142,34 @@ msgid ""
 "use to store all the historical edit information. In addition to all the "
 "fields from **nyc_streets**, we add five more fields."
 msgstr ""
+"まず **nyc_streets_history** "
+"を新規追加します。これは編集履歴情報を保存するテーブルです。**nyc_streets** "
+"からのフィールド全てに合わせて、5個のフィールドを追加します。"
 
 #: ../../en/history_tracking.rst:57
 msgid "**hid** the primary key for the history table"
-msgstr ""
+msgstr "**hid** 履歴テーブルの主キー"
 
 #: ../../en/history_tracking.rst:58
 msgid "**created_by** the database user that caused the record to be created"
-msgstr ""
+msgstr "**created_by** レコード作成を行ったデータベースユーザ"
 
 #: ../../en/history_tracking.rst:59
 msgid ""
 "**deleted_by** the database user that caused the record to be marked as "
 "deleted"
-msgstr ""
+msgstr "**deleted_by** レコードへの削除マーク付加を行ったデータベースユーザ"
 
 #: ../../en/history_tracking.rst:60
 msgid "**valid_range** the time range within which the record was \"live\""
-msgstr ""
+msgstr "**valid_range** そのレコードが「生きていた」時間範囲"
 
 #: ../../en/history_tracking.rst:62
 msgid ""
 "Note that we don't actually delete any records in the history table, we just "
 "mark the time they ceased to be part of the current state of the edit table."
-msgstr ""
+msgstr "履歴テーブル内のレコードは、実際には一切削除しません。編集テーブルの現在の状"
+"況の一部でなくなった時刻を記録するだけです。"
 
 #: ../../en/history_tracking.rst:87
 msgid ""
@@ -172,6 +178,10 @@ msgid ""
 "that we fill in the creation time and creation user, but leave the end of "
 "the time range and the deleted by information NULL."
 msgstr ""
+"次に、使用している **nyc_streets** テーブルの現在の状況を履歴テーブルにインポ"
+"ートします。これで履歴追跡のための開始点を持つことになります。生成時刻と生成"
+"ユーザは埋まりますが、時刻範囲の終了時刻は放置され、NULLで削除されていること"
+"に注意して下さい。"
 
 #: ../../en/history_tracking.rst:98
 msgid ""
@@ -179,24 +189,29 @@ msgid ""
 "UPDATE actions. First we create the trigger functions, then bind them to the "
 "table as triggers."
 msgstr ""
+"使用するテーブルには、INSERT、DELETE、UPDATE の各処理のための三つのトリガが必"
+"要です。最初にトリガ関数を生成し、その後にトリガとしテーブルにバインドします"
+"。"
 
 #: ../../en/history_tracking.rst:100
 msgid ""
 "For an insert, we just add a new record into the history table with the "
 "creation time/user."
-msgstr ""
+msgstr "INSERT では、新しいレコードを履歴テーブルに生成時/ユーザと一緒に追加します。"
 
 #: ../../en/history_tracking.rst:123
 msgid ""
 "For a deletion, we just mark the currently active history record (the one "
 "with a NULL deletion time) as deleted."
-msgstr ""
+msgstr "DELETE では、現在有効な (削除時刻が NULL になっている) "
+"履歴レコードに削除済みをマークするだけです。"
 
 #: ../../en/history_tracking.rst:145
 msgid ""
 "For an update, we first mark the active history record as deleted, then "
 "insert a new record for the updated state."
-msgstr ""
+msgstr "UPDATE では、最初に有効な履歴レコードを削除済みにして、更新後に相当する新しい"
+"レコードを挿入します。"
 
 #: ../../en/history_tracking.rst:176
 msgid "Editing the Table"
@@ -206,7 +221,8 @@ msgstr "テーブルの編集"
 msgid ""
 "Now that the history table is enabled, we can make edits on the main table "
 "and watch the log entries appear in the history table."
-msgstr ""
+msgstr "現在、履歴テーブルが有効になっています。メインテーブル上で編集して、履歴テー"
+"ブルのログ登録状況を確認できます。"
 
 #: ../../en/history_tracking.rst:180
 msgid ""
@@ -215,6 +231,9 @@ msgid ""
 "JDBC tool, or a desktop tool like QGIS, the history is consistently tracked."
 "**"
 msgstr ""
+"履歴へのデータベースが支援するアプローチのパワーに注意して下さい: **編集に "
+"SQL コマンドライン、ウェブベースの JDBC ツール、QGIS のようなデスクトップツー"
+"ルなどのツールの、どういうものを使おうとも、履歴は一貫して追跡できます。**"
 
 #: ../../en/history_tracking.rst:183
 msgid "SQL Edits"
@@ -225,6 +244,8 @@ msgid ""
 "Let's turn the two streets named \"Cumberland Walk\" to the more stylish "
 "\"Cumberland Wynde\":"
 msgstr ""
+"\"Cumberland Walk\" という名前の二つのストリートを、よりスタイリッシュな "
+"\"Cumberland Wynde\" に変更してみましょう:"
 
 #: ../../en/history_tracking.rst:193
 msgid ""
@@ -233,6 +254,9 @@ msgid ""
 "streets with the new name added, with an addition time of now. You can "
 "inspect the historical records:"
 msgstr ""
+"二つのストリートの更新によって、履歴テーブルでは元のストリートに削除済みマー"
+"ク、削除時刻が付き、二つの名前が変更された新しいストリートが追加され、現在時"
+"刻が付きます。履歴レコードを調べることができます:"
 
 #: ../../en/history_tracking.rst:202
 msgid "Querying the History Table"
@@ -244,14 +268,17 @@ msgid ""
 "travel! To travel to a particular time **T**, you need to construct a query "
 "that includes:"
 msgstr ""
+"現在、履歴テーブルを持っています。どういう用途でしょうか? "
+"時間旅行に使うのです! 特定の時刻 **T** "
+"に行くには、次を含むクエリを構築する必要があります:"
 
 #: ../../en/history_tracking.rst:206
 msgid "All records created before T, and not yet deleted; and also"
-msgstr ""
+msgstr "T の前に作られ、まだ削除されていない全てのレコードと、さらに"
 
 #: ../../en/history_tracking.rst:207
 msgid "All records created before T, but deleted **after** T."
-msgstr ""
+msgstr "T の前に作られるが T の後に削除された全てのレコード。"
 
 #: ../../en/history_tracking.rst:209
 msgid ""
@@ -261,12 +288,17 @@ msgid ""
 "state of the table 10 minutes ago, **before you started editing** (so, the "
 "original data)."
 msgstr ""
+"このロジックを使って、過去のデータ状況のクエリやビューを生成できます。おそら"
+"く全ての試験編集は過去数分に行われているので、**編集開始前** "
+"(つまりオリジナルデータ) である、10分前のテーブルの状況を示す履歴テーブルのビ"
+"ューを生成してみましょう。"
 
 #: ../../en/history_tracking.rst:221
 msgid ""
 "We can also create views that show just what a particular used has added, "
 "for example:"
-msgstr ""
+msgstr "特定の使用者が追加したものだけを表示するビューを作ることもできます。次のよう"
+"にします:"
 
 #: ../../en/history_tracking.rst:231
 msgid "See Also"
@@ -274,16 +306,20 @@ msgstr "関連情報"
 
 #: ../../en/history_tracking.rst:233
 msgid "`QGIS open source GIS <http://qgis.org>`_"
-msgstr ""
+msgstr "`QGIS フリーでオープンソースの地理情報システム <http://qgis.org>`_"
 
 #: ../../en/history_tracking.rst:234
 msgid ""
 "`PostgreSQL Triggers <http://www.postgresql.org/docs/current/static/plpgsql-"
 "trigger.html>`_"
 msgstr ""
+"`PostgreSQL トリガ関数 <https://www.postgresql.jp/document/current/html/"
+"plpgsql-trigger.html>`_"
 
 #: ../../en/history_tracking.rst:235
 msgid ""
 "`PostgreSQL Range Types <https://www.postgresql.org/docs/current/rangetypes."
 "html>`_"
 msgstr ""
+"`PostgreSQL 範囲型 <https://www.postgresql.jp/document/current/html/"
+"rangetypes.html>`_"

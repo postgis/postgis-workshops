@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-08-01 04:08+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"upgrades/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/upgrades.rst:4
 msgid "Software Upgrades"
-msgstr ""
+msgstr "ソフトウェアアップグレード"
 
 #: ../../en/upgrades.rst:6
 msgid ""
@@ -30,6 +32,11 @@ msgid ""
 "the PostGIS version.  As a general principle, each version of PostGIS can be "
 "theoretically run within a number of versions of PostgreSQL, and vice versa."
 msgstr ""
+"PostGIS は PostgreSQL 内に存在するため、すべての PostGIS は実際には "
+"PostgreSQL バージョンと PostGIS "
+"バージョンの二つのバージョンのソフトウェアで構成されています。 "
+"一般的な原則として、個々のバージョンの PostGIS は、理論的には PostgreSQL "
+"の複数のバージョン内で実行でき、その逆も可能です。"
 
 #: ../../en/upgrades.rst:8
 msgid ""
@@ -39,18 +46,23 @@ msgid ""
 "allowing the parts to be upgraded either independently or simultaneously, "
 "depending on your preferences."
 msgstr ""
+"実際には、お手持ちの PostgreSQL ディストリビューションをビルドしたパッケージ"
+"ャさんによって二つの正確なバージョンが決定されます。ほとんどの Linux "
+"パッケージには、それぞれの PostgreSQL バージョンリリースと PostGIS のバージョ"
+"ンとが含まれていて、一部を個別または同時にアップグレードできます。個別か同時"
+"かは設定で決まります。"
 
 #: ../../en/upgrades.rst:10
 msgid "Upgrades can be considered in terms of upgrading each component."
-msgstr ""
+msgstr "アップグレードは、個々の要素のアップグレードの観点から考えることができます。"
 
 #: ../../en/upgrades.rst:14
 msgid "Upgrading PostgreSQL"
-msgstr ""
+msgstr "PostgreSQL のアップグレード"
 
 #: ../../en/upgrades.rst:16
 msgid "There are two kinds of PostgreSQL upgrade scenarios:"
-msgstr ""
+msgstr "二種類の PostgreSQL アップグレードシナリオがあります:"
 
 #: ../../en/upgrades.rst:18
 msgid ""
@@ -59,6 +71,10 @@ msgid ""
 "of more than one patch version are just fine. Minor upgrades fix bugs but do "
 "not add any new features or change behaviour."
 msgstr ""
+"「マイナーアップグレード」は、ソフトウェアバージョンが「パッチ」レベルの増加"
+"の時です。たとえば、8.4.3 から 8.4.4 の時や、9.0.1 から 9.0.3 の時です。1を超"
+"えるパッチバージョンの増加は問題ありません。マイナーアップグレードは、バグフ"
+"ィックスのためで、新機能追加や振る舞いの変更は行われません。"
 
 #: ../../en/upgrades.rst:19
 msgid ""
@@ -66,28 +82,33 @@ msgid ""
 "example, from 8.4.5 to 9.0.0, or from 9.0.5 to 9.1.1. Major upgrades add new "
 "features and change behavior."
 msgstr ""
+"「メジャー」「マイナー」バージョンのどちらかが増加する時は「メジャーアップグ"
+"レード」になります。たとえば、8.4.5 から 9.0.0 や、9.0.5 から 9.1.1 "
+"です。メジャーアップグレードでは、新機能追加や振る舞い変更が行われます。"
 
 #: ../../en/upgrades.rst:22
 msgid "Minor PostgreSQL Upgrades"
-msgstr ""
+msgstr "マイナー PostgreSQL アップグレード"
 
 #: ../../en/upgrades.rst:24
 msgid ""
 "For \"minor upgrades\", no special process is necessary. Simply install the "
 "new software, and re-start the server."
-msgstr ""
+msgstr "「マイナーアップグレード」では、特別な処理は不要です。単に新しいソフトウェア"
+"をインストールし、サーバを再起動するだけです。"
 
 #: ../../en/upgrades.rst:27
 msgid "Major PostgreSQL Upgrades"
-msgstr ""
+msgstr "PostgreSQL のメジャーアップグレード"
 
 #: ../../en/upgrades.rst:29
 msgid "For \"major upgrades\" there are two ways to carry out the upgrade."
-msgstr ""
+msgstr "「メジャーアップグレード」では、アップグレードを行うには二つの方法があります"
+"。"
 
 #: ../../en/upgrades.rst:32
 msgid "Dump/Restore"
-msgstr ""
+msgstr "ダンプ/レストア"
 
 #: ../../en/upgrades.rst:34
 msgid ""
@@ -98,10 +119,16 @@ msgid ""
 "process. It's also a time-tested and well-understood upgrade path, so if "
 "your database is not too big, there's no reason not to stick with it."
 msgstr ""
+"全てのデータをプラットフォーム中立のフォーマット (文字列表現)に変換したダンプ"
+"と、ネイティブ表現に戻したレストアとを行います。時間とCPU資源を大量に消費する"
+"可能性があります。しかしながら、新しいアーキテクチャや新しいオペレーティング"
+"システムに移行する場合では、この処理が求められます。このアップグレード方法は"
+"、実績もあり、よく理解されているので、データベースがそう大きくない場合には、"
+"この方法に固執しない理由はありません。"
 
 #: ../../en/upgrades.rst:36
 msgid "Dump your data ``pg_dumpall`` from the old database."
-msgstr ""
+msgstr "古いデータベースからデータを ``pg_dumpall`` でダンプします。"
 
 #: ../../en/upgrades.rst:37
 msgid ""
@@ -110,24 +137,29 @@ msgid ""
 "that the dump file function definitions reference an expected version of the "
 "PostGIS library."
 msgstr ""
+"新バージョンの PostgreSQL と、古いデータベースと同じバージョンの PostGIS "
+"をインストールします。PostGIS のバージョンを合致させるのは、"
+"ダンプファイルの関数定義が PostGIS "
+"ライブラリの予期されるバージョンを参照しなければならないためです。"
 
 #: ../../en/upgrades.rst:38
 msgid ""
 "Initialize the new data area using the ``initdb`` program from the new "
 "software."
-msgstr ""
+msgstr "新しいソフトウェアの ``initdb`` "
+"プログラムをを使って新しいデータ領域初期化します。"
 
 #: ../../en/upgrades.rst:39
 msgid "Start the new server on the new data area."
-msgstr ""
+msgstr "新しいデータ領域上にある新しいサーバを起動します。"
 
 #: ../../en/upgrades.rst:40
 msgid "Restore the dump file using ``pg_restore``."
-msgstr ""
+msgstr "``pg_restore`` を使ってダンプファイルをリストアします。"
 
 #: ../../en/upgrades.rst:43
 msgid "pg_upgrade"
-msgstr ""
+msgstr "pg_upgrade"
 
 #: ../../en/upgrades.rst:45
 msgid ""
@@ -136,12 +168,17 @@ msgid ""
 "changes to the data files themselves, but handles the more common and "
 "frequent changes to system tables that occur in PostgreSQL major upgrades."
 msgstr ""
+"pg_upgrade_ ユーティリティで PostgreSQL データディレクトリが、ダンプ/リストア"
+"の手順を踏まずにアップグレードが可能になります。ユーティリティはデータファイ"
+"ル自体の変更処理はできませんが、PostgreSQL のメジャーアップグレードで、より一"
+"般的で頻繁に変更されるシステムテーブルについて変更処理を行います。"
 
 #: ../../en/upgrades.rst:49
 msgid ""
 "The full instructions for running the upgrade process are in the pg_upgrade_ "
 "web page at the PostgreSQL site."
-msgstr ""
+msgstr "アップグレード処理実行の完全な手順は、PostgreSQL サイトの pg_upgrade_ "
+"ウェブページにあります。"
 
 #: ../../en/upgrades.rst:51
 msgid ""
@@ -149,43 +186,49 @@ msgid ""
 "PostgreSQL it is working with, the old and the new version, so you will have "
 "to install them both."
 msgstr ""
+"pg_upgrade_ プログラムは、"
+"動作している古いバージョンと新しいバージョンの両方のバージョンの PostgreSQL "
+"にアクセスすることを期待しているため、両方ともインストールする必要があります"
+"。"
 
 #: ../../en/upgrades.rst:53
 msgid "Install the new version of PostgreSQL you will be using."
-msgstr ""
+msgstr "新に使用する新しいバージョンの PostgreSQL をインストールします。"
 
 #: ../../en/upgrades.rst:54
 msgid ""
 "Install the same version of PostGIS you are using in the old PostgreSQL into "
 "the new PostgreSQL."
-msgstr ""
+msgstr "新しい PostgreSQL に対して、古い PostgreSQL に入っているのと同じバージョンの "
+"PostGIS をインストールします。"
 
 #: ../../en/upgrades.rst:55
 msgid ""
 "Initialize the new PostgreSQL data area with the new copy of ``initdb``."
-msgstr ""
+msgstr "``initdb`` の新しい複製で新しい PostgreSQL データ領域を初期化します。"
 
 #: ../../en/upgrades.rst:56
 msgid "Ensure both the old and new PostgreSQL servers are turned off."
-msgstr ""
+msgstr "新旧両方の PostgreSQL サーバがオフになっていることを確認します。"
 
 #: ../../en/upgrades.rst:57
 msgid ""
 "Run pg_upgrade_, making sure to use the binary from the new software "
 "installation."
-msgstr ""
+msgstr "pg_upgrade_ を実行して、新しいソフトウェアのインストールのバイナリを使用して"
+"いることを確認します。"
 
 #: ../../en/upgrades.rst:67
 msgid "If pg_upgrade_ generated any ``.sql`` files, run them now."
-msgstr ""
+msgstr "pg_upgrade_ で \".sql\" が生成された場合には、それらを実行します。"
 
 #: ../../en/upgrades.rst:68
 msgid "Start the new server."
-msgstr ""
+msgstr "新しいサーバを起動します。"
 
 #: ../../en/upgrades.rst:72
 msgid "Upgrading PostGIS"
-msgstr ""
+msgstr "PostGIS のアップグレード"
 
 #: ../../en/upgrades.rst:74
 msgid ""
@@ -193,11 +236,15 @@ msgid ""
 "If you spatially-enabled your database using ``CREATE EXTENSION postgis``, "
 "you can update your database using the same functionality."
 msgstr ""
+"PostGIS は「エクステンション」機構を通じてアップグレードを扱います。\"CREATE "
+"EXTENSION postgis\" を使って空間データベースを構築した場合には、同じ機能でデ"
+"ータベースのアップデートができます。"
 
 #: ../../en/upgrades.rst:76
 msgid "First, install the new software so it is available to the database."
-msgstr ""
+msgstr "まず、新しいソフトウェアをインストールして、データベースに使えるようにします"
+"。"
 
 #: ../../en/upgrades.rst:78
 msgid "Then, run the SQL to upgrade your PostGIS extension."
-msgstr ""
+msgstr "その後、PostGIS エクステンションのアップグレードのための SQL を実行します。"

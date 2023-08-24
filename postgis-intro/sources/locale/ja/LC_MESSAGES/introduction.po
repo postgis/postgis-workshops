@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-05-15 03:08+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-08-22 03:08+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/ja/>\n"
 "Language: ja\n"
@@ -144,7 +144,6 @@ msgid "Spatial Data Types"
 msgstr "空間データタイプ"
 
 #: ../../en/introduction.rst:43
-#, fuzzy
 msgid ""
 "An ordinary database has strings, numbers, and dates. A spatial database "
 "adds additional (spatial) types for representing **geographic features**. "
@@ -224,7 +223,6 @@ msgstr ""
 "で表現できます。"
 
 #: ../../en/introduction.rst:69
-#, fuzzy
 msgid ""
 "Indexes have to perform quickly in order to be useful. So instead of "
 "providing exact results, as B-trees do, spatial indexes provide approximate "
@@ -256,12 +254,10 @@ msgstr ""
 "%E3%82%B8%E3%82%AA%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5>`_ の実装もあります。"
 
 #: ../../en/introduction.rst:74
-#, fuzzy
 msgid "Spatial Functions"
 msgstr "空間関数"
 
 #: ../../en/introduction.rst:76
-#, fuzzy
 msgid ""
 "For manipulating data during a query, an ordinary database provides "
 "**functions** such as concatenating strings, performing hash operations on "
@@ -271,7 +267,6 @@ msgstr ""
 "シュ演算、数値計算、日付からの情報展開等を行う**関数**を提供します。"
 
 #: ../../en/introduction.rst:78
-#, fuzzy
 msgid ""
 "A spatial database provides a complete set of functions for analyzing "
 "geometric components, determining spatial relationships, and manipulating "
@@ -283,47 +278,40 @@ msgstr ""
 "要素として機能します。"
 
 #: ../../en/introduction.rst:80
-#, fuzzy
 msgid ""
 "The majority of all spatial functions can be grouped into one of the "
 "following five categories:"
 msgstr "全ての空間関数は次の5個のカテゴリのいずれかに入ります:"
 
 #: ../../en/introduction.rst:82
-#, fuzzy
 msgid ""
 "**Conversion**: Functions that *convert* between geometries and external "
 "data formats."
 msgstr "**変換**: ジオメトリの外部データフォーマットとの*変換*を担う関数。"
 
 #: ../../en/introduction.rst:83
-#, fuzzy
 msgid ""
 "**Management**: Functions that *manage* information about spatial tables and "
 "PostGIS administration."
 msgstr "**管理**: 空間テーブルとPostGISシステムの*管理*を担う関数。"
 
 #: ../../en/introduction.rst:84
-#, fuzzy
 msgid ""
 "**Retrieval**: Functions that *retrieve* properties and measurements of a "
 "Geometry."
 msgstr "**検索**: 属性やジオメトリの測定の*検索*を担う関数。"
 
 #: ../../en/introduction.rst:85
-#, fuzzy
 msgid ""
 "**Comparison**: Functions that *compare* two geometries with respect to "
 "their spatial relation."
 msgstr "**比較**: 空間関係に関する二つのジオメトリの*比較*を担う関数。"
 
 #: ../../en/introduction.rst:86
-#, fuzzy
 msgid "**Generation**: Functions that *generate* new geometries from others."
 msgstr "**生成**: 他からの新しいジオメトリの*生成*を担う関数。"
 
 #: ../../en/introduction.rst:88
-#, fuzzy
 msgid ""
 "The list of possible functions is very large, but a common set of functions "
 "is defined by the :term:`OGC` :term:`SFSQL` and implemented (along with "
@@ -338,7 +326,6 @@ msgid "What is PostGIS?"
 msgstr "PostGISとは?"
 
 #: ../../en/introduction.rst:93
-#, fuzzy
 msgid ""
 "PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database "
 "Management System into a spatial database by adding support for the three "
@@ -356,7 +343,6 @@ msgid "But what is PostgreSQL?"
 msgstr "ではPostgreSQLとは?"
 
 #: ../../en/introduction.rst:98
-#, fuzzy
 msgid ""
 "PostgreSQL is a powerful relational database management system (RDBMS). It "
 "is released under a BSD-style license and is thus free and open source "
@@ -372,7 +358,6 @@ msgstr ""
 "community/contributors/>`_ と複数の開発企業とがあります。"
 
 #: ../../en/introduction.rst:100
-#, fuzzy
 msgid ""
 "PostgreSQL was designed from the very start with type extension in mind -- "
 "the ability to add new data types, functions and indexes at run-time. "
@@ -386,12 +371,10 @@ msgstr ""
 "データベースに非常に緊密に統合できます。"
 
 #: ../../en/introduction.rst:103
-#, fuzzy
 msgid "Why choose PostgreSQL?"
-msgstr "なぜ PostgreSQL を選んだ？"
+msgstr "なぜ PostgreSQL を選んだのですか？"
 
 #: ../../en/introduction.rst:105
-#, fuzzy
 msgid ""
 "A common question from people familiar with open source databases is, \"Why "
 "wasn't PostGIS built on MySQL?\"."
@@ -399,45 +382,38 @@ msgstr "オープンソースデータベースに精通している人々から
 "PostGIS は MySQL で作らなかったのか？」があります。"
 
 #: ../../en/introduction.rst:107
-#, fuzzy
 msgid "PostgreSQL has:"
 msgstr "PostgreSQL は次の機能を持っています:"
 
 #: ../../en/introduction.rst:109
-#, fuzzy
 msgid "Proven reliability and transactional integrity by default (ACID)"
 msgstr "証明されたデフォルトの信頼性とトランザクション完全性 (ACID)"
 
 #: ../../en/introduction.rst:110
-#, fuzzy
 msgid "Careful support for SQL standards (full SQL92)"
 msgstr "SQL標準 (完全なSQL92) の慎重な対応"
 
 #: ../../en/introduction.rst:111
-#, fuzzy
 msgid "Pluggable type extension and function extension"
 msgstr "入れ替え可能な型拡張と関数拡張"
 
 #: ../../en/introduction.rst:112
-#, fuzzy
 msgid "Community-oriented development model"
 msgstr "コミュニティ指向の開発モデル"
 
 #: ../../en/introduction.rst:113
-#, fuzzy
 msgid ""
 "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
 msgstr "大きな GIS オブジェクトに対応するために必要なカラムサイズ無制限 (\"TOAST"
 "\"可能なタプル) 機能"
 
 #: ../../en/introduction.rst:114
-#, fuzzy
 msgid "Generic index structure (GiST) to allow R-Tree index"
 msgstr "R木インデックスを可能にした一般性のあるインデックス構造 (GiST)"
 
 #: ../../en/introduction.rst:115
 msgid "Easy to add custom functions"
-msgstr ""
+msgstr "カスタム関数の追加が容易"
 
 #: ../../en/introduction.rst:117
 msgid ""
@@ -447,6 +423,12 @@ msgid ""
 "easy extension. This is no coincidence; Illustra is a proprietary re-working "
 "of the original PostgreSQL code base from the 1980's."
 msgstr ""
+"あわせて、PostgreSQLは新しい空間型を追加するための非常に簡単な開発パスを提供"
+"してくれます。プロプライエタリの世界では `Illustra <https://en.wikipedia.org/"
+"wiki/Illustra>`_ (現在の Informix Universal Server) だけがこのような簡単なエ"
+"クステンションが可能でした。これは決して偶然ではありません。Illustra は、"
+"1980年代からオリジナルの PostgreSQL "
+"コードベースから作り直したプロプライエタリです。"
 
 #: ../../en/introduction.rst:119
 msgid ""
@@ -455,6 +437,9 @@ msgid ""
 "spatial types in version 4.1, the PostGIS team took a look at their code, "
 "and the exercise reinforced the original decision to use PostgreSQL."
 msgstr ""
+"PostgreSQL への型の追加の開発順路が非常に素直だったので、ここから開始するのは"
+"意味のある事です。MySQL が 4.1版で基本的な空間型をリリースした時に、PostGIS "
+"チームはコードを見て、前に PostgreSQL を使用した決断を補強しました。"
 
 #: ../../en/introduction.rst:121
 msgid ""
@@ -463,10 +448,14 @@ msgid ""
 "Development of PostGIS 0.1 took under a month. Doing a \"MyGIS\" 0.1 would "
 "have taken a lot longer, and as such, might never have seen the light of day."
 msgstr ""
+"MySQL 空間オブジェクトは文字列型の先頭を特別に扱う必要がありました。このため"
+"、MySQLコードはコードベース全体に及びました。PostGIS "
+"0,1の開発は1ヶ月とかかりませんでした。\"MyGIS\" 0.1を開発しようとしていたなら"
+"、もっと長い時間が必要になり、日の目を見なかったかも知れません。"
 
 #: ../../en/introduction.rst:124
 msgid "Why not files?"
-msgstr ""
+msgstr "なぜファイルではないのですか？"
 
 #: ../../en/introduction.rst:126
 msgid ""
@@ -476,6 +465,11 @@ msgid ""
 "data since GIS software was first written. However, these \"flat\" files "
 "have the following disadvantages:"
 msgstr ""
+"GIS ソフトウェアが最初に書かれた時から、`Shapefile <http://en.wikipedia.org/"
+"wiki/Shapefile>`_ (と Esri File Geodatabase や `GeoPackage <https://www."
+"geopackage.org/>`_ のような他のフォーマット) は、空間データの格納と使用の標準"
+"的な手法であり続けました。しかしながら、これらの「平坦な」ファイルは次の欠点"
+"を持ちます:"
 
 #: ../../en/introduction.rst:128
 msgid ""
@@ -483,6 +477,9 @@ msgid ""
 "for random data access and analysis. Without that abstraction, you will need "
 "to write all the access and analysis code yourself."
 msgstr ""
+"**ファイルは読み書きに特別なソフトウェアを必要とします** SQLはランダムデータ"
+"アクセスや分析のための抽象化です。この抽象化が無い場合には、全てのアクセスと"
+"分析のコードを自身で書く必要があります。"
 
 #: ../../en/introduction.rst:129
 msgid ""
@@ -492,6 +489,11 @@ msgid ""
 "the associated performance problem, you will have written the better part of "
 "a database system. Why not just use a standard database?"
 msgstr ""
+"**複数ユーザの同時利用は破損と速度低下を引き起こす可能性があります**。同一フ"
+"ァイルへの複数書き込みがデータ破損を起こさないことを保証するよう外部コードを"
+"書くことができますが、こういった問題解決と関連する効率上の問題を解決するまで"
+"の時間で、データベースシステムの大部分を書くことができます。標準データベース"
+"を使用することをお勧めします。"
 
 #: ../../en/introduction.rst:130
 msgid ""
@@ -500,6 +502,9 @@ msgid ""
 "that are expressible in one line of SQL in the database take hundreds of "
 "lines of specialized code to answer when programming against files."
 msgstr ""
+"**複雑な質問に答えるには複雑なソフトウェアが必要です**。データベース内の1行の"
+"SQLで表現できる、複雑で興味深い質問 (空間結合、集約など) は、ファイルに対する"
+"プログラムを書く時は、答えるのに数百行の特別なコードを必要とします。"
 
 #: ../../en/introduction.rst:132
 msgid ""
@@ -509,6 +514,11 @@ msgid ""
 "data sets; with files, they might be segmented into multiple files, but in a "
 "database they can be stored as a single large table."
 msgstr ""
+"ほとんどの PostGIS ユーザは複数アプリケーションがデータにアクセスすることを期"
+"待するシステムをセットアップしているので、標準 SQL アクセス方法を持つことで、"
+"配備と開発を単純化できます。大きなデータセットで作業を行うユーザは、ファイル"
+"を使う場合には複数ファイルに分割することになるかも知れませんが、データベース"
+"では単一の巨大テーブルとして保存することができます。"
 
 #: ../../en/introduction.rst:134
 msgid ""
@@ -516,10 +526,13 @@ msgid ""
 "queries, and performance on large data sets are what sets spatial databases "
 "apart from file-based systems."
 msgstr ""
+"要約すると、複数ユーザ、複雑なアドホッククエリ、大きなデータセットのパフォー"
+"マンスに関する対応の組合せによって、空間データベースをファイルベースのシステ"
+"ムから分離することができます。"
 
 #: ../../en/introduction.rst:137
 msgid "A brief history of PostGIS"
-msgstr ""
+msgstr "PostGIS の歴史"
 
 #: ../../en/introduction.rst:139
 msgid ""
@@ -528,6 +541,10 @@ msgid ""
 "a handful of functions. The result was a database suitable for storage and "
 "retrieval, but not analysis."
 msgstr ""
+"2001年5月、`Refractions Research <http://www.refractions.net/>`_ は PostGIS "
+"の最初のバージョンをリリースしました。PostGIS 0.1 は、オブジェクト、インデッ"
+"クス、少数の関数がありました。データベースは保存と検索には適切ですが、解析に"
+"は不向きだとの結果でした。"
 
 #: ../../en/introduction.rst:141
 msgid ""
@@ -536,6 +553,10 @@ msgid ""
 "from the Open Geospatial Consortium provided such structure with guidelines "
 "for function naming and requirements."
 msgstr ""
+"関数の数が増えるにつれ、組織化の原理の必要性が明らかになりました。Open "
+"Geospatial Consortium から出ている \"Simple Features for SQL\" "
+"(:term:`SFSQL`) "
+"仕様は、関数命名と要件に関するガイドラインとともに、この構造を提供しました。"
 
 #: ../../en/introduction.rst:143
 msgid ""
@@ -543,6 +564,9 @@ msgid ""
 "<http://mapserver.org/>`_ became the first external application to provide "
 "visualization of data in the database."
 msgstr ""
+"PostGIS の単純な解析と空間結合への対応で `Mapserver <http://mapserver.org/>`"
+"_ は、データベース内のデータの可視化機能を提供する最初の外部アプリケーション"
+"になりました。"
 
 #: ../../en/introduction.rst:145
 msgid ""
@@ -551,6 +575,10 @@ msgid ""
 "ST_Intersects(), ST_Buffer(), ST_Union()) were very difficult to code.  "
 "Writing them from scratch promised years of work."
 msgstr ""
+"次の数年間で PostGIS 関数の数は増えましたが、その能力は制限されたままでした。"
+"最も興味深い関数の多数 (例えば ST_Intersects(), ST_Buffer(), ST_Union()) は、"
+"コーディングが非常に難しいものでした。それらを最初から書くには何年もの仕事が"
+"必要となりました。"
 
 #: ../../en/introduction.rst:147
 msgid ""
@@ -560,6 +588,11 @@ msgid ""
 "linking in GEOS, PostGIS provided complete support for :term:`SFSQL` by "
 "version 0.8."
 msgstr ""
+"幸運なことに、二つ目のプロジェクトの「Geometry Engine, Open Source」あるいは "
+"`GEOS <http://trac.osgeo.org/geos>`_ が登場しました。GEOS "
+"ライブラリは、:term:`SFSQL` "
+"仕様を実装するために必要なアルゴリズムを提供します。GEOS をリンクすることで "
+"PostGIS は 0.8 までに、:term:`SFSQL` の完全な対応ができるようになりました。"
 
 #: ../../en/introduction.rst:149
 msgid ""
@@ -571,27 +604,36 @@ msgid ""
 "dimensions, overhead greatly reduced. In PostGIS 1.0, this new, faster, "
 "lightweight representation became the default."
 msgstr ""
+"PostGIS データ容量が増加するにつれ、他の問題が表面化しました。ジオメトリ保存"
+"に使われる表現では比較的非効率です。ポイントや短いラインストリングのように小"
+"さいオブジェクトでは、表現のメタデータには300% のオーバヘッドがあります。効率"
+"性のため、表現をダイエットする必要がありました。メタデータヘッダと求めらえれ"
+"る次元の収縮によって、オーバヘッドは非常に減収します。PostGIS 1.0 "
+"では、新しく、速く、軽い表現がデフォルトになりました。"
 
 #: ../../en/introduction.rst:151
 msgid ""
 "Recent releases of PostGIS continue to add features and performance "
 "improvements, as well as support for new features in the PostgreSQL core "
 "system."
-msgstr ""
+msgstr "PostGIS の最近のリリースでは、PostgreSQL コアシステム内の新機能対応だけでなく"
+"、機能追加と性能改善の追加を継続しています。"
 
 #: ../../en/introduction.rst:154
 msgid "Who uses PostGIS?"
-msgstr ""
+msgstr "PostGIS を使用するのは誰ですか？"
 
 #: ../../en/introduction.rst:156
 msgid ""
 "For a complete list of case studies, see the `PostGIS case studies <https://"
 "postgis.net/category/casestudy/>`_ page."
 msgstr ""
+"ケーススタディの完全なリストについては `PostGIS case studies <https://postgis"
+".net/category/casestudy/>`_ ページをご覧下さい。"
 
 #: ../../en/introduction.rst:159
 msgid "Institut Geographique National, France"
-msgstr ""
+msgstr "フランス IGN (Institut Geographique National)"
 
 #: ../../en/introduction.rst:161
 msgid ""
@@ -604,9 +646,15 @@ msgid ""
 "postgresql.org/docs/devel/warm-standby.html>`_ to maintain uptime in the "
 "event of a system failure."
 msgstr ""
+"IGNはフランスの地図作成機関で、PostGIS を国の高解像度地形図 \"BDUni\" "
+"の保存に使用しています。BDUniには1億を超える地物があり、観測を検証し、"
+"データベースに新しい地図を毎日追加する 100人以上の現地作業員によって維持され"
+"ています。IGNの設備は、データベーストランザクションシステムを使用して更新処理"
+"中の一貫性を確保し、また `温待機システム <https://www.postgresql.org/docs/"
+"devel/warm-standby.html>`_ "
+"を使用してシステム障害が発生した場合でも稼働するようにしています。"
 
 #: ../../en/introduction.rst:164
-#, fuzzy
 msgid "RedFin"
 msgstr "RedFin"
 
@@ -630,7 +678,6 @@ msgid "What applications support PostGIS?"
 msgstr "PostGISに対応したアプリケーションはどれですか?"
 
 #: ../../en/introduction.rst:171
-#, fuzzy
 msgid ""
 "PostGIS has become a widely used spatial database, and the number of third-"
 "party programs that support storing and retrieving data using it has "
@@ -655,63 +702,50 @@ msgid "Open/Free"
 msgstr "オープン/フリー"
 
 #: ../../en/introduction.rst:176
-#, fuzzy
-#| msgid "Closed/Proprietary"
 msgid "Closed/Proprietary/Paid services"
 msgstr "クローズ/プロプライエタリ/有料サービス"
 
 #: ../../en/introduction.rst:179
-#, fuzzy
 msgid "Loading/Extracting"
 msgstr "ロード/抽出"
 
 #: ../../en/introduction.rst:181
-#, fuzzy
 msgid "Shp2Pgsql"
 msgstr "Shp2Pgsql"
 
 #: ../../en/introduction.rst:182
-#, fuzzy
 msgid "ogr2ogr"
 msgstr "ogr2ogr"
 
 #: ../../en/introduction.rst:183
-#, fuzzy
 msgid "Dxf2PostGIS"
 msgstr "Dxf2PostGIS"
 
 #: ../../en/introduction.rst:184
-#, fuzzy
 msgid "GeoKettle"
 msgstr "GeoKettle"
 
 #: ../../en/introduction.rst:186 ../../en/introduction.rst:187
-#, fuzzy
 msgid "Web-Based"
 msgstr "ウェブベース"
 
 #: ../../en/introduction.rst:189
-#, fuzzy
 msgid "Mapserver"
 msgstr "Mapserver"
 
 #: ../../en/introduction.rst:190
-#, fuzzy
 msgid "GeoServer /geoNode"
 msgstr "GeoServer /geoNode"
 
 #: ../../en/introduction.rst:191
-#, fuzzy
 msgid "pg_tileserv"
 msgstr "pg_tileserv"
 
 #: ../../en/introduction.rst:192
-#, fuzzy
 msgid "pg_featureserv"
 msgstr "pg_featureserv"
 
 #: ../../en/introduction.rst:193
-#, fuzzy
 msgid "Deegree"
 msgstr "Deegree"
 
@@ -720,145 +754,114 @@ msgid "Carto"
 msgstr "Carto"
 
 #: ../../en/introduction.rst:195
-#, fuzzy
-#| msgid "ESRI ArcGIS Server"
 msgid "QGIS Server"
 msgstr "QGIS Server"
 
 #: ../../en/introduction.rst:196
-#, fuzzy
 msgid "MapGuide Open Source (using FDO)"
 msgstr "MapGuide Open Source (FDO使用)"
 
 #: ../../en/introduction.rst:201 ../../en/introduction.rst:202
-#, fuzzy
 msgid "Desktop"
 msgstr "デスクトップ"
 
 #: ../../en/introduction.rst:203
-#, fuzzy
 msgid "QGIS"
 msgstr "QGIS"
 
 #: ../../en/introduction.rst:204
-#, fuzzy
 msgid "OpenJUMP"
 msgstr "OpenJUMP"
 
 #: ../../en/introduction.rst:205
-#, fuzzy
 msgid "GRASS"
 msgstr "GRASS"
 
 #: ../../en/introduction.rst:206
 msgid "pgAdmin"
-msgstr "PgAdmin"
+msgstr "pgAdmin"
 
 #: ../../en/introduction.rst:207
-#, fuzzy
 msgid "DBeaver"
 msgstr "DBeaver"
 
 #: ../../en/introduction.rst:208
-#, fuzzy
 msgid "GvSIG"
 msgstr "GvSIG"
 
 #: ../../en/introduction.rst:209
-#, fuzzy
 msgid "SAGA"
 msgstr "SAGA"
 
 #: ../../en/introduction.rst:210
-#, fuzzy
 msgid "uDig"
 msgstr "uDig"
 
 #: ../../en/introduction.rst:181
-#, fuzzy
 msgid "Safe FME Desktop Translator/Converter"
 msgstr "Safe FME Desktop Translator/Converter"
 
 #: ../../en/introduction.rst:182
-#, fuzzy
 msgid "Dbt"
 msgstr "Dbt"
 
 #: ../../en/introduction.rst:188
-#, fuzzy
 msgid "Cadcorp GeognoSIS"
 msgstr "Cadcorp GeognoSIS"
 
 #: ../../en/introduction.rst:189
-#, fuzzy
-#| msgid "ESRI ArcGIS Server"
 msgid "ESRI ArcGIS Server / Online"
 msgstr "ESRI ArcGIS Server / Online"
 
 #: ../../en/introduction.rst:193
-#, fuzzy
 msgid "Services / DbaaS"
 msgstr "Services / DbaaS"
 
 #: ../../en/introduction.rst:195
-#, fuzzy
 msgid "Aiven for PostgreSQL"
 msgstr "Aiven for PostgreSQL"
 
 #: ../../en/introduction.rst:196
-#, fuzzy
 msgid "Amazon RDS / Aurora for PostgreSQL"
 msgstr "Amazon RDS / Aurora for PostgreSQL"
 
 #: ../../en/introduction.rst:198
-#, fuzzy
 msgid "Crunchy Bridge"
 msgstr "Crunchy Bridge"
 
 #: ../../en/introduction.rst:199
-#, fuzzy
 msgid "Microsoft Azure for PostgreSQL"
 msgstr "Microsoft Azure for PostgreSQL"
 
 #: ../../en/introduction.rst:200
-#, fuzzy
 msgid "Google Cloud SQL for PostgreSQL"
 msgstr "Google Cloud SQL for PostgreSQL"
 
 #: ../../en/introduction.rst:204
-#, fuzzy
 msgid "Cadcorp SIS"
 msgstr "Cadcorp SIS"
 
 #: ../../en/introduction.rst:205
-#, fuzzy
-#| msgid "Desktop"
 msgid "ESRI Desktop/Pro"
 msgstr "ESRI Desktop/Pro"
 
 #: ../../en/introduction.rst:206
-#, fuzzy
 msgid "GeoConcept"
 msgstr "GeoConcept"
 
 #: ../../en/introduction.rst:207
-#, fuzzy
 msgid "Global Mapper"
 msgstr "Global Mapper"
 
 #: ../../en/introduction.rst:208
-#, fuzzy
 msgid "Manifold"
 msgstr "Manifold"
 
 #: ../../en/introduction.rst:209
-#, fuzzy
-#| msgid "MapInfo (v10)"
 msgid "MapInfo"
 msgstr "MapInfo"
 
 #: ../../en/introduction.rst:210
-#, fuzzy
 msgid "Microimages TNTmips GIS"
 msgstr "Microimages TNTmips GIS"
 

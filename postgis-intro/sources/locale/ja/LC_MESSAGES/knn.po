@@ -3,29 +3,31 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-08-23 06:32+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"knn/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/knn.rst:4
 msgid "Nearest-Neighbour Searching"
-msgstr ""
+msgstr "最近傍探索"
 
 #: ../../en/knn.rst:7
 msgid "What is a Nearest Neighbour Search?"
-msgstr ""
+msgstr "最近傍探索とは?"
 
 #: ../../en/knn.rst:9
 msgid ""
@@ -40,6 +42,9 @@ msgid ""
 "features of any distance away will be accepted, as long as they are the "
 "*nearest*."
 msgstr ""
+"距離探索と異なり、「最近傍」探索では、候補ジオメトリまでどれだけ遠そうかとい"
+"う計測上の制限は一切含まれません。あらゆる距離の地物を、「最も近い」ものであ"
+"る限り受け付けることになります。"
 
 #: ../../en/knn.rst:13
 msgid ""
@@ -49,6 +54,12 @@ msgid ""
 "place, a nearest neighbor query can return the \"N nearest features\" just "
 "by adding an ordering and limiting the result set to N entries."
 msgstr ""
+"PostgreSQLは、並べ替えた結果集合の速度向上のためにデータベースにインデックス"
+"を使用するよう誘導する \"order by distance\" (``<->``) "
+"演算子の導入によって最近傍問題を解決しました。あるべき \"order by distance\" "
+"演算子との併用で、順序の設定と、N "
+"個の集合の結果を得るための制限とを追加することで、最近傍クエリは「N "
+"番目の最も近い地物」を返すことができます。"
 
 #: ../../en/knn.rst:15
 msgid ""

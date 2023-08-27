@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-07-04 04:08+0000\n"
+"PO-Revision-Date: 2023-08-23 06:32+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships_exercises/ja/>\n"
@@ -24,13 +24,13 @@ msgstr ""
 
 #: ../../en/spatial_relationships_exercises.rst:4
 msgid "Spatial Relationships Exercises"
-msgstr ""
+msgstr "空間関係の演習"
 
 #: ../../en/spatial_relationships_exercises.rst:6
 msgid ""
 "Here's a reminder of the functions we saw in the last section. They should "
 "be useful for the exercises!"
-msgstr ""
+msgstr "これは前のセクションで見た関数のリマインダです。演習に役立つはずです!"
 
 #: ../../en/spatial_relationships_exercises.rst:8
 msgid ""
@@ -47,60 +47,80 @@ msgid ""
 ":command:`ST_Contains(geometry A, geometry B)` returns true if geometry A "
 "contains geometry B"
 msgstr ""
+":command:`ST_Contains(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBを含む場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:11
 msgid ""
 ":command:`ST_Crosses(geometry A, geometry B)` returns true if geometry A "
 "crosses geometry B"
 msgstr ""
+":command:`ST_Crosses(geometry A, geometry B)` "
+"ジオメトリAはジオメトリBとクロスする場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:12
 msgid ""
 ":command:`ST_Disjoint(geometry A , geometry B)` returns true if the "
 "geometries do not \"spatially intersect\""
 msgstr ""
+":command:`ST_Disjoint(geometry A , geometry B)` "
+"ジオメトリが「空間的にインタセクトしていない」場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:13
 msgid ""
 ":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance "
 "between geometry A and geometry B"
 msgstr ""
+":command:`ST_Distance(geometry A, geometry B)` "
+"ジオメトリAとジオメトリBの距離の最小値を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:14
 msgid ""
 ":command:`ST_DWithin(geometry A, geometry B, radius)` returns true if "
 "geometry A is radius distance or less from geometry B"
 msgstr ""
+":command:`ST_DWithin(geometry A, geometry B, radius)` "
+"ジオメトリAがジオメトリBからの距離が radius 未満の場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:15
 msgid ""
 ":command:`ST_Equals(geometry A, geometry B)` returns true if geometry A is "
 "the same as geometry B"
 msgstr ""
+":command:`ST_Equals(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBと同じ場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:16
 msgid ""
 ":command:`ST_Intersects(geometry A, geometry B)` returns true if geometry A "
 "intersects geometry B"
 msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBとインタセクトする場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:17
 msgid ""
 ":command:`ST_Overlaps(geometry A, geometry B)` returns true if geometry A "
 "and geometry B share space, but are not completely contained by each other."
 msgstr ""
+":command:`ST_Overlaps(geometry A, geometry B)` ジオメトリAとジオメトリBに共有"
+"部分があるけど一方がもう一方を完全には含まないばあいに TRUE を返します。"
 
 #: ../../en/spatial_relationships_exercises.rst:18
 msgid ""
 ":command:`ST_Touches(geometry A, geometry B)` returns true if the boundary "
 "of geometry A touches geometry B"
 msgstr ""
+":command:`ST_Touches(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBと接触する場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:19
 msgid ""
 ":command:`ST_Within(geometry A, geometry B)` returns true if geometry A is "
 "within geometry B"
 msgstr ""
+":command:`ST_Within(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBの内側にある場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:21
 msgid "Also remember the tables we have available:"
@@ -144,11 +164,11 @@ msgstr "演習"
 
 #: ../../en/spatial_relationships_exercises.rst:42
 msgid "**What is the geometry value for the street named 'Atlantic Commons'?**"
-msgstr ""
+msgstr "**'Atlantic Commons' という名前のストリートのジオメトリ値は何ですか?**"
 
 #: ../../en/spatial_relationships_exercises.rst:54
 msgid "**What neighborhood and borough is Atlantic Commons in?**"
-msgstr ""
+msgstr "**どの近隣地域と行政区が Atlantic Commons 内にありますか?**"
 
 #: ../../en/spatial_relationships_exercises.rst:73
 msgid ""
@@ -156,6 +176,9 @@ msgid ""
 "Spatially they describe the same shape, so going from a single-item multi-"
 "geometry to a singleton saves a few keystrokes."
 msgstr ""
+"「ねえ、どうして 'MULTILINESTRING' から 'LINESTRING' に変更したのですか?」空"
+"間的に同じ形状を記述して、マルチ系ジオメトリ一つ分から単一ジオメトリに変更す"
+"ると、若干のキーストロークの節約が可能です。"
 
 #: ../../en/spatial_relationships_exercises.rst:75
 msgid ""
@@ -164,13 +187,16 @@ msgid ""
 "predicate to find out which roads join Atlantic Commons, because the "
 "coordinates are not exactly the same anymore."
 msgstr ""
+"さらに重要なことに、読みやすくするために座標値を丸めましたが、本当なら結果が"
+"変化します。座標値が確実には同じにならなかったので、Atlantic Commons "
+"に参加する道路がどれかを発見するために ST_Touches() を使うことができません。"
 
 #: ../../en/spatial_relationships_exercises.rst:78
 msgid "**What streets does Atlantic Commons join with?**"
-msgstr ""
+msgstr "**Atlantic Commons はどのストリートに参加していますか?**"
 
 #: ../../en/spatial_relationships_exercises.rst:100
 msgid ""
 "**Approximately how many people live on (within 50 meters of) Atlantic "
 "Commons?**"
-msgstr ""
+msgstr "**Atlantic Commons (の 50m 以内) に住んでいる人は約何人ですか?**"

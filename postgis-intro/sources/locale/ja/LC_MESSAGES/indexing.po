@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-21 08:47+0000\n"
+"PO-Revision-Date: 2023-08-23 06:32+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "indexing/ja/>\n"
@@ -211,81 +211,81 @@ msgstr "空間インデックスが有効な時に自動的に空間インデッ
 #: ../../en/indexing.rst:78
 msgid "`ST_Intersects <http://postgis.net/docs/ST_Intersects.html>`_"
 msgstr ""
-"`ST_Intersects <https://boiledorange73.github.io/pgismanja/latest/"
+"`ST_Intersects <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
 "ST_Intersects.html>`_"
 
 #: ../../en/indexing.rst:79
 msgid "`ST_Contains <http://postgis.net/docs/ST_Contains.html>`_"
 msgstr ""
-"`ST_Contains <https://boiledorange73.github.io/pgismanja/latest/ST_Contains."
-"html>`_"
+"`ST_Contains <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_Contains.html>`_"
 
 #: ../../en/indexing.rst:80
 msgid "`ST_Within <http://postgis.net/docs/ST_Within.html>`_"
 msgstr ""
-"`ST_Within <https://boiledorange73.github.io/pgismanja/latest/ST_Within."
-"html>`_"
+"`ST_Within <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_Within.html>`_"
 
 #: ../../en/indexing.rst:81
 msgid "`ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_"
 msgstr ""
-"`ST_DWithin <https://boiledorange73.github.io/pgismanja/latest/ST_DWithin."
-"html>`_"
+"`ST_DWithin <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_DWithin.html>`_"
 
 #: ../../en/indexing.rst:82
 msgid ""
 "`ST_ContainsProperly <http://postgis.net/docs/ST_ContainsProperly.html>`_"
 msgstr ""
 "`ST_ContainsProperly <https://boiledorange73.github.io/pgismanja/latest/"
-"ST_ContainsProperly.html>`_"
+"postgis-ja/ST_ContainsProperly.html>`_"
 
 #: ../../en/indexing.rst:83
 msgid "`ST_CoveredBy <http://postgis.net/docs/ST_CoveredBy.html>`_"
 msgstr ""
-"`ST_CoveredBy <https://boiledorange73.github.io/pgismanja/latest/ST_CoveredBy"
-".html>`_"
+"`ST_CoveredBy <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_CoveredBy.html>`_"
 
 #: ../../en/indexing.rst:84
 msgid "`ST_Covers <http://postgis.net/docs/ST_Covers.html>`_"
 msgstr ""
-"`ST_Covers <https://boiledorange73.github.io/pgismanja/latest/ST_Covers."
-"html>`_"
+"`ST_Covers <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_Covers.html>`_"
 
 #: ../../en/indexing.rst:85
 msgid "`ST_Overlaps <http://postgis.net/docs/ST_Overlaps.html>`_"
 msgstr ""
-"`ST_Overlaps <https://boiledorange73.github.io/pgismanja/latest/ST_Overlaps."
-"html>`_"
+"`ST_Overlaps <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_Overlaps.html>`_"
 
 #: ../../en/indexing.rst:86
 msgid "`ST_Crosses <http://postgis.net/docs/ST_Crosses.html>`_"
 msgstr ""
-"`ST_Crosses <https://boiledorange73.github.io/pgismanja/latest/ST_Crosses."
-"html>`_"
+"`ST_Crosses <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_Crosses.html>`_"
 
 #: ../../en/indexing.rst:87
 msgid "`ST_DFullyWithin <http://postgis.net/docs/ST_DFullyWithin.html>`_"
 msgstr ""
 "`ST_DFullyWithin <https://boiledorange73.github.io/pgismanja/latest/"
-"ST_DFullyWithin.html>`_"
+"postgis-ja/ST_DFullyWithin.html>`_"
 
 #: ../../en/indexing.rst:88
 msgid "`ST_3DIntersects <http://postgis.net/docs/ST_3DIntersects.html>`_"
 msgstr ""
 "`ST_3DIntersects <https://boiledorange73.github.io/pgismanja/latest/"
-"ST_3DIntersects.html>`_"
+"postgis-ja/ST_3DIntersects.html>`_"
 
 #: ../../en/indexing.rst:89
 msgid "`ST_3DDWithin <http://postgis.net/docs/ST_3DDWithin.html>`_"
 msgstr ""
-"`ST_3DDWithin <https://boiledorange73.github.io/pgismanja/latest/ST_3DDWithin"
-".html>`_"
+"`ST_3DDWithin <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_3DDWithin.html>`_"
 
 #: ../../en/indexing.rst:90
 msgid "`ST_3DDFullyWithin <http://postgis.net/docs/ST_3DDFullyWithin.html>`_"
 msgstr ""
 "`ST_3DDFullyWithin <https://boiledorange73.github.io/pgismanja/latest/"
-"ST_3DDFullyWithin.html>`_"
+"postgis-ja/ST_3DDFullyWithin.html>`_"
 
 #: ../../en/indexing.rst:91
 msgid ""
@@ -293,19 +293,19 @@ msgid ""
 "html>`_"
 msgstr ""
 "`ST_LineCrossingDirection <https://boiledorange73.github.io/pgismanja/latest/"
-"ST_LineCrossingDirection.html>`_"
+"postgis-ja/ST_LineCrossingDirection.html>`_"
 
 #: ../../en/indexing.rst:92
 msgid "`ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_"
 msgstr ""
 "`ST_OrderingEquals <https://boiledorange73.github.io/pgismanja/latest/"
-"ST_OrderingEquals.html>`_"
+"postgis-ja/ST_OrderingEquals.html>`_"
 
 #: ../../en/indexing.rst:93
 msgid "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_"
 msgstr ""
-"`ST_Equals <https://boiledorange73.github.io/pgismanja/latest/ST_Equals."
-"html>`_"
+"`ST_Equals <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
+"ST_Equals.html>`_"
 
 #: ../../en/indexing.rst:95
 msgid ""
@@ -315,9 +315,9 @@ msgid ""
 "getting a performance boost from the index."
 msgstr ""
 "最初の4関数はクエリで最も一般的に使われます。`ST_DWithin "
-"<https://boiledorange73.github.io/pgismanja/latest/ST_DWithin.html>`_ は、イ"
-"ンデックスからパフォーマンスを向上させつつ「距離内」「半径内」を求めるクエリ"
-"において非常に重要です。"
+"<https://boiledorange73.github.io/pgismanja/latest/postgis-ja/ST_DWithin."
+"html>`_ は、インデックスからパフォーマンスを向上させつつ「距離内」「半径内」"
+"を求めるクエリにおいて非常に重要です。"
 
 #: ../../en/indexing.rst:97
 msgid ""
@@ -326,8 +326,9 @@ msgid ""
 "add an index-only clause as descibed below."
 msgstr ""
 "このリストに無い関数 (`ST_Relate <https://boiledorange73.github.io/pgismanja/"
-"latest/ST_Relate.html>`_ が最も一般的です) へのインデックスによる高速化機能を"
-"追加するには、インデックスのみの句を追加します。下のようにします。"
+"latest/postgis-ja/ST_Relate.html>`_ が最も一般的です) へのインデックスによる"
+"高速化機能を追加するには、インデックスのみの句を追加します。下のようにします"
+"。"
 
 #: ../../en/indexing.rst:101
 msgid "Index-Only Queries"
@@ -512,8 +513,8 @@ msgid ""
 "html>`_: Returns TRUE if A's bounding box overlaps B's."
 msgstr ""
 "`geometry_a && geometry_b <https://boiledorange73.github.io/pgismanja/latest/"
-"geometry_overlaps.html>`_: AのバウンディングボックスとBのバウンディングボック"
-"スがオーバラップする場合にはTRUEを返します。"
+"postgis-ja/geometry_overlaps.html>`_: AのバウンディングボックスとBのバウンデ"
+"ィングボックスがオーバラップする場合にはTRUEを返します。"
 
 #: ../../en/indexing.rst:176
 msgid ""
@@ -521,8 +522,8 @@ msgid ""
 "Returns TRUE if A's bounding box is the same as B's."
 msgstr ""
 "`geometry_a = geometry_b <https://boiledorange73.github.io/pgismanja/latest/"
-"ST_Geometry_EQ.html>`_: AのバウンディングボックスとBのバウンディングボックス"
-"と同じ場合にはTRUEを返します。"
+"postgis-ja/ST_Geometry_EQ.html>`_: AのバウンディングボックスとBのバウンディン"
+"グボックスと同じ場合にはTRUEを返します。"
 
 #: ../../en/indexing.rst:178
 msgid ""
@@ -532,7 +533,7 @@ msgid ""
 "Disjoint)."
 msgstr ""
 "`ST_Intersects(geometry_a, geometry_b) <https://boiledorange73.github.io/"
-"pgismanja/latest/ST_Intersects.html>`_: "
+"pgismanja/latest/postgis-ja/ST_Intersects.html>`_: "
 "ジオメトリ/ジオグラフィが「空間的にインタセクトする」 - (空間の任意部分を共有"
 "する)場合にはTRUEを返し、そうでない(接続されていない、Disjoint)場合にはFALSE"
 "を返します。"

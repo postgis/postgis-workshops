@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2023-08-23 06:32+0000\n"
+"PO-Revision-Date: 2023-08-31 08:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_exercises/ja/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:4
 msgid "Spatial Joins Exercises"
-msgstr ""
+msgstr "空間結合の演習"
 
 #: ../../en/joins_exercises.rst:6
 msgid ""
@@ -35,13 +35,13 @@ msgstr "これまでに見た全ての関数のリマインダです。演習に
 #: ../../en/joins_exercises.rst:8
 msgid ""
 ":command:`sum(expression)`: aggregate to return a sum for a set of records"
-msgstr ""
+msgstr ":command:`sum(expression)`: レコードの集合の合計を返す集約関数"
 
 #: ../../en/joins_exercises.rst:9
 msgid ""
 ":command:`count(expression)`: aggregate to return the size of a set of "
 "records"
-msgstr ""
+msgstr ":command:`count(expression)` はレコードの集合のサイズを返す集約関数です"
 
 #: ../../en/joins_exercises.rst:10
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
@@ -56,6 +56,8 @@ msgid ""
 ":command:`ST_Contains(geometry A, geometry B)` returns the true if geometry "
 "A contains geometry B"
 msgstr ""
+":command:`ST_Contains(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBを含む場合には TRUE を返します"
 
 #: ../../en/joins_exercises.rst:13
 msgid ""
@@ -70,6 +72,8 @@ msgid ""
 ":command:`ST_DWithin(geometry A, geometry B, radius)` returns the true if "
 "geometry A is radius distance or less from geometry B"
 msgstr ""
+":command:`ST_DWithin(geometry A, geometry B, radius)` "
+"ジオメトリAがジオメトリBからの距離が radius 未満の場合には TRUE を返します"
 
 #: ../../en/joins_exercises.rst:15
 msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
@@ -80,6 +84,8 @@ msgid ""
 ":command:`ST_Intersects(geometry A, geometry B)` returns the true if "
 "geometry A intersects geometry B"
 msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBとインタセクトする場合には TRUE を返します"
 
 #: ../../en/joins_exercises.rst:17
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
@@ -90,12 +96,16 @@ msgid ""
 ":command:`ST_Touches(geometry A, geometry B)` returns the true if the "
 "boundary of geometry A touches geometry B"
 msgstr ""
+":command:`ST_Touches(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBと接触する場合には TRUE を返します"
 
 #: ../../en/joins_exercises.rst:19
 msgid ""
 ":command:`ST_Within(geometry A, geometry B)` returns the true if geometry A "
 "is within geometry B"
 msgstr ""
+":command:`ST_Within(geometry A, geometry B)` "
+"ジオメトリAがジオメトリBの内側にある場合には TRUE を返します"
 
 #: ../../en/joins_exercises.rst:21
 msgid "Also remember the tables we have available:"
@@ -123,7 +133,7 @@ msgstr "nyc_subway_stations"
 
 #: ../../en/joins_exercises.rst:33
 msgid "name, routes, geom"
-msgstr ""
+msgstr "name, routes, geom"
 
 #: ../../en/joins_exercises.rst:35
 msgid "``nyc_neighborhoods``"
@@ -140,7 +150,7 @@ msgstr "演習"
 #: ../../en/joins_exercises.rst:42
 msgid ""
 "**What subway station is in 'Little Italy'? What subway route is it on?**"
-msgstr ""
+msgstr "**'Little Italy'内にある地下鉄駅はどれでしょう? どの地下鉄路線にありますか?**"
 
 #: ../../en/joins_exercises.rst:58
 msgid ""
@@ -148,19 +158,23 @@ msgid ""
 "``routes`` column in the ``nyc_subway_stations`` table has values like 'B,"
 "D,6,V' and 'C,6')"
 msgstr ""
+"**6列車が走っている町を全て挙げて下さい** (ヒント: ``nyc_subway_stations``"
+"テーブルの ``routes`` カラムは 'B,D,6,V' や 'C,6' のような値を持ちます。"
 
 #: ../../en/joins_exercises.rst:90
 msgid ""
 "We used the ``DISTINCT`` keyword to remove duplicate values from our result "
 "set where there were more than one subway station in a neighborhood."
-msgstr ""
+msgstr "一つの町に複数の地下鉄駅がある時に、結果集合から重複値を削除するには "
+"``DISTINCT`` キーワードを使います。"
 
 #: ../../en/joins_exercises.rst:92
 msgid ""
 "**After 9/11, the 'Battery Park' neighborhood was off limits for several "
 "days. How many people had to be evacuated?**"
-msgstr ""
+msgstr "**9/11後、'Battery Park' 町は数日間立ち入り禁止でした。非難しなけれならなかっ"
+"た人の数はどれぐらいでしょうか?**"
 
 #: ../../en/joins_exercises.rst:106
 msgid "**What neighborhood has the highest population density (persons/km2)?**"
-msgstr ""
+msgstr "**最も人口密度 (人/km2) が高い町はどこですか?**"

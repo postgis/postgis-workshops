@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-08-22 03:08+0000\n"
+"PO-Revision-Date: 2023-08-31 08:08+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins/ja/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../../en/joins.rst:4
 msgid "Spatial Joins"
-msgstr ""
+msgstr "空間結合"
 
 #: ../../en/joins.rst:6
 msgid ""
@@ -32,6 +32,9 @@ msgid ""
 "as the join key.  Much of what we think of as \"standard GIS analysis\" can "
 "be expressed as spatial joins."
 msgstr ""
+"空間結合は空間データベースの基本です。空間関係を結合キーにによって使用するこ"
+"とで、異なるテーブルからの情報を結びつけることができます。「標準GIS解析」と考"
+"えるものの多くは空間結合として表現できます。"
 
 #: ../../en/joins.rst:8
 msgid ""
@@ -40,12 +43,16 @@ msgid ""
 "used that point to ask further questions such as \"what neighborhood is the "
 "'Broad St' station in?\""
 msgstr ""
+"前の節では、空間関係を2ステップで調べました。すなわち、最初に地下鉄 'Broad "
+"St' 駅のポイントを抽出し、その後、そのポイントを「'Broad St' "
+"のある町は何ですか?」といった、より大きな問題の質問に使いました。"
 
 #: ../../en/joins.rst:10
 msgid ""
 "Using a spatial join, we can answer the question in one step, retrieving "
 "information about the subway station and the neighborhood that contains it:"
-msgstr ""
+msgstr "空間結合を使うと、この地下鉄駅に関する情報の検索と、地下鉄駅を含む町の検索と"
+"を1ステップで実行できます:"
 
 #: ../../en/joins.rst:29
 msgid ""
@@ -55,16 +62,22 @@ msgid ""
 "spatial join, but the most commonly used ones are: :command:"
 "`ST_Intersects`, :command:`ST_Contains`, and :command:`ST_DWithin`."
 msgstr ""
+"全ての地下鉄駅と、その駅の属する町とを結合することができますが、この場合は一"
+"つだけ情報が必要でした。二つのテーブルの間の TRUE / FALSE "
+"関係を返す関数は全て、空間結合で使うことができます。最も一般的には "
+":command:`ST_Intersects`, :command:`ST_Contains`, :command:`ST_DWithin` "
+"が使われます。"
 
 #: ../../en/joins.rst:32
 msgid "Join and Summarize"
-msgstr ""
+msgstr "結合と要約"
 
 #: ../../en/joins.rst:34
 msgid ""
 "The combination of a ``JOIN`` with a ``GROUP BY`` provides the kind of "
 "analysis that is usually done in a GIS system."
-msgstr ""
+msgstr "``GROUP BY`` と ``JOIN`` の組合せによって、GIS "
+"システムで通常行われるような解析が可能です。"
 
 #: ../../en/joins.rst:36
 msgid ""
@@ -73,35 +86,44 @@ msgid ""
 "information from about population from the census with the boundaries of "
 "neighborhoods, with a restriction to just one borough of Manhattan."
 msgstr ""
+"例: **「マンハッタンの町ごとの人口と人口構成比率は?」** 国勢調査から人口情報"
+"と、町の境界データとの組み合わせた質問があり、マンハッタンの一つの区のみに制"
+"限された質問となります。"
 
 #: ../../en/joins.rst:88
 msgid ""
 "What's going on here? Notionally (the actual evaluation order is optimized "
 "under the covers by the database) this is what happens:"
-msgstr ""
+msgstr "ここで何がおこっているのでしょう? 概念上 "
+"(実際の評価順はデータベース内部で最適化されています) "
+"は次のことが発生しています:"
 
 #: ../../en/joins.rst:90
 msgid ""
 "The ``JOIN`` clause creates a virtual table that includes columns from both "
 "the neighborhoods and census tables."
-msgstr ""
+msgstr "\"JOIN\" 節で、町とセンサスの両方のテーブルからのコラムを持つ、仮想的なテーブ"
+"ルが発生します。"
 
 #: ../../en/joins.rst:91
 msgid ""
 "The ``WHERE`` clause filters our virtual table to just rows in Manhattan."
-msgstr ""
+msgstr "\"WHERE\" 節で、仮想テーブルをマンハッタン内の行にフィルタリングします。"
 
 #: ../../en/joins.rst:92
 msgid ""
 "The remaining rows are grouped by the neighborhood name and fed through the "
 "aggregation function to :command:`Sum()` the population values."
-msgstr ""
+msgstr "残る行は町名でグループ化され、人口値を :command:`Sum()` "
+"する集約関数に渡されます。"
 
 #: ../../en/joins.rst:93
 msgid ""
 "After a little arithmetic and formatting (e.g., ``GROUP BY``, ``ORDER BY``) "
 "on the final numbers, our query spits out the percentages."
 msgstr ""
+"最後の数に関する計算とフォーマット調整 (例: ``GROUP BY``, ``ORDER BY``) "
+"の後に、クエリはパーセンテージを吐き出します。"
 
 #: ../../en/joins.rst:97
 msgid ""
@@ -111,6 +133,10 @@ msgid ""
 "interactive/sql-select.html#SQL-FROM>`_ definition in the PostgreSQL "
 "documentation."
 msgstr ""
+"``JOIN`` 節は、二つの ``FROM`` の項目を結合します。デフォルトでは ``INNER "
+"JOIN`` を使いますが、4種の結合のタイプがあります。詳細については、PostgreSQL "
+"ドキュメントで定義されている `join_type <https://www.postgresql.jp/document/"
+"current/html/sql-select.html#SQL-FROM>`_ をご覧下さい。"
 
 #: ../../en/joins.rst:99
 msgid ""
@@ -118,16 +144,20 @@ msgid ""
 "items within a radius\" queries. Let's explore the racial geography of New "
 "York using distance queries."
 msgstr ""
+"距離テストも結合キーとして使うことができます。「半径内の全ての地物」クエリを"
+"生成する場合に使います。距離クエリを使ってニューヨークの人種地理を見ていきま"
+"しょう。"
 
 #: ../../en/joins.rst:101
 msgid "First, let's get the baseline racial make-up of the city."
-msgstr ""
+msgstr "最初に、市の人種構成の基準を得ましょう。"
 
 #: ../../en/joins.rst:118
 msgid ""
 "So, of the 8M people in New York, about 44% are recorded as \"white\" and "
 "26% are recorded as \"black\"."
-msgstr ""
+msgstr "ニューヨーク市には 800万人 がいて、44% が「白人」で、26% "
+"が「黒人」と記録されています。"
 
 #: ../../en/joins.rst:120
 msgid ""
@@ -136,6 +166,10 @@ msgid ""
 "the highest African-American population in Manhattan (80.5%). Is the same "
 "true of Duke's A-train?"
 msgstr ""
+"デューク・エリントンは、かつて「あなたは / A列車に乗らないと / だって / "
+"ハーレムのシュガーヒルにいくのでしょう」と歌いました。先に見た通り、"
+"ハーレムはアフリカ系アメリカ人の人口がはるかに多くなっています (80."
+"5%)。デューク・エリントンの A列車 もそう言えるでしょうか?"
 
 #: ../../en/joins.rst:122
 msgid ""
@@ -143,6 +177,9 @@ msgid ""
 "``routes`` field is what we are interested in to find the A-train. The "
 "values in there are a little complex."
 msgstr ""
+"まず、``nyc_subway_stations`` テーブルの ``routes`` フィールドの内容は、"
+"A列車 "
+"を見つけるのに興味を持っていることに注意して下さい。そこの値は少し複雑です。"
 
 #: ../../en/joins.rst:140
 msgid ""
@@ -150,6 +187,8 @@ msgid ""
 "the ``DISTINCT`` keyword, the query above identifies 491 results instead of "
 "73."
 msgstr ""
+"``DISTINCT`` キーワードは結果から重複する行を削除します。``DISTINCT`` "
+"を使わない場合には、クエリの結果は 73件 でなく 491件 となります。"
 
 #: ../../en/joins.rst:142
 msgid ""
@@ -158,21 +197,26 @@ msgid ""
 "command:`strpos(routes,'A')` will return a non-zero number only if 'A' is in "
 "the ``routes`` field."
 msgstr ""
+"よって A列車 を見つけるには、``routes`` 内の 'A' "
+"を含む全ての行が必要です。これは様々な方法がありますが、今回は ``routes`` "
+"フィールド内に 'A' がある場合にだけ :command:`strpos(routes,'A')` が 0 "
+"以外の値を返すのを使います。"
 
 #: ../../en/joins.rst:162
 msgid ""
 "Let's summarize the racial make-up of within 200 meters of the A-train line."
-msgstr ""
+msgstr "A系統 の200メートル内の人種構成を要約しましょう。"
 
 #: ../../en/joins.rst:181
 msgid ""
 "So the racial make-up along the A-train isn't radically different from the "
 "make-up of New York City as a whole."
-msgstr ""
+msgstr "A系統 "
+"に沿った人種構成はニューヨーク市全体の人種構成と根本的に違いはありません。"
 
 #: ../../en/joins.rst:184
 msgid "Advanced Join"
-msgstr ""
+msgstr "高度な結合"
 
 #: ../../en/joins.rst:186
 msgid ""
@@ -180,6 +224,9 @@ msgid ""
 "differed much from the racial make-up of the rest of the city. Are there any "
 "trains that have a non-average racial make-up?"
 msgstr ""
+"最後のセクションでは、A列車 が市の残りの領域の人種構成から大きく異なって人口"
+"に影響を与えるようなことがなかったことが分かりました。平均的でない人種構成を"
+"持つ列車はあるでしょうか?"
 
 #: ../../en/joins.rst:188
 msgid ""
@@ -188,10 +235,13 @@ msgid ""
 "that, we'll need to create a new table that enumerates all the lines we want "
 "to summarize."
 msgstr ""
+"その問に答えるには、これまでのクエリに他の結合を追加して、多数の地下鉄路線の"
+"構成を一括して同時に計算できるようにします。これを行うには、要約したい路線の"
+"全てを列挙する新しいテーブルを生成する必要があります。"
 
 #: ../../en/joins.rst:199
 msgid "Now we can join the table of subway lines onto our original query."
-msgstr ""
+msgstr "これで地下鉄路線のテーブルを元のクエリに結合できます。"
 
 #: ../../en/joins.rst:244
 msgid ""
@@ -201,6 +251,10 @@ msgid ""
 "``ST_DWithin`` function, that ensures only census blocks close to the "
 "appropriate subway stations are included in the calculation."
 msgstr ""
+"前のように、結合で、\"JOIN ON\" "
+"制約に合致した全てのありえる組合せの仮想テーブルが生成され、これらの行は "
+"\"GROUP\" による集約に渡されます。``ST_DWithin`` 関数が空間処理のミソで、適切"
+"な地下鉄駅に近い統計区だけを計算に取り込むようにします。"
 
 #: ../../en/joins.rst:247
 msgid "Function List"
@@ -212,6 +266,9 @@ msgid ""
 "html>`_: Returns true if and only if no points of B lie in the exterior of "
 "A, and at least one point of the interior of B lies in the interior of A."
 msgstr ""
+"`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains."
+"html>`_: Bの点がAの外部に全く存在せず、"
+"Bの内部の少なくとも一つの点がAの内部に存在する場合にのみ TRUE を返します。"
 
 #: ../../en/joins.rst:251
 msgid ""
@@ -219,6 +276,10 @@ msgid ""
 "ST_DWithin.html>`_: Returns true if the geometries are within the specified "
 "distance of one another."
 msgstr ""
+"`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/"
+"ST_DWithin.html>`_: "
+"ジオメトリと他のジオメトリとの距離が指定した距離以内である場合に TRUE "
+"を返します。"
 
 #: ../../en/joins.rst:253
 msgid ""
@@ -239,6 +300,9 @@ msgid ""
 "interactive/functions-math.html>`_: PostgreSQL math function that rounds to "
 "s decimal places"
 msgstr ""
+"`round(v numeric, s integer) <http://www.postgresql.org/docs/current/"
+"interactive/functions-math.html>`_: 小数点以下の桁数を s "
+"桁に丸めるPostgreSQL 数学関数"
 
 #: ../../en/joins.rst:257
 msgid ""
@@ -246,6 +310,9 @@ msgid ""
 "functions-string.html>`_: PostgreSQL string function that returns an integer "
 "location of a specified substring."
 msgstr ""
+"`strpos(string, substring) <http://www.postgresql.org/docs/current/static/"
+"functions-string.html>`_: 指定した部分文字列の位置を示す整数を返す "
+"PostgreSQL 文字列関数。"
 
 #: ../../en/joins.rst:259
 msgid ""

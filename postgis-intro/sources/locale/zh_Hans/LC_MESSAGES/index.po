@@ -1,21 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# Chen <onsummer@foxmail.com>, 2022.
+# Chen <onsummer@foxmail.com>, 2022, 2023.
 msgid ""
-msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-02-28 19:52+0000\n"
-"Last-Translator: Chen <onsummer@foxmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\n"
-"Language: zh_Hans\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2023-09-04 20:40+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.16.4\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -27,15 +15,15 @@ msgstr "起步"
 
 #: ../../en/index.rst:9
 msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr "这个 Workshop 使用了 `postgis-workshop-2020.zip <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_ 作为基础。你可以下载它并解压到你觉得方便的位置。"
+msgstr "本手册使用到 `postgis-workshop-2020.zip <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_ 这份基础数据来辅助讲解。你可以下载它并解压到你觉得方便的位置。"
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
-msgstr "你也可以在 Google Slides 中找到这个 workshop 的 `PPT 版本 <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_。"
+msgstr "你也可以在 Google Slides 中找到本手册的 `PPT 版本 <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_。"
 
 #: ../../en/index.rst:13
 msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
-msgstr "在这个 Workshop 中用到的 SQL 代码可以在 `这个文档 <workshop-sql.txt>` 找到。"
+msgstr "在本手册中用到的 SQL 代码可以在 `这里<https://postgis.net/workshops/postgis-intro/workshop-sql.txt>`_ 下载。"
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"
@@ -59,7 +47,7 @@ msgstr "**printing/** 目录"
 
 #: ../../en/index.rst:25
 msgid "a directory containing the exercise pages and data model pages"
-msgstr "这个目录包括了练习页面和数据模型页面"
+msgstr "此目录包含了练习页面和数据模型页面"
 
 #: ../../en/index.rst:29
 msgid "License & Copying"
@@ -67,33 +55,27 @@ msgstr "许可与版权"
 
 #: ../../en/index.rst:31
 msgid "All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons \"`share alike with attribution <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\", and is freely redistributable under the terms of that license."
-msgstr "这里所有用的数据都是公开的，可以随便使用。下载的压缩包中的所有软件也是开源的，都可以随便用。这个 Workshop 使用“`署名分享 <http://creativecommons.org/licenses/by-sa/3.0/us/>`_” 协议进行知识产权共享，你遵守该许可协议的内容条款即可进行内容共享。"
+msgstr "这里所有用的数据都是公开的，可以随便使用。下载的压缩包中的所有软件也是开源的，都可以随便用。本手册使用『`署名分享 <http://creativecommons.org/licenses/by-sa/3.0/us/>`_』协议进行知识产权共享，遵守该许可协议的内容条款即可进行内容共享。"
 
 #: ../../en/index.rst:35
 msgid "Workshop Modules"
-msgstr "Workshop 目录"
+msgstr "手册目录"
 
 #: ../../en/index.rst:85
 msgid "Links to have on hand"
-msgstr "顺带的资料"
+msgstr "参考资料"
 
 #: ../../en/index.rst:87
-#, fuzzy
-#| msgid "PostGIS - http://postgis.net/"
 msgid "PostGIS - https://postgis.net/"
-msgstr "PostGIS - http://postgis.net/"
+msgstr "PostGIS - https://postgis.net/"
 
 #: ../../en/index.rst:89
-#, fuzzy
-#| msgid "Docs - http://postgis.net/docs/"
 msgid "Docs - https://postgis.net/docs/"
-msgstr "文档 - http://postgis.net/docs/"
+msgstr "文档 - https://postgis.net/docs/"
 
 #: ../../en/index.rst:91
-#, fuzzy
-#| msgid "PostgreSQL - http://www.postgresql.org/"
 msgid "PostgreSQL - https://www.postgresql.org/"
-msgstr "PostgreSQL - http://www.postgresql.org/"
+msgstr "PostgreSQL - https://www.postgresql.org/"
 
 #: ../../en/index.rst:93
 msgid "Docs - https://www.postgresql.org/docs/"
@@ -132,13 +114,9 @@ msgid "QGIS - https://qgis.org/"
 msgstr "QGIS - https://qgis.org/"
 
 #: ../../en/index.rst:105
-#, fuzzy
-#| msgid "OpenJUMP - http://openjump.org/"
 msgid "OpenJUMP - http://openjump.org/"
 msgstr "OpenJUMP - http://openjump.org/"
 
 #: ../../en/index.rst:106
-#, fuzzy
-#| msgid "uDig - http://udig.github.io/"
 msgid "uDig - https://udig.github.io/"
-msgstr "uDig - http://udig.github.io/"
+msgstr "uDig - https://udig.github.io/"

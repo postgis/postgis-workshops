@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# Chen <onsummer@foxmail.com>, 2022.
+# Chen <onsummer@foxmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-02-28 19:52+0000\n"
+"PO-Revision-Date: 2023-09-04 20:40+0000\n"
 "Last-Translator: Chen <onsummer@foxmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/installation/zh_Hans/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.16.4\n"
 
 #: ../../en/installation.rst:4
 msgid "Installation"
@@ -37,8 +37,8 @@ msgid ""
 "Windows or MacOS. PostgreSQL for Windows and MacOS either include PostGIS or "
 "have an easy way to add it on."
 msgstr ""
-"下面会介绍在 Windows 或 MacOS 上如何安装 PostgreSQL 软件。无论是哪个系统上的 "
-"PostgreSQL，安装 PostGIS 是一件很简单的事情。"
+"下面会介绍在 Windows 或 MacOS 上如何安装 PostgreSQL 软件。无论在哪个系统上的 "
+"PostgreSQL 安装 PostGIS，都是一件很简单的事情。"
 
 #: ../../en/installation.rst:9
 msgid ""
@@ -87,13 +87,13 @@ msgstr "运行安装包并接受默认条款。"
 msgid ""
 "Find and run the \"StackBuilder\" program that was installed with the "
 "database."
-msgstr "打开随数据库安装好的 “StackBuilder” 程序。"
+msgstr "打开随数据库安装好的「StackBuilder」程序。"
 
 #: ../../en/installation.rst:27
 msgid ""
 "Select the \"Spatial Extensions\" section and choose latest \"PostGIS .."
 "Bundle\" option."
-msgstr "展开 “Spatial Extensions” 部分，并勾选最新的 PostGIS 项。"
+msgstr "展开「Spatial Extensions」部分，并勾选最新的 PostGIS 项。"
 
 #: ../../en/installation.rst:32
 msgid "Accept the defaults and install."
@@ -140,7 +140,7 @@ msgstr ""
 
 #: ../../en/installation.rst:56
 msgid "Add the command-line utilities to your `PATH` for convenience."
-msgstr "为方便起见，将下面的命令添加到 `PATH`中。"
+msgstr "为方便起见，将下面的命令添加到 `PATH` 中。"
 
 #: ../../en/installation.rst:65
 msgid "PgAdmin for Windows and MacOS"

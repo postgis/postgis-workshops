@@ -1,21 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# Chen <onsummer@foxmail.com>, 2022.
+# Chen <onsummer@foxmail.com>, 2022, 2023.
 msgid ""
-msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-02-28 19:52+0000\n"
-"Last-Translator: Chen <onsummer@foxmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/welcome/zh_Hans/>\n"
-"Language: zh_Hans\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2023-09-04 20:40+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/welcome/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.16.4\n"
 
 #: ../../en/welcome.rst:4
 msgid "Welcome"
@@ -23,19 +11,19 @@ msgstr "欢迎"
 
 #: ../../en/welcome.rst:7
 msgid "Workshop Conventions"
-msgstr "本 Workshop 的约定"
+msgstr "本手册的约定"
 
 #: ../../en/welcome.rst:9
 msgid "These sections conform to a number of conventions to make it easier to follow the conversation. This section gives a brief overview of what to expect in the way of typographic conventions, as well as a short overview of the structure of each workbook."
-msgstr "这部分声明了若干条约定，以便后续阅读更统一、更容易。本节简要概述了 Workshop 的文字排版方式、显示效果，以及简单说明了每个部分的结构。"
+msgstr "这部分声明了若干条约定，以便后续阅读更统一、更容易。本节简要概述了手册的文字排版方式、显示效果，以及简单说明了每个部分的结构。"
 
 #: ../../en/welcome.rst:12
 msgid "Directions"
-msgstr "动作"
+msgstr "导向"
 
 #: ../../en/welcome.rst:14
 msgid "Directions for you, the workshop attendee, will be noted by **bold** font."
-msgstr "对于此 Workshop 的动作、操作，使用 **粗体** 字符。"
+msgstr "对于此手册的导向、操作，使用 **粗体** 字符。"
 
 #: ../../en/welcome.rst:16 ../../en/welcome.rst:43 ../../en/welcome.rst:52
 #: ../../en/welcome.rst:61
@@ -60,7 +48,7 @@ msgstr "框内的示例代码可以拷贝粘贴到查询窗口或命令行执行
 
 #: ../../en/welcome.rst:32
 msgid "Notes"
-msgstr "注解"
+msgstr "注记"
 
 #: ../../en/welcome.rst:34
 msgid "Notes are used to provide information that is useful but not critical to the overall understanding of the topic."

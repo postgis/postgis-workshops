@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-09-06 00:10+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"joins_advanced/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16.4\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/joins_advanced.rst:4
 msgid "More Spatial Joins"
-msgstr ""
+msgstr "その他の空間結合"
 
 #: ../../en/joins_advanced.rst:6
 msgid ""
@@ -29,10 +31,13 @@ msgid ""
 "`ST_Union([geometry])` functions, and some simple examples. In this section "
 "we will do some more elaborate things with them."
 msgstr ""
+"前のセクションで、:command:`ST_Centroid(geometry)` 関数と "
+":command:`ST_Union([geometry])` "
+"関数と、簡単な例を見ました。このセクションでは、より複雑なことを行います。"
 
 #: ../../en/joins_advanced.rst:11 ../../en/joins_advanced.rst:31
 msgid "Creating a Census Tracts Table"
-msgstr ""
+msgstr "国勢統計区テーブルの作成"
 
 #: ../../en/joins_advanced.rst:13
 msgid ""
@@ -42,50 +47,58 @@ msgid ""
 "education attainment. There is just one problem. The data are summarized by "
 "\"census tract\" and we have no census tract spatial data!"
 msgstr ""
+"ワークショップ内の ``\\data\\`` ディレクトリは、"
+"属性データを含みますがジオメトリを持たないファイル ``nyc_census_sociodata."
+"sql`` です。このテーブルはニューヨークの社会経済的なデータである通勤時間、収"
+"入、学歴を持ちます。一つだけ問題があります。データは \"census tract\" "
+"(国勢調査統計区) ごとに集約されていて国勢調査統計区の空間データはありません。"
 
 #: ../../en/joins_advanced.rst:15
 msgid "In this section we will"
-msgstr ""
+msgstr "このセクションでは次のことを行います"
 
 #: ../../en/joins_advanced.rst:17
 msgid "Load the ``nyc_census_sociodata.sql`` table"
-msgstr ""
+msgstr "``nyc_census_sociodata.sql`` テーブルのロード"
 
 #: ../../en/joins_advanced.rst:18
 msgid "Create a spatial table for census tracts"
-msgstr ""
+msgstr "国勢統計区の空間テーブルの生成"
 
 #: ../../en/joins_advanced.rst:19
 msgid "Join the attribute data to the spatial data"
-msgstr ""
+msgstr "空間データへの属性データの結合"
 
 #: ../../en/joins_advanced.rst:20
 msgid "Carry out some analysis using our new data"
-msgstr ""
+msgstr "新しいデータを使った分析の実行"
 
 #: ../../en/joins_advanced.rst:23
 msgid "Loading nyc_census_sociodata.sql"
-msgstr ""
+msgstr "nyc_census_sociodata.sql のロード"
 
 #: ../../en/joins_advanced.rst:25
 msgid "Open the SQL query window in PgAdmin"
-msgstr ""
+msgstr "pgAdmin の SQLクエリ ウィンドウを開きます"
 
 #: ../../en/joins_advanced.rst:26
 msgid ""
 "Select **File->Open** from the menu and browse to the ``nyc_census_sociodata."
 "sql`` file"
-msgstr ""
+msgstr "メニューから **File->Open** を選択し、``nyc_census_sociodata.sql`` "
+"ファイルを指定します"
 
 #: ../../en/joins_advanced.rst:27
 msgid "Press the \"Run Query\" button"
-msgstr ""
+msgstr "\"Run Query\" ボタンを押します"
 
 #: ../../en/joins_advanced.rst:28
 msgid ""
 "If you press the \"Refresh\" button in PgAdmin, the list of tables should "
 "now include at ``nyc_census_sociodata`` table"
 msgstr ""
+"pgAdmin の \"Refresh\"ボタン を押すと、テーブルの一覧に "
+"``nyc_census_sociodata`` テーブルが入るようになります"
 
 #: ../../en/joins_advanced.rst:33
 msgid ""
@@ -94,48 +107,56 @@ msgid ""
 "order to get census tracts, we need to summarize grouping on the first 11 "
 "characters of the ``blkid``."
 msgstr ""
+"前のセクションで見たように \"blkid\" キーの部分文字列で要約することで、国勢調"
+"査ブロックから、より高いレベルのジオメトリを構築することができます。国勢統計"
+"区を取得するために、\"blkid\" "
+"の最初の11文字によってグループ化を要約する必要があります。"
 
 #: ../../en/joins_advanced.rst:46
 msgid "Create the new table using the :command:`ST_Union` aggregate:"
-msgstr ""
+msgstr ":command:`ST_Union` 集約関数を使った新テーブルの生成:"
 
 #: ../../en/joins_advanced.rst:64
 msgid "Join the Attributes to the Spatial Data"
-msgstr ""
+msgstr "属性データの空間データへの結合"
 
 #: ../../en/joins_advanced.rst:66
 msgid ""
 "Join the table of tract geometries to the table of tract attributes with a "
 "standard attribute join"
-msgstr ""
+msgstr "国勢調査区ジオメトリのテーブルを国勢調査区属性データのテーブルに、標準属性結"
+"合を使って、結合します"
 
 #: ../../en/joins_advanced.rst:87
 msgid "Answer an Interesting Question"
-msgstr ""
+msgstr "興味深い質問に答える"
 
 #: ../../en/joins_advanced.rst:89
 msgid ""
 "Answer an interesting question! \"List top 10 New York neighborhoods ordered "
 "by the proportion of people who have graduate degrees.\""
-msgstr ""
+msgstr "興味深い質問に答えて下さい! "
+"「大学院の学位を持つ人の数が多い町の上位10件までのリストを作成して下さい」"
 
 #: ../../en/joins_advanced.rst:104
 msgid ""
 "We sum up the statistics we are interested, then divide them together at the "
 "end. In order to avoid divide-by-zero errors, we don't bother bringing in "
 "tracts that have a population count of zero."
-msgstr ""
+msgstr "欲しい統計データを合計して、最後にそれらを分割します。0 "
+"で割らないようにするため、人口が 0 の統計区を取り込みません。"
 
 #: ../../en/joins_advanced.rst:124
 msgid ""
 "New York geographers will be wondering at the presence of \"Flatbush\" in "
 "this list of over-educated neighborhoods. The answer is discussed in the "
 "next section."
-msgstr ""
+msgstr "ニューヨークの地理学者は、この高学歴の町のリストに「フラットブッシュ」がある"
+"ことに疑問を抱きます。答については次のセクションで検討します。"
 
 #: ../../en/joins_advanced.rst:129
 msgid "Polygon/Polygon Joins"
-msgstr ""
+msgstr "ポリゴン/ポリゴン結合"
 
 #: ../../en/joins_advanced.rst:131
 msgid ""
@@ -181,7 +202,7 @@ msgstr ""
 
 #: ../../en/joins_advanced.rst:175
 msgid "What about Flatbush?"
-msgstr ""
+msgstr "Flatbush はどうでしょう?"
 
 #: ../../en/joins_advanced.rst:177
 msgid ""
@@ -204,7 +225,7 @@ msgstr ""
 
 #: ../../en/joins_advanced.rst:186
 msgid "Large Radius Distance Joins"
-msgstr ""
+msgstr "大きな半径距離の結合"
 
 #: ../../en/joins_advanced.rst:188
 msgid ""

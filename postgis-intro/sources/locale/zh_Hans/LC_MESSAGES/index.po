@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022, 2023.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2023-09-04 20:40+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.16.4\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2023-09-06 00:10+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.16.4\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -23,7 +23,7 @@ msgstr "你也可以在 Google Slides 中找到本手册的 `PPT 版本 <https:/
 
 #: ../../en/index.rst:13
 msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
-msgstr "在本手册中用到的 SQL 代码可以在 `这里<https://postgis.net/workshops/postgis-intro/workshop-sql.txt>`_ 下载。"
+msgstr "在本手册中用到的 SQL 代码可以在 `这里 <https://postgis.net/workshops/postgis-intro/workshop-sql.txt>`_ 下载。"
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"

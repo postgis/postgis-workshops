@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-09-06 00:10+0000\n"
+"PO-Revision-Date: 2023-09-13 18:40+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_advanced/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/joins_advanced.rst:4
@@ -51,7 +51,7 @@ msgstr ""
 "属性データを含みますがジオメトリを持たないファイル ``nyc_census_sociodata."
 "sql`` です。このテーブルはニューヨークの社会経済的なデータである通勤時間、収"
 "入、学歴を持ちます。一つだけ問題があります。データは \"census tract\" "
-"(国勢調査統計区) ごとに集約されていて国勢調査統計区の空間データはありません。"
+"(国勢調査統計区) ごとに集約されていて国勢調査統計区の空間データはありません!"
 
 #: ../../en/joins_advanced.rst:15
 msgid "In this section we will"
@@ -108,8 +108,8 @@ msgid ""
 "characters of the ``blkid``."
 msgstr ""
 "前のセクションで見たように \"blkid\" キーの部分文字列で要約することで、国勢調"
-"査ブロックから、より高いレベルのジオメトリを構築することができます。国勢統計"
-"区を取得するために、\"blkid\" "
+"査細分区から、より高いレベルのジオメトリを構築することができます。国勢統計区"
+"を取得するために、\"blkid\" "
 "の最初の11文字によってグループ化を要約する必要があります。"
 
 #: ../../en/joins_advanced.rst:46
@@ -124,8 +124,8 @@ msgstr "属性データの空間データへの結合"
 msgid ""
 "Join the table of tract geometries to the table of tract attributes with a "
 "standard attribute join"
-msgstr "国勢調査区ジオメトリのテーブルを国勢調査区属性データのテーブルに、標準属性結"
-"合を使って、結合します"
+msgstr "国勢調査統計区ジオメトリのテーブルを国勢調査統計区属性データのテーブルに、標"
+"準属性結合を使って、結合します"
 
 #: ../../en/joins_advanced.rst:87
 msgid "Answer an Interesting Question"
@@ -167,38 +167,51 @@ msgid ""
 "neighborhoods? It will intersect both, and so will be included in the "
 "summary statistics for **both**."
 msgstr ""
+"興味深いクエリ (:ref:`interestingquestion` 内) の中で、"
+"町ごとの集約をどの国勢調査統計区ポリゴンに含ませるかを決めるために "
+":command:`ST_Intersects(geometry_a, geometry_b)` "
+"関数を使いました。次の質問に繋がります: "
+"地区が二つの町の境界線上にある場合にはどうなりますか? "
+"両方にインタセクトするため、**両方**の統計値に含んでしまいます。"
 
 #: ../../en/joins_advanced.rst:135
 msgid "To avoid this kind of double counting there are two methods:"
-msgstr ""
+msgstr "この種の二重カウントを避けるには二つの方法があります:"
 
 #: ../../en/joins_advanced.rst:137
 msgid ""
 "The simple method is to ensure that each tract only falls in **one** summary "
 "area (using :command:`ST_Centroid(geometry)`)"
 msgstr ""
+"単純な方法として、それぞれの統計区を**一つの**"
+"集約領域だけに収まるようにします (:command:`ST_Centroid(geometry)` "
+"を使います)"
 
 #: ../../en/joins_advanced.rst:138
 msgid ""
 "The complex method is to divide crossing tracts at the borders (using :"
 "command:`ST_Intersection(geometry,geometry)`)"
 msgstr ""
+"複雑な方法として、境界でクロスする統計区を分割します "
+"(:command:`ST_Intersection(geometry,geometry)` を使います)"
 
 #: ../../en/joins_advanced.rst:140
 msgid ""
 "Here is an example of using the simple method to avoid double counting in "
 "our graduate education query:"
-msgstr ""
+msgstr "大学院教育のクエリで二重カウントを回避する単純な手法を使う例を示します:"
 
 #: ../../en/joins_advanced.rst:155
 msgid ""
 "Note that the query takes longer to run now, because the :command:"
 "`ST_Centroid` function  has to be run on every census tract."
 msgstr ""
+"このクエリは時間がかかります。というのも、:command:`ST_Centroid` "
+"関数を全ての統計区について実行しなければならないからです。"
 
 #: ../../en/joins_advanced.rst:172
 msgid "Avoiding double counting changes the results!"
-msgstr ""
+msgstr "二重カウントを回避すると結果が変わります!"
 
 #: ../../en/joins_advanced.rst:175
 msgid "What about Flatbush?"
@@ -209,7 +222,8 @@ msgid ""
 "In particular, the Flatbush neighborhood has dropped off the list. The "
 "reason why can be seen by looking more closely at the map of the Flatbush "
 "neighborhood in our table."
-msgstr ""
+msgstr "特にフラットブッシュ町はリストから外れました。テーブル内のフラットブッシュ町"
+"の地図を詳しく見ると理由が分かります。"
 
 #: ../../en/joins_advanced.rst:181
 msgid ""
@@ -222,6 +236,13 @@ msgid ""
 "to the otherwise empty Flatbush, resulting in the very high score for that "
 "query."
 msgstr ""
+"データソースで定義されている通り、プロスペクト公園だけしかないので、従来の意"
+"味ではフラットブッシュは本当の町とは言えません。この領域における国勢調査統計"
+"区は、当然のことですが、住民は 0 です。しかし、"
+"町境界は公園の北側に隣接する高級な国勢調査統計区の一つ "
+"(高級になったパークスロープ) を削ります。ポリゴン/ポリゴンテストを使用すると"
+"、この一つの統計区が空っぽのフラットブッシュに追加され、非常に高いスコアにな"
+"りました。"
 
 #: ../../en/joins_advanced.rst:186
 msgid "Large Radius Distance Joins"
@@ -232,7 +253,8 @@ msgid ""
 "A query that is fun to ask is \"How do the commute times of people near "
 "(within 500 meters) subway stations differ from those of people far away "
 "from subway stations?\""
-msgstr ""
+msgstr "「地下鉄駅近く (500m以内) "
+"の人と、そうでない人との通勤時間がどれぐらい違うか?」と聞いてみたいですね。"
 
 #: ../../en/joins_advanced.rst:190
 msgid ""
@@ -240,12 +262,14 @@ msgid ""
 "people will be within 500 meters of multiple subway stations. Compare the "
 "population of New York:"
 msgstr ""
+"しかしながら、この質問は、複数の地下鉄駅の 500m 圏内に入る人が多数出るという"
+"、二重カウントの問題に行き当たります。ニューヨークの人口を比較します:"
 
 #: ../../en/joins_advanced.rst:201
 msgid ""
 "With the population of the people in New York within 500 meters of a subway "
 "station:"
-msgstr ""
+msgstr "ニューヨーク市内の、地下鉄駅から 500m 圏内にいる人の人口は、次の通りです:"
 
 #: ../../en/joins_advanced.rst:214
 msgid ""
@@ -253,6 +277,9 @@ msgid ""
 "simple SQL is making a big double-counting error. You can see the problem "
 "looking at the picture of the buffered subways."
 msgstr ""
+"地下鉄に近い人の人口が、全体の人口を超えてしまっています! 明らかに、"
+"この単純な SQL では、大きな二重カウントのエラーを犯しています。バッファリング"
+"された地下鉄の図を見ると、問題点が分かってきます。"
 
 #: ../../en/joins_advanced.rst:218
 msgid ""
@@ -261,9 +288,13 @@ msgid ""
 "breaking our query up into a subquery that finds the distinct blocks, "
 "wrapped in a summarization query that returns our answer:"
 msgstr ""
+"クエリの集約部分に渡す前に、重複しない統計調査細分区だけを持つようにすること"
+"で解決できます。クエリを、重複しない細分区を探すサブクエリと、答を返す集約ク"
+"エリにくるまれたサブクエリとに分割することで、実現できます:"
 
 #: ../../en/joins_advanced.rst:235
 msgid ""
 "That's better! So a bit over half the population of New York is within 500m "
 "(about a 5-7 minute walk) of the subway."
-msgstr ""
+msgstr "この方がいいです! 地下鉄駅から 500m 圏内 (徒歩約 5-7 分) "
+"の人口はニューヨーク市の半分です。"

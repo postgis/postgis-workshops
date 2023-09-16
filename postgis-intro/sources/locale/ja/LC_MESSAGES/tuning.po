@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-03-01 18:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-09-14 02:37+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "tuning/ja/>\n"
 "Language: ja\n"
@@ -18,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/tuning.rst:4
 msgid "Basic PostgreSQL Tuning"
-msgstr ""
+msgstr "基本的な PostgreSQL チューニング"
 
 #: ../../en/tuning.rst:6
 msgid ""
@@ -73,16 +74,16 @@ msgstr ""
 
 #: ../../en/tuning.rst:20
 msgid "*Default value*: typically 32MB"
-msgstr ""
+msgstr "*デフォルト値*: 通常 32MB"
 
 #: ../../en/tuning.rst:22
 msgid ""
 "*Recommended value*: about 75% of database memory up to a max of about 2GB"
-msgstr ""
+msgstr "*推奨値*: データベースメモリの約75%で最大約2GBまで"
 
 #: ../../en/tuning.rst:26
 msgid "effective_cache_size"
-msgstr ""
+msgstr "effective_cache_size"
 
 #: ../../en/tuning.rst:28
 msgid ""
@@ -101,17 +102,17 @@ msgstr ""
 
 #: ../../en/tuning.rst:30
 msgid "*Default value*: typically 4GB"
-msgstr ""
+msgstr "*デフォルト値*: 通常 4GB"
 
 #: ../../en/tuning.rst:32
 msgid ""
 "*Recommended value*: any amount of \"free\" memory expected to be around "
 "under ordinary operating conditions"
-msgstr ""
+msgstr "*推奨値*: 通常の動作条件下で存在すると予想される「空き」メモリ量"
 
 #: ../../en/tuning.rst:36
 msgid "work_mem"
-msgstr ""
+msgstr "work_mem"
 
 #: ../../en/tuning.rst:38
 msgid ""
@@ -136,15 +137,15 @@ msgstr ""
 
 #: ../../en/tuning.rst:42
 msgid "*Default value*: 1MB"
-msgstr ""
+msgstr "*デフォルト値*: 1MB"
 
 #: ../../en/tuning.rst:44
 msgid "*Recommended value*: 32MB"
-msgstr ""
+msgstr "*推奨値*: 32MB"
 
 #: ../../en/tuning.rst:48
 msgid "maintenance_work_mem"
-msgstr ""
+msgstr "maintenance_work_mem"
 
 #: ../../en/tuning.rst:50
 msgid ""
@@ -158,15 +159,15 @@ msgstr ""
 
 #: ../../en/tuning.rst:58
 msgid "*Default value*: 16MB"
-msgstr ""
+msgstr "*デフォルト値*: 16MB"
 
 #: ../../en/tuning.rst:60
 msgid "*Recommended value*: 128MB"
-msgstr ""
+msgstr "*推奨値*: 128MB"
 
 #: ../../en/tuning.rst:64
 msgid "wal_buffers"
-msgstr ""
+msgstr "wal_buffers"
 
 #: ../../en/tuning.rst:66
 msgid ""
@@ -190,15 +191,15 @@ msgstr ""
 
 #: ../../en/tuning.rst:70
 msgid "*Default value*: 64kB"
-msgstr ""
+msgstr "*デフォルト値*: 64kB"
 
 #: ../../en/tuning.rst:72
 msgid "*Recommended value*: 1MB"
-msgstr ""
+msgstr "*推奨値*: 1MB"
 
 #: ../../en/tuning.rst:76
 msgid "checkpoint_segments"
-msgstr ""
+msgstr "checkpoint_segments"
 
 #: ../../en/tuning.rst:78
 msgid ""
@@ -224,15 +225,15 @@ msgstr ""
 
 #: ../../en/tuning.rst:82
 msgid "*Default value*: 3"
-msgstr ""
+msgstr "*デフォルト値*: 3"
 
 #: ../../en/tuning.rst:84
 msgid "*Recommended value*: 6"
-msgstr ""
+msgstr "*推奨値*: 6"
 
 #: ../../en/tuning.rst:88
 msgid "random_page_cost"
-msgstr ""
+msgstr "random_page_cost"
 
 #: ../../en/tuning.rst:90
 msgid ""
@@ -253,15 +254,15 @@ msgstr ""
 
 #: ../../en/tuning.rst:94
 msgid "*Default value*: 4.0"
-msgstr ""
+msgstr "*デフォルト値*: 4.0"
 
 #: ../../en/tuning.rst:96
 msgid "*Recommended value*: 2.0 for spinning media, 1.0 for SSD"
-msgstr ""
+msgstr "*推奨値*: ハードディスクでは 2.0、SSDでは 1.0"
 
 #: ../../en/tuning.rst:100
 msgid "seq_page_cost"
-msgstr ""
+msgstr "seq_page_cost"
 
 #: ../../en/tuning.rst:102
 msgid ""
@@ -273,15 +274,15 @@ msgstr ""
 
 #: ../../en/tuning.rst:104
 msgid "*Default value*: 1.0"
-msgstr ""
+msgstr "*デフォルト値*: 1.0"
 
 #: ../../en/tuning.rst:106
 msgid "*Recommended value*: 1.0"
-msgstr ""
+msgstr "*推奨値*: 1.0"
 
 #: ../../en/tuning.rst:110
 msgid "Reload configuration"
-msgstr ""
+msgstr "コンフィギュレーションのリロード"
 
 #: ../../en/tuning.rst:112
 msgid ""

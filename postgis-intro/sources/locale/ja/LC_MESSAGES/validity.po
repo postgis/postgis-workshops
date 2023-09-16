@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-21 08:47+0000\n"
+"PO-Revision-Date: 2023-09-13 18:40+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "validity/ja/>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/validity.rst:4
 msgid "Validity"
-msgstr ""
+msgstr "妥当性"
 
 #: ../../en/validity.rst:6
 msgid ""
@@ -32,10 +32,13 @@ msgid ""
 "Which begs the question: what does it mean to be invalid, and why should we "
 "care?"
 msgstr ""
+"「なぜクエリで 'TopologyException' エラーが発生するのでしょうか?」という質問"
+"の90%は「一つ以上の入力が不正だったから」となります。ここから疑問が投げかけら"
+"れます: 不正であるという意味は何か? またなぜ注意すべきか?"
 
 #: ../../en/validity.rst:9
 msgid "What is Validity"
-msgstr ""
+msgstr "妥当性とは"
 
 #: ../../en/validity.rst:11
 msgid ""
@@ -123,7 +126,7 @@ msgstr ""
 
 #: ../../en/validity.rst:55
 msgid "Detecting Validity"
-msgstr ""
+msgstr "妥当性検出"
 
 #: ../../en/validity.rst:57
 msgid ""
@@ -132,6 +135,10 @@ msgid ""
 "command:`ST_IsValid(geometry)` function. Used against our figure-eight, we "
 "get a quick answer:"
 msgstr ""
+"前の例では、不正だと**知っていた**一つのポリゴンを使いました。テーブル内の数"
+"百のジオメトリについて不正を検知するにはどうすればいいでしょうか? "
+":command:`ST_IsValid(geometry)` "
+"関数を使います。8の字ポリゴンに対して使うと、すぐに答が得られます:"
 
 #: ../../en/validity.rst:69
 msgid ""
@@ -139,22 +146,25 @@ msgid ""
 "the :command:`ST_IsValidReason(geometry)` function to find out the source of "
 "the invalidity:"
 msgstr ""
+"この地物が不正なのは知っていますが、なぜ不正なのかは知りません。:command:`ST_"
+"IsValidReason(geometry)` 関数を使うと、不正の原因を見つけることができます:"
 
 #: ../../en/validity.rst:81
 msgid ""
 "Note that in addition to the reason (self-intersection) the location of the "
 "invalidity (coordinate (1 1)) is also returned."
-msgstr ""
+msgstr "理由 (自己交差) に加えて、不正位置 ((1 1)座標) "
+"も返されることに注意して下さい。"
 
 #: ../../en/validity.rst:83
 msgid ""
 "We can use the :command:`ST_IsValid(geometry)` function to test our tables "
 "too:"
-msgstr ""
+msgstr "テーブルのテストにも :command:`ST_IsValid(geometry)` 関数を使えます:"
 
 #: ../../en/validity.rst:104
 msgid "Repairing Invalidity"
-msgstr ""
+msgstr "不正なものの修復"
 
 #: ../../en/validity.rst:106
 msgid ""
@@ -167,6 +177,13 @@ msgid ""
 "read the `manual page <http://postgis.net/docs/ST_MakeValid.html>`_ "
 "carefully and choose the one you like best."
 msgstr ""
+"ポリゴンを単純な構造 (リング) に分解して、リングが妥当性の規則に従うことを確"
+"実にして、リング同士の規則に従った新しいポリゴンを生成することで、不正を修復"
+"できます。多くの場合、結果は直感的ですが、非常に行儀の悪い入力の場合には、妥"
+"当な出力なのに、どのように見えるかの直感を満たさない場合があります。PostGIS "
+"の最近のバージョンでは、ジオメトリの修復のための異なるアルゴリズムがあります:"
+" `マニュアルページ <http://postgis.net/docs/ja/ST_MakeValid.html>`_ "
+"を注意深く読んで、お好みのものを採用して下さい。"
 
 #: ../../en/validity.rst:108
 msgid ""
@@ -174,6 +191,9 @@ msgid ""
 "single ring that encloses an area but bends around to touch itself, leaving "
 "a \"hole\" which is not actually a hole."
 msgstr ""
+"たとえば、不正の古典的な例の「バナナポリゴン」があります。単一のリングで一つ"
+"の領域を囲みますが、リング自身に接触するように曲がっていて、実際には穴でない"
+"「穴」が残ったものです。"
 
 #: ../../en/validity.rst:117
 msgid ""
@@ -181,6 +201,9 @@ msgid ""
 "polygon returns a valid :term:`OGC` polygon, consisting of an outer and "
 "inner ring that touch at one point."
 msgstr ""
+"ポリゴンで `ST_MakeValid <http://postgis.net/docs/ST_MakeValid.html>`_ "
+"を実行すると、妥当な :term:`OGC` ポリゴンであって、外側リングと内側リングとが"
+"一つの点で接触するポリゴンが得られます。"
 
 #: ../../en/validity.rst:133
 msgid ""
@@ -191,16 +214,22 @@ msgid ""
 "reverse. Neither is \"correct\", they are just different ways to model the "
 "same situation."
 msgstr ""
+"「バナナポリゴン」 (あるいは「逆さシェル」) は、妥当なジオメトリのための "
+":term:`OGC` トポロジモデルと、ESRI が内部で使用するモデルが異なります。ESRI "
+"モデルは、接触するリングを無効と考えられ、この種の形状にはバナナ形が好まれま"
+"す。OGC もで鵜は逆です。両方とも「正しい」というわけでなく、同じ状況をモデル"
+"化するための異なる方法です。"
 
 #: ../../en/validity.rst:137
 msgid "Bulk Validity Repair"
-msgstr ""
+msgstr "大規模妥当性修復"
 
 #: ../../en/validity.rst:139
 msgid ""
 "Here's an example of SQL to flag invalid geometries for review while adding "
 "a repaired version to the table."
-msgstr ""
+msgstr "修復されたものをテーブルに追加する間に再調査用としてジメトリにフラグを立てるS"
+"QLの例を示します。"
 
 #: ../../en/validity.rst:159
 msgid ""
@@ -208,6 +237,9 @@ msgid ""
 "openjump.org) which includes a validation routine under **Tools->QA-"
 ">Validate Selected Layers**."
 msgstr ""
+"不正ジオメトリの修復に関して視覚的に良いツールは OpenJump (http://openjump."
+"org) です。**Tools->QA->Validate Selected Layers** "
+"に評価ルーチンを持っています。"
 
 #: ../../en/validity.rst:163
 msgid "Function List"
@@ -218,6 +250,8 @@ msgid ""
 "`ST_IsValid(geometry A) <http://postgis.net/docs/ST_IsValid.html>`_: Returns "
 "a boolean indiciting whether the geometery is valid."
 msgstr ""
+"`ST_IsValid(geometry A) <http://postgis.net/docs/ja/ST_IsValid.html>`_: "
+"ジオメトリが妥当かどうかを示す真偽値を返します。"
 
 #: ../../en/validity.rst:167
 msgid ""
@@ -225,9 +259,13 @@ msgid ""
 "html>`_: Returns a text string with the reason for the invalidity and a "
 "coordinate of invalidity."
 msgstr ""
+"`ST_IsValidReason(geometry A) <http://postgis.net/docs/ja/ST_IsValidReason."
+"html>`_: 不正の理由と不正箇所の座標値を示す文字列を返します。"
 
 #: ../../en/validity.rst:169
 msgid ""
 "`ST_MakeValid(geometry A) <http://postgis.net/docs/ST_MakeValid.html>`_: "
 "Returns a geometry re-constructed to obey the validity rules."
 msgstr ""
+"`ST_MakeValid(geometry A) <http://postgis.net/docs/ja/ST_MakeValid.html>`_: "
+"妥当性規則に従って再構築したジオメトリを返します。"

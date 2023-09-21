@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-08-23 06:32+0000\n"
+"PO-Revision-Date: 2023-09-21 10:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "knn/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/knn.rst:4
@@ -33,7 +33,8 @@ msgstr "最近傍探索とは?"
 msgid ""
 "A frequently posed spatial query is: \"what is the nearest <candidate "
 "feature> to <query feature>?\""
-msgstr ""
+msgstr "しばしば要求される空間クエリに次の物があります:「<クエリ地物>への最短の<候補"
+"地物>は何か?」"
 
 #: ../../en/knn.rst:11
 msgid ""
@@ -71,10 +72,15 @@ msgid ""
 "distance, instead of the more accurate spheroidal distance that "
 "``ST_Distance(geography,geography)`` returns."
 msgstr ""
+"\"order by distance\" 演算は、ジオメトリ型、ジオグラフィ型の両方で動作します"
+"。二つの型の動作の差は、返される距離値です。ジオメトリでは ``<->`` は "
+"`ST_Distance` と同じで、使用している空間参照系の単位に依存します。ジオグラフ"
+"ィでは、``ST_Distance(geography,geography)`` "
+"が返す精度の高い回転楕円体面上の距離でなく、球面距離値を返します。"
 
 #: ../../en/knn.rst:17
 msgid "Here's the 3 nearest streets to 'Broad St' subway station:"
-msgstr ""
+msgstr "'Broad St' 地下鉄駅に三つの最も近いストリートは次の通りです:"
 
 #: ../../en/knn.rst:53
 msgid ""
@@ -83,15 +89,20 @@ msgid ""
 "possible to get correct answers from non-indexed SQL and the lack of an "
 "index might not be obvious until the size of the tables scales up."
 msgstr ""
+"インデックスによるクエリをどの程度確定されられるでしょうか? 最近傍クエリの "
+"\"EXPLAIN\" 出力を確認するのが良い考えです。正しい答えを非インデックス SQL か"
+"ら得ることができ、テーブルのスケールアップが無い限りインデックスの欠如が明白"
+"にはならないことがあるためです。"
 
 #: ../../en/knn.rst:55
 msgid ""
 "This is the output from ``EXPLAIN``, note the index scan over the order by:"
-msgstr ""
+msgstr "``EXPLAIN`` からの出力を示しますが、インデックススキャンは ORDER BY "
+"に対して実行しています:"
 
 #: ../../en/knn.rst:69
 msgid "Nearest Neighbor Join"
-msgstr ""
+msgstr "最近傍結合"
 
 #: ../../en/knn.rst:71
 msgid ""
@@ -101,6 +112,10 @@ msgid ""
 "spatial join, where the goal is to find the nearest neighbor for each of a "
 "full set of candidates."
 msgstr ""
+"インデックスによる ORDER BY 演算子は、演算子の一方が**単一ジオメトリリテラル*"
+"*でないと動作しないという、大きな欠点があります。これはあるクエリオブジェクト"
+"に最も近いオブジェクトを探索する場合は良いのですが、候補から一つずつオブジェ"
+"クトを抜き出して最近傍を検索することを目的とする空間結合には役立ちません。"
 
 #: ../../en/knn.rst:73
 msgid ""
@@ -108,10 +123,13 @@ msgid ""
 "repeatedly driven in a loop: the `LATERAL join <https://medium.com/kkempin/"
 "postgresqls-lateral-join-bfd6bd0199df>`_."
 msgstr ""
+"幸運なことに、ループ内で繰り返し駆動されるクエリの実行が可能になる SQL "
+"言語機能 `LATERAL join <https://medium.com/kkempin/postgresqls-lateral-join-"
+"bfd6bd0199df>`_ があります。"
 
 #: ../../en/knn.rst:75
 msgid "Here we will find the nearest street to each subway station:"
-msgstr ""
+msgstr "地下鉄駅ごとに最も近いストリートを探索します:"
 
 #: ../../en/knn.rst:93
 msgid ""
@@ -120,9 +138,14 @@ msgid ""
 "the lateral subquery, one at a time, so you get a nearest result for each "
 "subway record."
 msgstr ""
+"``CROSS JOIN LATERAL`` "
+"が地下鉄テーブルで駆動するループ内の処理部分として動作します。"
+"地下鉄テーブルの個々のレコードは LATERAL "
+"サブクエリにどんどん送られるので、地下鉄レコードごとの最近傍の結果を得ます。"
 
 #: ../../en/knn.rst:97
 msgid ""
 "The explain shows the loop on the subway stations, and the index-assisted "
 "order by inside the loop where we want it:"
-msgstr ""
+msgstr "EXPLAIN は地下鉄駅のループと、求めるループ内のインデックスによる ORDER BY "
+"を表示します:"

@@ -218,7 +218,7 @@ We can use this logic to create a query, or a view, of the state of the data in 
       WHERE valid_range @> (now() - '10min'::interval)
 
 
-We can also create views that show just what a particular used has added, for example:
+We can also create views that show just what a particular user has added, for example:
 
 .. code-block:: sql
 

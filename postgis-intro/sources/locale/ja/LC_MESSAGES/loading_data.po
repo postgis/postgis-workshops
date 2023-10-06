@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-17 01:29-0400\n"
-"PO-Revision-Date: 2022-01-24 01:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-09-26 08:23+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "loading_data/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/loading_data.rst:4
@@ -29,41 +30,50 @@ msgstr "空間データのロード"
 msgid ""
 "Supported by a wide variety of libraries and applications, PostGIS provides "
 "many options for loading data."
-msgstr ""
+msgstr "様々な種類のライブラリのやアプリケーションがサポートするので、PostGIS "
+"にはデータのロードに関捨てう多数の選択肢があります。"
 
 #: ../../en/loading_data.rst:8
 msgid ""
 "We will first load our working data from a database backup file, then review "
 "some standard ways of loading different GIS data formats using common tools."
 msgstr ""
+"まず、データベースのバックアップファイルから作業データをロードし、その後、"
+"一般的なツールを使って他の GIS "
+"データフォーマットをロードする標準的な方法を確認します。"
 
 #: ../../en/loading_data.rst:12
 msgid "Loading the Backup File"
-msgstr ""
+msgstr "バックアップファイルのロード"
 
 #: ../../en/loading_data.rst:14
 msgid ""
 "In the PgAdmin browser, **right-click** on the **nyc** database icon, and "
 "then select the **Restore...** option."
-msgstr ""
+msgstr "pgAdmin ブラウザ内で、**nyc** データベースのアイコンを **右クリック** "
+"して、**Restore...** を選択します。"
 
 #: ../../en/loading_data.rst:19
 msgid ""
 "Browse to the location of your workshop data data directory, and select the :"
 "file:`nyc_data.backup` file."
-msgstr ""
+msgstr "ワークショップデータのディレクトリに移動し、:file:`nyc_data.backup` "
+"ファイルを選択します。"
 
 #: ../../en/loading_data.rst:24
 msgid ""
 "Click on the **Restore options** tab, scroll down to the **Do not save** "
 "section and toggle **Owner** to **Yes**."
 msgstr ""
+"**Data/Objects** タブをクリックして **Do not save** "
+"セクションまで下りて、**Owner** を**有効**にします。"
 
 #: ../../en/loading_data.rst:29
 msgid ""
 "Click the **Restore** button. The database restore should run to completion "
 "without errors."
-msgstr ""
+msgstr "**Restore**ボタンをクリックします。データベースの復元はエラーなく完了するまで"
+"実行されます。"
 
 #: ../../en/loading_data.rst:34
 msgid ""
@@ -71,6 +81,9 @@ msgid ""
 "**Refresh** option to update the client information about what tables exist "
 "in the database."
 msgstr ""
+"ロードが完了すると、**nyc** データベースを右クリックして、**Refresh** オプシ"
+"ョンを選択して、データベースに存在するテーブルに関するクライアント側の情報を"
+"更新します。"
 
 #: ../../en/loading_data.rst:41
 msgid ""
@@ -80,10 +93,14 @@ msgid ""
 "tools and QGIS DbManager. Note you can skip these sections, if you have "
 "already loaded the data with pgAdmin."
 msgstr ""
+"PostgreSQL のバックアップファイルの代わりに、ネイティブ空間データフォーマット"
+"からのデータロードを実際に試してみたいのでしたら、次から数セクションは、"
+"様々なコマンドラインツールや QGIS DbManager を使ったロードする方法のガイドに"
+"なっています。pgAdminによるデータのロードが済んでいる場合には飛ばせます。"
 
 #: ../../en/loading_data.rst:48
 msgid "Loading with ogr2ogr"
-msgstr ""
+msgstr "ogr2ogrでのロード"
 
 #: ../../en/loading_data.rst:50
 msgid ""
@@ -93,7 +110,7 @@ msgstr ""
 
 #: ../../en/loading_data.rst:55
 msgid "**Windows**:"
-msgstr ""
+msgstr "**Windows**:"
 
 #: ../../en/loading_data.rst:53
 msgid ""
@@ -115,7 +132,7 @@ msgstr ""
 
 #: ../../en/loading_data.rst:59
 msgid "**MacOS**:"
-msgstr ""
+msgstr "**MacOS**:"
 
 #: ../../en/loading_data.rst:58
 msgid ""
@@ -132,7 +149,7 @@ msgstr ""
 
 #: ../../en/loading_data.rst:62
 msgid "**Linux**:"
-msgstr ""
+msgstr "**Linux**:"
 
 #: ../../en/loading_data.rst:62
 msgid ""

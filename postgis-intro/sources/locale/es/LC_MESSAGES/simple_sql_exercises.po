@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-03-01 18:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-10-14 05:23+0000\n"
+"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql_exercises/es/>\n"
 "Language: es\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/simple_sql_exercises.rst:4
@@ -39,8 +40,9 @@ msgid ""
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:13
+#, fuzzy
 msgid "**blkid**"
-msgstr ""
+msgstr "**blkid**"
 
 #: ../../en/simple_sql_exercises.rst:14
 msgid ""
@@ -49,52 +51,57 @@ msgid ""
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:15
+#, fuzzy
 msgid "**popn_total**"
-msgstr ""
+msgstr "**popn_total**"
 
 #: ../../en/simple_sql_exercises.rst:16
 msgid "Total number of people in the census block"
-msgstr ""
+msgstr "Número total de personas en el bloque del censo"
 
 #: ../../en/simple_sql_exercises.rst:17
 msgid "**popn_white**"
-msgstr ""
+msgstr "**popn_white**"
 
 #: ../../en/simple_sql_exercises.rst:18
 msgid "Number of people self-identifying as \"white\" in the block"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:19
+#, fuzzy
 msgid "**popn_black**"
-msgstr ""
+msgstr "**popn_black**"
 
 #: ../../en/simple_sql_exercises.rst:20
 msgid "Number of people self-identifying as \"black\" in the block"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:21
+#, fuzzy
 msgid "**popn_nativ**"
-msgstr ""
+msgstr "**popn_nativ**"
 
 #: ../../en/simple_sql_exercises.rst:22
 msgid "Number of people self-identifying as \"native american\" in the block"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:23
+#, fuzzy
 msgid "**popn_asian**"
-msgstr ""
+msgstr "**popn_asian**"
 
 #: ../../en/simple_sql_exercises.rst:24
 msgid "Number of people self-identifying as \"asias\" in the block"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:25
+#, fuzzy
 msgid "**popn_other**"
-msgstr ""
+msgstr "**popn_other**"
 
 #: ../../en/simple_sql_exercises.rst:26
 msgid "Number of people self-identifying with other categories in the block"
-msgstr ""
+msgstr "Número de personas que se auto-identifican como otras categorías"
 
 #: ../../en/simple_sql_exercises.rst:27
 msgid "**hous_total**"
@@ -121,14 +128,17 @@ msgid "Number of renter-occupied housing units in the block"
 msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:33
+#, fuzzy
 msgid "**boroname**"
-msgstr ""
+msgstr "**boroname**"
 
 #: ../../en/simple_sql_exercises.rst:34
 msgid ""
 "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, "
 "Queens"
 msgstr ""
+"Nombre del distrito de Nueva York New York. Manhattan, The Bronx, Brooklyn, "
+"Staten Island, Queens"
 
 #: ../../en/simple_sql_exercises.rst:35
 msgid "**geom**"

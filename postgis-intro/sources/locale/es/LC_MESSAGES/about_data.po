@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-03-28 18:21+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-10-14 05:23+0000\n"
+"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/es/>\n"
 "Language: es\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/about_data.rst:4
@@ -31,6 +32,10 @@ msgid ""
 "attribute table of sociodemographic variables.  We've loaded our shapefiles "
 "as PostGIS tables and will add sociodemographic data later in the workshop."
 msgstr ""
+"Los datos para este taller constan de cuatro shapefiles de la ciudad de "
+"Nueva York y una tabla de atributos de variables sociodemográficas. Hemos "
+"cargado los shapefiles como tablas de PostGIS y los datos sociodemográficos "
+"se añadirán más tarde durante el taller."
 
 #: ../../en/about_data.rst:8
 msgid ""
@@ -38,6 +43,9 @@ msgid ""
 "of our datasets.  These attribute values and relationships are fundamental "
 "to our future analysis."
 msgstr ""
+"A continuación se describe el número de registros y la tabla de atributos "
+"para cada uno de los conjuntos de datos. Estos valores de atributos y "
+"relaciones son fundamentales para nuestros análisis posteriores."
 
 #: ../../en/about_data.rst:10
 msgid ""
@@ -45,10 +53,15 @@ msgid ""
 "table and select **Properties**.  You will find a summary of table "
 "properties, including a list of table attributes within the **Columns** tab."
 msgstr ""
+"Para explorar la naturaleza de las tablas en pgAdmin, botón derecho en una "
+"tabla resaltada y seleccionar **Propiedades**. Aparecerá un resumen de las "
+"propiedades de la tabla, incluyendo una lista de los atriburos de la tabla "
+"dentro de la pestaña **Columnas**."
 
 #: ../../en/about_data.rst:15
+#, fuzzy
 msgid "nyc_census_blocks"
-msgstr ""
+msgstr "nyc_census_blocks"
 
 #: ../../en/about_data.rst:17
 msgid ""
@@ -60,69 +73,79 @@ msgstr ""
 
 #: ../../en/about_data.rst:19
 msgid "Number of records: 36592"
-msgstr ""
+msgstr "Número de registros: 36592"
 
 #: ../../en/about_data.rst:24
+#, fuzzy
 msgid "**blkid**"
-msgstr ""
+msgstr "**blkid**"
 
 #: ../../en/about_data.rst:25
 msgid ""
 "A 15-digit code that uniquely identifies every census **block**. Eg: "
 "360050001009000"
 msgstr ""
+"Un código de 15 dígitos que identifica de forma única cada **bloque** del "
+"censo. Ej: 360050001009000"
 
 #: ../../en/about_data.rst:26
+#, fuzzy
 msgid "**popn_total**"
-msgstr ""
+msgstr "**popn_total**"
 
 #: ../../en/about_data.rst:27
 msgid "Total number of people in the census block"
-msgstr ""
+msgstr "Número total de personas en el bloque del censo"
 
 #: ../../en/about_data.rst:28
 msgid "**popn_white**"
-msgstr ""
+msgstr "**popn_white**"
 
 #: ../../en/about_data.rst:29
 msgid "Number of people self-identifying as \"White\" in the block"
-msgstr ""
+msgstr "Número de personas que se auto-identifican como \"Blanco/a\""
 
 #: ../../en/about_data.rst:30
+#, fuzzy
 msgid "**popn_black**"
-msgstr ""
+msgstr "**popn_black**"
 
 #: ../../en/about_data.rst:31
 msgid "Number of people self-identifying as \"Black\" in the block"
-msgstr ""
+msgstr "Número de personas que se auto-identifican con \"Negro/a\""
 
 #: ../../en/about_data.rst:32
+#, fuzzy
 msgid "**popn_nativ**"
-msgstr ""
+msgstr "**popn_nativ**"
 
 #: ../../en/about_data.rst:33
 msgid "Number of people self-identifying as \"Native American\" in the block"
 msgstr ""
+"Número de personas que se auto-identifican como \"Nativo/a Americano/a\""
 
 #: ../../en/about_data.rst:34
+#, fuzzy
 msgid "**popn_asian**"
-msgstr ""
+msgstr "**popn_asian**"
 
 #: ../../en/about_data.rst:35
 msgid "Number of people self-identifying as \"Asian\" in the block"
-msgstr ""
+msgstr "Número de personas que se auto-identifican como \"Asiático/a\""
 
 #: ../../en/about_data.rst:36
+#, fuzzy
 msgid "**popn_other**"
-msgstr ""
+msgstr "**popn_other**"
 
 #: ../../en/about_data.rst:37
 msgid "Number of people self-identifying with other categories in the block"
-msgstr ""
+msgstr "Número de personas que se auto-identifican como otras categorías"
 
 #: ../../en/about_data.rst:38 ../../en/about_data.rst:63
+#, fuzzy
 msgid "**boroname**"
-msgstr ""
+msgstr "**boroname**"
 
 #: ../../en/about_data.rst:39 ../../en/about_data.rst:64
 #: ../../en/about_data.rst:109
@@ -130,6 +153,8 @@ msgid ""
 "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, "
 "Queens"
 msgstr ""
+"Nombre del distrito de Nueva York New York. Manhattan, The Bronx, Brooklyn, "
+"Staten Island, Queens"
 
 #: ../../en/about_data.rst:40 ../../en/about_data.rst:65
 #: ../../en/about_data.rst:88 ../../en/about_data.rst:116
@@ -142,7 +167,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:45
 msgid "*Black population as a percentage of Total Population*"
-msgstr ""
+msgstr "*Población negra como porcentaje de la Población Total*"
 
 #: ../../en/about_data.rst:49
 msgid ""

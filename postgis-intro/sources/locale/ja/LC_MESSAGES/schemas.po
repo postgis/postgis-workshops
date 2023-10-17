@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-10-16 14:23+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
+"schemas/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/schemas.rst:4
 msgid "PostgreSQL Schemas"
-msgstr ""
+msgstr "PostgreSQL スキーマ"
 
 #: ../../en/schemas.rst:6
 msgid ""
@@ -29,6 +31,9 @@ msgid ""
 "managing them all in one schema can become unwieldy quickly. Fortunately, "
 "PostgreSQL_ includes the concept of a \"_Schema\"."
 msgstr ""
+"運用データベースは必然的に多数のテーブルとビューを持ち、これら全てを一つのス"
+"キーマで管理すると、すぐに扱いにくくなります。幸運にも PostgreSQL_ には "
+"\"_Schema\"の概念があります。"
 
 #: ../../en/schemas.rst:8
 msgid ""
@@ -36,6 +41,9 @@ msgid ""
 "and other relations.  Every database starts out with one schema, the "
 "``public`` schema."
 msgstr ""
+"スキーマはフォルダのようなもので、テーブル、ビュー、関数、シーケンスやその他"
+"のリレーションを保持できます。全てのデータベースは ``public`` "
+"という一つのスキーマから始まります。"
 
 #: ../../en/schemas.rst:12
 msgid ""
@@ -44,30 +52,36 @@ msgid ""
 "relations, as well as all the types and functions used by PostGIS. So users "
 "of PostGIS always need access to the public schema."
 msgstr ""
+"スキーマ内では、PostGIS のデフォルトインストールによって、PostGISが使用する全"
+"ての型と関数とともに``geometry_columns``, ``geography_columns``, "
+"``spatial_ref_sys`` メタデータリレーションが生成されます。そのため、PostGIS "
+"ユーザは常に public スキーマへのアクセスが必要となります。"
 
 #: ../../en/schemas.rst:14
 msgid ""
 "In the public schema you can also see all the tables we have created so far "
 "in the workshop."
-msgstr ""
+msgstr "public スキーマ内では、ワークショップでこれまでに生成してきたテーブルの全てを"
+"見ることができます。"
 
 #: ../../en/schemas.rst:18
 msgid "Why use Schemas?"
-msgstr ""
+msgstr "なぜスキーマを使うのか?"
 
 #: ../../en/schemas.rst:20
 msgid "There are two very good reasons for using schemas:"
-msgstr ""
+msgstr "スキーマを使用する二つの理由があります:"
 
 #: ../../en/schemas.rst:22
 msgid "Data that is managed in a schema is easier to apply bulk actions to."
-msgstr ""
+msgstr "スキーマ内で管理されるデータは一括処理に適用しやすいです。"
 
 #: ../../en/schemas.rst:24
 msgid ""
 "It's easier to back-up data that's in a separate schema: so volatile data "
 "can have a different back-up schedule from non-volatile data."
-msgstr ""
+msgstr "別のスキーマ内のデータのバックアップの方が簡単ですので、揮発性データと不揮発"
+"データとはバックアップスケジュールが異なります。"
 
 #: ../../en/schemas.rst:25
 msgid ""
@@ -75,6 +89,8 @@ msgid ""
 "oriented schemas can be separately restored and backed up for time travel "
 "and recovery."
 msgstr ""
+"別のスキーマへのデータの格納は簡単ですので、アプリケーション指向のスキーマは"
+"、タイムトラベルとリカバリのための、個別の格納とバックアップが可能です。"
 
 #: ../../en/schemas.rst:26
 msgid ""
@@ -82,12 +98,16 @@ msgid ""
 "in a schema: so a new version of software can work off a table structure in "
 "a new schema, and cut-over involves a simple change to the schema name."
 msgstr ""
+"アプリケーションデータがスキーマ内にある時には、アプリケーションの差異の管理"
+"が簡単になるので、新しいバージョンのソフトウェアは、新しいスキーマ内のテーブ"
+"ル構造を処理して、カットオーバーの際はスキーマ名の単純な変更を行います。"
 
 #: ../../en/schemas.rst:28
 msgid ""
 "Users can be restricted in their work to single schemas to allow isolation "
 "of analytical and test tables from production tables."
-msgstr ""
+msgstr "ユーザ作業を単一スキーマに制限することができ、これによって分析テーブルとテス"
+"トテーブルを運用テーブルから分離できます。"
 
 #: ../../en/schemas.rst:30
 msgid ""
@@ -95,21 +115,25 @@ msgid ""
 "schemas improves management; and for user purposes, keeping your users in "
 "separate schemas keeps them from treading on each other."
 msgstr ""
+"運用目的では、アプリケーションデータをスキーマで分離するようにすることで、管"
+"理が改善します。ユーザ目的では、分離したスキーマのユーザが互いに踏みつけあう"
+"ことを防ぎます。"
 
 #: ../../en/schemas.rst:34
 msgid "Creating a Data Schema"
-msgstr ""
+msgstr "データスキーマの生成"
 
 #: ../../en/schemas.rst:36
 msgid ""
 "Let's create a new schema and move a table into it.  First, create a new "
 "schema in the database:"
-msgstr ""
+msgstr "新しいスキーマを生成して、テーブルをそちらに移動させましょう。まず、データベ"
+"ース内に新しいスキーマを生成します:"
 
 #: ../../en/schemas.rst:42
 msgid ""
 "Next, we will move the ``nyc_census_blocks`` table to the ``census`` schema:"
-msgstr ""
+msgstr "次に ``nyc_census_blocks`` テーブルを ``census`` スキーマに移動させます:"
 
 #: ../../en/schemas.rst:48
 msgid ""
@@ -118,32 +142,38 @@ msgid ""
 "using PgAdmin, you might have to refresh your view to see the new schema and "
 "the table inside it."
 msgstr ""
+"コマンドラインプログラム :command:`psql` "
+"を使用している場合には、``nyc_census_blocks`` "
+"がテーブル一覧から消えたことに気付くでしょう! pgAdmin を使用している場合には"
+"、新しいスキーマとその中にあるテーブルを見るためには表示のリフレッシュが必要"
+"な場合があります。"
 
 #: ../../en/schemas.rst:50
 msgid "You can access tables inside schemas in two ways:"
-msgstr ""
+msgstr "スキーマ内のテーブルへのアクセスには二つの方法があります:"
 
 #: ../../en/schemas.rst:52
 msgid "by referencing them using ``schema.table`` notation"
-msgstr ""
+msgstr "``schema.table`` 標記を使用した参照によるアクセス"
 
 #: ../../en/schemas.rst:53
 msgid "by adding the schema to your ``search_path``"
-msgstr ""
+msgstr "スキーマの ``search_path``への追加によるアクセス"
 
 #: ../../en/schemas.rst:55
 msgid "Explicit referencing is easy, but it gets tiring to type after a while:"
-msgstr ""
+msgstr "明示的な参照は簡単ですが、しばらくすると面倒くさくなります:"
 
 #: ../../en/schemas.rst:61
 msgid ""
 "Manipulating the ``search_path`` is a nice way to provide access to tables "
 "in multiple schemas without lots of extra typing."
-msgstr ""
+msgstr "``search_path`` の操作は、多数の追加的なキー入力をせずに複数のスキーマ内にあ"
+"るテーブルにアクセスするのに良い方法です。"
 
 #: ../../en/schemas.rst:63
 msgid "You can set the ``search_path`` at run time using the ``SET`` command:"
-msgstr ""
+msgstr "``SET`` コマンドで実行時に ``search_path`` の設定ができます:"
 
 #: ../../en/schemas.rst:69
 msgid ""
@@ -152,22 +182,28 @@ msgid ""
 "PostGIS functions and types are in ``public`` so we don't want to drop that "
 "from the search path."
 msgstr ""
+"これによって、全てのリレーションや関数委への参照が ``census`` と ``public`` "
+"スキーマの両方で確実に検索されることになります。全ての PostGIS の関数と型が "
+"``public`` "
+"内にあり、検索パスから外したくないものであることを忘れないで下さい。"
 
 #: ../../en/schemas.rst:71
 msgid ""
 "Setting the search path every time you connect can get tiring too, but "
 "fortunately it's possible to permanently set the search path for a user:"
-msgstr ""
+msgstr "毎回の検索パスの設定も、面倒くさくなりますが、幸運にも、永続的に検索パスを設"
+"定することができます:"
 
 #: ../../en/schemas.rst:77
 msgid ""
 "Now the postgres user will always have the ``census`` schema in their search "
 "path."
-msgstr ""
+msgstr "これで postgres ユーザは常に検索パスに ``census`` "
+"スキーマが入っているようになります。"
 
 #: ../../en/schemas.rst:81
 msgid "Creating a User Schema"
-msgstr ""
+msgstr "ユーザスキーマの生成"
 
 #: ../../en/schemas.rst:83
 msgid ""
@@ -176,6 +212,10 @@ msgid ""
 "results, so spatial SQL tends to require that users have CREATE privileges "
 "more than ordinary database workloads."
 msgstr ""
+"ユーザはテーブルの作成を好みますが、PostGIS ユーザは特に好みます。SQL "
+"を使った分析演算には、可視化や中間結果のための一時テーブルが必要で、空間 SQL "
+"では、通常のデータベース作業より、ユーザが CREATE "
+"権限を持つことが求められる傾向にあります。"
 
 #: ../../en/schemas.rst:85
 msgid ""

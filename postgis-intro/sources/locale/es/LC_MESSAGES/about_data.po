@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-10-14 05:23+0000\n"
+"PO-Revision-Date: 2023-10-16 14:23+0000\n"
 "Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/es/>\n"
@@ -176,10 +176,15 @@ msgid ""
 "options for getting the data, including downloading data and boundaries from "
 "the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
 msgstr ""
+"Para introducir los datos del censo dentro del SIG, hay que unir dos piezas "
+"de información: los datos reales (texto) y los archivos de limites (espacial)"
+". Hay muchas formas para conseguir estos datos, incluyendo descargar ambos "
+"desde Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
 
 #: ../../en/about_data.rst:52
+#, fuzzy
 msgid "nyc_neighborhoods"
-msgstr ""
+msgstr "nyc_neighborhoods"
 
 #: ../../en/about_data.rst:54
 msgid ""
@@ -191,23 +196,32 @@ msgid ""
 "the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia "
 "Heights, Carroll Gardens West, or Red Hook!"
 msgstr ""
+"Nueva York tiene una rica historia sobre los nombres y extensiones de sus "
+"barrios. Los barrios son constructos sociales que no siguen las lineas "
+"puestas por el gobierno. Por ejemplo, los barrios de Brooklyn de Carroll "
+"Gardens, Red Hook, y Cobble Hill se conocieron en cierto momento "
+"colectivamente como \"Brooklyn Sur\". Y ahora, en función del agente "
+"inmobiliario con el que se hable, los mismos cuatro bloques del barrio antes "
+"conocido como Red Hook  ¡pueden ser Columbia Heights, Carroll Gardens West, "
+"o Red Hook!"
 
 #: ../../en/about_data.rst:56
 msgid "Number of records: 129"
-msgstr ""
+msgstr "Número de registros: 129"
 
 #: ../../en/about_data.rst:61 ../../en/about_data.rst:82
 #: ../../en/about_data.rst:106
+#, fuzzy
 msgid "**name**"
-msgstr ""
+msgstr "**name**"
 
 #: ../../en/about_data.rst:62
 msgid "Name of the neighborhood"
-msgstr ""
+msgstr "Nombre del barrio"
 
 #: ../../en/about_data.rst:66
 msgid "Polygon boundary of the neighborhood"
-msgstr ""
+msgstr "Polígono de límite del barrio"
 
 #: ../../en/about_data.rst:70
 msgid "*The neighborhoods of New York City*"

@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <david@dmts.es>, 2022.
+# David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-01-26 20:52+0000\n"
-"Last-Translator: David Mateos <david@dmts.es>\n"
+"PO-Revision-Date: 2023-10-16 14:23+0000\n"
+"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "indexing/es/>\n"
 "Language: es\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/indexing.rst:4
@@ -294,15 +295,14 @@ msgstr ""
 "consiguiendo un rendimiento óptimo por el índice."
 
 #: ../../en/indexing.rst:97
-#, fuzzy
 msgid ""
 "In order to add index acceleration to other functions that are not in this "
 "list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) "
 "add an index-only clause as descibed below."
 msgstr ""
 "Para añadir aceleración por índices a otras funciones que no están en esta "
-"lista (la más habitual ) hay que añadir una clausula de indexación como la "
-"descrita debajo."
+"lista (la más habitual, `ST_Relate <http://postgis.net/docs/ST_Relate."
+"html>`_) hay que añadir una clausula de indexación como la descrita debajo."
 
 #: ../../en/indexing.rst:101
 msgid "Index-Only Queries"
@@ -315,6 +315,10 @@ msgid ""
 "automatically. But some functions (e.g., :command:`ST_Relate`) do not "
 "include an index filter."
 msgstr ""
+"La mayoría de las funciones usadas comunmente en PostGIS "
+"(:command:`ST_Contains`, :command:`ST_Intersects`, :command:`ST_DWithin`, "
+"etc) incluyen un filtrado por índice automáticamente. Pero algunas funciones "
+"(p. ej.: :command:`ST_Relate`) no incluyen este filtrado."
 
 #: ../../en/indexing.rst:105
 msgid ""

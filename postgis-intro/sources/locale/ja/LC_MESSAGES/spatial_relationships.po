@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-08-31 08:08+0000\n"
+"PO-Revision-Date: 2023-10-17 18:49+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships/ja/>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/spatial_relationships.rst:4
 msgid "Spatial Relationships"
-msgstr ""
+msgstr "空間関係関数"
 
 #: ../../en/spatial_relationships.rst:6
 msgid ""
@@ -32,12 +32,17 @@ msgid ""
 "deserialize (:command:`ST_AsGML`) geometries. What these functions have in "
 "common is that they only work on one geometry at a time."
 msgstr ""
+"ここまで、計測空間関数 (:command:`ST_Area`, :command:`ST_Length`)、"
+"ジオメトリのシリアライズ (:command:`ST_GeomFromText`)、デシリアライズ "
+"(:command:`ST_AsGML`) を使ってきました。これらの関数は共通することは、一度に"
+"一つのジオメトリでのみ動作することです。"
 
 #: ../../en/spatial_relationships.rst:8
 msgid ""
 "Spatial databases are powerful because they not only store geometry, they "
 "also have the ability to compare *relationships between geometries*."
-msgstr ""
+msgstr "空間データベースが強力なのは、ジオメトリを格納するだけでなく、「ジオメトリ間"
+"の関係」の比較をする能力も持っているからです。"
 
 #: ../../en/spatial_relationships.rst:10
 msgid ""
@@ -45,21 +50,26 @@ msgid ""
 "are the intersections of subway lines and streets?\" can only be answered by "
 "comparing geometries representing the bike racks, streets, and subway lines."
 msgstr ""
+"「公園から最も近い自転車ラックはどれですか?」や「地下鉄とストリートとはどこで"
+"交差しますか?」のような質問に対しては、自転車ラック、ストリート、地下鉄を表現"
+"するジオメトリを比較することで答が得られます。"
 
 #: ../../en/spatial_relationships.rst:12
 msgid ""
 "The OGC standard defines the following set of methods to compare geometries."
-msgstr ""
+msgstr "OGC標準は、ジオメトリ比較の手法のメソッドを次の通り定義しています。"
 
 #: ../../en/spatial_relationships.rst:15
 msgid "ST_Equals"
-msgstr ""
+msgstr "ST_Equals"
 
 #: ../../en/spatial_relationships.rst:17
 msgid ""
 ":command:`ST_Equals(geometry A, geometry B)` tests the spatial equality of "
 "two geometries."
 msgstr ""
+":command:`ST_Equals(geometry A, geometry B)` "
+"二つのジオメトリが空間的に同じであるかどうかをテストします。"
 
 #: ../../en/spatial_relationships.rst:22
 msgid ""
@@ -67,18 +77,22 @@ msgid ""
 "coordinate values, i.e. if the second shape is equal (identical) to the "
 "first shape."
 msgstr ""
+"ST_Equals は、二つのジオメトリが同じタイプで、同一の X値、Y値 "
+"を持っている場合には TRUE を返します。つまり、"
+"2番目の形状が1番目の形状と等しい場合に TRUE を返します。"
 
 #: ../../en/spatial_relationships.rst:24
 msgid ""
 "First, let's retrieve a representation of a point from our "
 "``nyc_subway_stations`` table. We'll take just the entry for 'Broad St'."
-msgstr ""
+msgstr "まず、``nyc_subway_stations`` テーブルからポイントの表現を取得します。'Broad "
+"St' のエントリだけを取ります。"
 
 #: ../../en/spatial_relationships.rst:38
 msgid ""
 "Then, plug the geometry representation back into an :command:`ST_Equals` "
 "test:"
-msgstr ""
+msgstr "そうして、ジオメトリ表現を :command:`ST_Equals` テストに入れなおします。"
 
 #: ../../en/spatial_relationships.rst:54
 msgid ""
@@ -87,16 +101,21 @@ msgid ""
 "representation of the coordinate values. For a test like equality, using the "
 "exact coordinates is necessary."
 msgstr ""
+"ポイントの表現は人が判読できるものではありません "
+"(``0101000020266900000EEBD4CF27CF2141BC17D69516315141``) "
+"が、正確な座標値の表現です。等価性テストでは正確な座標の使用が必要です。"
 
 #: ../../en/spatial_relationships.rst:58
 msgid "ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps"
-msgstr ""
+msgstr "ST_Intersects, ST_Disjoint, ST_Crosses, ST_Overlaps"
 
 #: ../../en/spatial_relationships.rst:60
 msgid ""
 ":command:`ST_Intersects`, :command:`ST_Crosses`, and :command:`ST_Overlaps` "
 "test whether the interiors of the geometries intersect."
 msgstr ""
+":command:`ST_Intersects`, :command:`ST_Crosses`, :command:`ST_Overlaps` "
+"は、ジオメトリの内部でインタセクトしているかをテストします。"
 
 #: ../../en/spatial_relationships.rst:65
 msgid ""
@@ -104,6 +123,9 @@ msgid ""
 "shapes have any space in common, i.e., if their boundaries or interiors "
 "intersect."
 msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` "
+"は、二つの形状に共通の領域を持つ場合、つまり、"
+"境界又は内部がインタセクトする場合に t (TRUE) を返します。"
 
 #: ../../en/spatial_relationships.rst:70
 msgid ""
@@ -113,6 +135,11 @@ msgid ""
 "\"disjoint\" because the intersects tests can be spatially indexed, while "
 "the disjoint test cannot."
 msgstr ""
+"ST_Intersects の反対は :command:`ST_Disjoint(geometry A , geometry B)` です。"
+"二つのジオメトリが接続されていない場合にはインタセクトしませんし、その逆も成"
+"り立ちます。インタセクトのテストは空間インデックスが利用可能なのに対して、接"
+"続しないテストは利用できないため、実際に「インタセクトしない」のテストが「接"
+"続しない」のテストより効果的になることがしばしばあります。"
 
 #: ../../en/spatial_relationships.rst:75
 msgid ""
@@ -130,22 +157,27 @@ msgid ""
 "the same dimension and returns TRUE if their intersection set results in a "
 "geometry different from both but of the same dimension."
 msgstr ""
+":command:`ST_Overlaps(geometry A, geometry B)` は、同じ図形次元の二つのジオメ"
+"トリを比較して、インタセクトした領域が二つのジオメトリのいずれとも異なり、"
+"かつ同じ図形次元である場合に TRUE を返します。"
 
 #: ../../en/spatial_relationships.rst:82
 msgid ""
 "Let's take our Broad Street subway station and determine its neighborhood "
 "using the :command:`ST_Intersects` function:"
-msgstr ""
+msgstr "地下鉄 Broad Street 駅を取り上げて、:command:`ST_Intersects` "
+"関数を使って近隣を決定します:"
 
 #: ../../en/spatial_relationships.rst:109
 msgid "ST_Touches"
-msgstr ""
+msgstr "ST_Touches"
 
 #: ../../en/spatial_relationships.rst:111
 msgid ""
 ":command:`ST_Touches` tests whether two geometries touch at their "
 "boundaries, but do not intersect in their interiors"
-msgstr ""
+msgstr ":command:`ST_Touches` は、二つのジオメトリが境界で接触していて、かつ内部でイ"
+"ンタセクトしていないかをテストします"
 
 #: ../../en/spatial_relationships.rst:116
 msgid ""
@@ -153,16 +185,21 @@ msgid ""
 "geometries' boundaries intersect or if only one of the geometry's interiors "
 "intersects the other's boundary."
 msgstr ""
+":command:`ST_Touches(geometry A, geometry B)` は、ジオメトリの境界同士がイン"
+"タセクトするか、一方のジオメトリの内部の一つだけと、"
+"もう一つのジオメトリの境界とインタセクトする場合に TRUE を返します。"
 
 #: ../../en/spatial_relationships.rst:119
 msgid "ST_Within and ST_Contains"
-msgstr ""
+msgstr "ST_Within と ST_Contains"
 
 #: ../../en/spatial_relationships.rst:121
 msgid ""
 ":command:`ST_Within` and :command:`ST_Contains` test whether one geometry is "
 "fully within the other."
 msgstr ""
+":command:`ST_Within` と :command:`ST_Contains` "
+"は、一方のジオメトリが完全にもう一方の中に入っているかどうかをテストします。"
 
 #: ../../en/spatial_relationships.rst:126
 msgid ""
@@ -170,16 +207,22 @@ msgid ""
 "geometry is completely within the second geometry. ST_Within tests for the "
 "exact opposite result of ST_Contains."
 msgstr ""
+":command:`ST_Within(geometry A , geometry B)` は、"
+"一つ目のジオメトリが完全に二つ目のジオメトリの内側にある場合に TRUE "
+"を返します。ST_Within は ST_Contains の正反対のテストをします。"
 
 #: ../../en/spatial_relationships.rst:128
 msgid ""
 ":command:`ST_Contains(geometry A, geometry B)` returns TRUE if the second "
 "geometry is completely contained by the first geometry."
 msgstr ""
+":command:`ST_Contains(geometry A, geometry B)` は、"
+"二つ目のジオメトリが完全に一つ目のジオメトリに含まれる場合に TRUE "
+"を返します。ST_Within は ST_Contains の正反対のテストをします。"
 
 #: ../../en/spatial_relationships.rst:132
 msgid "ST_Distance and ST_DWithin"
-msgstr ""
+msgstr "ST_Distance と ST_DWithin"
 
 #: ../../en/spatial_relationships.rst:134
 msgid ""
@@ -207,13 +250,16 @@ msgstr ""
 msgid ""
 "Using our Broad Street subway station again, we can find the streets nearby "
 "(within 10 meters of) the subway stop:"
-msgstr ""
+msgstr "再び地下鉄 Broad Street 駅を使って、地下鉄駅に近い (10メートル以内) "
+"ストリートを見つけることができます:"
 
 #: ../../en/spatial_relationships.rst:173
 msgid ""
 "And we can verify the answer on a map. The Broad St station is actually at "
 "the intersection of Wall, Broad and Nassau Streets."
 msgstr ""
+"そして地図上で解答の確認ができます。Broad St 駅は実際に Wall Street, Broad "
+"Street, Nassau Street の交差点にあります。"
 
 #: ../../en/spatial_relationships.rst:178
 msgid "Function List"
@@ -235,6 +281,9 @@ msgid ""
 "html>`_: Returns TRUE if the supplied geometries have some, but not all, "
 "interior points in common."
 msgstr ""
+"`ST_Crosses(geometry A, geometry B) <https://postgis.net/docs/ja/ST_Crosses."
+"html>`_: 与え得られたジオメトリについて内側の一部で共有部分があり、"
+"かつ全てが共有部分になっていない場合には TRUE を返します。"
 
 #: ../../en/spatial_relationships.rst:184
 msgid ""
@@ -242,6 +291,9 @@ msgid ""
 "html>`_: Returns TRUE if the Geometries do not \"spatially intersect\" - if "
 "they do not share any space together."
 msgstr ""
+"`ST_Disjoint(geometry A , geometry B) <https://postgis.net/docs/ja/"
+"ST_Disjoint.html>`_: ジオメトリが「空間的にインタセクト」していない、"
+"つまり共通部分を持たない場合には TRUE を返します。"
 
 #: ../../en/spatial_relationships.rst:186
 msgid ""
@@ -249,6 +301,9 @@ msgid ""
 "html>`_: Returns the 2-dimensional cartesian minimum distance (based on "
 "spatial ref) between two geometries in projected units."
 msgstr ""
+"`ST_Distance(geometry A, geometry B) <https://postgis.net/docs/ja/ST_Distance"
+".html>`_: 二つのジオメトリの間の2次元デカルト距離の最短距離 "
+"(空間参照系に基づく) を投影座標系の単位で返します。"
 
 #: ../../en/spatial_relationships.rst:188
 msgid ""
@@ -256,6 +311,10 @@ msgid ""
 "ST_DWithin.html>`_: Returns true if the geometries are within the specified "
 "distance (radius) of one another."
 msgstr ""
+"`ST_DWithin(geometry A, geometry B, radius) <https://postgis.net/docs/ja/"
+"ST_DWithin.html>`_: "
+"ジオメトリと他のジオメトリとの距離が指定した距離以内である場合に TRUE "
+"を返します。"
 
 #: ../../en/spatial_relationships.rst:190
 msgid ""
@@ -263,6 +322,9 @@ msgid ""
 "html>`_: Returns true if the given geometries represent the same geometry. "
 "Directionality is ignored."
 msgstr ""
+"`ST_Equals(geometry A, geometry B) <https://postgis.net/docs/ja/ST_Equals."
+"html>`_: 与えられたジオメトリが同じジオメトリを表現している場合には TRUE "
+"を返します。進行方向は無視されます。"
 
 #: ../../en/spatial_relationships.rst:192
 msgid ""
@@ -283,6 +345,9 @@ msgid ""
 "html>`_: Returns TRUE if the Geometries share space, are of the same "
 "dimension, but are not completely contained by each other."
 msgstr ""
+"`ST_Overlaps(geometry A, geometry B) <https://postgis.net/docs/ja/ST_Overlaps"
+".html>`_: ジオメトリが空間を共有し、同じ図形次元で、かつ、"
+"完全に一方に包含するようにはなっていない場合には TRUE を返します。"
 
 #: ../../en/spatial_relationships.rst:196
 msgid ""
@@ -290,9 +355,15 @@ msgid ""
 "html>`_: Returns TRUE if the geometries have at least one point in common, "
 "but their interiors do not intersect."
 msgstr ""
+"`ST_Touches(geometry A, geometry B) <https://postgis.net/docs/ja/ST_Touches."
+"html>`_: ジオメトリが少なくとも一つのポイントを共有し、かつ、"
+"内部でインタセクトしていない場合には TRUE を返します。"
 
 #: ../../en/spatial_relationships.rst:198
 msgid ""
 "`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within."
 "html>`_: Returns true if the geometry A is completely inside geometry B"
 msgstr ""
+"`ST_Within(geometry A , geometry B) <https://postgis.net/docs/ja/ST_Within."
+"html>`_: ジオメトリ A が完全にジオメトリ B の内部にあるばあいには TRUE "
+"を返します"

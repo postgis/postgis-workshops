@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-10-16 14:23+0000\n"
+"PO-Revision-Date: 2023-10-28 03:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "schemas/ja/>\n"
@@ -223,6 +223,9 @@ msgid ""
 "practice to use for PostgreSQL users too, and is easy to replicate using "
 "PostgreSQL roles, schemas, and search paths."
 msgstr ""
+"デフォルトでは、Oracle の全てのロールに個別のスキーマが与えられています。"
+"これは PostgreSQL ユーザにとっても素晴らしい手法であり、使用している "
+"PostgreSQL のロール、スキーマ、検索パスの複製が簡単にできます。"
 
 #: ../../en/schemas.rst:87
 msgid ""
@@ -230,35 +233,42 @@ msgid ""
 "information about the ``postgis_writer`` role), then create a schema with "
 "that user as the authorization:"
 msgstr ""
+"新規ユーザをテーブル生成権限を付けて生成し (``postgis_writer`` "
+"ロールの詳細については :ref:`security` "
+"をご覧下さい)、その後に、そのユーザに権限付与したスキーマを生成します:"
 
 #: ../../en/schemas.rst:94
 msgid ""
 "If you log in as that user, you'll find the default ``search_path`` for "
 "PostgreSQL is actually this:"
 msgstr ""
+"そのユーザとしてログインする場合には、PostgreSQL 用のデフォルトの "
+"``search_path`` が実際に次の通りであることが分かります:"
 
 #: ../../en/schemas.rst:106
 msgid ""
 "The first schema on the search path us the user's named schema! So now the "
 "following conditions exist:"
-msgstr ""
+msgstr "検索パスの最初のスキーマはユーザ名付きスキーマです! 次の条件が存在します:"
 
 #: ../../en/schemas.rst:108
 msgid "The user exists, with the ability to create spatial tables."
-msgstr ""
+msgstr "空間テーブル生成可能なユーザが存在する。"
 
 #: ../../en/schemas.rst:109
 msgid "The user's named schema exists, and the user owns it."
-msgstr ""
+msgstr "ユーザ名スキーマが存在し、それをユーザ自身が持っている。"
 
 #: ../../en/schemas.rst:110
 msgid ""
 "The user's search path has the user schema first, so new tables are "
 "automatically created there, and queries automatically search there first."
-msgstr ""
+msgstr "ユーザの検索パスにユーザスキーマが最初に入っていて、新しいテーブルが自動的に"
+"そこに生成され、クエリが自動的にそこで最初に実行される。"
 
 #: ../../en/schemas.rst:112
 msgid ""
 "That's all there is to it, the user's default work area is now nicely "
 "separated from any tables in other schemas."
-msgstr ""
+msgstr "これが全てです。これで、ユーザのデフォルト作業領域は、他のスキーマから上手に"
+"分割されました。"

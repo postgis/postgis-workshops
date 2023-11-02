@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-09-13 18:40+0000\n"
+"PO-Revision-Date: 2023-10-31 04:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "validity/ja/>\n"
@@ -46,35 +46,39 @@ msgid ""
 "require a good deal of structure. Lines are very simple and cannot be "
 "invalid, nor can points."
 msgstr ""
+"妥当性は、範囲の境界を定義し、大量の構造が必要となるポリゴンにとって最も重要"
+"なものです。ラインは非常に単純で不正にはなりません。ポイントも不正にはなりま"
+"せん。"
 
 #: ../../en/validity.rst:13
 msgid ""
 "Some of the rules of polygon validity feel obvious, and others feel "
 "arbitrary (and in fact, are arbitrary)."
-msgstr ""
+msgstr "ポリゴンの妥当性の規則には明白に感じるものもあり、"
+"恣意的に感じることがあります (実際、恣意的です)。"
 
 #: ../../en/validity.rst:15
 msgid "Polygon rings must close."
-msgstr ""
+msgstr "ポリゴンのリングは閉じていなければなりません。"
 
 #: ../../en/validity.rst:16
 msgid ""
 "Rings that define holes should be inside rings that define exterior "
 "boundaries."
-msgstr ""
+msgstr "穴を定義するリングは外側の境界を定義するリングの内側に置かれます。"
 
 #: ../../en/validity.rst:17
 msgid ""
 "Rings may not self-intersect (they may neither touch nor cross themselves)."
-msgstr ""
+msgstr "リングは自己交差できません (自身に接触又はクロスできません)。"
 
 #: ../../en/validity.rst:18
 msgid "Rings may not touch other rings, except at a point."
-msgstr ""
+msgstr "リングは、ポイント以外では、他のリングに接触できません。"
 
 #: ../../en/validity.rst:19
 msgid "Elements of multi-polygons may not touch each other."
-msgstr ""
+msgstr "マルチポリゴンの要素は相互に接触できません。"
 
 #: ../../en/validity.rst:21
 msgid ""
@@ -82,6 +86,9 @@ msgid ""
 "define polygons that are equally self-consistent but the rules above are the "
 "ones used by the :term:`OGC` :term:`SFSQL` standard that PostGIS conforms to."
 msgstr ""
+"最後の三つの規則は任意カテゴリに含まれます。自己一貫性があるポリゴンを定義す"
+"る他の方法がありますが、上の規則は、PostGIS が準拠する :term:`OGC` "
+":term:`SFSQL` 標準で使われるものです。"
 
 #: ../../en/validity.rst:23
 msgid ""
@@ -91,14 +98,18 @@ msgid ""
 "tend to be very slow, because the first step in any structure-free routine "
 "is to *analyze the inputs and build structure into them*."
 msgstr ""
+"規則が重要であるのは、ジオメトリ計算用のアルゴリズムが、入力の一貫した構造に"
+"依存しているためです。構造についての仮定を持たないアルゴリズムの構築は可能で"
+"す。しかし、あらゆる構造自由なルーティンの最初に行うことが「入力の解析と構造"
+"の組み込み」になるため、これらのルーティンは非常に遅くなる傾向にあります。"
 
 #: ../../en/validity.rst:25
 msgid "Here's an example of why structure matters. This polygon is invalid:"
-msgstr ""
+msgstr "構造が重要である理由の例を示します。このポリゴンは不正です:"
 
 #: ../../en/validity.rst:31
 msgid "You can see the invalidity a little more clearly in this diagram:"
-msgstr ""
+msgstr "この図では、もう少しはっきりと不正性が分かります:"
 
 #: ../../en/validity.rst:35
 msgid ""
@@ -107,10 +118,13 @@ msgid ""
 "so that visually it is appears to be an \"area\": two one-unit squares, so a "
 "total area of two units of area."
 msgstr ""
+"外側リングは実際に算用数字の8の字になっていて、真ん中で自己接触しています。描"
+"画ルーティンはポリゴンの内部の色塗りに成功して、二つの1面積単位の正方形からな"
+"り、合計2面積単位となる「領域」が見えていることに注意して下さい。"
 
 #: ../../en/validity.rst:37
 msgid "Let's see what the database thinks the area of our polygon is:"
-msgstr ""
+msgstr "データベースがこのポリゴンの面積をどう考えるか見てみましょう:"
 
 #: ../../en/validity.rst:51
 msgid ""
@@ -123,6 +137,14 @@ msgid ""
 "cancel out (one comes out as 1, the other as -1) hence the \"zero area\" "
 "result."
 msgstr ""
+"ここで何が起こっているのでしょう? "
+"面積計算のアルゴリズムはリングは自己インタセクトしない前提で計算しています。"
+"行儀の良いリングは常に境界線の一方側 "
+"(どちらが内部でもよくて、*一方*でいいです)に (内部に) 区切られた領域を持ちま"
+"す。しかしながら、行儀の悪い8の字ポリゴン内では、二つある区切られた領域の一つ"
+"はラインの右側で区切られ、もう一つは左側で区切られます。これによって、"
+"両方でキャンセルしあうような面積計算になり (一方が 1 で、もう一方が -1 "
+"です)、故に「面積 0」の結果となります。"
 
 #: ../../en/validity.rst:55
 msgid "Detecting Validity"

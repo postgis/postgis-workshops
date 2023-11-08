@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-21 08:47+0000\n"
+"PO-Revision-Date: 2023-11-08 02:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "linear_referencing/ja/>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/linear_referencing.rst:4
 msgid "Linear Referencing"
-msgstr "線型参照"
+msgstr "線形参照"
 
 #: ../../en/linear_referencing.rst:6
 msgid ""
@@ -33,29 +33,35 @@ msgid ""
 "linear features. Common examples of features that are modelled using linear "
 "referencing are:"
 msgstr ""
+"線形参照 (「動的分割」とも) は線の地物の基本集合を参照することで記述できる地"
+"物の表現手法です。線形参照を使ってモデル化される地物の一般的な例は次の通りで"
+"す:"
 
 #: ../../en/linear_referencing.rst:8
 msgid ""
 "Highway assets, which are referenced using miles along a highway network"
-msgstr ""
+msgstr "高速道路網に沿ったマイル値を使って参照される高速道路資産"
 
 #: ../../en/linear_referencing.rst:9
 msgid ""
 "Road maintenance operations, which are referenced as occurring along a road "
 "network between a pair of mile measurements."
-msgstr ""
+msgstr "道路維持作業、マイル値を計測値として二つのポイント間の道路網に沿って発生する"
+"ものとして参照されます。"
 
 #: ../../en/linear_referencing.rst:10
 msgid ""
 "Aquatic inventories, where fish presence is recorded as existing between a "
 "pair of mileage-upstream measurements."
-msgstr ""
+msgstr "水生インベントリ。魚類の存在が二つの距離計測値の間に存在するものとして記録さ"
+"れます。"
 
 #: ../../en/linear_referencing.rst:11
 msgid ""
 "Hydrologic characterizations (\"reaches\") of streams, recorded with a from- "
 "and to- mileage."
-msgstr ""
+msgstr "流れの水文学的特徴 (「リーチ」) "
+"で、起点からの開始距離と終了距離で記録されます。"
 
 #: ../../en/linear_referencing.rst:13
 msgid ""
@@ -65,6 +71,9 @@ msgid ""
 "knowing that the dependent observations will automatically track the new "
 "geometry."
 msgstr ""
+"線形参照の利点は、従属する空間観測は基本観測と別に記録されている必要がなく、"
+"従属的な観測が新しいジオメトリの自動追跡することを知ることで、基本観測レイヤ"
+"の更新が可能となる点です。"
 
 #: ../../en/linear_referencing.rst:17
 msgid ""
@@ -74,10 +83,14 @@ msgid ""
 "along the referenced feature. We will use the term \"event table\" to refer "
 "to the non-spatial tables we build."
 msgstr ""
+"線形参照に関する ESRI 用語規則では、線の空間地物の基本テーブルと、空間地物へ"
+"の外部キー参照と参照される地物に沿った計測値を持つ「イベント」という非空間テ"
+"ーブルを持つことになっています。ここでは、「イベントテーブル」という語はこの"
+"非空間テーブルを指します。"
 
 #: ../../en/linear_referencing.rst:21
 msgid "Creating Linear References"
-msgstr ""
+msgstr "線形参照の生成"
 
 #: ../../en/linear_referencing.rst:23
 msgid ""
@@ -86,19 +99,25 @@ msgid ""
 "and point, and returns the proportion along the line that the point can be "
 "found."
 msgstr ""
+"線形ネットワークへの参照を行いたい既存のポイントテーブルがある場合には、:comm"
+"and:`ST_LineLocatePoint` 関数を使います。これは、ラインとポイントを取り、ポイ"
+"ント位置をラインに沿った比率で返します。"
 
 #: ../../en/linear_referencing.rst:35
 msgid ""
 "We can convert the **nyc_subway_stations** into an \"event table\" relative "
 "to the streets by using :command:`ST_LineLocatePoint`."
 msgstr ""
+":command:`ST_LineLocatePoint` を使うと **nyc_subway_stations** "
+"をストリートに関連する「イベントテーブル」に変換することができます。"
 
 #: ../../en/linear_referencing.rst:70
 msgid ""
 "Once we have an event table, it's fun to turn it back into a spatial view, "
 "so we can visualize the events relative to the original points they were "
 "derived from."
-msgstr ""
+msgstr "ひとたびイベントテーブルを持つと、空間ビューに戻るいのが楽しくなります。派生"
+"元のポイントに対する相対的なイベントの表示が可能となるためです。"
 
 #: ../../en/linear_referencing.rst:72
 msgid ""
@@ -106,6 +125,8 @@ msgid ""
 "`ST_LineInterpolatePoint` function. Here's our previous simple examples "
 "reversed:"
 msgstr ""
+"測定からポイントに行くには、:command:`ST_LineInterpolatePoint` "
+"関数を使用します。前の単純な例を逆にしたものを次に示します:"
 
 #: ../../en/linear_referencing.rst:81
 msgid ""
@@ -114,6 +135,9 @@ msgid ""
 "spatial event points, without referencing the original "
 "**nyc_subway_stations** table."
 msgstr ""
+"**nyc_subway_station_events** テーブルを **nyc_streets** テーブルに結合でき、"
+"元の **nyc_subway_stations** テーブルを参照することなく、"
+"空間イベントのポイントを生成するための **measure** 属性を使用できます。"
 
 #: ../../en/linear_referencing.rst:95
 msgid ""
@@ -121,6 +145,9 @@ msgid ""
 "streets, you can see how the events are snapped directly to the closest "
 "street lines."
 msgstr ""
+"元のポイント (赤い星印) とイベント (青い円) のポイントとストリートを表示する"
+"と、イベントが最も近いストリートのラインに直接スナップされていることが分かり"
+"ます。"
 
 #: ../../en/linear_referencing.rst:102
 msgid ""
@@ -130,6 +157,10 @@ msgid ""
 "or other inputs that are expected to reference a linear network, snapping is "
 "a handy feature to have available."
 msgstr ""
+"線形参照関数の驚くべき使い方のひとつは、線形参照モデルとは何の関係もありませ"
+"ん。上にある通り、ポイントを線形地物にスナップするための関数を使用できます。"
+"線形ネットワークを参照すると想定される GPS トラックまたは他の入力といったユー"
+"スケースには、スナップは有効にすると手軽な機能です。"
 
 #: ../../en/linear_referencing.rst:106
 msgid "Function List"
@@ -141,6 +172,9 @@ msgid ""
 "docs/ST_LineInterpolatePoint.html>`_: Returns a point interpolated along a "
 "line."
 msgstr ""
+"`ST_LineInterpolatePoint(geometry A, double measure) <https://postgis.net/"
+"docs/ja/ST_LineInterpolatePoint.html>`_: "
+"ラインに沿った補間ポイントを返します。"
 
 #: ../../en/linear_referencing.rst:109
 msgid ""
@@ -148,6 +182,9 @@ msgid ""
 "ST_LineLocatePoint.html>`_: Returns a float between 0 and 1 representing the "
 "location of the closest point on LineString to the given Point."
 msgstr ""
+"`ST_LineLocatePoint(geometry A, geometry B) <https://postgis.net/docs/ja/"
+"ST_LineLocatePoint.html>`_: 指定したポイントに最も近い LINESTRING "
+"上の点の位置を 0 から 1 までの間の浮動所数点を返します。"
 
 #: ../../en/linear_referencing.rst:110
 msgid ""
@@ -155,6 +192,10 @@ msgid ""
 "docs/ST_LineSubstring.html>`_: Return a linestring being a substring of the "
 "input one starting and ending at the given fractions of total 2d length."
 msgstr ""
+"`ST_LineSubstring(geometry A, double from, double to) <https://postgis.net/"
+"docs/ja/ST_LineSubstring.html>`_: "
+"2次元長の合計を基準にした割合で与えた始点と終点の範囲で作られる LINESTRING "
+"の一部を返します。"
 
 #: ../../en/linear_referencing.rst:111
 msgid ""
@@ -162,6 +203,9 @@ msgid ""
 "ST_LocateAlong.html>`_: Return a derived geometry collection value with "
 "elements that match the specified measure."
 msgstr ""
+"`ST_LocateAlong(geometry A, double measure) <https://postgis.net/docs/ja/"
+"ST_LocateAlong.html>`_: "
+"指定したM値に合致する要素を持つ派生ジオメトリコレクション値を返します。"
 
 #: ../../en/linear_referencing.rst:112
 msgid ""
@@ -169,6 +213,9 @@ msgid ""
 "docs/ST_LocateBetween.html>`_: Return a derived geometry collection value "
 "with elements that match the specified range of measures inclusively."
 msgstr ""
+"`ST_LocateBetween(geometry A, double from, double to) <https://postgis.net/"
+"docs/ja/ST_LocateBetween.html>`_: 指定したM値範囲に包括的に合致する要素を持つ"
+"派生ジオメトリコレクション値を返します。"
 
 #: ../../en/linear_referencing.rst:113
 msgid ""
@@ -177,3 +224,6 @@ msgid ""
 "linearly interpolated between the start and end points. If the geometry has "
 "no measure dimension, one is added."
 msgstr ""
+"`ST_AddMeasure(geometry A, double from, double to) <https://postgis.net/docs/"
+"ja/ST_AddMeasure.html>`_: 開始点と終了点の間で線形補間を施したM値を派生ジオメ"
+"トリを返します。ジオメトリにM値が無い場合には、M値が追加されます。"

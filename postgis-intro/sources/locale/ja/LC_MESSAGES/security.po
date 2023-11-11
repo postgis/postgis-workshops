@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-03-26 22:18+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2023-11-03 09:23+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "security/ja/>\n"
 "Language: ja\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/security.rst:4
 msgid "PostgreSQL Security"
-msgstr ""
+msgstr "PostgreSQL セキュリティ"
 
 #: ../../en/security.rst:6
 msgid ""
@@ -32,6 +32,9 @@ msgid ""
 "parcel out particular privileges to particular roles_, and provide users "
 "with the powers of one or more of those roles_."
 msgstr ""
+"PostgreSQL は、特定の権限を特定のロール_ にまとめて、豊富で柔軟なパーミッショ"
+"ンシステムを持っています、また、これらのロールの一つ以上をユーザに提供します"
+"。"
 
 #: ../../en/security.rst:8
 msgid ""
@@ -40,24 +43,27 @@ msgid ""
 "authentication infrastructure as other architecture components, simplifying "
 "password management."
 msgstr ""
+"さらに PostgreSQL サーバは、複数の別のシステムを使ってユーザ認証ができます。"
+"データベースは他のアーキテクチャのコンポーネント同じ認証基盤を使うことができ"
+"、パスワード管理の簡素化が可能です。"
 
 #: ../../en/security.rst:12
 msgid "Users and Roles"
-msgstr ""
+msgstr "ユーザとロール"
 
 #: ../../en/security.rst:14
 msgid "In this chapter we will create two useful production users:"
-msgstr ""
+msgstr "本省では、二つの便利な運用用ユーザを作ります:"
 
 #: ../../en/security.rst:16
 msgid "A read-only user for use in a publishing application."
-msgstr ""
+msgstr "アプリケーション発行で使用する読み取り専用ユーザ。"
 
 #: ../../en/security.rst:17
 msgid ""
 "A read/write user for use by a developer in building a software or analyzing "
 "data."
-msgstr ""
+msgstr "ソフトウェア構築又はデータ解析での開発者によって使われる読み書き可能ユーザ。"
 
 #: ../../en/security.rst:19
 msgid ""
@@ -66,32 +72,38 @@ msgid ""
 "them to the appropriate roles. That way we can easily reuse the roles when "
 "we create further users."
 msgstr ""
+"ユーザ作成とユーザへの権限付与をせずに、適正な権限を持つ二つのロールを作り、"
+"その後に、二つのユーザを作って適切なロールを追加します。この方法で、ユーザよ"
+"りもロールの方が簡単に再利用ができます。"
 
 #: ../../en/security.rst:23
 msgid "Creating Roles"
-msgstr ""
+msgstr "ロールの作成"
 
 #: ../../en/security.rst:25
 msgid ""
 "A role is a user and a user is a role. The only difference is that a \"user"
 "\" can be said to be a role with the \"login\" privilege."
-msgstr ""
+msgstr "ロールはユーザでユーザはロールです。ユーザは \"login\" "
+"権限を持つロールであると言えることとだけが違います。"
 
 #: ../../en/security.rst:27
 msgid ""
 "So functionally, the two SQL statements below are the same, they both create "
 "a \"role with the login privilege\", which is to say, a \"user\"."
-msgstr ""
+msgstr "機能的には、次に示す二つの SQL ステートメントは同じで、どちらも「ログイン権限"
+"を持つロール」つまり「ユーザ」を作ります。"
 
 #: ../../en/security.rst:36
 msgid "Read-only Users"
-msgstr ""
+msgstr "読み取り専用ユーザ"
 
 #: ../../en/security.rst:38
 msgid ""
 "Our read-only user will be for a web application to use to query the "
 "``nyc_streets`` table."
-msgstr ""
+msgstr "読み取り専用ユーザはウェブアプリケーションが ``nyc_streets`` "
+"テーブルに対するクエリを使うためのユーザです。"
 
 #: ../../en/security.rst:40
 msgid ""
@@ -99,12 +111,18 @@ msgid ""
 "will inherit the necessary system access for PostGIS operations from the "
 "``postgis_reader`` role."
 msgstr ""
+"ウェブアプリケーションは ``nyc_streets`` "
+"テーブルへの特定のアクセス権を持ちますが、``postgis_reader`` ロールから "
+"PostGIS 操作に必要なシステムアクセス権を継承します。"
 
 #: ../../en/security.rst:54
 msgid ""
 "Now, when we login as app1, we can select rows from the ``nyc_streets`` "
 "table. However, we cannot run an :command:`ST_Transform` call! Why not?"
 msgstr ""
+"app1 としてログインすると、``nyc_streets`` "
+"テーブルの行を抽出できます。しかしながら、 :command:`ST_Transform` "
+"が実行できません! なぜでしょう?"
 
 #: ../../en/security.rst:70
 msgid ""
@@ -113,36 +131,44 @@ msgid ""
 "contents of ``spatial_ref_sys``, so the call to :command:`ST_Transform` "
 "fails."
 msgstr ""
+"答は、エラーメッセージに示されています。``app1`` ユーザが ``nyc_streets`` "
+"テーブルの内容を正常に表示できますが、``spatial_ref_sys`` "
+"の内容を表示できないため、:command:`ST_Transform` の実行に四敗します。"
 
 #: ../../en/security.rst:72
 msgid ""
 "So, we need to also grant the ``postgis_reader`` role read access to all the "
 "PostGIS metadata tables:"
 msgstr ""
+"このため、``postgis_reader`` ロールに対して全ての PostGIS "
+"メタデータテーブルへの読み込み権利を付与する必要があります:"
 
 #: ../../en/security.rst:80
 msgid ""
 "Now we have a nice generic ``postgis_reader`` role we can apply to any user "
 "that need to read from PostGIS tables."
 msgstr ""
+"これで、PostGIS テーブルからデータを読む必要のあるユーザに適用できる汎用的な "
+"``postgis_reader`` ロールができました。"
 
 #: ../../en/security.rst:91
 msgid "Read/write Users"
-msgstr ""
+msgstr "読み書き可能ユーザ"
 
 #: ../../en/security.rst:93
 msgid "There are two kinds of read/write scenarios we need to consider:"
-msgstr ""
+msgstr "考慮する必要のある読み/書きシナリオが二種類あります:"
 
 #: ../../en/security.rst:95
 msgid "Web applications and others that need to write to existing data tables."
-msgstr ""
+msgstr "既存のデータテーブルへの書き込みが必要なウェブアプリケーションなど。"
 
 #: ../../en/security.rst:96
 msgid ""
 "Developers or analysts that need to create new tables and geometry columns "
 "as part of their work."
-msgstr ""
+msgstr "作業の一環として新しいテーブルとジオメトリカラムを作成する必要がある開発者と"
+"分析者。"
 
 #: ../../en/security.rst:98
 msgid ""
@@ -266,7 +292,7 @@ msgstr ""
 
 #: ../../en/security.rst:185
 msgid "Data Encryption"
-msgstr ""
+msgstr "データ暗号化"
 
 #: ../../en/security.rst:187
 msgid ""

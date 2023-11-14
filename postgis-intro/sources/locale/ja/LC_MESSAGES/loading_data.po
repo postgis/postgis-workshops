@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-17 01:29-0400\n"
-"PO-Revision-Date: 2023-09-26 08:23+0000\n"
+"PO-Revision-Date: 2023-11-13 20:32+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "loading_data/ja/>\n"
@@ -107,6 +107,9 @@ msgid ""
 ":file:`ogr2ogr` is a commandline utility for converting data between GIS "
 "data formats, including common file formats and common spatial databases."
 msgstr ""
+":file:`ogr2ogr` は、GISで使用される一般的なファイルフォーマットと一般的な空間"
+"データベースを含むデータフォーマットの相互変換のためのコマンドラインユーティ"
+"リティです。"
 
 #: ../../en/loading_data.rst:55
 msgid "**Windows**:"
@@ -117,18 +120,23 @@ msgid ""
 "Builds of ogr2ogr can be downloaded from `GIS Internals <https://www."
 "gisinternals.com/release.php>`_."
 msgstr ""
+"ogr2ogrのビルドは `GIS Internals <https://www.gisinternals.com/release.php>`"
+"_ からダウンロードできます。"
 
 #: ../../en/loading_data.rst:54
 msgid ""
 "ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/"
 "forusers/download.html>`_ and accessible via OSGeo4W Shell -"
 msgstr ""
+"ogr2ogr は `QGIS Install <https://qgis.org/en/site/forusers/download.html>`_ "
+"の一部として含まれていて、OSGeo4W シェルから実行できます。"
 
 #: ../../en/loading_data.rst:55
 msgid ""
 "Builds of ogr2ogr can be downloaded from `MS4W <https://ms4w.com/download."
 "html>`_."
-msgstr ""
+msgstr "ogr2ogr のビルドは `MS4W <https://ms4w.com/download.html>`_ "
+"からダウンロードできます。"
 
 #: ../../en/loading_data.rst:59
 msgid "**MacOS**:"
@@ -140,12 +148,17 @@ msgid ""
 "find :file:`ogr2ogr` in the :file:`/Applications/Postgres.app/Contents/"
 "Versions/*/bin` directory."
 msgstr ""
+"`Postgres.app <https://postgresapp.com/>`_ "
+"をインストールした場合には、:file:`/Applications/Postgres.app/Contents/"
+"Versions/*/bin` ディレクトリ内に :file:`ogr2ogr` があります。"
 
 #: ../../en/loading_data.rst:59
 msgid ""
 "Finally, if you have installed `HomeBrew <https://brew.sh/>`_ you can "
 "install the **gdal** package to get access to :file:`ogr2ogr`"
 msgstr ""
+"最後に、`HomeBrew <https://brew.sh/>`_ をインストールしている場合には "
+"**gdal** パッケージをインストールして :file:`ogr2ogr` にアクセスできます。"
 
 #: ../../en/loading_data.rst:62
 msgid "**Linux**:"
@@ -156,6 +169,9 @@ msgid ""
 "If you installed QGIS from packages, :file:`ogr2ogr` should be installed and "
 "on your PATH already as part of the **gdal** or *libgdal** packages."
 msgstr ""
+"パッケージから QGIS をインストールした場合には、:file:`ogr2ogr` "
+"がインストールされていて、**gdal** または **libgdal** パッケージの一部として "
+"PATH 上に存在するはずです。"
 
 #: ../../en/loading_data.rst:64
 msgid ""
@@ -271,34 +287,41 @@ msgid ""
 "the ``.shp`` extension. However, the ``.shp`` file alone is incomplete for "
 "distribution without the required supporting files."
 msgstr ""
+"「このシェープファイルは何なのだろう?」と自問するかもしれません。「シェープフ"
+"ァイル」は一般にファイル名の前半が同じ (たとえば nyc_censys_blocks) で、``."
+"shp``, ``.shx``, ``.dbf`` などの拡張子で終わるファイル群です。"
+"実際のシェープファイルは特に ``.shp`` "
+"拡張子を持つファイルに関連しています。ただし、必須のサポートファイルなしで ``"
+".shp`` ファイル単独での配布では不完全です。"
 
 #: ../../en/loading_data.rst:140
 msgid "Mandatory files:"
-msgstr ""
+msgstr "必須ファイルは次の通りです:"
 
 #: ../../en/loading_data.rst:142
 msgid "``.shp``—shape format; the feature geometry itself"
-msgstr ""
+msgstr "``.shp``—シェープファイル フォーマット、地物ジオメトリ自体"
 
 #: ../../en/loading_data.rst:143
 msgid "``.shx``—shape index format; a positional index of the feature geometry"
-msgstr ""
+msgstr "``.shx``—シェープ インデックスフォーマット、地物ジオメトリの位置インデックス"
 
 #: ../../en/loading_data.rst:144
 msgid ""
 "``.dbf``—attribute format; columnar attributes for each shape, in dBase III"
-msgstr ""
+msgstr "``.dbf``—属性フォーマット、地物ごとのdBaseIIIの列属性"
 
 #: ../../en/loading_data.rst:146
 msgid "Optional files include:"
-msgstr ""
+msgstr "任意ファイルは次の通りです:"
 
 #: ../../en/loading_data.rst:148
 msgid ""
 "``.prj``—projection format; the coordinate system and projection "
 "information, a plain text file describing the projection using well-known "
 "text format"
-msgstr ""
+msgstr "``.prj``—投影ファイル、座標系と投影情報、Well-Known Text "
+"書式で記述された投影のプレーンテキストファイル"
 
 #: ../../en/loading_data.rst:150
 msgid ""
@@ -306,10 +329,14 @@ msgid ""
 "converting it from binary data into a series of SQL commands that are then "
 "run in the database to load the data."
 msgstr ""
+":file:`shp2pgsql` "
+"ユーティリティは、シェープファイルのデータを、バイナリから、"
+"データベースにデータをロードする一連の SQL コマンドに変換して PostGIS "
+"で使用できるようにします。"
 
 #: ../../en/loading_data.rst:154
 msgid "Loading with shp2pgsql"
-msgstr ""
+msgstr "shp2pgsql によるロード"
 
 #: ../../en/loading_data.rst:156
 msgid ""
@@ -319,6 +346,11 @@ msgid ""
 "that :file:`shp2pgsql` has been installed along with it, and it is available "
 "in the executable directory of your installation."
 msgstr ""
+":file:`shp2pgsql` は、シェープファイルを SQL に変換します。PostGIS "
+"コードベースの一部をなし、PostGIS "
+"パッケージに付属する変換ユーティリティです。PostgreSDQL "
+"を、お手持ちのコンピュータにインストールした場合には、:file:`shp2pgsql` "
+"が一緒にインストールされ、インストール先の実行可能ディレクトリ内にあります。"
 
 #: ../../en/loading_data.rst:158
 msgid ""
@@ -327,14 +359,18 @@ msgid ""
 "file. It is up to the user to pass the SQL to the database, either with a "
 "\"pipe\" or by saving the SQL to file and then loading it."
 msgstr ""
+":file:`ogr2ogr` と違い :file:`shp2pgsql` は、直接データベースに接続せず、"
+"入力シェープファイルと等価な SQL を吐き出すだけです。SQL "
+"をデータベースに渡すのに「パイプ」を使うか、SQL をファイルとしてからロードす"
+"るかができますが、どちらを選ぶかはユーザ次第です。"
 
 #: ../../en/loading_data.rst:160
 msgid "Here is an example invocation, loading the same data as before:"
-msgstr ""
+msgstr "前と同じデータのロードを行う呼び出し例を示します:"
 
 #: ../../en/loading_data.rst:174
 msgid "Here is a line-by-line explanation of the command."
-msgstr ""
+msgstr "コマンドを1行ずつ説明します。"
 
 #: ../../en/loading_data.rst:180
 msgid ""
@@ -342,18 +378,24 @@ msgid ""
 "can be directed to a file or piped to :file:`psql` to load directly into the "
 "database."
 msgstr ""
+"実行可能プログラムです! 元のデータファイルを読み、ファイルに送ったり、 "
+":file:`psql` へのパイプでデータベースに直接ロードしたりできる SQL "
+"を吐きます。"
 
 #: ../../en/loading_data.rst:186
 msgid ""
 "The **D** flag tells the program to generate \"dump format\" which is much "
 "faster to load than the default \"insert format\"."
 msgstr ""
+"**D** フラグは、「ダンプフォーマット」で生成するように指示するものです。デフ"
+"ォルトの「INSERT フォーマット」よりもずっとロードが早くなります。"
 
 #: ../../en/loading_data.rst:192
 msgid ""
 "The **I** flag tells the program to create a spatial index on the table "
 "after loading is complete."
-msgstr ""
+msgstr "**I** フラグは、ロード完了後にテーブル上に空間インデックスを生成するよう指示"
+"するものです。"
 
 #: ../../en/loading_data.rst:198
 msgid ""
@@ -361,14 +403,17 @@ msgid ""
 "(SRID)\" of the data is. The source data for this workshop is all in \"UTM "
 "18\", for which the SRID is **26918** (see below)."
 msgstr ""
+"**s** フラグは、データの「SRID」 (Spatial Reference IDentifier, 空間参照系ID)"
+" が何かを指示するものです。このワークショップのソースデータは全て \"UTM 18\" "
+"で、SRID は **26918** です (下記参照)。"
 
 #: ../../en/loading_data.rst:205
 msgid "The source shape file to read."
-msgstr ""
+msgstr "読み取るソースのシェープファイルです。"
 
 #: ../../en/loading_data.rst:211
 msgid "The table name to use when creating the destination table."
-msgstr ""
+msgstr "ロードするテーブル生成時に使用されるテーブル名です。"
 
 #: ../../en/loading_data.rst:217
 msgid ""
@@ -380,13 +425,14 @@ msgstr ""
 
 #: ../../en/loading_data.rst:221
 msgid "SRID 26918? What's with that?"
-msgstr ""
+msgstr "SRID 26918? なんですかこれは?"
 
 #: ../../en/loading_data.rst:223
 msgid ""
 "Most of the import process is self-explanatory, but even experienced GIS "
 "professionals can trip over an **SRID**."
-msgstr ""
+msgstr "インポート処理のほとんどが一目瞭然ですが、経験豊富な GIS "
+"プロフェッショナルでさえ **SRID** につまずくことがあります。"
 
 #: ../../en/loading_data.rst:225
 msgid ""
@@ -404,7 +450,7 @@ msgstr ""
 
 #: ../../en/loading_data.rst:229
 msgid "https://epsg.io/26918"
-msgstr ""
+msgstr "https://epsg.io/26918"
 
 #: ../../en/loading_data.rst:231
 msgid ""

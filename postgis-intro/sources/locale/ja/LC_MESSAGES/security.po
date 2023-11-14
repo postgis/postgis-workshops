@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-11-03 09:23+0000\n"
+"PO-Revision-Date: 2023-11-13 20:32+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "security/ja/>\n"
@@ -33,8 +33,8 @@ msgid ""
 "with the powers of one or more of those roles_."
 msgstr ""
 "PostgreSQL は、特定の権限を特定のロール_ にまとめて、豊富で柔軟なパーミッショ"
-"ンシステムを持っています、また、これらのロールの一つ以上をユーザに提供します"
-"。"
+"ンシステムを持っています、また、これらのロールの一つ以上をユーザに提供しま"
+"す。"
 
 #: ../../en/security.rst:8
 msgid ""
@@ -44,8 +44,8 @@ msgid ""
 "password management."
 msgstr ""
 "さらに PostgreSQL サーバは、複数の別のシステムを使ってユーザ認証ができます。"
-"データベースは他のアーキテクチャのコンポーネント同じ認証基盤を使うことができ"
-"、パスワード管理の簡素化が可能です。"
+"データベースは他のアーキテクチャのコンポーネント同じ認証基盤を使うことがで"
+"き、パスワード管理の簡素化が可能です。"
 
 #: ../../en/security.rst:12
 msgid "Users and Roles"
@@ -63,7 +63,8 @@ msgstr "アプリケーション発行で使用する読み取り専用ユーザ
 msgid ""
 "A read/write user for use by a developer in building a software or analyzing "
 "data."
-msgstr "ソフトウェア構築又はデータ解析での開発者によって使われる読み書き可能ユーザ。"
+msgstr ""
+"ソフトウェア構築又はデータ解析での開発者によって使われる読み書き可能ユーザ。"
 
 #: ../../en/security.rst:19
 msgid ""
@@ -84,14 +85,16 @@ msgstr "ロールの作成"
 msgid ""
 "A role is a user and a user is a role. The only difference is that a \"user"
 "\" can be said to be a role with the \"login\" privilege."
-msgstr "ロールはユーザでユーザはロールです。ユーザは \"login\" "
-"権限を持つロールであると言えることとだけが違います。"
+msgstr ""
+"ロールはユーザでユーザはロールです。ユーザは \"login\" 権限を持つロールである"
+"と言えることとだけが違います。"
 
 #: ../../en/security.rst:27
 msgid ""
 "So functionally, the two SQL statements below are the same, they both create "
 "a \"role with the login privilege\", which is to say, a \"user\"."
-msgstr "機能的には、次に示す二つの SQL ステートメントは同じで、どちらも「ログイン権限"
+msgstr ""
+"機能的には、次に示す二つの SQL ステートメントは同じで、どちらも「ログイン権限"
 "を持つロール」つまり「ユーザ」を作ります。"
 
 #: ../../en/security.rst:36
@@ -102,8 +105,9 @@ msgstr "読み取り専用ユーザ"
 msgid ""
 "Our read-only user will be for a web application to use to query the "
 "``nyc_streets`` table."
-msgstr "読み取り専用ユーザはウェブアプリケーションが ``nyc_streets`` "
-"テーブルに対するクエリを使うためのユーザです。"
+msgstr ""
+"読み取り専用ユーザはウェブアプリケーションが ``nyc_streets`` テーブルに対する"
+"クエリを使うためのユーザです。"
 
 #: ../../en/security.rst:40
 msgid ""
@@ -111,16 +115,16 @@ msgid ""
 "will inherit the necessary system access for PostGIS operations from the "
 "``postgis_reader`` role."
 msgstr ""
-"ウェブアプリケーションは ``nyc_streets`` "
-"テーブルへの特定のアクセス権を持ちますが、``postgis_reader`` ロールから "
-"PostGIS 操作に必要なシステムアクセス権を継承します。"
+"ウェブアプリケーションは ``nyc_streets`` テーブルへの特定のアクセス権を持ちま"
+"すが、``postgis_reader`` ロールから PostGIS 操作に必要なシステムアクセス権を"
+"継承します。"
 
 #: ../../en/security.rst:54
 msgid ""
 "Now, when we login as app1, we can select rows from the ``nyc_streets`` "
 "table. However, we cannot run an :command:`ST_Transform` call! Why not?"
 msgstr ""
-"app1 としてログインすると、``nyc_streets`` "
+"ここで app1 としてログインすると、``nyc_streets`` "
 "テーブルの行を抽出できます。しかしながら、 :command:`ST_Transform` "
 "が実行できません! なぜでしょう?"
 
@@ -132,16 +136,16 @@ msgid ""
 "fails."
 msgstr ""
 "答は、エラーメッセージに示されています。``app1`` ユーザが ``nyc_streets`` "
-"テーブルの内容を正常に表示できますが、``spatial_ref_sys`` "
-"の内容を表示できないため、:command:`ST_Transform` の実行に四敗します。"
+"テーブルの内容を正常に表示できますが、``spatial_ref_sys`` の内容を表示できな"
+"いため、:command:`ST_Transform` の実行に四敗します。"
 
 #: ../../en/security.rst:72
 msgid ""
 "So, we need to also grant the ``postgis_reader`` role read access to all the "
 "PostGIS metadata tables:"
 msgstr ""
-"このため、``postgis_reader`` ロールに対して全ての PostGIS "
-"メタデータテーブルへの読み込み権利を付与する必要があります:"
+"このため、``postgis_reader`` ロールに対して全ての PostGIS メタデータテーブル"
+"への読み込み権利を付与する必要があります:"
 
 #: ../../en/security.rst:80
 msgid ""
@@ -167,7 +171,8 @@ msgstr "既存のデータテーブルへの書き込みが必要なウェブア
 msgid ""
 "Developers or analysts that need to create new tables and geometry columns "
 "as part of their work."
-msgstr "作業の一環として新しいテーブルとジオメトリカラムを作成する必要がある開発者と"
+msgstr ""
+"作業の一環として新しいテーブルとジオメトリカラムを作成する必要がある開発者と"
 "分析者。"
 
 #: ../../en/security.rst:98
@@ -176,12 +181,16 @@ msgid ""
 "to grant extra permissions to the tables themselves, and we can continue to "
 "use the ``postgis_reader`` role."
 msgstr ""
+"データテーブルへの書込みアクセスが必要なウェブアプリケーションについては、"
+"テーブル自体への追加パーミッションの付与が必要なだけで、``postgis_reader`` "
+"ロールの使用を継続できます。"
 
 #: ../../en/security.rst:105
 msgid ""
 "These kinds of permissions would be required for a read/write WFS service, "
 "for example."
 msgstr ""
+"こららの種類のパーミッションは、読み書きを行う WFS サービスなどで必要です。"
 
 #: ../../en/security.rst:107
 msgid ""
@@ -189,11 +198,16 @@ msgid ""
 "PostGIS metadata tables.  We will need a ``postgis_writer`` role that can "
 "edit the PostGIS metadata tables!"
 msgstr ""
+"開発者や分析者にとっては、PostGIS の主要なメタデータテーブルに対して、もう少"
+"し多いアクセスが必要です。PostGIS メタデータテーブルを編集できる "
+"``postgis_writer`` ロールが必要です!"
 
 #: ../../en/security.rst:123
 msgid ""
 "Now try the table creation SQL above as the app1 user and see how it goes!"
 msgstr ""
+"では、app1 ユーザとして上のテーブル生成 SQL を試してみて、どうなるかを見て下"
+"さい!"
 
 #: ../../en/security.rst:127
 msgid "Encryption"
@@ -205,6 +219,9 @@ msgid ""
 "org/docs/current/static/encryption-options.html>`_, many of them optional, "
 "some of them on by default."
 msgstr ""
+"PostgreSQL は多数の `安藤化機能 <https://www.postgresql.jp/document/current/"
+"html/encryption-options.html>`_ を提供しています。多数が任意指定であり、一部"
+"はデフォルトでオンになっています。"
 
 #: ../../en/security.rst:131
 msgid ""
@@ -212,6 +229,9 @@ msgid ""
 "double encrypts the MD5 password to prevent re-use of the hash by anyone who "
 "intercepts the password."
 msgstr ""
+"デフォルトでは、全てのパスワードは MD5 暗号化されます。クライアント/サーバ の"
+"ハンドシェイクは、MD5 パスワードを二重に暗号化します。パスワードを盗聴する者"
+"によるハッシュの再利用を防ぎます。"
 
 #: ../../en/security.rst:132
 msgid ""
@@ -220,6 +240,9 @@ msgid ""
 "all data and login information. SSL certificate authentication is also "
 "available when SSL connections are used."
 msgstr ""
+"`SSL 接続 <https://www.postgresql.jp/document/current/html/libpq-ssl.html>`_ "
+"はクライアントとサーバの間で任意で使用可能です。全てのデータとログイン情報の"
+"暗号化のために、SSL 接続を使う際には、SSL 証明書認証も使用可能です。"
 
 #: ../../en/security.rst:133
 msgid ""
@@ -227,21 +250,27 @@ msgid ""
 "which includes hashing algorithms, direct ciphers (blowfish, aes) and both "
 "public key and symmetric PGP encryption."
 msgstr ""
+"データベース内のカラムは pgcryptoモジュール で暗号化できます。このモジュール"
+"にはハッシュアルゴリズム、直接暗号化 (blowfish, aes) および公開鍵や対称鍵の "
+"PGP 暗号化があります。"
 
 #: ../../en/security.rst:136
 msgid "SSL Connections"
-msgstr ""
+msgstr "SSL 接続"
 
 #: ../../en/security.rst:138
 msgid ""
 "In order to use SSL connections, both your client and server must support "
 "SSL."
 msgstr ""
+"SSL接続を使うには、クライアントとサーバの両方が SSL に対応している必要があり"
+"ます。"
 
 #: ../../en/security.rst:140
 msgid ""
 "First, turn off PostgreSQL, since activating SSL will require a restart."
 msgstr ""
+"まず、SSL の有効化に再起動が必要になるので、PostgreSQL を終了させます。"
 
 #: ../../en/security.rst:141
 msgid ""
@@ -249,22 +278,29 @@ msgid ""
 "will need to have no passphrase on it, or the database server won't be able "
 "to start up. You can generate a self-signed key as follows:"
 msgstr ""
+"次に SSL 証明書とキーを取得または生成します。証明書はパスフレーズなしにするの"
+"に必要で、無い場合にはデータベースサーバは起動しません。自己署名したキーの生"
+"成ができます。次の通り行います:"
 
 #: ../../en/security.rst:157
 msgid ""
 "Copy the ``server.crt`` and ``server.key`` into the PostgreSQL data "
 "directory."
 msgstr ""
+"``server.crt`` と ``server.key`` を PostgreSQL データディレクトリに複製しま"
+"す。"
 
 #: ../../en/security.rst:159
 msgid ""
 "Enable SSL support in the ``postgresql.conf`` file by turning the \"ssl\" "
 "parameter to \"on\"."
 msgstr ""
+"``postgresql.conf`` ファイル内で、\"ssl\" パラメータを \"on\" にして SSL を有"
+"効化します。"
 
 #: ../../en/security.rst:161
 msgid "Now re-start PostgreSQL; the server is ready for SSL operation."
-msgstr ""
+msgstr "次に、PostgreSQL を再起動すると、サーバが SSL 処理の準備ができます。"
 
 #: ../../en/security.rst:163
 msgid ""
@@ -272,12 +308,17 @@ msgid ""
 "In PgAdmin, create a new server connection (File > Add Server...), and set "
 "the SSL parameter to “require”."
 msgstr ""
+"SSL が有効になったサーバでは、暗号化接続の生成が簡単です。PgAdmin では、"
+"新しいサーバ接続 (File > Add Server...) を生成し、SSLパラメータを \"require\""
+" にします。"
 
 #: ../../en/security.rst:167
 msgid ""
 "Once you connect with the new connection, you can see in its properties that "
 "it is using an SSL connection."
 msgstr ""
+"新しい接続で接続すると、そのプロパティの中で SSL 接続を使っていることが分かり"
+"ます。"
 
 #: ../../en/security.rst:171
 msgid ""
@@ -285,10 +326,13 @@ msgid ""
 "specify an SSL preference when connecting. A connection with the command "
 "line ``psql`` terminal will pick up the SSL option and use it by default:"
 msgstr ""
+"デフォルトの SSL 接続モードは \"prefer\" ですので、接続時に SSL "
+"設定を指定する必要さえありません。コマンドラインの ``psql`` ターミナルは、"
+"デフォルトで SSL のオプションを使用します:"
 
 #: ../../en/security.rst:181
 msgid "Note how the terminal reports the SSL status of the connection."
-msgstr ""
+msgstr "端末がどのように SSL 接続の状態を報告するかに注意して下さい。"
 
 #: ../../en/security.rst:185
 msgid "Data Encryption"
@@ -300,20 +344,25 @@ msgid ""
 "demonstrate the simplest use case: encrypting a column of data using a "
 "symmetric cipher."
 msgstr ""
+"pgcrypto_ モジュールでは暗号化オプションの範囲が巨大です。そのため、共通鍵暗"
+"号方式を使ったデータのカラムの暗号化という、最も単純な使用場面だけを示しま"
+"す。"
 
 #: ../../en/security.rst:189
 msgid ""
 "First, enable pgcrypto by loading the contrib SQL file, either in PgAdmin or "
 "psql."
 msgstr ""
+"最初に、PgAdmin または psql のどちらかで、contrib SQL ファイルをロードして、"
+"pgcryot を有効化します。"
 
 #: ../../en/security.rst:196
 msgid "Then, test the encryption function."
-msgstr ""
+msgstr "その後、暗号化関数をテストします。"
 
 #: ../../en/security.rst:203
 msgid "And make sure it's reversible too!"
-msgstr ""
+msgstr "復号化も可能であることも確認して下さい!"
 
 #: ../../en/security.rst:212
 msgid "Authentication"
@@ -326,12 +375,17 @@ msgid ""
 "integration into existing enterprise architectures. For production purposes, "
 "the following methods are commonly used:"
 msgstr ""
+"PostgreSQL は、既存のエンタープライズアーキテクチャに簡単に統合できるよう、"
+"多数の `認証方式 <https://www.postgresql.jp/document/current/html/auth-"
+"methods.html>`_ "
+"に対応しています。運用目的としては、次のメソッドが一般に使われます:"
 
 #: ../../en/security.rst:216
 msgid ""
 "**Password** is the basic system where the passwords are stored by the "
 "database, with MD5 encryption."
-msgstr ""
+msgstr "**Password** は、パスワードがデータベースに格納され、MD5 "
+"暗号化を使用する、基本システムです。"
 
 #: ../../en/security.rst:217
 msgid ""
@@ -339,6 +393,9 @@ msgid ""
 "both the GSSAPI_ and SSPI_ schemes in PostgreSQL. Using SSPI_, PostgreSQL "
 "can authenticate against Windows servers."
 msgstr ""
+"Kerberos_ は、標準的なエンタープライズ認証メソッドで、PostgreSQLでは GSSAPI_ "
+"スキームと SSPI_ スキームの両方で使用されます。SSPI_ スキームを使うと、"
+"PostgreSQL は Windows サーバに対して認証できます。"
 
 #: ../../en/security.rst:218
 msgid ""
@@ -346,18 +403,25 @@ msgid ""
 "<http://www.openldap.org/>`_ server bundled with most Linux distributions "
 "provides an open source implementation of LDAP_."
 msgstr ""
+"LDAP_ は、もうひとつの一般的なエンタープライズ認証メソッドです。ほとんどの "
+"Linux ビスとリビューションに同梱されている `OpenLDAP <http://www.openldap."
+"org/>`_ サーバは、LDAP_ のオープンソース実装を提供します。"
 
 #: ../../en/security.rst:219
 msgid ""
 "**Certificate** authentication is an option if you expect all client "
 "connections to be via SSL and are able to manage the distribution of keys."
 msgstr ""
+"**Certificate** (証明書) 認証は、全てのクライアント接続が SSL "
+"からになると期待できて、キーの配布を管理できる場合の選択肢です。"
 
 #: ../../en/security.rst:220
 msgid ""
 "PAM_ authentication is an option if you are on Linux or Solaris and use the "
 "PAM_ scheme for transparent authentication provision."
 msgstr ""
+"PAM_ 認証は、Linux または Solaris 上で透過的な認証のユーザプロビジョニングに "
+"PAM_ スキームを使用している場合の選択肢です。"
 
 #: ../../en/security.rst:222
 msgid ""
@@ -366,37 +430,49 @@ msgid ""
 "allowing you to specify the authentication method to use for each database, "
 "it allows you to limit host access using network addresses."
 msgstr ""
+"認証メソッドは ``pg_hba.conf`` ファイルで制御します。ファイル名の \"HBA\" は "
+"\"host based access\" (ホストを基にしたアクセス) の略です。データベースごとに"
+"使用する認証メソッドを指定できるようにするだけでなく、ネットワークアドレスを"
+"使ってホストへのアクセスを制限できるため、こういう名前になっています。"
 
 #: ../../en/security.rst:224
 msgid "Here is an example ``pg_hba.conf`` file:"
-msgstr ""
+msgstr "``pg_hba.conf`` ファイルの例を示します:"
 
 #: ../../en/security.rst:239
 msgid "The file consists of five columns"
-msgstr ""
+msgstr "ファイルは五つのカラムでできています"
 
 #: ../../en/security.rst:241
 msgid ""
 "**TYPE** determines the kind of access, either \"local\" for connections "
 "from the same server or \"host\" for remote connections."
 msgstr ""
+"**TYPE** アクセスのタイプを指定します。同じサーバからのアクセスでは \"local"
+"\" を、リモート接続では \"host\" とします。"
 
 #: ../../en/security.rst:242
 msgid ""
 "**DATABASE** specifies what database the configuration line refers to or "
 "\"all\" for all databases"
 msgstr ""
+"**DATABASE** この行のコンフィギュレーションが参照するデータベースを指定しま"
+"す。\"all\" で全てのデータベースを指定します"
 
 #: ../../en/security.rst:243
 msgid ""
 "**USER** specifies what users the line refers to or \"all\" for all users"
 msgstr ""
+"**USER** この行が参照するユーザを指定します。\"all\" とすると全てのユーザを指"
+"定します"
 
 #: ../../en/security.rst:244
 msgid ""
 "**CIDR-ADDRESS** specifies the network limitations for remote connections, "
 "using network/netmask syntax"
-msgstr ""
+msgstr "**CIDR-ADDRESS** "
+"リモート接続の際のネットワーク制限を指定します。ネットワーク/ネットマスク "
+"という書式です"
 
 #: ../../en/security.rst:245
 msgid ""
@@ -404,6 +480,8 @@ msgid ""
 "authentication entirely and simply accepts any valid username without "
 "challenge."
 msgstr ""
+"**METHOD** 使用する認証プロトコルを指定します。\"trust\" で認証全体を行わず、"
+"チャレンジなしであらゆる有効なユーザ名を受け入れます。"
 
 #: ../../en/security.rst:247
 msgid ""
@@ -412,6 +490,10 @@ msgid ""
 "when PostgreSQL is installed: if you want to connect from remote machines, "
 "you'll have to add an entry."
 msgstr ""
+"ローカル接続の場合は、サーバへのアクセス自体が特権的ですので、trust "
+"にするのが一般的です。リモート接続は、PostgreSQL インストール時のデフォルトで"
+"は無効になっていて、リモート機からの接続をするには、エントリを追加しなければ"
+"なりません。"
 
 #: ../../en/security.rst:249
 msgid ""
@@ -421,6 +503,11 @@ msgid ""
 "nyc database. Depending on the security of your network, you will use more "
 "or less strict versions of these rules in your production set-up."
 msgstr ""
+"上の例の ``nyc`` のラインはリモートアクセスのエントリの例です。 ``nyc`` "
+"の例では LDAP 認証による、ローカルネットワーク (この場合は 192.168.1. "
+"ネットワーク) 上の機械の nyc データベースへのアクセスだけを許しています。運用"
+"の設定ではこれらの規則の厳密版を、ネットワークのセキュリティ応じて多かれ少な"
+"かれ使用します。"
 
 #: ../../en/security.rst:253
 msgid "Links"
@@ -431,15 +518,21 @@ msgid ""
 "`PostgreSQL Authentication <http://www.postgresql.org/docs/current/static/"
 "auth-methods.html>`_"
 msgstr ""
+"`PostgreSQL 認証 <https://www.postgresql.jp/document/current/html/auth-"
+"methods.html>`_"
 
 #: ../../en/security.rst:256
 msgid ""
 "`PostgreSQL Encrpyption <http://www.postgresql.org/docs/current/static/"
 "encryption-options.html>`_"
 msgstr ""
+"`PostgreSQL 暗号化 <https://www.postgresql.jp/document/current/html/"
+"encryption-options.html>`_"
 
 #: ../../en/security.rst:257
 msgid ""
 "`PostgreSQL SSL Support <http://www.postgresql.org/docs/current/static/libpq-"
 "ssl.html>`_"
 msgstr ""
+"`PostgreSQL SSLサポート <https://www.postgresql.jp/document/current/html/"
+"libpq-ssl.html>`_"

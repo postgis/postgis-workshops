@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-21 08:47+0000\n"
+"PO-Revision-Date: 2023-12-05 03:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql/ja/>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/simple_sql.rst:4
 msgid "Simple SQL"
-msgstr ""
+msgstr "単純なSQL"
 
 #: ../../en/simple_sql.rst:6
 msgid ""
@@ -31,70 +31,77 @@ msgid ""
 "questions of, and updating data in, relational databases. You have already "
 "seen SQL when we created our first database.  Recall:"
 msgstr ""
+":term:`SQL` (\"Structured Query Language\") は、リレーショナルデータベースに"
+"おいて、問合せ、更新を行う手段です。データベースの生成の地点で、"
+"みなさんは既に SQL を見ています。思い返してみましょう:"
 
 #: ../../en/simple_sql.rst:12
 msgid ""
 "But that was a question about the database.  Now that we've loaded data into "
 "our database, let's use SQL to ask questions of the data! For example,"
-msgstr ""
+msgstr "これはデータベースに関する問合せでした。現時点では既にデータをロードしていま"
+"す。SQL でデータの問合せを実行してみましょう! たとえば、"
 
 #: ../../en/simple_sql.rst:14
 msgid "\"What are the names of all the neighborhoods in New York City?\""
-msgstr ""
+msgstr "「ニューヨーク市内の全ての地区の名前を知りたい」"
 
 #: ../../en/simple_sql.rst:16
 msgid ""
 "Open up the SQL query window in pgAdmin by clicking the \"Query Tool\" "
 "button."
-msgstr ""
+msgstr "\"Query Tool\" ボタンをクリックして、pgAdmin の "
+"SQLクエリウィンドウを開きます。"
 
 #: ../../en/simple_sql.rst:20
 msgid "then enter the following query in to the query window"
-msgstr ""
+msgstr "クエリウィンドウに次のクエリを入力して"
 
 #: ../../en/simple_sql.rst:26
 msgid "and click the **Execute Query** button (the green triangle)."
-msgstr ""
+msgstr "最後に **Execute Query** ボタン (緑の三角形) をクリックします。"
 
 #: ../../en/simple_sql.rst:30
 msgid "The query will run for a few (milli)seconds and return the 129 results."
-msgstr ""
+msgstr "クエリは数秒 (数ミリ秒) 間実行されて、129 件の結果が返ります。"
 
 #: ../../en/simple_sql.rst:35
 msgid ""
 "But what exactly happened here?  To understand, let's begin with the four "
 "\"verbs\" of SQL,"
-msgstr ""
+msgstr "しかし、ここで何が起こったのでしょう? これを理解するために、SQL "
+"の四つの「動詞」から始めましょう、"
 
 #: ../../en/simple_sql.rst:37
 msgid "``SELECT``, returns rows in response to a query"
-msgstr ""
+msgstr "``SELECT``, クエリに応答して行を返します"
 
 #: ../../en/simple_sql.rst:38
 msgid "``INSERT``, adds new rows to a table"
-msgstr ""
+msgstr "``INSERT``, 新しい行をテーブルに追加します"
 
 #: ../../en/simple_sql.rst:39
 msgid "``UPDATE``, alters existing rows in a table"
-msgstr ""
+msgstr "``UPDATE``, テーブルの既存の行に変更を加えます"
 
 #: ../../en/simple_sql.rst:40
 msgid "``DELETE``, removes rows from a table"
-msgstr ""
+msgstr "``DELETE``,テーブルから行を削除します"
 
 #: ../../en/simple_sql.rst:42
 msgid ""
 "We will be working almost exclusively with ``SELECT`` in order to ask "
 "questions of tables using spatial functions."
-msgstr ""
+msgstr "空間関数を使うテーブルの問合せでは、使うのはほとんど \"SELECT\" "
+"だけになります。"
 
 #: ../../en/simple_sql.rst:45
 msgid "SELECT queries"
-msgstr ""
+msgstr "SELECT クエリ"
 
 #: ../../en/simple_sql.rst:47
 msgid "A select query is generally of the form::"
-msgstr ""
+msgstr "SELECTクエリは一般的に次の形式になります:"
 
 #: ../../en/simple_sql.rst:53
 msgid ""
@@ -102,6 +109,8 @@ msgid ""
 "documentation  <http://www.postgresql.org/docs/current/interactive/sql-"
 "select.html>`_."
 msgstr ""
+"\"SELECT\" の全てのパラメータの概要については、`PostgresSQL 文書 <https://www"
+".postgresql.jp/document/current/html/sql-select.html>`_ をご覧下さい。"
 
 #: ../../en/simple_sql.rst:55
 msgid ""
@@ -110,10 +119,14 @@ msgid ""
 "created by joining two tables on a key or condition. The ``some_condition`` "
 "is a filter that restricts the number of rows to be returned."
 msgstr ""
+"\"some_columns\" は、カラム名またはカラム値の半数のいずれかです。"
+"\"some_data_source\" は、単一のテーブルか、二つのテーブルをキーまたは条件で結"
+"合した複合テーブルです。\"some_condition\" "
+"は、返される行数を制限するフィルタです。"
 
 #: ../../en/simple_sql.rst:57
 msgid "\"What are the names of all the neighborhoods in Brooklyn?\""
-msgstr ""
+msgstr "「ブルックリンの全ての地区の名前を知りたい」"
 
 #: ../../en/simple_sql.rst:59
 msgid ""
@@ -121,29 +134,33 @@ msgid ""
 "table contains all the neighborhoods in New York, but we only want the ones "
 "in Brooklyn."
 msgstr ""
+"``nyc_neighborhoods`` テーブルに話を戻します。テーブルはニューヨーク市の全て"
+"の地区を持っていますが、ブルックリン内の地区だけを求めています。"
 
 #: ../../en/simple_sql.rst:67
 msgid ""
 "The query will run for even fewer (milli)seconds and return the 23 results."
-msgstr ""
+msgstr "クエリは、さらに短く、数秒 (数ミリ秒) で終わり、23件の結果を返します。"
 
 #: ../../en/simple_sql.rst:69
 msgid ""
 "Sometimes we will need to apply a function to the results of our query. For "
 "example,"
-msgstr ""
+msgstr "時々、関数をクエリの結果に適用する必要があります。例を挙げます、"
 
 #: ../../en/simple_sql.rst:71
 msgid ""
 "\"What is the number of letters in the names of all the neighborhoods in "
 "Brooklyn?\""
-msgstr ""
+msgstr "「ブルックリンの全ての地区の名前の文字数を知りたい」"
 
 #: ../../en/simple_sql.rst:73
 msgid ""
 "Fortunately, PostgreSQL has a string length function, :command:"
 "`char_length(string)`."
 msgstr ""
+"幸運なことに、PostgreSQL には、文字列長を得る :command:`char_length(string)`"
+". という関数があります。"
 
 #: ../../en/simple_sql.rst:81
 msgid ""
@@ -153,6 +170,10 @@ msgid ""
 "names. Functions that take in multiple rows and return a single result are "
 "called \"aggregate\" functions."
 msgstr ""
+"私たちはしばしば、結果の個々の行よりも、全体の統計値の方に興味を持ちます。こ"
+"こで、地区ごとの名前の長さを知ることより、地区名の長さの平均値の方に興味を持"
+"っているとします。ここで使う関数は複数の行を引数に取り、単一の結果を返すもの"
+"で、「集約」関数と呼ばれます。"
 
 #: ../../en/simple_sql.rst:83
 msgid ""
@@ -160,12 +181,14 @@ msgid ""
 "general purpose :command:`avg()` for average values and :command:`stddev()` "
 "for standard deviations."
 msgstr ""
+"PostgrSQL は、平均値を求める :command:`avg()` や、標準偏差を求める "
+":command:`stddev()` などといった汎用的な一連の組込集約関数を持っています。"
 
 #: ../../en/simple_sql.rst:85
 msgid ""
 "\"What is the average number of letters and standard deviation of number of "
 "letters in the names of all the neighborhoods in Brooklyn?\""
-msgstr ""
+msgstr "「ブルックリンの全地区の名前の文字数の平均値と標準偏差を知りたい」"
 
 #: ../../en/simple_sql.rst:99
 msgid ""
@@ -175,12 +198,17 @@ msgid ""
 "Aggregate functions often need an added ``GROUP BY`` statement to group the "
 "result-set by one or more columns."
 msgstr ""
+"最後の例での集約関数は、結果集合の全ての行に適用されました。もし結果集合全体"
+"をより小さなグループにして集計を実行したい場合には、どうするでしょうか。その"
+"場合には、\"GROUP BY\"句 を追加します。集約関数はしばしば、"
+"1以上のカラムによる結果セットのグループ化のために \"GROUP BY\"句 "
+"を追加しなければなりません。"
 
 #: ../../en/simple_sql.rst:101
 msgid ""
 "\"What is the average number of letters in the names of all the "
 "neighborhoods in New York City, reported by borough?\""
-msgstr ""
+msgstr "「ニューヨーク市の、行政区ごとの地区の名前の文字数の平均値を知りたい」"
 
 #: ../../en/simple_sql.rst:109
 msgid ""
@@ -189,6 +217,9 @@ msgid ""
 "only output columns that are either (a) members of the grouping clause or "
 "(b) aggregate functions."
 msgstr ""
+"出力結果に \"boroname\" (行政区名) カラムが含まれているので、どの統計がどの行"
+"政区に適用されるかの判断ができます。集約クエリでは、(a) "
+"グループ句のメンバーか、または (b) 集約関数かのカラムだけを出力できます。"
 
 #: ../../en/simple_sql.rst:122
 msgid "Function List"
@@ -200,6 +231,9 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the average value of a numeric column."
 msgstr ""
+"`avg(expression) <https://www.postgresql.jp/document/current/html/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: 数値カラムの値の平均を返す "
+"PostgreSQL 集約関数。"
 
 #: ../../en/simple_sql.rst:126
 msgid ""
@@ -207,6 +241,8 @@ msgid ""
 "functions-string.html>`_: PostgreSQL string function that returns the number "
 "of character in a string."
 msgstr ""
+"`char_length(string) <https://www.postgresql.jp/document/current/html/"
+"functions-string.html>`_: 文字列の文字数を返すPostgreSQL 文字列関数。"
 
 #: ../../en/simple_sql.rst:128
 msgid ""
@@ -214,3 +250,6 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: PostgreSQL aggregate "
 "function that returns the standard deviation of input values."
 msgstr ""
+"`avg(expression) <https://www.postgresql.jp/document/current/html/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: "
+"入力値の標準偏差を返す PostgreSQL 集約関数。"

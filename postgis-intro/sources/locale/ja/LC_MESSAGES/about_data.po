@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-10-11 11:30+0000\n"
+"PO-Revision-Date: 2023-12-06 09:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/about_data.rst:4
@@ -90,7 +90,7 @@ msgstr "**popn_total**"
 
 #: ../../en/about_data.rst:27
 msgid "Total number of people in the census block"
-msgstr "block内の人の合計"
+msgstr "ブロック内の人の合計"
 
 #: ../../en/about_data.rst:28
 msgid "**popn_white**"
@@ -130,7 +130,7 @@ msgstr "**popn_other**"
 
 #: ../../en/about_data.rst:37
 msgid "Number of people self-identifying with other categories in the block"
-msgstr "blockで他のカテゴリを自認する人の数"
+msgstr "ブロック内で他のカテゴリを自認する人の数"
 
 #: ../../en/about_data.rst:38 ../../en/about_data.rst:63
 msgid "**boroname**"
@@ -152,7 +152,7 @@ msgstr "**geom**"
 
 #: ../../en/about_data.rst:41
 msgid "Polygon boundary of the block"
-msgstr "blockのポリゴン"
+msgstr "ブロックのポリゴン"
 
 #: ../../en/about_data.rst:45
 msgid "*Black population as a percentage of Total Population*"

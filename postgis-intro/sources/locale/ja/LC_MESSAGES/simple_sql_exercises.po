@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-07-08 03:08+0000\n"
+"PO-Revision-Date: 2023-12-06 09:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql_exercises/ja/>\n"
@@ -19,18 +19,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.0\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/simple_sql_exercises.rst:4
 msgid "Simple SQL Exercises"
-msgstr ""
+msgstr "単純なSQLの練習"
 
 #: ../../en/simple_sql_exercises.rst:6
 msgid ""
 "Using the ``nyc_census_blocks`` table, answer the following questions (don't "
 "peek at the answers!)."
-msgstr ""
+msgstr "``nyc_census_blocks`` テーブルを使って、次の問に答えます "
+"(回答を覗かないで下さい!)。"
 
 #: ../../en/simple_sql_exercises.rst:8
 msgid ""
@@ -38,6 +39,8 @@ msgid ""
 "`About Our Data <about_data>` section our ``nyc_census_blocks`` table "
 "definition."
 msgstr ""
+"始めるのに助けになる情報を示します。:ref:`About Our Data <about_data>` "
+"セクションの ``nyc_census_blocks`` テーブル定義を思い出して下さい。"
 
 #: ../../en/simple_sql_exercises.rst:13
 msgid "**blkid**"
@@ -55,7 +58,7 @@ msgstr "**popn_total**"
 
 #: ../../en/simple_sql_exercises.rst:16
 msgid "Total number of people in the census block"
-msgstr "block内の人の合計"
+msgstr "ブロック内の人の合計"
 
 #: ../../en/simple_sql_exercises.rst:17
 msgid "**popn_white**"
@@ -63,7 +66,7 @@ msgstr "**popn_white**"
 
 #: ../../en/simple_sql_exercises.rst:18
 msgid "Number of people self-identifying as \"white\" in the block"
-msgstr "block内で「白人」を自認する人の数"
+msgstr "ブロック内で「白人」を自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:19
 msgid "**popn_black**"
@@ -71,7 +74,7 @@ msgstr "**popn_black**"
 
 #: ../../en/simple_sql_exercises.rst:20
 msgid "Number of people self-identifying as \"black\" in the block"
-msgstr "block内で「黒人」を自認する人の数"
+msgstr "ブロック内で「黒人」を自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:21
 msgid "**popn_nativ**"
@@ -79,7 +82,7 @@ msgstr "**popn_nativ**"
 
 #: ../../en/simple_sql_exercises.rst:22
 msgid "Number of people self-identifying as \"native american\" in the block"
-msgstr "block内で「ネイティブアメリカン」と自認する人の数"
+msgstr "ブロック内で「ネイティブアメリカン」と自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:23
 msgid "**popn_asian**"
@@ -87,7 +90,7 @@ msgstr "**popn_asian**"
 
 #: ../../en/simple_sql_exercises.rst:24
 msgid "Number of people self-identifying as \"asias\" in the block"
-msgstr "block内で「アジア人」と自認する人の数"
+msgstr "ブロック内で「アジア人」と自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:25
 msgid "**popn_other**"
@@ -95,31 +98,31 @@ msgstr "**popn_other**"
 
 #: ../../en/simple_sql_exercises.rst:26
 msgid "Number of people self-identifying with other categories in the block"
-msgstr "blockで他のカテゴリを自認する人の数"
+msgstr "ブロック内で他のカテゴリを自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:27
 msgid "**hous_total**"
-msgstr ""
+msgstr "**hous_total**"
 
 #: ../../en/simple_sql_exercises.rst:28
 msgid "Number of housing units in the block"
-msgstr ""
+msgstr "ブロック内の住宅戸数"
 
 #: ../../en/simple_sql_exercises.rst:29
 msgid "**hous_own**"
-msgstr ""
+msgstr "**hous_own**"
 
 #: ../../en/simple_sql_exercises.rst:30
 msgid "Number of owner-occupied housing units in the block"
-msgstr ""
+msgstr "ブロック内の持ち家の戸数"
 
 #: ../../en/simple_sql_exercises.rst:31
 msgid "**hous_rent**"
-msgstr ""
+msgstr "**hous_rent**"
 
 #: ../../en/simple_sql_exercises.rst:32
 msgid "Number of renter-occupied housing units in the block"
-msgstr ""
+msgstr "ブロック内の賃貸住宅の戸数"
 
 #: ../../en/simple_sql_exercises.rst:33
 msgid "**boroname**"
@@ -139,40 +142,40 @@ msgstr "**geom**"
 
 #: ../../en/simple_sql_exercises.rst:36
 msgid "Polygon boundary of the block"
-msgstr "blockのポリゴン"
+msgstr "ブロックのポリゴン"
 
 #: ../../en/simple_sql_exercises.rst:38
 msgid ""
 "And, here are some common SQL aggregation functions you might find useful:"
-msgstr ""
+msgstr "また、便利と思う可能性がありそうな、一般的な SQL 集約関数をここで示します:"
 
 #: ../../en/simple_sql_exercises.rst:40
 msgid "avg() - the average (mean) of the values in a set of records"
-msgstr ""
+msgstr "avg() - レコードの集合の平均値"
 
 #: ../../en/simple_sql_exercises.rst:41
 msgid "sum() - the sum of the values in a set of records"
-msgstr ""
+msgstr "sum() - レコードの集合の合計値"
 
 #: ../../en/simple_sql_exercises.rst:42
 msgid "count() - the number of records in a set of records"
-msgstr ""
+msgstr "count() - レコードの集合のレコード数"
 
 #: ../../en/simple_sql_exercises.rst:44
 msgid "Now the questions:"
-msgstr ""
+msgstr "では問題です:"
 
 #: ../../en/simple_sql_exercises.rst:46
 msgid "**How many records are in the nyc_streets table?**"
-msgstr ""
+msgstr "**nyc_streets テーブルのレコード数はいくつでしょうか?**"
 
 #: ../../en/simple_sql_exercises.rst:57
 msgid "**How many streets in NYC start with ‘B’?**"
-msgstr ""
+msgstr "**ニューヨーク市のストリート数はいくつでしょうか?**"
 
 #: ../../en/simple_sql_exercises.rst:70
 msgid "**What is the population of the City of New York?**"
-msgstr ""
+msgstr "**ニューヨーク市の人口はいくらでしょうか?**"
 
 #: ../../en/simple_sql_exercises.rst:83
 msgid ""
@@ -181,18 +184,22 @@ msgid ""
 "instead of our outputted column name as ``sum`` we write it **AS** the more "
 "readable ``population``."
 msgstr ""
+"この\"AS\"とは何でしょう? テーブルまたはカラムに、エイリアスを使って他の名前"
+"を与えることができます。エイリアスは読み書きともにクエリを簡単にしてくれます"
+"。``sum`` という出力カラム名の代わりに、カラム名が読みやすい ``population`` "
+"にするために **AS** を書きます。"
 
 #: ../../en/simple_sql_exercises.rst:85
 msgid "**What is the population of the Bronx?**"
-msgstr ""
+msgstr "**ブロンクスの人口はいくらでしょうか?**"
 
 #: ../../en/simple_sql_exercises.rst:98
 msgid "**How many \"neighborhoods\" are in each borough?**"
-msgstr ""
+msgstr "**各行政区にはそれぞれどれだけの地区があるでしょうか?**"
 
 #: ../../en/simple_sql_exercises.rst:118
 msgid "**For each borough, what percentage of the population is white?**"
-msgstr ""
+msgstr "**それぞれの行政区で、白人の人口比率は何パーセントでしょうか?**"
 
 #: ../../en/simple_sql_exercises.rst:141
 msgid "Function List"
@@ -204,6 +211,9 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the average value of a numeric column."
 msgstr ""
+"`avg(expression) <https://www.postgresql.jp/document/current/html/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: 数値カラムの値の平均を返す "
+"PostgreSQL 集約関数。"
 
 #: ../../en/simple_sql_exercises.rst:145
 msgid ""
@@ -211,6 +221,9 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the number of records in a set of records."
 msgstr ""
+"`count(expression) <https://www.postgresql.jp/document/current/html/"
+"functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: "
+"レコードの集合のレコード数を返す PostgreSQL 集約関数。"
 
 #: ../../en/simple_sql_exercises.rst:147
 msgid ""

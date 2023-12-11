@@ -3,41 +3,29 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
-#
-#, fuzzy
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
-msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-17 01:29-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2023-12-11 08:16+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.0\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
-msgstr ""
+msgstr "ラスタ"
 
 #: ../../en/rasters.rst:6
 msgid "PostGIS supports another kind of spatial data type called a *raster*. Raster data, much like geometry data, uses **Cartesian coordinates** and a spatial reference system. However instead of vector data, raster data is represented as an n-dimensional matrix consisting of pixels and bands. The bands defines the number of matrices you have. Each pixel stores a value corresponding to each band. So a 3-banded raster such as an RGB image, would have 3 values for each pixel corresponding to the Red-Green-Blue bands."
-msgstr ""
+msgstr "PostGIS は *raster* という、これまでと別の空間データ型を持っています。ラスタデータはジオメトリデータと同じで **直交座標** と空間参照系を使用します。しかし、ラスタデータはベクタデータと違い、ピクセルとバンドで構成される n次元行列 として表されます。バンドは持っている行列の数を定義します。ピクセルはそれぞれが、バンドに対応する値を格納します。RGB画像のような 3バンドラスタ では、ピクセルはおのおの、赤、緑、青のバンドに対応する三つの値を持ちます。"
 
 #: ../../en/rasters.rst:12
 msgid "Although pretty pictures such as those you see on your TV screen are rasters, rasters may not be that exciting to look at. In a nutshell, a raster is a matrix, pinned on a coordinate system, that has values that can represent anything you want them to represent."
-msgstr ""
+msgstr "テレビ画面で見るようなきれいな画像もラスタですが、ラスタは見ても大して楽しくないこともあります。一言で言うと、ラスタは、座標系に固定された、表現したいものを表現できる値を持つ行列です。"
 
 #: ../../en/rasters.rst:17
 msgid "Since rasters live in cartesian space, rasters can interact with geometries. PostGIS offers many functions that take as input both rasters and geometries. Many operations applied to rasters will result in geometries. Common ones are the `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, and `ST_MinConvexHull` as shown below.  When you cast a raster to a geometry, what is output is the `ST_ConvexHull` of the raster."
-msgstr ""
+msgstr "ラスタがデカルト空間内に存在するので、ラスタはジオメトリとの相互作用が可能です。PostGIS は、ラスタとジオメトリの両方を入力に取る関数を多数提供しています。一般的なものとしては、下の図に示す `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, `ST_MinConvexHull` です。ラスタをジオメトリにキャストすると、出力はラスタの `ST_ConvexHull` です。"
 
 #: ../../en/rasters.rst:24
 msgid "The raster format is commonly used to store elevation data, temperature data, satellite data, and thematic data representing things like environmental contamination, population density, and environmental hazard occurrences. You can use rasters to store any numeric data that has a meaningful coordinate location. The only restriction is that for all data in a specific band the numeric data types have to be the same."
-msgstr ""
+msgstr "ラスタ形式は一般的に標高データ、気温データ、衛星データ、環境汚染、人口密度、環境危険の発生などを表現する主題データなどを格納するためによく使あｗレ増す。意味のある座標位置を持つ数値データの格納のためにラスタを使用することができます。ラスタの制限は、特定のバンドの全てのデータについて、数値データタイプが同じでなければならないことだけです。"
 
 #: ../../en/rasters.rst:28
 msgid "Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the :command:`raster2pgsql` command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:"
@@ -45,7 +33,7 @@ msgstr ""
 
 #: ../../en/rasters.rst:37
 msgid "Creating Rasters From Geometries"
-msgstr ""
+msgstr "ジオメトリからラスタを作る"
 
 #: ../../en/rasters.rst:38
 msgid "We'll start off by first creating raster data from vector data, and then move on to the more exciting approach of loading data from a raster source. You will find that raster data is available in abundance and often free from various government sites."
@@ -77,7 +65,7 @@ msgstr ""
 
 #: ../../en/rasters.rst:89
 msgid "Loading Rasters using raster2pgsql"
-msgstr ""
+msgstr "ラスタを raster2pgsql を使ってロードする"
 
 #: ../../en/rasters.rst:90
 msgid "`raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Loader>`_ is a command-line tool often packaged with PostGIS. If you are on windows and used application stackbuilder PostGIS Bundle, you'll find :command:`raster2pgsql.exe` in the folder ``C:\\Program Files\\PostgreSQL\\15\\bin``  where the *15* should be replaced with the version of PostgreSQL you are running."
@@ -89,11 +77,11 @@ msgstr ""
 
 #: ../../en/rasters.rst:95
 msgid "On Ubuntu and Debian, you will need"
-msgstr ""
+msgstr "Ubuntu や Debian では、次を実行して下さい"
 
 #: ../../en/rasters.rst:101
 msgid "to have the PostGIS commandline tools installed. This may install an additional version of PostgreSQL as well. You can see a list of clusters in Debian/Ubuntu using the :command:`pg_lsclusters` command and drop them using the :command:`pg_dropcluster` command."
-msgstr ""
+msgstr "これで PostGIS コマンドラインツールがインストールされます。PostgreSQL の追加バージョンもインストールされる可能性があります。:command:`pg_lsclusters` コマンドを使って Degiab/Ubuntu 内のクラスタの一覧を見ることができます。:command:`pg_dropcluster` コマンドを使って削除できます。"
 
 #: ../../en/rasters.rst:106
 msgid "For this and later exercises, we'll be using `nyc_dem.tif` found in the file `PG Raster Workshop Dataset https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip <https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip>`_. For some geometry/raster examples, we will also be using NYC data loaded from prior chapters.  In-lieu of loading the tif, you can restore the `nyc_dem.backup` included in the zip file in your database using the :command:`pg_restore` commandline tool or the pgAdmin **Restore** menu."
@@ -601,7 +589,7 @@ msgstr ""
 
 #: ../../en/rasters.rst:779
 msgid "ST_Histogram"
-msgstr ""
+msgstr "ST_Histogram"
 
 #: ../../en/rasters.rst:781
 msgid "Generally you won't want stats for your whole table, but instead just stats for a particular area, in that case, you'll want to also employ our old friends :command:`ST_Intersects` and :command:`ST_Clip`. If you are also in need of a raster statistics function that doesn't have an aggregate version, you'll want to carry :command:`ST_Union` along for the ride."

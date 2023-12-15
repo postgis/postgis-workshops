@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-17 01:29-0400\n"
-"PO-Revision-Date: 2023-11-13 20:32+0000\n"
+"PO-Revision-Date: 2023-12-15 03:23+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "loading_data/ja/>\n"
@@ -276,7 +276,7 @@ msgstr ""
 
 #: ../../en/loading_data.rst:136
 msgid "Shapefiles? What's that?"
-msgstr ""
+msgstr "シェープファイル? なんですかそれ?"
 
 #: ../../en/loading_data.rst:138
 msgid ""
@@ -486,7 +486,7 @@ msgstr ""
 
 #: ../../en/loading_data.rst:270
 msgid "Things to Try: View data using QGIS"
-msgstr ""
+msgstr "やること: QGISを使ったデータ表示"
 
 #: ../../en/loading_data.rst:272
 msgid ""
@@ -495,12 +495,19 @@ msgid ""
 "shapefiles and a PostGIS database. Its graphical interface allows for easy "
 "exploration of your data, as well as simple testing and fast styling."
 msgstr ""
+"`QGIS <http://qgis.org>`_ は、データを素早く見るためのデスクトップ GIS "
+"ビューア/エディタです。シェープファイルや PostGIS データベースを含む、様々な"
+"種類のフォーマットのデータを表示することができます。グラフィカルインタフェー"
+"スによって、簡単に手持ちデータを探索できますし、簡単な試験や、手早いスタイル"
+"設定も可能です。"
 
 #: ../../en/loading_data.rst:274
 msgid ""
 "Try using this software to connect your PostGIS database.  The application "
 "can be downloaded from https://qgis.org"
 msgstr ""
+"このソフトウェアを使って PostGIS データベースに接続してみましょう。"
+"このアプリケーションは https://qgis.org からダウンロードできます。"
 
 #: ../../en/loading_data.rst:276
 msgid ""
@@ -509,10 +516,14 @@ msgid ""
 "prompts. Once you have a connection, you can add Layers by clicking connect "
 "and selecting a table to display."
 msgstr ""
+"まず、メニューの :command:`レイヤ->レイヤを追加->PostGISレイヤを追加->新規` "
+"を使って、PostGIS データベースへの接続を生成します。接続が生成されると、「接"
+"続」をクリックして表示したいテーブルを選択することで、レイヤを追加することが"
+"できます。"
 
 #: ../../en/loading_data.rst:280
 msgid "Loading data using QGIS DbManager"
-msgstr ""
+msgstr "QGIS DBマネージャを使用してデータをロードする"
 
 #: ../../en/loading_data.rst:281
 msgid ""
@@ -523,6 +534,12 @@ msgid ""
 "configured, go to :command:`Database->DbManager` and expand to your database "
 "as shown below:"
 msgstr ""
+"QGISに `DBマネージャ <https://docs.qgis.org/3.28/ja/docs/user_manual/plugins/"
+"core_plugins/plugins_db_manager.html#dbmanager>`_ と呼ばれるツールが付属して"
+"います。PostGISを含む様々な種類のデータベースに接続することができます。"
+"PostGIS Database "
+"接続の設定を作った後は、:command:`データベース->DBマネージャ` "
+"に行き、次の通りデータベースを展開します:"
 
 #: ../../en/loading_data.rst:288
 msgid ""
@@ -532,3 +549,8 @@ msgid ""
 "ad-hoc queries to the canvas or define views in your database, using the "
 "highlighted wrench icon."
 msgstr ""
+"そこから :command:`レイヤ/ファイルのインポート` メニューオプションを使って多"
+"数の空間フォーマットのロードができます。多数の空間フォーマットからのデータの"
+"ロードと多数の空間フォーマットへのデータのエクスポートに加えて、アドホックの"
+"クエリをキャンバスに追加したり、データベースのビューとして定義することができ"
+"ます。"

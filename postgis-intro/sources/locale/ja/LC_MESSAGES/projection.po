@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-10-03 10:36+0000\n"
+"PO-Revision-Date: 2023-12-22 10:45+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "projection/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/projection.rst:4
@@ -97,16 +97,20 @@ msgid ""
 "\"authority srid\" in its internal catalogue, it will use that to generate a "
 "projection definition."
 msgstr ""
+"**auth_name / auth_srid** proj が内部カタログから妥当な \"authority name\" "
+"と \"authority srid\" "
+"を見つけられる場合には、投影の定義を生成するために、これを使います。"
 
 #: ../../en/projection.rst:29
 msgid ""
 "**srtext** If proj can parse and form a definition object from the "
 "``srtext`` it will use that."
-msgstr ""
+msgstr "**srtext** 定義オブジェクトを ``srtext`` "
+"から読み込め、かつ形成できる場合には、これを使います。"
 
 #: ../../en/projection.rst:30
 msgid "**proj4text** Finally, proj will attempt to process the ``proj4text``."
-msgstr ""
+msgstr "**proj4text** proj は最後に ``proj4text`` を処理しようとします。"
 
 #: ../../en/projection.rst:32
 msgid ""
@@ -114,6 +118,9 @@ msgid ""
 "PostGIS is either a valid ``srtext`` string or ``proj4text`` string. All the "
 "common authority name/code pairs are already loaded in the table by default."
 msgstr ""
+"このように冗長になっていて、PostGIS 内での新しい投影法生成に必要なものは、"
+"妥当な ``srtext`` 文字列または ``proj4text`` 文字列のいずれかになります。一般"
+"的なオーソリティ名/コードのペアは既にテーブルにロードされています。"
 
 #: ../../en/projection.rst:34
 msgid ""
@@ -122,10 +129,13 @@ msgid ""
 "`GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_, and `FME "
 "<http://www.safe.com/>`_  and others."
 msgstr ""
+"カスタム投影法を生成する時に、できれば ``srtext`` カラムを入れて下さい。`"
+"GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_, `FME "
+"<http://www.safe.com/>`_ などで使われるためです。"
 
 #: ../../en/projection.rst:38
 msgid "Comparing Data"
-msgstr ""
+msgstr "データの比較"
 
 #: ../../en/projection.rst:40
 msgid ""
@@ -135,11 +145,16 @@ msgid ""
 "surface of Earth. Because PostGIS functions work on such a plane, comparison "
 "operations require that both geometries be represented in the same SRID."
 msgstr ""
+"まとめると、座標と SRID は、地球上の位置が定義するものです。SRID なしでは、座"
+"標は抽象的な観念にすぎません。「デカルト」座標平面は、地表面上の位置の「平ら"
+"な」座標系として定義されます。PostGIS "
+"関数はこのような平面の上で動作するので、比較操作には、両方のジオメトリが同じ "
+"SRID で表現されている必要があります。"
 
 #: ../../en/projection.rst:42
 msgid ""
 "If you feed in geometries with differing SRIDs you will just get an error:"
-msgstr ""
+msgstr "異なる SRID のジオメトリを与えると、次のようなエラーが発生します:"
 
 #: ../../en/projection.rst:58
 msgid ""
@@ -150,10 +165,15 @@ msgid ""
 "tables in your database. Only use the transformation function when you are "
 "reading or writing data to external applications."
 msgstr ""
+"オンザフライ変換で :command:`ST_Transform` を使い過ぎないように注意して下さい"
+"。空間インデックスは格納されたジオメトリを使って構築されます。異なる SRID "
+"で比較された場合には、空間インデックスは (しばしば) 使用されません。"
+"データベースの全てのテーブルで **一つの SRID** を選ぶのが最善策です。変換関数"
+"は、外部アプリケーションとのデータの読み書きだけで使って下さい。"
 
 #: ../../en/projection.rst:62
 msgid "Transforming Data"
-msgstr ""
+msgstr "データの変換"
 
 #: ../../en/projection.rst:64
 msgid ""
@@ -161,12 +181,16 @@ msgid ""
 "working projection is UTM (Universal Transverse Mercator) of zone 18, with "
 "meters as the unit of measurement."
 msgstr ""
+"SRID 26918 の proj4 定義に戻ると、現在の投影座標系が UTM (Universal "
+"Transverse Mercator) のゾーン 18 "
+"で、計測単位はメートルであることが分かります。"
 
 #: ../../en/projection.rst:92
 msgid ""
 "Let's convert some data from our working projection to geographic "
 "coordinates -- also known as \"longitude/latitude\"."
-msgstr ""
+msgstr "データを投影座標系から地理座標系 (「経度緯度」とも言います) "
+"に変換してみましょう。"
 
 #: ../../en/projection.rst:94
 msgid ""
@@ -175,6 +199,11 @@ msgid ""
 "next need the SRID of the projection to transform into. In other words, what "
 "is the SRID of geographic coordinates?"
 msgstr ""
+"一つの SRID から他のものにデータを変換するには、"
+"最初に手持ちのジオメトリが妥当な SRID "
+"を持っていることを確認しなければなりません。既に妥当な SRID "
+"であると確認したら、次に変換先 SRID が必要です。言い換えると、地理座標系の "
+"SRID は何でしょうか?"
 
 #: ../../en/projection.rst:96
 msgid ""
@@ -182,20 +211,22 @@ msgid ""
 "to \"longitude/latitude on the WGS84 spheroid\". You can see the definition "
 "here:"
 msgstr ""
+"地理座標系で最も一般的な SRID は 4326 です。これは、「WGS84 "
+"回転楕円体の経度/緯度」に対応します。定義は次のようにして見ることができます:"
 
 #: ../../en/projection.rst:98
 msgid "https://epsg.io/4326"
-msgstr ""
+msgstr "https://epsg.io/4326"
 
 #: ../../en/projection.rst:100
 msgid "You can also pull the definitions from the ``spatial_ref_sys`` table:"
-msgstr ""
+msgstr "``spatial_ref_sys`` テーブルから定義を得ることもできます:"
 
 #: ../../en/projection.rst:116
 msgid ""
 "Let's convert the coordinates of the 'Broad St' subway station into "
 "geographics:"
-msgstr ""
+msgstr "'Broad St' 地下鉄駅の座標を地理座標系に変換してみましょう:"
 
 #: ../../en/projection.rst:128
 msgid ""
@@ -205,12 +236,19 @@ msgid ""
 "should expect all the ``nyc_`` tables to have an SRID of 26918, while  the "
 "``geometries`` table defaulted to an SRID of 0."
 msgstr ""
+"SRID の指定なしでデータのロードやジオメトリの生成を行う場合には、SRID 値は 0 "
+"になります。:ref:`geometries` を思い出して下さい。``geometries`` "
+"テーブルを生成した時に、SRID "
+"を指定していませんでした。データベースにクエリを出す場合には、全ての ``nyc_``"
+" テーブルが SRID 26918 を持つことを期待されているのに、``geometries`` "
+"テーブルは SRID はデフォルトで 0 でした。"
 
 #: ../../en/projection.rst:130
 msgid ""
 "To view a table's SRID assignment, query the database's ``geometry_columns`` "
 "table."
-msgstr ""
+msgstr "テーブルの SRID 割当を表示するには、データベースの ``geometry_columns`` "
+"テーブルを見ます。"
 
 #: ../../en/projection.rst:149
 msgid ""
@@ -218,6 +256,9 @@ msgid ""
 "can set it post-facto, using :command:`ST_SetSRID` on the geometry. Then you "
 "will be able to transform the geometry into other systems."
 msgstr ""
+"しかしながら、座標の SRID が何になるのか分かっている場合には、"
+"ジオメトリに対して事後的に :command:`ST_SetSRID` を使って設定できます。そうす"
+"ると、ジオメトリを他の系に変換できるようになります。"
 
 #: ../../en/projection.rst:162
 msgid "Function List"
@@ -238,6 +279,8 @@ msgid ""
 "`ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>`_: "
 "Sets the SRID on a geometry to a particular integer value."
 msgstr ""
+"`ST_SetSRID(geometry, srid) <https://postgis.net/docs/ja/ST_SetSRID.html>`_: "
+"ジオメトリに指定した整数値の SRID を設定します。"
 
 #: ../../en/projection.rst:167
 msgid ""

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-07-12 07:08+0000\n"
+"PO-Revision-Date: 2023-12-25 13:56+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "projection_exercises/ja/>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/projection_exercises.rst:4
 msgid "Projection Exercises"
-msgstr ""
+msgstr "投影法演習"
 
 #: ../../en/projection_exercises.rst:6
 msgid ""
@@ -43,13 +43,14 @@ msgstr ":command:`ST_Length(linestring)` はラインストリングの長さを
 
 #: ../../en/projection_exercises.rst:10
 msgid ":command:`ST_SRID(geometry)` returns the SRID of the geometry"
-msgstr ""
+msgstr ":command:`ST_SRID(geometry)` はジオメトリの SRID を返します"
 
 #: ../../en/projection_exercises.rst:11
 msgid ""
 ":command:`ST_Transform(geometry, srid)` converts geometries into different "
 "spatial reference systems"
-msgstr ""
+msgstr ":command:`ST_Transform(geometry, srid)` "
+"はジオメトリを異なる空間参照系に変換します"
 
 #: ../../en/projection_exercises.rst:12
 msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
@@ -65,11 +66,11 @@ msgstr ":command:`ST_AsGML(geometry)` は GML ``text`` を返します"
 
 #: ../../en/projection_exercises.rst:16
 msgid "Remember the online resources that are available to you:"
-msgstr ""
+msgstr "利用可能なオンラインリソースを覚えておいて下さい:"
 
 #: ../../en/projection_exercises.rst:18
 msgid "https://epsg.io/"
-msgstr ""
+msgstr "https://epsg.io/"
 
 #: ../../en/projection_exercises.rst:20
 msgid "Also remember the tables we have available:"
@@ -114,20 +115,22 @@ msgstr "演習"
 #: ../../en/projection_exercises.rst:41
 msgid ""
 "**What is the length of all streets in New York, as measured in UTM 18?**"
-msgstr ""
+msgstr "** UTM 18 で計測した、ニューヨークの全てのストリートの長さはどうなりますか? "
+"**"
 
 #: ../../en/projection_exercises.rst:52
 msgid "**What is the WKT definition of SRID 2831?**"
-msgstr ""
+msgstr "** SRID 2831 の WKT 定義はどうなっていますか? **"
 
 #: ../../en/projection_exercises.rst:59
 msgid "Or, via https://epsg.io/2831"
-msgstr ""
+msgstr "または https://epsg.io/2831 では"
 
 #: ../../en/projection_exercises.rst:91
 msgid ""
 "**What is the length of all streets in New York, as measured in SRID 2831?**"
-msgstr ""
+msgstr "** SRID 2831 で計測した、"
+"ニューヨークの全てのストリートの長さはどうなりますか? **"
 
 #: ../../en/projection_exercises.rst:104
 msgid ""
@@ -139,10 +142,16 @@ msgid ""
 "(New York City) while UTM 18 has to provide reasonable results for a large "
 "regional area."
 msgstr ""
+"UTM 18とロングアイランド州平面との計測の差は (10421993 - 10418904)/10418904 "
+"で、0.02% です。:ref:`geography` "
+"を使ってストリートの総延長を回転楕円体面で計算すると 10421999 "
+"となり、州平面の計測値と近くなります。これは驚くほどではありません。UTM 18 は"
+"巨大な領域で合理的な結果を出す必要があるのに対して、ロングアイランド州平面の"
+"投影は、非常に小さい面積 (ニューヨーク市) のために正確に補正されています。"
 
 #: ../../en/projection_exercises.rst:107
 msgid "**How many streets cross the 74th meridian?**"
-msgstr ""
+msgstr "** 74度子午線と交差するストリートはいくつですか? **"
 
 #: ../../en/projection_exercises.rst:122
 msgid ""
@@ -153,3 +162,8 @@ msgid ""
 "answer. To get the same answer, you need to \"segmentize\" it, so it has "
 "more points, before transforming."
 msgstr ""
+"74度子午線は「地理座標上で X が -74 となる垂直線」をしゃれた言い方に変えただ"
+"けです。このようなラインを構築するのは可能です。また、地理座標系になっている"
+"ストリートと比較することができます。このラインをUTMに投影して比較すると、少し"
+"違った答になります。同じ答を得るには、変換前により多くの点を持つよう分割する"
+"必要があります。"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-17 01:29-0400\n"
-"PO-Revision-Date: 2023-12-15 03:23+0000\n"
+"PO-Revision-Date: 2023-12-21 03:45+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "loading_data/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/loading_data.rst:4
@@ -182,42 +182,57 @@ msgid ""
 "backup file. Be sure to be in the :file:`2000/` sub-directory with the shell "
 "when doing these instructions:"
 msgstr ""
+"PostGIS ワークショップのデータディレクトリには :file:`2000/` "
+"サブディレクトリがあります。ここには、 2000年米国国勢調査からのシェープファイ"
+"ルがあります。2010年の米国国勢調査が2000年のデータに取って代わっています。こ"
+"れらのファイルを使って、バックアップファイルを使ってロードを終えているデータ"
+"とで発生する名前衝突を回避するようなデータロードの練習ができます。この手順を"
+"実行する時は、シェルのカレントディレクトリを :file:`2000/` "
+"サブディレクトリにして下さい。"
 
 #: ../../en/loading_data.rst:71
 msgid ""
 "Rather than passing the password in the connection string, we put it in the "
 "environment, so it won't be visible in the process list while the command "
 "runs."
-msgstr ""
+msgstr "パスワードを接続文字列に組み入れて渡すのではなく、環境変数に置いて、コマンド"
+"実行のプロセスリストで表示されないようにします。"
 
 #: ../../en/loading_data.rst:73
 msgid ""
 "Note that on Windows, you will need to use ``set`` instead of ``export``."
-msgstr ""
+msgstr "Windows 上では、``export`` でなく ``set`` "
+"を使わないといけないことにご注意ください。"
 
 #: ../../en/loading_data.rst:88
 msgid ""
 "For more visual clarity, these lines are displayed with ``\\``, but they "
 "should be written in one line on your shell."
-msgstr ""
+msgstr "視覚的に分かりやすくするためにこれらの行に ``\\`` を付けて表示していますが、"
+"シェルでは 1行 で書くべきです。"
 
 #: ../../en/loading_data.rst:90
 msgid ""
 "The :file:`ogr2ogr` has a **huge** number of options, and we're only using a "
 "handful of them here. Here is a line-by-line explanation of the command."
 msgstr ""
+":file:`ogr2ogr` は**膨大な**オプションが用意されていますが、ここでは、一握り"
+"しか使いません。行ごとにコマンドの説明をします。"
 
 #: ../../en/loading_data.rst:96
 msgid ""
 "The executable name! You may need to ensure the executable location is in "
 "your `PATH` or use the full path to the executable, depending on your setup."
 msgstr ""
+"実行ファイル名です! 実行ファイルが `PATH` 内にあるようにするか、実行ファイル"
+"のフルパスを使うかしなければなりません。どちらを使うかは設定に依存します。"
 
 #: ../../en/loading_data.rst:102
 msgid ""
 "The **nln** option stands for \"new layer name\", and sets the table name "
 "that will be created in the target database."
-msgstr ""
+msgstr "**nln** オプションは \"new layer name\" "
+"の略です。対象データベース内に生成するテーブル名を設定します。"
 
 #: ../../en/loading_data.rst:108
 msgid ""
@@ -226,6 +241,10 @@ msgid ""
 "system needs to be told in advance to use \"MultiPolygon\" instead of "
 "\"Polygon\" for the geometry type."
 msgstr ""
+"**nlt** オプションは \"new layer type\" の略です。特にシェープファイル入力で"
+"は、新しいレイヤのタイプがマルチ系ジオメトリになることが多く、"
+"ジオメトリタイプを \"POLYGON\" でなく \"MULTIPOLYGON\" "
+"として使うよう指示する必要があります。"
 
 #: ../../en/loading_data.rst:116
 msgid ""
@@ -233,6 +252,9 @@ msgid ""
 "have different create options, and we are using three options for the "
 "`PostgreSQL driver <https://gdal.org/drivers/vector/pg.html>`_ here."
 msgstr ""
+"*lco* オプションは「レイヤ作成オプション」の略です。ドライバによって異なる生"
+"成オプションを持ちます。ここでは `PostgreSQL driver <https://gdal.org/"
+"drivers/vector/pg.html>`_ の 3個 のオプションを使っています。"
 
 #: ../../en/loading_data.rst:118
 msgid ""
@@ -240,12 +262,16 @@ msgid ""
 "\"geom\" over the default, so that our tables match the standard column "
 "names in the workshop."
 msgstr ""
+"**GEOMETRY_NAME** では、ジオメトリカラムのカラム名を設定します。"
+"デフォルトよりも \"geom\" "
+"を使って、テーブルはこのワークショップの標準のカラム名と一致します。"
 
 #: ../../en/loading_data.rst:119
 msgid ""
 "**FID** sets the primary key column name. Again we prefer \"gid\" which is "
 "the standard used in the workshop."
-msgstr ""
+msgstr "**FID** では主キー名を設定します。こちらもワークショップ標準である \"gid\" "
+"をデフォルトより優先します。"
 
 #: ../../en/loading_data.rst:120
 msgid ""
@@ -255,6 +281,11 @@ msgid ""
 "number types like \"integer\" and \"double precision\". We use \"NO\" to "
 "turn off the \"numeric\" type."
 msgstr ""
+"**PRECISION** は、データベース内で数値フィールドをどう表現するかを制御します"
+"。シェープファイルのロードのデフォルトでは、\"numeric\"型 を使います。"
+"\"integer\" や \"double precision\" "
+"のような単純な数値型と比べて精度は高いですが、扱いにくいです。\"numeric\"型 "
+"を切るには \"NO\" を使います。"
 
 #: ../../en/loading_data.rst:126
 msgid ""
@@ -265,6 +296,12 @@ msgid ""
 "postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING>`_ is "
 "contained in quotation marks (because it might have embedded spaces)."
 msgstr ""
+":file:`ogr2ogr` 内の引数の順序は、大まかに言うと、実行ファイル、オプション、*"
+"*出力先**位置、**入力元**位置、となっています。ですので、この PostgreSQL "
+"データベースへの接続文字列は、出力です。\"Pg:\" の部分はドライバ名で、`"
+"接続文字列 <https://www.postgresql.jp/document/current/html/libpq-connect."
+"html#LIBPQ-CONNSTRING>`_ は引用符で囲みます "
+"(接続文字列に空白が含まれる可能性があるため)。"
 
 #: ../../en/loading_data.rst:132
 msgid ""
@@ -273,6 +310,10 @@ msgid ""
 "string here, and then following it with a list of layer names, but in this "
 "case we have just the one shape file to load."
 msgstr ""
+"この場合のソースデータセットは、読み込もうとしているシェープファイルです。こ"
+"こに接続文字列を置き、その後にレイヤ名リストを並べると、1回 の呼び出しで複数"
+"レイヤを読むことができますが、この場合、ロードするシェープファイルは一つだけ"
+"です。"
 
 #: ../../en/loading_data.rst:136
 msgid "Shapefiles? What's that?"
@@ -422,6 +463,10 @@ msgid ""
 "program. The arguments to :file:`psql` are just the connection string for "
 "the destination database."
 msgstr ""
+"このユーティリティで生成されるのは SQL のストリームです。\"|\" "
+"は、ストリームを受け取り、データベースの端末用プログラムである :file:`psql` "
+"への入力として使うようにするためのものです。:file:`psql` "
+"への引数は、出力先データベースへの接続文字列です。"
 
 #: ../../en/loading_data.rst:221
 msgid "SRID 26918? What's with that?"
@@ -441,12 +486,17 @@ msgid ""
 "SRID is convenient because it packs all the information about a map "
 "projection (which can be quite complex) into a single number."
 msgstr ""
+"\"SRID\" は \"Spatial Reference IDentifier\" (空間参照系識別子) "
+"の略です。出力データの地理座標系と投影法の全てのパラメータを定義します。SRID "
+"は、地図投影法の情報 (非常に複雑になることがあります) "
+"の全てを一つの数字にまとめているので便利です。"
 
 #: ../../en/loading_data.rst:227
 msgid ""
 "You can see the definition of our workshop map projection by looking it up "
 "either in an online database,"
-msgstr ""
+msgstr "本ワークショップの地図投影法の定義を見るには、次のようにオンラインデータベー"
+"スで調べるか、"
 
 #: ../../en/loading_data.rst:229
 msgid "https://epsg.io/26918"
@@ -455,7 +505,7 @@ msgstr "https://epsg.io/26918"
 #: ../../en/loading_data.rst:231
 msgid ""
 "or directly inside PostGIS with a query to the ``spatial_ref_sys`` table."
-msgstr ""
+msgstr "または、PostGIS 内で直接 ``spatial_ref_sys`` テーブルへのクエリを実行します。"
 
 #: ../../en/loading_data.rst:239
 msgid ""
@@ -464,18 +514,24 @@ msgid ""
 "shipped with PostGIS, lists over 3000 known spatial reference systems and "
 "details needed to transform/re-project between them."
 msgstr ""
+"PostGIS の ``spatial_ref_sys`` テーブルは :term:`OGC` 標準のテーブルで、デー"
+"タベースが把握している空間参照系の全てを定義しています。PostGIS "
+"に付属するデータには、3000 "
+"件以上の空間参照系と、変換/投影変換に必要な詳細情報があります。"
 
 #: ../../en/loading_data.rst:241
 msgid ""
 "In both cases, you see a textual representation of the **26918** spatial "
 "reference system (pretty-printed here for clarity):"
-msgstr ""
+msgstr "いずれの場合でも、**26918** という空間参照系の文字表現が得られます "
+"(分かりやすくするため、ここではきれいに印字しています):"
 
 #: ../../en/loading_data.rst:264
 msgid ""
 "If you open up the ``nyc_neighborhoods.prj`` file from the data directory, "
 "you'll see the same projection definition."
-msgstr ""
+msgstr "データディレクトリから ``nyc_neighborhoods.prj`` "
+"を開くと、同じ投影法定義が見えます。"
 
 #: ../../en/loading_data.rst:266
 msgid ""
@@ -483,6 +539,10 @@ msgid ""
 "in a local projection noted by \"state plane\" or \"UTM\".  Our projection "
 "is \"Universal Transverse Mercator (UTM) Zone 18 North\" or EPSG:26918."
 msgstr ""
+"ニューヨーク市等の地方機関から得たデータは、通常はその地域の投影法で、「州平"
+"面」 (訳注; 米国で使われるものです)や「UTM」などと示されます。"
+"ここでの投影法は \"Universal Transverse Mercator (UTM) Zone 18 North\" (UTM "
+"ゾーン18 北半球) で、EPSG:26918 となります。"
 
 #: ../../en/loading_data.rst:270
 msgid "Things to Try: View data using QGIS"

@@ -5,7 +5,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2023-12-11 08:16+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.0\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2023-12-28 02:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -29,7 +29,7 @@ msgstr "ラスタ形式は一般的に標高データ、気温データ、衛星
 
 #: ../../en/rasters.rst:28
 msgid "Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the :command:`raster2pgsql` command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:"
-msgstr ""
+msgstr "ラスタデータは PostGIS で何もない状態から作成できますが、PostGIS に同梱されている :command:`raster2pgsql` コマンドラインツールを使って、様々なフォーマットのラスタデータをロードするのが一般的です。その前に、データベースのラスタ対応を有効にしないといけません。次のようにします:"
 
 #: ../../en/rasters.rst:37
 msgid "Creating Rasters From Geometries"
@@ -37,15 +37,15 @@ msgstr "ジオメトリからラスタを作る"
 
 #: ../../en/rasters.rst:38
 msgid "We'll start off by first creating raster data from vector data, and then move on to the more exciting approach of loading data from a raster source. You will find that raster data is available in abundance and often free from various government sites."
-msgstr ""
+msgstr "ベクタデータからラスタデータ生成を最初に始め、より刺激的となるラスタソースからデータをロードするアプローチに移ります。ラスタデータが多量に存在し、しばしば様々な政府サイトから無償で入手できます。"
 
 #: ../../en/rasters.rst:41
 msgid "We'll start by converting some geometries into rasters using `ST_AsRaster <https://postgis.net/docs/RT_ST_AsRaster.html>`_ function as follows."
-msgstr ""
+msgstr "次の通り、`ST_AsRaster <https://postgis.net/docs/ja/RT_ST_AsRaster.html>`_ 関数ジオメトリをラスタに変換することから始めます。"
 
 #: ../../en/rasters.rst:55
 msgid "The above example CREATEs a table (**rasters**) from geometries formed from letters using the PostGIS 3.2+ `ST_Letters <https://postgis.net/docs/ST_Letters.html>`_ function. Rasters similar to geometries, can take advantage of spatial indexes. The spatial index used for raster is a functional index that indexes the geometry convexhull of the raster."
-msgstr ""
+msgstr "上の例で、文字から形成されるジオメトリからテーブル (**ラスタ**) を CREATE します。PostGIS 3.2 以上の `ST_Letters <https://postgis.net/docs/ja/ST_Letters.html>`_ を使います。ラスタはジオメトリに似ていて、空か人デックスを利用できます。ラスタに使われる空間インデックスは、ラスタの凸包ジオメトリを使った関数インデックスを使用します。"
 
 #: ../../en/rasters.rst:58
 msgid "You can see some useful metadata of your rasters with the following query which utilizes the postgis raster `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels that have data and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters."

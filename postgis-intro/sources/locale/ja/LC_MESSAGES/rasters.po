@@ -3,9 +3,9 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2023-12-28 02:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-01-10 09:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -49,15 +49,15 @@ msgstr "上の例で、文字から形成されるジオメトリからテーブ
 
 #: ../../en/rasters.rst:58
 msgid "You can see some useful metadata of your rasters with the following query which utilizes the postgis raster `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels that have data and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters."
-msgstr ""
+msgstr "次のクエリで便利なラスタのメタデータを見ることができます。データを持つピクセルの数を数える `ST_Count <https://postgis.net/docs/ja/RT_ST_Count.html>`_ 関数と、ラスタの便利な背景情報の全ての種類を提供する ST_MetaData <https://postgis.net/docs/ja/RT_ST_MetaData.html>`_ 関数を使っています。"
 
 #: ../../en/rasters.rst:76
 msgid "There are two levels of raster functions. There are functions such as ST_MetaData that work at the raster level and there are functions such as :command:`ST_Count` function and `ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_ function that work at the band level. Most functions in postgis raster that work at the band level, work with only one band at a time, and assume the band you want is `1`."
-msgstr ""
+msgstr "ラスタ関数の二つのレベルがあります。ST_MetaData などのラスタレベルで動作する関数と、 :command:`ST_Count` 関数や `ST_BandMetaData <https://postgis.net/docs/ja/RT_ST_BandMetaData.html>`_ 関数などのバンドレベルで動作する関数です。PostGISラスタ 関数のうちバンドレベルで動作するものは、ほとんどが一度に 1バンド で動作し、渡したいバンドの番号を 1 と仮定します。"
 
 #: ../../en/rasters.rst:83
 msgid "If you have a multi-band raster, and you need to count the pixel not no-data values in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`."
-msgstr ""
+msgstr "複数バンドのラスタで、1番 以外のバンドで、NODATA値 でないピクセルのカウントを行いたい場合には、`ST_Count(rast,2)` のように、明示的にバンド番号を与えます。"
 
 #: ../../en/rasters.rst:85
 msgid "Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that, our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us."
@@ -69,11 +69,11 @@ msgstr "ラスタを raster2pgsql を使ってロードする"
 
 #: ../../en/rasters.rst:90
 msgid "`raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Loader>`_ is a command-line tool often packaged with PostGIS. If you are on windows and used application stackbuilder PostGIS Bundle, you'll find :command:`raster2pgsql.exe` in the folder ``C:\\Program Files\\PostgreSQL\\15\\bin``  where the *15* should be replaced with the version of PostgreSQL you are running."
-msgstr ""
+msgstr "`raster2pgsql <https://postgis.net/docs/ja/using_raster_dataman.html#RT_Raster_Loader>`_ は、PostGIS によく同梱されているコマンドラインツールです。Windows 上でスタックビルダの PostGIS Bundle を使っている場合には、``C:\\Program Files\\PostgreSQL\\15\\bin`` フォルダ内に :command:`raster2pgsql.exe` があります。なおフォルダ名の *15* は、実行している PostgreSQL のバージョンによって異なります。"
 
 #: ../../en/rasters.rst:93
 msgid "If you are using Postgres.App, you'll find raster2pgsql among the other `Postgres.app CLI Tools <https://postgresapp.com/documentation/cli-tools.html>`_."
-msgstr ""
+msgstr "Postgres.App を使用している場合には、他の `Postgres.app CLI Tools <https://postgresapp.com/documentation/cli-tools.html>`_ の中に raster2pgsql があります。"
 
 #: ../../en/rasters.rst:95
 msgid "On Ubuntu and Debian, you will need"
@@ -85,11 +85,11 @@ msgstr "これで PostGIS コマンドラインツールがインストールさ
 
 #: ../../en/rasters.rst:106
 msgid "For this and later exercises, we'll be using `nyc_dem.tif` found in the file `PG Raster Workshop Dataset https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip <https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip>`_. For some geometry/raster examples, we will also be using NYC data loaded from prior chapters.  In-lieu of loading the tif, you can restore the `nyc_dem.backup` included in the zip file in your database using the :command:`pg_restore` commandline tool or the pgAdmin **Restore** menu."
-msgstr ""
+msgstr "これ以後の演習では、`PG Raster Workshop Dataset https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip <https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip>`_ 内にある `nyc_dem.tif` を使用します。ジオメトリ/ラスタの例では、以前の章でロードしたニューヨーク市データも使います。TIFF ファイルのロードの代わりに、:command:`pg_restore` コマンドラインツールか、pgAdmin の **Restore** メニューを使って、データベース内の ZIPファイル に含まれる `nyc_dem.backup` を復元できます。"
 
 #: ../../en/rasters.rst:112
 msgid "This raster data was sourced from `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_ which is a 3GB DEM tif representing elevation relative to sea level with buildings and overwater removed. We then created a lower res version of it."
-msgstr ""
+msgstr "このラスタデータは、建物と水面を除いた、海面からの相対高度を表現する 3GB DEM の TIFFデータ である `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_ をもとにした低解像度版です。"
 
 #: ../../en/rasters.rst:115
 msgid "The :command:`rasterpgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source. Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata."
@@ -97,63 +97,63 @@ msgstr ""
 
 #: ../../en/rasters.rst:119
 msgid "For a full exposure of all the possible switches offered refer to `raster2pgsql options <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_."
-msgstr ""
+msgstr "全ての可能性のあるスイッチに関する完全な情報は `raster2pgsqlオプション <https://postgis.net/docs/ja/using_raster_dataman.html#RT_Loading_Rasters>`_ にあります。"
 
 #: ../../en/rasters.rst:121
 msgid "Some other notable options :command:`raster2pgsql` offers which we will not cover are:"
-msgstr ""
+msgstr "他の:command:`raster2pgsql` が提供する特筆すべきですが、ここでは紹介しないオプションには次のものがあります:"
 
 #: ../../en/rasters.rst:123
 msgid "Ability to denote the SRID of the source. Instead, we'll rely on raster2pgsql guessing skills."
-msgstr ""
+msgstr "ソースの SRID を表示する能力。代わりに raster2pgsql の推測スキルに頼ることになります。"
 
 #: ../../en/rasters.rst:124
 msgid "Ability to set the `nodata` value, when not specified, raster2pgsql tries to infer from the file."
-msgstr ""
+msgstr "`nodata`値 を設定する機能で、指定しない場合には raster2pgsql はファイルから推測を試みます。"
 
 #: ../../en/rasters.rst:125
 msgid "Abiliity to load out-of-database rasters."
-msgstr ""
+msgstr "データベース外ラスタのロード機能。"
 
 #: ../../en/rasters.rst:127
 msgid "To load all the tif files in our folder and also create overviews, we would run the below."
-msgstr ""
+msgstr "現在のフォルダにある全ての TIFFファイル をロードし、オーバビューを生成するには、以下を実行します。"
 
 #: ../../en/rasters.rst:133
 msgid "-d to drop the tables if they already exist"
-msgstr ""
+msgstr "-d テーブルが既に存在している場合には削除します"
 
 #: ../../en/rasters.rst:134
 msgid "The above command uses `-e` to do load immediately instead of committing in a transaction"
-msgstr ""
+msgstr "上のコマンドは、トランザクションでコミットする代わりにすぐにロードを実行するために `-e` を使います"
 
 #: ../../en/rasters.rst:135
 msgid "`-C` set raster constraints, this is useful for `raster_columns` to show info. You may want to combine with `-x` to exclude the extent constraint, which is a slow constraint to check and also hampers future loads in the table."
-msgstr ""
+msgstr "`-C` ラスタ制約を設定します。`raster_columns` が情報を表示するのに便利です。範囲制約を除外するために `-x` を使っても構いません。範囲制約はチェックに時間がかかったり、テーブル内の将来のロードを妨げ制約です。"
 
 #: ../../en/rasters.rst:138
 msgid "`-M` to vacuum and analyze after load, to improve query planner statistics"
-msgstr ""
+msgstr "`-M` ロード後に VACUUM と ANALYZE を実行して、クエリプランナの統計情報を改善します"
 
 #: ../../en/rasters.rst:139
 msgid "`-Y` to use copy in batches of 50. If you are running PostGIS 3.3 or higher, you can use `-Y 1000` to have copy be in batches of 1000, or even higher number. This will run faster, but will use more memory."
-msgstr ""
+msgstr "`-Y` 50個のバッチで COPY を使用します。PostGIS 3.3 以上では、`-Y 1000` とすると、COPY を 1000のバッチにすることができますし、もっと大きい値にすることができます。早くなる半面、使用メモリも多くなります。"
 
 #: ../../en/rasters.rst:141
 msgid "`-l 2,3` to create over view tables: `o_2_ncy_dem` and `o_3_nyc_dem`. This is useful for viewing data."
-msgstr ""
+msgstr "`-l 2,3` オーバビューテーブルを作成します。この例の場合では `o_2_ncy_dem` と `o_3_nyc_dem` が作成されます。これは、データ表示に便利です。"
 
 #: ../../en/rasters.rst:142
 msgid "-I to create a spatial index"
-msgstr ""
+msgstr "-I 空間インデックスを生成します"
 
 #: ../../en/rasters.rst:143
 msgid "`-F` to add file name, if you have only one tif file, this is kinda pointless. If you had multiple, this would be useful to tell you what file each row came from."
-msgstr ""
+msgstr "`-F` ファイル名を追加します。単一の TIFF ファイルしかない場合には、これはちょっと無意味です。複数のファイルをロードする場合には、各行がどのファイルから来たデータかを知るのに便利です。"
 
 #: ../../en/rasters.rst:145
 msgid "`-t` to set the block size. Note if you are not sure the best size use, use `-t auto` instead and raster2pgql will use the same tiling as what was in the tif. The output will tell you what the blocksize is it chose. Cancel if it looks huge or weird. The original file had a size of 300x7 which is not ideal."
-msgstr ""
+msgstr "`-t` ブロックサイズを指定します。使用サイズの最適値が分からない場合には、代わりに `-t auto` を使うと、raster2pgsql は TIFF ファイルと同じタイリングを使うことに注意して下さい。出力で、どのブロックサイズが選択されるかが分かります。巨大サイズになったり奇妙な値になる場合にはキャンセルして下さい。元のファイルのサイズは 300x7 ですが、理想的ではありません。"
 
 #: ../../en/rasters.rst:149
 msgid "Use :command:`psql` to run the generated sql against the database. If you want to dump to a file instead, use `> nyc_dem.sql`"

@@ -5,7 +5,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-01-10 09:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-01-18 03:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -61,7 +61,7 @@ msgstr "複数バンドのラスタで、1番 以外のバンドで、NODATA値 
 
 #: ../../en/rasters.rst:85
 msgid "Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that, our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us."
-msgstr ""
+msgstr "全てのラスタのピクセル数が 150x150 になっていることに注意して下さい。これは理想的ではありません。ピクセル数を強制するために、ラスタが全方向で押しつぶされることになります。目の前のラスタの醜さを見ることができたらいいのですができません。"
 
 #: ../../en/rasters.rst:89
 msgid "Loading Rasters using raster2pgsql"
@@ -93,7 +93,7 @@ msgstr "このラスタデータは、建物と水面を除いた、海面から
 
 #: ../../en/rasters.rst:115
 msgid "The :command:`rasterpgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source. Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata."
-msgstr ""
+msgstr ":command:`rasterpgsql` ツールは、ESRIシェープファイル を PostGIS ジオメトリ/ジオグラフィテーブルにロードする代わりに、GDAL が対応するラスタフォーマットをラスタテーブルにロードするところが違いますが、 :command:`shp2gpsql` と似ています。:command:`shp2pgsql` のように、ソースデータの空間参照系ID (SRID) を渡すことができます。:command:`shp2pgsql` と違い、適切なメタデータを持っているソースデータに対しては空間参照系を推測できます。"
 
 #: ../../en/rasters.rst:119
 msgid "For a full exposure of all the possible switches offered refer to `raster2pgsql options <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_."
@@ -157,159 +157,159 @@ msgstr "`-t` ブロックサイズを指定します。使用サイズの最適�
 
 #: ../../en/rasters.rst:149
 msgid "Use :command:`psql` to run the generated sql against the database. If you want to dump to a file instead, use `> nyc_dem.sql`"
-msgstr ""
+msgstr ":command:`psql` を使って、生成した SQL をデータベース上で実行します。そうでなくファイルにダンプしたい場合には `> nyc_dem.sql` を使います。"
 
 #: ../../en/rasters.rst:153
 msgid "For this example, we have only one tif file, so we could instead specify the full file name, instead of `*.tif`.  If the files are not in your current directory, you can also specify a folder path with `*.tif`."
-msgstr ""
+msgstr "この例では、TIFF ファイルが一つしかないので、`*.tif` でなく、 完全なファイル名を指定できます。ファイルがカレントディレクトリに無い場合には、フォルダパスに `*.tif` を付けて指定することもできます。"
 
 #: ../../en/rasters.rst:158
 msgid "If you are on windows and need to reference the folder, make sure to include the drive letter such as `C:/workshop/*.tif`"
-msgstr ""
+msgstr "Windows を使用していて、フォルダの参照が必要な場合には、`C:/workshop/*.tif` のように、ドライブレターを必ず含めて下さい。"
 
 #: ../../en/rasters.rst:161
 msgid "You'll often hear in PostGIS lingo, the term **raster tile** and **raster** used somewhat interchangeably. A raster tile really corresponds to a particular raster in a raster column which is a subset of a bigger raster, such as this NYC dem data we just loaded. This is because when rasters are loaded into PostGIS from big raster files, they chopped into many rows to make them manageable.  Each raster in each row then is a part of a bigger raster.  Each tile covers same size area denoted by the blocksize you specified. Rasters are sadly limited by the 1GB PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_ limit and also the slow process of detoasting and so we need to chop up in order to achieve decent performance or to even store them."
-msgstr ""
+msgstr "PostGIS の専門用語で **ラスタタイル** と **ラスタ** を、いくぶん交換可能な語として聞くことがあると思います。ラスタタイルは本当は、今ロードしたニューヨーク市 DEMデータ のような大きなラスタのサブセットであるラスタカラム内の特定のラスタに対応するものです。これは、大きなラスタファイルからラスタが PostGIS にロードされる時に、このラスタを管理できるようにするために多数の行に切り刻まれるためです。それぞれの行のそれぞれのラスタは大きなラスタの一部です。それぞれのタイルは、指定したブロックサイズで示される同じサイズの領域をカバーします。悲しむべきことに、ラスタは PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_ の 1GB 制限にひっかかり、TOASTからの復元処理が遅いこともあり、適切なパフォーマンスの達成や保存のために、切り刻まなければなりません。"
 
 #: ../../en/rasters.rst:170
 msgid "Viewing Rasters in Browser"
-msgstr ""
+msgstr "ブラウザでのラスタ表示"
 
 #: ../../en/rasters.rst:171
 msgid "Although pgAdmin and psql have no mechanism yet to view postgis rasters, we have a couple of options. For smallish rasters the easiest is to output to a web-friendly raster format such as PNG using batteries included postgis raster functions like `ST_AsPNG` or `ST_AsGDALRaster` listed in `PostGIS Raster output functions <https://postgis.net/docs/RT_reference.html#Raster_Outputs>`_. As your rasters get larger, you'll want to graduate to a tool such as QGIS to view them in all their glory or the GDAL family of commandline tools such as :command:`gdal_translate` to export them to other raster formats.  Remember though, postgis rasters are built for analysis, not for generating pretty pictures for you to look at."
-msgstr ""
+msgstr "pgAdmin と psql は、PostGISラスタ を表示する機構を持っていませんが、二つの選択肢があります。小さめのラスタの場合には、`PostGIS ラスタ出力関数 <https://postgis.net/docs/ja/RT_reference.html#Raster_Outputs>`_ に出ている `ST_AsPNG` や `ST_AsGDALRaster` といったものを含む一連の PostGIS ラスタ関数を使って、PNG 等のウェブフレンドリなラスタフォーマットで出力するのが最も簡単です。ラスタが大きくなるにつれて、表示に非常によく使われている QGIS のようなツールを使うか、他のラスタフォーマットにエクスポートする :command:`gdal_translate` などの GDAL ファミリのコマンドラインツールを使うかに進むことになると思います。ただし、PostGIS ラスタは分析のために作られたものであって、見栄えのする画像を生成するためのものでないことは忘れないでください。"
 
 #: ../../en/rasters.rst:178
 msgid "One caveat, by default all different raster types outputs are disabled. In order to utilize these, you'll need to enable drivers, all or a subset as detailed in `Enable GDAL Raster drivers <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_"
-msgstr ""
+msgstr "デフォルトでは、全ての異なるラスタタイプの出力が無効になっていることに注意して下さい。利用可能にするには、ドライバの全てまたは一部を有効にする必要があります。詳細は `GDALラスタドライバの有効化 <https://postgis.net/docs/ja/postgis_gdal_enabled_drivers.html>`_ をご覧下さい。"
 
 #: ../../en/rasters.rst:186
 msgid "If you don't want to have to do this for each connection, you can set at the database level using:"
-msgstr ""
+msgstr "データベースサーバへの接続のたびにこれを実行したくない場合には、次のようにするとデータベースレベルで設定できます:"
 
 #: ../../en/rasters.rst:192
 msgid "Each new connection to the database will use that setting."
-msgstr ""
+msgstr "新規のデータベースへの接続では、この設定が使われます。"
 
 #: ../../en/rasters.rst:194
 msgid "Run the below query and copy and paste the output into the address bar of your web browser."
-msgstr ""
+msgstr "下のクエリを実行して、出力をコピーしてブラウザのアドレスバーにペーストします。"
 
 #: ../../en/rasters.rst:205
 msgid "For the rasters created thus far, we didn't specify the number of bands nor did we even define their relation to earth.  As such our rasters have an unknown spatial reference system (0)."
-msgstr ""
+msgstr "ここまでに作成されたラスタについては、バンド数を指定しませんし、地球との関係も定義しません。このため、ラスタが不明な空間参照系 (0) になります。"
 
 #: ../../en/rasters.rst:208
 msgid "You can think of a rasters exoskeletal as a geometry. A matrix encased in a geometric envelop. In order to do useful analysis, we need to georeference our rasters, meaning we want each pixel (rectangle) to represent some meaningful plot of space."
-msgstr ""
+msgstr "ラスタの外骨格はジオメトリと考えることができます。ジオメトリのエンベロープに入ったマトリクスです。便利な分析を行うには、空間のプロットを表現するピクセル (矩形) が欲しいので、ラスタのジオリファレンスが必要です。"
 
 #: ../../en/rasters.rst:213
 msgid "The `ST_AsRaster` has many overloaded representations. The earlier example used the simplest such implementation and accepted the default arguments which are 8BUI and 1 band, with no data being 0. If you need to use the other variants, you should use the named arguments call syntax so that you don't accidentally fall into the wrong variant of the function or get **function is not unique** errors."
-msgstr ""
+msgstr "`ST_AsRaster` は多数のオーバーロードを持ちます。前の例では、最も単純な実装を使い、 8BUI で 1 バンドのデフォルト引数を使い、NO DATA を 0 にしました。他の形式を使う必要がある場合には、名前付き引数による呼出し文法を使って、誤って思ってたものと違う形式を呼び出したり、**関数が一意でない**エラーが発生したりしないようにするべきです。"
 
 #: ../../en/rasters.rst:221
 msgid "If you start with a geometry that has a spatial reference system, you'll end up with a raster with same spatial reference system. In this next example, we'll plop our words in New York in bright cheery colors. We will also use pixel scale instead of width and height so that our raster pixel sizes represent 1 meter x 1 meter of space."
-msgstr ""
+msgstr "空間参照系を持つジオメトリから開始する場合には、同じ空間参照系を持つラスタで終わります。この次の例では、明るく元気のある色の単語をニューヨークに落とします。幅と高さの代わりにピクセルスケールを使用して、ラスタのピクセルサイズが空間の 1メートル × 1メートル になるようにします。"
 
 #: ../../en/rasters.rst:244
 msgid "If we then look at this, we'll see a non-squashed colored geometry."
-msgstr ""
+msgstr "これを見ると、押しつぶされていない色付きのジオメトリが見えます。"
 
 #: ../../en/rasters.rst:255
 msgid "Repeat for Raster:"
-msgstr ""
+msgstr "Raster についても同じにします:"
 
 #: ../../en/rasters.rst:266
 msgid "What is more telling, if we rerun the"
-msgstr ""
+msgstr "それ以上に、次を実行して"
 
 #: ../../en/rasters.rst:273
 msgid "Observe the metadata of the New York entries. They have the New York state plane meter spatial reference system. They also have the same scale.  Since each unit is 1x1 meter, the width of the word **Raster** is now wider than **Hello**."
-msgstr ""
+msgstr "ニューヨークのエントリのメタデータを確認します。メートル単位のニューヨーク州平面の空間参照系を持っています。また、スケールも同じです。それぞれの単位は 1x1メートル ですので、**Raster** という単語の幅は **Hello** よりも広くなります。"
 
 #: ../../en/rasters.rst:288
 msgid "Raster Spatial Catalog tables"
-msgstr ""
+msgstr "ラスタ空間カタログテーブル"
 
 #: ../../en/rasters.rst:289
 msgid "Similar to the geometry and geography types, raster has a set of catalogs that show you all raster columns in your database. These are `raster_columns and raster_overviews <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Catalog>`_."
-msgstr ""
+msgstr "ジオメトリ型やジオグラフィ型と同じように、ラスタはデータベース内のすべてのラスタカラムを表示するカタログの集合を持っています。`raster_columns と raster_overviews <https://postgis.net/docs/ja/using_raster_dataman.html#RT_Raster_Catalog>`_ があります。"
 
 #: ../../en/rasters.rst:295
 msgid "raster_columns"
-msgstr ""
+msgstr "raster_columns"
 
 #: ../../en/rasters.rst:297
 msgid "The `raster_columns` view to the sibling to the  `geometry_columns` and `geography_columns`, providing much the same data and more, but for raster columns."
-msgstr ""
+msgstr "`raster_columns` は `geometry_columns` と `geography_columns` の兄弟のようなもので、同等以上のデータが提供されますが、ラスタカラム用です。"
 
 #: ../../en/rasters.rst:305
 msgid "Explore the table, and you'll find this:"
-msgstr ""
+msgstr "テーブルを調べると、次のことが分かります:"
 
 #: ../../en/rasters.rst:317
 msgid "a disappointing row of largely unfilled information for the `rasters` table."
-msgstr ""
+msgstr "`rasters` テーブルについては、ほんとどの情報が記入されていない残念な行になってしまっています。"
 
 #: ../../en/rasters.rst:319
 msgid "Unlike geometry and geography, raster does not support type modifiers, because type modifier space is too limited and there are more critical properties than what can fit in a type modifier."
-msgstr ""
+msgstr "ジオメトリとジオグラフィと違い、ラスタは型修飾子に対応していません。型修飾子はスペースが限られ過ぎていて、型識別子に入るものよりも重要なプロパティがあります。"
 
 #: ../../en/rasters.rst:322
 msgid "Raster instead relies on constraints, and reads these constraints back as part of the view."
-msgstr ""
+msgstr "ラスタは、そのかわりに制約に依存していて、これらの制約をビューの一部として読み取ります。"
 
 #: ../../en/rasters.rst:324
 msgid "Look at the other rows from the tables we loaded using :command:`raster2pgsql`. Because we used the `-C` switch :command:`raster2pgsql` added constraints for the srid and other info it was able to read from the tif or that we passed in. The overview tables generated with the `-l` switch `o_2_nyc_dem` and `o_3_nyc_dem` show up as well."
-msgstr ""
+msgstr ":command:`raster2pgsql` を使ってロードしたテーブルの他の行を見て下さい。 `-C` スイッチをを使ったので、:command:`raster2pgsql` は、TIFF から読み取った情報や、ユーザが渡した情報によって、SRID の制約と他の情報を付加しました。`-l` で作られたオーバビューテーブル `o_2_nyc_dem` と `o_3_nyc_dem` も同じです。"
 
 #: ../../en/rasters.rst:327
 msgid "Let's try to add some constraints to our table."
-msgstr ""
+msgstr "テーブルに制約を追加してみましょう。"
 
 #: ../../en/rasters.rst:334
 msgid "And you'll be bombarded with a whole bunch of notices about how your raster data is a mess and nothing can be constrained. If you look at raster_columns again, still the same disappointing story of many blank rows for `rasters`."
-msgstr ""
+msgstr "そうすると、ラスタデータが混乱して何も制約できないという通知を大量に浴びます。raster_columns をもう一度見ると、`rasters` の行の多くが空のままと言う、さきほどと同じ残念な話のままになっています。"
 
 #: ../../en/rasters.rst:338
 msgid "In order for constraints to be applied, all rasters in your table must be constrainable by at least one rule."
-msgstr ""
+msgstr "制約を適用するには、テーブルの全てのラスタが少なくとも一つの規則で制約できる必要があります。"
 
 #: ../../en/rasters.rst:341
 msgid "We can perhaps do this, let's just lie and say all our data is in New York State plane."
-msgstr ""
+msgstr "これは可能かも知れません。嘘をついて、全てのデータがニューヨーク州平面座標系にあることにしましょう。"
 
 #: ../../en/rasters.rst:355
 msgid "Ah progress:"
-msgstr ""
+msgstr "あ、進捗しましたね:"
 
 #: ../../en/rasters.rst:364
 msgid "The more you can constrain all your rasters, the more columns you'll see filled in and also the more operations you'll be able to do across all the tiles in your raster. Keep in mind that in some cases, you may not want to apply all constraints."
-msgstr ""
+msgstr "制限できることが多いほど、値が入ったカラムの数が多くなり、ラスタ内のタイルの全てにおいて可能な操作も増えます。全ての制約を提供したくない場合もあることに注意して下さい。"
 
 #: ../../en/rasters.rst:368
 msgid "For example, if you plan to load more data into your raster table, you'll want to skip the extent constraint since that would require that all rasters are within the extent of the extent constraint."
-msgstr ""
+msgstr "たとえば、ラスタテーブルにより多くのデータを入れ込む計画があったとします。範囲制約を設定すると、全てのラスタがその範囲内に存在する必要があるので、この制約を飛ばしたくなるでしょう。"
 
 #: ../../en/rasters.rst:373
 msgid "raster_overviews"
-msgstr ""
+msgstr "raster_overviews"
 
 #: ../../en/rasters.rst:374
 msgid "Raster overview columns appear both in the `raster_columns` meta catalog and another meta catalog called `raster_overviews`. Overviews are used mostly to speed up viewing at higher zoom levels. They can also be used for quick back of the envelop analysis, providing less accurate stats, but at a much faster speed than applying to the raw raster table."
-msgstr ""
+msgstr "ラスタオーバビューのカラムは `raster_columns` メタデータカタログ内と、他のメタデータカタログである `raster_overviews` 内との両方にあります。オーバビューは、たいていは高ズームレベル時の表示の速度向上に使われます。精度は低いけれども生のラスタテーブルに適用するよりずっと高速に統計情報を提供して、エンベロープ解析を素早く返すためにも使われます。"
 
 #: ../../en/rasters.rst:379
 msgid "To inspect the overviews, run:"
-msgstr ""
+msgstr "オーバビューを調べるには次を実行します:"
 
 #: ../../en/rasters.rst:386
 msgid "and you'll see the output:"
-msgstr ""
+msgstr "そすると、次のような出力が得られます:"
 
 #: ../../en/rasters.rst:396
 msgid "The `raster_overviews` table only provides you the overview_factor and the name of the parent table. All this information is something you could have figured out yourself by the `raster2pgsql` naming convention for overviews."
-msgstr ""
+msgstr "`raster_overviews` テーブルは overview_factor と親テーブルの名前を提供しているだけです。この情報の全ては `raster2pgsql` のオーバビューに関する命名規則によって自分で考えられたはずです。"
 
 #: ../../en/rasters.rst:400
 msgid "The `overview_factor` tells you at what resolution the row is with respect to it's parent. An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile. Similarly an overview_factor of `1` meants that 2x2x2 = 8 tiles of the original can be shoved into an overview_3 tile."
@@ -317,7 +317,7 @@ msgstr ""
 
 #: ../../en/rasters.rst:407
 msgid "Common Raster Functions"
-msgstr ""
+msgstr "一般的なラスタ関数"
 
 #: ../../en/rasters.rst:408
 msgid "The :command:`postgis_raster` extension has over 100 functions to choose from. PostGIS raster functionality was patterned after the PostGIS geometry support. You'll find an overlap of functions between raster and geometry where it makes sense. Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`."

@@ -5,7 +5,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-01-18 03:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-01-24 01:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -321,71 +321,71 @@ msgstr "一般的なラスタ関数"
 
 #: ../../en/rasters.rst:408
 msgid "The :command:`postgis_raster` extension has over 100 functions to choose from. PostGIS raster functionality was patterned after the PostGIS geometry support. You'll find an overlap of functions between raster and geometry where it makes sense. Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`."
-msgstr ""
+msgstr ":command:`postgis_raster` エクステンションは 100超 の関数から選択できます。PostGIS ラスタ機能は PostGIS ジオメトリ対応にならってパターン化されています。ラスタとジオメトリの間の関数の、意味のある重複があります。ジオメトリ世界で等価な関数で一般的なものとしては、:command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform` があります。"
 
 #: ../../en/rasters.rst:415
 msgid "In addition to those overlapping functions, it supports the `&&` overlap operator between rasters and between a raster and geometry. It also offers many functions that work in conjunction with geometry or are very specific to rasters."
-msgstr ""
+msgstr "これらの重複する関数に加えて、ラスタ間やラスタとジオメトリ間で重複する `&&` 演算子があります。ジオメトリと連携して動作する関数やラスタに特化した関数なども多数用意されています。"
 
 #: ../../en/rasters.rst:419
 msgid "You need a function like :command:`ST_Union` to reconstitute a region. Because performance gets slow, the more pixels a function needs to analyse, you need a fast acting function :command:`ST_Clip` to clip the rasters to just the portions of interest for your analysis."
-msgstr ""
+msgstr "領域の再構成として :command:`ST_Union` のような関数が必要になります。動作が遅くなるため、解析に必要なピクセルが増えるほど、ラスタを解析に必要な領域でのクリッピングで、動作速度を上げるための関数 :command:`ST_Clip` が必要になります。"
 
 #: ../../en/rasters.rst:423
 msgid "Finally you need :command:`ST_Intersects` or :command:`&&` to zoom in on the raster tiles that contain your areas of interest. The `&&` operator, is a faster process than the `ST_Intersects`. Both can take advantage of raster spatial indexes. We'll cover these bread and butter functions first before moving on to other sections where we will use them in concert with other raster and geometry functions."
-msgstr ""
+msgstr "最後に、解析対象範囲を含むラスタタイルを拡大するには :command:`ST_Intersects` または :command:`&&` が必要です。`&&` 演算子の処理速度は `ST_Intersects`. より早いです。どちらもラスタ空間インデックスの利点を得ることができます。後のセクションでは、これらの基本関数と他のラスタ関数やジオメトリ関数とを併用しますが、そに移動する前に、これらの基本関数について説明します。"
 
 #: ../../en/rasters.rst:429
 msgid "Unioning Rasters with ST_Union"
-msgstr ""
+msgstr "ST_Union によるラスタの結合"
 
 #: ../../en/rasters.rst:430
 msgid "The `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ function for raster, just as the geometry equivalent :command:`ST_Union`, aggregates a set of rasters together into a single raster.  However, just as with geometry, not all rasters can be combined together, but the rules for raster unioning are more complicated than geometry rules. In the case of geometries, all you need is to have the same spatial reference system, but for rasters that is not sufficient."
-msgstr ""
+msgstr "ラスタ用の `ST_Union <https://postgis.net/docs/ja/RT_ST_Union.html>`_ 関数は、ジオメトリ用 :command:`ST_Union` と同じで、ラスタの集合から単一ラスタに集約します。しかしながら、ジオメトリ用と同じで、全てのラスタを結合できるわけではありませんが、ラスタ結合の規則は、ジオメトリ結合の規則よりも複雑です。ジオメトリの場合には、必要なことは、同じ空間参照系であることだけですが、ラスタはそれだけでは不十分です。"
 
 #: ../../en/rasters.rst:438
 msgid "If you were to attempt, the following:"
-msgstr ""
+msgstr "試そうとするなら次のようにします:"
 
 #: ../../en/rasters.rst:445
 msgid "You'd be summarily punished with an error:"
-msgstr ""
+msgstr "簡潔に次のエラーの罰を受けることになります:"
 
 #: ../../en/rasters.rst:447
 msgid "**ERROR:  rt_raster_from_two_rasters: The two rasters provided do not have the same alignment SQL state: XX000**"
-msgstr ""
+msgstr "**ERROR: rt_raster_from_two_rasters: The two rasters provided do not have the same alignment SQL state: XX000** (**エラー: rt_raster_from_two_rasters: 与えられた二つのラスタは同じアラインメントを持っていません SQL state: XX000**)"
 
 #: ../../en/rasters.rst:450
 msgid "What is this same alignment thing, that is preventing you from unioning your precious rasters?"
-msgstr ""
+msgstr "この貴重なラスタとの結合を妨げる「同じアライメントのもの」というのは何ですか?"
 
 #: ../../en/rasters.rst:452
 msgid "In order for rasters to be combined, they need to be on the same grid so to speak. Meaning they must have same pixel sizes, same orientation (the skew), same spatial reference system, and their pixels must not cut into each other, meaning they share the same worldly pixel grid."
-msgstr ""
+msgstr "ラスタを結合するには、言ってみれば、ラスタを同じグリッド上にあるようにする必要があります。つまり、同じピクセルサイズ、同じ向き (スキュー)、同じ空間参照系、同じピクセル数を持たなければなりません。また、ピクセルは互いに切り込んではなりません。これは、地球上で同じピクセルグリッドを共有してはならないということです。"
 
 #: ../../en/rasters.rst:456
 msgid "If you try the same query, but just with words we carefully placed in New York."
-msgstr ""
+msgstr "同じクエリだけど、慎重にニューヨーク上に置くようにしたもので試してみます。"
 
 #: ../../en/rasters.rst:458
 msgid "Again, the same error. These are the same spatial ref system, the same pixel sizes, and yet it's still not good enough. Because their grids are off."
-msgstr ""
+msgstr "また同じエラーが出ました。同じ空間参照系で、同じピクセルサイズなのに、それでも不十分なのです。グリッドがオフになっているためです。"
 
 #: ../../en/rasters.rst:462
 msgid "We can fix this by shifting the upper left y coordinates ever so slightly and then trying again. If our grids start at integer level since our pixel sizes are whole integer, then the pixels won't cut into each other."
-msgstr ""
+msgstr "左上の座標をほんの少しずらしてから再度試してみます。ピクセルサイズが整数なのでグリッド開始位置が整数なら、ピクセルは互いに切り込んでしまうことはありません。"
 
 #: ../../en/rasters.rst:477 ../../en/rasters.rst:526
 msgid "Voila it worked, and if we were to view, we'd see something like this:"
-msgstr ""
+msgstr "ほらほら、動きましたよ。次のようなものが表示されます:"
 
 #: ../../en/rasters.rst:483
 msgid "If ever you are unclear why your rasters don't have the same alignment, you can use the function `ST_SameAlignment <https://postgis.net/docs/RT_ST_SameAlignment.html>`_, which will compare 2 rasters or a set of rasters and tell you if they have the same alignment.  If you have notices enabled, the NOTICE will tell you what is off with the rasters in question. The `ST_NotSameAlignmentReason <https://postgis.net/docs/RT_ST_NotSameAlignmentReason.html>`_, instead of just a notice will output the reason. It however only works with two rasters at a time."
-msgstr ""
+msgstr "ラスタが同じアラインメントにならない理由が不明な場合には、`ST_SameAlignment <https://postgis.net/docs/ja/RT_ST_SameAlignment.html>`_ が使えます。2個のラスタまたはラスタの集合を比較して、同じアラインメントを持つかどうかを教えてくれます。通知が有効なら、NOTICE で、問題のラスタの何がおかしいかを教えてくれます。`ST_NotSameAlignmentReason <https://postgis.net/docs/ja/RT_ST_NotSameAlignmentReason.html>`_ は、NOTICE の代わりとして、理由を出力してくれます。ただし、一度に2個のラスタでしか動作しません。"
 
 #: ../../en/rasters.rst:490
 msgid "One major way in which the `ST_Union(raster) <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates from the `ST_Union(geometry) <https://postgis.net/docs/ST_Union.html>`_ geometry function is that it allows for an argument called *uniontype*.  This argument by default is set to `LAST` if you don't specify it, which means, take the **LAST** raster pixel values in occasions where the raster pixel values overlap. As a general rule, pixels in a band that are marked as no-data are ignored."
-msgstr ""
+msgstr "`ST_Union(raster) <https://postgis.net/docs/ja/RT_ST_Union.html>`_ ラスタ関数が `ST_Union(geometry) <https://postgis.net/docs/ja/ST_Union.html>`_ ジオメトリ関数と大きく異なる点の一つとして、*uniontype* という引数が使用できることです。この引数は、指定していない場合のデフォルトでは `LAST` と設定されていて、ラスタのピクセル値がオーバラップする時は **最後の**ラスタピクセルを使います。一般的な規則として、NODATA になっているバンドのピクセルは無視されます。"
 
 #: ../../en/rasters.rst:496
 msgid "Just as with most aggregates in PostgreSQL, you can put a :command:`ORDER BY` clause as part of the function call as is done in the prior example.  Specifying the order, allows you to control which raster takes priority. So in our prior example, *Raster* trumped *Hello* because *Raster* is alphabetically last."
@@ -393,11 +393,11 @@ msgstr ""
 
 #: ../../en/rasters.rst:500
 msgid "Observe, if you switch the order:"
-msgstr ""
+msgstr "注意して下さい。並び順を入れ替えると:"
 
 #: ../../en/rasters.rst:510
 msgid "Then *Hello* trumps *Raster* because Hello is now the last overlaid."
-msgstr ""
+msgstr "*Hello* が *Raster* より優先されます。\"Hello\" が最後にオーバレイされるためです。"
 
 #: ../../en/rasters.rst:512
 msgid "The :command:`FIRST` union type is the reverse of :command:`LAST`."
@@ -437,11 +437,11 @@ msgstr ""
 
 #: ../../en/rasters.rst:585
 msgid "Clipping Rasters with help of ST_Intersects"
-msgstr ""
+msgstr "ラスタを ST_Intersects の助を得てクリッピングする"
 
 #: ../../en/rasters.rst:586
 msgid "The `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ function is one of the most widely used functions for PostGIS rasters.  The main reason is the more pixels you need to inspect or do operations on, the slower your processing. **ST_Clip** clips your raster to just the area of interest, so you can isolate your operations to just that area."
-msgstr ""
+msgstr "`ST_Clip <https://postgis.net/docs/ja/RT_ST_Clip.html>`_ 関数は、PostGISラスタ で最も幅広く使われる関数の一つです。主な理由としては、調査や操作が必要なピクセルが増えると、処理速度が落ちるためです。**ST_Clip** はラスタを必要な領域にクリップして、操作をその領域のみに分離できます。"
 
 #: ../../en/rasters.rst:590
 msgid "This function is also special in that it utilizes the power of geometry to help raster analysis. To reduce the number of pixels, :command:`ST_Union` has to handle, each raster is clipped first to the area we are interested in."
@@ -449,55 +449,55 @@ msgstr ""
 
 #: ../../en/rasters.rst:602
 msgid "This example showcases several functions working in unison.  The :command:`ST_Intersects` function employed is the one packaged with **postgis_raster** and can intersect 2 rasters or a raster and a geometry. Similar to the geometry :command:`ST_Intersects` the `raster ST_Intersects <https://postgis.net/docs/RT_ST_Intersects.html>`_ can take advantage of spatial indexes on the raster or geometry tables."
-msgstr ""
+msgstr "この例では、連携して動作するいくつかの関数を紹介しています。使われている :command:`ST_Intersects` 関数は **postgis_raster** でパッケージされている関数で、二つのラスタをインタセクトを見るか、一つのラストと一つのジオメトリとのインタセクトを見ることができます。ジオメトリ版 :command:`ST_Intersects` と同じで、`ラスタ版 ST_Intersects <https://postgis.net/docs/ja/RT_ST_Intersects.html>`_ は、ラスタテーブルやジオメトリテーブルにある空間インデックスの利点を利用できます。"
 
 #: ../../en/rasters.rst:609
 msgid "Converting Rasters to Geometries"
-msgstr ""
+msgstr "ラスタのジオメトリへの変換"
 
 #: ../../en/rasters.rst:610
 msgid "Rasters can just as easily be morphed into geometries."
-msgstr ""
+msgstr "ラスタはジオメトリに簡単に変換できます。"
 
 #: ../../en/rasters.rst:613
 msgid "The polygon of a raster with ST_Polygon"
-msgstr ""
+msgstr "ST_Polygonのよるラスタのポリゴン"
 
 #: ../../en/rasters.rst:614
 msgid "Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_ function."
-msgstr ""
+msgstr "前の例から始めます。ただし、<https://postgis.net/docs/ja/RT_ST_Polygon.html>`_ 関数を使ってポリゴンに変換します。"
 
 #: ../../en/rasters.rst:625
 msgid "If you click on the geometry viewer in pgAdmin, you can see this in all it's glory without any hacks."
-msgstr ""
+msgstr "ここで pgAdmin のジオメトリビューアをクリックすると、何の特殊な操作もなく、これを見ることができます。素晴らしいですね。"
 
 #: ../../en/rasters.rst:629
 msgid ":command:`ST_Polygon` considers all the pixels that have values (not no-data) in a particular band, and converts them to geometry.  Like many other functions in raster, :command:`ST_Polygon` only considers 1 band. If no band is specified, it will consider only the first band."
-msgstr ""
+msgstr ":command:`ST_Polygon` は、値を持つ (NODATA値になっていない) ピクセルの全てを考慮に入れて、ジオメトリに変換します。他の多くの関数のように、:command:`ST_Polygon` は 1バンド だけを対象にします。バンドが指定されていない場合には、最初のバンドだけを対象にします。"
 
 #: ../../en/rasters.rst:634
 msgid "The pixel rectangles of a raster with ST_PixelAsPolygons"
-msgstr ""
+msgstr "ST_PixelAsPolygons によるラスタのピクセルの四角形"
 
 #: ../../en/rasters.rst:635
 msgid "Another popularly used function is the `ST_PixelAsPolygons <https://postgis.net/docs/RT_ST_PixelAsPolygons.html>`_ function. You should rarely use :command:`ST_PixelAsPolygons` on a large raster without first clipping because you will end up with millions of rows, one for each pixel."
-msgstr ""
+msgstr "もう一つの良く使われる関数は `ST_PixelAsPolygons <https://postgis.net/docs/ja/RT_ST_PixelAsPolygons.html>`_ です。クリッピングを施さないままの大きなラスタに対して :command:`ST_PixelAsPolygons` をあまり使うべきではありません。ピクセルごとの行が数百万行できてしまうためです。"
 
 #: ../../en/rasters.rst:638
 msgid ":command:`ST_PixelAsPolygons` returns a table consisting of geom, val, x, and y. Where x is the column number, and y is the row number in the raster."
-msgstr ""
+msgstr ":command:`ST_PixelAsPolygons` は geom, x, y からなるテーブルを返します。ここで、x がラスタのカラム番号、y が行番号です。"
 
 #: ../../en/rasters.rst:641
 msgid ":command:`ST_PixelAsPolygons` similar to other raster functions works on one band at a time and works on band 1 if no band is specified. It also by default returns only pixels that have values."
-msgstr ""
+msgstr ":command:`ST_PixelAsPolygons` は、他の一度に 1バンド で動作するラスタ関数と似ていて、バンドが指定されていない場合には、1番バンド で動作します。デフォルトでは値を持つピクセルだけが返されます。"
 
 #: ../../en/rasters.rst:653
 msgid "Which outputs:"
-msgstr ""
+msgstr "出力:"
 
 #: ../../en/rasters.rst:657
 msgid "and if we inspect using the geometry viewer, we'd see:"
-msgstr ""
+msgstr "また、ジオメトリビューアを使って調べると、次のようになります:"
 
 #: ../../en/rasters.rst:661
 msgid "If we want all pixels of all our bands, we'd need to do something like below. Note the differences in this example from previous."

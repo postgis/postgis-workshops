@@ -83,7 +83,7 @@ Exercises
     FROM nyc_streets 
     WHERE ST_DWithin(
       geom, 
-      ST_GeomFromText('LINESTRING(586782 4504202,586864 4504216)', 26918),
+      ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))', 26918),
       0.1
     );
     
@@ -91,6 +91,7 @@ Exercises
   
            name
       ------------------
+       S Oxford St
        Cumberland St
        Atlantic Commons
 

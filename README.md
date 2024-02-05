@@ -49,13 +49,12 @@ pip3 install --upgrade pip
 pip3 install sphinx-rtd-theme
 ```
 
-## setting up po
+## setting up po translation files
 ```
 pip3 install sphinx-intl
 cd postgis-intro/sources/en
 make pot
-#for starters do de, ja, es
-sphinx-intl update -p _build/gettext -l de -l ja -l es
+make po
 ```
 
 ## Building translated docs

@@ -39,6 +39,12 @@ pot: ## Make or update translation template files
 	$(SPHINXBUILD) -M gettext "$(SOURCE)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	mv $(BUILDDIR)/gettext/*.pot ../locale/pot
 
+.PHONY: po
+po: ## Make po files for key languages
+	cd ../ && \
+	sphinx-intl update -p locale/pot --language=de --language=ja --language=es && \
+	cp -R locales/* locale && rm -rf locales
+
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 # %: Makefile

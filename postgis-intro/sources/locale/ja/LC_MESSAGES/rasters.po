@@ -5,7 +5,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-01-24 01:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-02-01 10:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -313,7 +313,7 @@ msgstr "`raster_overviews` テーブルは overview_factor と親テーブルの
 
 #: ../../en/rasters.rst:400
 msgid "The `overview_factor` tells you at what resolution the row is with respect to it's parent. An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile. Similarly an overview_factor of `1` meants that 2x2x2 = 8 tiles of the original can be shoved into an overview_3 tile."
-msgstr ""
+msgstr "`overview_factor` で、その行の親に対する解像度が分かります。`overview_factor` が `2` の場合には、2z2 = 4 タイルが、ひとつの overview_2 タイルに当てはまります。同様に `overview_factor` が `1` の場合には、overview_3 タイルに、元のタイルの 2x2x2 = 8 タイルが押し込まれます。"
 
 #: ../../en/rasters.rst:407
 msgid "Common Raster Functions"
@@ -389,7 +389,7 @@ msgstr "`ST_Union(raster) <https://postgis.net/docs/ja/RT_ST_Union.html>`_ ラ�
 
 #: ../../en/rasters.rst:496
 msgid "Just as with most aggregates in PostgreSQL, you can put a :command:`ORDER BY` clause as part of the function call as is done in the prior example.  Specifying the order, allows you to control which raster takes priority. So in our prior example, *Raster* trumped *Hello* because *Raster* is alphabetically last."
-msgstr ""
+msgstr "PostgreSQL のほとんどの集約関数と同じで、前の例で行ったように、関数呼び出しの一部として :command:'ORDER BY'句 を配置できます。並び順を指定すると、どのラスターを優先するかを制御できます。そのため、前の例では *Raster* がアルファベット順で最後であるため、*Raster* が *Hello* より優先されました。"
 
 #: ../../en/rasters.rst:500
 msgid "Observe, if you switch the order:"
@@ -401,15 +401,15 @@ msgstr "*Hello* が *Raster* より優先されます。\"Hello\" が最後に�
 
 #: ../../en/rasters.rst:512
 msgid "The :command:`FIRST` union type is the reverse of :command:`LAST`."
-msgstr ""
+msgstr ":command:`FIRST` 結合タイプは :command:`LAST` の逆です。"
 
 #: ../../en/rasters.rst:514
 msgid "But on occassion, **LAST** may not be the right operation. Let's suppose our rasters represented two different sets of observations from two different devices. These devices measure the same thing, and we aren't sure which is right when they cross paths, so we'd instead like to take the `MEAN` of the results.  We'd do this:"
-msgstr ""
+msgstr "ただし、**LAST** は正しい操作とは限らないことがあります。ラスタが二つの異なる機材から二つの異なる観測を表現したと考えます。デバイスは同じものを計測して、パスが交差する時、どちらが正しいかが分からないので、代わりに結果の `MEAN` (平均値) を取りたくなります。次のようにします:"
 
 #: ../../en/rasters.rst:530
 msgid "So instead of trumping, we have a blending of the two forces. In the case of :command:`MEAN` union type, there is no point in specifying order, because the result would be the average of overlapping pixel values."
-msgstr ""
+msgstr "どちらを優先するかを決めずに、二つを混ぜ合わせています。:command:`MEAN` 結合タイプの場合には、結果が重なり合うピクセル値の平均値を取るため、並び順を決定する意味がありません。"
 
 #: ../../en/rasters.rst:534
 msgid "Note that for geometries since geometries are vector and thus have no values besides there or not there, there really isn't any ambiguity on how to combine two vectors when they intersect."
@@ -421,7 +421,7 @@ msgstr ""
 
 #: ../../en/rasters.rst:559
 msgid "Note in the case of the **COUNT** union type, which counts the number of pixels filled in and returns that value, the result is always a **32BUI** similar to how when you do a :command:`COUNT` in sql, the result is always a bigint, to accommodate large counts."
-msgstr ""
+msgstr "**COUNT** 結合タイプの場合には、値の入っているピクセルをカウントして、その値を返します。結果は常に **32BUI** です。SQL で :command:`COUNT` を実行する時と同じです。結果は常に bigint型 で、大きな数のカウントに対応できます。"
 
 #: ../../en/rasters.rst:563
 msgid "In other cases, the band pixel type does not change and is set to the max value or rounded if the amounts exceed the bounds of the type. Why would anyone ever want to count pixels that intersect at a location. Well suppose each of your rasters represent police squadrons and incidents of arrests in the areas. Each value, might represent a different kind of arrest reason. You are doing stats on how many arrests in each region, therefore you only care about the count of arrests."
@@ -433,7 +433,7 @@ msgstr ""
 
 #: ../../en/rasters.rst:582
 msgid "Using the *unionarg[]* variant of the :command:`ST_Union` function, also allows you to shuffle the order of the bands."
-msgstr ""
+msgstr ":command:`ST_Union` 関数の *unionarg[]* の形式を使ってもバンドの順序変更が可能です。"
 
 #: ../../en/rasters.rst:585
 msgid "Clipping Rasters with help of ST_Intersects"
@@ -501,39 +501,39 @@ msgstr "また、ジオメトリビューアを使って調べると、次のよ
 
 #: ../../en/rasters.rst:661
 msgid "If we want all pixels of all our bands, we'd need to do something like below. Note the differences in this example from previous."
-msgstr ""
+msgstr "バンドの全てのピクセルが必要な場合には、次のようなことを行う必要があります。この例は前のものと違うことに注意して下さい。"
 
 #: ../../en/rasters.rst:664
 msgid "1. Setting  :command:`exclude_nodata_value` to make sure all pixels are returned so that our sets of calls return the same number of rows. The rows out of the function will be naturally in the same order."
-msgstr ""
+msgstr "1. :command:`exclude_nodata_value`を設定して、全てのピクセルが返されて、複数の関数呼び出しで同じ数の行が返るようにします。関数から出る行は当然、同じ順序になります。"
 
 #: ../../en/rasters.rst:667
 msgid "2. Using the `PostgreSQL ROWS FROM constructor <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_ , and aliasing each set of columns from our function output with names. So for example the band 1 columns (geom, val, x, y) are renamed to g1, v1, x1, x2"
-msgstr ""
+msgstr "2. `PostgreSQL ROWS FROM構文 <https://www.postgresql.jp/document/current/html/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_ を使って、関数出力から列の集合に名前を付けます。たとえば、バンド 1 の列 (geom, val, x, y) を g1, v1, x2, x2 といった具合にです"
 
 #: ../../en/rasters.rst:688
 msgid "We used CROSS JOIN LATERAL in these examples because we wanted to be explicit what we are doing. Since these are all set returning functions, you can replace CROSS JOIN LATERAL with , for short-hand.  We'll use a , in the next set of examples"
-msgstr ""
+msgstr "これらの例では、何をすべきか明示するため CROSS JOIN LATERAL を使っています。これらは返り値を返す全ての関数ですから、 CROSS JOIN LATERAL を \",\" の短縮形に置き換えられます。次の一群の例では \",\" を使います"
 
 #: ../../en/rasters.rst:694
 msgid "Dumping polygons with ST_DumpAsPolygons"
-msgstr ""
+msgstr "ST_DumpAsPolygons でポリゴンをダンプする"
 
 #: ../../en/rasters.rst:696
 msgid "Raster also introduces an additional composite type called a :command:`geomval`. Consider a :command:`geomval` as the offspring of a geometry and raster. It contains a geometry and it contains a pixel value."
-msgstr ""
+msgstr "ラスタは追加で :command:`geomval` と呼ばれる複合型の導入もしています。:command:`geomval` をジオメトリとラスタの子孫と考えて下さい。この型は、ジオメトリを含み、ピクセル値を含みます。"
 
 #: ../../en/rasters.rst:700
 msgid "You will find several raster functions that return geomvals."
-msgstr ""
+msgstr "ラスタ関数には geomval を返すものが複数あります。"
 
 #: ../../en/rasters.rst:702
 msgid "A commonly used function that outputs geomvals is `ST_DumpAsPolygons <https://postgis.net/docs/RT_ST_DumpAsPolygons.html>`_, which returns a set of contiguous pixels with the same value as a polygon.  Again this by default will only check band 1 and exclude no data values unless you override. This example selects only polygons from band 2. You can also apply filters to the values. For most use cases, :command:`ST_DumpAsPolygons` is a better option than :command:`ST_PixelAsPolygons` as it will return far fewer rows."
-msgstr ""
+msgstr "一般的に使用される geomval を返す関数に `ST_DumpAsPolygons <https://postgis.net/docs/ja/RT_ST_DumpAsPolygons.html>`_ があります。同じ値を持つ連続したピクセルの集合をポリゴンとして返します。また、デフォルトでは、オーバライドしない限り、バンド 1 をチェックするだけで、NODATA 値を排除しません。この例では、バンド 2 からのポリゴンだけを選んでいます。値へのフィルタの適用も可能です。ほとんどのユーズケースでは、:command:`ST_DumpAsPolygons` の方が、:command:`ST_PixelAsPolygons` よりも良い選択肢となります。返される行がはるかに少なくなるからです。"
 
 #: ../../en/rasters.rst:707
 msgid "This will output 6 rows, and return polygons corresponding to the letters in \"Raster\"."
-msgstr ""
+msgstr "これは \"Raster\" という文字に対応するポリゴンを 6行 出力するものです。"
 
 #: ../../en/rasters.rst:718
 msgid "Note that it doesn't return a single geometry, because it finds continguous set of pixels with the same value that form a polygon. Even though all these values are the same, they are not continguous."

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
 # Regina Obe <regina@arrival3d.com>, 2022, 2023.
+# Zuochenwei <zuochenwei5@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-03-26 22:18+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2024-02-05 09:45+0000\n"
+"Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/introduction/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.3\n"
 
 #: ../../en/introduction.rst:4
 msgid "Introduction"
@@ -91,19 +92,25 @@ msgid ""
 "within the user's organizational domain.  They are proprietary, self-"
 "contained systems specifically built for handling spatial data."
 msgstr ""
+"在早期的第一代地理信息系统 "
+":term:`GIS`实现中，所有的空间数据都存储在平面文件中，需要特殊的 :term:`GIS`软"
+"件来解释和操作这些数据。这些第一代的管理系统被设计用来满足用户的需求，其中所"
+"有需要的数据都在用户的组织领域内。它们是专门为处理空间数据而构建的专有、自包"
+"含的系统。"
 
 #: ../../en/introduction.rst:28
 msgid ""
 "Second-generation spatial systems store some data in relational databases "
 "(usually the \"attribute\" or non-spatial parts) but still lack the "
 "flexibility afforded with direct integration."
-msgstr ""
+msgstr "第二代空间系统将一些数据存储在关系数据库中（通常是“属性”或非空间部分），但仍"
+"然缺乏直接集成所提供的灵活性。"
 
 #: ../../en/introduction.rst:30
 msgid ""
 "**True spatial databases were born when people started to treat spatial "
 "features as first class database objects.**"
-msgstr ""
+msgstr "**当人们开始将空间特性视为一等数据库对象时，真正的空间数据库就诞生了。**"
 
 #: ../../en/introduction.rst:32
 msgid ""
@@ -118,7 +125,8 @@ msgid ""
 "geographic world.  Spatial databases are used to manage data related to the "
 "anatomy of the human body, large-scale integrated circuits, molecular "
 "structures, and electro-magnetic fields, among others."
-msgstr ""
+msgstr "空间数据库管理系统可以用于地理世界之外的应用。空间数据库用于管理与人体解剖、"
+"大规模集成电路、分子结构和电磁场等相关的数据。"
 
 #: ../../en/introduction.rst:41
 msgid "Spatial Data Types"
@@ -132,13 +140,17 @@ msgid ""
 "boundary and dimension. In many respects, spatial data types can be "
 "understood simply as shapes."
 msgstr ""
+"普通数据库包含字符串、数字和日期。而空间数据库则添加了额外的（空间）类型，用"
+"于表示**地理要素**。这些空间数据类型对地理结构进行了抽象和封装，如边界和维度"
+"。在许多方面，空间数据类型可以简单地被理解为形状。"
 
 #: ../../en/introduction.rst:49
 msgid ""
 "Spatial data types are organized in a type hierarchy.  Each sub-type "
 "inherits the structure (attributes) and the behavior (methods or functions) "
 "of its super-type."
-msgstr ""
+msgstr "空间数据类型按类型层次结构进行组织。每个子类型都继承其超类型的结构（属性）和"
+"行为（方法或函数）。"
 
 #: ../../en/introduction.rst:53
 msgid "Spatial Indexes and Bounding Boxes"
@@ -151,6 +163,9 @@ msgid ""
 "dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ "
 "indexes."
 msgstr ""
+"一个普通的数据库提供**索引**，以便快速和随机地访问数据的子集。对于标准类型（"
+"数字，字符串，日期）的索引通常使用`B-tree <http://en.wikipedia.org/wiki/"
+"B-tree>`_ 索引进行。"
 
 #: ../../en/introduction.rst:57
 msgid ""
@@ -158,7 +173,8 @@ msgid ""
 "into a hierarchical tree. The natural sort order of numbers, strings, and "
 "dates is simple to determine -- every value is less than, greater than or "
 "equal to every other value."
-msgstr ""
+msgstr "B树通过使用自然排序顺序将数据划分到层次树中。数字、字符串和日期的自然排序顺序"
+"很容易确定——每个值都小于、大于或等于其他任何值。"
 
 #: ../../en/introduction.rst:59
 msgid ""
@@ -168,12 +184,15 @@ msgid ""
 "that instead answers the question \"which objects are within this particular "
 "bounding box?\"."
 msgstr ""
+"但是，由于多边形可以重叠，可以相互包含，并且在二维（或更多）空间中排列，因此"
+"无法使用B树有效地对它们进行索引。真正的空间数据库提供了一个“空间索引”，它回答"
+"的问题是“哪些对象在这个特定的边界框内？”。"
 
 #: ../../en/introduction.rst:61
 msgid ""
 "A **bounding box** is the smallest rectangle -- parallel to the coordinate "
 "axes -- capable of containing a given feature."
-msgstr ""
+msgstr "**边界框**是能够包含给定要素的最小矩形，它与坐标轴平行。"
 
 #: ../../en/introduction.rst:67
 msgid ""
@@ -182,6 +201,9 @@ msgid ""
 "rectangles.  Even the most complex polygons and linestrings can be "
 "represented by a simple bounding box."
 msgstr ""
+"边界框的使用是因为回答“A是否在B内？”这个问题对于多边形来说计算量非常大，但对"
+"于矩形来说非常快。即使是最复杂的多边形和线条串也可以用一个简单的边界框来表示"
+"。"
 
 #: ../../en/introduction.rst:69
 msgid ""
@@ -191,6 +213,9 @@ msgid ""
 "instead interpreted by a spatial index as \"what lines have bounding boxes "
 "that are contained inside this polygon's bounding box?\""
 msgstr ""
+"索引必须快速执行才能发挥作用。因此，空间索引提供的是近似结果，而不是像B树那样"
+"提供精确结果。\"哪些线在这个多边形内部？\"这个问题将被空间索引解释为"
+"\"哪些线的边界框包含在这个多边形的边界框内？\""
 
 #: ../../en/introduction.rst:71
 msgid ""
@@ -201,6 +226,13 @@ msgid ""
 "wiki/Grid_(spatial_index)>`_ and `GeoHash indexes <https://en.wikipedia.org/"
 "wiki/Geohash>`_ implemented in other spatial databases."
 msgstr ""
+"各种数据库实现的实际空间索引差异很大。最常见的实现是`R-Tree <http://en."
+"wikipedia.org/wiki/R-tree>`_和`Quadtree <http://en.wikipedia.org/wiki/"
+"Quadtree>`_ （在PostGIS中使用），但在其他空间数据库中也实现了 "
+"`格网索引<http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ 和`"
+"GeoHash索引 <https://en.wikipedia.org/wiki/Geohash>`_。这些都是为了更有效地处"
+"理空间数据查询。每种索引类型都有其优点和适用场景，因此在实际应用中需要根据具"
+"体需求选择合适的空间索引类型。"
 
 #: ../../en/introduction.rst:74
 msgid "Spatial Functions"
@@ -212,6 +244,11 @@ msgid ""
 "**functions** such as concatenating strings, performing hash operations on "
 "strings, doing mathematics on numbers, and extracting information from dates."
 msgstr ""
+"对于在查询过程中操作数据，普通数据库提供了一些**函数**，例如连接字符串，对字"
+"符串进行哈希操作，对数字进行数学运算，以及从日期中提取信息。这些函数可以帮助"
+"我们更有效地处理和操作数据。同样，空间数据库也提供了一系列的函数和方法，用于"
+"处理空间数据类型，如计算两个地理位置之间的距离，判断一个点是否在一个多边形内"
+"等。这些功能使得空间数据库在处理地理空间数据时更加强大和灵活。"
 
 #: ../../en/introduction.rst:78
 msgid ""
@@ -219,37 +256,38 @@ msgid ""
 "geometric components, determining spatial relationships, and manipulating "
 "geometries.  These spatial functions serve as the building block for any "
 "spatial project."
-msgstr ""
+msgstr "空间数据库提供了一整套函数，用于分析几何组件，确定空间关系和操作几何图形。这"
+"些空间函数充当任何空间项目的基础。"
 
 #: ../../en/introduction.rst:80
 msgid ""
 "The majority of all spatial functions can be grouped into one of the "
 "following five categories:"
-msgstr ""
+msgstr "大多数空间函数可以分为以下五类之一："
 
 #: ../../en/introduction.rst:82
 msgid ""
 "**Conversion**: Functions that *convert* between geometries and external "
 "data formats."
-msgstr ""
+msgstr "**转换**：将几何数据和外部数据格式之间进行*转换*的函数。"
 
 #: ../../en/introduction.rst:83
 msgid ""
 "**Management**: Functions that *manage* information about spatial tables and "
 "PostGIS administration."
-msgstr ""
+msgstr "**管理**：用于*管理*空间表和PostGIS管理信息的函数。"
 
 #: ../../en/introduction.rst:84
 msgid ""
 "**Retrieval**: Functions that *retrieve* properties and measurements of a "
 "Geometry."
-msgstr ""
+msgstr "**检索**：用于*检索*几何数据的属性和测量值的函数。"
 
 #: ../../en/introduction.rst:85
 msgid ""
 "**Comparison**: Functions that *compare* two geometries with respect to "
 "their spatial relation."
-msgstr ""
+msgstr "**比较**：用于*比较*两个几何数据在空间关系上的函数。"
 
 #: ../../en/introduction.rst:86
 msgid "**Generation**: Functions that *generate* new geometries from others."

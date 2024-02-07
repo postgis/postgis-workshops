@@ -2,13 +2,14 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
+# Zuochenwei <zuochenwei5@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-03-28 18:21+0000\n"
-"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"PO-Revision-Date: 2024-02-07 05:45+0000\n"
+"Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/creating_db/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.3\n"
 
 #: ../../en/creating_db.rst:4
 msgid "Creating a Spatial Database"
@@ -27,14 +28,6 @@ msgid "PgAdmin"
 msgstr "PgAdmin"
 
 #: ../../en/creating_db.rst:9
-#, fuzzy
-#| msgid ""
-#| "PostgreSQL has a number of administrative front-ends.  The primary one is "
-#| "`psql <http://www.postgresql.org/docs/current/static/app-psql.html>`_, a "
-#| "command-line tool for entering SQL queries.  Another popular PostgreSQL "
-#| "front-end is the free and open source graphical tool `pgAdmin <http://www."
-#| "pgadmin.org/>`_. All queries done in pgAdmin can also be done on the "
-#| "command line with ``psql``."
 msgid ""
 "PostgreSQL has a number of administrative front-ends.  The primary one is "
 "`psql <http://www.postgresql.org/docs/current/static/app-psql.html>`_, a "
@@ -44,10 +37,12 @@ msgid ""
 "line with ``psql``. pgAdmin also includes a geometry viewer you can use to "
 "spatial view PostGIS queries."
 msgstr ""
-"PostgreSQL 有很多管理软件。第一个要提到的当然是命令行工具 `psql <http://www."
-"postgresql.org/docs/current/static/app-psql.html>`_。另外受欢迎的还有开源的 "
-"`pgAdmin <http://www.pgadmin.org/>`_，在 pgAdmin 上的查询也可以用 ``psql`` 完"
-"成。"
+"PostgreSQL拥有多个管理前端工具。其中主要的是 `psql <http://www.postgresql."
+"org/docs/current/static/app-psql."
+"html>`_，这是一个用于输入SQL查询的命令行工具。另一个流行的 PostgreSQL "
+"前端是免费开源的图形工具 `pgAdmin <http://www.pgadmin.org/>`_。在 pgAdmin "
+"中执行的所有查询也可以使用 ``psql`` 命令行工具完成。pgAdmin "
+"还包括一个几何图形查看器，可用于查看 PostGIS 查询的空间数据。"
 
 #: ../../en/creating_db.rst:12
 msgid "Find pgAdmin and start it up."

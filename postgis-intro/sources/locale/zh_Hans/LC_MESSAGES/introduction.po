@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-02-05 09:45+0000\n"
+"PO-Revision-Date: 2024-02-07 05:45+0000\n"
 "Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/introduction/zh_Hans/>\n"
@@ -291,7 +291,7 @@ msgstr "**比较**：用于*比较*两个几何数据在空间关系上的函数
 
 #: ../../en/introduction.rst:86
 msgid "**Generation**: Functions that *generate* new geometries from others."
-msgstr ""
+msgstr "**生成**：从其他几何体 *生成* 新几何体的函数。"
 
 #: ../../en/introduction.rst:88
 msgid ""
@@ -299,6 +299,8 @@ msgid ""
 "is defined by the :term:`OGC` :term:`SFSQL` and implemented (along with "
 "additional useful functions) by PostGIS."
 msgstr ""
+"可能的函数列表非常大，但一组通用函数由 :term:`OGC` :term:`SFSQL` 定义并由 "
+"PostGIS 实现（以及其他有用的函数）。"
 
 #: ../../en/introduction.rst:91
 msgid "What is PostGIS?"
@@ -312,6 +314,10 @@ msgid ""
 "is built on PostgreSQL, PostGIS automatically inherits important \"enterprise"
 "\" features as well as open standards for implementation."
 msgstr ""
+"PostGIS 通过增加对空间类型、空间索引和空间函数这三个功能的支持，将 `"
+"PostgreSQL <http://www.postgresql.org/>`_ 数据库管理系统转变为空间数据库。因"
+"为它是基于PostgreSQL构建的，所以PostGIS会自动继承重要的“企业”功能以及开放的实"
+"施标准。"
 
 #: ../../en/introduction.rst:96
 msgid "But what is PostgreSQL?"
@@ -326,6 +332,10 @@ msgid ""
 "<https://www.postgresql.org/community/contributors/>`_ and companies to "
 "develop it."
 msgstr ""
+"PostgreSQL 是一个强大的关系数据库管理系统 （RDBMS）。它是在BSD风格的许可证下"
+"发布的，因此是免费的开源软件。与许多其他开源程序一样，PostgreSQL不受任何一家"
+"公司的控制，而是拥有一个由开发人员和公司组成的 `全球开发社区<https://www."
+"postgresql.org/community/contributors/>`_ 来开发它。"
 
 #: ../../en/introduction.rst:100
 msgid ""
@@ -335,6 +345,9 @@ msgid ""
 "development team, yet still integrate very tightly into the core PostgreSQL "
 "database."
 msgstr ""
+"PostgreSQL从一开始就考虑了类型扩展 - 能够在运行时添加新的数据类型，函数和索引"
+"。正因为如此，PostGIS扩展可以由一个单独的开发团队开发，但仍然能非常紧密地集成"
+"到核心PostgreSQL数据库中。"
 
 #: ../../en/introduction.rst:103
 msgid "Why choose PostgreSQL?"
@@ -352,32 +365,32 @@ msgstr "PostgreSQL 有："
 
 #: ../../en/introduction.rst:109
 msgid "Proven reliability and transactional integrity by default (ACID)"
-msgstr ""
+msgstr "默认具备经过验证的可靠性和事务完整性（ACID）"
 
 #: ../../en/introduction.rst:110
 msgid "Careful support for SQL standards (full SQL92)"
-msgstr ""
+msgstr "对 SQL 标准的精心支持（完整的 SQL92）"
 
 #: ../../en/introduction.rst:111
 msgid "Pluggable type extension and function extension"
-msgstr ""
+msgstr "插拔式扩展和功能扩展"
 
 #: ../../en/introduction.rst:112
 msgid "Community-oriented development model"
-msgstr ""
+msgstr "以社区为导向的发展模式"
 
 #: ../../en/introduction.rst:113
 msgid ""
 "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
-msgstr ""
+msgstr "对列大小（“TOAST”支持元组）没有限制，以支持大型 GIS 对象"
 
 #: ../../en/introduction.rst:114
 msgid "Generic index structure (GiST) to allow R-Tree index"
-msgstr ""
+msgstr "通用索引结构 （GiST） 允许 R 树索引"
 
 #: ../../en/introduction.rst:115
 msgid "Easy to add custom functions"
-msgstr ""
+msgstr "易于添加自定义功能"
 
 #: ../../en/introduction.rst:117
 msgid ""
@@ -387,6 +400,11 @@ msgid ""
 "easy extension. This is no coincidence; Illustra is a proprietary re-working "
 "of the original PostgreSQL code base from the 1980's."
 msgstr ""
+"综合而言，PostgreSQL "
+"提供了一种非常简单的开发路径来添加新的空间类型。在专有领域，只有 `Illustra "
+"<https://en.wikipedia.org/wiki/Illustra>`_（现在的 Informix Universal "
+"Server）允许如此简单的扩展。这并非巧合;Illustra 是对 1980 年代原始 "
+"PostgreSQL 代码库的专有重新编制版本。"
 
 #: ../../en/introduction.rst:119
 msgid ""
@@ -395,6 +413,9 @@ msgid ""
 "spatial types in version 4.1, the PostGIS team took a look at their code, "
 "and the exercise reinforced the original decision to use PostgreSQL."
 msgstr ""
+"由于向PostgreSQL添加类型的开发路径非常直接，从那里开始是合理的。当MySQL在4.1"
+"版本中发布基本的空间类型时，PostGIS团队审查了他们的代码，这个过程强化了最初选"
+"择使用PostgreSQL的决定。"
 
 #: ../../en/introduction.rst:121
 msgid ""
@@ -403,6 +424,9 @@ msgid ""
 "Development of PostGIS 0.1 took under a month. Doing a \"MyGIS\" 0.1 would "
 "have taken a lot longer, and as such, might never have seen the light of day."
 msgstr ""
+"由于MySQL空间对象必须作为一种特例添加到字符串类型之上，MySQL的代码分散在整个"
+"代码库中。PostGIS 0.1的开发在不到一个月的时间内完成。要创建一个\"MyGIS\" 0."
+"1可能需要更长时间，因此可能永远不会面世。"
 
 #: ../../en/introduction.rst:124
 msgid "Why not files?"
@@ -426,7 +450,8 @@ msgid ""
 "**Files require special software to read and write.**  SQL is an abstraction "
 "for random data access and analysis. Without that abstraction, you will need "
 "to write all the access and analysis code yourself."
-msgstr ""
+msgstr "**文件需要特殊的软件才能读取和写入。** SQL 是随机数据访问和分析的抽象。如果没"
+"有这种抽象，您将需要自己编写所有访问和分析代码。"
 
 #: ../../en/introduction.rst:129
 msgid ""
@@ -436,6 +461,9 @@ msgid ""
 "the associated performance problem, you will have written the better part of "
 "a database system. Why not just use a standard database?"
 msgstr ""
+"**并发用户可能会导致损坏和速度变慢。** 虽然可以编写额外的代码来确保对同一文件"
+"的多次写入不会损坏数据，但当您解决了问题并解决了相关的性能问题时，您将编写了"
+"数据库系统更好的部分。为什么不直接使用标准数据库呢？"
 
 #: ../../en/introduction.rst:130
 msgid ""
@@ -444,6 +472,9 @@ msgid ""
 "that are expressible in one line of SQL in the database take hundreds of "
 "lines of specialized code to answer when programming against files."
 msgstr ""
+"**复杂的问题需要复杂的软件来回答。** 复杂而有趣的问题（空间联接、聚合等）"
+"可以在数据库中的一行 SQL "
+"中表达，在针对文件进行编程时需要数百行专用代码来回答。"
 
 #: ../../en/introduction.rst:132
 msgid ""
@@ -453,13 +484,17 @@ msgid ""
 "data sets; with files, they might be segmented into multiple files, but in a "
 "database they can be stored as a single large table."
 msgstr ""
+"PostGIS 的大多数用户正在设置多个应用程序访问数据的系统，因此拥有标准的 SQL 访"
+"问方法可以简化部署和开发。一些用户正在处理大型数据集;对于文件，它们可能会被分"
+"割成多个文件，但在数据库中，它们可以存储为单个大表。"
 
 #: ../../en/introduction.rst:134
 msgid ""
 "In summation, the combination of support for multiple users, complex ad hoc "
 "queries, and performance on large data sets are what sets spatial databases "
 "apart from file-based systems."
-msgstr ""
+msgstr "总的来说，对多用户的支持、复杂的临时查询以及在大型数据集上的性能是使空间数据"
+"库与基于文件的系统有所区别的关键因素。"
 
 #: ../../en/introduction.rst:137
 msgid "A brief history of PostGIS"
@@ -483,6 +518,9 @@ msgid ""
 "from the Open Geospatial Consortium provided such structure with guidelines "
 "for function naming and requirements."
 msgstr ""
+"随着函数数量的增加，对组织原则的需求变得明显。开放地理空间联盟（Open "
+"Geospatial Consortium）的\"Simple Features for SQL\"（简称 "
+":term:`SFSQL`）规范提供了这样的结构，其中包括函数命名和要求的指南。"
 
 #: ../../en/introduction.rst:143
 msgid ""
@@ -490,6 +528,8 @@ msgid ""
 "<http://mapserver.org/>`_ became the first external application to provide "
 "visualization of data in the database."
 msgstr ""
+"随着PostGIS对简单分析和空间连接的支持，`Mapserver <http://mapserver.org/>`_ "
+"成为第一个外部应用程序，为数据库中的数据提供可视化展示。"
 
 #: ../../en/introduction.rst:145
 msgid ""
@@ -498,6 +538,9 @@ msgid ""
 "ST_Intersects(), ST_Buffer(), ST_Union()) were very difficult to code.  "
 "Writing them from scratch promised years of work."
 msgstr ""
+"在接下来的几年里，PostGIS功能的数量不断增长，但其功能仍然有限。许多最有趣的函"
+"数（例如，ST_Intersects（）、ST_Buffer（）、ST_Union（））都很难编码。从头开"
+"始编写它们需要多年的工作。"
 
 #: ../../en/introduction.rst:147
 msgid ""
@@ -507,6 +550,10 @@ msgid ""
 "linking in GEOS, PostGIS provided complete support for :term:`SFSQL` by "
 "version 0.8."
 msgstr ""
+"幸运的是，第二个项目——\"Geometry Engine, Open Source\" 或 `GEOS <http://trac."
+"osgeo.org/geos>`_，也随之出现。GEOS库提供了实现 :term:`SFSQL` "
+"规范所需的算法。通过引入GEOS，PostGIS在版本0.8中为 :term:`SFSQL` "
+"提供了完整的支持。"
 
 #: ../../en/introduction.rst:149
 msgid ""
@@ -518,13 +565,18 @@ msgid ""
 "dimensions, overhead greatly reduced. In PostGIS 1.0, this new, faster, "
 "lightweight representation became the default."
 msgstr ""
+"随着PostGIS数据容量的增长，出现了另一个问题：用于存储几何信息的表示方式相对低"
+"效。对于小型对象，如点和短线，表示中的元数据可能会有高达300%的额外开销。出于"
+"性能原因，有必要对表示进行精简。通过缩小元数据头和所需的维度，额外开销大大减"
+"少。在PostGIS 1.0中，这种新的、更快速、轻量级的表示方式成为了默认选项。"
 
 #: ../../en/introduction.rst:151
 msgid ""
 "Recent releases of PostGIS continue to add features and performance "
 "improvements, as well as support for new features in the PostgreSQL core "
 "system."
-msgstr ""
+msgstr "最新版本的 PostGIS 继续添加功能和性能改进，以及对 PostgreSQL "
+"核心系统中新功能的支持。"
 
 #: ../../en/introduction.rst:154
 msgid "Who uses PostGIS?"
@@ -535,10 +587,12 @@ msgid ""
 "For a complete list of case studies, see the `PostGIS case studies <https://"
 "postgis.net/category/casestudy/>`_ page."
 msgstr ""
+"有关案例研究的完整列表，请参阅`PostGIS案例研究 <https://postgis.net/category/"
+"casestudy/>`_ 页面。"
 
 #: ../../en/introduction.rst:159
 msgid "Institut Geographique National, France"
-msgstr ""
+msgstr "法国国家地理研究所"
 
 #: ../../en/introduction.rst:161
 msgid ""
@@ -551,10 +605,16 @@ msgid ""
 "postgresql.org/docs/devel/warm-standby.html>`_ to maintain uptime in the "
 "event of a system failure."
 msgstr ""
+"IGN是法国的国家测绘机构，使用PostGIS来存储该国的高分辨率地形图“BDUni”。BDUni "
+"拥有超过 1 亿个特征，由 100 "
+"多名现场工作人员维护，他们每天验证观测结果并向数据库添加新的地图。IGN "
+"安装使用数据库事务系统来确保更新过程中的一致性，并使用 `热备用 <https://www."
+"postgresql.org/docs/devel/warm-standby.html>`_ "
+"系统在系统发生故障时保持正常运行时间。"
 
 #: ../../en/introduction.rst:164
 msgid "RedFin"
-msgstr ""
+msgstr "RedFin"
 
 #: ../../en/introduction.rst:166
 msgid ""
@@ -564,6 +624,11 @@ msgid ""
 "PostGIS provided `huge benefits in performance and reliability <https://www."
 "redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgstr ""
+"`RedFin <https://www.redfin.com>`_ 是一家房地产代理公司，提供基于网络的服务，"
+"用于探索房产和估算价值。他们的系统最初是建立在MySQL上的，"
+"但他们发现迁移到PostgreSQL和PostGIS `在性能和可靠性方面提供了巨大好处 "
+"<https://www.redfin.com/news/"
+"elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_。"
 
 #: ../../en/introduction.rst:169
 msgid "What applications support PostGIS?"
@@ -577,22 +642,23 @@ msgid ""
 "postgis/wiki/UsersWikiToolsSupportPostgis>`_ include both open source and "
 "proprietary software on both server and desktop systems."
 msgstr ""
+"PostGIS已成为一个广泛使用的空间数据库，支持使用它存储和检索数据的第三方程序的"
+"数量也有所增加。`支持PostGIS的程序<http://trac.osgeo.org/postgis/wiki/"
+"UsersWikiToolsSupportPostgis>`_ 包括服务器和桌面系统上的开源软件和专有软件。"
 
 #: ../../en/introduction.rst:173
 msgid ""
 "The following table shows a list of some of the software that leverages "
 "PostGIS:"
-msgstr ""
+msgstr "下表显示了一些支持PostGIS 的软件列表："
 
 #: ../../en/introduction.rst:176
 msgid "Open/Free"
 msgstr "开源/自由"
 
 #: ../../en/introduction.rst:176
-#, fuzzy
-#| msgid "Closed/Proprietary"
 msgid "Closed/Proprietary/Paid services"
-msgstr "封闭/专有"
+msgstr "封闭式/专有/付费服务"
 
 #: ../../en/introduction.rst:179
 msgid "Loading/Extracting"
@@ -612,7 +678,7 @@ msgstr "Dxf2PostGIS"
 
 #: ../../en/introduction.rst:184
 msgid "GeoKettle"
-msgstr ""
+msgstr "GeoKettle"
 
 #: ../../en/introduction.rst:186 ../../en/introduction.rst:187
 msgid "Web-Based"
@@ -624,29 +690,27 @@ msgstr "Mapserver"
 
 #: ../../en/introduction.rst:190
 msgid "GeoServer /geoNode"
-msgstr ""
+msgstr "GeoServer /geoNode"
 
 #: ../../en/introduction.rst:191
 msgid "pg_tileserv"
-msgstr ""
+msgstr "pg_tileserv"
 
 #: ../../en/introduction.rst:192
 msgid "pg_featureserv"
-msgstr ""
+msgstr "pg_featureserv"
 
 #: ../../en/introduction.rst:193
 msgid "Deegree"
-msgstr ""
+msgstr "Deegree"
 
 #: ../../en/introduction.rst:194 ../../en/introduction.rst:197
 msgid "Carto"
-msgstr ""
+msgstr "Carto"
 
 #: ../../en/introduction.rst:195
-#, fuzzy
-#| msgid "ESRI ArcGIS Server"
 msgid "QGIS Server"
-msgstr "ESRI ArcGIS Server"
+msgstr "QGIS Server"
 
 #: ../../en/introduction.rst:196
 msgid "MapGuide Open Source (using FDO)"
@@ -674,7 +738,7 @@ msgstr "PgAdmin"
 
 #: ../../en/introduction.rst:207
 msgid "DBeaver"
-msgstr ""
+msgstr "DBeaver"
 
 #: ../../en/introduction.rst:208
 msgid "GvSIG"
@@ -682,7 +746,7 @@ msgstr "GvSIG"
 
 #: ../../en/introduction.rst:209
 msgid "SAGA"
-msgstr ""
+msgstr "SAGA"
 
 #: ../../en/introduction.rst:210
 msgid "uDig"
@@ -694,53 +758,47 @@ msgstr "Safe FME Desktop Translator/Converter"
 
 #: ../../en/introduction.rst:182
 msgid "Dbt"
-msgstr ""
+msgstr "Dbt"
 
 #: ../../en/introduction.rst:188
 msgid "Cadcorp GeognoSIS"
 msgstr "Cadcorp GeognoSIS"
 
 #: ../../en/introduction.rst:189
-#, fuzzy
-#| msgid "ESRI ArcGIS Server"
 msgid "ESRI ArcGIS Server / Online"
-msgstr "ESRI ArcGIS Server"
+msgstr "ESRI ArcGIS Server / Online"
 
 #: ../../en/introduction.rst:193
 msgid "Services / DbaaS"
-msgstr ""
+msgstr "服务 / 数据库即服务"
 
 #: ../../en/introduction.rst:195
-#, fuzzy
-#| msgid "Why choose PostgreSQL?"
 msgid "Aiven for PostgreSQL"
-msgstr "为什么选择 PostgreSQL？"
+msgstr "Aiven for PostgreSQL"
 
 #: ../../en/introduction.rst:196
 msgid "Amazon RDS / Aurora for PostgreSQL"
-msgstr ""
+msgstr "Amazon RDS / Aurora for PostgreSQL"
 
 #: ../../en/introduction.rst:198
 msgid "Crunchy Bridge"
-msgstr ""
+msgstr "Crunchy Bridge"
 
 #: ../../en/introduction.rst:199
 msgid "Microsoft Azure for PostgreSQL"
-msgstr ""
+msgstr "Microsoft Azure for PostgreSQL"
 
 #: ../../en/introduction.rst:200
 msgid "Google Cloud SQL for PostgreSQL"
-msgstr ""
+msgstr "Google Cloud SQL for PostgreSQL"
 
 #: ../../en/introduction.rst:204
 msgid "Cadcorp SIS"
 msgstr "Cadcorp SIS"
 
 #: ../../en/introduction.rst:205
-#, fuzzy
-#| msgid "Desktop"
 msgid "ESRI Desktop/Pro"
-msgstr "桌面端"
+msgstr "ESRI Desktop/Pro"
 
 #: ../../en/introduction.rst:206
 msgid "GeoConcept"
@@ -748,17 +806,15 @@ msgstr "GeoConcept"
 
 #: ../../en/introduction.rst:207
 msgid "Global Mapper"
-msgstr ""
+msgstr "Global Mapper"
 
 #: ../../en/introduction.rst:208
 msgid "Manifold"
 msgstr "Manifold"
 
 #: ../../en/introduction.rst:209
-#, fuzzy
-#| msgid "MapInfo (v10)"
 msgid "MapInfo"
-msgstr "MapInfo (v10)"
+msgstr "MapInfo"
 
 #: ../../en/introduction.rst:210
 msgid "Microimages TNTmips GIS"

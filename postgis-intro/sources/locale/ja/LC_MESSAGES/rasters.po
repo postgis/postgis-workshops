@@ -5,7 +5,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-02-01 10:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-02-07 05:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -413,11 +413,11 @@ msgstr "どちらを優先するかを決めずに、二つを混ぜ合わせて
 
 #: ../../en/rasters.rst:534
 msgid "Note that for geometries since geometries are vector and thus have no values besides there or not there, there really isn't any ambiguity on how to combine two vectors when they intersect."
-msgstr ""
+msgstr "ジオメトリについては、ジオメトリはベクタなので、その地点にあるかないかの他に値がありません。このため、二つのベクタがインタセクトする時に、これらのベクタがどう結合するかに関して、あいまいな点はありません。"
 
 #: ../../en/rasters.rst:538
 msgid "Another feature of the raster :command:`ST_Union` we glossed over, is this idea of if you should return all bands or just some bands. When you don't specify what bands to union, :command:`ST_Union` will combine same banded numbers and use the :command:`LAST` unioning strategy.  If you have multiple bands, this may not be what you want to do. Perhaps you only want to union, the second band. In this case, the Green Band and you want the count of pixel values."
-msgstr ""
+msgstr "ラスタ版の :command:`ST_Union` の隠していた機能として、全てのバンドを返すべきか、いくつかのバンドを返すべきかのアイデアです。どのバンドを結合するかを指定しない場合には、 :command:`ST_Union` は同じバンド番号同士を結合して、:command:`LAST` 結合戦略を採用します。複数のバンドがある場合には、これはやりたいことと違うようになるかもしれません。もしかしたら、結合したいというのが、2番目のバンドだけかもしれません。この場合には、緑バンドにピクセル数が必要です。"
 
 #: ../../en/rasters.rst:559
 msgid "Note in the case of the **COUNT** union type, which counts the number of pixels filled in and returns that value, the result is always a **32BUI** similar to how when you do a :command:`COUNT` in sql, the result is always a bigint, to accommodate large counts."
@@ -425,11 +425,11 @@ msgstr "**COUNT** 結合タイプの場合には、値の入っているピク�
 
 #: ../../en/rasters.rst:563
 msgid "In other cases, the band pixel type does not change and is set to the max value or rounded if the amounts exceed the bounds of the type. Why would anyone ever want to count pixels that intersect at a location. Well suppose each of your rasters represent police squadrons and incidents of arrests in the areas. Each value, might represent a different kind of arrest reason. You are doing stats on how many arrests in each region, therefore you only care about the count of arrests."
-msgstr ""
+msgstr "その他の場合には、バンドのピクセルタイプは変更されず、値がタイプの境界を超えると、最大値または丸められた値になります。なぜ、ある場所でインタセクトするピクセル数を数えたいのでしょう。たとえば、警察小隊と逮捕事件とを表現するラスタがあるとします。ピクセルごとの値は、異なる逮捕理由を表現している可能性があります。しかし、今は地域ごとの逮捕の統計を作成しているところなので逮捕件数のみに注目しています。"
 
 #: ../../en/rasters.rst:572
 msgid "Or perhaps, you want to do all bands, but you want different strategies."
-msgstr ""
+msgstr "もしくは、全てのバンドをやりたいけど、他の戦略が欲しい場合もあるかも知れません。"
 
 #: ../../en/rasters.rst:582
 msgid "Using the *unionarg[]* variant of the :command:`ST_Union` function, also allows you to shuffle the order of the bands."
@@ -445,7 +445,7 @@ msgstr "`ST_Clip <https://postgis.net/docs/ja/RT_ST_Clip.html>`_ 関数は、Pos
 
 #: ../../en/rasters.rst:590
 msgid "This function is also special in that it utilizes the power of geometry to help raster analysis. To reduce the number of pixels, :command:`ST_Union` has to handle, each raster is clipped first to the area we are interested in."
-msgstr ""
+msgstr "この関数は、ジオメトリの能力を利用して、ラスタ分析を助けるという点においても特徴的です。ピクセル数を減らすために :command:`ST_Union` は、まずラスタごとに必要な領域にクリッピングするよう操作します。"
 
 #: ../../en/rasters.rst:602
 msgid "This example showcases several functions working in unison.  The :command:`ST_Intersects` function employed is the one packaged with **postgis_raster** and can intersect 2 rasters or a raster and a geometry. Similar to the geometry :command:`ST_Intersects` the `raster ST_Intersects <https://postgis.net/docs/RT_ST_Intersects.html>`_ can take advantage of spatial indexes on the raster or geometry tables."
@@ -541,51 +541,51 @@ msgstr ""
 
 #: ../../en/rasters.rst:724
 msgid "A common approach to produce more complex geometries is to group by the values and union."
-msgstr ""
+msgstr "値でグループ化を行って結合するのが、より複雑なジオメトリを減らす一般的なアプローチです。"
 
 #: ../../en/rasters.rst:734
 msgid "This will give you 2 rows back corresponding to the words \"Raster\" and \"Hello\"."
-msgstr ""
+msgstr "これで \"Raster\" と \"Hello\" の単語に対応する 2行 が返されます。"
 
 #: ../../en/rasters.rst:737
 msgid "Statistics"
-msgstr ""
+msgstr "統計"
 
 #: ../../en/rasters.rst:738
 msgid "The most important thing to understand about rasters is that they are statistical tools for storing data in arrays, that you may happen to be able to make look pretty on a screen."
-msgstr ""
+msgstr "ラスタに関する理解に最も重要なものは、ラスタは配列にデータを格納する統計ツールであることで、画面上で見栄えを良くすることができるのは、たまたまです。"
 
 #: ../../en/rasters.rst:741
 msgid "You can find a menu of these statistical functions in `Raster Band Statistics <https://postgis.net/docs/RT_reference.html#RasterBand_Stats>`_."
-msgstr ""
+msgstr "統計関数の一覧は、`ラスタバンド統計情報と解析 <https://postgis.net/docs/ja/RT_reference.html#RasterBand_Stats>`_ にあります。"
 
 #: ../../en/rasters.rst:745
 msgid "ST_SummaryStatsAgg and ST_SummaryStats"
-msgstr ""
+msgstr "ST_SummaryStatsAgg と ST_SummaryStats"
 
 #: ../../en/rasters.rst:747
 msgid "Want all stats for a set or rasters, reach for the function `ST_SummaryStatsAgg <https://postgis.net/docs/RT_ST_SummaryStatsAgg.html>`_."
-msgstr ""
+msgstr "集合またはラスタの全ての統計処理が必要な場合には `ST_SummaryStatsAgg <https://postgis.net/docs/ja/RT_ST_SummaryStatsAgg.html>`_ に手を伸ばすことになります。"
 
 #: ../../en/rasters.rst:749
 msgid "This query takes about 10 seconds and gives you a summary of the whole table:"
-msgstr ""
+msgstr "このクエリは約 10 秒かかり、テーブル全体の要約を表示します:"
 
 #: ../../en/rasters.rst:756
 msgid "Outputs:"
-msgstr ""
+msgstr "出力:"
 
 #: ../../en/rasters.rst:765
 msgid "Which tells we have a lot of pixels and our max elevation is 411 ft."
-msgstr ""
+msgstr "ここから、多数のピクセルがあり、最大標高が 411フィート であることが分かります。"
 
 #: ../../en/rasters.rst:767
 msgid "If you have built overviews, and just need a rough estimate of your mins, maxs, and means use one of your overviews. This next query returns roughly the same values for mins, maxs, and means as the prior but in about 1 second instead of 10."
-msgstr ""
+msgstr "オーバビューを構築して、最大値、最小値、平均値の荒い見積もりが必要な場合には、オーバビューの一つを使用します。次のクエリは、前の結果と同じような最小値、最大値、平均値を荒く見積もりますが、10秒かかった計算を1秒で済みます。"
 
 #: ../../en/rasters.rst:776
 msgid "Now armed with this bit of information, we can ask more questions."
-msgstr ""
+msgstr "この少しの情報から、さらなる質問が可能となります。"
 
 #: ../../en/rasters.rst:779
 msgid "ST_Histogram"

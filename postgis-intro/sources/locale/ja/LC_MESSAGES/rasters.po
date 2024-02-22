@@ -5,7 +5,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-02-22 08:43+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-03-17 01:29-0400\nPO-Revision-Date: 2024-02-23 03:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -649,7 +649,7 @@ msgstr "ST_MakeEmptyCoverage を使ってタイルラスタを作成する"
 
 #: ../../en/rasters.rst:871
 msgid "A better approach, albeit a bit slower, is to define your own coverage tile structure from scratch using `ST_MakeEmptyCoverage <https://postgis.net/docs/RT_ST_MakeEmptyCoverage.html>`_ and then find the intersecting tiles for each new tile, and ST_Union these and then use `ST_Transform(ref, ST_Union...)` to create each tile."
-msgstr ""
+msgstr "少し遅くなりますが、より良いアプローチは、 'ST_MakeEmptyCoverage <https://postgis.net/docs/ja/RT_ST_MakeEmptyCoverage.html>'_を使用して独自のカバレッジタイル構造を最初から定義し、新しいタイルごとに交差するタイルを見つけ、これらを ST_Union してから 'ST_Transform(ref, ST_Union...)' を使用して各タイルを作成します。"
 
 #: ../../en/rasters.rst:875
 msgid "For this we'll be using quite a few functions, we learned about earlier."
@@ -681,7 +681,7 @@ msgstr "元のデータセットと同じで、いくつかの処理の効率を
 
 #: ../../en/rasters.rst:939
 msgid "We'll create level 2 and 3 overviews as we had done with our original using this code."
-msgstr ""
+msgstr "このコードを使って、元のデータに対して行ったように、レベル 2 とレベル 3 のオーバビューを作ります。"
 
 #: ../../en/rasters.rst:946
 msgid "This process sadly takes a while, and a longer while the more rows you have so be patient. For this dataset it took about 3-5 minutes for the overview factor `2` and 1 minute for the overview factor `3`."
@@ -709,11 +709,11 @@ msgstr "あるポイントジオメトリのピクセル値"
 
 #: ../../en/rasters.rst:981
 msgid "If you need to return values from rasters based on intersection of several ad-hoc geometry points, you'll use `ST_Value <https://postgis.net/docs/RT_ST_Value.html>`_ or it's nearest relative `ST_NearestValue <https://postgis.net/docs/RT_ST_NearestValue.html>`_."
-msgstr ""
+msgstr "いくつかの特別なポイントジオメトリにインタセクトする場所に基づいて、ラスタから値を返す必要がある場合には、`ST_Value <https://postgis.net/docs/ja/RT_ST_Value.html>`_ を使うか、相対的に最近傍となる値を得る `ST_NearestValue <https://postgis.net/docs/ja/RT_ST_NearestValue.html>`_ を使います。"
 
 #: ../../en/rasters.rst:995
 msgid "This example takes about 1 second to return 2444 rows. If you used :command:`ST_Intersects` instead of :command:`&&`, the process would take about 3 seconds. The reason `ST_Intersects` is slower is that it performs an additional recheck in some cases a pixel by pixel check. If you expect all your points to be represented with data in your raster set and your rasters represent a coverage (a continguous set non-overlapping raster tiles), then `&&` is generally a speedier option."
-msgstr ""
+msgstr "この例では、2444行 を返すのに 1秒 かかりました。:command:`&&` の代わりに :command:`ST_Intersects` を使った場合には、3秒 かかりました。`ST_Intersects` が遅いのは、ピクセルごとのチェックで追加の再チェックを行うためです。全てのポイントがラスタ集合のデータで表現され、ラスタがカバレッジ (オーバラップしないラスタタイルの連続的な集合) を表現することを期待する場合には、`&&` が一般的に速くなる選択肢です。"
 
 #: ../../en/rasters.rst:1000
 msgid "If your raster data is not densely populated or you have overlapping rasters (e.g. they represent different observations in time), or they are skewed (not axis aligned) then there is an advantage to having ST_Intersects weed out the false positives."
@@ -729,11 +729,11 @@ msgstr ":command:`ST_Intersection` を使って、二つのジオメトリのイ
 
 #: ../../en/rasters.rst:1011
 msgid "What you get out of this beast, are two different kinds of things:"
-msgstr ""
+msgstr "このケダモノから得られるのは、二つの異なる種類のものです:"
 
 #: ../../en/rasters.rst:1013
 msgid "Intersect a geometry with a raster, and you get a set of `geomval` offspring. Perhaps one, but most often many."
-msgstr ""
+msgstr "ジオメトリとラスタとのインタセクトでは、`geomval` 結果の集合を得ます。一つの場合もありますが、ほとんどの場合が複数です。"
 
 #: ../../en/rasters.rst:1016
 msgid "Intersect 2 rasters and you get a single `raster` back."
@@ -741,7 +741,7 @@ msgstr "二つのラスタのインタセクトで、単一の `raster` が戻�
 
 #: ../../en/rasters.rst:1018
 msgid "The golden rule for both raster intersection and geometry intersection is that both parties involved must have the same spatial reference system. For raster/raster, they also have to have same alignment."
-msgstr ""
+msgstr "ラスタのインタセクトとジオメトリのインタセクトの両方で絶対的なルールとして、両方とも同じ空間参照系を持たなければならない、というものがあります。ラスタ対ラスタでは、そのうえ、同じアラインメントを持つ必要もあります。"
 
 #: ../../en/rasters.rst:1022
 msgid "Here is an example which answers a question you may have been curious about. If we bucket our elevations into 5 buckets of elevation values, which elevation range results in the most gun fatalities? We know based on our earlier summary statistics that `0` is the lowest value and `411` is the highest value for elevation in our nyc dem dataset, so we use that as min and max value for our `width_bucket <https://www.postgresql.org/docs/current/functions-math.html>`_ call."

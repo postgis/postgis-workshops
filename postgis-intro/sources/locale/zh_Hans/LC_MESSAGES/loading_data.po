@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-17 01:29-0400\n"
-"PO-Revision-Date: 2024-02-07 05:45+0000\n"
+"PO-Revision-Date: 2024-02-19 04:45+0000\n"
 "Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/loading_data/zh_Hans/>\n"
@@ -24,288 +24,372 @@ msgstr "加载空间数据"
 
 #: ../../en/loading_data.rst:6
 msgid "Supported by a wide variety of libraries and applications, PostGIS provides many options for loading data."
-msgstr ""
+msgstr "PostGIS 受到各种库和应用程序的支持，提供了许多加载数据的选项。"
 
 #: ../../en/loading_data.rst:8
 msgid "We will first load our working data from a database backup file, then review some standard ways of loading different GIS data formats using common tools."
-msgstr ""
+msgstr "我们首先将从数据库备份文件中加载我们的工作数据，然后使用常见工具审查加载不同G"
+"IS数据格式的标准方法。"
 
 #: ../../en/loading_data.rst:12
 msgid "Loading the Backup File"
-msgstr ""
+msgstr "加载备份文件"
 
 #: ../../en/loading_data.rst:14
 msgid "In the PgAdmin browser, **right-click** on the **nyc** database icon, and then select the **Restore...** option."
-msgstr ""
+msgstr "在 PgAdmin 浏览器中，**右键单击** **nyc** 数据库图标，然后选择 **还原...** "
+"选项。"
 
 #: ../../en/loading_data.rst:19
 msgid "Browse to the location of your workshop data data directory, and select the :file:`nyc_data.backup` file."
-msgstr ""
+msgstr "浏览到您的工作数据目录位置，然后选择 :file:`nyc_data.backup` 文件。"
 
 #: ../../en/loading_data.rst:24
 msgid "Click on the **Restore options** tab, scroll down to the **Do not save** section and toggle **Owner** to **Yes**."
-msgstr ""
+msgstr "点击**还原选项**标签，滚动到**不保存**部分，将**所有者**切换到**是**。"
 
 #: ../../en/loading_data.rst:29
 msgid "Click the **Restore** button. The database restore should run to completion without errors."
-msgstr ""
+msgstr "点击**还原**按钮。数据库还原应该会在没有错误的情况下完成。"
 
 #: ../../en/loading_data.rst:34
 msgid "After the load is complete, right click the **nyc** database, and select the **Refresh** option to update the client information about what tables exist in the database."
-msgstr ""
+msgstr "在加载完成后，右键单击**nyc**数据库，然后选择**刷新**选项以更新客户端有关数据"
+"库中存在哪些表的信息。"
 
 #: ../../en/loading_data.rst:41
 msgid "If you want to practice loading data from the native spatial formats, instead of using the PostgreSQL db backup files just covered, the next couple of sections will guide you thru loading using various command-line tools and QGIS DbManager. Note you can skip these sections, if you have already loaded the data with pgAdmin."
 msgstr ""
+"如果您想要练习从本地空间格式加载数据，而不是使用刚刚介绍的PostgreSQL数据库备"
+"份文件，接下来的几个部分将引导您通过使用各种命令行工具和QGIS "
+"DbManager加载。请注意，如果您已经使用pgAdmin加载了数据，可以跳过这些部分。"
 
 #: ../../en/loading_data.rst:48
 msgid "Loading with ogr2ogr"
-msgstr ""
+msgstr "使用ogr2ogr加载数据"
 
 #: ../../en/loading_data.rst:50
 msgid ":file:`ogr2ogr` is a commandline utility for converting data between GIS data formats, including common file formats and common spatial databases."
-msgstr ""
+msgstr ":file:`ogr2ogr`是一个命令行实用程序，用于在GIS数据格式之间进行转换，包括常见"
+"文件格式和常见空间数据库。"
 
 #: ../../en/loading_data.rst:55
 msgid "**Windows**:"
-msgstr ""
+msgstr "**Windows**:"
 
 #: ../../en/loading_data.rst:53
 msgid "Builds of ogr2ogr can be downloaded from `GIS Internals <https://www.gisinternals.com/release.php>`_."
 msgstr ""
+"可以从`GIS Internals <https://www.gisinternals.com/release."
+"php>`_下载ogr2ogr的构建版本。"
 
 #: ../../en/loading_data.rst:54
 msgid "ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/forusers/download.html>`_ and accessible via OSGeo4W Shell -"
 msgstr ""
+"ogr2ogr包含在`QGIS安装包 <https://qgis.org/en/site/forusers/download."
+"html>`_中，并可以通过OSGeo4W Shell访问 -"
 
 #: ../../en/loading_data.rst:55
 msgid "Builds of ogr2ogr can be downloaded from `MS4W <https://ms4w.com/download.html>`_."
-msgstr ""
+msgstr "ogr2ogr的构建版本可以从`MS4W <https://ms4w.com/download.html>`_下载。"
 
 #: ../../en/loading_data.rst:59
 msgid "**MacOS**:"
-msgstr ""
+msgstr "**MacOS**:"
 
 #: ../../en/loading_data.rst:58
 msgid "If you installed `Postgres.app <https://postgresapp.com/>`_, then you will find :file:`ogr2ogr` in the :file:`/Applications/Postgres.app/Contents/Versions/*/bin` directory."
 msgstr ""
+"如果您安装了`Postgres.app <https://postgresapp.com/>`_，那么您会在 :file:`/"
+"Applications/Postgres.app/Contents/Versions/*/bin` 目录中找到 "
+":file:`ogr2ogr`。"
 
 #: ../../en/loading_data.rst:59
 msgid "Finally, if you have installed `HomeBrew <https://brew.sh/>`_ you can install the **gdal** package to get access to :file:`ogr2ogr`"
 msgstr ""
+"最后，如果您已安装了`HomeBrew <https://brew.sh/>`_ 您可以安装**gdal**"
+"软件包以获取对 :file:`ogr2ogr` 的访问。"
 
 #: ../../en/loading_data.rst:62
 msgid "**Linux**:"
-msgstr ""
+msgstr "**Linux**:"
 
 #: ../../en/loading_data.rst:62
 msgid "If you installed QGIS from packages, :file:`ogr2ogr` should be installed and on your PATH already as part of the **gdal** or *libgdal** packages."
 msgstr ""
+"如果您从软件包安装了QGIS，:file:`ogr2ogr`应该已经安装并在您的PATH上，作为**gd"
+"al**或**libgdal**软件包的一部分。"
 
 #: ../../en/loading_data.rst:64
 msgid "The postgis workshop data directory includes a :file:`2000/` sub-directory, which contains shape files from the 2000 census, that were obsoleted by data from the 2010 census. We can practice data loading using those files, to avoid creating name collisions with the data we already loaded using the backup file. Be sure to be in the :file:`2000/` sub-directory with the shell when doing these instructions:"
 msgstr ""
+"PostGIS的工作数据目录包含一个:file:`2000/`子目录，其中包含来自2000年人口普查"
+"的shape文件，这些文件已被2010年人口普查的数据所淘汰。我们可以使用这些文件来练"
+"习数据加载，以避免与使用备份文件已加载的数据发生名称冲突。在执行这些说明时，"
+"请确保在shell中位于:file:`2000/`子目录中："
 
 #: ../../en/loading_data.rst:71
 msgid "Rather than passing the password in the connection string, we put it in the environment, so it won't be visible in the process list while the command runs."
-msgstr ""
+msgstr "与在连接字符串中传递密码不同，我们将密码放在环境中，这样在运行命令时它不会在"
+"进程列表中可见。"
 
 #: ../../en/loading_data.rst:73
 msgid "Note that on Windows, you will need to use ``set`` instead of ``export``."
-msgstr ""
+msgstr "请注意在Windows上，您将需要使用`set`而不是`export`。"
 
 #: ../../en/loading_data.rst:88
 msgid "For more visual clarity, these lines are displayed with ``\\``, but they should be written in one line on your shell."
-msgstr ""
+msgstr "为了更清晰可见，这些行使用``\\``显示，但在您的shell上应该写在一行上。"
 
 #: ../../en/loading_data.rst:90
 msgid "The :file:`ogr2ogr` has a **huge** number of options, and we're only using a handful of them here. Here is a line-by-line explanation of the command."
-msgstr ""
+msgstr ":file:`ogr2ogr`有**大量**的选项，而我们在这里只使用了其中的一小部分。下面是对"
+"该命令的逐行解释。"
 
 #: ../../en/loading_data.rst:96
 msgid "The executable name! You may need to ensure the executable location is in your `PATH` or use the full path to the executable, depending on your setup."
-msgstr ""
+msgstr "可执行文件的名称！您可能需要确保可执行文件的位置在您的`PATH`中，或者根据您的"
+"设置使用完整的可执行文件路径。"
 
 #: ../../en/loading_data.rst:102
 msgid "The **nln** option stands for \"new layer name\", and sets the table name that will be created in the target database."
-msgstr ""
+msgstr "**nln**选项代表“新图层名称”，并设置将在目标数据库中创建的表名称。"
 
 #: ../../en/loading_data.rst:108
 msgid "The **nlt** option stands for \"new layer type\". For shape file input in particular, the new layer type is often a \"multi-part geometry\", so the system needs to be told in advance to use \"MultiPolygon\" instead of \"Polygon\" for the geometry type."
 msgstr ""
+"**nlt**选项代表“新图层类型”。特别是对于shape文件输入，新图层类型通常是“多部分"
+"几何”，因此系统需要事先告知使用“MultiPolygon”而不是“Polygon”作为几何类型。"
 
 #: ../../en/loading_data.rst:116
 msgid "The **lco** option stands for \"layer create option\". Different drivers have different create options, and we are using three options for the `PostgreSQL driver <https://gdal.org/drivers/vector/pg.html>`_ here."
 msgstr ""
+"**lco**选项代表“图层创建选项”。不同的驱动程序具有不同的创建选项，我们在这里使"
+"用了`PostgreSQL驱动程序 <https://gdal.org/drivers/vector/pg."
+"html>`_的三个选项。"
 
 #: ../../en/loading_data.rst:118
 msgid "**GEOMETRY_NAME** sets the column name for the geometry column. We prefer \"geom\" over the default, so that our tables match the standard column names in the workshop."
-msgstr ""
+msgstr "**GEOMETRY_NAME**设置几何列的列名。我们倾向于使用\"geom\"而不是默认值"
+"，以使我们的表与研讨会中的标准列名匹配。"
 
 #: ../../en/loading_data.rst:119
 msgid "**FID** sets the primary key column name. Again we prefer \"gid\" which is the standard used in the workshop."
-msgstr ""
+msgstr "**FID**设置主键列名。同样，我们更喜欢使用\"gid\"，这是研讨会中使用的标准。"
 
 #: ../../en/loading_data.rst:120
 msgid "**PRECISION** controls how numeric fields are represented in the database. The default when loading a shape file is to use the database \"numeric\" type, which is more precise but sometimes harder to work with than simple number types like \"integer\" and \"double precision\". We use \"NO\" to turn off the \"numeric\" type."
 msgstr ""
+"**PRECISION**控制数字字段在数据库中的表示方式。在加载shape文件时，默认情况下"
+"使用数据库的“numeric”类型，这更精确，但有时比“integer”和“double "
+"precision”等简单数值类型更难处理。我们使用\"NO\"来关闭\"numeric\"类型。"
 
 #: ../../en/loading_data.rst:126
 msgid "The order of arguments in :file:`ogr2ogr` is, roughly: executable, then options, then **destination** location, then **source location**. So this is the destination, the connection string for our PostgreSQL database. The \"Pg:\" portion is the driver name, and then the `connection string <https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING>`_ is contained in quotation marks (because it might have embedded spaces)."
 msgstr ""
+"在 :file:`ogr2ogr` 中，参数的顺序大致是：可执行文件，然后是选项，然后是**目标"
+"**位置，然后是**源**位置。因此，这是目标，我们PostgreSQL数据库的连接字符串。 "
+"\"Pg:\" 部分是驱动程序名称，然后 `connection string <https://www.postgresql."
+"org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING>`_ "
+"包含在引号中（因为它可能包含嵌入的空格）。"
 
 #: ../../en/loading_data.rst:132
 msgid "The source data set in this case is the shape file we are reading. It is possible to read multiple layers in one invocation by putting the connection string here, and then following it with a list of layer names, but in this case we have just the one shape file to load."
 msgstr ""
+"在这种情况下，源数据集是我们要读取的shape文件。通过在这里放置连接字符串，然后"
+"跟随图层名称列表，可以在一次调用中读取多个图层，但在这种情况下，我们只有一个"
+"要加载的shape文件。"
 
 #: ../../en/loading_data.rst:136
 msgid "Shapefiles? What's that?"
-msgstr ""
+msgstr "什么是Shapefiles？"
 
 #: ../../en/loading_data.rst:138
 msgid "You may be asking yourself -- \"What's this shapefile thing?\"  A \"shapefile\" commonly refers to a collection of files with ``.shp``, ``.shx``, ``.dbf``, and other extensions on a common prefix name (e.g., nyc_census_blocks). The actual shapefile relates specifically to files with the ``.shp`` extension. However, the ``.shp`` file alone is incomplete for distribution without the required supporting files."
 msgstr ""
+"你可能会问自己 --“什么是这个shapefile？”“Shapefile”通常指的是具有相同前缀名称"
+"（例如nyc_census_blocks）的一组文件，包括``.shp``、``.shx``、``."
+"dbf``和其他扩展名。实际上，shapefile 特指具有``."
+"shp``扩展名的文件。然而，仅有``."
+"shp``文件是不完整的，如果没有必需的支持文件，就不能进行分发。"
 
 #: ../../en/loading_data.rst:140
 msgid "Mandatory files:"
-msgstr ""
+msgstr "必需的文件："
 
 #: ../../en/loading_data.rst:142
 msgid "``.shp``—shape format; the feature geometry itself"
-msgstr ""
+msgstr "``.shp``—shape格式；要素的几何信息本身"
 
 #: ../../en/loading_data.rst:143
 msgid "``.shx``—shape index format; a positional index of the feature geometry"
-msgstr ""
+msgstr "``.shx``—shape索引格式；要素几何的位置索引"
 
 #: ../../en/loading_data.rst:144
 msgid "``.dbf``—attribute format; columnar attributes for each shape, in dBase III"
-msgstr ""
+msgstr "``.dbf``—属性格式；每个形状的列属性，使用dBase III格式"
 
 #: ../../en/loading_data.rst:146
 msgid "Optional files include:"
-msgstr ""
+msgstr "可选文件包括："
 
 #: ../../en/loading_data.rst:148
 msgid "``.prj``—projection format; the coordinate system and projection information, a plain text file describing the projection using well-known text format"
-msgstr ""
+msgstr "``.prj``—投影格式；坐标系和投影信息，一个使用众所周知的文本格式描述投影的纯文"
+"本文件"
 
 #: ../../en/loading_data.rst:150
 msgid "The :file:`shp2pgsql` utility makes shape data usable in PostGIS by converting it from binary data into a series of SQL commands that are then run in the database to load the data."
 msgstr ""
+"`shp2pgsql`实用程序通过将形状数据从二进制数据转换为一系列SQL命令，使其在PostG"
+"IS中可用，并然后在数据库中运行这些命令以加载数据。"
 
 #: ../../en/loading_data.rst:154
 msgid "Loading with shp2pgsql"
-msgstr ""
+msgstr "使用shp2pgsql加载数据"
 
 #: ../../en/loading_data.rst:156
 msgid "The :file:`shp2pgsql` converts Shape files into SQL. It is a conversion utility that is part of the PostGIS code base and ships with PostGIS packages. If you installed PostgreSQL locally on your computer, you may find that :file:`shp2pgsql` has been installed along with it, and it is available in the executable directory of your installation."
 msgstr ""
+":file:`shp2pgsql`将Shape文件转换为SQL。它是PostGIS代码库的一部分，并随PostGIS"
+"软件包一起提供。如果您在计算机上本地安装了PostgreSQL，您可能会发现:file:`shp2"
+"pgsql`已经与其一起安装，并且位于安装目录的可执行文件目录中。"
 
 #: ../../en/loading_data.rst:158
 msgid "Unlike :file:`ogr2ogr`, :file:`shp2pgsql` does not connect directly to the destination database, it just emits the SQL equivalent to the input shape file. It is up to the user to pass the SQL to the database, either with a \"pipe\" or by saving the SQL to file and then loading it."
 msgstr ""
+"与:file:`ogr2ogr`不同，:file:`shp2pgsql`不直接连接到目标数据库，它只是生成与"
+"输入shape文件等效的SQL。用户需要通过\"管道\"将SQL传递到数据库"
+"，或者将SQL保存到文件中，然后加载它。"
 
 #: ../../en/loading_data.rst:160
 msgid "Here is an example invocation, loading the same data as before:"
-msgstr ""
+msgstr "以下是一个加载相同数据的示例调用："
 
 #: ../../en/loading_data.rst:174
 msgid "Here is a line-by-line explanation of the command."
-msgstr ""
+msgstr "以下是对该命令的逐行解释。"
 
 #: ../../en/loading_data.rst:180
 msgid "The executable program! It reads the source data file, and emits SQL which can be directed to a file or piped to :file:`psql` to load directly into the database."
-msgstr ""
+msgstr "可执行程序！它读取源数据文件，并生成可以重定向到文件或通过管道传递给:file:`ps"
+"ql`以直接加载到数据库中的SQL。"
 
 #: ../../en/loading_data.rst:186
 msgid "The **D** flag tells the program to generate \"dump format\" which is much faster to load than the default \"insert format\"."
-msgstr ""
+msgstr "**D**标志告诉程序生成“dump格式”，这比默认的“insert格式”加载速度要快得多。"
 
 #: ../../en/loading_data.rst:192
 msgid "The **I** flag tells the program to create a spatial index on the table after loading is complete."
-msgstr ""
+msgstr "**I** 标志告诉程序在加载完成后在表上创建空间索引。"
 
 #: ../../en/loading_data.rst:198
 msgid "The **s** flag tells the program what the \"spatial reference identifier (SRID)\" of the data is. The source data for this workshop is all in \"UTM 18\", for which the SRID is **26918** (see below)."
 msgstr ""
+"**s**标志告诉程序数据的“空间参考标识符（SRID）”是什么。此研讨会的源数据全部在"
+"“UTM 18”中，其SRID为**26918**（见下文）。"
 
 #: ../../en/loading_data.rst:205
 msgid "The source shape file to read."
-msgstr ""
+msgstr "要读取的源shape文件。"
 
 #: ../../en/loading_data.rst:211
 msgid "The table name to use when creating the destination table."
-msgstr ""
+msgstr "创建目标表时要使用的表名。"
 
 #: ../../en/loading_data.rst:217
 msgid "The utility program is generating a stream of SQL. The \"|\" operator takes that stream and uses it as input to the :file:`psql` database terminal program. The arguments to :file:`psql` are just the connection string for the destination database."
 msgstr ""
+"该实用程序生成一个SQL流。\"|\"运算符将该流作为输入传递给"
+":file:`psql`数据库终端程序。:file:`psql`的参数只是目标数据库的连接字符串。"
 
 #: ../../en/loading_data.rst:221
 msgid "SRID 26918? What's with that?"
-msgstr ""
+msgstr "SRID 26918？是什么？"
 
 #: ../../en/loading_data.rst:223
 msgid "Most of the import process is self-explanatory, but even experienced GIS professionals can trip over an **SRID**."
-msgstr ""
+msgstr "大多数导入过程都是不言自明的，但即使是经验丰富的GIS专业人员也可能会在**SRID**"
+"上遇到问题。"
 
 #: ../../en/loading_data.rst:225
 msgid "An \"SRID\" stands for \"Spatial Reference IDentifier.\" It defines all the parameters of our data's geographic coordinate system and projection. An SRID is convenient because it packs all the information about a map projection (which can be quite complex) into a single number."
 msgstr ""
+"“SRID”代表“空间参考标识符”。它定义了我们数据的地理坐标系和投影的所有参数。SRI"
+"D很方便，因为它将地图投影的所有信息（可能相当复杂）打包成一个单一的数字。"
 
 #: ../../en/loading_data.rst:227
 msgid "You can see the definition of our workshop map projection by looking it up either in an online database,"
-msgstr ""
+msgstr "您可以通过在在线数据库中查找来查看我们研讨会地图投影的定义，"
 
 #: ../../en/loading_data.rst:229
 msgid "https://epsg.io/26918"
-msgstr ""
+msgstr "https://epsg.io/26918"
 
 #: ../../en/loading_data.rst:231
 msgid "or directly inside PostGIS with a query to the ``spatial_ref_sys`` table."
-msgstr ""
+msgstr "或者直接在PostGIS中使用查询到``spatial_ref_sys``表。"
 
 #: ../../en/loading_data.rst:239
 msgid "The PostGIS ``spatial_ref_sys`` table is an :term:`OGC`-standard table that defines all the spatial reference systems known to the database. The data shipped with PostGIS, lists over 3000 known spatial reference systems and details needed to transform/re-project between them."
 msgstr ""
+"PostGIS的``spatial_ref_sys``表是一个符合:term:`OGC`标准的表，定义了数据库中已"
+"知的所有空间参考系统。随PostGIS一起提供的数据列出了超过3000个已知的空间参考系"
+"统以及在它们之间进行转换/重投影所需的详细信息。"
 
 #: ../../en/loading_data.rst:241
 msgid "In both cases, you see a textual representation of the **26918** spatial reference system (pretty-printed here for clarity):"
-msgstr ""
+msgstr "在两种情况下，您都会看到**26918**空间参考系统的文本表示（在此进行了漂亮的打印"
+"以提高清晰度）："
 
 #: ../../en/loading_data.rst:264
 msgid "If you open up the ``nyc_neighborhoods.prj`` file from the data directory, you'll see the same projection definition."
-msgstr ""
+msgstr "如果您打开数据目录中的``nyc_neighborhoods.prj``文件，您将看到相同的投影定义。"
 
 #: ../../en/loading_data.rst:266
 msgid "Data you receive from local agencies—such as New York City—will usually be in a local projection noted by \"state plane\" or \"UTM\".  Our projection is \"Universal Transverse Mercator (UTM) Zone 18 North\" or EPSG:26918."
 msgstr ""
+"您从本地机构（如纽约市）接收到的数据通常会以“state "
+"plane”或“UTM”为标志的本地投影。我们的投影是“Universal Transverse Mercator "
+"(UTM) Zone 18 North”或EPSG:26918。"
 
 #: ../../en/loading_data.rst:270
 msgid "Things to Try: View data using QGIS"
-msgstr ""
+msgstr "要尝试的事情：使用QGIS查看数据"
 
 #: ../../en/loading_data.rst:272
 msgid "`QGIS <http://qgis.org>`_, is a desktop GIS viewer/editor for quickly looking at data. You can view a number of data formats including flat shapefiles and a PostGIS database. Its graphical interface allows for easy exploration of your data, as well as simple testing and fast styling."
 msgstr ""
+"`QGIS <http://qgis.org>`_ 是一个桌面GIS查看器/编辑器，用于快速查看数据。您可"
+"以查看多种数据格式，包括平面shape文件和PostGIS数据库。其图形界面使得对数据进"
+"行轻松探索、简单测试和快速样式设置成为可能。"
 
 #: ../../en/loading_data.rst:274
 msgid "Try using this software to connect your PostGIS database.  The application can be downloaded from https://qgis.org"
-msgstr ""
+msgstr "尝试使用这个软件连接到您的PostGIS数据库。该应用程序可从 https://qgis.org 下载"
 
 #: ../../en/loading_data.rst:276
 msgid "You'll first want to create a connection to a PostGIS database using menu :command:`Layer->Add Layer->PostGIS Layers->New` and then filling in the prompts. Once you have a connection, you can add Layers by clicking connect and selecting a table to display."
 msgstr ""
+"首先，您会想要创建到PostGIS数据库的连接，使用菜单 :command:`Layer->Add Layer-"
+">PostGIS Layers->New`，然后填写提示。一旦您建立了连接，您可以通过点击连接并选"
+"择要显示的表来添加图层。"
 
 #: ../../en/loading_data.rst:280
 msgid "Loading data using QGIS DbManager"
-msgstr ""
+msgstr "使用QGIS DbManager加载数据"
 
 #: ../../en/loading_data.rst:281
 msgid "QGIS comes with a tool called `DbManager <https://docs.qgis.org/3.28/en/docs/user_manual/plugins/core_plugins/plugins_db_manager.html#dbmanager>`_  that allows you to connect to various different kinds of databases, including a PostGIS enabled one.  After you have a PostGIS Database connection configured, go to :command:`Database->DbManager` and expand to your database as shown below:"
 msgstr ""
+"QGIS带有一个名为 `DbManager <https://docs.qgis.org/3.28/en/docs/user_manual/"
+"plugins/core_plugins/plugins_db_manager.html#dbmanager>`_ 的工具，它允许您连"
+"接到各种不同类型的数据库，包括启用了PostGIS的数据库。配置了PostGIS数据库连接"
+"后，转到 :command:`Database->DbManager`，展开到您的数据库，如下所示："
 
 #: ../../en/loading_data.rst:288
 msgid "From there you can use the :command:`Import Layer/File` menu option to load numerous different spatial formats. In addition to being able to load data from many spatial formats and export data to many formats, you can also add ad-hoc queries to the canvas or define views in your database, using the highlighted wrench icon."
 msgstr ""
+"从那里，您可以使用 :command:`Import Layer/File` 菜单选项加载许多不同的空间格"
+"式。除了能够从许多空间格式加载数据和将数据导出到许多格式，您还可以通过使用突"
+"出显示的扳手图标，将临时查询添加到画布或在数据库中定义视图。"

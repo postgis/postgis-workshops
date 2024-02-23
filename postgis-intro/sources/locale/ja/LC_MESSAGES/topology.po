@@ -4,8 +4,9 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 20:32+0000\nPO-Revision-Date: 2024-02-18 08:45+0000\nLast-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.8.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 20:32+0000\nPO-Revision-Date: 2024-02-18 08:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.8.0\n"
 
 #: ../../en/topology.rst:4
 msgid "Topology"
@@ -21,49 +22,49 @@ msgid ""
 " called a **topogeometry**. In addition to the *topogeometry* spatial "
 "type, you will find functions for building *topologies* and populating "
 "topologies."
-msgstr ""
+msgstr "PostGIS は **postgis_topology** というエクステンションを介して SQL/MM SQL-MM 3 Topo-Geo と Topo-Net 3 仕様に対応しています。`マニュアル PostGIS トポロジ <https://postgis.net/docs/ja/Topology.html>`_ でエクステンションで地峡される全ての関数とタイプに関して学習することができます。*postgis_topology* エクステンションには、もうひとつの中核的な空間型である **topogeometry** があります。*topogeometry* 空間型に加えて、*topologies* の構築とトポロジの投入の関数があります。"
 
 #: ../../en/topology.rst:14
 msgid ""
 "Before you can start using topologies, you must install postgis_topology "
 "extension as follows:"
-msgstr ""
+msgstr "トポロジの使用を開始する前に、postgis_topology エクステンションをインストールします。次のようにします:"
 
 #: ../../en/topology.rst:21
 msgid ""
 "After you install the extension, you will see a new schema in your "
 "database called `topology`. The `topology` schema catalogs all the "
 "topologies in your database."
-msgstr ""
+msgstr "エクステンションをインストールすると、インストールしたデータベースに `topology` というスキーマができています。データベース内の `topology` スキーマは全てのトポロジをカタログ化しています。"
 
 #: ../../en/topology.rst:24
 msgid ""
 "The `topology` schema contains two tables and all the helper functions "
 "for topology."
-msgstr ""
+msgstr "`topology` スキーマには、二つのテーブルと全てのトポロジの補助関数とがあります。"
 
 #: ../../en/topology.rst:26
 msgid ""
 "topology - lists all the topologies in your database, and what schema "
 "they are stored in"
-msgstr ""
+msgstr "topology - データベース内の全てのトポロジ覧と、それが格納されていスキーマの一覧です"
 
 #: ../../en/topology.rst:27
 msgid ""
 "layer - lists all the table columns in your database that hold "
 "topogeometries"
-msgstr ""
+msgstr "layer - データベースでとぽジオメトリを保持する全てのテーブルカラムの一覧です"
 
 #: ../../en/topology.rst:29
 msgid ""
 "The *layer* table is very similar to the `raster_columns`, "
 "`geometry_columns`, and `geography_columns` catalogs we learned about "
 "earlier, but specifically for topogeometries."
-msgstr ""
+msgstr "*layer* テーブルは、これより前に学習した `raster_columns`、`geometry_columns`、`geography_columns` カタログによく似ていますが、トポジオメトリ専用です。"
 
 #: ../../en/topology.rst:33
 msgid "Creating topologies"
-msgstr ""
+msgstr "トポロジの作成"
 
 #: ../../en/topology.rst:34
 msgid ""

@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Zuochenwei <zuochenwei5@gmail.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2024-02-23 03:45+0000\n"
+"Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/simple_sql/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.3\n"
+
+#: ../../en/simple_sql.rst:4
+msgid "Simple SQL"
+msgstr "简单SQL"
+
+#: ../../en/simple_sql.rst:6
+msgid ":term:`SQL`, or \"Structured Query Language\", is a means of asking questions of, and updating data in, relational databases. You have already seen SQL when we created our first database.  Recall:"
+msgstr ""
+":term:`SQL`，或称为\"结构化查询语言\""
+"，是一种用于查询和更新关系数据库中数据的方法。"
+"我们在创建第一个数据库时已经见过 SQL。回想一下："
+
+#: ../../en/simple_sql.rst:12
+msgid "But that was a question about the database.  Now that we've loaded data into our database, let's use SQL to ask questions of the data! For example,"
+msgstr "但那是关于数据库的问题。现在我们已经将数据加载到我们的数据库中，让我们使用SQL"
+"来查询数据！例如，"
+
+#: ../../en/simple_sql.rst:14
+msgid "\"What are the names of all the neighborhoods in New York City?\""
+msgstr "“纽约市所有社区的名称是什么？”"
+
+#: ../../en/simple_sql.rst:16
+msgid "Open up the SQL query window in pgAdmin by clicking the \"Query Tool\" button."
+msgstr "点击\"Query Tool\"按钮，在pgAdmin中打开SQL查询窗口。"
+
+#: ../../en/simple_sql.rst:20
+msgid "then enter the following query in to the query window"
+msgstr "然后在查询窗口中输入以下查询语句"
+
+#: ../../en/simple_sql.rst:26
+msgid "and click the **Execute Query** button (the green triangle)."
+msgstr "然后点击**执行查询**按钮（绿色三角形）。"
+
+#: ../../en/simple_sql.rst:30
+msgid "The query will run for a few (milli)seconds and return the 129 results."
+msgstr "查询将运行几（毫）秒钟，并返回 129 个结果。"
+
+#: ../../en/simple_sql.rst:35
+msgid "But what exactly happened here?  To understand, let's begin with the four \"verbs\" of SQL,"
+msgstr "但这里到底发生了什么呢？要理解这一点，让我们从SQL的四个“动词”开始，"
+
+#: ../../en/simple_sql.rst:37
+msgid "``SELECT``, returns rows in response to a query"
+msgstr "``SELECT``，返回对查询的响应中的行"
+
+#: ../../en/simple_sql.rst:38
+msgid "``INSERT``, adds new rows to a table"
+msgstr "``INSERT``，向表中添加新行"
+
+#: ../../en/simple_sql.rst:39
+msgid "``UPDATE``, alters existing rows in a table"
+msgstr "``UPDATE``，修改表中现有的行"
+
+#: ../../en/simple_sql.rst:40
+msgid "``DELETE``, removes rows from a table"
+msgstr "``DELETE``，从表中删除行"
+
+#: ../../en/simple_sql.rst:42
+msgid "We will be working almost exclusively with ``SELECT`` in order to ask questions of tables using spatial functions."
+msgstr "我们几乎完全会使用``SELECT``来使用空间函数对表格进行查询。"
+
+#: ../../en/simple_sql.rst:45
+msgid "SELECT queries"
+msgstr "SELECT 查询"
+
+#: ../../en/simple_sql.rst:47
+msgid "A select query is generally of the form::"
+msgstr "一个SELECT查询通常的形式是:"
+
+#: ../../en/simple_sql.rst:53
+msgid "For a synopsis of all ``SELECT`` parameters, see the `PostgresSQL documentation  <http://www.postgresql.org/docs/current/interactive/sql-select.html>`_."
+msgstr ""
+"要查看所有``SELECT``参数的概要，请参阅 `PostgresSQL文档<http://www.postgresql"
+".org/docs/current/interactive/sql-select.html>`_。"
+
+#: ../../en/simple_sql.rst:55
+msgid "The ``some_columns`` are either column names or functions of column values. The ``some_data_source`` is either a single table, or a composite table created by joining two tables on a key or condition. The ``some_condition`` is a filter that restricts the number of rows to be returned."
+msgstr ""
+"``some_columns`` 可以是列名或列值的函数。 ``some_data_source`` "
+"可以是单个表，也可以是通过在关键列上或根据条件连接两个表创建的复合表。 "
+"``some_condition`` 是一个过滤器，用于限制要返回的行数。"
+
+#: ../../en/simple_sql.rst:57
+msgid "\"What are the names of all the neighborhoods in Brooklyn?\""
+msgstr "“布鲁克林的所有社区的名称是什么？”"
+
+#: ../../en/simple_sql.rst:59
+msgid "We return to our ``nyc_neighborhoods`` table with a filter in hand.  The table contains all the neighborhoods in New York, but we only want the ones in Brooklyn."
+msgstr "我们回到手中有一个过滤器的``nyc_neighborhoods``表中。该表包含了纽约所有的社区"
+"，但我们只想要布鲁克林的社区。"
+
+#: ../../en/simple_sql.rst:67
+msgid "The query will run for even fewer (milli)seconds and return the 23 results."
+msgstr "查询将运行更少的（毫）秒，并返回 23 个结果。"
+
+#: ../../en/simple_sql.rst:69
+msgid "Sometimes we will need to apply a function to the results of our query. For example,"
+msgstr "有时我们需要对查询结果应用函数。例如，"
+
+#: ../../en/simple_sql.rst:71
+msgid "\"What is the number of letters in the names of all the neighborhoods in Brooklyn?\""
+msgstr "“布鲁克林所有社区的名称中有多少个字母？”"
+
+#: ../../en/simple_sql.rst:73
+msgid "Fortunately, PostgreSQL has a string length function, :command:`char_length(string)`."
+msgstr "幸运的是，PostgreSQL有一个字符串长度函数， :command:`char_length(string)`。"
+
+#: ../../en/simple_sql.rst:81
+msgid "Often, we are less interested in the individual rows than in a statistic that applies to all of them. So knowing the lengths of the neighborhood names might be less interesting than knowing the average length of the names. Functions that take in multiple rows and return a single result are called \"aggregate\" functions."
+msgstr ""
+"通常，我们对单个行的兴趣不如对所有行都适用的统计数据感兴趣。因此，知道社区名"
+"称的长度可能不如知道名称的平均长度有趣。接受多行并返回单个结果的函数称为“聚合"
+"”函数。"
+
+#: ../../en/simple_sql.rst:83
+msgid "PostgreSQL has a series of built-in aggregate functions, including the general purpose :command:`avg()` for average values and :command:`stddev()` for standard deviations."
+msgstr ""
+"PostgreSQL有一系列内置的聚合函数，包括用于计算平均值的通用函数:command:`avg()"
+"`，以及用于计算标准差的函数:command:`stddev()`。"
+
+#: ../../en/simple_sql.rst:85
+msgid "\"What is the average number of letters and standard deviation of number of letters in the names of all the neighborhoods in Brooklyn?\""
+msgstr "“布鲁克林所有社区名称中字母的平均数量和标准偏差是多少？”"
+
+#: ../../en/simple_sql.rst:99
+msgid "The aggregate functions in our last example were applied to every row in the result set. What if we want the summaries to be carried out over smaller groups within the overall result set? For that we add a ``GROUP BY`` clause. Aggregate functions often need an added ``GROUP BY`` statement to group the result-set by one or more columns."
+msgstr ""
+"在我们上一个示例中，聚合函数应用于结果集中的每一行。如果我们希望摘要针对整体"
+"结果集内的较小分组进行，我们该怎么做呢？为此，我们添加一个``GROUP "
+"BY``子句。聚合函数通常需要添加``GROUP "
+"BY``语句来根据一个或多个列对结果集进行分组。"
+
+#: ../../en/simple_sql.rst:101
+msgid "\"What is the average number of letters in the names of all the neighborhoods in New York City, reported by borough?\""
+msgstr "“纽约市所有社区名称的平均字母数，按行政区划报告？”"
+
+#: ../../en/simple_sql.rst:109
+msgid "We include the ``boroname`` column in the output result so we can determine which statistic applies to which borough. In an aggregate query, you can only output columns that are either (a) members of the grouping clause or (b) aggregate functions."
+msgstr ""
+"我们在输出结果中包含了``boroname``列，这样我们就可以确定哪个统计数据适用于哪"
+"个行政区。在聚合查询中，您只能输出属于分组子句的列或聚合函数。"
+
+#: ../../en/simple_sql.rst:122
+msgid "Function List"
+msgstr "函数列表"
+
+#: ../../en/simple_sql.rst:124
+msgid "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the average value of a numeric column."
+msgstr ""
+"`avg(expression) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: "
+"返回数值列的平均值的PostgreSQL聚合函数。"
+
+#: ../../en/simple_sql.rst:126
+msgid "`char_length(string) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function that returns the number of character in a string."
+msgstr ""
+"`char_length(string) <http://www.postgresql.org/docs/current/static/"
+"functions-string.html>`_: PostgreSQL字符串函数，返回字符串中的字符数。"
+
+#: ../../en/simple_sql.rst:128
+msgid "`stddev(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: PostgreSQL aggregate function that returns the standard deviation of input values."
+msgstr ""
+"`stddev(expression) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: "
+"PostgreSQL聚合函数，返回输入值的标准差。"

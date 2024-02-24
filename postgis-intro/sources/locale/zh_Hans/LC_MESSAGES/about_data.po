@@ -1,0 +1,426 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Zuochenwei <zuochenwei5@gmail.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2024-02-23 03:45+0000\n"
+"Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/about_data/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.3\n"
+
+#: ../../en/about_data.rst:4
+msgid "About our data"
+msgstr "关于我们的数据"
+
+#: ../../en/about_data.rst:6
+msgid "The data for this workshop is four shapefiles for New York City, and one attribute table of sociodemographic variables.  We've loaded our shapefiles as PostGIS tables and will add sociodemographic data later in the workshop."
+msgstr ""
+"这个研讨会的数据包括纽约市的四个shape文件和一个包含社会人口变量的属性表。我们"
+"已将shape文件加载为PostGIS表，并将在研讨会后期添加社会人口数据。"
+
+#: ../../en/about_data.rst:8
+msgid "The following describes the number of records and table attributes for each of our datasets.  These attribute values and relationships are fundamental to our future analysis."
+msgstr "以下描述了我们每个数据集的记录数和表属性。这些属性值和关系对于我们未来的分析"
+"至关重要。"
+
+#: ../../en/about_data.rst:10
+msgid "To explore the nature of your tables in pgAdmin, right-click a highlighted table and select **Properties**.  You will find a summary of table properties, including a list of table attributes within the **Columns** tab."
+msgstr ""
+"要探索pgAdmin中表的性质，右键单击高亮显示的表，然后选择**Properties**。您将找"
+"到包括**Columns**选项卡中的表属性列表的表属性摘要。"
+
+#: ../../en/about_data.rst:15
+msgid "nyc_census_blocks"
+msgstr "nyc_census_blocks"
+
+#: ../../en/about_data.rst:17
+msgid "A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks."
+msgstr ""
+"人口普查区块是报告人口普查数据的最小地理单位。所有更高级别的人口普查地理单位"
+"（区块组、区块、都会区、县等）都可以由人口普查区块的联合构建而成。我们已经将"
+"一些人口统计数据附加到我们的区块集合中。"
+
+#: ../../en/about_data.rst:19
+msgid "Number of records: 36592"
+msgstr "记录数：36592"
+
+#: ../../en/about_data.rst:24
+msgid "**blkid**"
+msgstr "**blkid**"
+
+#: ../../en/about_data.rst:25
+msgid "A 15-digit code that uniquely identifies every census **block**. Eg: 360050001009000"
+msgstr "一个15位的代码，唯一标识每个人口普查**区块**。例如：360050001009000"
+
+#: ../../en/about_data.rst:26
+msgid "**popn_total**"
+msgstr "**popn_total**"
+
+#: ../../en/about_data.rst:27
+msgid "Total number of people in the census block"
+msgstr "人口普查区块中的总人口数"
+
+#: ../../en/about_data.rst:28
+msgid "**popn_white**"
+msgstr "**popn_white**"
+
+#: ../../en/about_data.rst:29
+msgid "Number of people self-identifying as \"White\" in the block"
+msgstr "在该区块中自我识别为“白人”的人数"
+
+#: ../../en/about_data.rst:30
+msgid "**popn_black**"
+msgstr "**popn_black**"
+
+#: ../../en/about_data.rst:31
+msgid "Number of people self-identifying as \"Black\" in the block"
+msgstr "该街区中自称为“黑人”的人数"
+
+#: ../../en/about_data.rst:32
+msgid "**popn_nativ**"
+msgstr "**popn_nativ**"
+
+#: ../../en/about_data.rst:33
+msgid "Number of people self-identifying as \"Native American\" in the block"
+msgstr "街区中自认为“美洲原住民”的人数"
+
+#: ../../en/about_data.rst:34
+msgid "**popn_asian**"
+msgstr "**popn_asian**"
+
+#: ../../en/about_data.rst:35
+msgid "Number of people self-identifying as \"Asian\" in the block"
+msgstr "该街区中自称“亚洲人”的人数"
+
+#: ../../en/about_data.rst:36
+msgid "**popn_other**"
+msgstr "**popn_other**"
+
+#: ../../en/about_data.rst:37
+msgid "Number of people self-identifying with other categories in the block"
+msgstr "在该区域自我认同为其他类别的人数"
+
+#: ../../en/about_data.rst:38
+#: ../../en/about_data.rst:63
+msgid "**boroname**"
+msgstr "**boroname**"
+
+#: ../../en/about_data.rst:39
+#: ../../en/about_data.rst:64
+#: ../../en/about_data.rst:109
+msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
+msgstr "纽约市的行政区名称分别是：曼哈顿、布朗克斯、布鲁克林、史泰登岛和皇后区。"
+
+#: ../../en/about_data.rst:40
+#: ../../en/about_data.rst:65
+#: ../../en/about_data.rst:88
+#: ../../en/about_data.rst:116
+msgid "**geom**"
+msgstr "**geom**"
+
+#: ../../en/about_data.rst:41
+msgid "Polygon boundary of the block"
+msgstr "街区的多边形边界"
+
+#: ../../en/about_data.rst:45
+msgid "*Black population as a percentage of Total Population*"
+msgstr "* 黑人人口占总人口的百分比 *"
+
+#: ../../en/about_data.rst:49
+msgid "To get census data into GIS, you need to join two pieces of information: the actual data (text), and the boundary files (spatial).  There are many options for getting the data, including downloading data and boundaries from the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
+msgstr ""
+"要将人口普查数据导入地理信息系统（GIS），您需要将两个信息部分连接起来：实际数"
+"据（文本）和边界文件（空间）。有许多选项可以获取数据，包括从人口普查局的`"
+"American FactFinder <http://factfinder.census.gov>`_下载数据和边界。"
+
+#: ../../en/about_data.rst:52
+msgid "nyc_neighborhoods"
+msgstr "nyc_neighborhoods"
+
+#: ../../en/about_data.rst:54
+msgid "New York has a rich history of neighborhood names and extent.  Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as \"South Brooklyn.\" And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!"
+msgstr ""
+"纽约的街区名称和范围有着丰富的历史。 社区是不遵循政府规定的社会结构。 "
+"例如，布鲁克林的卡罗尔花园、红钩和科布尔山社区曾被统称为“南布鲁克林”。 现在，"
+"根据您与哪个房地产经纪人交谈，以前称为雷德胡克的社区中的四个街区可以被称为哥"
+"伦比亚高地、卡罗尔花园西或雷德胡克！"
+
+#: ../../en/about_data.rst:56
+msgid "Number of records: 129"
+msgstr "记录数量：129"
+
+#: ../../en/about_data.rst:61
+#: ../../en/about_data.rst:82
+#: ../../en/about_data.rst:106
+msgid "**name**"
+msgstr "**name**"
+
+#: ../../en/about_data.rst:62
+msgid "Name of the neighborhood"
+msgstr "社区的名称"
+
+#: ../../en/about_data.rst:66
+msgid "Polygon boundary of the neighborhood"
+msgstr "社区的多边形边界"
+
+#: ../../en/about_data.rst:70
+msgid "*The neighborhoods of New York City*"
+msgstr "* 纽约市的社区 *"
+
+#: ../../en/about_data.rst:73
+msgid "nyc_streets"
+msgstr "nyc_streets"
+
+#: ../../en/about_data.rst:75
+msgid "The street centerlines form the transportation network of the city. These streets have been flagged with types in order to distinguish between such thoroughfares as back alleys, arterial streets, freeways, and smaller streets. Desirable areas to live might be on residential streets rather than next to a freeway."
+msgstr ""
+"街道中心线形成了城市的交通网络。这些街道已经用不同的类型进行标记，以区分小巷"
+"、主干道、高速公路和较小的街道等道路。居住的理想区域可能位于住宅区的街道上，"
+"而不是靠近高速公路。"
+
+#: ../../en/about_data.rst:77
+msgid "Number of records: 19091"
+msgstr "记录数量：19091"
+
+#: ../../en/about_data.rst:83
+msgid "Name of the street"
+msgstr "街道的名称"
+
+#: ../../en/about_data.rst:84
+msgid "**oneway**"
+msgstr "**oneway**"
+
+#: ../../en/about_data.rst:85
+msgid "Is the street one-way? \"yes\" = yes, \"\" = no"
+msgstr "街道是否为单行道？\"yes\" = 是, \"\" = 否"
+
+#: ../../en/about_data.rst:86
+msgid "**type**"
+msgstr "**type**"
+
+#: ../../en/about_data.rst:87
+msgid "Road type (primary, secondary, residential, motorway)"
+msgstr "道路类型（主要道路、次要道路、居民区道路、高速公路）"
+
+#: ../../en/about_data.rst:89
+msgid "Linear centerline of the street"
+msgstr "街道的线性中心线"
+
+#: ../../en/about_data.rst:93
+msgid "*The streets of New York City. Major roads are in red.*"
+msgstr "* 纽约市的街道。主要道路为红色。*"
+
+#: ../../en/about_data.rst:97
+msgid "nyc_subway_stations"
+msgstr "nyc_subway_stations"
+
+#: ../../en/about_data.rst:99
+msgid "The subway stations link the upper world where people live to the invisible network of subways beneath. As portals to the public transportation system, station locations help determine how easy it is for different people to enter the subway system."
+msgstr "地铁站连接着人们生活的上层世界与地下的看不见的地铁网络。作为公共交通系统的门"
+"户，地铁站的位置决定了不同人们进入地铁系统的便利程度。"
+
+#: ../../en/about_data.rst:101
+msgid "Number of records: 491"
+msgstr "记录数量：491"
+
+#: ../../en/about_data.rst:107
+msgid "Name of the station"
+msgstr "站名"
+
+#: ../../en/about_data.rst:108
+msgid "**borough**"
+msgstr "**borough**"
+
+#: ../../en/about_data.rst:110
+msgid "**routes**"
+msgstr "**routes**"
+
+#: ../../en/about_data.rst:111
+msgid "Subway lines that run through this station"
+msgstr "经过这个站的地铁线路"
+
+#: ../../en/about_data.rst:112
+msgid "**transfers**"
+msgstr "**transfers**"
+
+#: ../../en/about_data.rst:113
+msgid "Lines you can transfer to via this station"
+msgstr "通过这个站可以换乘的地铁线路"
+
+#: ../../en/about_data.rst:114
+msgid "**express**"
+msgstr "**express**"
+
+#: ../../en/about_data.rst:115
+msgid "Stations where express trains stop, \"express\" = yes, \"\" = no"
+msgstr "特快列车停靠的车站，“express” = 是，“” = 否"
+
+#: ../../en/about_data.rst:117
+msgid "Point location of the station"
+msgstr "车站的点位置"
+
+#: ../../en/about_data.rst:121
+msgid "*Point locations for New York City subway stations*"
+msgstr "*纽约市地铁站的点位置*"
+
+#: ../../en/about_data.rst:124
+msgid "nyc_census_sociodata"
+msgstr "nyc_census_sociodata"
+
+#: ../../en/about_data.rst:126
+msgid "There is a rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract.  Census blocks combine to form census tracts (and block groups). We have collected some social-economic at a census tract level to answer some of these more interesting questions about New York City."
+msgstr ""
+"人口普查过程中收集了丰富的社会经济数据，但只在人口普查区级别上进行了收集。人"
+"口普查区由人口普查区块组成（以及区块组）。我们已经收集了一些人口普查区级别的"
+"社会经济数据，以回答一些关于纽约市更有趣的问题。"
+
+#: ../../en/about_data.rst:130
+msgid "The ``nyc_census_sociodata`` is a data table.  We will need to connect it to Census geographies before conducting any spatial analysis."
+msgstr "``nyc_census_sociodata``是一个数据表。在进行任何空间分析之前，我们需要将其与"
+"人口普查地理信息连接起来。"
+
+#: ../../en/about_data.rst:135
+msgid "**tractid**"
+msgstr "**tractid**"
+
+#: ../../en/about_data.rst:136
+msgid "An 11-digit code that uniquely identifies every census **tract**. (\"36005000100\")"
+msgstr "每个人口普查**区**唯一标识的11位代码是。(“36005000100”)"
+
+#: ../../en/about_data.rst:137
+msgid "**transit_total**"
+msgstr "**transit_total**"
+
+#: ../../en/about_data.rst:138
+msgid "Number of workers in the tract"
+msgstr "人口普查区的工作人数"
+
+#: ../../en/about_data.rst:139
+msgid "**transit_private**"
+msgstr "**transit_private**"
+
+#: ../../en/about_data.rst:140
+msgid "Number of workers in the tract who use private automobiles / motorcycles"
+msgstr "人口普查区中使用私家车/摩托车的工作人数"
+
+#: ../../en/about_data.rst:141
+msgid "**transit_public**"
+msgstr "**transit_public**"
+
+#: ../../en/about_data.rst:142
+msgid "Number of workers in the tract who take public transit"
+msgstr "人口普查区中乘坐公共交通工具的工作人数"
+
+#: ../../en/about_data.rst:143
+msgid "**transit_walk**"
+msgstr "**transit_walk**"
+
+#: ../../en/about_data.rst:144
+msgid "Number of workers in the tract who walk"
+msgstr "人口普查区中步行上班的工作人数"
+
+#: ../../en/about_data.rst:145
+msgid "**transit_other**"
+msgstr "**transit_other**"
+
+#: ../../en/about_data.rst:146
+msgid "Number of workers in the tract who use other forms like walking / biking"
+msgstr "人口普查区中使用其他形式（如步行/骑自行车）上班的工作人数"
+
+#: ../../en/about_data.rst:147
+msgid "**transit_none**"
+msgstr "**transit_none**"
+
+#: ../../en/about_data.rst:148
+msgid "Number of workers in the tract who work from home"
+msgstr "人口普查区中在家工作的工作人数"
+
+#: ../../en/about_data.rst:149
+msgid "**transit_time_mins**"
+msgstr "**transit_time_mins**"
+
+#: ../../en/about_data.rst:150
+msgid "Total number of minutes spent in transit by all workers in the tract (minutes)"
+msgstr "人口普查区内所有工作人员在交通工具上花费的总时间（分钟）"
+
+#: ../../en/about_data.rst:151
+msgid "**family_count**"
+msgstr "**family_count**"
+
+#: ../../en/about_data.rst:152
+msgid "Number of families in the tract"
+msgstr "人口普查区内的家庭数量"
+
+#: ../../en/about_data.rst:153
+msgid "**family_income_median**"
+msgstr "**family_income_median**"
+
+#: ../../en/about_data.rst:154
+msgid "Median family income in the tract (dollars)"
+msgstr "人口普查区内家庭收入的中位数（美元）"
+
+#: ../../en/about_data.rst:155
+msgid "**family_income_mean**"
+msgstr "**family_income_mean**"
+
+#: ../../en/about_data.rst:156
+msgid "Average family income in the tract (dollars)"
+msgstr "人口普查区内家庭收入的平均数（美元）"
+
+#: ../../en/about_data.rst:157
+msgid "**family_income_aggregate**"
+msgstr "**family_income_aggregate**"
+
+#: ../../en/about_data.rst:158
+msgid "Total income of all families in the tract (dollars)"
+msgstr "人口普查区内所有家庭的总收入（美元）"
+
+#: ../../en/about_data.rst:159
+msgid "**edu_total**"
+msgstr "**edu_total**"
+
+#: ../../en/about_data.rst:160
+msgid "Number of people with educational history"
+msgstr "具有教育背景的人数"
+
+#: ../../en/about_data.rst:161
+msgid "**edu_no_highschool_dipl**"
+msgstr "**edu_no_highschool_dipl**"
+
+#: ../../en/about_data.rst:162
+msgid "Number of people with no high school diploma"
+msgstr "没有高中文凭的人数"
+
+#: ../../en/about_data.rst:163
+msgid "**edu_highschool_dipl**"
+msgstr "**edu_highschool_dipl**"
+
+#: ../../en/about_data.rst:164
+msgid "Number of people with high school diploma and no further education"
+msgstr "持有高中文凭但没有进一步教育的人数"
+
+#: ../../en/about_data.rst:165
+msgid "**edu_college_dipl**"
+msgstr "**edu_college_dipl**"
+
+#: ../../en/about_data.rst:166
+msgid "Number of people with college diploma and no further education"
+msgstr "持有大学文凭但没有进一步教育的人数"
+
+#: ../../en/about_data.rst:167
+msgid "**edu_graduate_dipl**"
+msgstr "**edu_graduate_dipl**"
+
+#: ../../en/about_data.rst:168
+msgid "Number of people with graduate school diploma"
+msgstr "持有研究生学历的人数"

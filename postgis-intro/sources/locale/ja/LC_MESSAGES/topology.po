@@ -6,7 +6,7 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 20:32+0000\nPO-Revision-Date: 2024-02-18 08:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.8.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 20:32+0000\nPO-Revision-Date: 2024-02-27 02:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.8.0\n"
 
 #: ../../en/topology.rst:4
 msgid "Topology"
@@ -74,7 +74,7 @@ msgid ""
 "<https://postgis.net/docs/CreateTopology.html>`_ function and set the "
 "tolerance to be 0.5 meters. Note the 0.5 is in meters since our spatial "
 "reference system is State Plany NY meters."
-msgstr ""
+msgstr "トポロジとトポジオメトリとは、正確には何であって、この二つのどういう関係にあるのでしょう? その説明の前に、`CreateTopology <https://postgis.net/docs/ja/CreateTopology.html>`_ を使って、ニューヨーク市のトポロジ的に完全なデータに許容値を 0.5メートル にしたトポロジを作るところから始めてみましょう。ここでの空間参照系はメートル単位ニューヨーク州平面なので 0.5 はメートル単位です。"
 
 #: ../../en/topology.rst:44 ../../en/topology.rst:211
 msgid "Which outputs:"
@@ -87,70 +87,70 @@ msgid ""
 "You can name the topology anything you want. My convention is to add "
 "`_topo` at the end to distinguish it from other schemas I have in my "
 "database."
-msgstr ""
+msgstr "これは、新しいトポロジに割り当てられた ID です。一度上のコマンドを実行すると、データベースに `nyc_topo` という名前の新しいスキーマができます。トポロジ名は好きなように付けられます。筆者の規則では、データベース内の他のスキーマと区別するために、最後に `_topo` を付けるようにしています。"
 
 #: ../../en/topology.rst:56
 msgid "If you explore the `topology.topology` table,"
-msgstr ""
+msgstr "`topology.topology` テーブルを調べると、"
 
 #: ../../en/topology.rst:62
 msgid "You will see:"
-msgstr ""
+msgstr "次のものが見えます:"
 
 #: ../../en/topology.rst:72
 msgid "Storage of topologies and topogeometries"
-msgstr ""
+msgstr "トポロジとトポジオメトリの格納"
 
 #: ../../en/topology.rst:73
 msgid ""
 "A topology is implemented as a schema in a PostgreSQL database. If you "
 "explore the `nyc_topo` schema, you will see these tables and views:"
-msgstr ""
+msgstr "トポロジは PostgreSQL データベース内のスキーマとして実装されています。`nyc_topo` スキーマを調べると、これらのテーブルとビューが見えます:"
 
 #: ../../en/topology.rst:76
 msgid ""
 "edge - This is a view built against edge_data, mostly for SQL/MM "
 "compliance."
-msgstr ""
+msgstr "edge - edge_data に対して作られたビューで、主に SQL/MM 準拠のためにあります。"
 
 #: ../../en/topology.rst:77
 msgid "It has a subset of the columns in the `edge_data` table."
-msgstr ""
+msgstr "`edge_data` テーブルのカラムの一部を持っています。"
 
 #: ../../en/topology.rst:78
 msgid "edge_data - Contains all the linestrings that make up the topology"
-msgstr ""
+msgstr "edge_data - トポロジを構成する全てのラインストリングを含みます"
 
 #: ../../en/topology.rst:79
 msgid ""
 "face - Contains a list of all closed surfaces that can be formed from the"
 " edge_data."
-msgstr ""
+msgstr "face - edge_data から形成できる閉じたサーフェスの全ての一覧です。"
 
 #: ../../en/topology.rst:80
 msgid ""
 "It does not contain the actual geometry, but instead just the bounding "
 "box of the geometry."
-msgstr ""
+msgstr "実際のジオメトリはありませんが、その代わりにジオメトリのバウンディングボックスを持っています。"
 
 #: ../../en/topology.rst:81
 msgid ""
 "node - Contains all the start and end points of all edges as well as "
 "points not connected to anything (isolated nodes)"
-msgstr ""
+msgstr "node - 全てのエッジの始点終点と接続されていない点 (孤立ノード) の全てを持ちます"
 
 #: ../../en/topology.rst:82
 msgid ""
 "relation - this defines what elements in a topology make up a "
 "topogeometry."
-msgstr ""
+msgstr "relation - トポロジのどの要素がトポジオメトリを構成するかを定義します。"
 
 #: ../../en/topology.rst:84
 msgid ""
 "So what is a topogeometry?  A topogeometry is a representation of a "
 "geometry formed from the edges, faces, nodes, and other topogeometries in"
 " a topology."
-msgstr ""
+msgstr "ではトポジオメトリは何でしょう? トポジオメトリは、トポロジ内のエッジ、フェイス、ノードや他のトポジオメトリから形成されるジオメトリの表現です。"
 
 #: ../../en/topology.rst:87
 msgid ""
@@ -160,11 +160,11 @@ msgid ""
 "convention, is to define other tables in other schemas that have a "
 "topogeometry, and also have any other kind of data you might be "
 "interested in tracking."
-msgstr ""
+msgstr "トポジオメトリはどこにあるでしょう? *relation*テーブル を介してトポロジの要素を参照する、別のどこかにあります。`nyc_topo` スキーマ内にトポジオメトリを投げることもできますが、一般的な規則では、トポジオメトリを保持し、また、他の興味がありそうな種類のデータも保持する、他のスキーマ内の他のテーブルを定義することになります。"
 
 #: ../../en/topology.rst:93
 msgid "Why use topogeometries?"
-msgstr ""
+msgstr "なぜトポジオメトリを使うか?"
 
 #: ../../en/topology.rst:94
 msgid ""
@@ -182,20 +182,20 @@ msgid ""
 "component (edges/faces/nodes) are moved, added etc, they change not one "
 "topogeometry shape, but all topogeometries that have components in "
 "common."
-msgstr ""
+msgstr "トポジオメトリの利用でデータが整然として、接続もされています。トポジオメトリは土地台帳作成作業に非常に便利です。土地台帳では、境界を変更しても二つの土地区画が相互にオーバラップしないように保証できることが必要だったり、これらを構成するジオメトリを変更する時に道路が接続されていることが保証される必要があります。ジオメトリは自身の島に存在し、これらを複製したり、変形したりできます。ジオメトリは心配がなく、空間共有する他のジオメトリに関して気にしません。対照的に、トポジオメトリは、これらを定義するエッジ、ノード、フェイスや他のトポジオメトリが無い場合には存在してはいけないという規則に従います。トポジオメトリは唯一のトポロジに属します。トポジオメトリは、ジオメトリや個々の要素といったもの (エッジ/フェイス/ノード) が動かされたり追加されたりする時に、一つのトポジオメトリだけの形状が変更されるのでなく、共通する要素を持つ全てのジオメトリが変更される関係モデルです。"
 
 #: ../../en/topology.rst:105
 msgid ""
 "We have an `nyc_topo` topology devoid of any data.  Let's populate it "
 "with our NYC data. Topology edges, faces, and nodes can be created in 2 "
 "keys ways."
-msgstr ""
+msgstr "データのない `nyc_topo` トポロジがあります。ニューヨーク市のデータを投入してみましょう。トポロジのエッジ、フェイス、ノードは、二つの主要な方法で作成できます。"
 
 #: ../../en/topology.rst:108
 msgid ""
 "Edges, Faces, and Nodes can be created directly using topology primitive "
 "functions."
-msgstr ""
+msgstr "エッジ、フェイス、ノードはトポロジ基本関数で直接生成できます。"
 
 #: ../../en/topology.rst:109
 msgid ""
@@ -203,11 +203,11 @@ msgid ""
 "topogeometry is created from a geometry and their are missing edges, "
 "faces, or nodes that match its coordinates, then new edges, faces, and "
 "nodes are created as part of the process."
-msgstr ""
+msgstr "エッジ、フェイス、ノードはトポジオメトリの生成によって形成することができます。トポジオメトリがジオメトリから形成して、その座標のエッジ、フェイス、ノードのいずれかが欠落している場合には、処理の一部として、新しいエッジ、フェイス、ノードが生成されます。"
 
 #: ../../en/topology.rst:115
 msgid "Defining topogeometry columns and creating topogeometries"
-msgstr ""
+msgstr "トポジオメトリカラムの定義とトポジオメトリの生成"
 
 #: ../../en/topology.rst:116
 msgid ""
@@ -215,18 +215,18 @@ msgid ""
 "Lets start by creating a table to hold neighborhoods and then add a "
 "topogeometry column using the `AddTopoGeometryColumn "
 "<https://postgis.net/docs/AddTopoGeometryColumn.html>`_ function."
-msgstr ""
+msgstr "トポロジ投入の最も一般的な方法は、トッポジオメトリの生成です。近傍を保持するテーブル作成から始めましょう。`AddTopoGeometryColumn <https://postgis.net/docs/ja/AddTopoGeometryColumn.html>`_ 関数を使ってトポジオメトリカラムを追加します。"
 
 #: ../../en/topology.rst:128
 msgid "The output of the above is:"
-msgstr ""
+msgstr "上の出力は次の通りです:"
 
 #: ../../en/topology.rst:136
 msgid ""
 "Now we are ready to populate our table. It's best to ensure your "
 "geometries are valid before adding, otherwise you'll get errors such as "
 "SQL\\MM geometry is not simple."
-msgstr ""
+msgstr "テーブルに投入する準備ができています。追加前にジオメトリが妥当であるかを確認するのが最善です。さもないと、SQL/MM ジオメトリが単純でないようなエラーが出ます。"
 
 #: ../../en/topology.rst:140
 msgid ""
@@ -235,7 +235,7 @@ msgid ""
 "id, you would look it up using the `FindLayer "
 "<https://postgis.net/docs/FindLayer.html>`_ function which we'll use in "
 "later examples."
-msgstr ""
+msgstr "では妥当なものを追加することろから始めましょう。ここで使われてる 1 は前のクエリで生成された layer_id を参照するものです。レイヤID が分からない場合には、後の例で使用する `FindLayer <https://postgis.net/docs/ja/FindLayer.html>`_ 関数を使って検索します。"
 
 #: ../../en/topology.rst:144
 msgid ""
@@ -243,7 +243,7 @@ msgid ""
 "<https://postgis.net/docs/toTopoGeom.html>`_ function to convert a "
 "geometry to it's topogeometry equivalent.  toTopoGeom function handles a "
 "lot of book-keeping for you."
-msgstr ""
+msgstr "これらの例では `toTopoGeom <https://postgis.net/docs/ja/toTopoGeom.html>`_ 関数を使って、ジオメトリをトポジオメトリに変換します。toTopoGeom 関数は多数の帳簿を処理します。"
 
 #: ../../en/topology.rst:147
 msgid ""
@@ -253,25 +253,25 @@ msgid ""
 "that defines how this new topogeometry is related to these new and "
 "existing topology elements. In some cases pieces of the geometry may "
 "exist or existing pieces need to be split to form the new geometry."
-msgstr ""
+msgstr "`toTopoGeom` 関数は、渡されたジオメトリを調査して、トポロジにジオメトリの形状の形成に必要なノード、エッジ、フェイスを挿入します。この新しいトポジオメトリが、トポロジの新規要素や既存要素とどのように関係しているかを定義する `relation` テーブルに関係を追加します。場合によっては、ジオメトリの断片が存在することがあり、または、新しいジオメトリの形成に、既存の断片を分割する必要があります。"
 
 #: ../../en/topology.rst:157
 msgid "The above step should take 3-4 secs. Now lets add the invalid ones:"
-msgstr ""
+msgstr "上の手順は 3-4秒 かかります。ここで不正なものを追加しましょう:"
 
 #: ../../en/topology.rst:171
 msgid "The above should take about 300-400ms."
-msgstr ""
+msgstr "上のクエリは 300-400ミリ秒 かかります。"
 
 #: ../../en/topology.rst:173
 msgid ""
 "Now we have data in our topology.  A quick check will show, "
 "nyc_topo.edge, nyc_topo.node, and nyc_topo.face have data:"
-msgstr ""
+msgstr "これでトポロジ内のデータができました。nyc_topo.edge, nyc_topo.node, nyc_topo.face にデータがあるかどうかの簡易確認をします:"
 
 #: ../../en/topology.rst:186
 msgid "outputs:"
-msgstr ""
+msgstr "出力:"
 
 #: ../../en/topology.rst:198
 msgid ""
@@ -311,7 +311,7 @@ msgstr ""
 
 #: ../../en/topology.rst:252
 msgid "The output will look like below:"
-msgstr ""
+msgstr "出力は次のようなかんじになります:"
 
 #: ../../en/topology.rst:256
 msgid ""
@@ -326,7 +326,7 @@ msgstr ""
 msgid ""
 "Luckily we can use topology to clean up this mess and to help us maintain"
 " good clean connected data."
-msgstr ""
+msgstr "幸いなことにトポロジを使して、この混乱を清算でき、また良好できれいな接続されたデータを維持できます。"
 
 #: ../../en/topology.rst:263
 msgid ""
@@ -346,7 +346,7 @@ msgstr ""
 
 #: ../../en/topology.rst:279
 msgid "The output is:"
-msgstr ""
+msgstr "出力は次の通りです:"
 
 #: ../../en/topology.rst:292
 msgid ""

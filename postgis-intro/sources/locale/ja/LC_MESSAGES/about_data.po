@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-12-06 09:23+0000\n"
+"PO-Revision-Date: 2024-02-27 02:45+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/about_data.rst:4
@@ -184,11 +184,11 @@ msgid ""
 "the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia "
 "Heights, Carroll Gardens West, or Red Hook!"
 msgstr ""
-"ニューヨークには地域名と地域範囲の豊富な歴史があります。地域は社会的に構築さ"
+"ニューヨークには地区名と地区範囲の豊富な歴史があります。地区は社会的に構築さ"
 "れたもので、役所が定めた線に従っていません。たとえば、キャロルガーデン、レッ"
-"ドフック、コブルヒルのブルックリン地域は、まとめて「南ブルックリン」と呼ばれ"
-"ていました。現在では、あなたが話をしている実際の不動産業者に依存して、かつて"
-"レッドフックとして知られていた地域にある同じ四つのブロックがコロンビアハイ"
+"ドフック、コブルヒルのブルックリンの地区は、まとめて「南ブルックリン」と呼ば"
+"れていました。現在では、あなたが話をしている実際の不動産業者に依存して、かつ"
+"てレッドフックとして知られていた地域にある同じ四つのブロックがコロンビアハイ"
 "ツ、キャロルガーデンズウエスト、レッドフックと呼ばれます!"
 
 #: ../../en/about_data.rst:56
@@ -202,15 +202,15 @@ msgstr "**name**"
 
 #: ../../en/about_data.rst:62
 msgid "Name of the neighborhood"
-msgstr "地域名"
+msgstr "地区名"
 
 #: ../../en/about_data.rst:66
 msgid "Polygon boundary of the neighborhood"
-msgstr "地域境界ポリゴン"
+msgstr "地区境界ポリゴン"
 
 #: ../../en/about_data.rst:70
 msgid "*The neighborhoods of New York City*"
-msgstr "*ニューヨーク市の地域*"
+msgstr "*ニューヨーク市の地区*"
 
 #: ../../en/about_data.rst:73
 msgid "nyc_streets"

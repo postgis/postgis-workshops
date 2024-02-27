@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-03-28 18:21+0000\n"
-"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"PO-Revision-Date: 2024-02-27 02:45+0000\n"
+"Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/geometries/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.3\n"
 
 #: ../../en/geometries.rst:4
 msgid "Geometries"
@@ -60,12 +60,15 @@ msgid ""
 "specification, PostGIS provides two tables to track and report on the "
 "geometry types available in a given database."
 msgstr ""
+"根据Simple Features for SQL (:term:`SFSQL`)规范，PostGIS提供了两个表来跟踪和"
+"报告给定数据库中可用的几何类型。"
 
 #: ../../en/geometries.rst:33
 msgid ""
 "The first table, ``spatial_ref_sys``, defines all the spatial reference "
 "systems known to the database and will be described in greater detail later."
-msgstr ""
+msgstr "第一个表是``spatial_ref_sys``，它定义了数据库中已知的所有空间参考系统，并将在"
+"后面更详细地描述。"
 
 #: ../../en/geometries.rst:34
 msgid ""
@@ -73,12 +76,15 @@ msgid ""
 "listing of all \"features\" (defined as an object with geometric "
 "attributes), and the basic details of those features."
 msgstr ""
+"第二个表（实际上是一个视图）是``geometry_columns``，它提供了所有“要素”（定义"
+"为具有几何属性的对象）的列表，以及这些要素的基本详细信息。"
 
 #: ../../en/geometries.rst:39
 msgid ""
 "Let's have a look at the ``geometry_columns`` table in our database.  Paste "
 "this command in the Query Tool as before:"
-msgstr ""
+msgstr "让我们来查看我们数据库中的``geometry_columns``表。像之前一样将这个命令粘贴到"
+"查询工具中："
 
 #: ../../en/geometries.rst:47
 msgid ""
@@ -87,13 +93,17 @@ msgid ""
 "Because PostgreSQL doesn't make use of catalogs, ``f_table_catalog`` will "
 "tend to be empty."
 msgstr ""
+"``f_table_catalog``、``f_table_schema``和``f_table_name``提供了包含给定几何图"
+"形的要素表的完全限定名称。因为PostgreSQL不使用目录，所以``f_table_catalog``通"
+"常为空。"
 
 #: ../../en/geometries.rst:48
 msgid ""
 "``f_geometry_column`` is the name of the column that geometry containing "
 "column -- for feature tables with multiple geometry columns, there will be "
 "one record for each."
-msgstr ""
+msgstr "``f_geometry_column``是包含几何图形的列的名称——对于具有多个几何列的要素表，每"
+"个列将有一条记录。"
 
 #: ../../en/geometries.rst:49
 msgid ""
@@ -101,25 +111,30 @@ msgid ""
 "(2-, 3- or 4-dimensional) and the Spatial Reference system identifier that "
 "refers to the ``spatial_ref_sys`` table respectively."
 msgstr ""
+"``coord_dimension``和``srid``分别定义了几何图形的维度（2、3或4维）和引用``spa"
+"tial_ref_sys``表的空间参考系统标识符。"
 
 #: ../../en/geometries.rst:50
 msgid ""
 "The ``type`` column defines the type of geometry as described below; we've "
 "seen Point and Linestring types so far."
-msgstr ""
+msgstr "``type``列定义了下面描述的几何类型；到目前为止，我们已经看到了Point和Linestri"
+"ng类型。"
 
 #: ../../en/geometries.rst:52
 msgid ""
 "By querying this table, GIS clients and libraries can determine what to "
 "expect when retrieving data and can perform any necessary projection, "
 "processing or rendering without needing to inspect each geometry."
-msgstr ""
+msgstr "通过查询此表，GIS客户端和库可以确定在检索数据时可以期望什么，并且可以执行任何"
+"必要的投影、处理或渲染，而无需检查每个几何图形。"
 
 #: ../../en/geometries.rst:56
 msgid ""
 "Do some or all of your ``nyc`` tables not have an ``srid`` of 26918? It's "
 "easy to fix by updating the table."
-msgstr ""
+msgstr "你的``nyc``表中的一部分或全部是否没有``srid``为26918？通过更新表格可以轻松解"
+"决这个问题。"
 
 #: ../../en/geometries.rst:67
 msgid "Representing Real World Objects"
@@ -136,29 +151,35 @@ msgid ""
 "3 (:term:`SQL/MM`) specification has officially defined their own "
 "representation."
 msgstr ""
+"Simple Features for SQL (:term:`SFSQL`) 规范，是 PostGIS 开发的原始指导标准，"
+"定义了如何表示现实世界的对象。通过以固定分辨率对连续形状进行数字化，我们可以"
+"获得对象的可通过的表示。SFSQL 只处理二维表示。PostGIS "
+"已将其扩展到包括三维和四维表示；最近 SQL-Multimedia Part 3 (:term:`SQL/MM`) "
+"规范已正式定义了他们自己的表示。"
 
 #: ../../en/geometries.rst:71
 msgid ""
 "Our example table contains a mixture of different geometry types. We can "
 "collect general information about each object using functions that read the "
 "geometry metadata."
-msgstr ""
+msgstr "我们的示例表包含不同类型的几何图形。我们可以使用读取几何元数据的函数收集关于"
+"每个对象的一般信息。"
 
 #: ../../en/geometries.rst:73
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
-msgstr ""
+msgstr ":command:`ST_GeometryType(geometry)` 返回几何图形的类型"
 
 #: ../../en/geometries.rst:74
 msgid ""
 ":command:`ST_NDims(geometry)` returns the number of dimensions of the "
 "geometry"
-msgstr ""
+msgstr ":command:`ST_NDims(geometry)` 返回几何图形的维数"
 
 #: ../../en/geometries.rst:75
 msgid ""
 ":command:`ST_SRID(geometry)` returns the spatial reference identifier number "
 "of the geometry"
-msgstr ""
+msgstr ":command:`ST_SRID(geometry)` 返回几何图形的空间参考标识号"
 
 #: ../../en/geometries.rst:94
 msgid "Points"
@@ -173,22 +194,26 @@ msgid ""
 "cities on a map of the world can be described as points, while a map of a "
 "single state might represent cities as polygons."
 msgstr ""
+"空间**点**表示地球上的一个位置。这个点由一个坐标表示（包括2、3或4个维度）。当"
+"在目标比例尺下，确切的细节，例如形状和大小，不重要时，通常使用点来表示对象。"
+"例如，在世界地图上，城市可以表示为点，而在单个州的地图上，城市可以表示为多边"
+"形。"
 
 #: ../../en/geometries.rst:112
 msgid "Some of the specific spatial functions for working with points are:"
-msgstr ""
+msgstr "一些用于处理点的特定空间函数包括:"
 
 #: ../../en/geometries.rst:114
 msgid ":command:`ST_X(geometry)` returns the X ordinate"
-msgstr ""
+msgstr ":command:`ST_X(geometry)` 返回X坐标"
 
 #: ../../en/geometries.rst:115
 msgid ":command:`ST_Y(geometry)` returns the Y ordinate"
-msgstr ""
+msgstr ":command:`ST_Y(geometry)` 返回Y坐标"
 
 #: ../../en/geometries.rst:117
 msgid "So, we can read the ordinates from a point like this:"
-msgstr ""
+msgstr "因此，我们可以这样从一个点中读取坐标:"
 
 #: ../../en/geometries.rst:125
 msgid ""
@@ -196,6 +221,8 @@ msgid ""
 "set represented as points. The following SQL query will return the geometry "
 "associated with one point (in the :command:`ST_AsText` column)."
 msgstr ""
+"纽约市地铁站（``nyc_subway_stations``）表是一个以点表示的数据集。以下SQL查询"
+"将返回与一个点相关联的几何图形（在:command:`ST_AsText`列中）。"
 
 #: ../../en/geometries.rst:135
 msgid "Linestrings"
@@ -210,6 +237,10 @@ msgid ""
 "not cross or touch itself (except at its endpoints if it is closed).  A "
 "linestring can be both **closed** and **simple**."
 msgstr ""
+"**Linestring**是两个或多个位置之间的路径。它采用两个或多个点的有序系列的形式"
+"。道路和河流通常被表示为linestrings。如果Linestring从同一点开始和结束，则称其"
+"为**closed**。如果Linestring不穿过或触及自身（如果它是封闭的，则除了在其端点"
+"处），则称其为**simple**。Linestring可以同时是**closed**和**simple**。"
 
 #: ../../en/geometries.rst:143
 msgid ""
@@ -218,40 +249,44 @@ msgid ""
 "real world street may consist of many linestrings, each representing a "
 "segment of road with different attributes."
 msgstr ""
+"纽约市的街道网络（``nyc_streets``）在此前的研讨会中已加载。此数据集包含诸如名"
+"称和类型之类的详细信息。一个真实世界的街道可能由许多Linestring组成，每个Lines"
+"tring表示具有不同属性的道路段。"
 
 #: ../../en/geometries.rst:145
 msgid ""
 "The following SQL query will return the geometry associated with one "
 "linestring (in the :command:`ST_AsText` column)."
-msgstr ""
+msgstr "以下SQL查询将返回与一个Linestring相关联的几何图形（在:command:`ST_AsText`列中"
+"）。"
 
 #: ../../en/geometries.rst:157
 msgid ""
 "Some of the specific spatial functions for working with linestrings are:"
-msgstr ""
+msgstr "一些用于处理Linestring的特定空间函数包括:"
 
 #: ../../en/geometries.rst:159
 msgid ":command:`ST_Length(geometry)` returns the length of the linestring"
-msgstr ""
+msgstr ":command:`ST_Length(geometry)` 返回Linestring的长度"
 
 #: ../../en/geometries.rst:160
 msgid ""
 ":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
-msgstr ""
+msgstr ":command:`ST_StartPoint(geometry)` 返回第一个坐标作为一个点"
 
 #: ../../en/geometries.rst:161
 msgid ":command:`ST_EndPoint(geometry)` returns the last coordinate as a point"
-msgstr ""
+msgstr ":command:`ST_EndPoint(geometry)` 返回最后一个坐标作为一个点"
 
 #: ../../en/geometries.rst:162
 msgid ""
 ":command:`ST_NPoints(geometry)` returns the number of coordinates in the "
 "linestring"
-msgstr ""
+msgstr ":command:`ST_NPoints(geometry)` 返回Linestring中坐标的数量"
 
 #: ../../en/geometries.rst:164
 msgid "So, the length of our linestring is:"
-msgstr ""
+msgstr "因此，我们Linestring的长度是:"
 
 #: ../../en/geometries.rst:178
 msgid "Polygons"
@@ -263,7 +298,8 @@ msgid ""
 "is represented by a ring.  This ring is a linestring that is both closed and "
 "simple as defined above.  Holes within the polygon are also represented by "
 "rings."
-msgstr ""
+msgstr "多边形是一个区域的表示。多边形的外边界由一个环表示。这个环是一个根据上面定义"
+"的封闭和简单的Linestring。多边形内的孔也由环表示。"
 
 #: ../../en/geometries.rst:186
 msgid ""
@@ -272,12 +308,15 @@ msgid ""
 "represented as polygons when the scale is sufficiently high to see their "
 "area.  Roads and rivers can sometimes be represented as polygons."
 msgstr ""
+"多边形用于表示尺寸和形状重要的对象。当比例尺足够高以看到它们的区域时，城市边"
+"界、公园、建筑物轮廓或水体通常都被表示为多边形。道路和河流有时也可以表示为多"
+"边形。"
 
 #: ../../en/geometries.rst:188
 msgid ""
 "The following SQL query will return the geometry associated with one polygon "
 "(in the :command:`ST_AsText` column)."
-msgstr ""
+msgstr "以下SQL查询将返回与一个多边形相关联的几何图形（在:command:`ST_AsText`列中）。"
 
 #: ../../en/geometries.rst:198
 msgid ""
@@ -287,6 +326,9 @@ msgid ""
 "``%`` symbol is used**, along with the ``LIKE`` operator to tell the system "
 "to do globbing."
 msgstr ""
+"在我们的``WHERE``子句中，我们使用``LIKE``运算符进行字符串匹配操作，而不是使用"
+"``=``符号。**你可能习惯了将``*``符号用作模式匹配的通配符，但是在SQL中，``%``"
+"符号与``LIKE``运算符一起使用**，告诉系统进行通配符匹配。"
 
 #: ../../en/geometries.rst:205
 msgid ""
@@ -294,45 +336,48 @@ msgid ""
 "\". Most graphics systems include the concept of a \"polygon\", but GIS "
 "systems are relatively unique in allowing polygons to explicitly have holes."
 msgstr ""
+"第一个多边形只有一个环。第二个多边形有一个内部“孔”。大多数图形系统都包含“多边"
+"形”的概念，但GIS系统相对独特的地方在于允许多边形明确地具有孔。"
 
 #: ../../en/geometries.rst:209
 msgid "Some of the specific spatial functions for working with polygons are:"
-msgstr ""
+msgstr "一些用于处理多边形的特定空间函数包括:"
 
 #: ../../en/geometries.rst:211
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)` 返回多边形的面积"
 
 #: ../../en/geometries.rst:212
 msgid ""
 ":command:`ST_NRings(geometry)` returns the number of rings (usually 1, more "
 "if there are holes)"
-msgstr ""
+msgstr ":command:`ST_NRings(geometry)` 返回环的数量（通常为1，如果有孔则更多）"
 
 #: ../../en/geometries.rst:213
 msgid ""
 ":command:`ST_ExteriorRing(geometry)` returns the outer ring as a linestring"
-msgstr ""
+msgstr ":command:`ST_ExteriorRing(geometry)` 返回外环作为一个Linestring"
 
 #: ../../en/geometries.rst:214
 msgid ""
 ":command:`ST_InteriorRingN(geometry,n)` returns a specified interior ring as "
 "a linestring"
-msgstr ""
+msgstr ":command:`ST_InteriorRingN(geometry,n)` 返回指定的内部环作为一个Linestring"
 
 #: ../../en/geometries.rst:215
 msgid ":command:`ST_Perimeter(geometry)` returns the length of all the rings"
-msgstr ""
+msgstr ":command:`ST_Perimeter(geometry)` 返回所有环的长度"
 
 #: ../../en/geometries.rst:217
 msgid "We can calculate the area of our polygons using the area function:"
-msgstr ""
+msgstr "我们可以使用面积函数计算多边形的面积:"
 
 #: ../../en/geometries.rst:230
 msgid ""
 "Note that the polygon with a hole has an area that is the area of the outer "
 "shell (a 10x10 square) minus the area of the hole (a 1x1 square)."
-msgstr ""
+msgstr "请注意，带有孔的多边形的面积是外壳的面积（一个10x10的正方形）减去孔的面积（一"
+"个1x1的正方形）。"
 
 #: ../../en/geometries.rst:233
 msgid "Collections"
@@ -342,25 +387,25 @@ msgstr "集合"
 msgid ""
 "There are four collection types, which group multiple simple geometries into "
 "sets."
-msgstr ""
+msgstr "有四种集合类型，它们将多个简单几何图形分组成集合。"
 
 #: ../../en/geometries.rst:237
 msgid "**MultiPoint**, a collection of points"
-msgstr ""
+msgstr "**MultiPoint**，一组点"
 
 #: ../../en/geometries.rst:238
 msgid "**MultiLineString**, a collection of linestrings"
-msgstr ""
+msgstr "**MultiLineString**，一组线串"
 
 #: ../../en/geometries.rst:239
 msgid "**MultiPolygon**, a collection of polygons"
-msgstr ""
+msgstr "**MultiPolygon**，一组多边形"
 
 #: ../../en/geometries.rst:240
 msgid ""
 "**GeometryCollection**, a heterogeneous collection of any geometry "
 "(including other collections)"
-msgstr ""
+msgstr "**GeometryCollection**，任何几何图形的异构集合（包括其他集合）"
 
 #: ../../en/geometries.rst:242
 msgid ""
@@ -370,35 +415,38 @@ msgid ""
 "a right-of-way? As a **MultiPolygon**, with a part on either side of the "
 "right-of-way."
 msgstr ""
+"集合是在GIS软件中出现的另一个概念，而不是在通用图形软件中。它们对于直接建模实"
+"际世界对象作为空间对象非常有用。例如，如何对被权利赋予的路划分的土地进行建模"
+"？作为一个**MultiPolygon**，在权利赋予的路的两侧各有一部分。"
 
 #: ../../en/geometries.rst:246
 msgid "Our example collection contains a polygon and a point:"
-msgstr ""
+msgstr "我们的示例集合包含一个多边形和一个点:"
 
 #: ../../en/geometries.rst:260
 msgid ""
 "Some of the specific spatial functions for working with collections are:"
-msgstr ""
+msgstr "一些用于处理集合的特定空间函数包括:"
 
 #: ../../en/geometries.rst:262
 msgid ""
 ":command:`ST_NumGeometries(geometry)` returns the number of parts in the "
 "collection"
-msgstr ""
+msgstr ":command:`ST_NumGeometries(geometry)` 返回集合中的部分数量"
 
 #: ../../en/geometries.rst:263
 msgid ":command:`ST_GeometryN(geometry,n)` returns the specified part"
-msgstr ""
+msgstr ":command:`ST_GeometryN(geometry,n)` 返回指定的部分"
 
 #: ../../en/geometries.rst:264
 msgid ""
 ":command:`ST_Area(geometry)` returns the total area of all polygonal parts"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)` 返回所有多边形部分的总面积"
 
 #: ../../en/geometries.rst:265
 msgid ""
 ":command:`ST_Length(geometry)` returns the total length of all linear parts"
-msgstr ""
+msgstr ":command:`ST_Length(geometry)` 返回所有线性部分的总长度"
 
 #: ../../en/geometries.rst:270
 msgid "Geometry Input and Output"
@@ -412,90 +460,94 @@ msgid ""
 "applications can understand. Fortunately, PostGIS supports emitting and "
 "consuming geometries in a large number of formats:"
 msgstr ""
+"在数据库中，几何图形以一种仅由PostGIS程序使用的格式存储在磁盘上。为了让外部程"
+"序插入和检索有用的几何图形，它们需要转换成其他应用程序能够理解的格式。幸运的"
+"是，PostGIS支持在大量格式中发出和消耗几何图形:"
 
 #: ../../en/geometries.rst:274
 msgid "Well-known text (:term:`WKT`)"
-msgstr ""
+msgstr "Well-known text (:term:`WKT`)"
 
 #: ../../en/geometries.rst:276
 msgid ":command:`ST_GeomFromText(text, srid)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromText(text, srid)` 返回 ``geometry``"
 
 #: ../../en/geometries.rst:277
 msgid ":command:`ST_AsText(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsText(geometry)` 返回 ``text``"
 
 #: ../../en/geometries.rst:278
 msgid ":command:`ST_AsEWKT(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsEWKT(geometry)` 返回 ``text``"
 
 #: ../../en/geometries.rst:280
 msgid "Well-known binary (:term:`WKB`)"
-msgstr ""
+msgstr "Well-known binary (:term:`WKB`)"
 
 #: ../../en/geometries.rst:282
 msgid ":command:`ST_GeomFromWKB(bytea)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromWKB(bytea)` 返回 ``geometry``"
 
 #: ../../en/geometries.rst:283
 msgid ":command:`ST_AsBinary(geometry)` returns ``bytea``"
-msgstr ""
+msgstr ":command:`ST_AsBinary(geometry)` 返回 ``bytea``"
 
 #: ../../en/geometries.rst:284
 msgid ":command:`ST_AsEWKB(geometry)` returns ``bytea``"
-msgstr ""
+msgstr ":command:`ST_AsEWKB(geometry)` 返回 ``bytea``"
 
 #: ../../en/geometries.rst:286
 msgid "Geographic Mark-up Language (:term:`GML`)"
-msgstr ""
+msgstr "Geographic Mark-up Language (:term:`GML`)"
 
 #: ../../en/geometries.rst:288
 msgid ":command:`ST_GeomFromGML(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromGML(text)` 返回 ``geometry``"
 
 #: ../../en/geometries.rst:289
 msgid ":command:`ST_AsGML(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGML(geometry)` 返回 ``text``"
 
 #: ../../en/geometries.rst:291
 msgid "Keyhole Mark-up Language (:term:`KML`)"
-msgstr ""
+msgstr "Keyhole Mark-up Language (:term:`KML`)"
 
 #: ../../en/geometries.rst:293
 msgid ":command:`ST_GeomFromKML(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromKML(text)` 返回 ``geometry``"
 
 #: ../../en/geometries.rst:294
 msgid ":command:`ST_AsKML(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsKML(geometry)` 返回 ``text``"
 
 #: ../../en/geometries.rst:296
 msgid ":term:`GeoJSON`"
-msgstr ""
+msgstr ":term:`GeoJSON`"
 
 #: ../../en/geometries.rst:298
 msgid ":command:`ST_AsGeoJSON(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGeoJSON(geometry)` 返回 ``text``"
 
 #: ../../en/geometries.rst:300
 msgid "Scalable Vector Graphics (:term:`SVG`)"
-msgstr ""
+msgstr "可伸缩矢量图形 (:term:`SVG`)"
 
 #: ../../en/geometries.rst:302
 msgid ":command:`ST_AsSVG(geometry)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsSVG(geometry)` 返回 ``text``"
 
 #: ../../en/geometries.rst:304
 msgid ""
 "The most common use of a constructor is to turn a text representation of a "
 "geometry into an internal representation:"
-msgstr ""
+msgstr "构造函数最常见的用途是将几何图形的文本表示转换为内部表示:"
 
 #: ../../en/geometries.rst:310
 msgid ""
 "Note that in addition to a text parameter with a geometry representation, we "
 "also have a numeric parameter providing the :term:`SRID` of the geometry."
-msgstr ""
+msgstr "请注意，除了具有几何表示的文本参数外，我们还有一个提供几何图形的 :term:`SRID`"
+" 的数字参数。"
 
 #: ../../en/geometries.rst:312
 msgid ""
@@ -503,6 +555,8 @@ msgid ""
 "call to :command:`encode()` is required to convert the binary output into an "
 "ASCII form for printing):"
 msgstr ""
+"以下SQL查询显示了一个:term:`WKB`表示的示例（调用:command:`encode()`是为了将二"
+"进制输出转换为ASCII形式以便打印）:"
 
 #: ../../en/geometries.rst:324
 msgid ""
@@ -511,6 +565,9 @@ msgid ""
 "processes, such as viewing data in a GIS application, transferring data to a "
 "web service, or processing data remotely, WKB is the format of choice."
 msgstr ""
+"为了本次研讨会的目的，我们将继续使用WKT，以确保您能够阅读和理解我们正在查看的"
+"几何图形。然而，大多数实际的过程，例如在GIS应用程序中查看数据，将数据传输到We"
+"b服务，或者远程处理数据，WKB是首选的格式。"
 
 #: ../../en/geometries.rst:326
 msgid ""
@@ -520,41 +577,46 @@ msgid ""
 "(EWKB) formats.  These provide the same formatting capabilities of WKT and "
 "WKB with the added dimensionality."
 msgstr ""
+"由于WKT和WKB是在:term:`SFSQL`规范中定义的，它们不处理3维或4维几何图形。对于这"
+"些情况，PostGIS定义了扩展的常用文本（EWKT）和扩展的常用二进制（EWKB）格式。这"
+"些格式提供了与WKT和WKB相同的格式化功能，并添加了维度信息。"
 
 #: ../../en/geometries.rst:328
 msgid "Here is an example of a 3D linestring in WKT:"
-msgstr ""
+msgstr "这是一个WKT中的三维线串示例:"
 
 #: ../../en/geometries.rst:338
 msgid ""
 "Note that the text representation changes! This is because the text input "
 "routine for PostGIS is liberal in what it consumes. It will consume"
-msgstr ""
+msgstr "请注意，文本表示发生了变化！这是因为PostGIS的文本输入程序在接受输入时很宽容。"
+"它将接受"
 
 #: ../../en/geometries.rst:340
 msgid "hex-encoded EWKB,"
-msgstr ""
+msgstr "十六进制编码的EWKB，"
 
 #: ../../en/geometries.rst:341
 msgid "extended well-known text, and"
-msgstr ""
+msgstr "扩展的常用文本，并"
 
 #: ../../en/geometries.rst:342
 msgid "ISO standard well-known text."
-msgstr ""
+msgstr "ISO标准的常用文本。"
 
 #: ../../en/geometries.rst:344
 msgid ""
 "On the output side, the :command:`ST_AsText` function is conservative, and "
 "only emits ISO standard well-known text."
-msgstr ""
+msgstr "在输出方面，:command:`ST_AsText`函数是保守的，并且只发出ISO标准的常用文本。"
 
 #: ../../en/geometries.rst:346
 msgid ""
 "In addition to the :command:`ST_GeometryFromText` function, there are many "
 "other ways to create geometries from well-known text or similar formatted "
 "inputs:"
-msgstr ""
+msgstr "除了:command:`ST_GeometryFromText`函数之外，还有许多其他方法可以从常用文本或"
+"类似格式的输入创建几何图形:"
 
 #: ../../en/geometries.rst:366
 msgid ""
@@ -563,6 +625,9 @@ msgid ""
 "applications use the WKT or WKB geometry creation functions, but the others "
 "work too. Here's an example that consumes GML and output JSON:"
 msgstr ""
+"除了各种形式的发射器（WKT、WKB、GML、KML、JSON、SVG）之外，PostGIS还具有四个"
+"消费者（WKT、WKB、GML、KML）。大多数应用程序使用WKT或WKB几何创建函数，但其他"
+"函数也可用。下面是一个消费GML并输出JSON的示例:"
 
 #: ../../en/geometries.rst:376
 msgid "Casting from Text"
@@ -574,6 +639,8 @@ msgid ""
 "have been converting them to type 'geometry' using PostGIS functions like :"
 "command:`ST_GeomFromText()`."
 msgstr ""
+"到目前为止，我们看到的:term:`WKT`字符串都是'text'类型，我们已经使用PostGIS函"
+"数如:command:`ST_GeomFromText()`将它们转换为'geometry'类型。"
 
 #: ../../en/geometries.rst:380
 msgid ""
@@ -581,10 +648,13 @@ msgid ""
 "from one type to another, the casting syntax, `oldata::newtype`. So for "
 "example, this SQL converts a double into a text string."
 msgstr ""
+"PostgreSQL包含一种简短的语法，允许将数据从一种类型转换为另一种类型，即转换语"
+"法，`oldata::newtype`。因此，例如，这个SQL将一个双精度浮点数转换为文本字符串"
+"。"
 
 #: ../../en/geometries.rst:386
 msgid "Less trivially, this SQL converts a :term:`WKT` string into a geometry:"
-msgstr ""
+msgstr "较不平凡的是，这个SQL将一个:term:`WKT`字符串转换为几何图形:"
 
 #: ../../en/geometries.rst:392
 msgid ""
@@ -593,12 +663,17 @@ msgid ""
 "specify the SRID using the \"extended\" well-known text form, which includes "
 "an SRID block at the front:"
 msgstr ""
+"使用转换创建几何图形时需要注意的一点是：除非您指定SRID，否则您将获得一个具有"
+"未知SRID的几何图形。您可以使用\"扩展\"的常用文本形式指定SRID"
+"，该形式在前面包含一个SRID块:"
 
 #: ../../en/geometries.rst:398
 msgid ""
 "It's very common to use the casting notation when working with :term:`WKT`, "
 "as well as `geometry` and `geography` columns (see :ref:`geography`)."
 msgstr ""
+"在处理:term:`WKT`、`geometry`和`geography`列（参见:ref:`geography`）时，使用"
+"转换符号是非常常见的。"
 
 #: ../../en/geometries.rst:402
 msgid "Function List"
@@ -610,6 +685,9 @@ msgid ""
 "surface if it is a polygon or multi-polygon. For \"geometry\" type area is "
 "in SRID units. For \"geography\" area is in square meters."
 msgstr ""
+"`ST_Area <http://postgis.net/docs/ST_Area.html>`_: 如果几何对象是多边形或多面"
+"体，则返回其表面积。对于“geometry”类型，面积以SRID单位表示。对于“geography”类"
+"型，面积以平方米表示。"
 
 #: ../../en/geometries.rst:406
 msgid ""
@@ -617,6 +695,8 @@ msgid ""
 "Known Text (WKT) representation of the geometry/geography without SRID "
 "metadata."
 msgstr ""
+"`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: 返回几何"
+"/地理对象的不带SRID元数据的Well-Known Text（WKT）表示。"
 
 #: ../../en/geometries.rst:408
 msgid ""
@@ -624,48 +704,64 @@ msgid ""
 "Known Binary (WKB) representation of the geometry/geography without SRID "
 "meta data."
 msgstr ""
+"`ST_AsBinary <http://postgis.net/docs/ST_AsBinary.html>`_: 返回几何"
+"/地理对象的不带SRID元数据的Well-Known Binary（WKB）表示。"
 
 #: ../../en/geometries.rst:410
 msgid ""
 "`ST_EndPoint <http://postgis.net/docs/ST_EndPoint.html>`_: Returns the last "
 "point of a LINESTRING geometry as a POINT."
 msgstr ""
+"`ST_EndPoint <http://postgis.net/docs/ST_EndPoint.html>`_: 返回一个 "
+"LINESTRING 几何对象的最后一个点，作为一个 POINT。"
 
 #: ../../en/geometries.rst:412
 msgid ""
 "`ST_AsEWKB <http://postgis.net/docs/ST_AsEWKB.html>`_: Returns the Well-"
 "Known Binary (WKB) representation of the geometry with SRID meta data."
 msgstr ""
+"`ST_AsEWKB <http://postgis.net/docs/ST_AsEWKB.html>`_: "
+"返回具有SRID元数据的几何对象的Well-Known Binary（WKB）表示。"
 
 #: ../../en/geometries.rst:414
 msgid ""
 "`ST_AsEWKT <http://postgis.net/docs/ST_AsEWKT.html>`_: Returns the Well-"
 "Known Text (WKT) representation of the geometry with SRID meta data."
 msgstr ""
+"`ST_AsEWKT <http://postgis.net/docs/ST_AsEWKT.html>`_: "
+"返回具有SRID元数据的几何对象的Well-Known Text（WKT）表示。"
 
 #: ../../en/geometries.rst:416
 msgid ""
 "`ST_AsGeoJSON <http://postgis.net/docs/ST_AsGeoJSON.html>`_: Returns the "
 "geometry as a GeoJSON element."
 msgstr ""
+"`ST_AsGeoJSON <http://postgis.net/docs/ST_AsGeoJSON.html>`_: "
+"将几何对象返回为一个 GeoJSON 元素。"
 
 #: ../../en/geometries.rst:418
 msgid ""
 "`ST_AsGML <http://postgis.net/docs/ST_AsGML.html>`_: Returns the geometry as "
 "a GML version 2 or 3 element."
 msgstr ""
+"`ST_AsGML <http://postgis.net/docs/ST_AsGML.html>`_: 将几何对象返回为一个 "
+"GML 版本 2 或 3 元素。"
 
 #: ../../en/geometries.rst:420
 msgid ""
 "`ST_AsKML <http://postgis.net/docs/ST_AsKML.html>`_: Returns the geometry as "
 "a KML element. Several variants. Default version=2, default precision=15."
 msgstr ""
+"`ST_AsKML <http://postgis.net/docs/ST_AsKML.html>`_: 将几何对象返回为一个 "
+"KML 元素。有几种变体。默认版本为2，默认精度为15。"
 
 #: ../../en/geometries.rst:422
 msgid ""
 "`ST_AsSVG <http://postgis.net/docs/ST_AsSVG.html>`_: Returns a Geometry in "
 "SVG path data given a geometry or geography object."
 msgstr ""
+"`ST_AsSVG <http://postgis.net/docs/ST_AsSVG.html>`_: 给定几何或地理对象，"
+"返回 SVG 路径数据中的几何。"
 
 #: ../../en/geometries.rst:424
 msgid ""
@@ -673,6 +769,9 @@ msgid ""
 "line string representing the exterior ring of the POLYGON geometry. Return "
 "NULL if the geometry is not a polygon. Will not work with MULTIPOLYGON"
 msgstr ""
+"`ST_ExteriorRing <http://postgis.net/docs/ST_ExteriorRing.html>`_: 返回表示多"
+"边形几何的外部环的线串。如果几何对象不是多边形，则返回NULL。不适用于MULTIPOLY"
+"GON"
 
 #: ../../en/geometries.rst:426
 msgid ""
@@ -680,6 +779,9 @@ msgid ""
 "based Nth geometry if the geometry is a GEOMETRYCOLLECTION, MULTIPOINT, "
 "MULTILINESTRING, MULTICURVE or MULTIPOLYGON. Otherwise, return NULL."
 msgstr ""
+"`ST_GeometryN <http://postgis.net/docs/ST_GeometryN.html>`_: 如果几何对象是GE"
+"OMETRYCOLLECTION、MULTIPOINT、MULTILINESTRING、MULTICURVE或MULTIPOLYGON，则返"
+"回基于1的第N个几何对象。否则，返回NULL。"
 
 #: ../../en/geometries.rst:428
 msgid ""
@@ -694,12 +796,16 @@ msgid ""
 "`ST_GeomFromKML <http://postgis.net/docs/ST_GeomFromKML.html>`_: Takes as "
 "input KML representation of geometry and outputs a PostGIS geometry object"
 msgstr ""
+"`ST_GeomFromKML <http://postgis.net/docs/ST_GeomFromKML.html>`_: 接受几何的 "
+"KML 表示形式，并输出一个 PostGIS 几何对象"
 
 #: ../../en/geometries.rst:432
 msgid ""
 "`ST_GeomFromText <http://postgis.net/docs/ST_GeomFromText.html>`_: Returns a "
 "specified ST_Geometry value from Well-Known Text representation (WKT)."
 msgstr ""
+"`ST_GeomFromText <http://postgis.net/docs/ST_GeomFromText.html>`_: 从 Well-"
+"Known Text 表示（WKT）中返回指定的 ST_Geometry 值。"
 
 #: ../../en/geometries.rst:434
 msgid ""
@@ -707,12 +813,16 @@ msgid ""
 "geometry instance from a Well-Known Binary geometry representation (WKB) and "
 "optional SRID."
 msgstr ""
+"`ST_GeomFromWKB <http://postgis.net/docs/ST_GeomFromWKB.html>`_: 从 Well-"
+"Known Binary 几何表示（WKB）和可选 SRID 创建一个几何实例。"
 
 #: ../../en/geometries.rst:436
 msgid ""
 "`ST_GeometryType <http://postgis.net/docs/ST_GeometryType.html>`_: Returns "
 "the geometry type of the ST_Geometry value."
 msgstr ""
+"`ST_GeometryType <http://postgis.net/docs/ST_GeometryType.html>`_: 返回 "
+"ST_Geometry 值的几何类型。"
 
 #: ../../en/geometries.rst:438
 msgid ""
@@ -720,6 +830,9 @@ msgid ""
 "the Nth interior linestring ring of the polygon geometry. Return NULL if the "
 "geometry is not a polygon or the given N is out of range."
 msgstr ""
+"`ST_InteriorRingN <http://postgis.net/docs/ST_InteriorRingN.html>`_: "
+"返回多边形几何体的第 N 个内环线串。如果几何体不是多边形或给定的 N 超出范围，"
+"则返回 NULL。"
 
 #: ../../en/geometries.rst:440
 msgid ""
@@ -727,24 +840,33 @@ msgid ""
 "of the geometry if it is a linestring or multilinestring. geometry are in "
 "units of spatial reference and geography are in meters (default spheroid)"
 msgstr ""
+"`ST_Length <http://postgis.net/docs/ST_Length.html>`_: 如果几何体是线串或多线"
+"串，则返回其二维长度。几何体的单位是空间参考单位，地理学的单位是米（默认椭球"
+"体）"
 
 #: ../../en/geometries.rst:442
 msgid ""
 "`ST_NDims <http://postgis.net/docs/ST_NDims.html>`_: Returns coordinate "
 "dimension of the geometry as a small int. Values are: 2,3 or 4."
 msgstr ""
+"`ST_NDims <http://postgis.net/docs/ST_NDims.html>`_: "
+"返回几何体的坐标维数，作为一个小整数。可能的值为：2、3或4。"
 
 #: ../../en/geometries.rst:444
 msgid ""
 "`ST_NPoints <http://postgis.net/docs/ST_NPoints.html>`_: Returns the number "
 "of points (vertexes) in a geometry."
 msgstr ""
+"`ST_NPoints <http://postgis.net/docs/ST_NPoints.html>`_: "
+"返回几何体中点（顶点）的数量。"
 
 #: ../../en/geometries.rst:446
 msgid ""
 "`ST_NRings <http://postgis.net/docs/ST_NRings.html>`_: If the geometry is a "
 "polygon or multi-polygon returns the number of rings."
 msgstr ""
+"`ST_NRings <http://postgis.net/docs/ST_NRings.html>`_: "
+"如果几何体是多边形或多部分多边形，则返回环的数量。"
 
 #: ../../en/geometries.rst:448
 msgid ""
@@ -752,6 +874,9 @@ msgid ""
 "geometry is a GEOMETRYCOLLECTION (or MULTI*) returns the number of "
 "geometries, otherwise return NULL."
 msgstr ""
+"`ST_NumGeometries <http://postgis.net/docs/ST_NumGeometries.html>`_: "
+"如果几何体是 GEOMETRYCOLLECTION（或 MULTI*），则返回几何体的数量，否则返回 "
+"NULL。"
 
 #: ../../en/geometries.rst:450
 msgid ""
@@ -759,27 +884,37 @@ msgid ""
 "length measurement of the boundary of an ST_Surface or ST_MultiSurface "
 "value. (Polygon, Multipolygon)"
 msgstr ""
+"`ST_Perimeter <http://postgis.net/docs/ST_Perimeter.html>`_: 返回 ST_Surface "
+"或 ST_MultiSurface 值的边界的长度测量。（多边形，多多边形）"
 
 #: ../../en/geometries.rst:452
 msgid ""
 "`ST_SRID <http://postgis.net/docs/ST_SRID.html>`_: Returns the spatial "
 "reference identifier for the ST_Geometry as defined in spatial_ref_sys table."
 msgstr ""
+"`ST_SRID <http://postgis.net/docs/ST_SRID.html>`_: 返回 ST_Geometry "
+"的空间参考标识符，如在 spatial_ref_sys 表中定义。"
 
 #: ../../en/geometries.rst:454
 msgid ""
 "`ST_StartPoint <http://postgis.net/docs/ST_StartPoint.html>`_: Returns the "
 "first point of a LINESTRING geometry as a POINT."
 msgstr ""
+"`ST_StartPoint <http://postgis.net/docs/ST_StartPoint.html>`_: "
+"返回线串几何图形的第一个点作为一个点。"
 
 #: ../../en/geometries.rst:456
 msgid ""
 "`ST_X <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate of the "
 "point, or NULL if not available. Input must be a point."
 msgstr ""
+"`ST_X <http://postgis.net/docs/ST_X.html>`_: 返回点的 X 坐标，"
+"如果不可用则返回 NULL。输入必须是一个点。"
 
 #: ../../en/geometries.rst:458
 msgid ""
 "`ST_Y <http://postgis.net/docs/ST_Y.html>`_: Returns the Y coordinate of the "
 "point, or NULL if not available. Input must be a point."
 msgstr ""
+"`ST_Y <http://postgis.net/docs/ST_Y.html>`_: 返回点的 Y 坐标，"
+"如果不可用则返回 NULL。输入必须是一个点。"

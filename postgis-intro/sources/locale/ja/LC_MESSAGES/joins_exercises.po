@@ -4,13 +4,13 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2023.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2023-09-16 10:23+0000\n"
+"PO-Revision-Date: 2024-02-27 02:45+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_exercises/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/joins_exercises.rst:4
@@ -158,7 +158,7 @@ msgid ""
 "``routes`` column in the ``nyc_subway_stations`` table has values like 'B,"
 "D,6,V' and 'C,6')"
 msgstr ""
-"**6列車が走っている町を全てを挙げるとどうなるでしょう?** (ヒント: "
+"**6列車が走っている地区を全てを挙げるとどうなるでしょう?** (ヒント: "
 "``nyc_subway_stations``テーブルの ``routes`` カラムは 'B,D,6,V' や 'C,6' "
 "のような値を持ちます)"
 
@@ -166,16 +166,16 @@ msgstr ""
 msgid ""
 "We used the ``DISTINCT`` keyword to remove duplicate values from our result "
 "set where there were more than one subway station in a neighborhood."
-msgstr "一つの町に複数の地下鉄駅がある時に、結果集合から重複値を削除するには "
+msgstr "一つの地区に複数の地下鉄駅がある時に、結果集合から重複値を削除するには "
 "``DISTINCT`` キーワードを使います。"
 
 #: ../../en/joins_exercises.rst:92
 msgid ""
 "**After 9/11, the 'Battery Park' neighborhood was off limits for several "
 "days. How many people had to be evacuated?**"
-msgstr "**9/11後、'Battery Park' 町は数日間立ち入り禁止でした。非難しなけれならなかっ"
-"た人の数はどれぐらいでしょうか?**"
+msgstr "**9/11後、'Battery Park' 地区は数日間立ち入り禁止でした。避難しなけれならなか"
+"った人の数はどれぐらいでしょうか?**"
 
 #: ../../en/joins_exercises.rst:106
 msgid "**What neighborhood has the highest population density (persons/km2)?**"
-msgstr "**最も人口密度 (人/km2) が高い町はどこですか?**"
+msgstr "**最も人口密度 (人/km2) が高い地区はどこですか?**"

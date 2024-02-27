@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-08-31 08:08+0000\n"
+"PO-Revision-Date: 2024-02-27 02:45+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/joins.rst:4
@@ -45,14 +45,14 @@ msgid ""
 msgstr ""
 "前の節では、空間関係を2ステップで調べました。すなわち、最初に地下鉄 'Broad "
 "St' 駅のポイントを抽出し、その後、そのポイントを「'Broad St' "
-"のある町は何ですか?」といった、より大きな問題の質問に使いました。"
+"のある地区は何ですか?」といった、より大きな問題の質問に使いました。"
 
 #: ../../en/joins.rst:10
 msgid ""
 "Using a spatial join, we can answer the question in one step, retrieving "
 "information about the subway station and the neighborhood that contains it:"
-msgstr "空間結合を使うと、この地下鉄駅に関する情報の検索と、地下鉄駅を含む町の検索と"
-"を1ステップで実行できます:"
+msgstr "空間結合を使うと、この地下鉄駅に関する情報の検索と、地下鉄駅を含む地区の検索"
+"とを1ステップで実行できます:"
 
 #: ../../en/joins.rst:29
 msgid ""
@@ -62,8 +62,8 @@ msgid ""
 "spatial join, but the most commonly used ones are: :command:"
 "`ST_Intersects`, :command:`ST_Contains`, and :command:`ST_DWithin`."
 msgstr ""
-"全ての地下鉄駅と、その駅の属する町とを結合することができますが、この場合は一"
-"つだけ情報が必要でした。二つのテーブルの間の TRUE / FALSE "
+"全ての地下鉄駅と、その駅の属する地区とを結合することができますが、この場合は"
+"一つだけ情報が必要でした。二つのテーブルの間の TRUE / FALSE "
 "関係を返す関数は全て、空間結合で使うことができます。最も一般的には "
 ":command:`ST_Intersects`, :command:`ST_Contains`, :command:`ST_DWithin` "
 "が使われます。"
@@ -86,9 +86,9 @@ msgid ""
 "information from about population from the census with the boundaries of "
 "neighborhoods, with a restriction to just one borough of Manhattan."
 msgstr ""
-"例: **「マンハッタンの町ごとの人口と人口構成比率は?」** 国勢調査から人口情報"
-"と、町の境界データとの組み合わせた質問があり、マンハッタンの一つの区のみに制"
-"限された質問となります。"
+"例: **「マンハッタンの地区ごとの人口と人口構成比率は?」** 国勢調査から人口情"
+"報と、地区の境界データとの組み合わせた質問があり、マンハッタンの一つの行政区"
+"のみに制限された質問となります。"
 
 #: ../../en/joins.rst:88
 msgid ""
@@ -102,8 +102,8 @@ msgstr "ここで何がおこっているのでしょう? 概念上 "
 msgid ""
 "The ``JOIN`` clause creates a virtual table that includes columns from both "
 "the neighborhoods and census tables."
-msgstr "\"JOIN\" 節で、町とセンサスの両方のテーブルからのコラムを持つ、仮想的なテーブ"
-"ルが発生します。"
+msgstr "\"JOIN\" 節で、地区とセンサスの両方のテーブルからのコラムを持つ、仮想的なテー"
+"ブルが発生します。"
 
 #: ../../en/joins.rst:91
 msgid ""
@@ -114,7 +114,7 @@ msgstr "\"WHERE\" 節で、仮想テーブルをマンハッタン内の行に�
 msgid ""
 "The remaining rows are grouped by the neighborhood name and fed through the "
 "aggregation function to :command:`Sum()` the population values."
-msgstr "残る行は町名でグループ化され、人口値を :command:`Sum()` "
+msgstr "残る行は地区名でグループ化され、人口値を :command:`Sum()` "
 "する集約関数に渡されます。"
 
 #: ../../en/joins.rst:93

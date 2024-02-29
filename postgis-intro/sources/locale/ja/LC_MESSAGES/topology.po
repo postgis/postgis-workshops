@@ -6,7 +6,7 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 20:32+0000\nPO-Revision-Date: 2024-02-27 02:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.8.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 20:32+0000\nPO-Revision-Date: 2024-02-29 04:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.8.0\n"
 
 #: ../../en/topology.rst:4
 msgid "Topology"
@@ -215,7 +215,7 @@ msgid ""
 "Lets start by creating a table to hold neighborhoods and then add a "
 "topogeometry column using the `AddTopoGeometryColumn "
 "<https://postgis.net/docs/AddTopoGeometryColumn.html>`_ function."
-msgstr "トポロジ投入の最も一般的な方法は、トッポジオメトリの生成です。近傍を保持するテーブル作成から始めましょう。`AddTopoGeometryColumn <https://postgis.net/docs/ja/AddTopoGeometryColumn.html>`_ 関数を使ってトポジオメトリカラムを追加します。"
+msgstr "トポロジ投入の最も一般的な方法は、トポジオメトリの生成です。地区を保持するテーブルの作成から始めましょう。`AddTopoGeometryColumn <https://postgis.net/docs/ja/AddTopoGeometryColumn.html>`_ 関数を使ってトポジオメトリカラムを追加します。"
 
 #: ../../en/topology.rst:128
 msgid "The output of the above is:"
@@ -279,7 +279,7 @@ msgid ""
 "of neighborhoods by defining a column called *topo* in *nyc_boros_t* "
 "table that is of type POLYGON and is a collection of other topogeometries"
 " from *nyc_neighborhoods_t.topo* column."
-msgstr ""
+msgstr "行政区は、POLYGON タイプであり、かつ *nyc_neighborhoods_t.topo* カラムからの他のトポジオメトリのコレクションである *nyc_boros_t* テーブルの *topo* カラムを定義することで地区のコレクションから形成されることが、宣言的に表現されます。"
 
 #: ../../en/topology.rst:221
 msgid ""
@@ -288,11 +288,11 @@ msgid ""
 "starting with geometries to form a new topogeometry, the CreateTopoGeom "
 "starts with existing topology elements which may be primitives or other "
 "topogeometries to define a new topogeometry."
-msgstr ""
+msgstr "この新しいテーブルに投入するために、`CreateTopoGeom <https://postgis.net/docs/ja/CreateTopoGeom.html>`_ 関数を使います。新しいトポジオメトリを形成するためにジオメトリから始める代わりに、CreateTopoGeom は、新しいトポジオメトリを定義するために、プリミティブである可能性があるか、他のトポジオメトリであるような既存のトポロジ要素から始めます。"
 
 #: ../../en/topology.rst:235
 msgid "Which will insert 5 records corresponding to the boroughs of New York."
-msgstr ""
+msgstr "ニューヨークの地区に対応する 5つ のレコードが挿入されます。"
 
 #: ../../en/topology.rst:239
 msgid ""
@@ -301,13 +301,13 @@ msgid ""
 "`topology.TopoElementArray_Agg( ARRAY[ (n.topo).id, (n.topo).layer_id "
 "]::topoelement ) )` in the above example with the shorter "
 "`topology.TopoElementArray_Agg( n.topo::topoelement )`"
-msgstr ""
+msgstr "PostGIS 3.4 以上を使っている場合には、新しいキャストでトポジオメトリからトポエレメントにキャストすることができます。上の例の`topology.TopoElementArray_Agg( ARRAY[ (n.topo).id, (n.topo).layer_id ]::topoelement ) )` を、より短い `topology.TopoElementArray_Agg( n.topo::topoelement )` に置き換えることができます"
 
 #: ../../en/topology.rst:244
 msgid ""
 "To view these in pgAdmin, you can cast the topogeometry to a geometry as "
 "follows:"
-msgstr ""
+msgstr "これらを pgAdmin で見るには、次のように、トポジオメトリからジオメトリにキャストします:"
 
 #: ../../en/topology.rst:252
 msgid "The output will look like below:"
@@ -320,7 +320,7 @@ msgid ""
 "processes where each geometry is treated as a separate unit.  You get "
 "gaps, you get dangling islands, and neighborhoods encroaching on each "
 "other's territory."
-msgstr ""
+msgstr "なんて完全な混乱なんでしょうと考えているなら、そうですその通りです。これは、ジオメトリごとに個別の単位で扱う単純化と他のジオメトリ処理の、多数のサイクルの後に発生するものです。隙間が出ますし、ぶら下がった島が出ますし、地区同士の領地の侵入が出ます。"
 
 #: ../../en/topology.rst:261
 msgid ""
@@ -336,13 +336,13 @@ msgid ""
 "area in common, does it make sense for districts to have areas in common?"
 "  No it does not make sense. And here we are with our data pointing out "
 "some areas belong to more than one neighborhood or more than one borough."
-msgstr ""
+msgstr "測量士のふりをして質問をしてみましょう。区域 (行政区や地区) ごとに他の区域と隣接する可能性があるが、区域間で領域を共有しないように、土地の区画を区域に分割する場合に、共有する領域を持つ区域に意味があるでしょうか? と。これは意味がありません。そして、複数の地区に属するか複数の行政区に属するような領域がいくつかあることを示すデータがあります。"
 
 #: ../../en/topology.rst:269
 msgid ""
 "Lets first look at boros and look for neighborhoods that share elements "
 "in common:"
-msgstr ""
+msgstr "まず行政区を見て、要素を共有する地区を探しましょう:"
 
 #: ../../en/topology.rst:279
 msgid "The output is:"
@@ -354,7 +354,7 @@ msgid ""
 " In this query we use the  `GetTopoGeomElements "
 "<https://postgis.net/docs/GetTopoGeomElements.html>`_ function to "
 "declaritively inspect what components are shared across boroughs."
-msgstr ""
+msgstr "クイーンズやブルックリンが境界戦争の真っただ中にあることを示しています。このクエリでは `GetTopoGeomElements <https://postgis.net/docs/ja/GetTopoGeomElements.html>`_ 関数を使って宣言的に、行政区をまたいで共有する要素を調査します。"
 
 #: ../../en/topology.rst:296
 msgid ""
@@ -367,25 +367,25 @@ msgid ""
 "which corresponds to a topological face. We can use the "
 "`ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ "
 "to get a visual representation of these shared faces as folows:"
-msgstr ""
+msgstr "トポエレメントの集合が返されます。トポエレメントは二つの整数の配列として表現されます。一つ目は要素識別子、二つ目は要素のレイヤ (またはプリミティブタイプ) です。PostGIS GetTopoElements はタイプ番号 1-3 (1:ノード, 2:エッジ, 3:フェイス) でトポジオメトリのプリミティブを返します。全ての地区と行政区のトポエレメントのタイプ番号は、フェイスに対応する 3 です。 `ST_GetFaceGeometry <https://postgis.net/docs/ja/ST_GetFaceGeometry.html>`_ を使って、これらの共有されたフェイスの視覚表現を得ることができます。次のようにします:"
 
 #: ../../en/topology.rst:311
 msgid ""
 "The result will be 5 rows corresponding to border disputes between Queens"
 " and Brooklyn."
-msgstr ""
+msgstr "結果はクイーンとブルックリンの境界紛争に対応する 5行 になります。"
 
 #: ../../en/topology.rst:313
 msgid ""
 "If we look at our neighborhoods, we'll see a similar story but with 44 "
 "border disputes:"
-msgstr ""
+msgstr "地区を見ると、44件 の似たような境界紛争が見えます:"
 
 #: ../../en/topology.rst:324
 msgid ""
 "Because boroughs are an aggregation of neighborhoods, we can fix the "
 "borough issue by fixing the neighborhood border disputes."
-msgstr ""
+msgstr "行政区は地区を集約したものですので、地区の境界紛争を訂正することで、行政区の問題が訂正できます。"
 
 #: ../../en/topology.rst:327
 msgid ""
@@ -393,7 +393,7 @@ msgid ""
 "asking people what neighbhood do they think they are standing in.  "
 "Alternatively we could just assign slivers of land to the neighborhood "
 "with the least amount of area or to the highest bidder."
-msgstr ""
+msgstr "訂正する方法は多数あります。外に出て、人々にどの区域にいると思いますか? と質問できるでしょう。あるいは、面積が最も少ない地区や、最も高額を提示した入札者に、小区画の土地を割当てることも可能です。"
 
 #: ../../en/topology.rst:331
 msgid ""
@@ -402,14 +402,14 @@ msgid ""
 "<https://postgis.net/docs/TopoGeom_remElement.html>`_ function.  So lets "
 "get on with it, removing duplicaed elements from neighborhoods with the "
 "most amount of area as follows:"
-msgstr ""
+msgstr "トポジオメトリからの要素の削除は `TopoGeom_remElement <https://postgis.net/docs/ja/TopoGeom_remElement.html>`_ 関数を使って処理します。面積が最も大きい地区から重複要素を除いて、片付けてしまいましょう。次のようにします:"
 
 #: ../../en/topology.rst:346
 msgid ""
 "The result of the above is 29 neighborhoods were updated. If you rerun "
 "the border dispute queries for neighborhoods and boroughs, you'll find "
 "you have no more border disputes."
-msgstr ""
+msgstr "上の結果として 29地区 が更新されました。地区や行政区の境界紛争のクエリを実行すると、もはや境界紛争がなくなっていることが分かります。"
 
 #: ../../en/topology.rst:349
 msgid ""
@@ -418,4 +418,4 @@ msgid ""
 "topology using the `Topology Editor family of functions "
 "<https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or "
 "filling in the holes and assigning those to neighborhoods."
-msgstr ""
+msgstr "集中的な単純化によってできた地区間の隙間がまだあります。このような問題は、 `トポロジエディタ の関数ファミリ <https://postgis.net/docs/ja/Topology.html#Topology_Editing>`_ を使ってトポロジを直接編集したり、穴を埋めたり、地区に割り当てるといった方法での訂正が可能です。"

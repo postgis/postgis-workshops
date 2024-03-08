@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-02-27 02:45+0000\n"
+"PO-Revision-Date: 2024-03-06 02:45+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/ja/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../../en/about_data.rst:4
 msgid "About our data"
-msgstr "私たちのデータについて"
+msgstr "ここで使うデータについて"
 
 #: ../../en/about_data.rst:6
 msgid ""
@@ -50,9 +50,9 @@ msgid ""
 "table and select **Properties**.  You will find a summary of table "
 "properties, including a list of table attributes within the **Columns** tab."
 msgstr ""
-"テーブルをpgAdminで見て回るには、選択したテーブルを右クリックして"
-"**Properties**を選択します。テーブルのプロパティの要約が表示され、**Columns**"
-"タブにテーブル属性の一覧があります。"
+"テーブルをpgAdminで見て回るには、選択したテーブルを右クリックして "
+"**Properties** を選択します。テーブルのプロパティの要約が表示され、この中に "
+"**Columns** タブにテーブル属性の一覧があります。"
 
 #: ../../en/about_data.rst:15
 msgid "nyc_census_blocks"
@@ -82,7 +82,7 @@ msgstr "**blkid**"
 msgid ""
 "A 15-digit code that uniquely identifies every census **block**. Eg: "
 "360050001009000"
-msgstr "**block**を一意に識別する15桁のコードです。例: 360050001009000"
+msgstr "**block** を一意に識別する15桁のコードです。例: 360050001009000"
 
 #: ../../en/about_data.rst:26
 msgid "**popn_total**"
@@ -354,7 +354,7 @@ msgstr "**tractid**"
 msgid ""
 "An 11-digit code that uniquely identifies every census **tract**. "
 "(\"36005000100\")"
-msgstr "**統計区**を一意に識別する11桁のコード。(\"36005000100\")"
+msgstr "**統計区** を一意に識別する11桁のコード。(\"36005000100\")"
 
 #: ../../en/about_data.rst:137
 msgid "**transit_total**"

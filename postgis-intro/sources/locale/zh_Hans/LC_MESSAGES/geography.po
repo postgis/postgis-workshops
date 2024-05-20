@@ -2,13 +2,14 @@
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Wang Chengxiang <wangcx1011@gmail.com>, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2024-05-20 09:21+0000\n"
-"Last-Translator:  Wang Chengxiang <wangcx1011@gmail.com>\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/geography/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -361,6 +362,8 @@ msgstr ""
 #: ../../en/geography.rst:249
 msgid "`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate of the point, or NULL if not available. Input must be a point."
 msgstr ""
+"`ST_X <http://postgis.net/docs/ST_X.html>`_: 返回点的 X 坐标，"
+"如果不可用则返回 NULL。输入必须是一个点。"
 
 #: ../../en/geography.rst:251
 msgid "`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth.html>`_: Returns the direction from A to B in radians."

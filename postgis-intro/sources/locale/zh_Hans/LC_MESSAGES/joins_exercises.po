@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
 # Wang Chengxiang <wangcx1011@gmail.com>, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2024-05-20 07:26+0000\n"
-"Last-Translator:  Wang Chengxiang <wangcx1011@gmail.com>\n"
+"PO-Revision-Date: 2024-05-20 09:21+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/joins_exercises/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -29,7 +30,7 @@ msgstr "这里提醒一下我们见过的一些功能。提示：它们应该对
 
 #: ../../en/joins_exercises.rst:8
 msgid ":command:`sum(expression)`: aggregate to return a sum for a set of records"
-msgstr ":command:`sum(expression)`:聚合函数返回用于对一组记录的进行求和并返回总和"
+msgstr ":command:`sum(expression)`聚合函数用于对一组记录进行求和并返回总和"
 
 #: ../../en/joins_exercises.rst:9
 msgid ":command:`count(expression)`: aggregate to return the size of a set of records"

@@ -2,135 +2,160 @@
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/spatial_relationships_exercises/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/spatial_relationships_exercises.rst:4
 msgid "Spatial Relationships Exercises"
-msgstr ""
+msgstr "空间关系练习"
 
 #: ../../en/spatial_relationships_exercises.rst:6
 msgid "Here's a reminder of the functions we saw in the last section. They should be useful for the exercises!"
-msgstr ""
+msgstr "这里是上一节我们学到的函数的提醒。它们应该对练习有用！"
 
 #: ../../en/spatial_relationships_exercises.rst:8
 msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
-msgstr ""
+msgstr ":command:`sum(expression)`聚合函数用于对一组记录进行求和并返回总和"
 
 #: ../../en/spatial_relationships_exercises.rst:9
 msgid ":command:`count(expression)` aggregate to return the size of a set of records"
-msgstr ""
+msgstr ":command:`sum(expression)`聚合函数用于返回一组记录的大小"
 
 #: ../../en/spatial_relationships_exercises.rst:10
 msgid ":command:`ST_Contains(geometry A, geometry B)` returns true if geometry A contains geometry B"
 msgstr ""
+":command:`ST_Contains(geometry A, geometry B)`如果几何图形 A 包含几何图形 B，"
+"则返回 true"
 
 #: ../../en/spatial_relationships_exercises.rst:11
 msgid ":command:`ST_Crosses(geometry A, geometry B)` returns true if geometry A crosses geometry B"
-msgstr ""
+msgstr ":command:`ST_Crosses(geometry A, geometry "
+"B)`如果几何图形A与几何图形B交叉，则返回true"
 
 #: ../../en/spatial_relationships_exercises.rst:12
 msgid ":command:`ST_Disjoint(geometry A , geometry B)` returns true if the geometries do not \"spatially intersect\""
-msgstr ""
+msgstr ":command:`ST_Disjoint(geometry A , geometry "
+"B)`如果几何图形不“空间相交”，则返回true"
 
 #: ../../en/spatial_relationships_exercises.rst:13
 msgid ":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance between geometry A and geometry B"
-msgstr ""
+msgstr ":command:`ST_Distance(geometry A, geometry "
+"B)`返回几何图形A和几何图形B之间的最小距离"
 
 #: ../../en/spatial_relationships_exercises.rst:14
 msgid ":command:`ST_DWithin(geometry A, geometry B, radius)` returns true if geometry A is radius distance or less from geometry B"
 msgstr ""
+":command:`ST_DWithin(geometry A, geometry B, radius)`如果几何图形 A "
+"与几何图形 B 的距离为‘radius’或更近，则返回 true"
 
 #: ../../en/spatial_relationships_exercises.rst:15
 msgid ":command:`ST_Equals(geometry A, geometry B)` returns true if geometry A is the same as geometry B"
 msgstr ""
+":command:`ST_Equals(geometry A, geometry B)`如果几何图形 A 与几何图形 B "
+"相同，则返回 true"
 
 #: ../../en/spatial_relationships_exercises.rst:16
 msgid ":command:`ST_Intersects(geometry A, geometry B)` returns true if geometry A intersects geometry B"
 msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)`如果几何图形 A 与几何图形 B "
+"相交，则返回 true"
 
 #: ../../en/spatial_relationships_exercises.rst:17
 msgid ":command:`ST_Overlaps(geometry A, geometry B)` returns true if geometry A and geometry B share space, but are not completely contained by each other."
 msgstr ""
+":command:`ST_Overlaps(geometry A, geometry "
+"B)`如果几何体A和几何体B有公共空间，但不完全由彼此包含，则返回true。"
 
 #: ../../en/spatial_relationships_exercises.rst:18
 msgid ":command:`ST_Touches(geometry A, geometry B)` returns true if the boundary of geometry A touches geometry B"
-msgstr ""
+msgstr ":command:`ST_Touches(geometry A, geometry "
+"B)`如果几何体A的边界接触几何体B，则返回true"
 
 #: ../../en/spatial_relationships_exercises.rst:19
 msgid ":command:`ST_Within(geometry A, geometry B)` returns true if geometry A is within geometry B"
 msgstr ""
+":command:`ST_Within(geometry A, geometry B)`如果几何图形 A 在几何图形 B "
+"内部，则返回 true"
 
 #: ../../en/spatial_relationships_exercises.rst:21
 msgid "Also remember the tables we have available:"
-msgstr ""
+msgstr "当然！我们有以下表可用："
 
 #: ../../en/spatial_relationships_exercises.rst:23
 msgid "``nyc_census_blocks``"
-msgstr ""
+msgstr "``nyc_census_blocks``"
 
 #: ../../en/spatial_relationships_exercises.rst:25
 msgid "blkid, popn_total, boroname, geom"
-msgstr ""
+msgstr "blkid, popn_total, boroname, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:27
 msgid "``nyc_streets``"
-msgstr ""
+msgstr "``nyc_streets``"
 
 #: ../../en/spatial_relationships_exercises.rst:29
 msgid "name, type, geom"
-msgstr ""
+msgstr "name, type, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:31
 msgid "``nyc_subway_stations``"
-msgstr ""
+msgstr "``nyc_subway_stations``"
 
 #: ../../en/spatial_relationships_exercises.rst:33
 msgid "name, geom"
-msgstr ""
+msgstr "name, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:35
 msgid "``nyc_neighborhoods``"
-msgstr ""
+msgstr "``nyc_neighborhoods``"
 
 #: ../../en/spatial_relationships_exercises.rst:37
 msgid "name, boroname, geom"
-msgstr ""
+msgstr "name, boroname, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:40
 msgid "Exercises"
-msgstr ""
+msgstr "练习"
 
 #: ../../en/spatial_relationships_exercises.rst:42
 msgid "**What is the geometry value for the street named 'Atlantic Commons'?**"
-msgstr ""
+msgstr "**名为“Atlantic Commons”的街道的几何值是多少？**"
 
 #: ../../en/spatial_relationships_exercises.rst:54
 msgid "**What neighborhood and borough is Atlantic Commons in?**"
-msgstr ""
+msgstr "**“Atlantic Commons ”位于哪个街区和行政区?**"
 
 #: ../../en/spatial_relationships_exercises.rst:73
 msgid "\"Hey, why did you change from a 'MULTILINESTRING' to a 'LINESTRING'?\" Spatially they describe the same shape, so going from a single-item multi-geometry to a singleton saves a few keystrokes."
 msgstr ""
+"“嘿，为什么从‘MULTILINESTRING’更改为‘LINESTRING’？”它们在空间上描述相同的形状"
+"，因此从单项多几何图形到单项可以节省一些击键次数。"
 
 #: ../../en/spatial_relationships_exercises.rst:75
 msgid "More importantly, we also rounded the coordinates to make them easier to read, which does actually change results: we couldn't use the ST_Touches() predicate to find out which roads join Atlantic Commons, because the coordinates are not exactly the same anymore."
 msgstr ""
+"更重要的是，我们还对坐标进行了舍入，以使其更易读，这实际上改变了结果："
+"我们无法使用 ST_Touches() 谓词来确定哪些道路连接到 Atlantic "
+"Commons，因为坐标不再完全相同。"
 
 #: ../../en/spatial_relationships_exercises.rst:78
 msgid "**What streets does Atlantic Commons join with?**"
-msgstr ""
+msgstr "**“Atlantic Commons” 与哪些街道相连**"
 
 #: ../../en/spatial_relationships_exercises.rst:100
 msgid "**Approximately how many people live on (within 50 meters of) Atlantic Commons?**"
-msgstr ""
+msgstr "**大约有多少人居住在 “Atlantic Commons”（50 米范围内）**"

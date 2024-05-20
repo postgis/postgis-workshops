@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-02-29 04:45+0000\n"
-"Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
+"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/spatial_relationships/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/spatial_relationships.rst:4
 msgid "Spatial Relationships"
@@ -145,11 +145,14 @@ msgstr ""
 
 #: ../../en/spatial_relationships.rst:178
 msgid "Function List"
-msgstr ""
+msgstr "函数列表"
 
 #: ../../en/spatial_relationships.rst:180
 msgid "`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains.html>`_: Returns true if and only if no points of B lie in the exterior of A, and at least one point of the interior of B lies in the interior of A."
 msgstr ""
+"`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains.htm"
+"l>`_:当且仅当B的任何点都不位于A的外部，并且B的内部至少有一个点位于A的内部时，"
+"返回true。"
 
 #: ../../en/spatial_relationships.rst:182
 msgid "`ST_Crosses(geometry A, geometry B)  <http://postgis.net/docs/ST_Crosses.html>`_: Returns TRUE if the supplied geometries have some, but not all, interior points in common."
@@ -174,6 +177,9 @@ msgstr ""
 #: ../../en/spatial_relationships.rst:192
 msgid "`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography \"spatially intersect\" - (share any portion of space) and FALSE if they don't (they are Disjoint)."
 msgstr ""
+"`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects"
+".html>`_: 如果几何/地理“空间相交”（有任意部分重叠），则返回 TRUE，否则返回 "
+"（FALSE它们不相交）。"
 
 #: ../../en/spatial_relationships.rst:194
 msgid "`ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/ST_Overlaps.html>`_: Returns TRUE if the Geometries share space, are of the same dimension, but are not completely contained by each other."

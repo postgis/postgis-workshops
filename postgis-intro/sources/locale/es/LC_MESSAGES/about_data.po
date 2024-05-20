@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023.
+# Paulo Cesar <paulocoronado@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-10-16 14:23+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2024-05-02 15:45+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/es/>\n"
 "Language: es\n"
@@ -19,12 +20,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/about_data.rst:4
 msgid "About our data"
-msgstr ""
+msgstr "Acerca de los datos"
 
 #: ../../en/about_data.rst:6
 msgid ""
@@ -70,6 +71,11 @@ msgid ""
 "counties, etc) can be built from unions of census blocks. We have attached "
 "some demographic data to our collection of blocks."
 msgstr ""
+"Una manzana censal es el área geográfica más pequeña de la que se tienen "
+"datos censales. Todas las geografías censales de nivel superior (grupos de "
+"manzanas, secciones, áreas metropolitanas, condados, etc.) pueden "
+"construirse a partir de uniones de manzanas censales. Hemos adjuntado "
+"algunos datos demográficos a nuestra colección de manzanas."
 
 #: ../../en/about_data.rst:19
 msgid "Number of records: 36592"
@@ -163,7 +169,7 @@ msgstr "**geom**"
 
 #: ../../en/about_data.rst:41
 msgid "Polygon boundary of the block"
-msgstr ""
+msgstr "Límite del bloque"
 
 #: ../../en/about_data.rst:45
 msgid "*Black population as a percentage of Total Population*"
@@ -225,11 +231,11 @@ msgstr "Polígono de límite del barrio"
 
 #: ../../en/about_data.rst:70
 msgid "*The neighborhoods of New York City*"
-msgstr ""
+msgstr "*Los barrios de Nueva York*"
 
 #: ../../en/about_data.rst:73
 msgid "nyc_streets"
-msgstr ""
+msgstr "nyc_streets"
 
 #: ../../en/about_data.rst:75
 msgid ""
@@ -239,22 +245,27 @@ msgid ""
 "streets. Desirable areas to live might be on residential streets rather than "
 "next to a freeway."
 msgstr ""
+"Las líneas centrales de las calles forman la red de transporte de la ciudad. "
+"Estas calles se han marcado con tipos para distinguir entre vías como "
+"callejones, calles arteriales, autopistas y calles más pequeñas. Las zonas "
+"deseables para vivir pueden estar en calles residenciales y no junto a una "
+"autopista."
 
 #: ../../en/about_data.rst:77
 msgid "Number of records: 19091"
-msgstr ""
+msgstr "Número de registros: 19091"
 
 #: ../../en/about_data.rst:83
 msgid "Name of the street"
-msgstr ""
+msgstr "Nombre de la calle"
 
 #: ../../en/about_data.rst:84
 msgid "**oneway**"
-msgstr ""
+msgstr "**Un solo sentido**"
 
 #: ../../en/about_data.rst:85
 msgid "Is the street one-way? \"yes\" = yes, \"\" = no"
-msgstr ""
+msgstr "¿La calle es de sentido único? \"Yes\" = sí, \"\" = no"
 
 #: ../../en/about_data.rst:86
 msgid "**type**"
@@ -262,19 +273,19 @@ msgstr "**tipo**"
 
 #: ../../en/about_data.rst:87
 msgid "Road type (primary, secondary, residential, motorway)"
-msgstr ""
+msgstr "Tipo de carretera (primaria, secundaria, residencial, autopista)"
 
 #: ../../en/about_data.rst:89
 msgid "Linear centerline of the street"
-msgstr ""
+msgstr "Línea central lineal de la calle"
 
 #: ../../en/about_data.rst:93
 msgid "*The streets of New York City. Major roads are in red.*"
-msgstr ""
+msgstr "*Las calles de Nueva York. Las carreteras principales están en rojo.*"
 
 #: ../../en/about_data.rst:97
 msgid "nyc_subway_stations"
-msgstr ""
+msgstr "nyc_subway_stations"
 
 #: ../../en/about_data.rst:99
 msgid ""
@@ -283,54 +294,58 @@ msgid ""
 "station locations help determine how easy it is for different people to "
 "enter the subway system."
 msgstr ""
+"Las estaciones de metro conectan a la superficie donde vive la gente con la "
+"red invisible de subterráneos que hay debajo. Como portales del sistema de "
+"transporte público, la ubicación de las estaciones ayuda a determinar la "
+"facilidad con que distintas personas acceden al sistema de metro."
 
 #: ../../en/about_data.rst:101
 msgid "Number of records: 491"
-msgstr ""
+msgstr "Número de registros: 491"
 
 #: ../../en/about_data.rst:107
 msgid "Name of the station"
-msgstr ""
+msgstr "Nombre de la estación"
 
 #: ../../en/about_data.rst:108
 msgid "**borough**"
-msgstr ""
+msgstr "**borough** (distrito)"
 
 #: ../../en/about_data.rst:110
 msgid "**routes**"
-msgstr ""
+msgstr "**routes** (rutas)"
 
 #: ../../en/about_data.rst:111
 msgid "Subway lines that run through this station"
-msgstr ""
+msgstr "Líneas de metro que pasan por esta estación"
 
 #: ../../en/about_data.rst:112
 msgid "**transfers**"
-msgstr ""
+msgstr "**transfers** (transbordos)"
 
 #: ../../en/about_data.rst:113
 msgid "Lines you can transfer to via this station"
-msgstr ""
+msgstr "Líneas a las que puede hacer transbordo a través de esta estación"
 
 #: ../../en/about_data.rst:114
 msgid "**express**"
-msgstr ""
+msgstr "**express**(expreso)"
 
 #: ../../en/about_data.rst:115
 msgid "Stations where express trains stop, \"express\" = yes, \"\" = no"
-msgstr ""
+msgstr "Estaciones donde paran trenes exprés, \"express\" = sí, \"\" = no"
 
 #: ../../en/about_data.rst:117
 msgid "Point location of the station"
-msgstr ""
+msgstr "Localización puntual de la estación"
 
 #: ../../en/about_data.rst:121
 msgid "*Point locations for New York City subway stations*"
-msgstr ""
+msgstr "*Localización de las estaciones de metro de Nueva York*"
 
 #: ../../en/about_data.rst:124
 msgid "nyc_census_sociodata"
-msgstr ""
+msgstr "nyc_census_sociodata"
 
 #: ../../en/about_data.rst:126
 msgid ""
@@ -340,72 +355,86 @@ msgid ""
 "collected some social-economic at a census tract level to answer some of "
 "these more interesting questions about New York City."
 msgstr ""
+"Existe una rica colección de datos socioeconómicos recopilados durante el el "
+"censo, pero sólo a nivel geográfico más amplio de sección censal. Las "
+"manzanas censales se combinan para formar secciones censales (grupos de "
+"manzanas). Hemos recopilado algunos datos socioeconómicos a nivel de sección "
+"censal para responder a algunas de las preguntas más interesantes sobre la "
+"ciudad de Nueva York."
 
 #: ../../en/about_data.rst:130
 msgid ""
 "The ``nyc_census_sociodata`` is a data table.  We will need to connect it to "
 "Census geographies before conducting any spatial analysis."
 msgstr ""
+"El ``nyc_census_sociodata`` es una tabla de datos. Tendremos que conectarla "
+"a las geografías del Censo antes de realizar cualquier análisis espacial."
 
 #: ../../en/about_data.rst:135
 msgid "**tractid**"
-msgstr ""
+msgstr "**tractid** (Id de la zona censal)"
 
 #: ../../en/about_data.rst:136
 msgid ""
 "An 11-digit code that uniquely identifies every census **tract**. "
 "(\"36005000100\")"
 msgstr ""
+"Un código de 11 dígitos que identifica unívocamente cada **conjunto censal**"
+". (\"36005000100\")"
 
 #: ../../en/about_data.rst:137
 msgid "**transit_total**"
-msgstr ""
+msgstr "**transit_total** (tránsito total)"
 
 #: ../../en/about_data.rst:138
 msgid "Number of workers in the tract"
-msgstr ""
+msgstr "Número de trabajadores en la zona censal"
 
 #: ../../en/about_data.rst:139
 msgid "**transit_private**"
-msgstr ""
+msgstr "**transit_private** (tránsito privado)"
 
 #: ../../en/about_data.rst:140
 msgid ""
 "Number of workers in the tract who use private automobiles / motorcycles"
 msgstr ""
+"Número de trabajadores de la zona que utilizan automóviles privados / "
+"motocicletas"
 
 #: ../../en/about_data.rst:141
 msgid "**transit_public**"
-msgstr ""
+msgstr "**transit_public** (tránsito público)"
 
 #: ../../en/about_data.rst:142
 msgid "Number of workers in the tract who take public transit"
-msgstr ""
+msgstr "Número de trabajadores de la zona que utilizan el transporte público"
 
 #: ../../en/about_data.rst:143
 msgid "**transit_walk**"
-msgstr ""
+msgstr "**transit_walk** (tránsito peatonal)"
 
 #: ../../en/about_data.rst:144
 msgid "Number of workers in the tract who walk"
-msgstr ""
+msgstr "Número de trabajadores de la zona que van a pie"
 
 #: ../../en/about_data.rst:145
 msgid "**transit_other**"
-msgstr ""
+msgstr "**transit_other** (otros tipos de tránsito)"
 
 #: ../../en/about_data.rst:146
 msgid ""
 "Number of workers in the tract who use other forms like walking / biking"
 msgstr ""
+"Número de trabajadores en el tramo que utilizan otras formas como caminar / "
+"ir en bicicleta"
 
 #: ../../en/about_data.rst:147
 msgid "**transit_none**"
-msgstr ""
+msgstr "**transit_none** ( sin tránsito)"
 
 #: ../../en/about_data.rst:148
 msgid "Number of workers in the tract who work from home"
-msgstr ""
+msgstr "Número de trabajadores de la zona que trabajan desde casa"
 
 #: ../../en/about_data.rst:149
 msgid "**transit_time_mins**"

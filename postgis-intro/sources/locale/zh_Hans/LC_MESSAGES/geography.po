@@ -1,0 +1,393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Wang Chengxiang <wangcx1011@gmail.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2024-05-20 09:21+0000\n"
+"Last-Translator:  Wang Chengxiang <wangcx1011@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/geography/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/geography.rst:4
+msgid "Geography"
+msgstr "地理"
+
+#: ../../en/geography.rst:6
+msgid "It is very common to have data in which the coordinate are \"geographics\" or \"latitude/longitude\"."
+msgstr "坐标为“地理”或“纬度/经度”的数据很常见。"
+
+#: ../../en/geography.rst:8
+msgid "Unlike coordinates in Mercator, UTM, or Stateplane, geographic coordinates are **not Cartesian coordinates**. Geographic coordinates do not represent a linear distance from an origin as plotted on a plane.  Rather, these **spherical coordinates** describe angular coordinates on a globe. In spherical coordinates a point is specified by the angle of rotation from a reference meridian (longitude), and the angle from the equator (latitude)."
+msgstr ""
+"与 Mercator、UTM 或 Stateplane 中的坐标不同，地理坐标不是**笛卡尔坐标**。地理"
+"坐标并不表示在平面上绘制的距原点的直线距离。相反，这些球坐标描述了地球上的角"
+"坐标。在**球坐标**中 "
+"，点由相对于参考子午线（经度）的旋转角度和相对于赤道（纬度）的角度来指定。"
+
+#: ../../en/geography.rst:13
+msgid "You can treat geographic coordinates as approximate Cartesian coordinates and continue to do spatial calculations. However, measurements of distance, length and area will be **nonsensical**. Since spherical coordinates measure **angular** distance, the units are in \"degrees.\" Further, the approximate results from indexes and true/false tests like intersects and contains can become terribly wrong. The distance between points get larger as problem areas like the poles or the international dateline are approached."
+msgstr ""
+"您可以将地理坐标视为近似笛卡尔坐标并继续进行空间计算。然而，距离、长度和面积"
+"的测量是**没有意义的**。由于球坐标测量**角**距离，因此单位为“度”。此外，索引"
+"和真/假测试（例如相交和包含）的近似结果可能会变得非常错误。随着接近两极或国际"
+"日期变更线等问题区域，点之间的距离会变得更大。"
+
+#: ../../en/geography.rst:15
+msgid "For example, here are the coordinates of Los Angeles and Paris."
+msgstr "例如，这是洛杉矶和巴黎的坐标。"
+
+#: ../../en/geography.rst:17
+msgid "Los Angeles: ``POINT(-118.4079 33.9434)``"
+msgstr "洛杉矶: ``POINT(-118.4079 33.9434)``"
+
+#: ../../en/geography.rst:18
+msgid "Paris: ``POINT(2.3490 48.8533)``"
+msgstr "巴黎: ``POINT(2.3490 48.8533)``"
+
+#: ../../en/geography.rst:20
+msgid "The following calculates the distance between Los Angeles and Paris using the standard PostGIS Cartesian :command:`ST_Distance(geometry, geometry)`.  Note that the SRID of 4326 declares a geographic spatial reference system."
+msgstr ""
+"以下使用标准 PostGIS 笛卡尔坐标:command:`ST_Distance(geometry, "
+"geometry)`计算洛杉矶和巴黎之间的距离。请注意，SRID 4326 "
+"声明了地理空间参考系统。"
+
+#: ../../en/geography.rst:33
+msgid "Aha! 122! But, what does that mean?"
+msgstr "啊哈！ 122！但是，这是什么意思？"
+
+#: ../../en/geography.rst:35
+msgid "The units for spatial reference 4326 are degrees. So our answer is 122 degrees. But (again), what does that mean?"
+msgstr "空间参考4326的单位是度。所以我们的答案是122度。但是（再次），这是什么意思？"
+
+#: ../../en/geography.rst:37
+msgid "On a sphere, the size of one \"degree square\" is quite variable, becoming smaller as you move away from the equator. Think of the meridians (vertical lines) on the globe getting closer to each other as you go towards the poles. So, a distance of 122 degrees doesn't *mean* anything. It is a nonsense number."
+msgstr ""
+"在球体上，一个“平方度”的大小变化很大，随着远离赤道而变得更小。想象一下，当您"
+"向两极移动时，地球上的经线（垂直线）会变得更加接近。所以，122度的距离没有任何"
+"意义。这是一个无意义的数字。"
+
+#: ../../en/geography.rst:39
+msgid "In order to calculate a meaningful distance, we must treat geographic coordinates not as approximate Cartesian coordinates but rather as true spherical coordinates.  We must measure the distances between points as true paths over a sphere -- a portion of a great circle."
+msgstr ""
+"为了计算有意义的距离，我们必须将地理坐标视为真正的球面坐标，而不是近似的笛卡"
+"尔坐标。我们必须将点之间的距离测量为球体（大圆的一部分）上的真实路径。"
+
+#: ../../en/geography.rst:41
+msgid "PostGIS provides this functionality through the ``geography`` type."
+msgstr "PostGIS通过``geography``类型提供此功能。"
+
+#: ../../en/geography.rst:45
+msgid "Different spatial databases have different approaches for \"handling geographics\""
+msgstr "不同的空间数据库有不同的“地理处理”方法"
+
+#: ../../en/geography.rst:47
+msgid "Oracle attempts to paper over the differences by transparently doing geographic calculations when the SRID is geographic."
+msgstr "当SRID是地理位置时，Oracle试通过穿透式的地理坐标系计算来掩盖差异。"
+
+#: ../../en/geography.rst:48
+msgid "SQL Server uses two spatial types, \"STGeometry\" for Cartesian data and \"STGeography\" for geographics."
+msgstr "SQL "
+"Server使用两种空间类型，“STGeometry”用于笛卡尔数据，“STGeography”用于地理。"
+
+#: ../../en/geography.rst:49
+msgid "Informix Spatial is a pure Cartesian extension to Informix, while Informix Geodetic is a pure geographic extension."
+msgstr "Informix Spatial是Informix的纯笛卡尔扩展，而Informix Geodetic是纯地理扩展。"
+
+#: ../../en/geography.rst:50
+msgid "Similar to SQL Server, PostGIS uses two types, \"geometry\" and \"geography\"."
+msgstr "与SQL Server类似，PostGIS使用两种类型，“几何体”和“地理”。"
+
+#: ../../en/geography.rst:52
+msgid "Using the ``geography`` instead of ``geometry`` type, let's try again to measure the distance between Los Angeles and Paris."
+msgstr "用``geography``而不是``geometry``类型，让我们再次尝试测量洛杉矶和巴黎之间的距"
+"离。"
+
+#: ../../en/geography.rst:65
+msgid "A big number! All return values from ``geography`` calculations are in **meters**, so our answer is 9125km."
+msgstr "一个很大的数字！计算的所有返回值``geography`` 均以**米**为单位，"
+"因此我们的答案是 9125km。"
+
+#: ../../en/geography.rst:67
+msgid "Older versions of PostGIS supported very basic calculations over the sphere using the :command:`ST_Distance_Spheroid(point, point, measurement)` function. However, :command:`ST_Distance_Spheroid` is substantially limited. The function only works on points and provides no support for indexing across the poles or international dateline."
+msgstr ""
+"旧版本的 PostGIS 支持使用 :command:`ST_Distance_Spheroid(point, point, "
+"measurement)` 函数对球体进行非常基本的计算。然而， :command:`ST_Distance_Sphe"
+"roid`实质上是有限的。该函数仅适用于点，不支持跨极点或国际日期变更线的索引。"
+
+#: ../../en/geography.rst:69
+msgid "The need to support non-point geometries becomes very clear when posing a question like \"How close will a flight from Los Angeles to Paris come to Iceland?\""
+msgstr "当提出“从洛杉矶到巴黎的航班到冰岛有多近？”这样的问题时，支持非点几何的需求就"
+"变得非常明显"
+
+#: ../../en/geography.rst:73
+msgid "Working with geographic coordinates on a Cartesian plane (the purple line) yields a *very* wrong answer indeed! Using great circle routes (the red lines) gives the right answer. If we convert our LAX-CDG flight into a line string and calculate the distance to a point in Iceland using ``geography`` we'll get the right answer (recall) in meters."
+msgstr ""
+"在笛卡尔平面（紫色线）上使用地理坐标确实会产生*非常*错误的答案！使用大圆路线"
+"（红线）给出了正确的答案。如果我们将我们的LAX-CDG航班转换为字符串，并使用``ge"
+"ography``计算到冰岛某个点的距离，我们将得到以米为单位的正确答案（召回）。"
+
+#: ../../en/geography.rst:86
+msgid "So the closest approach to Iceland (as measured from its international airport) on the LAX-CDG route is a relatively small 502km."
+msgstr "因此，在LAX-"
+"CDG航线上，离冰岛最近的距离（从其国际机场测量）是相对较小的502公里。"
+
+#: ../../en/geography.rst:88
+msgid "The Cartesian approach to handling geographic coordinates breaks down entirely for features that cross the international dateline. The shortest great-circle route from Los Angeles to Tokyo crosses the Pacific Ocean. The shortest Cartesian route crosses the Atlantic and Indian Oceans."
+msgstr "对于跨越国际日期变更线的特征，处理地理坐标的笛卡尔方法完全失效。从洛杉矶到东"
+"京最短的大圆航线要穿越太平洋。最短的笛卡尔路线穿过大西洋和印度洋。"
+
+#: ../../en/geography.rst:111
+msgid "Using Geography"
+msgstr "使用地理"
+
+#: ../../en/geography.rst:113
+msgid "In order to load geometry data into a geography table, the geometry first needs to be projected into EPSG:4326 (longitude/latitude), then it needs to be changed into geography.  The :command:`ST_Transform(geometry,srid)` function converts coordinates to geographics and the :command:`Geography(geometry)` function or the ``::geography`` suffix \"casts\" to geography."
+msgstr ""
+"为了将几何数据加载到地图表中，首先需要将几何投影到EPSG:4326(经度/纬度)中，然"
+"后需要将其更改为地理。 :command:`ST_Transform(geometry,srid)`函数将坐标转换为"
+"地理位置，而:command:`Geography(geometry)`函数或 ``::geography`` "
+"后缀将坐标“强制转换”为地理位置。"
+
+#: ../../en/geography.rst:124
+msgid "Building a spatial index on a geography table is exactly the same as for geometry:"
+msgstr "在地理表中创建空间索引与在几何表中创建空间索引完全相同:"
+
+#: ../../en/geography.rst:131
+msgid "The difference is under the covers: the geography index will correctly handle queries that cover the poles or the international date-line, while the geometry one will not."
+msgstr "不同之处在于:地理索引可以正确处理覆盖两极或国际日期变更线的查询，而几何索引则"
+"不能。"
+
+#: ../../en/geography.rst:133
+msgid "Here's a query to find all the subway stations within 500 meters of the Empire State Building."
+msgstr "这里有一个查询，可以找到帝国大厦500米范围内的所有地铁站。"
+
+#: ../../en/geography.rst:148
+msgid "There are only a small number of native functions for the geography type:"
+msgstr "地理类型只有少量本地函数:"
+
+#: ../../en/geography.rst:150
+msgid ":command:`ST_AsText(geography)` returns ``text``"
+msgstr ":command:`ST_AsText(geography)` 返回``text``类型"
+
+#: ../../en/geography.rst:151
+msgid ":command:`ST_GeographyFromText(text)` returns ``geography``"
+msgstr ":command:`ST_GeographyFromText(text)` 返回 ``geography``类型"
+
+#: ../../en/geography.rst:152
+msgid ":command:`ST_AsBinary(geography)` returns ``bytea``"
+msgstr ":command:`ST_AsBinary(geography)` 返回 ``bytea``类型"
+
+#: ../../en/geography.rst:153
+msgid ":command:`ST_GeogFromWKB(bytea)` returns ``geography``"
+msgstr ":command:`ST_GeogFromWKB(bytea)` 返回``geography``类型"
+
+#: ../../en/geography.rst:154
+msgid ":command:`ST_AsSVG(geography)` returns ``text``"
+msgstr ":command:`ST_AsSVG(geography)` 返回 ``text``类型"
+
+#: ../../en/geography.rst:155
+msgid ":command:`ST_AsGML(geography)` returns ``text``"
+msgstr ":command:`ST_AsGML(geography)` 返回 ``text``类型"
+
+#: ../../en/geography.rst:156
+msgid ":command:`ST_AsKML(geography)` returns ``text``"
+msgstr ":command:`ST_AsKML(geography)` 返回``text``类型"
+
+#: ../../en/geography.rst:157
+msgid ":command:`ST_AsGeoJson(geography)` returns ``text``"
+msgstr ":command:`ST_AsGeoJson(geography)` 返回``text``类型"
+
+#: ../../en/geography.rst:158
+msgid ":command:`ST_Distance(geography, geography)` returns ``double``"
+msgstr ":command:`ST_Distance(geography, geography)`返回``double``类型"
+
+#: ../../en/geography.rst:159
+msgid ":command:`ST_DWithin(geography, geography, float8)` returns ``boolean``"
+msgstr ":command:`ST_DWithin(geography, geography, float8)`返回 ``boolean``类型"
+
+#: ../../en/geography.rst:160
+msgid ":command:`ST_Area(geography)` returns ``double``"
+msgstr ":command:`ST_Area(geography)`返回``double``类型"
+
+#: ../../en/geography.rst:161
+msgid ":command:`ST_Length(geography)` returns ``double``"
+msgstr ":command:`ST_Length(geography)`返回``double``类型"
+
+#: ../../en/geography.rst:162
+msgid ":command:`ST_Covers(geography, geography)` returns ``boolean``"
+msgstr ":command:`ST_Covers(geography, geography)`返回``boolean``类型"
+
+#: ../../en/geography.rst:163
+msgid ":command:`ST_CoveredBy(geography, geography)` returns ``boolean``"
+msgstr ":command:`ST_CoveredBy(geography, geography)`返回``boolean``类型"
+
+#: ../../en/geography.rst:164
+msgid ":command:`ST_Intersects(geography, geography)` returns ``boolean``"
+msgstr ":command:`ST_Intersects(geography, geography)`返回 ``boolean``类型"
+
+#: ../../en/geography.rst:165
+msgid ":command:`ST_Buffer(geography, float8)` returns ``geography`` [#Casting_note]_"
+msgstr ""
+":command:`ST_Buffer(geography, float8)`返回 ``geography`` "
+"[#Casting_note]_类型"
+
+#: ../../en/geography.rst:166
+msgid ":command:`ST_Intersection(geography, geography)` returns ``geography`` [#Casting_note]_"
+msgstr ""
+":command:`ST_Intersection(geography, geography)` 返回``geography`` "
+"[#Casting_note]_类型"
+
+#: ../../en/geography.rst:169
+msgid "Creating a Geography Table"
+msgstr "创建地理表"
+
+#: ../../en/geography.rst:171
+msgid "The SQL for creating a new table with a geography column is much like that for creating a geometry table. However, geography includes the ability to specify the object type directly at the time of table creation. For example:"
+msgstr "用于创建包含地理列的新表的SQL与用于创建几何表的SQL非常相似。但是，地理包括在"
+"创建表时直接指定对象类型的能力。例如:"
+
+#: ../../en/geography.rst:187
+msgid "In the table definition, the ``GEOGRAPHY(Point)`` specifies our airport data type as points. The new geography fields don't get registered in the ``geometry_columns`` view. Instead, they are registered in a view called ``geography_columns``."
+msgstr ""
+"在表定义中，``GEOGRAPHY(Point)`` 将机场数据类型指定为点。新的地理字段不会在``"
+"geometry_columns``视图中注册。相反，它们被注册在一个名为``geography_columns``"
+"的视图中。"
+
+#: ../../en/geography.rst:200
+msgid "Some columns were omitted from the above output."
+msgstr "上面的输出中省略了一些列。"
+
+#: ../../en/geography.rst:203
+msgid "Casting to Geometry"
+msgstr "转换为几何图形"
+
+#: ../../en/geography.rst:205
+msgid "While the basic functions for geography types can handle many use cases, there are times when you might need access to other functions only supported by the geometry type. Fortunately, you can convert objects back and forth from geography to geometry."
+msgstr "虽然地理类型的基本函数可以处理许多用例，但有时您可能需要访问仅由几何类型支持"
+"的其他函数。幸运的是，您可以在地理和几何之间来回转换对象。"
+
+#: ../../en/geography.rst:207
+msgid "The PostgreSQL syntax convention for casting is to append ``::typename`` to the end of the value you wish to cast. So, ``2::text`` will convert a numeric two to a text string '2'. And ``'POINT(0 0)'::geometry`` will convert the text representation of point into a geometry point."
+msgstr ""
+"PostgreSQL的语法惯例是将``::typename``追加到您希望强制转换的值的末尾。因此，`"
+"`2::text``将把数字2转换为文本字符串'2'。``'POINT(0 "
+"0)'::geometry``将点的文本表示转换为几何点。"
+
+#: ../../en/geography.rst:209
+msgid "The :command:`ST_X(point)` function only supports the geometry type. How can we read the X coordinate from our geographies?"
+msgstr ":command:`ST_X(point)` 函数仅支持几何类型。我们如何从地理位置读取 X 坐标？"
+
+#: ../../en/geography.rst:223
+msgid "By appending ``::geometry`` to our geography value, we convert the object to a geometry with an SRID of 4326. From there we can use as many geometry functions as strike our fancy. But, remember -- now that our object is a geometry, the coordinates will be interpretted as Cartesian coordinates, not spherical ones."
+msgstr ""
+"通过将``::geometry``附加到我们的地理值，我们将对象转换为具有4326的SRID的几何"
+"。从这里我们可以使用任何我们喜欢的几何函数。但是，记住，现在我们的对象是一个"
+"几何物体，坐标将被解释为笛卡尔坐标，而不是球面坐标。"
+
+#: ../../en/geography.rst:227
+msgid "Why (Not) Use Geography"
+msgstr "为什么(不)使用地理"
+
+#: ../../en/geography.rst:229
+msgid "Geographics are universally accepted coordinates -- everyone understands what latitude/longitude mean, but very few people understand what UTM coordinates mean. Why not use geography all the time?"
+msgstr "地理坐标是被普遍接受的坐标——每个人都知道经纬度是什么意思，但很少有人知道UTM坐"
+"标是什么意思。为什么不一直用地理呢?"
+
+#: ../../en/geography.rst:231
+msgid "First, as noted earlier, there are far fewer functions available (right now) that directly support the geography type. You may spend a lot of time working around geography type limitations."
+msgstr "首先，如前所述，直接支持地理类型的可用功能(目前)要少得多。您可能需要花费大量"
+"时间来解决地理类型的限制。"
+
+#: ../../en/geography.rst:232
+msgid "Second, the calculations on a sphere are computationally far more expensive than Cartesian calculations. For example, the Cartesian formula for distance (Pythagoras) involves one call to sqrt(). The spherical formula for distance (Haversine) involves two sqrt() calls, an arctan() call, four sin() calls and two cos() calls. Trigonometric functions are very costly, and spherical calculations involve a lot of them."
+msgstr ""
+"其次，在球体上的计算比笛卡尔计算要昂贵得多。例如，距离的笛卡尔公式(毕达哥拉斯"
+")涉及一次调用sqrt()。距离的球面公式(Haversine)涉及两次sqrt()调用，一次arctan("
+")调用，四次sin()调用和两次cos()调用。三角函数是非常昂贵的，球面计算涉及到很多"
+"三角函数。"
+
+#: ../../en/geography.rst:234
+msgid "The conclusion?"
+msgstr "结论?"
+
+#: ../../en/geography.rst:236
+msgid "**If your data is geographically compact** (contained within a state, county or city), **use the geometry type with a Cartesian projection** that makes sense with your data. See the http://epsg.io site and type in the name of your region for a selection of possible reference systems."
+msgstr ""
+"**如果您的数据在地理上紧凑的**(包含在一个州，县或市)，**使用具有笛卡尔投影的"
+"几何类型**，这对您的数据有意义。请参阅 http://epsg."
+"io网站，并键入您所在地区的名称，以选择可能的参考系统。"
+
+#: ../../en/geography.rst:238
+msgid "**If you need to measure distance with a dataset that is geographically dispersed** (covering much of the world), **use the geography type.** The application complexity you save by working in ``geography`` will offset any performance issues. And casting to ``geometry`` can offset most functionality limitations."
+msgstr ""
+"**如果你需要用地理上分散的数据集**(覆盖世界的大部分)来测量距离，**使用地理类"
+"型**。在``geography``中工作节省的应用程序复杂性将抵消任何性能问题。而转换为``"
+"geometry`` 可以抵消大多数功能限制。"
+
+#: ../../en/geography.rst:241
+msgid "Function List"
+msgstr "函数列表"
+
+#: ../../en/geography.rst:243
+msgid "`ST_Distance(geometry, geometry) <http://postgis.net/docs/ST_Distance.html>`_: For geometry type Returns the 2-dimensional Cartesian minimum distance (based on spatial ref) between two geometries in projected units. For geography type defaults to return spheroidal minimum distance between two geographies in meters."
+msgstr ""
+"`ST_Distance(geometry, geometry) <http://postgis.net/docs/ST_Distance."
+"html>`_: 对于几何类型，返回两个几何图形之间的二维笛卡尔最小距离（基于空间参考"
+"）（以投影单位表示）。对于地理类型，默认返回两个地理区域之间的球体最小距离（"
+"以米为单位）。"
+
+#: ../../en/geography.rst:245
+msgid "`ST_GeographyFromText(text) <http://postgis.net/docs/ST_GeographyFromText.html>`_: Returns a specified geography value from Well-Known Text representation or extended (WKT)."
+msgstr ""
+"`ST_GeographyFromText(text) <http://postgis.net/docs/ST_GeographyFromText."
+"html>`_:从众所周知的文本表示或扩展 (WKT) 返回指定的地理值。"
+
+#: ../../en/geography.rst:247
+msgid "`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: Returns a new geometry with its coordinates transformed to the SRID referenced by the integer parameter."
+msgstr ""
+"`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: "
+"返回一个新的几何图形，其坐标转换为整数参数引用的 SRID。"
+
+#: ../../en/geography.rst:249
+msgid "`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate of the point, or NULL if not available. Input must be a point."
+msgstr ""
+
+#: ../../en/geography.rst:251
+msgid "`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth.html>`_: Returns the direction from A to B in radians."
+msgstr ""
+"`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth."
+"html>`_: 以弧度为单位返回从A到B的方向。"
+
+#: ../../en/geography.rst:253
+msgid "`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin.html>`_: Returns true if A is within R meters of B."
+msgstr ""
+"`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin."
+"html>`_:如果A距离B在R米以内返回true。"
+
+#: ../../en/geography.rst:257
+msgid "Footnotes"
+msgstr ""
+
+#: ../../en/geography.rst:258
+msgid "The buffer and intersection functions are actually wrappers on top of a cast to geometry, and are not carried out natively in spherical coordinates. As a result, they may fail to return correct results for objects with very large extents that cannot be cleanly converted to a planar representation."
+msgstr ""
+"缓冲区和交集函数实际上是在转换为几何图形之上的包装器，并不是在球坐标中进行的"
+"。因此，对于无法清晰地转换为平面表示的范围非常大的对象，它们可能无法返回正确"
+"的结果。"
+
+#: ../../en/geography.rst:260
+msgid "For example, the :command:`ST_Buffer(geography,distance)` function transforms the geography object into a \"best\" projection, buffers it, and then transforms it back to geographics. If there is no \"best\" projection (the object is too large), the operation can fail or return a malformed buffer."
+msgstr ""
+"例如， :command:`ST_Buffer(geography,distance)` 函数将地理对象转换为“最佳”投"
+"影，对其进行缓冲，然后将其转换回地理。如果没有“最佳”投影(对象太大)，则操作可"
+"能失败或返回格式错误的缓冲区。"

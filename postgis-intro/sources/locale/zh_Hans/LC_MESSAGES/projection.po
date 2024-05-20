@@ -2,13 +2,14 @@
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
+# Wang Chengxiang <wangcx1011@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-05-06 21:00+0000\n"
-"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"PO-Revision-Date: 2024-05-20 09:21+0000\n"
+"Last-Translator:  Wang Chengxiang <wangcx1011@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/projection/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -189,5 +190,5 @@ msgstr ""
 #: ../../en/projection.rst:169
 msgid "`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: Returns a new geometry with its coordinates transformed to the SRID referenced by the integer parameter."
 msgstr ""
-"`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform."
-"html>`_:返回一个新的几何图形，其坐标转换为整数参数引用的 SRID。"
+"`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: "
+"返回一个新的几何图形，其坐标转换为整数参数引用的 SRID。"

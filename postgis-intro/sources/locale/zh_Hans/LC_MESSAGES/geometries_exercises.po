@@ -33,7 +33,7 @@ msgstr ":command:`sum(expression)`聚合函数用于对一组记录进行求和�
 
 #: ../../en/geometries_exercises.rst:9
 msgid ":command:`count(expression)` aggregate to return the size of a set of records"
-msgstr ":command:`sum(expression)`聚合函数用于返回一组记录的大小"
+msgstr ":command:`count(expression)`聚合函数用于返回一组记录的大小"
 
 #: ../../en/geometries_exercises.rst:10
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"

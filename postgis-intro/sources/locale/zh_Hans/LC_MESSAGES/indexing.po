@@ -2,13 +2,14 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-03-28 18:21+0000\n"
-"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/indexing/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/indexing.rst:4
 msgid "Spatial Indexing"
@@ -289,6 +290,9 @@ msgid ""
 "automatically. But some functions (e.g., :command:`ST_Relate`) do not "
 "include an index filter."
 msgstr ""
+"PostGIS 中的大多数常用函数（:command:`ST_Contains`, :command:`ST_Intersects`"
+", :command:`ST_DWithin`等）自动包含索引过滤器。但某些函数（例如:command:`ST_R"
+"elate`）不包含索引过滤器。"
 
 #: ../../en/indexing.rst:105
 msgid ""
@@ -297,26 +301,32 @@ msgid ""
 "\"bounding boxes overlap or touch\" in the same way that for numbers the :"
 "command:`=` operator means \"values are the same\"."
 msgstr ""
+"要使用索引（且不进行过滤）进行边界框搜索，请使用 "
+":command:`&&`运算符。对于几何图形， :command:`&&` "
+"运算符意味着“边界框重叠或接触”，就像对于数字 :command:`=` "
+"运算符意味着“值相同”一样。"
 
 #: ../../en/indexing.rst:107
 msgid ""
 "Let's compare an index-only query for the population of the 'West Village' "
 "to a more exact query. Using :command:`&&` our index-only query looks like "
 "the following:"
-msgstr ""
+msgstr "让我们将“West Village”人口的仅索引查询与更精确的查询进行比较。使用 "
+":command:`&&`我们的仅索引查询如下所示："
 
 #: ../../en/indexing.rst:121
 msgid ""
 "Now let's do the same query using the more exact :command:`ST_Intersects` "
 "function."
-msgstr ""
+msgstr "现在让我们使用更精确的 :command:`ST_Intersects` 函数执行相同的查询。"
 
 #: ../../en/indexing.rst:135
 msgid ""
 "A much lower answer! The first query summed up every block whose bounding "
 "box intersects the neighborhood's bounding box; the second query only summed "
 "up those blocks that intersect the neighborhood itself."
-msgstr ""
+msgstr "答案要少得多！第一个查询总结了其边界框与邻域边界框相交的每个块；第二个查询仅"
+"总结了与邻域本身相交的那些块。"
 
 #: ../../en/indexing.rst:138
 msgid "Analyzing"
@@ -330,13 +340,17 @@ msgid ""
 "table, traversing the index tree to get each record will actually be slower "
 "than just sequentially reading the whole table from the start."
 msgstr ""
+"PostgreSQL 查询规划器智能地选择何时使用或不使用索引来评估查询。与直觉相反，进"
+"行索引搜索并不总是更快：如果搜索要返回表中的每条记录，则遍历索引树以获取每条"
+"记录实际上会比从头开始顺序读取整个表慢。"
 
 #: ../../en/indexing.rst:142
 msgid ""
 "Knowing the size of the query rectangle is not enough to pin down whether a "
 "query will return a large number or small number of records. Below, the red "
 "square is small, but will return many more records than the blue square."
-msgstr ""
+msgstr "了解查询矩形的大小不足以确定查询是否会返回大量记录或少量记录。下面，红色方块"
+"很小，但会返回比蓝色方块更多的记录。"
 
 #: ../../en/indexing.rst:146
 msgid ""
@@ -347,6 +361,9 @@ msgid ""
 "However, if you dramatically change the contents of your table within a "
 "short period of time, the statistics will not be up-to-date."
 msgstr ""
+"为了弄清楚它正在处理什么情况（读取表的一小部分与读取表的大部分），PostgreSQL "
+"保留有关每个索引表列中数据分布的统计信息。默认情况下，PostgreSQL 会定期收集统"
+"计信息。但是，如果您在短时间内大幅更改表的内容，则统计信息将不是最新的。"
 
 #: ../../en/indexing.rst:148
 msgid ""
@@ -354,13 +371,16 @@ msgid ""
 "the ``ANALYZE`` command after bulk data loads and deletes in your tables. "
 "This force the statistics system to gather data for all your indexed columns."
 msgstr ""
+"为了确保统计信息与您的表内容匹配，明智的做法是在表中加载和删除批量数据后运行 "
+"``ANALYZE`` 命令。这迫使统计系统收集所有索引列的数据。"
 
 #: ../../en/indexing.rst:150
 msgid ""
 "The ``ANALYZE`` command asks PostgreSQL to traverse the table and update its "
 "internal statistics used for query plan estimation (query plan analysis will "
 "be discussed later)."
-msgstr ""
+msgstr "``ANALYZE`` 命令要求 PostgreSQL "
+"遍历该表并更新其用于查询计划估计的内部统计信息（稍后将讨论查询计划分析）。"
 
 #: ../../en/indexing.rst:157
 msgid "Vacuuming"
@@ -374,12 +394,16 @@ msgid ""
 "``VACUUM`` command asks PostgreSQL to reclaim any unused space in the table "
 "pages left by updates or deletes to records."
 msgstr ""
+"值得强调的是，仅仅创建索引并不足以让 PostgreSQL 有效地使用它。"
+"每当对表发出大量 UPDATE、INSERT 或 DELETE 时，都必须执行 VACUUMing。该 "
+"``VACUUM``命令要求 PostgreSQL "
+"回收因更新或删除记录而留下的表页中任何未使用的空间。"
 
 #: ../../en/indexing.rst:161
 msgid ""
 "Vacuuming is so critical for the efficient running of the database that "
 "PostgreSQL provides an \"autovacuum\" facility by default."
-msgstr ""
+msgstr "清理对于数据库的高效运行至关重要，因此 PostgreSQL 默认提供“自动清理”功能。"
 
 #: ../../en/indexing.rst:163
 msgid ""
@@ -390,6 +414,10 @@ msgid ""
 "data.  Whenever a large batch update is performed, you should manually run "
 "``VACUUM``."
 msgstr ""
+"Autovacuum 根据活动级别确定的合理时间间隔对表进行真空处理（恢复空间）和分析（"
+"更新统计信息）。虽然这对于高度事务性数据库至关重要，"
+"但不建议在添加索引或批量加载数据后等待 autovacuum "
+"运行。每当执行大批量更新时，您应该手动运行``VACUUM`` 。"
 
 #: ../../en/indexing.rst:165
 msgid ""
@@ -399,6 +427,9 @@ msgid ""
 "commands can be run against the entire database, a single table, or a single "
 "column."
 msgstr ""
+"可以根据需要单独执行数据库的清理和分析。发出 ``VACUUM`` 命令不会更新数据库统"
+"计信息；同样，发出``ANALYZE``命令将不会恢复未使用的表行。这两个命令都可以针对"
+"整个数据库、单个表或单个列运行。"
 
 #: ../../en/indexing.rst:172
 msgid "Function List"

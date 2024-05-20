@@ -4,13 +4,14 @@
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-02-23 03:45+0000\n"
-"Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
+"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/simple_sql_exercises/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/simple_sql_exercises.rst:4
 msgid "Simple SQL Exercises"
@@ -203,5 +204,5 @@ msgstr ""
 msgid "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the sum of records in a set of records."
 msgstr ""
 "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-"
-"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: "
-"返回一组记录中记录总和的PostgreSQL聚合函数。"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL "
+"聚合函数，返回一组记录中的记录总和。"

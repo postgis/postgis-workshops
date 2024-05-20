@@ -2,155 +2,208 @@
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/joins/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/joins.rst:4
 msgid "Spatial Joins"
-msgstr ""
+msgstr "空间连接"
 
 #: ../../en/joins.rst:6
 msgid "Spatial joins are the bread-and-butter of spatial databases.  They allow you to combine information from different tables by using spatial relationships as the join key.  Much of what we think of as \"standard GIS analysis\" can be expressed as spatial joins."
 msgstr ""
+"空间连接是空间数据库的基础."
+"它们允许您通过使用空间关系作为连接键来组合来自不同表的信息。我们所认为的“"
+"标准 GIS 分析”的大部分内容都可以表示为空间连接。"
 
 #: ../../en/joins.rst:8
 msgid "In the previous section, we explored spatial relationships using a two-step process: first we extracted a subway station point for 'Broad St'; then, we used that point to ask further questions such as \"what neighborhood is the 'Broad St' station in?\""
 msgstr ""
+"在上一节中，我们使用两步过程探索了空间关系：首先，我们提取“Broad "
+"St”的地铁站点；然后，我们利用这一点提出了进一步的问题，例如“‘Broad "
+"St’车站位于哪个社区？”"
 
 #: ../../en/joins.rst:10
 msgid "Using a spatial join, we can answer the question in one step, retrieving information about the subway station and the neighborhood that contains it:"
-msgstr ""
+msgstr "使用空间连接，我们可以一步回答这个问题，检索有关地铁站及其所在社区的信息："
 
 #: ../../en/joins.rst:29
 msgid "We could have joined every subway station to its containing neighborhood, but in this case we wanted information about just one.  Any function that provides a true/false relationship between two tables can be used to drive a spatial join, but the most commonly used ones are: :command:`ST_Intersects`, :command:`ST_Contains`, and :command:`ST_DWithin`."
 msgstr ""
+"我们本可以将每个地铁站与其所在的社区连接起来，但在这种情况下，我们只需要一个"
+"地铁站的信息。任何在两个表之间提供真/假关系的函数都可用于驱动空间联接，但最常"
+"用的函数是: :command:`ST_Intersects`, :command:`ST_Contains`, and "
+":command:`ST_DWithin`."
 
 #: ../../en/joins.rst:32
 msgid "Join and Summarize"
-msgstr ""
+msgstr "连接并总结"
 
 #: ../../en/joins.rst:34
 msgid "The combination of a ``JOIN`` with a ``GROUP BY`` provides the kind of analysis that is usually done in a GIS system."
-msgstr ""
+msgstr "JOIN 与 GROUP BY 的组合提供了通常在 GIS 系统中完成的分析类型。"
 
 #: ../../en/joins.rst:36
 msgid "For example: **\"What is the population and racial make-up of the neighborhoods of Manhattan?\"** Here we have a question that combines information from about population from the census with the boundaries of neighborhoods, with a restriction to just one borough of Manhattan."
-msgstr ""
+msgstr "例如：**“曼哈顿社区的人口和种族构成是多少？”**这里我们有一个问题，将人口普查"
+"中的人口信息与社区边界相结合，并仅限于曼哈顿的一个行政区。"
 
 #: ../../en/joins.rst:88
 msgid "What's going on here? Notionally (the actual evaluation order is optimized under the covers by the database) this is what happens:"
-msgstr ""
+msgstr "这里发生了什么？理论上（实际的评估顺序是由数据库在幕后优化的），发生的情况如"
+"下："
 
 #: ../../en/joins.rst:90
 msgid "The ``JOIN`` clause creates a virtual table that includes columns from both the neighborhoods and census tables."
-msgstr ""
+msgstr "该``JOIN``子句创建一个虚拟表，其中包括邻域表和人口普查表中的列。"
 
 #: ../../en/joins.rst:91
 msgid "The ``WHERE`` clause filters our virtual table to just rows in Manhattan."
-msgstr ""
+msgstr "该``WHERE``子句将我们的虚拟表过滤为仅曼哈顿中的行。"
 
 #: ../../en/joins.rst:92
 msgid "The remaining rows are grouped by the neighborhood name and fed through the aggregation function to :command:`Sum()` the population values."
-msgstr ""
+msgstr "其余行按邻域名称分组，并通过聚合函数将人口值输入 :command:`Sum()` 。"
 
 #: ../../en/joins.rst:93
 msgid "After a little arithmetic and formatting (e.g., ``GROUP BY``, ``ORDER BY``) on the final numbers, our query spits out the percentages."
-msgstr ""
+msgstr "对最终数字进行一些算术和格式化（例如 ``GROUP BY``, ``ORDER "
+"BY``）后，我们的查询会输出百分比。"
 
 #: ../../en/joins.rst:97
 msgid "The ``JOIN`` clause combines two ``FROM`` items.  By default, we are using an ``INNER JOIN``, but there are four other types of joins. For further information see the `join_type <http://www.postgresql.org/docs/9.1/interactive/sql-select.html#SQL-FROM>`_ definition in the PostgreSQL documentation."
 msgstr ""
+"``JOIN``子句组合了两个 ``FROM`` 项。默认情况下，我们使用 ``INNER "
+"JOIN``，但还有四种其他类型的连接。有关更多信息，请参阅 PostgreSQL 文档中的`"
+"join_type <http://www.postgresql.org/docs/9.1/interactive/sql-select.html"
+"#SQL-FROM>`_ 定义。"
 
 #: ../../en/joins.rst:99
 msgid "We can also use distance tests as a join key, to create summarized \"all items within a radius\" queries. Let's explore the racial geography of New York using distance queries."
-msgstr ""
+msgstr "我们还可以使用距离测试作为连接键，来创建汇总的“半径内的所有项目”查询。让我们"
+"使用距离查询来探索纽约的种族地理。"
 
 #: ../../en/joins.rst:101
 msgid "First, let's get the baseline racial make-up of the city."
-msgstr ""
+msgstr "首先，让我们了解一下该城市的基本种族构成。"
 
 #: ../../en/joins.rst:118
 msgid "So, of the 8M people in New York, about 44% are recorded as \"white\" and 26% are recorded as \"black\"."
-msgstr ""
+msgstr "因此，在纽约的 800 万人口中，大约 44% 被记录为“白人”，26% 被记录为“黑人”。"
 
 #: ../../en/joins.rst:120
 msgid "Duke Ellington once sang that \"You / must take the A-train / To / go to Sugar Hill way up in Harlem.\" As we saw earlier, Harlem has far and away the highest African-American population in Manhattan (80.5%). Is the same true of Duke's A-train?"
 msgstr ""
+"杜克·艾灵顿曾经唱过“你必须乘坐 A 列车去哈莱姆区的糖山。”正如我们之前所看到的"
+"，哈莱姆区的非裔美国人人口是曼哈顿最高的（80.5%）。那么杜克所说的 A "
+"列车也是如此吗？"
 
 #: ../../en/joins.rst:122
 msgid "First, note that the contents of the ``nyc_subway_stations`` table ``routes`` field is what we are interested in to find the A-train. The values in there are a little complex."
 msgstr ""
+"首先，请注意 ``nyc_subway_stations`` table ``routes`` "
+"字段的内容是我们感兴趣的查找 A-train 的内容。里面的值有点复杂。"
 
 #: ../../en/joins.rst:140
 msgid "The ``DISTINCT`` keyword eliminates duplicate rows from the result.  Without the ``DISTINCT`` keyword, the query above identifies 491 results instead of 73."
 msgstr ""
+"``DISTINCT`` 关键字可消除结果中的重复行。如果没有 ``DISTINCT`` 关键字，"
+"上面的查询会识别 491 个结果，而不是 73 个。"
 
 #: ../../en/joins.rst:142
 msgid "So to find the A-train, we will want any row in ``routes`` that has an 'A' in it. We can do this a number of ways, but today we will use the fact that :command:`strpos(routes,'A')` will return a non-zero number only if 'A' is in the ``routes`` field."
 msgstr ""
+"因此，要找到 A 列，我们需要其中``routes``包含“A”的任何行。我们可以通过多种方"
+"式做到这一点，但今天我们将使用这样一个事实：仅当“A”位于 "
+"``routes``字段中时，:command:`strpos(routes,'A')`才会返回非零数字。"
 
 #: ../../en/joins.rst:162
 msgid "Let's summarize the racial make-up of within 200 meters of the A-train line."
-msgstr ""
+msgstr "我们来总结一下A线附近200米范围内的种族构成。"
 
 #: ../../en/joins.rst:181
 msgid "So the racial make-up along the A-train isn't radically different from the make-up of New York City as a whole."
-msgstr ""
+msgstr "因此，A 号列车沿线的种族构成与整个纽约市的构成并没有根本不同。"
 
 #: ../../en/joins.rst:184
 msgid "Advanced Join"
-msgstr ""
+msgstr "高级连接"
 
 #: ../../en/joins.rst:186
 msgid "In the last section we saw that the A-train didn't serve a population that differed much from the racial make-up of the rest of the city. Are there any trains that have a non-average racial make-up?"
-msgstr ""
+msgstr "在上一节中，我们看到 A 列车所服务的人群与城市其他地区的种族构成差异不大。是否"
+"存在种族构成非平均的火车？"
 
 #: ../../en/joins.rst:188
 msgid "To answer that question, we'll add another join to our query, so that we can simultaneously calculate the make-up of many subway lines at once. To do that, we'll need to create a new table that enumerates all the lines we want to summarize."
-msgstr ""
+msgstr "为了回答这个问题，我们将在查询中添加另一个连接，以便我们可以同时计算许多地铁"
+"线路的组成。为此，我们需要创建一个新表来枚举我们想要汇总的所有行。"
 
 #: ../../en/joins.rst:199
 msgid "Now we can join the table of subway lines onto our original query."
-msgstr ""
+msgstr "现在我们可以将地铁线路表连接到我们的原始查询中。"
 
 #: ../../en/joins.rst:244
 msgid "As before, the joins create a virtual table of all the possible combinations available within the constraints of the ``JOIN ON`` restrictions, and those rows are then fed into a ``GROUP`` summary. The spatial magic is in the ``ST_DWithin`` function, that ensures only census blocks close to the appropriate subway stations are included in the calculation."
 msgstr ""
+"和以前一样，连接创建一个虚拟表，其中包含 ``JOIN ON`` "
+"限制范围内可用的所有可能组合，然后将这些行输入到 ``GROUP`` 摘要中。"
+"空间魔力在于 ``ST_DWithin`` "
+"函数，它确保计算中仅包含靠近相应地铁站的人口普查区块。"
 
 #: ../../en/joins.rst:247
 msgid "Function List"
-msgstr ""
+msgstr "函数列表"
 
 #: ../../en/joins.rst:249
 msgid "`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains.html>`_: Returns true if and only if no points of B lie in the exterior of A, and at least one point of the interior of B lies in the interior of A."
 msgstr ""
+"`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains.htm"
+"l>`_:当且仅当B的任何点都不位于A的外部，并且B的内部至少有一个点位于A的内部时，"
+"返回true。"
 
 #: ../../en/joins.rst:251
 msgid "`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/ST_DWithin.html>`_: Returns true if the geometries are within the specified distance of one another."
 msgstr ""
+"`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/"
+"ST_DWithin.html>`_: 如果几何图形彼此之间在指定的距离内，则返回true。"
 
 #: ../../en/joins.rst:253
 msgid "`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography \"spatially intersect\" - (share any portion of space) and FALSE if they don't (they are Disjoint)."
 msgstr ""
+"`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects"
+".html>`_: 如果几何/地理“空间相交”（有任意部分重叠），则返回 TRUE，否则返回 "
+"（FALSE它们不相交）。"
 
 #: ../../en/joins.rst:255
 msgid "`round(v numeric, s integer) <http://www.postgresql.org/docs/current/interactive/functions-math.html>`_: PostgreSQL math function that rounds to s decimal places"
 msgstr ""
+"`round(v numeric, s integer) <http://www.postgresql.org/docs/current/"
+"interactive/functions-math.html>`_: 四舍五入到 s 小数位的 PostgreSQL 数学函数"
 
 #: ../../en/joins.rst:257
 msgid "`strpos(string, substring) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function that returns an integer location of a specified substring."
 msgstr ""
+"`strpos(string, substring) <http://www.postgresql.org/docs/current/static/"
+"functions-string.html>`_:PostgreSQL 字符串函数，返回指定子字符串的整数位置。"
 
 #: ../../en/joins.rst:259
 msgid "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the sum of records in a set of records."
 msgstr ""
+"`sum(expression) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL "
+"聚合函数，返回一组记录中的记录总和。"

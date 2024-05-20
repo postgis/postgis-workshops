@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 22:14-0400\n"
+"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/joins_exercises/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/joins_exercises.rst:4
+msgid "Spatial Joins Exercises"
+msgstr "空间连接练习"
+
+#: ../../en/joins_exercises.rst:6
+msgid "Here's a reminder of some of the functions we have seen.  Hint: they should be useful for the exercises!"
+msgstr "这里提醒一下我们见过的一些功能。提示：它们应该对练习有用！"
+
+#: ../../en/joins_exercises.rst:8
+msgid ":command:`sum(expression)`: aggregate to return a sum for a set of records"
+msgstr ":command:`sum(expression)`:聚合函数返回一组记录的总和"
+
+#: ../../en/joins_exercises.rst:9
+msgid ":command:`count(expression)`: aggregate to return the size of a set of records"
+msgstr ":command:`count(expression)`: 聚合函数用于返回一组记录的大小"
+
+#: ../../en/joins_exercises.rst:10
+msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
+msgstr ":command:`ST_Area(geometry)` 返回多边形的面积"
+
+#: ../../en/joins_exercises.rst:11
+msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
+msgstr ":command:`ST_AsText(geometry)` 返回 WKT 格式的``text``"
+
+#: ../../en/joins_exercises.rst:12
+msgid ":command:`ST_Contains(geometry A, geometry B)` returns the true if geometry A contains geometry B"
+msgstr ":command:`ST_Contains(geometry A, geometry B)` "
+"如果几何体A包含几何体B，则返回true"
+
+#: ../../en/joins_exercises.rst:13
+msgid ":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance between geometry A and geometry B"
+msgstr ":command:`ST_Distance(geometry A, geometry "
+"B)`返回几何图形A和几何图形B之间的最小距离"
+
+#: ../../en/joins_exercises.rst:14
+msgid ":command:`ST_DWithin(geometry A, geometry B, radius)` returns the true if geometry A is radius distance or less from geometry B"
+msgstr ""
+":command:`ST_DWithin(geometry A, geometry B, radius)`如果几何图形 A "
+"与几何图形 B 的距离为‘radius’或更近，则返回 true"
+
+#: ../../en/joins_exercises.rst:15
+msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
+msgstr ":command:`ST_GeomFromText(text)`返回 ``geometry``"
+
+#: ../../en/joins_exercises.rst:16
+msgid ":command:`ST_Intersects(geometry A, geometry B)` returns the true if geometry A intersects geometry B"
+msgstr ":command:`ST_Intersects(geometry A, geometry "
+"B)`如果几何图形A与几何图形B相交，则返回true"
+
+#: ../../en/joins_exercises.rst:17
+msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
+msgstr ":command:`ST_Length(linestring)` 返回线串的长度"
+
+#: ../../en/joins_exercises.rst:18
+msgid ":command:`ST_Touches(geometry A, geometry B)` returns the true if the boundary of geometry A touches geometry B"
+msgstr ":command:`ST_Touches(geometry A, geometry "
+"B)`如果几何体A的边界接触几何体B，则返回true"
+
+#: ../../en/joins_exercises.rst:19
+msgid ":command:`ST_Within(geometry A, geometry B)` returns the true if geometry A is within geometry B"
+msgstr ""
+":command:`ST_Within(geometry A, geometry B)` 如果几何图形 A 在几何图形 B "
+"内部，则返回 true"
+
+#: ../../en/joins_exercises.rst:21
+msgid "Also remember the tables we have available:"
+msgstr "当然！我们有以下表可用："
+
+#: ../../en/joins_exercises.rst:23
+msgid "``nyc_census_blocks``"
+msgstr "``nyc_census_blocks``"
+
+#: ../../en/joins_exercises.rst:25
+msgid "name, popn_total, boroname, geom"
+msgstr "name, popn_total, boroname, geom"
+
+#: ../../en/joins_exercises.rst:27
+msgid "``nyc_streets``"
+msgstr "``nyc_streets``"
+
+#: ../../en/joins_exercises.rst:29
+msgid "name, type, geom"
+msgstr "name, type, geom"
+
+#: ../../en/joins_exercises.rst:31
+msgid "``nyc_subway_stations``"
+msgstr "``nyc_subway_stations``"
+
+#: ../../en/joins_exercises.rst:33
+msgid "name, routes, geom"
+msgstr "name, routes, geom"
+
+#: ../../en/joins_exercises.rst:35
+msgid "``nyc_neighborhoods``"
+msgstr "``nyc_neighborhoods``"
+
+#: ../../en/joins_exercises.rst:37
+msgid "name, boroname, geom"
+msgstr "name, boroname, geom"
+
+#: ../../en/joins_exercises.rst:40
+msgid "Exercises"
+msgstr "练习"
+
+#: ../../en/joins_exercises.rst:42
+msgid "**What subway station is in 'Little Italy'? What subway route is it on?**"
+msgstr "**“Little Italy”有哪个地铁站？它在哪条地铁路线上？**"
+
+#: ../../en/joins_exercises.rst:58
+msgid "**What are all the neighborhoods served by the 6-train?** (Hint: The ``routes`` column in the ``nyc_subway_stations`` table has values like 'B,D,6,V' and 'C,6')"
+msgstr ""
+"**6 号列车服务的所有社区有哪些？** (提示： ``nyc_subway_stations`` "
+"表中的``routes``列具有“B,D,6,V”和“C,6”等值)"
+
+#: ../../en/joins_exercises.rst:90
+msgid "We used the ``DISTINCT`` keyword to remove duplicate values from our result set where there were more than one subway station in a neighborhood."
+msgstr "我们使用``DISTINCT``关键字从结果集中删除重复值，其中一个街区内有多个地铁站。"
+
+#: ../../en/joins_exercises.rst:92
+msgid "**After 9/11, the 'Battery Park' neighborhood was off limits for several days. How many people had to be evacuated?**"
+msgstr "**9/11 事件后，“Battery Park”社区连续几天禁止进入。有多少人需要疏散？**"
+
+#: ../../en/joins_exercises.rst:106
+msgid "**What neighborhood has the highest population density (persons/km2)?**"
+msgstr "**哪个社区的人口密度最高（人/平方公里）？**"

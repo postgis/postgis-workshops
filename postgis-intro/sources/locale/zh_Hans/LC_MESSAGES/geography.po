@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Wang Chengxiang <wangcx1011@gmail.com>, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2024-05-20 09:21+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/geography/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -379,7 +381,7 @@ msgstr ""
 
 #: ../../en/geography.rst:257
 msgid "Footnotes"
-msgstr ""
+msgstr "脚注"
 
 #: ../../en/geography.rst:258
 msgid "The buffer and intersection functions are actually wrappers on top of a cast to geometry, and are not carried out natively in spherical coordinates. As a result, they may fail to return correct results for objects with very large extents that cannot be cleanly converted to a planar representation."

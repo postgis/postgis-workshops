@@ -4,13 +4,13 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-08-24 07:08+0000\n"
+"PO-Revision-Date: 2024-05-30 02:45+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geometry_returning.rst:4
@@ -282,8 +282,7 @@ msgid ""
 "`ST_Centroid(geometry) <http://postgis.net/docs/ST_Centroid.html>`_: Returns "
 "a point geometry that represents the center of mass of the input geometry."
 msgstr ""
-"`ST_Centroid(geometry) <https://boiledorange73.github.io/pgismanja/latest/"
-"postgis-ja/ST_Centroid.html>`_: "
+"`ST_Centroid(geometry) <http://postgis.net/docs/ja/ST_Centroid.html>`_: "
 "入力ジオメトリの重心を表現するポイントジオメトリを返します。"
 
 #: ../../en/geometry_returning.rst:216
@@ -292,8 +291,8 @@ msgid ""
 "html>`_: Returns a point geometry that is guaranteed to be in the interior "
 "of the input geometry."
 msgstr ""
-"`ST_PointOnSurface(geometry) <https://boiledorange73.github.io/pgismanja/"
-"latest/postgis-ja/ST_PointOnSurface.html>`_: "
+"`ST_PointOnSurface(geometry) <http://postgis.net/docs/ja/ST_PointOnSurface."
+"html>`_: "
 "入力ジオメトリの内部にあることが保証されたポイントジオメトリを返します。"
 
 #: ../../en/geometry_returning.rst:218
@@ -304,11 +303,10 @@ msgid ""
 "the Spatial Reference System of this Geometry. For geography: Uses a planar "
 "transform wrapper."
 msgstr ""
-"`ST_Buffer(geometry, distance) <https://boiledorange73.github.io/pgismanja/"
-"latest/postgis-ja/ST_Buffer.html>`_: ジオメトリ版: 指定したジオメトリからの距"
-"離が指定した距離以下である点の全てを表現するジオメトリを返します。ジオメトリ"
-"の計算は、指定したジオメトリの空間参照系で行われます。ジオグラフィ版: "
-"投影座標系に変換する薄いラッパです。"
+"`ST_Buffer(geometry, distance) <http://postgis.net/docs/ja/ST_Buffer.html>`_:"
+" ジオメトリ版: 指定したジオメトリからの距離が指定した距離以下である点の全てを"
+"表現するジオメトリを返します。ジオメトリの計算は、指定したジオメトリの空間参"
+"照系で行われます。ジオグラフィ版: 投影座標系に変換する薄いラッパです。"
 
 #: ../../en/geometry_returning.rst:220
 msgid ""
@@ -317,18 +315,18 @@ msgid ""
 "portion of geomA and geomB. The geography implementation does a transform to "
 "geometry to do the intersection and then transform back to WGS84."
 msgstr ""
-"`ST_Intersection(geometry A, geometry B) <https://boiledorange73.github.io/"
-"pgismanja/latest/postgis-ja/ST_Intersection.html>`_: geomA と geomB との共有"
-"部を表現するジオメトリを返します。ジオグラフィ実装では、ジオメトリに変換して"
-"、インタセクションを得て、 WGS84 に戻します。"
+"`ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/ja/"
+"ST_Intersection.html>`_: geomA と geomB との共有部を表現するジオメトリを返し"
+"ます。ジオグラフィ実装では、ジオメトリに変換して、インタセクションを得て、 "
+"WGS84 に戻します。"
 
 #: ../../en/geometry_returning.rst:222
 msgid ""
 "`ST_Union() <http://postgis.net/docs/ST_Union.html>`_: Returns a geometry "
 "that represents the point set union of the Geometries."
 msgstr ""
-"`ST_Union() <https://boiledorange73.github.io/pgismanja/latest/postgis-ja/"
-"ST_Union.html>`_: ジオメトリ群の和集合を表現するジオメトリを返します。"
+"`ST_Union() <http://postgis.net/docs/ja/ST_Union.html>`_: "
+"ジオメトリ群の和集合を表現するジオメトリを返します。"
 
 #: ../../en/geometry_returning.rst:224
 msgid ""
@@ -336,9 +334,9 @@ msgid ""
 "Well-Known Text (WKT) representation of the geometry/geography without SRID "
 "metadata."
 msgstr ""
-"`ST_AsText(text) <https://boiledorange73.github.io/pgismanja/latest/"
-"postgis-ja/ST_AsText.html>`_: SRIDメタデータを持たないジオメトリ/"
-"ジオグラフィの Well-Known Text (WKT) 表現を返します。"
+"`ST_AsText(text) <http://postgis.net/docs/ja/ST_AsText.html>`_: "
+"SRIDメタデータを持たないジオメトリ/ジオグラフィの Well-Known Text (WKT) "
+"表現を返します。"
 
 #: ../../en/geometry_returning.rst:226
 msgid ""

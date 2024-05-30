@@ -248,8 +248,8 @@ msgid ""
 "Known Text (WKT) representation of the geometry/geography without SRID "
 "metadata."
 msgstr ""
-"`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: 返回不带 SRID 元数据的"
-"几何/地理的众所周知文本 (WKT) 表示形式。"
+"`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: 返回几何/地理对象的不"
+"带SRID元数据的Well-Known Text（WKT）表示。"
 
 #: ../../en/projection.rst:165
 msgid ""

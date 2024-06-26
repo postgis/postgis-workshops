@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2024-06-26 08:45+0000\n"
+"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"clusterindex/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/clusterindex.rst:4
 msgid "Clustering on Indices"
-msgstr ""
+msgstr "Clustering sobre índices"
 
 #: ../../en/clusterindex.rst:6
 msgid ""
@@ -30,6 +32,12 @@ msgid ""
 "from physical disk limitations, but for large databases, access to the "
 "physical disk will be a limiting stop in disk access speed."
 msgstr ""
+"La velocidad máxima a la que las bases de datos pueden recuperar información "
+"depende de la velocidad a la que puedan leerla del disco. Las bases de datos "
+"pequeñas pueden cargar toda su información en el cache RAM y evitar las "
+"limitaciones físicas de los discos, pero para bases de datos grandes el "
+"acceso al disco físico será un tope en cuanto a la velocidad de acceso a "
+"disco."
 
 #: ../../en/clusterindex.rst:8
 msgid ""
@@ -37,6 +45,9 @@ msgid ""
 "correlation between the order data is stored on the disk and the way it will "
 "be accessed or organized by applications."
 msgstr ""
+"Los datos se escriben a disco de forma oportunista, de forma que no hay "
+"necesariamente ninguna correlación entre el orden en que se almacenan en "
+"disco y la forma en que las aplicaciones accederán a ellos o los organizarán."
 
 #: ../../en/clusterindex.rst:13
 msgid ""
@@ -60,7 +71,7 @@ msgstr ""
 
 #: ../../en/clusterindex.rst:23
 msgid "Clustering on the R-Tree"
-msgstr ""
+msgstr "Clustering sobre el R-Tree"
 
 #: ../../en/clusterindex.rst:25
 msgid ""
@@ -68,6 +79,10 @@ msgid ""
 "the map window in a web or desktop application. All the data in the windows "
 "has similar location value (or it wouldn't be in the window!)"
 msgstr ""
+"Se suele acceder a los datos espaciales en ventanas correladas espacialmente:"
+" piensemos en la ventana de mapa de una aplicación web o de escritorio. "
+"Todos los datos en la ventana tienen un valor de localización similar (¡o no "
+"estarían dentro de la ventana!)."
 
 #: ../../en/clusterindex.rst:27
 msgid ""
@@ -75,10 +90,15 @@ msgid ""
 "going to be accessed with spatial queries: similar things tend to have "
 "similar locations."
 msgstr ""
+"Así, el clustering basado en un índice espacial tiene sentido para datos "
+"espaciales a los que se va a acceder mediante queries espaciales: cosas "
+"similares tienden a tener localizaciones similares."
 
 #: ../../en/clusterindex.rst:29
 msgid "Let's cluster our ``nyc_census_blocks`` based on their spatial index:"
 msgstr ""
+"Vamos a hacer un cluster con nuestro ``nyc_census_blocks`` basado en su "
+"índice espacial:"
 
 #: ../../en/clusterindex.rst:36
 msgid ""
@@ -87,10 +107,15 @@ msgid ""
 "difference? Maybe not, because the original data may have already had some "
 "pre-existing spatial ordering (this is not uncommon in GIS data sets)."
 msgstr ""
+"El comando re-escribe ``nyc_census_blocks`` en el orden definido por el "
+"índice espacial ``nyc_census_blocks_geom_gist``. ¿Se percibe una diferencia "
+"de velocidad? Quizás no, porque los datos originales puede que tenga ya "
+"algún orden espacial preexistente (esto no es raro en los juegos de datos de "
+"SIG)."
 
 #: ../../en/clusterindex.rst:39
 msgid "Disk Versus Memory/SSD"
-msgstr ""
+msgstr "Disco vs Memoria/SSD"
 
 #: ../../en/clusterindex.rst:41
 msgid ""
@@ -100,10 +125,16 @@ msgid ""
 "database server, and ends up there as the operating system \"virtual "
 "filesystem\" caches it."
 msgstr ""
+"La mayoría de las bases de datos modernas funcionan sobre almacenamiento "
+"SSD, que es mucho más rápido para accesos aleatorios que los viejos medios "
+"discos magnéticos girantes. Además, la mayoría de las bases de datos "
+"modernas funcionan sobre datos que son los bastante pequeños para caber en "
+"la RAM del servidor de la base de datos, y terminan allí según el \"sistema "
+"de archivos virtual\" del sistema operativo los va cacheando."
 
 #: ../../en/clusterindex.rst:43
 msgid "Is clustering still necessary?"
-msgstr ""
+msgstr "¿Es todavía necesario el clustering?"
 
 #: ../../en/clusterindex.rst:45
 msgid ""
@@ -112,6 +143,10 @@ msgid ""
 "move up the servers \"memory cache heirarchy\" together, and thus make "
 "memory accesses faster."
 msgstr ""
+"Sorprendentemente, sí. Mantener registros que están \"cerca del otro\" en "
+"espacios \"cerca del otro\" en la memoria aumenta las posibilidades de que "
+"registros relacionados se muevan en la \"jerarquia de memoria caché\" juntos "
+"haciendo el acceso a la memoria más rápido."
 
 #: ../../en/clusterindex.rst:50
 msgid ""
@@ -123,10 +158,17 @@ msgid ""
 "memory structure with the spatial structure is a way in increase the odds of "
 "that win happening."
 msgstr ""
+"La RAM del sistema no es la memoria más rápida en un ordenador moderno. Hay "
+"muchos niveles de caché entre el sistema RAM y la CPU, y el sistema "
+"operativo y el procesador moverán datos arriba y abajo en esa jerarquia de "
+"caché en bloques. Si resulta que el bloque que se está moviendo incluye el "
+"trozo de datos que el sistema necesitará justo después,... es una gran "
+"victoria. Correlar la estructura de la memoria con la estructura espacial es "
+"un forma de aumentar las posibilidades de que esto suceda."
 
 #: ../../en/clusterindex.rst:53
 msgid "Does Index Structure Matter?"
-msgstr ""
+msgstr "¿Importa la Estructura del Índice?"
 
 #: ../../en/clusterindex.rst:55
 msgid ""
@@ -134,6 +176,9 @@ msgid ""
 "good\" spatial decomposition of the data, the main determinant of "
 "performance will be the order of the actual table tuples."
 msgstr ""
+"En teoría, sí. En la práctica, realmente no. Ya que el índice es una "
+"descomposición espacial de los datos \"bastante buena\", el principal factor "
+"que afectará al rendimiento será el orden de las tuplas de la tabla."
 
 #: ../../en/clusterindex.rst:57
 msgid ""
@@ -142,13 +187,19 @@ msgid ""
 "index\" usually takes quite careful measurement to discern, and can be very "
 "sensitive to the workload being tested."
 msgstr ""
+"La diferencia entre \"sin indice\" e \"índice\" normalmente es muy grande y "
+"muy medible. La diferencia entre \"índice mediocre\" y \"gran índice\" "
+"normalmente requiere una medida muy cuidadosa para diferenciar y puede ser "
+"muy sensible a la carga de trabajo que se esté testando."
 
 #: ../../en/clusterindex.rst:61
 msgid "Function List"
-msgstr ""
+msgstr "Lista de funciones"
 
 #: ../../en/clusterindex.rst:63
 msgid ""
 "`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_: Re-"
 "orders the data in a table to match the ordering in the index."
 msgstr ""
+"`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_: "
+"Reordena los datos en la tabla para que coincida con el orden del índice."

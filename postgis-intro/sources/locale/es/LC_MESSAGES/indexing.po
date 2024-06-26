@@ -4,13 +4,13 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <david@dmts.es>, 2022.
-# David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023.
+# David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-10-16 14:23+0000\n"
+"PO-Revision-Date: 2024-06-26 08:45+0000\n"
 "Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "indexing/es/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/indexing.rst:4
@@ -434,7 +434,7 @@ msgstr ""
 
 #: ../../en/indexing.rst:172
 msgid "Function List"
-msgstr ""
+msgstr "Lista de funciones"
 
 #: ../../en/indexing.rst:174
 msgid ""

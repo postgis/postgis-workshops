@@ -103,7 +103,7 @@ If you log in as that user, you'll find the default ``search_path`` for PostgreS
   ----------------
    "$user",public
   
-The first schema on the search path us the user's named schema! So now the following conditions exist:
+The first schema on the search path is the user's named schema! So now the following conditions exist:
 
 * The user exists, with the ability to create spatial tables.
 * The user's named schema exists, and the user owns it.

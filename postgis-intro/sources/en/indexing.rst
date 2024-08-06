@@ -94,7 +94,7 @@ Only a subset of functions will automatically make use of a spatial index, if on
 
 The first four are the ones most commonly used in queries, and `ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_ is very important for doing "within a distance" or "within a radius" style queries while still getting a performance boost from the index.
 
-In order to add index acceleration to other functions that are not in this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) add an index-only clause as descibed below.
+In order to add index acceleration to other functions that are not in this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) add an index-only clause as described below.
 
 
 Index-Only Queries

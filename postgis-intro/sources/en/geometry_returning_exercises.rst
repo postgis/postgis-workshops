@@ -10,7 +10,7 @@ Here's a reminder of some of the functions we have seen.  Hint: they should be u
 * :command:`ST_Centroid(geometry)` returns the ``geometry`` centroid
 * :command:`ST_Transform(geometry, srid)` converts ``geometries`` into different spatial reference systems
 * :command:`ST_Buffer(geometry, radius)` returns an expanded ``geometry`` shape
-* :command:`ST_Contains(geometry1, geometry2)` returns truw if geometry1 contains geometry2
+* :command:`ST_Contains(geometry1, geometry2)` returns true if geometry1 contains geometry2
 * :command:`ST_Union(geometry[])` returns the aggregate union of all geometries in the group
 * :command:`ST_GeometryType(geometry)` returns the type of the geometry
 * :command:`ST_NumGeometries(geometry)` returns the number of geometries in a collection or 1 for simple geometries

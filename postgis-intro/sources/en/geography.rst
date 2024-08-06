@@ -220,7 +220,7 @@ The :command:`ST_X(point)` function only supports the geometry type. How can we 
   CDG  |    2.5559
   KEF  |  -21.8628
 
-By appending ``::geometry`` to our geography value, we convert the object to a geometry with an SRID of 4326. From there we can use as many geometry functions as strike our fancy. But, remember -- now that our object is a geometry, the coordinates will be interpretted as Cartesian coordinates, not spherical ones.
+By appending ``::geometry`` to our geography value, we convert the object to a geometry with an SRID of 4326. From there we can use as many geometry functions as strike our fancy. But, remember -- now that our object is a geometry, the coordinates will be interpreted as Cartesian coordinates, not spherical ones.
  
  
 Why (Not) Use Geography

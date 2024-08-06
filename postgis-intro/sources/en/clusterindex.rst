@@ -42,12 +42,12 @@ Most modern databases are run using SSD storage, which is much faster at random 
 
 Is clustering still necessary?
 
-Surprisingly, yes. Keeping records that are "near each other" in space "near each other" in memory increases the odds that related records will move up the servers "memory cache heirarchy" together, and thus make memory accesses faster.
+Surprisingly, yes. Keeping records that are "near each other" in space "near each other" in memory increases the odds that related records will move up the servers "memory cache hierarchy" together, and thus make memory accesses faster.
 
 .. image:: ./screenshots/clustering5.png
   :class: inline
 
-System RAM is not the fastest memory on a modern computer. There are several levels of cache between system RAM and the actual CPU, and the underlying operating system and processor will move data up and down the cache heirarchy in blocks. If the block getting moved up happens to include the piece of data the system will need next... that's a big win. Correlating the memory structure with the spatial structure is a way in increase the odds of that win happening.
+System RAM is not the fastest memory on a modern computer. There are several levels of cache between system RAM and the actual CPU, and the underlying operating system and processor will move data up and down the cache hierarchy in blocks. If the block getting moved up happens to include the piece of data the system will need next... that's a big win. Correlating the memory structure with the spatial structure is a way in increase the odds of that win happening.
 
 Does Index Structure Matter?
 ----------------------------

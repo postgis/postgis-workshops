@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2024-08-09 03:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,7 +232,7 @@ msgstr ""
 msgid ""
 "In order to add index acceleration to other functions that are not in this "
 "list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) "
-"add an index-only clause as descibed below."
+"add an index-only clause as described below."
 msgstr ""
 
 #: ../../en/indexing.rst:101
@@ -370,10 +370,17 @@ msgstr ""
 #: ../../en/indexing.rst:176
 msgid ""
 "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
-"Returns TRUE if A's bounding box is the same as B's."
+"Before PostGIS 2.4 returns true if A's bounding box is same as B's. From 2.4 "
+"on Returns TRUE only if A's geometry is the same as B."
 msgstr ""
 
 #: ../../en/indexing.rst:178
+msgid ""
+"`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_: "
+"Returns TRUE if A's bounding box equals B's bounding box."
+msgstr ""
+
+#: ../../en/indexing.rst:180
 msgid ""
 "`ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/"
 "ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography \"spatially "
@@ -381,10 +388,10 @@ msgid ""
 "Disjoint)."
 msgstr ""
 
-#: ../../en/indexing.rst:181
+#: ../../en/indexing.rst:183
 msgid "Footnotes"
 msgstr ""
 
-#: ../../en/indexing.rst:182
+#: ../../en/indexing.rst:184
 msgid "http://postgis.net/docs/support/rtree.pdf"
 msgstr ""

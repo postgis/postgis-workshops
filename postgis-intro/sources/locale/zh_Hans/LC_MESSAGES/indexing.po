@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2024-08-09 03:04+0000\n"
 "PO-Revision-Date: 2024-05-06 21:00+0000\n"
 "Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
@@ -270,10 +270,15 @@ msgstr ""
 "查询性能。"
 
 #: ../../en/indexing.rst:97
+#, fuzzy
+#| msgid ""
+#| "In order to add index acceleration to other functions that are not in "
+#| "this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate."
+#| "html>`_) add an index-only clause as descibed below."
 msgid ""
 "In order to add index acceleration to other functions that are not in this "
 "list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) "
-"add an index-only clause as descibed below."
+"add an index-only clause as described below."
 msgstr ""
 "为了把空间索引加速功能添加到不在上述列表中的函数中（譬如，`ST_Relate <http://"
 "postgis.net/docs/ST_Relate.html>`_），你可以想下文的例子一样添加一个 index-"
@@ -290,9 +295,9 @@ msgid ""
 "automatically. But some functions (e.g., :command:`ST_Relate`) do not "
 "include an index filter."
 msgstr ""
-"PostGIS 中的大多数常用函数（:command:`ST_Contains`, :command:`ST_Intersects`"
-", :command:`ST_DWithin`等）自动包含索引过滤器。但某些函数（例如:command:`ST_R"
-"elate`）不包含索引过滤器。"
+"PostGIS 中的大多数常用函数（:command:`ST_Contains`, :command:"
+"`ST_Intersects`, :command:`ST_DWithin`等）自动包含索引过滤器。但某些函数（例"
+"如:command:`ST_Relate`）不包含索引过滤器。"
 
 #: ../../en/indexing.rst:105
 msgid ""
@@ -301,18 +306,18 @@ msgid ""
 "\"bounding boxes overlap or touch\" in the same way that for numbers the :"
 "command:`=` operator means \"values are the same\"."
 msgstr ""
-"要使用索引（且不进行过滤）进行边界框搜索，请使用 "
-":command:`&&`运算符。对于几何图形， :command:`&&` "
-"运算符意味着“边界框重叠或接触”，就像对于数字 :command:`=` "
-"运算符意味着“值相同”一样。"
+"要使用索引（且不进行过滤）进行边界框搜索，请使用 :command:`&&`运算符。对于几"
+"何图形， :command:`&&` 运算符意味着“边界框重叠或接触”，就像对于数字 :command:"
+"`=` 运算符意味着“值相同”一样。"
 
 #: ../../en/indexing.rst:107
 msgid ""
 "Let's compare an index-only query for the population of the 'West Village' "
 "to a more exact query. Using :command:`&&` our index-only query looks like "
 "the following:"
-msgstr "让我们将“West Village”人口的仅索引查询与更精确的查询进行比较。使用 "
-":command:`&&`我们的仅索引查询如下所示："
+msgstr ""
+"让我们将“West Village”人口的仅索引查询与更精确的查询进行比较。使用 :command:"
+"`&&`我们的仅索引查询如下所示："
 
 #: ../../en/indexing.rst:121
 msgid ""
@@ -325,7 +330,8 @@ msgid ""
 "A much lower answer! The first query summed up every block whose bounding "
 "box intersects the neighborhood's bounding box; the second query only summed "
 "up those blocks that intersect the neighborhood itself."
-msgstr "答案要少得多！第一个查询总结了其边界框与邻域边界框相交的每个块；第二个查询仅"
+msgstr ""
+"答案要少得多！第一个查询总结了其边界框与邻域边界框相交的每个块；第二个查询仅"
 "总结了与邻域本身相交的那些块。"
 
 #: ../../en/indexing.rst:138
@@ -349,7 +355,8 @@ msgid ""
 "Knowing the size of the query rectangle is not enough to pin down whether a "
 "query will return a large number or small number of records. Below, the red "
 "square is small, but will return many more records than the blue square."
-msgstr "了解查询矩形的大小不足以确定查询是否会返回大量记录或少量记录。下面，红色方块"
+msgstr ""
+"了解查询矩形的大小不足以确定查询是否会返回大量记录或少量记录。下面，红色方块"
 "很小，但会返回比蓝色方块更多的记录。"
 
 #: ../../en/indexing.rst:146
@@ -379,8 +386,9 @@ msgid ""
 "The ``ANALYZE`` command asks PostgreSQL to traverse the table and update its "
 "internal statistics used for query plan estimation (query plan analysis will "
 "be discussed later)."
-msgstr "``ANALYZE`` 命令要求 PostgreSQL "
-"遍历该表并更新其用于查询计划估计的内部统计信息（稍后将讨论查询计划分析）。"
+msgstr ""
+"``ANALYZE`` 命令要求 PostgreSQL 遍历该表并更新其用于查询计划估计的内部统计信"
+"息（稍后将讨论查询计划分析）。"
 
 #: ../../en/indexing.rst:157
 msgid "Vacuuming"
@@ -394,16 +402,16 @@ msgid ""
 "``VACUUM`` command asks PostgreSQL to reclaim any unused space in the table "
 "pages left by updates or deletes to records."
 msgstr ""
-"值得强调的是，仅仅创建索引并不足以让 PostgreSQL 有效地使用它。"
-"每当对表发出大量 UPDATE、INSERT 或 DELETE 时，都必须执行 VACUUMing。该 "
-"``VACUUM``命令要求 PostgreSQL "
-"回收因更新或删除记录而留下的表页中任何未使用的空间。"
+"值得强调的是，仅仅创建索引并不足以让 PostgreSQL 有效地使用它。每当对表发出大"
+"量 UPDATE、INSERT 或 DELETE 时，都必须执行 VACUUMing。该 ``VACUUM``命令要求 "
+"PostgreSQL 回收因更新或删除记录而留下的表页中任何未使用的空间。"
 
 #: ../../en/indexing.rst:161
 msgid ""
 "Vacuuming is so critical for the efficient running of the database that "
 "PostgreSQL provides an \"autovacuum\" facility by default."
-msgstr "清理对于数据库的高效运行至关重要，因此 PostgreSQL 默认提供“自动清理”功能。"
+msgstr ""
+"清理对于数据库的高效运行至关重要，因此 PostgreSQL 默认提供“自动清理”功能。"
 
 #: ../../en/indexing.rst:163
 msgid ""
@@ -414,10 +422,10 @@ msgid ""
 "data.  Whenever a large batch update is performed, you should manually run "
 "``VACUUM``."
 msgstr ""
-"Autovacuum 根据活动级别确定的合理时间间隔对表进行真空处理（恢复空间）和分析（"
-"更新统计信息）。虽然这对于高度事务性数据库至关重要，"
-"但不建议在添加索引或批量加载数据后等待 autovacuum "
-"运行。每当执行大批量更新时，您应该手动运行``VACUUM`` 。"
+"Autovacuum 根据活动级别确定的合理时间间隔对表进行真空处理（恢复空间）和分析"
+"（更新统计信息）。虽然这对于高度事务性数据库至关重要，但不建议在添加索引或批"
+"量加载数据后等待 autovacuum 运行。每当执行大批量更新时，您应该手动运行"
+"``VACUUM`` 。"
 
 #: ../../en/indexing.rst:165
 msgid ""
@@ -444,14 +452,31 @@ msgstr ""
 "html>`_：若 A 的范围框覆盖了 B 的，则返回 TRUE."
 
 #: ../../en/indexing.rst:176
+#, fuzzy
+#| msgid ""
+#| "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
+#| "Returns TRUE if A's bounding box is the same as B's."
 msgid ""
 "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
-"Returns TRUE if A's bounding box is the same as B's."
+"Before PostGIS 2.4 returns true if A's bounding box is same as B's. From 2.4 "
+"on Returns TRUE only if A's geometry is the same as B."
 msgstr ""
 "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_：若 "
 "A 的空间范围框和 B 的一致，返回 TRUE."
 
 #: ../../en/indexing.rst:178
+#, fuzzy
+#| msgid ""
+#| "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
+#| "Returns TRUE if A's bounding box is the same as B's."
+msgid ""
+"`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_: "
+"Returns TRUE if A's bounding box equals B's bounding box."
+msgstr ""
+"`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_：若 "
+"A 的空间范围框和 B 的一致，返回 TRUE."
+
+#: ../../en/indexing.rst:180
 msgid ""
 "`ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/"
 "ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography \"spatially "
@@ -462,10 +487,10 @@ msgstr ""
 "ST_Intersects.html>`_：若 Geometries 对象或 Geography 对象存在 “空间相交”，即"
 "有任意部分重叠，返回 TRUE，否则返回 FALSE."
 
-#: ../../en/indexing.rst:181
+#: ../../en/indexing.rst:183
 msgid "Footnotes"
 msgstr "脚注"
 
-#: ../../en/indexing.rst:182
+#: ../../en/indexing.rst:184
 msgid "http://postgis.net/docs/support/rtree.pdf"
 msgstr "http://postgis.net/docs/support/rtree.pdf"

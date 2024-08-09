@@ -173,7 +173,9 @@ Function List
 
 `geometry_a && geometry_b <http://postgis.net/docs/geometry_overlaps.html>`_: Returns TRUE if A's bounding box overlaps B's.
 
-`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: Returns TRUE if A's bounding box is the same as B's.
+`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: Before PostGIS 2.4 returns true if A's bounding box is same as B's. From 2.4 on Returns TRUE only if A's geometry is the same as B.
+
+`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_: Returns TRUE if A's bounding box equals B's bounding box.
 
 `ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography "spatially intersect" - (share any portion of space) and FALSE if they don't (they are Disjoint).
 

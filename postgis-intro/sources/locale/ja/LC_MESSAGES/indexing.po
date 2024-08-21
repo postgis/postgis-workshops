@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-09 03:04+0000\n"
-"PO-Revision-Date: 2024-05-30 02:45+0000\n"
+"PO-Revision-Date: 2024-08-21 06:45+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "indexing/ja/>\n"
@@ -292,19 +292,14 @@ msgstr ""
 "「距離内」「半径内」を求めるクエリにおいて非常に重要です。"
 
 #: ../../en/indexing.rst:97
-#, fuzzy
-#| msgid ""
-#| "In order to add index acceleration to other functions that are not in "
-#| "this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate."
-#| "html>`_) add an index-only clause as descibed below."
 msgid ""
 "In order to add index acceleration to other functions that are not in this "
 "list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) "
 "add an index-only clause as described below."
 msgstr ""
-"このリストに無い関数 (`ST_Relate <http://postgis.net/docs/ja/ST_Relate."
-"html>`_ が最も一般的です) へのインデックスによる高速化機能を追加するには、イ"
-"ンデックスのみの句を追加します。下のようにします。"
+"このリストに無い関数 (`ST_Relate <http://postgis.net/docs/ja/ST_Relate.html>`"
+"_ が最も一般的です) へのインデックスによる高速化機能を追加するには、インデッ"
+"クスのみの句を追加します。下のようにします。"
 
 #: ../../en/indexing.rst:101
 msgid "Index-Only Queries"
@@ -494,31 +489,24 @@ msgstr ""
 "る場合にはTRUEを返します。"
 
 #: ../../en/indexing.rst:176
-#, fuzzy
-#| msgid ""
-#| "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
-#| "Returns TRUE if A's bounding box is the same as B's."
 msgid ""
 "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
 "Before PostGIS 2.4 returns true if A's bounding box is same as B's. From 2.4 "
 "on Returns TRUE only if A's geometry is the same as B."
 msgstr ""
 "`geometry_a = geometry_b <http://postgis.net/docs/ja/ST_Geometry_EQ.html>`_: "
-"AのバウンディングボックスとBのバウンディングボックスと同じ場合にはTRUEを返し"
-"ます。"
+"PostGIS 2.4より前では、AのバウンディングボックスとBのバウンディングボックスと"
+"同じ場合にはTRUEを返します。2."
+"4以降では、AのジオメトリがBと同じ場合にのみTRUEを返します。"
 
 #: ../../en/indexing.rst:178
-#, fuzzy
-#| msgid ""
-#| "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
-#| "Returns TRUE if A's bounding box is the same as B's."
 msgid ""
 "`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_: "
 "Returns TRUE if A's bounding box equals B's bounding box."
 msgstr ""
 "`geometry_a = geometry_b <http://postgis.net/docs/ja/ST_Geometry_EQ.html>`_: "
-"AのバウンディングボックスとBのバウンディングボックスと同じ場合にはTRUEを返し"
-"ます。"
+"AのバウンディングボックスとBのバウンディングボックスと等価である場合にはTRUE"
+"を返します。"
 
 #: ../../en/indexing.rst:180
 msgid ""

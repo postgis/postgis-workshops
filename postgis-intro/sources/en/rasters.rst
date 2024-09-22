@@ -112,7 +112,7 @@ in your database using the :command:`pg_restore` commandline tool or the pgAdmin
   This raster data was sourced from `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_ which is a 3GB DEM tif representing elevation relative to sea level with buildings and overwater removed. We then created a lower res version of it.
 
 
-The :command:`rasterpgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into
+The :command:`raster2pgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into
 raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source.
 Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata.
 
@@ -399,7 +399,7 @@ figured out yourself by the `raster2pgsql` naming convention for overviews.
 
 The `overview_factor` tells you at what resolution the row is with respect to it's parent.
 An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile.
-Similarly an overview_factor of `1` meants that 2x2x2 = 8 tiles
+Similarly an overview_factor of `3` meants that 2x2x2 = 8 tiles
 of the original can be shoved into an overview_3 tile.
 
 

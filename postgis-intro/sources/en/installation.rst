@@ -6,7 +6,7 @@ Installation
 To explore the PostgreSQL/PostGIS database, and learn about writing spatial queries in SQL, we will need some software, either installed locally or available remotely on the cloud.
 
 * There are instructions below on how to access PostgreSQL for installation on Windows or MacOS. PostgreSQL for Windows and MacOS either include PostGIS or have an easy way to add it on.
-* There are instructions below on how to install `PgAdmin <https://www.pgadmin.org/>`_. PgAdmin is a graphical database explorer and SQL editor which provides a "user facing" interface to the database engine that does all the world.
+* There are instructions below on how to install `PgAdmin <https://www.pgadmin.org/>`_. PgAdmin is a graphical database explorer and SQL editor which provides a "user facing" interface to the database engine that does all the work.
 
 For always up-to-date directions on installing PostgreSQL, go to the `PostgreSQL download page  <https://www.postgresql.org/download/>`_ and select the operating system you are using.
 

@@ -108,7 +108,7 @@ SELECT
   ST_X(geom), 
   ST_Y(geom)
 FROM geometries
-WHERE name = 'Point'
+WHERE name = 'Point';
 
 -- Points 
 SELECT 

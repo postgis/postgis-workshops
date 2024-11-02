@@ -604,6 +604,15 @@ is the one packaged with **postgis_raster** and can intersect 2 rasters or a ras
 Similar to the geometry :command:`ST_Intersects` the `raster ST_Intersects <https://postgis.net/docs/RT_ST_Intersects.html>`_
 can take advantage of spatial indexes on the raster or geometry tables.
 
+.. note::
+
+  By default ST_Clip will leave out pixels where the centroid of the pixel doesn't 
+  intersect the geometry.  This can be annoying for big pixels and you may prefer
+  to instead, include a pixel if any part of the pixel touches the geometry.
+  Introduced in PostGIS 3.5, is the touched argument. 
+  Replace your  `ST_Clip(r.rast, g.geom)` with  `ST_Clip(r.rast, g.geom, touched => true)`
+  and voila any pixels that intersect your geometry in any way will be included.
+
 
 Converting Rasters to Geometries
 ------------------------------------
@@ -1101,14 +1110,14 @@ Map algebra is the idea that you can do math on your pixel values.
 The :command:`ST_Union` and :command:`ST_Intersection` functions
 covered earlier are a special fast case of map algebra.
 Then there are
-the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_
+the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_MapAlgebra.html>`_
 family of functions which allow you to define your own
 crazy math, but at cost of performance.
 
 People have the habit of jumping to  :command:`ST_MapAlgebra`,
-probably cause the name sounds so cool and sophisticated.
-Who wouldn't want to tell their friends, "I'm using a function called ST_MapAlgebra."
-My advice, explore other functions before you jump for that shot-gun.
+probably because the name sounds so cool and sophisticated.
+Who wouldn't want to tell their friends? *I'm using a function called ST_MapAlgebra.*
+My advice, explore other functions before you pull out that shotgun.
 Your life will be simpler and your performance will be 100 times better, and your code will be shorter.
 
 Before we showcase `ST_MapAlgebra`, we'll explore other functions that fit under the `Map Algebra` family of functions

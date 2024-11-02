@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-17 01:29-0400\n"
+"POT-Creation-Date: 2024-11-02 22:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,7 +101,7 @@ msgid "This raster data was sourced from `NYC DEM 1-foot Integer <https://data.c
 msgstr ""
 
 #: ../../en/rasters.rst:115
-msgid "The :command:`rasterpgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source. Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata."
+msgid "The :command:`raster2pgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source. Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata."
 msgstr ""
 
 #: ../../en/rasters.rst:119
@@ -321,7 +321,7 @@ msgid "The `raster_overviews` table only provides you the overview_factor and th
 msgstr ""
 
 #: ../../en/rasters.rst:400
-msgid "The `overview_factor` tells you at what resolution the row is with respect to it's parent. An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile. Similarly an overview_factor of `1` meants that 2x2x2 = 8 tiles of the original can be shoved into an overview_3 tile."
+msgid "The `overview_factor` tells you at what resolution the row is with respect to it's parent. An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile. Similarly an overview_factor of `3` meants that 2x2x2 = 8 tiles of the original can be shoved into an overview_3 tile."
 msgstr ""
 
 #: ../../en/rasters.rst:407
@@ -462,389 +462,393 @@ msgid "This example showcases several functions working in unison.  The :command
 msgstr ""
 
 #: ../../en/rasters.rst:609
+msgid "By default ST_Clip will leave out pixels where the centroid of the pixel doesn't intersect the geometry.  This can be annoying for big pixels and you may prefer to instead, include a pixel if any part of the pixel touches the geometry. Introduced in PostGIS 3.5, is the touched argument. Replace your  `ST_Clip(r.rast, g.geom)` with  `ST_Clip(r.rast, g.geom, touched => true)` and voila any pixels that intersect your geometry in any way will be included."
+msgstr ""
+
+#: ../../en/rasters.rst:618
 msgid "Converting Rasters to Geometries"
 msgstr ""
 
-#: ../../en/rasters.rst:610
+#: ../../en/rasters.rst:619
 msgid "Rasters can just as easily be morphed into geometries."
 msgstr ""
 
-#: ../../en/rasters.rst:613
+#: ../../en/rasters.rst:622
 msgid "The polygon of a raster with ST_Polygon"
 msgstr ""
 
-#: ../../en/rasters.rst:614
+#: ../../en/rasters.rst:623
 msgid "Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_ function."
 msgstr ""
 
-#: ../../en/rasters.rst:625
+#: ../../en/rasters.rst:634
 msgid "If you click on the geometry viewer in pgAdmin, you can see this in all it's glory without any hacks."
 msgstr ""
 
-#: ../../en/rasters.rst:629
+#: ../../en/rasters.rst:638
 msgid ":command:`ST_Polygon` considers all the pixels that have values (not no-data) in a particular band, and converts them to geometry.  Like many other functions in raster, :command:`ST_Polygon` only considers 1 band. If no band is specified, it will consider only the first band."
 msgstr ""
 
-#: ../../en/rasters.rst:634
+#: ../../en/rasters.rst:643
 msgid "The pixel rectangles of a raster with ST_PixelAsPolygons"
 msgstr ""
 
-#: ../../en/rasters.rst:635
+#: ../../en/rasters.rst:644
 msgid "Another popularly used function is the `ST_PixelAsPolygons <https://postgis.net/docs/RT_ST_PixelAsPolygons.html>`_ function. You should rarely use :command:`ST_PixelAsPolygons` on a large raster without first clipping because you will end up with millions of rows, one for each pixel."
 msgstr ""
 
-#: ../../en/rasters.rst:638
+#: ../../en/rasters.rst:647
 msgid ":command:`ST_PixelAsPolygons` returns a table consisting of geom, val, x, and y. Where x is the column number, and y is the row number in the raster."
 msgstr ""
 
-#: ../../en/rasters.rst:641
+#: ../../en/rasters.rst:650
 msgid ":command:`ST_PixelAsPolygons` similar to other raster functions works on one band at a time and works on band 1 if no band is specified. It also by default returns only pixels that have values."
 msgstr ""
 
-#: ../../en/rasters.rst:653
+#: ../../en/rasters.rst:662
 msgid "Which outputs:"
 msgstr ""
 
-#: ../../en/rasters.rst:657
+#: ../../en/rasters.rst:666
 msgid "and if we inspect using the geometry viewer, we'd see:"
 msgstr ""
 
-#: ../../en/rasters.rst:661
+#: ../../en/rasters.rst:670
 msgid "If we want all pixels of all our bands, we'd need to do something like below. Note the differences in this example from previous."
 msgstr ""
 
-#: ../../en/rasters.rst:664
+#: ../../en/rasters.rst:673
 msgid "1. Setting  :command:`exclude_nodata_value` to make sure all pixels are returned so that our sets of calls return the same number of rows. The rows out of the function will be naturally in the same order."
 msgstr ""
 
-#: ../../en/rasters.rst:667
+#: ../../en/rasters.rst:676
 msgid "2. Using the `PostgreSQL ROWS FROM constructor <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_ , and aliasing each set of columns from our function output with names. So for example the band 1 columns (geom, val, x, y) are renamed to g1, v1, x1, x2"
 msgstr ""
 
-#: ../../en/rasters.rst:688
+#: ../../en/rasters.rst:697
 msgid "We used CROSS JOIN LATERAL in these examples because we wanted to be explicit what we are doing. Since these are all set returning functions, you can replace CROSS JOIN LATERAL with , for short-hand.  We'll use a , in the next set of examples"
 msgstr ""
 
-#: ../../en/rasters.rst:694
+#: ../../en/rasters.rst:703
 msgid "Dumping polygons with ST_DumpAsPolygons"
 msgstr ""
 
-#: ../../en/rasters.rst:696
+#: ../../en/rasters.rst:705
 msgid "Raster also introduces an additional composite type called a :command:`geomval`. Consider a :command:`geomval` as the offspring of a geometry and raster. It contains a geometry and it contains a pixel value."
 msgstr ""
 
-#: ../../en/rasters.rst:700
+#: ../../en/rasters.rst:709
 msgid "You will find several raster functions that return geomvals."
 msgstr ""
 
-#: ../../en/rasters.rst:702
+#: ../../en/rasters.rst:711
 msgid "A commonly used function that outputs geomvals is `ST_DumpAsPolygons <https://postgis.net/docs/RT_ST_DumpAsPolygons.html>`_, which returns a set of contiguous pixels with the same value as a polygon.  Again this by default will only check band 1 and exclude no data values unless you override. This example selects only polygons from band 2. You can also apply filters to the values. For most use cases, :command:`ST_DumpAsPolygons` is a better option than :command:`ST_PixelAsPolygons` as it will return far fewer rows."
 msgstr ""
 
-#: ../../en/rasters.rst:707
+#: ../../en/rasters.rst:716
 msgid "This will output 6 rows, and return polygons corresponding to the letters in \"Raster\"."
 msgstr ""
 
-#: ../../en/rasters.rst:718
+#: ../../en/rasters.rst:727
 msgid "Note that it doesn't return a single geometry, because it finds continguous set of pixels with the same value that form a polygon. Even though all these values are the same, they are not continguous."
 msgstr ""
 
-#: ../../en/rasters.rst:724
+#: ../../en/rasters.rst:733
 msgid "A common approach to produce more complex geometries is to group by the values and union."
 msgstr ""
 
-#: ../../en/rasters.rst:734
+#: ../../en/rasters.rst:743
 msgid "This will give you 2 rows back corresponding to the words \"Raster\" and \"Hello\"."
 msgstr ""
 
-#: ../../en/rasters.rst:737
+#: ../../en/rasters.rst:746
 msgid "Statistics"
 msgstr ""
 
-#: ../../en/rasters.rst:738
+#: ../../en/rasters.rst:747
 msgid "The most important thing to understand about rasters is that they are statistical tools for storing data in arrays, that you may happen to be able to make look pretty on a screen."
 msgstr ""
 
-#: ../../en/rasters.rst:741
+#: ../../en/rasters.rst:750
 msgid "You can find a menu of these statistical functions in `Raster Band Statistics <https://postgis.net/docs/RT_reference.html#RasterBand_Stats>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:745
+#: ../../en/rasters.rst:754
 msgid "ST_SummaryStatsAgg and ST_SummaryStats"
 msgstr ""
 
-#: ../../en/rasters.rst:747
+#: ../../en/rasters.rst:756
 msgid "Want all stats for a set or rasters, reach for the function `ST_SummaryStatsAgg <https://postgis.net/docs/RT_ST_SummaryStatsAgg.html>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:749
+#: ../../en/rasters.rst:758
 msgid "This query takes about 10 seconds and gives you a summary of the whole table:"
 msgstr ""
 
-#: ../../en/rasters.rst:756
+#: ../../en/rasters.rst:765
 msgid "Outputs:"
 msgstr ""
 
-#: ../../en/rasters.rst:765
+#: ../../en/rasters.rst:774
 msgid "Which tells we have a lot of pixels and our max elevation is 411 ft."
 msgstr ""
 
-#: ../../en/rasters.rst:767
+#: ../../en/rasters.rst:776
 msgid "If you have built overviews, and just need a rough estimate of your mins, maxs, and means use one of your overviews. This next query returns roughly the same values for mins, maxs, and means as the prior but in about 1 second instead of 10."
 msgstr ""
 
-#: ../../en/rasters.rst:776
+#: ../../en/rasters.rst:785
 msgid "Now armed with this bit of information, we can ask more questions."
 msgstr ""
 
-#: ../../en/rasters.rst:779
+#: ../../en/rasters.rst:788
 msgid "ST_Histogram"
 msgstr ""
 
-#: ../../en/rasters.rst:781
+#: ../../en/rasters.rst:790
 msgid "Generally you won't want stats for your whole table, but instead just stats for a particular area, in that case, you'll want to also employ our old friends :command:`ST_Intersects` and :command:`ST_Clip`. If you are also in need of a raster statistics function that doesn't have an aggregate version, you'll want to carry :command:`ST_Union` along for the ride."
 msgstr ""
 
-#: ../../en/rasters.rst:786
+#: ../../en/rasters.rst:795
 msgid "For this next example we'll use a different stats function `ST_Histogram <https://postgis.net/docs/RT_ST_Histogram.html>`_ which has no aggregate equivalent, and for this particular variant, is a set returning function. We are using the same area of interest as some prior examples, but we also need to employ geometry :command:`ST_Transform` to transform our NY state plane meters geometry to our NYC State Plane feet rasters.  It is almost always more performant to transform the geometry instead of raster and definitely if your geometry is just a single one."
 msgstr ""
 
-#: ../../en/rasters.rst:803
+#: ../../en/rasters.rst:812
 msgid "the above query completes in under 60ms and outputs:"
 msgstr ""
 
-#: ../../en/rasters.rst:817
+#: ../../en/rasters.rst:826
 msgid "Creating Derivative Rasters"
 msgstr ""
 
-#: ../../en/rasters.rst:818
+#: ../../en/rasters.rst:827
 msgid "PostGIS raster comes packaged with a number of functions for editing rasters. These functions are both used for editing as well as creating derivative raster data sets. You will find these listed in `Raster Editors <https://postgis.net/docs/RT_reference.html#Raster_Editors>`_ and `Raster Management <https://postgis.net/docs/RT_reference.html#Raster_Management_Functions>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:824
+#: ../../en/rasters.rst:833
 msgid "Transforming rasters with ST_Transform"
 msgstr ""
 
-#: ../../en/rasters.rst:825
+#: ../../en/rasters.rst:834
 msgid "Most of our data is in NY State Plane meters (SRID: 26918), however our DEM raster dataset is in NY State Plane feet (SRID: 2263). For the least cumbersome workflow, we need our core datasets to be in the same spatial reference system."
 msgstr ""
 
-#: ../../en/rasters.rst:829
+#: ../../en/rasters.rst:838
 msgid "The `raster ST_Transform <https://postgis.net/docs/RT_ST_Transform.html>`_ is the function most suited for this job."
 msgstr ""
 
-#: ../../en/rasters.rst:831
+#: ../../en/rasters.rst:840
 msgid "In order to create a new nyc dem dataset in NY State Plane meters, we'll do the following:"
 msgstr ""
 
-#: ../../en/rasters.rst:841
+#: ../../en/rasters.rst:850
 msgid "The above on my system took about 1.5 minutes. For a larger data set it would take much longer."
 msgstr ""
 
-#: ../../en/rasters.rst:844
+#: ../../en/rasters.rst:853
 msgid "The aforementioned examples used two variants of the :command:`ST_Transform` raster function. The first was to get a reference raster that will be used to transform the other raster tiles to guarantee that all tiles have the same alignment.  Note the second variant of :command:`ST_Transform` used doesn't even take an input SRID. This is because the SRID and all the pixel scale and block sizes are read from the reference raster. If you used `ST_Transform(rast, srid)` form, then all your rasters might come out with different alignment making it impossible to apply an operation such as :command:`ST_Union` on them."
 msgstr ""
 
-#: ../../en/rasters.rst:851
+#: ../../en/rasters.rst:860
 msgid "The only problem with the aforementioned :command:`ST_Transform` approach is that when you transform, the transformed often exists in other tiles. If you looked at the above output closely enough by outputting the convex hull of the rasters, in the next example you'd see annoying overlaps around the borders."
 msgstr ""
 
-#: ../../en/rasters.rst:864
+#: ../../en/rasters.rst:873
 msgid "viewed in pgAdmin would look something like:"
 msgstr ""
 
-#: ../../en/rasters.rst:870
+#: ../../en/rasters.rst:879
 msgid "Using ST_MakeEmptyCoverage to create even tiled rasters"
 msgstr ""
 
-#: ../../en/rasters.rst:871
+#: ../../en/rasters.rst:880
 msgid "A better approach, albeit a bit slower, is to define your own coverage tile structure from scratch using `ST_MakeEmptyCoverage <https://postgis.net/docs/RT_ST_MakeEmptyCoverage.html>`_ and then find the intersecting tiles for each new tile, and ST_Union these and then use `ST_Transform(ref, ST_Union...)` to create each tile."
 msgstr ""
 
-#: ../../en/rasters.rst:875
+#: ../../en/rasters.rst:884
 msgid "For this we'll be using quite a few functions, we learned about earlier."
 msgstr ""
 
-#: ../../en/rasters.rst:900
+#: ../../en/rasters.rst:909
 msgid "Repeating the same exercise as earlier:"
 msgstr ""
 
-#: ../../en/rasters.rst:909
+#: ../../en/rasters.rst:918
 msgid "viewed in pgAdmin we no longer have overlaps:"
 msgstr ""
 
-#: ../../en/rasters.rst:913
+#: ../../en/rasters.rst:922
 msgid "On my system this took ~10 minutes and returned 3879 rows. After the creation of the table, we'll want to do the usual of adding a spatial index, primary key, and constraints as follows:"
 msgstr ""
 
-#: ../../en/rasters.rst:928
+#: ../../en/rasters.rst:937
 msgid "Which should take under 2 minutes for this dataset."
 msgstr ""
 
-#: ../../en/rasters.rst:931
+#: ../../en/rasters.rst:940
 msgid "Creating overview tables with ST_CreateOverview"
 msgstr ""
 
-#: ../../en/rasters.rst:933
+#: ../../en/rasters.rst:942
 msgid "Just as with our original dataset, it would be useful to have overview tables to speed up performance of some operations. `ST_CreateOverview <https://postgis.net/docs/RT_CreateOverview.html>`_ is a function fit for that purpose. You can use :command:`ST_CreateOverview` to create overviews also if you neglected to create one during the raster2pgsql load or  you decided, you need more overviews."
 msgstr ""
 
-#: ../../en/rasters.rst:939
+#: ../../en/rasters.rst:948
 msgid "We'll create level 2 and 3 overviews as we had done with our original using this code."
 msgstr ""
 
-#: ../../en/rasters.rst:946
+#: ../../en/rasters.rst:955
 msgid "This process sadly takes a while, and a longer while the more rows you have so be patient. For this dataset it took about 3-5 minutes for the overview factor `2` and 1 minute for the overview factor `3`."
 msgstr ""
 
-#: ../../en/rasters.rst:949
+#: ../../en/rasters.rst:958
 msgid "The :command:`ST_CreateOverView` function also adds in the needed constraints so the columns appear with full detail in the `raster_columns` and `raster_overviews` catalogs. It does not add indexes to them though and also does not add an rid column. The rid column is probably not necessary unless you need a primary key to edit with. You would probably want an index which you can create with the following:"
 msgstr ""
 
-#: ../../en/rasters.rst:964
+#: ../../en/rasters.rst:973
 msgid "ST_CreateOverview has an optional argument for denoting the sampling method. If not specified it uses the default `NearestNeighbor` which is generally the fastest to compute but may not be ideal. Resampling methods is beyond the scope of this workshop."
 msgstr ""
 
-#: ../../en/rasters.rst:970
+#: ../../en/rasters.rst:979
 msgid "The intersection of rasters and geometries"
 msgstr ""
 
-#: ../../en/rasters.rst:971
+#: ../../en/rasters.rst:980
 msgid "There are a couple of functions commonly used to compute intersections of rasters and geometries. We've already seen :command:`ST_Clip` in action which returns the intersection of a raster and geometry as a raster, but there are others. For point data, the most commonly used is :command:`ST_Value` and then there is the :command:`ST_Intersection` which has several overloads some returning rasters and some returning a set of `geomval`."
 msgstr ""
 
-#: ../../en/rasters.rst:979
+#: ../../en/rasters.rst:988
 msgid "Pixel values at a geometric Point"
 msgstr ""
 
-#: ../../en/rasters.rst:981
+#: ../../en/rasters.rst:990
 msgid "If you need to return values from rasters based on intersection of several ad-hoc geometry points, you'll use `ST_Value <https://postgis.net/docs/RT_ST_Value.html>`_ or it's nearest relative `ST_NearestValue <https://postgis.net/docs/RT_ST_NearestValue.html>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:995
+#: ../../en/rasters.rst:1004
 msgid "This example takes about 1 second to return 2444 rows. If you used :command:`ST_Intersects` instead of :command:`&&`, the process would take about 3 seconds. The reason `ST_Intersects` is slower is that it performs an additional recheck in some cases a pixel by pixel check. If you expect all your points to be represented with data in your raster set and your rasters represent a coverage (a continguous set non-overlapping raster tiles), then `&&` is generally a speedier option."
 msgstr ""
 
-#: ../../en/rasters.rst:1000
+#: ../../en/rasters.rst:1009
 msgid "If your raster data is not densely populated or you have overlapping rasters (e.g. they represent different observations in time), or they are skewed (not axis aligned) then there is an advantage to having ST_Intersects weed out the false positives."
 msgstr ""
 
-#: ../../en/rasters.rst:1006
+#: ../../en/rasters.rst:1015
 msgid "ST_Intersection raster style"
 msgstr ""
 
-#: ../../en/rasters.rst:1007
+#: ../../en/rasters.rst:1016
 msgid "Just as you can compute the intersection of two geometries using :command:`ST_Intersection`, you can compute intersection of two rasters or a raster and a geometry using `raster ST_Intersection <https://postgis.net/docs/RT_ST_Intersection.html>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:1011
+#: ../../en/rasters.rst:1020
 msgid "What you get out of this beast, are two different kinds of things:"
 msgstr ""
 
-#: ../../en/rasters.rst:1013
+#: ../../en/rasters.rst:1022
 msgid "Intersect a geometry with a raster, and you get a set of `geomval` offspring. Perhaps one, but most often many."
 msgstr ""
 
-#: ../../en/rasters.rst:1016
+#: ../../en/rasters.rst:1025
 msgid "Intersect 2 rasters and you get a single `raster` back."
 msgstr ""
 
-#: ../../en/rasters.rst:1018
+#: ../../en/rasters.rst:1027
 msgid "The golden rule for both raster intersection and geometry intersection is that both parties involved must have the same spatial reference system. For raster/raster, they also have to have same alignment."
 msgstr ""
 
-#: ../../en/rasters.rst:1022
+#: ../../en/rasters.rst:1031
 msgid "Here is an example which answers a question you may have been curious about. If we bucket our elevations into 5 buckets of elevation values, which elevation range results in the most gun fatalities? We know based on our earlier summary statistics that `0` is the lowest value and `411` is the highest value for elevation in our nyc dem dataset, so we use that as min and max value for our `width_bucket <https://www.postgresql.org/docs/current/functions-math.html>`_ call."
 msgstr ""
 
-#: ../../en/rasters.rst:1045
+#: ../../en/rasters.rst:1054
 msgid "Is there an important correlation between gun homicides and elevation? Probably not."
 msgstr ""
 
-#: ../../en/rasters.rst:1049
+#: ../../en/rasters.rst:1058
 msgid "Let's take a look at raster / raster intersection:"
 msgstr ""
 
-#: ../../en/rasters.rst:1058
+#: ../../en/rasters.rst:1067
 msgid "What we get are two rows with NULLLs, and if you have your PostgreSQL set to show notices, you'll see:"
 msgstr ""
 
-#: ../../en/rasters.rst:1060
+#: ../../en/rasters.rst:1069
 msgid "**NOTICE:  The two rasters provided do not have the same alignment.  Returning NULL**"
 msgstr ""
 
-#: ../../en/rasters.rst:1062
+#: ../../en/rasters.rst:1071
 msgid "In order to fix this, we can align one to the other as it's coming out of the gate using `ST_Resample <https://postgis.net/docs/RT_ST_Resample.html>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:1074
+#: ../../en/rasters.rst:1083
 msgid "Let's also roll it up into a single stats record"
 msgstr ""
 
-#: ../../en/rasters.rst:1088
+#: ../../en/rasters.rst:1097
 msgid "which outputs:"
 msgstr ""
 
-#: ../../en/rasters.rst:1099
+#: ../../en/rasters.rst:1108
 msgid "Map Algebra Functions"
 msgstr ""
 
-#: ../../en/rasters.rst:1100
-msgid "Map algebra is the idea that you can do math on your pixel values. The :command:`ST_Union` and :command:`ST_Intersection` functions covered earlier are a special fast case of map algebra. Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_ family of functions which allow you to define your own crazy math, but at cost of performance."
+#: ../../en/rasters.rst:1109
+msgid "Map algebra is the idea that you can do math on your pixel values. The :command:`ST_Union` and :command:`ST_Intersection` functions covered earlier are a special fast case of map algebra. Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_MapAlgebra.html>`_ family of functions which allow you to define your own crazy math, but at cost of performance."
 msgstr ""
 
-#: ../../en/rasters.rst:1108
-msgid "People have the habit of jumping to  :command:`ST_MapAlgebra`, probably cause the name sounds so cool and sophisticated. Who wouldn't want to tell their friends, \"I'm using a function called ST_MapAlgebra.\" My advice, explore other functions before you jump for that shot-gun. Your life will be simpler and your performance will be 100 times better, and your code will be shorter."
+#: ../../en/rasters.rst:1117
+msgid "People have the habit of jumping to  :command:`ST_MapAlgebra`, probably because the name sounds so cool and sophisticated. Who wouldn't want to tell their friends? *I'm using a function called ST_MapAlgebra.* My advice, explore other functions before you pull out that shotgun. Your life will be simpler and your performance will be 100 times better, and your code will be shorter."
 msgstr ""
 
-#: ../../en/rasters.rst:1114
+#: ../../en/rasters.rst:1123
 msgid "Before we showcase `ST_MapAlgebra`, we'll explore other functions that fit under the `Map Algebra` family of functions and generally have better performance than `ST_MapAlgebra`."
 msgstr ""
 
-#: ../../en/rasters.rst:1118
+#: ../../en/rasters.rst:1127
 msgid "Reclassify your raster using ST_Reclass"
 msgstr ""
 
-#: ../../en/rasters.rst:1120
+#: ../../en/rasters.rst:1129
 msgid "An often overlooked map-algebraish function is the `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_ function, who sits in the background waiting for someone to discover the power and speed it can offer."
 msgstr ""
 
-#: ../../en/rasters.rst:1124
+#: ../../en/rasters.rst:1133
 msgid "What does **ST_Reclass** do? It as the name implies, reclassifies your pixel values based on minimalist range algebra."
 msgstr ""
 
-#: ../../en/rasters.rst:1126
+#: ../../en/rasters.rst:1135
 msgid "Lets revisit our NYC Dems.  Perhaps we only care about classifying our elevations as 1) low, 2) medium, 3) high , and 4) really high. We don't need 411 values, we just need 4.  With that said lets do some reclassifying."
 msgstr ""
 
-#: ../../en/rasters.rst:1129
+#: ../../en/rasters.rst:1138
 msgid "The classification scheme is governed by the `reclass expression <https://postgis.net/docs/reclassarg.html>`_."
 msgstr ""
 
-#: ../../en/rasters.rst:1145
+#: ../../en/rasters.rst:1154
 msgid "Which would output:"
 msgstr ""
 
-#: ../../en/rasters.rst:1157
+#: ../../en/rasters.rst:1166
 msgid "If this were a classification scheme we preferred, we could create a new table using the ST_Reclass to recompute each tile."
 msgstr ""
 
-#: ../../en/rasters.rst:1160
+#: ../../en/rasters.rst:1169
 msgid "Coloring your rasters with ST_ColorMap"
 msgstr ""
 
-#: ../../en/rasters.rst:1161
+#: ../../en/rasters.rst:1170
 msgid "The `ST_ColorMap <https://postgis.net/docs/RT_ST_ColorMap.html>`_ function is another mapalgebraish function that reclassifies your pixel values.  Except it is band creating. It converts a single band raster such as our Dems into a visually presentable 3 or 4 banded raster."
 msgstr ""
 
-#: ../../en/rasters.rst:1165
+#: ../../en/rasters.rst:1174
 msgid "You could use one of the built-in colormaps as below if you don't want to fuss with creating one."
 msgstr ""
 
-#: ../../en/rasters.rst:1178
+#: ../../en/rasters.rst:1187
 msgid "Which looks like:"
 msgstr ""
 
-#: ../../en/rasters.rst:1182
+#: ../../en/rasters.rst:1191
 msgid "The bluer the color the lower the elevation and the redder the color the higher the elevation."
 msgstr ""

@@ -5,20 +5,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 msgid ""
-msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-02 22:32+0000\n"
-"PO-Revision-Date: 2024-02-23 03:45+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
-"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\n"
-"Language: ja\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
-"Generated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2024-11-08 01:10+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -38,7 +25,7 @@ msgstr "ラスタがデカルト空間内に存在するので、ラスタはジ
 
 #: ../../en/rasters.rst:24
 msgid "The raster format is commonly used to store elevation data, temperature data, satellite data, and thematic data representing things like environmental contamination, population density, and environmental hazard occurrences. You can use rasters to store any numeric data that has a meaningful coordinate location. The only restriction is that for all data in a specific band the numeric data types have to be the same."
-msgstr "ラスタ形式は一般的に標高データ、気温データ、衛星データ、環境汚染、人口密度、環境危険の発生などを表現する主題データなどを格納するためによく使あｗレ増す。意味のある座標位置を持つ数値データの格納のためにラスタを使用することができます。ラスタの制限は、特定のバンドの全てのデータについて、数値データタイプが同じでなければならないことだけです。"
+msgstr "ラスタ形式は一般的に標高データ、気温データ、衛星データ、環境汚染、人口密度、環境危険の発生などを表現する主題データなどを格納するためによく使われます。意味のある座標位置を持つ数値データの格納のためにラスタを使用することができます。ラスタの制限は、特定のバンドの全てのデータについて、数値データタイプが同じでなければならないことだけです。"
 
 #: ../../en/rasters.rst:28
 msgid "Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the :command:`raster2pgsql` command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:"
@@ -105,10 +92,8 @@ msgid "This raster data was sourced from `NYC DEM 1-foot Integer <https://data.c
 msgstr "このラスタデータは、建物と水面を除いた、海面からの相対高度を表現する 3GB DEM の TIFFデータ である `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_ をもとにした低解像度版です。"
 
 #: ../../en/rasters.rst:115
-#, fuzzy
-#| msgid "The :command:`rasterpgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source. Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata."
 msgid "The :command:`raster2pgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source. Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata."
-msgstr ":command:`rasterpgsql` ツールは、ESRIシェープファイル を PostGIS ジオメトリ/ジオグラフィテーブルにロードする代わりに、GDAL が対応するラスタフォーマットをラスタテーブルにロードするところが違いますが、 :command:`shp2gpsql` と似ています。:command:`shp2pgsql` のように、ソースデータの空間参照系ID (SRID) を渡すことができます。:command:`shp2pgsql` と違い、適切なメタデータを持っているソースデータに対しては空間参照系を推測できます。"
+msgstr ":command:`raster2pgsql` ツールは、ESRIシェープファイル を PostGIS ジオメトリ/ジオグラフィテーブルにロードする代わりに、GDAL が対応するラスタフォーマットをラスタテーブルにロードするところが違いますが、 :command:`shp2gpsql` と似ています。:command:`shp2pgsql` のように、ソースデータの空間参照系ID (SRID) を渡すことができます。:command:`shp2pgsql` と違い、適切なメタデータを持っているソースデータに対しては空間参照系を推測できます。"
 
 #: ../../en/rasters.rst:119
 msgid "For a full exposure of all the possible switches offered refer to `raster2pgsql options <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_."
@@ -327,10 +312,8 @@ msgid "The `raster_overviews` table only provides you the overview_factor and th
 msgstr "`raster_overviews` テーブルは overview_factor と親テーブルの名前を提供しているだけです。この情報の全ては `raster2pgsql` のオーバビューに関する命名規則によって自分で考えられたはずです。"
 
 #: ../../en/rasters.rst:400
-#, fuzzy
-#| msgid "The `overview_factor` tells you at what resolution the row is with respect to it's parent. An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile. Similarly an overview_factor of `1` meants that 2x2x2 = 8 tiles of the original can be shoved into an overview_3 tile."
 msgid "The `overview_factor` tells you at what resolution the row is with respect to it's parent. An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile. Similarly an overview_factor of `3` meants that 2x2x2 = 8 tiles of the original can be shoved into an overview_3 tile."
-msgstr "`overview_factor` で、その行の親に対する解像度が分かります。`overview_factor` が `2` の場合には、2z2 = 4 タイルが、ひとつの overview_2 タイルに当てはまります。同様に `overview_factor` が `1` の場合には、overview_3 タイルに、元のタイルの 2x2x2 = 8 タイルが押し込まれます。"
+msgstr "`overview_factor` で、その行の親に対する解像度が分かります。`overview_factor` が `2` の場合には、2x2 = 4 タイルが、ひとつの overview_2 タイルに当てはまります。同様に `overview_factor` が `3` の場合には、overview_3 タイルに、元のタイルの 2x2x2 = 8 タイルが押し込まれます。"
 
 #: ../../en/rasters.rst:407
 msgid "Common Raster Functions"
@@ -470,7 +453,7 @@ msgstr "この例では、連携して動作するいくつかの関数を紹介
 
 #: ../../en/rasters.rst:609
 msgid "By default ST_Clip will leave out pixels where the centroid of the pixel doesn't intersect the geometry.  This can be annoying for big pixels and you may prefer to instead, include a pixel if any part of the pixel touches the geometry. Introduced in PostGIS 3.5, is the touched argument. Replace your  `ST_Clip(r.rast, g.geom)` with  `ST_Clip(r.rast, g.geom, touched => true)` and voila any pixels that intersect your geometry in any way will be included."
-msgstr ""
+msgstr "デフォルトでは ST_Clip は、重心がジオメトリとインタセクトしないピクセルを除外します。これは、大きなピクセルではイライラすることになりますし、そうでなくて、重心に限らずどの部分であってもジオメトリに接触するピクセルを使える方が好まれるかも知れません。PostGIS 3.5 で touched 引数が導入されました。`ST_Clip(r.rast, g.geom)` を `ST_Clip(r.rast, g.geom, touched => true)` に置き換えてみましょう。じゃじゃーん、どのようにでもジオメトリとインタセクトするピクセルが使われます。"
 
 #: ../../en/rasters.rst:618
 msgid "Converting Rasters to Geometries"
@@ -801,16 +784,12 @@ msgid "Map Algebra Functions"
 msgstr "地図代数関数"
 
 #: ../../en/rasters.rst:1109
-#, fuzzy
-#| msgid "Map algebra is the idea that you can do math on your pixel values. The :command:`ST_Union` and :command:`ST_Intersection` functions covered earlier are a special fast case of map algebra. Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_Polygon.html>`_ family of functions which allow you to define your own crazy math, but at cost of performance."
 msgid "Map algebra is the idea that you can do math on your pixel values. The :command:`ST_Union` and :command:`ST_Intersection` functions covered earlier are a special fast case of map algebra. Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_MapAlgebra.html>`_ family of functions which allow you to define your own crazy math, but at cost of performance."
-msgstr "地図代数は、ピクセル値に対して計算を行うことができるという考えです。前に説明した :command:`ST_Union` 関数と :command:`ST_Intersection` 関数は、地図代数の特に高速なケースです。ご自身のすごい数学の定義が可能になりますが能率が犠牲になる `ST_MapAlgebra <https://postgis.net/docs/ja/RT_ST_Polygon.html>`_ 関数ファミリがあります。"
+msgstr "地図代数は、ピクセル値に対して計算を行うことができるという考えです。前に説明した :command:`ST_Union` 関数と :command:`ST_Intersection` 関数は、地図代数の特に高速なケースです。ご自身のすごい数学の定義が可能になりますが能率が犠牲になる `ST_MapAlgebra <https://postgis.net/docs/ja/RT_ST_MapAlgebra.html>`_ 関数ファミリがあります。"
 
 #: ../../en/rasters.rst:1117
-#, fuzzy
-#| msgid "People have the habit of jumping to  :command:`ST_MapAlgebra`, probably cause the name sounds so cool and sophisticated. Who wouldn't want to tell their friends, \"I'm using a function called ST_MapAlgebra.\" My advice, explore other functions before you jump for that shot-gun. Your life will be simpler and your performance will be 100 times better, and your code will be shorter."
 msgid "People have the habit of jumping to  :command:`ST_MapAlgebra`, probably because the name sounds so cool and sophisticated. Who wouldn't want to tell their friends? *I'm using a function called ST_MapAlgebra.* My advice, explore other functions before you pull out that shotgun. Your life will be simpler and your performance will be 100 times better, and your code will be shorter."
-msgstr "一般に :command:`ST_MapAlgebra` に飛びつきがちですが、これは、名前の聞こえが良くて、洗練されているように感じるからなのでしょう。「ST_MapAlgebra という関数を使ってるよ」と言いたくない人はいないでしょう。筆者のアドバイスとしては、早まったことをする前に、他の関数も調査して下さい。あなたの人生がよりシンプルになり、あなたの能率が 100倍 良くなりますし、あなたのコードが短くなります。"
+msgstr "一般に :command:`ST_MapAlgebra` に飛びつきがちですが、これは、名前の聞こえが良くて、洗練されているように感じるからなのでしょう。「地図代数関数を使ってるよ」と言いたくない人はいないでしょう。筆者のアドバイスとしては、ショットガンを引き抜く前に、他の関数も調査して下さい。あなたの人生がよりシンプルになり、あなたの能率が 100倍 良くなりますし、あなたのコードが短くなります。"
 
 #: ../../en/rasters.rst:1123
 msgid "Before we showcase `ST_MapAlgebra`, we'll explore other functions that fit under the `Map Algebra` family of functions and generally have better performance than `ST_MapAlgebra`."

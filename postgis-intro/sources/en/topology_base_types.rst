@@ -134,7 +134,7 @@ Edge 1 and Edge 2 are part of the Face 1.
 
 The Face 1, is on the right or the left of Edge 2? if we see Edge 2 forward, the face is on its right, so the next_right_edge will be -2.
 
-When we look on the next edge, if the face that is building is on the right we multiply the Face id by -1, if not we keep the Face id unchanged.
+When we look on the next edge, if the face that is building is on the right we multiply the Edge id by -1, if not we keep the Edge id unchanged.
 
 Right side of Edge 1
 >>>>>>>>>>>>>>>>>>>>
@@ -143,9 +143,9 @@ Edge 1 has on its right side the Face 1.
 
 The next edge who builds Face 1 is Edge 2.
 
-Face 1 is on the right of Edge 2, so next_right_face is -2.
+Face 1 is on the right of Edge 2, so next_right_edge is -2.
 
-If the Edge 2 would be in opposite direction, next_right_face would be 2.
+If the Edge 2 would be in opposite direction, next_right_edge would be 2.
 
 Left side of Edge 2
 >>>>>>>>>>>>>>>>>>>
@@ -154,9 +154,9 @@ Edge 1 has on its left the Face 4.
 
 The next edge who build Face 4 is Edge 4.
 
-Face 4 is on the right of Edge 4, so next_left_face is -4.
+Face 4 is on the right of Edge 4, so next_left_edge is -4.
 
-If the Edge 4 would be in opposite direction, next_left_face would be 4.
+If the Edge 4 would be in opposite direction, next_left_edge would be 4.
 
 Next Edge on edge_data
 >>>>>>>>>>>>>>>>>>>>>>
@@ -180,7 +180,7 @@ We already checked all the columns of the edge_data table:
 - abs_next_left_edge: Next edge who builds the face on the left.
 - next_left_edge: abs_next_left_edge and negative sign if the right face is on the right of the next left edge.
 - right_face: ID of the face on the right of the edge.
-- abs_next_right_face: Next edge who build the face on the right.
+- abs_next_right_edge: Next edge who build the face on the right.
 - next_right_edge: abs_next_right_edge and negative sign if the left face is on the right of the next right edge.
 - geom: Geometry of the edge.
 

@@ -56,7 +56,7 @@ All the information about edges are stored on the edge_data table, in your custo
 This linestrings are called Edges because are the edges of the faces.
 
 Edge direction, left and right
-??????????????????????????????
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 .. image:: ./topology/edge_left_right.png
   :align: center
@@ -91,7 +91,7 @@ The edge_data table has information related to the edge, from what we know right
 - geom: Geometry of the edge
 
 Abs Next Edge
-?????????????
+<<<<<<<<<<<<<
 
 The table edge_data has the columns abs_next_left_edge and abs_next_right_edge, in this moment it goes little tricky how to interpret it.
 
@@ -119,7 +119,7 @@ And their interpretation:
 - abs_next_left_edge: Looking the edge forward, which is the next edge who build the face on the left side?
 
 Next Edge
-?????????
+<<<<<<<<<
 
 This columns, next_right_edge and next_left_edge are very similar to the abs ones, actually it follows the same rules, we get the next edge id for the left and right faces, and when we have them we perform one extra operation.
 
@@ -137,7 +137,7 @@ The Face 1, is on the right or the left of Edge 2? if we see Edge 2 forward, the
 When we look on the next edge, if the face that is building is on the right we multiply the Face id by -1, if not we keep the Face id unchanged.
 
 Right side of Edge 1
-!!!!!!!!!!!!!!!!!!!!
+>>>>>>>>>>>>>>>>>>>>
 
 Edge 1 has on its right side the Face 1.
 
@@ -148,7 +148,7 @@ Face 1 is on the right of Edge 2, so next_right_face is -2.
 If the Edge 2 would be in opposite direction, next_right_face would be 2.
 
 Left side of Edge 2
-!!!!!!!!!!!!!!!!!!!
+>>>>>>>>>>>>>>>>>>>
 
 Edge 1 has on its left the Face 4.
 
@@ -159,7 +159,7 @@ Face 4 is on the right of Edge 4, so next_left_face is -4.
 If the Edge 4 would be in opposite direction, next_left_face would be 4.
 
 Next Edge on edge_data
-!!!!!!!!!!!!!!!!!!!!!!
+>>>>>>>>>>>>>>>>>>>>>>
 
 Now we can know how to build and interpret the last two remaining columns, we already showed it several times, but want to write here as a summary:
 
@@ -169,7 +169,7 @@ For the Edge 1:
 - next_left_edge: -4
 
 Full columns of edge_data
-?????????????????????????
+<<<<<<<<<<<<<<<<<<<<<<<<<
 
 We already checked all the columns of the edge_data table:
 

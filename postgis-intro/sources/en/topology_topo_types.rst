@@ -8,7 +8,7 @@ Before read this document, at least check one of this documents:
 `Topology Basic Types <https://postgis.net/workshops/en/postgis-intro/topology_base_types.html>`_.
 `Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_.
 
-Be able to have a Topology with all the Primitives is nice, to make this more useful we need a way to represent this ones in a table, how we have spatial tables, we can have topology tables.
+Being able to have a Topology with all the Primitives is nice, to make this more useful we need a way to represent these ones in a table, how we have spatial tables, we can have topology tables.
 
 Introduction to geometry representation
 ---------------------------------------
@@ -34,21 +34,21 @@ Just to write in two ways:
   - TopoGeometries where each one one contains
   - TopoElements where each one can represent a
 
-    - TopoGeometry of other Layer
-    - Primitive from the Topology
+	- TopoGeometry of other Layer
+	- Primitive from the Topology
 
-      - Nodes
-      - Edges
-      - Faces
-      - Geometry Collections
+  	- Nodes
+  	- Edges
+  	- Faces
+  	- Geometry Collections
 
-TopoGeometries are exposed as keys, they has a unique key inside the Layer, but also stores its Layer Key, this allows Postgis to store it in a arbitrary column and always be able to find its TopoElements, and with them what they represent.
+TopoGeometries are exposed as keys, they have a unique key inside the Layer, but also stores its Layer Key, this allows Postgis to store it in an arbitrary column and always be able to find its TopoElements, and with them what they represent.
 
 You need a Layer where a TopoGeometry will be constructed, and after that you don't need to remember to which Layer it belongs.
 
 This concept is the one used for the user, from this point we will explain deep and technical details.
 
-As a side note, Postgis Topology has internally some tricks when its about keys, helps to optimize a lot of parts but at the same time there is a lot of reduntant information, do not be supreised if you find the same information in two or more places.
+As a side note, Postgis Topology internally has some tricks when it is about keys, helps to optimize a lot of parts but at the same time there is a lot of redundant information, do not be surprised if you find the same information in two or more places.
 
 Features
 --------
@@ -62,7 +62,7 @@ Features will represent which type the set of geometries will be, is not importa
 - (3) Faces
 - (4) Geometry Collections
 
-The numbers are important, in any function which request to us the Feature Type, you can specify it using the number or the name as string.
+The numbers are important, in any function which requests the Feature Type, you can specify it using the number or the name as string.
 
 Hierarchical Layers, Childs and Parents
 ---------------------------------------
@@ -79,11 +79,11 @@ We define the relationship between Layer 1 and Primitives as:
 - Layer 1 is Parent of the Primitives
 - Primitives are Childs of the Layer 1
 
-The relation about Parent and Child is about the size, Childs are small, when we have a group of them we build a Parent, a bigger group.
+The relation between Parent and Child is about the size, Childs are small, when we have a group of them we build a Parent, a bigger group.
 
 Layer 2 has as childs the Layer 1, this implies each TopoGeometry from this layer, can make a reference to one or multiple TopoGeometries of the Layer 1.
 
-This also means you can't pick half of a TopoGeometry from Layer 1, pick half of it means you need a reference to one of the TopoElements of a TopoGeometry, which in this case belongs to the Primtives (its Child), if you really need that then build Layer 2 using Layer 1 childs (Primitives).
+This also means you can't pick half of a TopoGeometry from Layer 1, pick half of it means you need a reference to one of the TopoElements of a TopoGeometry, which in this case belongs to the Primitives (its Child), if you really need that then build Layer 2 using Layer 1 childs (Primitives).
 
 Each Layer can only have one Child Layer, this means, the Child and Parent share the same Topology schema.
 
@@ -92,52 +92,52 @@ You will notice some aspects of Hierarchy could change to maybe support somethin
 Layers
 ------
 
-To store TopoGeometries we need a Layer, due to this when we create a TopoGeometrie's Column, we also create a Layer, this is why we use special function to create a column for this.
+To store TopoGeometries we need a Layer, due to this when we create a TopoGeometrie's Column, we also create a Layer, this is why we use a special function to create a column for this.
 
 `Crete TopoGeometry Column <https://postgis.net/docs/AddTopoGeometryColumn.html>`_,.
 
-Layers has a unique identifier in each topology, this identifier is called layer_id.
+Layers have a unique identifier in each topology, this identifier is called layer_id.
 
 Layers Key: Composed Key with [topology_id, layer_id]
 
-Layers and TopoGeometry Columns has a special relationship, they are linked, but they are not the same.
+Layers and TopoGeometry Columns have a special relationship, they are linked, but they are not the same.
 
-Layers has a lot of information that we must provide to know which type of Layer we want.
+Layers have a lot of information that we must provide to know which type of Layer we want.
 
 Table route: schema name, table name and column name to know where it is linked.
 
-Feature Type: Feature type the layer will contains.
+Feature Type: Feature type the layer will contain.
 
-Level: This value starts at 0, in the case we construct this layer using other layer, it will add 1, so we know how much layers we are from the Primitives, if the value is 0 means the Layer is constructed using Primitives instead of TopoGeometries.
+Level: This value starts at 0, in the case we construct this layer using another layer, it will add 1, so we know how many layers we are from the Primitives, if the value is 0 means the Layer is constructed using Primitives instead of TopoGeometries.
 
-child_id: In case the layer is build not using Primitives and using other Layer as base, we need the Layer Identifier (layer_id) of this layer, we do not need topology_id because we already know it from the parent.
+child_id: In case the layer is built not using Primitives and using another Layer as base, we need the Layer Identifier (layer_id) of this layer, we do not need topology_id because we already know it from the parent.
 
 Relation's Table
 ----------------
 
-Finally, the section maybe you was looking on, how Postgis Topology goes from a TopoGeometry to what they contains.
+Finally, the section you may be looking at, how Postgis Topology goes from a TopoGeometry to what they contain.
 
-The Relation's table function, is be the bridge between the Parent and Childs.
+The Relation's table function is be the bridge between the Parent and Childs.
 
 This table can be found in: ``my_topology.relation``.
 
 Keys and Identifiers we know now
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-I'll use the word "Identifier" as a unique key in a particular context for example each layer has a number as identifier (layer_id), it is unique in its topology context, but is not enough to found a layer in a database.
+I'll use the word "Identifier" as a unique key in a particular context. For example each layer has a number as an identifier (layer_id), it is unique in its topology context, but is not enough to find a layer in a database.
 
-While Identifiers will works in a context, the Key will be the full way to address an element, for example the key for any layer are two values [topology_id, layer_id].
+While Identifiers will work in a context, the Key will be the full way to address an element, for example the key for any layer are two values [topology_id, layer_id].
 
 .. image:: ./topology/topo_keys.png
   :align: center
   :width: 600
 
-The image is a good summary of how they keys for each are are composed.
+The image is a good summary of how the keys for each are composed.
 
 Implicit identifiers on Keys
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-Postgis uses at some extent a implicit logic when works with Layers and TopoGeometries, this is because they have a context where you don't need to store the full Key to know it.
+Postgis uses at some extent an implicit logic when working with Layers and TopoGeometries, this is because they have a context where you don't need to store the full Key to know it.
 
 To show an example:
 
@@ -147,14 +147,14 @@ TopoGeometry is composed by:
 - layer_id
 - topogeometry_id
 
-As we said before, the relation's table is stored inside the topology schema, this table will contains the relation of the TopoGeometry with the TopoElements, to make a reference in this context, do we need the topology_id?
+As we said before, the relation's table is stored inside the topology schema. This table will contain the relation of the TopoGeometry with the TopoElements, to make a reference in this context, do we need the topology_id?
 
-We can skip it! While we are out of the topology schema we need the id to found it, but while we are inside it we can look at the schema name, and found its id on the table ``topology.topology``, which has all topologies ids and names.
+We can skip it! While we are out of the topology schema we need the id to find it, but while we are inside it we can look at the schema name, and find its id on the table ``topology.topology``, which has all topologies ids and names.
 
 TopoGeometry
 <<<<<<<<<<<<
 
-TopoGeometry is a composed key with the next elements:
+TopoGeometry is a composite key with the next elements:
 
 - topology_id: topology_id of TopoGeometry Key
 - layer_id: layer_id of the TopoGeometry Key
@@ -168,7 +168,7 @@ Each schema topology can have its own relation's table, it will be created when 
 
 Each row of the table is called a "Component", like a component of the relations.
 
-The component saves pairs of two things, a TopoGeometry Key and a TopoElement, remember that each TopoElement can only represent one Primitive or TopoGeometry, so for a TopoGeometry be able to represent several of them the tables stores multiple rows with the same TopoGeoemtry Key and different TopoElements, this way only filtering in the table we can get all the TopoElements for any TopoGeometry.
+The component saves pairs of two things, a TopoGeometry Key and a TopoElement, remember that each TopoElement can only represent one Primitive or TopoGeometry, so for a TopoGeometry be able to represent several of them the tables stores multiple rows with the same TopoGeometry Key and different TopoElements, this way only filtering in the table we can get all the TopoElements for any TopoGeometry.
 
 .. image:: ./topology/components.png
   :align: center
@@ -177,7 +177,7 @@ The component saves pairs of two things, a TopoGeometry Key and a TopoElement, r
 Find Components of a TopoGeometry
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-To find which components belongs to a TopoGeometry is little trycky, because here will works the implicit Keys.
+To find which components belong to a TopoGeometry is a little tricky, because here will work the implicit Keys.
 
 A component has the next elements:
 
@@ -202,7 +202,7 @@ To reach from a TopoGeometry to a Component we need to look the TopoGeometry.top
 Reading TopoElements
 <<<<<<<<<<<<<<<<<<<<
 
-The last part to decompose the TopoGeometry is be able to interpret the TopoElements it has, is more complex than other keys, because its meaning can change based on the Layer it is saved.
+The last part to decompose TopoGeometry is to be able to interpret the TopoElements which is more complex than other keys, because its meaning can change based on the Layer it is saved.
 
 As we talked, a Layer can have as Childs two options, Primitives or TopoGeometries.
 
@@ -220,10 +220,9 @@ So the cases depends on child_id:
   - element_id: topogeometry_id from a TopoGeometry Key
   - element_type: layer_id from a TopoGeometry Key
 
-The first case is trivial, just look on their respective Primitive table and ue the identifier to know which primitive is.
+The first case is trivial, just look at their respective Primitive table and use the identifier to know which primitive is.
 
-While the second case the TopoElement is used to build a new TopoGeometry Key, the topology_id is implicit as we talked, so the Key is complete, to found the new elements look again on the relation's table but using the new keys.
+While the second case the TopoElement is used to build a new TopoGeometry Key, the topology_id is implicit as we talked, so the Key is complete, to find the new elements look again on the relation's table but using the new keys.
 
 .. image:: ./topology/read_topoelement.png
   :align: center
-

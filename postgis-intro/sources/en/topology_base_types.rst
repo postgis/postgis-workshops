@@ -37,7 +37,9 @@ Universal Face
 
 Could be intuitive to think that only exists the faces constructed by edges, there is one exception, all the white space out of all the faces are also a face!
 
-The empty space is called the Universal Face, this face constains everything, each node, edge and face are inside the Universal Face.
+The empty space is called the Universal Face, when a Topology is empty, all the space is the Universal Face, when we add a linestring is an edge of this face, then when we make a polygon is like make hole in the face and steal it to assign it to a face.
+
+This face is infinite and do not have any boundary.
 
 .. image:: ./topology/boros_universal_face.png
   :width: 400
@@ -58,10 +60,18 @@ This linestrings are called Edges because are the edges of the faces.
 Edge direction, left and right
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+Edges in topology has a right defined perspective and view, when we see them must be done in the next way:
+
+.. image:: ./topology/edge_perspective.png
+  :align: center
+
+When we want to see from the edge perspective is always from the end node to the start edge, always looking the edge forward.
+
+
 .. image:: ./topology/edge_left_right.png
   :align: center
 
-The edges have left and right properties, as we see they are defined using the linestring direction, see the linestring from the start node to the end node perspective, there will always be a well defined left and right.
+The edges have left and right properties, as we see they are defined using the edge perspective, see the linestring from the start node to the end node, there will always be a well defined left and right.
 
 So see the edge forward and you have always a left and right side.
 
@@ -74,7 +84,7 @@ Check the edges on the image, while almost all the edges goes from down to up an
 
 Continue seeing the organge edge, while on its right has a polygon build by the edges, on the left is the Universal Face.
 
-When we want to analyze any edge, and we need to see it from a certain perspective, is always looking the edge in forward, never in backward!
+When we want to analyze any edge, and we need to see it from a the edge perspective, is always looking the edge in forward, never in backward!
 
 Which are all the next edges? Looking forward we go from start node to the end node, all the edges who start or ends in the end node of the edge!
 

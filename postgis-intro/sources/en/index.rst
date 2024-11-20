@@ -69,6 +69,8 @@ Workshop Modules
   knn
   rasters
   topology
+  topology_base_types
+  topology_topo_types
   history_tracking
   tuning
   security

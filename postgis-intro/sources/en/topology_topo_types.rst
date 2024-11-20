@@ -5,9 +5,12 @@ Topology and Geometry Representation
 
 Before reading this document, please review at least one of these resources:
 
+<<<<<<< HEAD
 * `Topology Basic Types <https://postgis.net/workshops/en/postgis-intro/topology_base_types.html>`_
 * `Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_
-Being able to have a Topology with all the Primitives is nice, to make this more useful we need a way to represent these ones in a table, how we have spatial tables, we can have topology tables.
+Having a Topology with all its Primitives is useful, but to make it more practical, we need a way to represent these elements in a table. Similar to how we have spatial tables, we can have topology tables.
+=======
+>>>>>>> 8018d8a (improve readibility)
 
 Introduction to geometry representation
 ---------------------------------------
@@ -26,6 +29,7 @@ A TopoGeometry can represent a group of Primitives or other TopoGeometries, in o
 
 Layers are the biggest box, they store TopoGeometries which also stores TopoElements, this last ones represents Primitives or other TopoGeometries.
 
+
 Just to write in two ways:
 
 - Layer contains
@@ -41,13 +45,13 @@ Just to write in two ways:
   	- Faces
   	- Geometry Collections
 
-TopoGeometries are exposed as keys, they have a unique key inside the Layer, but also stores its Layer Key, this allows Postgis to store it in an arbitrary column and always be able to find its TopoElements, and with them what they represent.
+TopoGeometries are exposed as keys, they has a unique key inside the Layer, but also stores its Layer Key, this allows Postgis to store it in an arbitrary column and always be able to find its TopoElements, and with them what they represent.
 
 You need a Layer where a TopoGeometry will be constructed, and after that you don't need to remember to which Layer it belongs.
 
 This concept is the one used for the user, from this point we will explain deep and technical details.
 
-As a side note, Postgis Topology internally has some tricks when it is about keys, helps to optimize a lot of parts but at the same time there is a lot of redundant information, do not be surprised if you find the same information in two or more places.
+As a side note, Postgis Topology has internally some tricks when its about keys, helps to optimize a lot of parts but at the same time there is a lot of reduntant information, do not be supreised if you find the same information in two or more places.
 
 Features
 --------
@@ -93,23 +97,19 @@ Layers
 
 To store TopoGeometries we need a Layer, due to this when we create a TopoGeometrie's Column, we also create a Layer, this is why we use a special function to create a column for this.
 
-`Crete TopoGeometry Column <https://postgis.net/docs/AddTopoGeometryColumn.html>`_,.
-
-Layers have a unique identifier in each topology, this identifier is called layer_id.
-
-Layers Key: Composed Key with [topology_id, layer_id]
+`Crete TopoGeometry Column <https://postgis.net/docs/AddTopoGeometryColumn.html>`_
 
 Layers and TopoGeometry Columns have a special relationship, they are linked, but they are not the same.
 
 Layers have a lot of information that we must provide to know which type of Layer we want.
 
-Table route: schema name, table name and column name to know where it is linked.
+Layers have a unique identifier in each topology, this identifier is called layer_id.
 
-Feature Type: Feature type the layer will contain.
-
-Level: This value starts at 0, in the case we construct this layer using another layer, it will add 1, so we know how many layers we are from the Primitives, if the value is 0 means the Layer is constructed using Primitives instead of TopoGeometries.
-
-child_id: In case the layer is built not using Primitives and using another Layer as base, we need the Layer Identifier (layer_id) of this layer, we do not need topology_id because we already know it from the parent.
+- Layers Key: Composed Key with [topology_id, layer_id]
+- Table route: Schema name, table name and column name to know where it is linked.
+- Feature Type: Feature type the layer will contain.
+- Level: This value starts at 0, in the case we construct this layer using another layer, it will add 1, so we know how many layers we are from the Primitives, if the value is 0 means the Layer is constructed using Primitives instead of TopoGeometries.
+- child_id: In case the layer is built not using Primitives and using another Layer as base, we need the Layer Identifier (layer_id) of this layer, we do not need topology_id because we already know it from the parent.
 
 Relation's Table
 ----------------

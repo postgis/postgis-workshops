@@ -100,83 +100,65 @@ The edge_data table has information related to the edge, from what we know right
 - right_face: ID of the face on the right of the edge
 - geom: Geometry of the edge
 
-Abs Next Edge
-<<<<<<<<<<<<<
+Abs Next Edge & Next Edge
+<<<<<<<<<<<<<<<<<<<<<<<<<
 
 The table edge_data has the columns abs_next_left_edge and abs_next_right_edge, in this moment it goes little tricky how to interpret it.
 
-Until now we are mainly see properties of the edge it self and what has on the sides, the next edge properties are different, do not ask only about the edge it self, is about which is the next edge who a face.
+Until now we are mainly see properties of the edge it self and what has on the sides, the next edge properties are different, do not ask only about the edge it self, is about which is the next edge who build the face on the right or left.
 
-.. image:: ./topology/next_edge.png
+The logic of the right_edge and the left_edge are very similar, so we will look first on the left one deeper and then show the right one.
+
+We will be using the next topology as example:
+
+.. image:: ./topology/next_edge_base.png
   :align: center
+  :width: 400
 
-To explain this with an example lets see the image and find the Edge 1, on its right side has the Face 1, looking the Edge 1 forward, which is the Edge who follows to build the Face 1?
+Left
+>>>>
 
-This would be the Edge 2, is the next edge who build the Face 1, this face is the abs_next_right_edge.
+Lets pick as example the Edge 5, this one has on the Left the Face 2, looking forward which is the next edge who builds the Face 2?
 
-Get the abs_next_left_edge is similar, we just need to ask ourselves, on the left side of the Edge 1 is the Face 4, looking the Edge 1 forward, which edge who follows Edge 1 and builds the Face 4?
+This is the Edge 6.
 
-This would be the Edge 4.
-
-Here the new two columns for this case:
-
-- abs_next_right_edge: 2
-- abs_next_left_edge: 4
-
-And their interpretation:
-
-- abs_next_right_edge: Looking the edge forward, which is the next edge who build the face on the right side?
-- abs_next_left_edge: Looking the edge forward, which is the next edge who build the face on the left side?
-
-Next Edge
-<<<<<<<<<
-
-This columns, next_right_edge and next_left_edge are very similar to the abs ones, actually it follows the same rules, we get the next edge id for the left and right faces, and when we have them we perform one extra operation.
-
-Let follow as previously:
-
-.. image:: ./topology/next_edge.png
+.. image:: ./topology/next_left_edge_perspective.png
   :align: center
+  :width: 400
 
-The Edge 1 has the Face 1 on the right, and the abs_right_edge is the Edge 2.
+Something very important here is the perspective we follow the lines, depending on the Edge direction, is like see the Face clockwise or anticlockwise.
 
-Edge 1 and Edge 2 are part of the Face 1.
+With this information we have abs_next_left_edge which will be 6.
 
-The Face 1, is on the right or the left of Edge 2? if we see Edge 2 forward, the face is on its right, so the next_right_edge will be -2.
+The next_left_edge is almost the same to abs_next_left_edge, except it can be negative which depends in the perspectives.
 
-When we look on the next edge, if the face that is building is on the right we multiply the Edge id by -1, if not we keep the Edge id unchanged.
+If we follow the Edge perspective we will have two directions, the direction of the next edge, and the direction of the perspective on the next edge.
 
-Right side of Edge 1
->>>>>>>>>>>>>>>>>>>>
+We will use the next sign in each case:
 
-Edge 1 has on its right side the Face 1.
+- Perspective direction and Next edge direction are opposed: "-"
+- Perspective direction and Next edge direction are the same: None, keep the value positive
 
-The next edge who builds Face 1 is Edge 2.
+How the Perspective and Edge 6 has the same direction, next_left_edge will be 6.
 
-Face 1 is on the right of Edge 2, so next_right_edge is -2.
+- abs_next_left_edge: 6
+- next_left_edge: 6
 
-If the Edge 2 would be in opposite direction, next_right_edge would be 2.
+Right
+>>>>>
 
-Left side of Edge 2
->>>>>>>>>>>>>>>>>>>
+The only difference between Left and Right analysis is the perspective, while in Left we use forward in Right we will see in backwards. Be careful, even if we look on backwards the definition of Left Face and Right Face are still looking forward! Only changes the perspective to follow.
 
-Edge 1 has on its left the Face 4.
+The Edge 5 has the Face 0 on its Right, the Universal Face, looking Edge 5 backwards the next edge who builds Face 0 is the Edge 4.
 
-The next edge who build Face 4 is Edge 4.
+.. image:: ./topology/next_right_edge_perspective.png
+  :align: center
+  :width: 400
 
-Face 4 is on the right of Edge 4, so next_left_edge is -4.
+Following the perspective of Edge 5 on Edge 4 we can see it goes up, while the Edge 4 goes down, the Perspective direction and the Edge 4 direction are opposed.
 
-If the Edge 4 would be in opposite direction, next_left_edge would be 4.
-
-Next Edge on edge_data
->>>>>>>>>>>>>>>>>>>>>>
-
-Now we can know how to build and interpret the last two remaining columns, we already showed it several times, but want to write here as a summary:
-
-For the Edge 1:
-
-- next_right_edge: -2
-- next_left_edge: -4
+- abs_next_right_edge: 4
+- nexr_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)
 
 Full columns of edge_data
 <<<<<<<<<<<<<<<<<<<<<<<<<

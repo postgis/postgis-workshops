@@ -161,21 +161,21 @@ Following the perspective of Edge 5 on Edge 4 we can see it goes up, while the E
 - nexr_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)
 
 Isolated Edge Case
->>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>
 
 There is a case that may be confusing, all the rules above follow in the same way but it is good to take a look.
 
-.. image:: ./topology/next_right_one_edge.png
+.. image:: ./topology/next_edge_one_edge.png
   :align: center
-  :width: 400
+  :width: 200
 
 When we have an Edge that has no connections to other Edges, the first thing we can appreciate is that the Face of the Left is the same as the Right, in this case Face 0, the Universal Face.
 
 If we follow the past logic, on the Left is the Face 0, which is the next edge who builds Face 0? Actually there is an Edge, and is itself, and it also has a perspective as before:
 
-.. image:: ./topology/next_right_one_edge_left.png
+.. image:: ./topology/next_edge_one_edge_left.png
   :align: center
-  :width: 400
+  :width: 200
 
 If we check the perspective direction we ends looking the same edge but in opposite direction, this means the Edge 1 and its Next Edge (Edge 1) has opposed directions.
 
@@ -185,9 +185,9 @@ If we check the perspective direction we ends looking the same edge but in oppos
 
 For the Next Right Edge is the same, the Next Edge will be it self, the only what it changes is the perspective:
 
-.. image:: ./topology/next_right_one_edge_right.png
+.. image:: ./topology/next_edge_one_edge_right.png
   :align: center
-  :width: 400
+  :width: 200
 
 When we look backwards any isolated edge, the perspective will always have the same direction as the Edge so:
 

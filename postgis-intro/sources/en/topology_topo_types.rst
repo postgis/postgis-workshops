@@ -3,11 +3,10 @@
 Topology and Geometry Representation
 ====================================
 
-Before read this document, at least check one of this documents:
+Before reading this document, please review at least one of these resources:
 
-`Topology Basic Types <https://postgis.net/workshops/en/postgis-intro/topology_base_types.html>`_.
-`Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_.
-
+* `Topology Basic Types <https://postgis.net/workshops/en/postgis-intro/topology_base_types.html>`_
+* `Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_
 Being able to have a Topology with all the Primitives is nice, to make this more useful we need a way to represent these ones in a table, how we have spatial tables, we can have topology tables.
 
 Introduction to geometry representation

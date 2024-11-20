@@ -35,11 +35,11 @@ But there is still a missing piece, how do we say for example, a face has a spec
 Universal Face
 --------------
 
-Could be intuitive to think that only exists the faces constructed by edges, there is one exception, all the white space out of all the faces are also a face!
+It Might be intuitive to think that only the faces constructed by edges exist, there is one exception, all the white space out of all the faces is also a face!
 
-The empty space is called the Universal Face, when a Topology is empty, all the space is the Universal Face, when we add a linestring is an edge of this face, then when we make a polygon is like make hole in the face and steal it to assign it to a face.
+The empty space is called the Universal Face, when a Topology is empty, all the space is the Universal Face, when we add a linestring is an edge of this face, then when we make a polygon it is like make a hole in the face and stealing it to assign it to a face.
 
-This face is infinite and do not have any boundary.
+This face is infinite and does not have any boundary.
 
 .. image:: ./topology/boros_universal_face.png
   :width: 400
@@ -53,9 +53,9 @@ Edge interpretation
 
 To correctly represent a topology and their forms, there are some definitions that are used to construct the tables that store everything, the edge is on the more complex ones.
 
-All the information about edges are stored on the edge_data table, in your custom topology schema, and which information do we need in the edges? basically its nodes and faces information, edge is the primitive who connects both.
+All the information about edges is stored on the edge_data table, in your custom topology schema, and which information do we need in the edges? basically its nodes and faces information, edge is the primitive who connects both.
 
-This linestrings are called Edges because are the edges of the faces.
+These linestrings are called Edges because they are the edges of the faces.
 
 Edge direction, left and right
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -73,20 +73,20 @@ When we want to see from the edge perspective is always from the end node to the
 
 The edges have left and right properties, as we see they are defined using the edge perspective, see the linestring from the start node to the end node, there will always be a well defined left and right.
 
-So see the edge forward and you have always a left and right side.
+So see the edge forward and you always have a left and right side.
 
 This helps to relate which faces are on each side of the edge:
 
 .. image:: ./topology/face_directions.png
   :align: center
 
-Check the edges on the image, while almost all the edges goes from down to up and left to right, there is a organge edge who has the opposite direction, so its sides left and right are swaped in reference to the others, but if you look the edge forward, the right and left are right.
+Check the edges on the image, while almost all the edges go from down to up and left to right, there is an orange edge which has the opposite direction, so its sides left and right are swapped in reference to the others, but if you look the edge forward, the right and left are right.
 
-Continue seeing the organge edge, while on its right has a polygon build by the edges, on the left is the Universal Face.
+Continue seeing the orange edge, while on its right has a polygon built by the edges, on the left is the Universal Face.
 
-When we want to analyze any edge, and we need to see it from a the edge perspective, is always looking the edge in forward, never in backward!
+When we want to analyze any edge, and we need to see it from the edge perspective, it is always looking the edge in forward, never in backward!
 
-Which are all the next edges? Looking forward we go from start node to the end node, all the edges who start or ends in the end node of the edge!
+Which are all the next edges? Looking forward we go from start node to the end node, all the edges who start or end in the end node of the edge!
 
 Edge Data
 ---------
@@ -103,9 +103,9 @@ The edge_data table has information related to the edge, from what we know right
 Abs Next Edge & Next Edge
 <<<<<<<<<<<<<<<<<<<<<<<<<
 
-The table edge_data has the columns abs_next_left_edge and abs_next_right_edge, in this moment it goes little tricky how to interpret it.
+The table edge_data has the columns abs_next_left_edge and abs_next_right_edge, at this moment it gets a little tricky how to interpret it.
 
-Until now we are mainly see properties of the edge it self and what has on the sides, the next edge properties are different, do not ask only about the edge it self, is about which is the next edge who build the face on the right or left.
+Until now we mainly see properties of the edge itself and what has on the sides, the next edge properties are different, do not ask only about the edge itself, it is about which is the next edge who builds the face on the right or left.
 
 The logic of the right_edge and the left_edge are very similar, so we will look first on the left one deeper and then show the right one.
 
@@ -118,7 +118,7 @@ We will be using the next topology as example:
 Left
 >>>>
 
-Lets pick as example the Edge 5, this one has on the Left the Face 2, looking forward which is the next edge who builds the Face 2?
+Let's pick as an example the Edge 5, this one has on the Left the Face 2, looking forward which is the next edge who builds the Face 2?
 
 This is the Edge 6.
 
@@ -130,7 +130,7 @@ Something very important here is the perspective we follow the lines, depending 
 
 With this information we have abs_next_left_edge which will be 6.
 
-The next_left_edge is almost the same to abs_next_left_edge, except it can be negative which depends in the perspectives.
+The next_left_edge is almost the same as abs_next_left_edge, except it can be negative which depends on the perspective we see the edge.
 
 If we follow the Edge perspective we will have two directions, the direction of the next edge, and the direction of the perspective on the next edge.
 
@@ -139,7 +139,7 @@ We will use the next sign in each case:
 - Perspective direction and Next edge direction are opposed: "-"
 - Perspective direction and Next edge direction are the same: None, keep the value positive
 
-How the Perspective and Edge 6 has the same direction, next_left_edge will be 6.
+How the Perspective and Edge 6 have the same direction, next_left_edge will be 6.
 
 - abs_next_left_edge: 6
 - next_left_edge: 6
@@ -147,7 +147,7 @@ How the Perspective and Edge 6 has the same direction, next_left_edge will be 6.
 Right
 >>>>>
 
-The only difference between Left and Right analysis is the perspective, while in Left we use forward in Right we will see in backwards. Be careful, even if we look on backwards the definition of Left Face and Right Face are still looking forward! Only changes the perspective to follow.
+The only difference between Left and Right analysis is the perspective, while in Left we use forward, in Right we will see backwards. Be careful, even if we look backwards the definition of Left Face and Right Face are still the same, looking forward! Only changes the perspective to follow.
 
 The Edge 5 has the Face 0 on its Right, the Universal Face, looking Edge 5 backwards the next edge who builds Face 0 is the Edge 4.
 
@@ -166,13 +166,12 @@ Full columns of edge_data
 We already checked all the columns of the edge_data table:
 
 - edge_id: Unique ID for the edge.
-- start_node: ID for the node who is the same as the start point of the edge.
-- end_node: ID for the node who is the same as the end point of the edge.
+- start_node: ID for the node which is the same as the start point of the edge.
+- end_node: ID for the node which is the same as the end point of the edge.
 - left_face: ID of the face on the left of the edge.
 - abs_next_left_edge: Next edge who builds the face on the left.
 - next_left_edge: abs_next_left_edge and negative sign if the right face is on the right of the next left edge.
 - right_face: ID of the face on the right of the edge.
-- abs_next_right_edge: Next edge who build the face on the right.
+- abs_next_right_edge: Next edge who builds the face on the right.
 - next_right_edge: abs_next_right_edge and negative sign if the left face is on the right of the next right edge.
 - geom: Geometry of the edge.
-

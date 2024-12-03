@@ -35,13 +35,13 @@ Just to write in two ways:
 
     * TopoElements where each one can represent a:
 
-	    * TopoGeometry of other Layer
-	    * Primitive from the Topology
+	        * TopoGeometry of other Layer
+        	* Geometry Collection
+	        * Primitive from the Topology
 
-        	* Nodes
-        	* Edges
-        	* Faces
-        	* Geometry Collections
+                	* Nodes
+                	* Edges
+                	* Faces
 
 TopoGeometries are exposed as keys, they has a unique key inside the Layer, but also stores its Layer Key, this allows Postgis to store it in an arbitrary column and always be able to find its TopoElements, and with them what they represent.
 

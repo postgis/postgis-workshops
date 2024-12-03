@@ -31,7 +31,7 @@ Just to write in two ways:
 
 * Layer contains
 
-  * TopoGeometries where each one one contains:
+  * TopoGeometries where all of them has the same TopoElement's type, each one one contains:
 
     * TopoElements where each one can represent a:
 

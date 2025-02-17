@@ -132,7 +132,7 @@ The difference is under the covers: the geography index will correctly handle qu
 
 Here's a query to find all the subway stations within 500 meters of the Empire State Building.
 
-.. code-block::sql
+.. code-block:: sql
 
   SWITH empire_state_building AS (
     SELECT 'POINT(-73.98501 40.74812)'::geography AS geog

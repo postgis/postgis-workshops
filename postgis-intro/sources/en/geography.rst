@@ -134,7 +134,7 @@ Here's a query to find all the subway stations within 500 meters of the Empire S
 
 .. code-block:: sql
 
-  SWITH empire_state_building AS (
+  WITH empire_state_building AS (
     SELECT 'POINT(-73.98501 40.74812)'::geography AS geog
   )
   SELECT name,

@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Jorge Sanz <jsanz@osgeo.org>, 2022.
 # Regina Obe <regina@arrival3d.com>, 2023.
+# David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-03-26 22:18+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2025-02-07 11:01+0000\n"
+"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/es/>\n"
 "Language: es\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/introduction.rst:4
@@ -772,10 +773,8 @@ msgid "Open/Free"
 msgstr "Abiertos/Libres"
 
 #: ../../en/introduction.rst:176
-#, fuzzy
-#| msgid "Closed/Proprietary"
 msgid "Closed/Proprietary/Paid services"
-msgstr "Cerrados/Propietarios"
+msgstr "Cerrados/Propietarios/Servicios de pago"
 
 #: ../../en/introduction.rst:179
 msgid "Loading/Extracting"
@@ -795,7 +794,7 @@ msgstr "Dxf2PostGIS"
 
 #: ../../en/introduction.rst:184
 msgid "GeoKettle"
-msgstr ""
+msgstr "GeoKettle"
 
 #: ../../en/introduction.rst:186 ../../en/introduction.rst:187
 msgid "Web-Based"
@@ -807,29 +806,28 @@ msgstr "Mapserver"
 
 #: ../../en/introduction.rst:190
 msgid "GeoServer /geoNode"
-msgstr ""
+msgstr "GeoServer /geoNode"
 
 #: ../../en/introduction.rst:191
 msgid "pg_tileserv"
-msgstr ""
+msgstr "pg_tileserv"
 
 #: ../../en/introduction.rst:192
 msgid "pg_featureserv"
-msgstr ""
+msgstr "pg_featureserv"
 
 #: ../../en/introduction.rst:193
+#, fuzzy
 msgid "Deegree"
-msgstr ""
+msgstr "Deegree"
 
 #: ../../en/introduction.rst:194 ../../en/introduction.rst:197
 msgid "Carto"
-msgstr ""
+msgstr "Carto"
 
 #: ../../en/introduction.rst:195
-#, fuzzy
-#| msgid "ESRI ArcGIS Server"
 msgid "QGIS Server"
-msgstr "ESRI ArcGIS Server"
+msgstr "QGIS Server"
 
 #: ../../en/introduction.rst:196
 msgid "MapGuide Open Source (using FDO)"
@@ -853,11 +851,11 @@ msgstr "GRASS"
 
 #: ../../en/introduction.rst:206
 msgid "pgAdmin"
-msgstr ""
+msgstr "pgAdmin"
 
 #: ../../en/introduction.rst:207
 msgid "DBeaver"
-msgstr ""
+msgstr "DBeaver"
 
 #: ../../en/introduction.rst:208
 msgid "GvSIG"
@@ -865,7 +863,7 @@ msgstr "gvSIG"
 
 #: ../../en/introduction.rst:209
 msgid "SAGA"
-msgstr ""
+msgstr "SAGA"
 
 #: ../../en/introduction.rst:210
 msgid "uDig"
@@ -876,54 +874,49 @@ msgid "Safe FME Desktop Translator/Converter"
 msgstr "Safe FME Desktop Traductor/Convertidor"
 
 #: ../../en/introduction.rst:182
+#, fuzzy
 msgid "Dbt"
-msgstr ""
+msgstr "Dbt"
 
 #: ../../en/introduction.rst:188
 msgid "Cadcorp GeognoSIS"
 msgstr "Cadcorp GeognoSIS"
 
 #: ../../en/introduction.rst:189
-#, fuzzy
-#| msgid "ESRI ArcGIS Server"
 msgid "ESRI ArcGIS Server / Online"
-msgstr "ESRI ArcGIS Server"
+msgstr "ESRI ArcGIS Server/ Online"
 
 #: ../../en/introduction.rst:193
 msgid "Services / DbaaS"
-msgstr ""
+msgstr "Servicios / DbaaS"
 
 #: ../../en/introduction.rst:195
-#, fuzzy
-#| msgid "Why choose PostgreSQL?"
 msgid "Aiven for PostgreSQL"
-msgstr "¿Por qué elegir PostgreSQL?"
+msgstr "Aiven for PostgreSQL"
 
 #: ../../en/introduction.rst:196
 msgid "Amazon RDS / Aurora for PostgreSQL"
-msgstr ""
+msgstr "Amazon RDS / Aurora for PostgreSQL"
 
 #: ../../en/introduction.rst:198
 msgid "Crunchy Bridge"
-msgstr ""
+msgstr "Crunchy Bridge"
 
 #: ../../en/introduction.rst:199
 msgid "Microsoft Azure for PostgreSQL"
-msgstr ""
+msgstr "Microsoft Azure for PostgreSQL"
 
 #: ../../en/introduction.rst:200
 msgid "Google Cloud SQL for PostgreSQL"
-msgstr ""
+msgstr "Google Cloud SQL for PostgreSQL"
 
 #: ../../en/introduction.rst:204
 msgid "Cadcorp SIS"
 msgstr "Cadcorp SIS"
 
 #: ../../en/introduction.rst:205
-#, fuzzy
-#| msgid "Desktop"
 msgid "ESRI Desktop/Pro"
-msgstr "Escritorio"
+msgstr "ESRI Desktop/Pro"
 
 #: ../../en/introduction.rst:206
 msgid "GeoConcept"
@@ -931,17 +924,15 @@ msgstr "GeoConcept"
 
 #: ../../en/introduction.rst:207
 msgid "Global Mapper"
-msgstr ""
+msgstr "Global Mapper"
 
 #: ../../en/introduction.rst:208
 msgid "Manifold"
 msgstr "Manifold"
 
 #: ../../en/introduction.rst:209
-#, fuzzy
-#| msgid "MapInfo (v10)"
 msgid "MapInfo"
-msgstr "MapInfo (v10)"
+msgstr "MapInfo"
 
 #: ../../en/introduction.rst:210
 msgid "Microimages TNTmips GIS"

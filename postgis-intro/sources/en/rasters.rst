@@ -80,7 +80,7 @@ with the following query which utilizes the postgis raster `ST_Count <https://po
   Most functions in postgis raster that work at the
   band level, work with only one band at a time, and assume the band you want is `1`.
 
-If you have a multi-band raster, and you need to count the pixel not no-data values in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`.
+If you have a multi-band raster, and you need to count the not no-data valued pixels in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`.
 
 Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that,
 our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us.

@@ -2,22 +2,26 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Baifan Mei <meibaifan@gmail.com>, 2022.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-03-25 21:18+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/license/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/license.rst:4
 msgid "Appendix C: License"
-msgstr ""
+msgstr "附录 C：许可证"
 
 #: ../../en/license.rst:6
 msgid ""
@@ -26,9 +30,13 @@ msgid ""
 "creativecommons.org/licenses/by-sa/3.0/us/ or send a letter to Creative "
 "Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA."
 msgstr ""
+"本作品采用知识共享署名-相同方式共享（美国）许可协议授权。要查看该许可协议的副"
+"本，请访问 http://creativecommons.org/licenses/by-sa/3.0/us/ 或致函："
+"Creative Commons, 171 Second Street, Suite 300, San Francisco, California, "
+"94105, USA。"
 
 #: ../../en/license.rst:8
 msgid ""
 "Our attribution requirement is that you retain the visible copyright notices "
 "in all materials."
-msgstr ""
+msgstr "我们的署名要求是：您必须在所有材料中保留可见的版权声明。"

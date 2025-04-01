@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Baifan Mei <meibaifan@gmail.com>, 2022.
 # Regina Obe <regina@arrival3d.com>, 2023.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-01-09 05:42+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2025-04-01 09:39+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/history_tracking/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,11 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/history_tracking.rst:4
 msgid "Tracking Edit History using Triggers"
-msgstr ""
+msgstr "使用触发器追踪编辑历史"
 
 #: ../../en/history_tracking.rst:6
 msgid ""
@@ -31,37 +32,42 @@ msgid ""
 "management in the client interface, but that adds a lot of **complexity** to "
 "editing tools."
 msgstr ""
+"生产级数据库通常需要追踪历史变更：数据在两个时间点之间如何变化、由谁修改以及"
+"变更发生在何处？部分GIS系统通过在客户端界面集成变更管理来实现此功能，但这会显"
+"著增加编辑工具的复杂度。"
 
 #: ../../en/history_tracking.rst:8
 msgid ""
 "Using the database and the trigger system, it's possible to add history "
 "tracking to any table, while maintaining simple \"direct edit\" access to "
 "the primary table."
-msgstr ""
+msgstr "通过数据库和触发器系统，可以为任何数据表添加历史追踪功能，"
+"同时保持对主表的\"直接编辑\"访问权限。"
 
 #: ../../en/history_tracking.rst:10
 msgid ""
 "History tracking works by keeping a history table that records, for every "
 "edit:"
-msgstr ""
+msgstr "历史追踪通过维护一个历史表来记录每次编辑的操作，该表会保存："
 
 #: ../../en/history_tracking.rst:12
 msgid "If a record was created, when it was added and by whom."
-msgstr ""
+msgstr "如果创建了一条记录，则记录其添加时间及操作者。"
 
 #: ../../en/history_tracking.rst:13
 msgid "If a record was deleted, when it was deleted and by whom."
-msgstr ""
+msgstr "若记录被删除，则记录其删除时间及操作者。"
 
 #: ../../en/history_tracking.rst:14
 msgid ""
 "If a record was updated, adding a deletion record (for the old state) and a "
 "creation record (for the new state)."
-msgstr ""
+msgstr "如果一条记录被更新，则会添加一条删除记录（记录旧状态）和一条创建记录（记录新"
+"状态）。"
 
 #: ../../en/history_tracking.rst:17
 msgid "Using TSTZRANGE"
-msgstr ""
+msgstr "使用 TSTZRANGE 类型"
 
 #: ../../en/history_tracking.rst:19
 msgid ""
@@ -71,19 +77,24 @@ msgid ""
 "timestamp ranges in the history table for a particular feature can be "
 "expected to be non-overlapping but adjacent."
 msgstr ""
+"历史表采用PostgreSQL特有特性——\"`时间戳范围类型 <https://www.postgresql.org/"
+"docs/current/rangetypes.html>`_\"——来存储每条历史记录作为\"当前有效记录"
+"\"的时间区间"
+"。对于特定地理要素的所有历史记录，其时间戳范围均满足非重叠但连续相邻的特性。"
 
 #: ../../en/history_tracking.rst:21
 msgid ""
 "The range for a new record will start at ``now()`` and have an open end "
 "point, so that the range covers all time from the current time into the "
 "future."
-msgstr ""
+msgstr "新记录的时间范围将从 ``now()`` "
+"开始，并保持终点开放，从而使该范围涵盖从当前时间到未来的所有时间。"
 
 #: ../../en/history_tracking.rst:34
 msgid ""
 "Similarly, the time range for a deleted record will be updated to include "
 "the current time as the end point of the time range."
-msgstr ""
+msgstr "同理，已删除记录的时间范围将被更新，将当前时间作为该时间范围的终止点。"
 
 #: ../../en/history_tracking.rst:36
 msgid ""
@@ -92,23 +103,28 @@ msgid ""
 "point to infinity. The \"contains\" operator ``@>`` for ranges is the one we "
 "will use."
 msgstr ""
+"相比起检索一对时间戳，时间范围查询更为简便——这得益于开放式时间范围（从起点无"
+"限延伸至未来）的特性。我们将主要使用范围「包含」运算符 ``@>`` "
+"来实现此类查询。"
 
 #: ../../en/history_tracking.rst:47
 msgid ""
 "Ranges can be very efficiently indexed using a GIST index, just like spatial "
 "data, as we will show below. This makes history queries very efficient."
-msgstr ""
+msgstr "时间范围字段可通过GIST索引实现高效检索——这与空间数据的索引机制类似（下文将具"
+"体演示）。该技术能显著提升历史查询效率。"
 
 #: ../../en/history_tracking.rst:51
 msgid "Building the History Table"
-msgstr ""
+msgstr "历史表构建方案"
 
 #: ../../en/history_tracking.rst:53
 msgid ""
 "Using this information it is possible to reconstruct the state of the edit "
 "table at any point in time. In this example, we will add history tracking to "
 "our **nyc_streets** table."
-msgstr ""
+msgstr "利用这些信息，可重构编辑表在任意时间点的状态。本例中，我们将为 "
+"**nyc_streets** 表添加历史追踪功能。"
 
 #: ../../en/history_tracking.rst:55
 msgid ""
@@ -116,30 +132,34 @@ msgid ""
 "use to store all the historical edit information. In addition to all the "
 "fields from **nyc_streets**, we add five more fields."
 msgstr ""
+"首先，创建 **nyc_streets_history** "
+"历史表，用于存储所有街道数据的编辑历史记录。除继承原表 **nyc_streets** "
+"的全部字段外，还需新增五个专用字段。"
 
 #: ../../en/history_tracking.rst:57
 msgid "**hid** the primary key for the history table"
-msgstr ""
+msgstr "**hid**（历史表主键字段）"
 
 #: ../../en/history_tracking.rst:58
 msgid "**created_by** the database user that caused the record to be created"
-msgstr ""
+msgstr "**created_by** 记录创建者标识"
 
 #: ../../en/history_tracking.rst:59
 msgid ""
 "**deleted_by** the database user that caused the record to be marked as "
 "deleted"
-msgstr ""
+msgstr "**deleted_by** 执行删除操作的数据库用户"
 
 #: ../../en/history_tracking.rst:60
 msgid "**valid_range** the time range within which the record was \"live\""
-msgstr ""
+msgstr "**valid_range** （有效时间范围）：记录作为\"当前有效数据\"存在的时间区间"
 
 #: ../../en/history_tracking.rst:62
 msgid ""
 "Note that we don't actually delete any records in the history table, we just "
 "mark the time they ceased to be part of the current state of the edit table."
-msgstr ""
+msgstr "需注意，我们不会真正删除历史表中的记录，仅标记其不再属于编辑表当前状态的时间"
+"节点。"
 
 #: ../../en/history_tracking.rst:87
 msgid ""
@@ -148,41 +168,48 @@ msgid ""
 "that we fill in the creation time and creation user, but leave the end of "
 "the time range and the deleted by information NULL."
 msgstr ""
+"接着，我们将当前活跃表**nyc_streets**的状态导入历史表，以此作为历史追溯的基准"
+"点。需注意，此处仅填充创建时间和创建用户信息，而时间范围的结束时间及删除操作"
+"者字段留空（NULL）。"
 
 #: ../../en/history_tracking.rst:98
 msgid ""
 "Now we need three triggers on the active table, for INSERT, DELETE and "
 "UPDATE actions. First we create the trigger functions, then bind them to the "
 "table as triggers."
-msgstr ""
+msgstr "当前需在活跃表上创建三个触发器，分别响应 INSERT、DELETE 和 UPDATE "
+"操作。首先创建触发器函数，随后将其绑定至目标表。"
 
 #: ../../en/history_tracking.rst:100
 msgid ""
 "For an insert, we just add a new record into the history table with the "
 "creation time/user."
-msgstr ""
+msgstr "对于插入操作（INSERT），我们仅需在历史表中新增一条记录，并标注创建时间及创建"
+"者信息。"
 
 #: ../../en/history_tracking.rst:123
 msgid ""
 "For a deletion, we just mark the currently active history record (the one "
 "with a NULL deletion time) as deleted."
-msgstr ""
+msgstr "对于删除操作，我们只需将当前活跃的历史记录（即删除时间为 NULL "
+"的记录）标记为已删除状态。"
 
 #: ../../en/history_tracking.rst:145
 msgid ""
 "For an update, we first mark the active history record as deleted, then "
 "insert a new record for the updated state."
-msgstr ""
+msgstr "对于更新操作，系统会执行两步处理：首先将当前活跃的历史记录标记为已删除状态，"
+"随后插入一条新记录以存储更新后的数据状态。"
 
 #: ../../en/history_tracking.rst:176
 msgid "Editing the Table"
-msgstr ""
+msgstr "表数据编辑操作"
 
 #: ../../en/history_tracking.rst:178
 msgid ""
 "Now that the history table is enabled, we can make edits on the main table "
 "and watch the log entries appear in the history table."
-msgstr ""
+msgstr "历史表启用后，对主表执行的所有编辑操作将自动生成日志条目并记录至历史表中。"
 
 #: ../../en/history_tracking.rst:180
 msgid ""
@@ -191,16 +218,19 @@ msgid ""
 "JDBC tool, or a desktop tool like QGIS, the history is consistently tracked."
 "**"
 msgstr ""
+"请注意这种基于数据库的历史记录机制的强大之处：**无论通过何种工具进行编辑（SQL"
+"命令行、基于Web的JDBC工具，还是QGIS等桌面工具），系统均能保持历史记录的一致性"
+"追踪。**"
 
 #: ../../en/history_tracking.rst:183
 msgid "SQL Edits"
-msgstr ""
+msgstr "SQL 数据编辑操作"
 
 #: ../../en/history_tracking.rst:185
 msgid ""
 "Let's turn the two streets named \"Cumberland Walk\" to the more stylish "
 "\"Cumberland Wynde\":"
-msgstr ""
+msgstr "将两条名为\"Cumberland Walk\"的街道更名为更优雅的\"Cumberland Wynde\"："
 
 #: ../../en/history_tracking.rst:193
 msgid ""
@@ -209,25 +239,29 @@ msgid ""
 "streets with the new name added, with an addition time of now. You can "
 "inspect the historical records:"
 msgstr ""
+"更新这两条街道将导致原始街道在历史表中被标记为已删除，并记录删除时间为当前时"
+"间，同时添加两条具有新名称的新街道，并记录添加时间为当前时间。你可以检查历史"
+"记录："
 
 #: ../../en/history_tracking.rst:202
 msgid "Querying the History Table"
-msgstr ""
+msgstr "历史表查询方法"
 
 #: ../../en/history_tracking.rst:204
 msgid ""
 "Now that we have a history table, what use is it? It's useful for time "
 "travel! To travel to a particular time **T**, you need to construct a query "
 "that includes:"
-msgstr ""
+msgstr "历史表的核心价值在于实现\"时间旅行\"查询"
+"。要回溯特定时间点**T**的数据状态，需构建包含以下要素的查询："
 
 #: ../../en/history_tracking.rst:206
 msgid "All records created before T, and not yet deleted; and also"
-msgstr ""
+msgstr "需包含所有在时间点T之前创建且尚未删除的记录"
 
 #: ../../en/history_tracking.rst:207
 msgid "All records created before T, but deleted **after** T."
-msgstr ""
+msgstr "所有在时间点 T 之前创建，但在 T **之后**才被删除的记录。"
 
 #: ../../en/history_tracking.rst:209
 msgid ""
@@ -237,29 +271,36 @@ msgid ""
 "state of the table 10 minutes ago, **before you started editing** (so, the "
 "original data)."
 msgstr ""
+"我们可以利用这一逻辑创建历史数据查询或视图。假设您的测试编辑操作均在最近几分"
+"钟内完成，现在创建一个显示10分钟前（即编辑开始前的原始数据状态）的历史表视图"
+"。"
 
 #: ../../en/history_tracking.rst:221
 msgid ""
 "We can also create views that show just what a particular used has added, "
 "for example:"
-msgstr ""
+msgstr "我们还可以创建仅显示特定用户所添加数据的视图，例如："
 
 #: ../../en/history_tracking.rst:231
 msgid "See Also"
-msgstr "或者你看看"
+msgstr "另请参阅"
 
 #: ../../en/history_tracking.rst:233
 msgid "`QGIS open source GIS <http://qgis.org>`_"
-msgstr ""
+msgstr "`QGIS 开源地理信息系统 <http://qgis.org>`_"
 
 #: ../../en/history_tracking.rst:234
 msgid ""
 "`PostgreSQL Triggers <http://www.postgresql.org/docs/current/static/plpgsql-"
 "trigger.html>`_"
 msgstr ""
+"`PostgreSQL Triggers <http://www.postgresql.org/docs/current/static/plpgsql-"
+"trigger.html>`_"
 
 #: ../../en/history_tracking.rst:235
 msgid ""
 "`PostgreSQL Range Types <https://www.postgresql.org/docs/current/rangetypes."
 "html>`_"
 msgstr ""
+"`PostgreSQL Range Types <https://www.postgresql.org/docs/current/rangetypes."
+"html>`_"

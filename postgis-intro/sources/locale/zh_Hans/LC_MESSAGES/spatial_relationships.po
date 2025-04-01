@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"PO-Revision-Date: 2025-04-01 09:39+0000\n"
 "Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/spatial_relationships/zh_Hans/>\n"
@@ -26,122 +26,166 @@ msgstr "空间关系"
 #: ../../en/spatial_relationships.rst:6
 msgid "So far we have only used spatial functions that measure (:command:`ST_Area`, :command:`ST_Length`), serialize (:command:`ST_GeomFromText`) or deserialize (:command:`ST_AsGML`) geometries. What these functions have in common is that they only work on one geometry at a time."
 msgstr ""
+"目前我们仅使用了针对单一几何体的空间函数，包括测量类（如 :command:ST_Area、:c"
+"ommand:ST_Length）、序列化（:command:ST_GeomFromText）及反序列化（:command:ST"
+"_AsGML）函数。这些函数的共同特点是每次仅能处理单个几何对象。"
 
 #: ../../en/spatial_relationships.rst:8
 msgid "Spatial databases are powerful because they not only store geometry, they also have the ability to compare *relationships between geometries*."
-msgstr ""
+msgstr "空间数据库的强大之处不仅在于存储几何数据，更在于其能够分析 "
+"*几何体之间的空间关系*。"
 
 #: ../../en/spatial_relationships.rst:10
 msgid "Questions like \"Which are the closest bike racks to a park?\" or \"Where are the intersections of subway lines and streets?\" can only be answered by comparing geometries representing the bike racks, streets, and subway lines."
 msgstr ""
+"诸如\"距离公园最近的自行车架在哪里？\"或\"地铁线路与街道的交叉点有哪些？"
+"\"等问题，必须通过比对代表自行车架、街道和地铁线路的几何图形才能得出答案。"
 
 #: ../../en/spatial_relationships.rst:12
 msgid "The OGC standard defines the following set of methods to compare geometries."
-msgstr ""
+msgstr "OGC 标准定义了下述几何图形比对方法集。"
 
 #: ../../en/spatial_relationships.rst:15
 msgid "ST_Equals"
-msgstr ""
+msgstr "ST_Equals"
 
 #: ../../en/spatial_relationships.rst:17
 msgid ":command:`ST_Equals(geometry A, geometry B)` tests the spatial equality of two geometries."
-msgstr ""
+msgstr ":command:`ST_Equals(geometry A, geometry B)` "
+"用于检测两个几何图形的拓扑相等性。"
 
 #: ../../en/spatial_relationships.rst:22
 msgid "ST_Equals returns TRUE if two geometries of the same type have identical x,y coordinate values, i.e. if the second shape is equal (identical) to the first shape."
 msgstr ""
+"当两个同类型几何图形的(x,y)坐标值完全一致时，:command:ST_Equals 将返回 "
+"TRUE，即判定两个图形拓扑相等（空间位置与形状完全重合）。"
 
 #: ../../en/spatial_relationships.rst:24
 msgid "First, let's retrieve a representation of a point from our ``nyc_subway_stations`` table. We'll take just the entry for 'Broad St'."
-msgstr ""
+msgstr "首先，我们从``nyc_subway_stations`` 表中提取 'Broad St' 站点的几何图形表示。"
 
 #: ../../en/spatial_relationships.rst:38
 msgid "Then, plug the geometry representation back into an :command:`ST_Equals` test:"
-msgstr ""
+msgstr "随后，将几何图形表示重新代入 :command:`ST_Equals` 函数进行测试："
 
 #: ../../en/spatial_relationships.rst:54
 msgid "The representation of the point was not very human readable (``0101000020266900000EEBD4CF27CF2141BC17D69516315141``) but it was an exact representation of the coordinate values. For a test like equality, using the exact coordinates is necessary."
 msgstr ""
+"该点的几何表示（``0101000020266900000EEBD4CF27CF2141BC17D69516315141``）虽不"
+"易人工解读，但完整精确地记录了坐标值。在进行相等性测试时，必须使用此类精确坐"
+"标表示。"
 
 #: ../../en/spatial_relationships.rst:58
 msgid "ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps"
-msgstr ""
+msgstr "ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps"
 
 #: ../../en/spatial_relationships.rst:60
 msgid ":command:`ST_Intersects`, :command:`ST_Crosses`, and :command:`ST_Overlaps` test whether the interiors of the geometries intersect."
 msgstr ""
+":command:`ST_Intersects`、:command:`ST_Crosses`和 :command:`ST_Overlaps` "
+"用于检测几何图形内部区域是否发生相交。"
 
 #: ../../en/spatial_relationships.rst:65
 msgid ":command:`ST_Intersects(geometry A, geometry B)` returns t (TRUE) if the two shapes have any space in common, i.e., if their boundaries or interiors intersect."
 msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` "
+"当两个图形存在任意空间交集时返回 "
+"t（TRUE），即边界或内部发生相交即视为满足条件。"
 
 #: ../../en/spatial_relationships.rst:70
 msgid "The opposite of ST_Intersects is :command:`ST_Disjoint(geometry A , geometry B)`. If two geometries are disjoint, they do not intersect, and vice-versa. In fact, it is often more efficient to test \"not intersects\" than to test \"disjoint\" because the intersects tests can be spatially indexed, while the disjoint test cannot."
 msgstr ""
+"与 :command:ST_Intersects 相对的是 :command:`ST_Disjoint(geometry A , "
+"geometry B)`。若两个几何图形互不相交(disjoint)，则它们不存在任何空间交集，反"
+"之亦然。实际上，测试\"不相交\"(not intersects)通常比直接测试\"相离\""
+"(disjoint)更高效——因为相交测试可利用空间索引优化，而相离测试则无法利用索引。"
 
 #: ../../en/spatial_relationships.rst:75
 msgid "For multipoint/polygon, multipoint/linestring, linestring/linestring, linestring/polygon, and linestring/multipolygon comparisons, :command:`ST_Crosses(geometry A, geometry B)` returns t (TRUE) if the intersection results in a geometry whose dimension is one less than the maximum dimension of the two source geometries and the intersection set is interior to both source geometries."
 msgstr ""
+":command:`ST_Crosses(geometry A, geometry B)` 用于以下几何类型组合的比对：多"
+"点/多边形、多点/线串、线串/线串、线串/多边形、线串/多多边形。当同时满足：(1) "
+"交集结果的几何维度比两个源几何的最大维度小1；(2) "
+"该交集同时位于两个源几何内部时，函数返回 TRUE。"
 
 #: ../../en/spatial_relationships.rst:80
 msgid ":command:`ST_Overlaps(geometry A, geometry B)` compares two geometries of the same dimension and returns TRUE if their intersection set results in a geometry different from both but of the same dimension."
 msgstr ""
+":command:`ST_Overlaps(geometry A, geometry B)` 用于比对两个同维度几何图形，"
+"当满足以下条件时返回 TRUE。"
 
 #: ../../en/spatial_relationships.rst:82
 msgid "Let's take our Broad Street subway station and determine its neighborhood using the :command:`ST_Intersects` function:"
-msgstr ""
+msgstr "以下是通过 :command:`ST_Intersects`函数确定「Broad "
+"Street」地铁站所属行政辖区的示例："
 
 #: ../../en/spatial_relationships.rst:109
 msgid "ST_Touches"
-msgstr ""
+msgstr "ST_Touches"
 
 #: ../../en/spatial_relationships.rst:111
 msgid ":command:`ST_Touches` tests whether two geometries touch at their boundaries, but do not intersect in their interiors"
-msgstr ""
+msgstr ":command:`ST_Touches`用于检测两个几何图形是否边界接触但内部无交集"
 
 #: ../../en/spatial_relationships.rst:116
 msgid ":command:`ST_Touches(geometry A, geometry B)` returns TRUE if either of the geometries' boundaries intersect or if only one of the geometry's interiors intersects the other's boundary."
 msgstr ""
+":command:`ST_Touches(geometry A, geometry B)` 当满足以下任一条件时返回 TRUE："
+"两个几何图形的边界存在交集；仅其中一个几何图形的内部与另一个图形的边界相交。"
 
 #: ../../en/spatial_relationships.rst:119
 msgid "ST_Within and ST_Contains"
-msgstr ""
+msgstr "ST_Within 和 ST_Contains"
 
 #: ../../en/spatial_relationships.rst:121
 msgid ":command:`ST_Within` and :command:`ST_Contains` test whether one geometry is fully within the other."
-msgstr ""
+msgstr ":command:`ST_Within` 与 :command:`ST_Contains` "
+"用于检测两个几何图形之间的完全包含关系。"
 
 #: ../../en/spatial_relationships.rst:126
 msgid ":command:`ST_Within(geometry A , geometry B)` returns TRUE if the first geometry is completely within the second geometry. ST_Within tests for the exact opposite result of ST_Contains."
 msgstr ""
+":command:`ST_Within(geometry A , geometry B)` "
+"当第一个几何图形完全包含于第二个几何图形时返回 TRUE。该函数与 :command:"
+"ST_Contains 的检测结果互为逆反关系。"
 
 #: ../../en/spatial_relationships.rst:128
 msgid ":command:`ST_Contains(geometry A, geometry B)` returns TRUE if the second geometry is completely contained by the first geometry."
 msgstr ""
+":command:`ST_Contains(geometry A, geometry B)`"
+"当第二个几何图形完全被包含于第一个几何图形内部时返回 TRUE。"
 
 #: ../../en/spatial_relationships.rst:132
 msgid "ST_Distance and ST_DWithin"
-msgstr ""
+msgstr "ST_Distance 和 ST_DWithin"
 
 #: ../../en/spatial_relationships.rst:134
 msgid "An extremely common GIS question is \"find all the stuff within distance X of this other stuff\"."
-msgstr ""
+msgstr "GIS 领域中一个极其常见的问题是：\"找出与指定对象距离在 X 范围内的所有要素\"。"
 
 #: ../../en/spatial_relationships.rst:136
 msgid "The :command:`ST_Distance(geometry A, geometry B)` calculates the *shortest* distance between two geometries and returns it as a float. This is useful for actually reporting back the distance between objects."
 msgstr ""
+":command:`ST_Distance(geometry A, geometry B)` 用于计算两个几何图形之间的最短"
+"距离，并以浮点数形式返回结果。该函数特别适用于需要精确报告对象间距离的场景。"
 
 #: ../../en/spatial_relationships.rst:148
 msgid "For testing whether two objects are within a distance of one another, the :command:`ST_DWithin` function provides an index-accelerated true/false test. This is useful for questions like \"how many trees are within a 500 meter buffer of the road?\". You don't have to calculate an actual buffer, you just have to test the distance relationship."
 msgstr ""
+":command:`ST_DWithin` "
+"函数提供基于索引加速的布尔距离检测，用于判断两个对象是否处于指定距离范围内。"
+"该函数特别适用于诸如\"道路500米范围内有多少树木\"这类空间分析场景"
+"——无需实际生成缓冲区，仅需测试距离关系即可获得结果。"
 
 #: ../../en/spatial_relationships.rst:153
 msgid "Using our Broad Street subway station again, we can find the streets nearby (within 10 meters of) the subway stop:"
-msgstr ""
+msgstr "以下是通过空间查询查找Broad Street地铁站周边10米范围内街道的SQL示例："
 
 #: ../../en/spatial_relationships.rst:173
 msgid "And we can verify the answer on a map. The Broad St station is actually at the intersection of Wall, Broad and Nassau Streets."
 msgstr ""
+"我们可通过地图验证该结论：Broad St 地铁站实际位于 Wall Street、Broad Street "
+"和 Nassau Street 三条道路的交汇处。"
 
 #: ../../en/spatial_relationships.rst:178
 msgid "Function List"
@@ -157,38 +201,57 @@ msgstr ""
 #: ../../en/spatial_relationships.rst:182
 msgid "`ST_Crosses(geometry A, geometry B)  <http://postgis.net/docs/ST_Crosses.html>`_: Returns TRUE if the supplied geometries have some, but not all, interior points in common."
 msgstr ""
+"`ST_Crosses(geometry A, geometry B)  <http://postgis.net/docs/ST_Crosses."
+"html>`_: 当两个几何图形存在部分（非全部）内部点重合时返回 TRUE。"
 
 #: ../../en/spatial_relationships.rst:184
 msgid "`ST_Disjoint(geometry A , geometry B) <http://postgis.net/docs/ST_Disjoint.html>`_: Returns TRUE if the Geometries do not \"spatially intersect\" - if they do not share any space together."
 msgstr ""
+"`ST_Disjoint(geometry A , geometry B) <http://postgis.net/docs/ST_Disjoint."
+"html>`_: 若两个几何图形不存在任何空间交集（即完全不共享任何空间区域），"
+"则返回 TRUE。"
 
 #: ../../en/spatial_relationships.rst:186
 msgid "`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/ST_Distance.html>`_: Returns the 2-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units."
 msgstr ""
+"`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/ST_Distance.ht"
+"ml>`_：返回两个几何图形在二维笛卡尔坐标系下的最小投影距离（基于空间参考系统）"
+"，单位为投影坐标单位。"
 
 #: ../../en/spatial_relationships.rst:188
 msgid "`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/ST_DWithin.html>`_: Returns true if the geometries are within the specified distance (radius) of one another."
 msgstr ""
+"`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/"
+"ST_DWithin.html>`_：若两几何图形之间的最短距离小于等于指定半径值，则返回 "
+"true，否则返回 false。"
 
 #: ../../en/spatial_relationships.rst:190
 msgid "`ST_Equals(geometry A, geometry B) <http://postgis.net/docs/ST_Equals.html>`_: Returns true if the given geometries represent the same geometry. Directionality is ignored."
 msgstr ""
+"`ST_Equals(geometry A, geometry B) <http://postgis.net/docs/ST_Equals."
+"html>`_：当两个几何图形几何等价时返回 true（忽略顶点顺序和方向）。"
 
 #: ../../en/spatial_relationships.rst:192
 msgid "`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography \"spatially intersect\" - (share any portion of space) and FALSE if they don't (they are Disjoint)."
 msgstr ""
 "`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects"
-".html>`_: 如果几何/地理“空间相交”（有任意部分重叠），则返回 TRUE，否则返回 "
-"（FALSE它们不相交）。"
+".html>`_：当几何图形/地理要素\"存在空间交集\"（即共享任意空间区域）时返回 "
+"TRUE，否则（两者相离时）返回 FALSE。"
 
 #: ../../en/spatial_relationships.rst:194
 msgid "`ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/ST_Overlaps.html>`_: Returns TRUE if the Geometries share space, are of the same dimension, but are not completely contained by each other."
 msgstr ""
+"`ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/ST_Overlaps."
+"html>`_：当两个几何图形空间重叠（具有相同维度且互不完全包含）时返回 TRUE。"
 
 #: ../../en/spatial_relationships.rst:196
 msgid "`ST_Touches(geometry A, geometry B)  <http://postgis.net/docs/ST_Touches.html>`_: Returns TRUE if the geometries have at least one point in common, but their interiors do not intersect."
 msgstr ""
+"`ST_Touches(geometry A, geometry B)  <http://postgis.net/docs/ST_Touches."
+"html>`_：如果两个geometry 至少有一个公共点，但它们的内部不相交，则返回 TRUE。"
 
 #: ../../en/spatial_relationships.rst:198
 msgid "`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within.html>`_: Returns true if the geometry A is completely inside geometry B"
 msgstr ""
+"`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within."
+"html>`_：如果geometry A 完全位于 geometry B 内部，则返回 TRUE"

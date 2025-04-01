@@ -5,14 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023, 2024.
-# Paulo Cesar <paulocoronado@gmail.com>, 2024.
+# Paulo Cesar <paulocoronado@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-03-17 23:53+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql_exercises/es/>\n"
 "Language: es\n"
@@ -25,13 +25,15 @@ msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:4
 msgid "Simple SQL Exercises"
-msgstr ""
+msgstr "Ejercicios Básicos de SQL"
 
 #: ../../en/simple_sql_exercises.rst:6
 msgid ""
 "Using the ``nyc_census_blocks`` table, answer the following questions (don't "
 "peek at the answers!)."
 msgstr ""
+"Utilizando la tabla ``nyc_census_blocks``, responde a las siguientes "
+"preguntas (¡no mires las respuestas!)."
 
 #: ../../en/simple_sql_exercises.rst:8
 msgid ""
@@ -39,9 +41,11 @@ msgid ""
 "`About Our Data <about_data>` section our ``nyc_census_blocks`` table "
 "definition."
 msgstr ""
+"Aquí tiene información útil para empezar.  Recuerda la definición de la "
+"tabla ``nyc_census_blocks`` de la sección :ref:`Acerca de nuestros "
+"datos<about_data>`."
 
 #: ../../en/simple_sql_exercises.rst:13
-#, fuzzy
 msgid "**blkid**"
 msgstr "**blkid**"
 
@@ -50,9 +54,10 @@ msgid ""
 "A 15-digit code that uniquely identifies every census **block**. "
 "(\"360050001009000\")"
 msgstr ""
+"Código de 15 dígitos que identifica unívocamente cada **bloque censal**. ("
+"\"360050001009000\")"
 
 #: ../../en/simple_sql_exercises.rst:15
-#, fuzzy
 msgid "**popn_total**"
 msgstr "**popn_total**"
 
@@ -66,37 +71,36 @@ msgstr "**popn_white**"
 
 #: ../../en/simple_sql_exercises.rst:18
 msgid "Number of people self-identifying as \"white\" in the block"
-msgstr ""
+msgstr "Número de personas que se autoidentifican como \"blancas\" en el bloque"
 
 #: ../../en/simple_sql_exercises.rst:19
-#, fuzzy
 msgid "**popn_black**"
 msgstr "**popn_black**"
 
 #: ../../en/simple_sql_exercises.rst:20
 msgid "Number of people self-identifying as \"black\" in the block"
-msgstr ""
+msgstr "Número de personas que se autoidentifican como \"negras\" en el bloque"
 
 #: ../../en/simple_sql_exercises.rst:21
-#, fuzzy
 msgid "**popn_nativ**"
 msgstr "**popn_nativ**"
 
 #: ../../en/simple_sql_exercises.rst:22
 msgid "Number of people self-identifying as \"native american\" in the block"
 msgstr ""
+"Número de personas que se autoidentifican como \"nativo americano\" en el "
+"bloque"
 
 #: ../../en/simple_sql_exercises.rst:23
-#, fuzzy
 msgid "**popn_asian**"
 msgstr "**popn_asian**"
 
 #: ../../en/simple_sql_exercises.rst:24
 msgid "Number of people self-identifying as \"asias\" in the block"
 msgstr ""
+"Número de personas que se autoidentifican como \"asiática\" en el bloque"
 
 #: ../../en/simple_sql_exercises.rst:25
-#, fuzzy
 msgid "**popn_other**"
 msgstr "**popn_other**"
 
@@ -106,30 +110,29 @@ msgstr "Número de personas que se auto-identifican como otras categorías"
 
 #: ../../en/simple_sql_exercises.rst:27
 msgid "**hous_total**"
-msgstr ""
+msgstr "**hous_total**"
 
 #: ../../en/simple_sql_exercises.rst:28
 msgid "Number of housing units in the block"
-msgstr ""
+msgstr "Número de viviendas en el bloque"
 
 #: ../../en/simple_sql_exercises.rst:29
 msgid "**hous_own**"
-msgstr ""
+msgstr "**hous_own**"
 
 #: ../../en/simple_sql_exercises.rst:30
 msgid "Number of owner-occupied housing units in the block"
-msgstr ""
+msgstr "Número de viviendas ocupadas por sus propietarios en el bloque"
 
 #: ../../en/simple_sql_exercises.rst:31
 msgid "**hous_rent**"
-msgstr ""
+msgstr "**hous_rent**"
 
 #: ../../en/simple_sql_exercises.rst:32
 msgid "Number of renter-occupied housing units in the block"
-msgstr ""
+msgstr "Número de viviendas ocupadas por inquilinos en el bloque"
 
 #: ../../en/simple_sql_exercises.rst:33
-#, fuzzy
 msgid "**boroname**"
 msgstr "**boroname**"
 
@@ -153,34 +156,36 @@ msgstr "Límite del bloque"
 msgid ""
 "And, here are some common SQL aggregation functions you might find useful:"
 msgstr ""
+"Además, aquí tienes algunas funciones de agregación SQL comunes que pueden "
+"resultarte útiles:"
 
 #: ../../en/simple_sql_exercises.rst:40
 msgid "avg() - the average (mean) of the values in a set of records"
-msgstr ""
+msgstr "avg() - la media de los valores de un conjunto de registros"
 
 #: ../../en/simple_sql_exercises.rst:41
 msgid "sum() - the sum of the values in a set of records"
-msgstr ""
+msgstr "sum() - suma de los valores de un conjunto de registros"
 
 #: ../../en/simple_sql_exercises.rst:42
 msgid "count() - the number of records in a set of records"
-msgstr ""
+msgstr "count() - el número de registros de un conjunto de registros"
 
 #: ../../en/simple_sql_exercises.rst:44
 msgid "Now the questions:"
-msgstr ""
+msgstr "Ahora las preguntas:"
 
 #: ../../en/simple_sql_exercises.rst:46
 msgid "**How many records are in the nyc_streets table?**"
-msgstr ""
+msgstr "**¿Cuántos registros hay en la tabla nyc_streets?**"
 
 #: ../../en/simple_sql_exercises.rst:57
 msgid "**How many streets in NYC start with ‘B’?**"
-msgstr ""
+msgstr "**¿Cuántas calles de Nueva York empiezan por \"B\"?"
 
 #: ../../en/simple_sql_exercises.rst:70
 msgid "**What is the population of the City of New York?**"
-msgstr ""
+msgstr "**¿Cuál es la población de la ciudad de Nueva York?"
 
 #: ../../en/simple_sql_exercises.rst:83
 msgid ""
@@ -189,18 +194,22 @@ msgid ""
 "instead of our outputted column name as ``sum`` we write it **AS** the more "
 "readable ``population``."
 msgstr ""
+"¿Qué es eso de ``AS``? Puedes dar otro nombre a una tabla o columna "
+"utilizando un alias.  Los alias facilitan la escritura y la lectura de las "
+"consultas. Así, en lugar de escribir el nombre de nuestra columna como "
+"``suma``, escribiremos ``AS``, más legible ``población``."
 
 #: ../../en/simple_sql_exercises.rst:85
 msgid "**What is the population of the Bronx?**"
-msgstr ""
+msgstr "**¿Cuál es la población del Bronx?"
 
 #: ../../en/simple_sql_exercises.rst:98
 msgid "**How many \"neighborhoods\" are in each borough?**"
-msgstr ""
+msgstr "**¿Cuántos barrios hay en cada distrito?"
 
 #: ../../en/simple_sql_exercises.rst:118
 msgid "**For each borough, what percentage of the population is white?**"
-msgstr ""
+msgstr "**¿Qué porcentaje de población negra hay en cada distrito?"
 
 #: ../../en/simple_sql_exercises.rst:141
 msgid "Function List"
@@ -212,6 +221,9 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the average value of a numeric column."
 msgstr ""
+"`avg(expresión) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: Función de agregación de "
+"PostgreSQL que devuelve la media de una columna numérica."
 
 #: ../../en/simple_sql_exercises.rst:145
 msgid ""
@@ -219,6 +231,9 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the number of records in a set of records."
 msgstr ""
+"`count(expresión) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: Función de PostgreSQL que "
+"devuelve el número de registros en un conjunto de registros."
 
 #: ../../en/simple_sql_exercises.rst:147
 msgid ""
@@ -226,3 +241,6 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the sum of records in a set of records."
 msgstr ""
+"`sum(expresión) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: Función de PostgreSQL que "
+"devuelve la suma de los valores de un conjunto de registros."

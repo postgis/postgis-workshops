@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2023.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-03-27 06:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "validity/es/>\n"
 "Language: es\n"
@@ -33,10 +34,14 @@ msgid ""
 "Which begs the question: what does it mean to be invalid, and why should we "
 "care?"
 msgstr ""
+"En el 90% de los casos, la respuesta a la pregunta «¿por qué mi consulta da "
+"un error “TopologyException”?» es «una o varias de las entradas no son "
+"válidas». Lo que nos lleva a preguntarnos: ¿qué significa que no sea válida "
+"y por qué debería importarnos?"
 
 #: ../../en/validity.rst:9
 msgid "What is Validity"
-msgstr ""
+msgstr "¿Qué es la Validez?"
 
 #: ../../en/validity.rst:11
 msgid ""
@@ -44,35 +49,43 @@ msgid ""
 "require a good deal of structure. Lines are very simple and cannot be "
 "invalid, nor can points."
 msgstr ""
+"La validez es más importante para los polígonos, que definen áreas "
+"delimitadas y requieren mucha estructura. Las líneas son muy sencillas y no "
+"pueden ser inválidas, ni tampoco los puntos."
 
 #: ../../en/validity.rst:13
 msgid ""
 "Some of the rules of polygon validity feel obvious, and others feel "
 "arbitrary (and in fact, are arbitrary)."
 msgstr ""
+"Algunas de las reglas de validez de los polígonos parecen obvias y otras "
+"arbitrarias (y, de hecho, lo son)."
 
 #: ../../en/validity.rst:15
 msgid "Polygon rings must close."
-msgstr ""
+msgstr "Los anillos del polígono deben cerrarse."
 
 #: ../../en/validity.rst:16
 msgid ""
 "Rings that define holes should be inside rings that define exterior "
 "boundaries."
 msgstr ""
+"Los anillos que definen agujeros deben estar dentro de los anillos que "
+"definen límites exteriores."
 
 #: ../../en/validity.rst:17
 msgid ""
 "Rings may not self-intersect (they may neither touch nor cross themselves)."
 msgstr ""
+"Los anillos no pueden autointersectarse (no pueden tocarse ni cruzarse)."
 
 #: ../../en/validity.rst:18
 msgid "Rings may not touch other rings, except at a point."
-msgstr ""
+msgstr "Los anillos no pueden tocar a otros anillos, excepto en un punto."
 
 #: ../../en/validity.rst:19
 msgid "Elements of multi-polygons may not touch each other."
-msgstr ""
+msgstr "Los elementos de los multipolígonos no pueden tocarse entre sí."
 
 #: ../../en/validity.rst:21
 msgid ""
@@ -80,6 +93,10 @@ msgid ""
 "define polygons that are equally self-consistent but the rules above are the "
 "ones used by the :term:`OGC` :term:`SFSQL` standard that PostGIS conforms to."
 msgstr ""
+"Las tres últimas reglas podrían catalogarse como arbitrarias. Hay otras "
+"formas de definir polígonos que son igualmente autoconsistentes, pero las "
+"reglas anteriores son las utilizadas por el estándar :term:`OGC` "
+":term:`SFSQL` que PostGIS cumple."
 
 #: ../../en/validity.rst:23
 msgid ""
@@ -89,14 +106,22 @@ msgid ""
 "tend to be very slow, because the first step in any structure-free routine "
 "is to *analyze the inputs and build structure into them*."
 msgstr ""
+"La razón por la que las reglas son importantes es porque los algoritmos para "
+"cálculos geométricos dependen de una estructura consistente en las entradas. "
+"Es posible construir algoritmos que no tengan suposiciones estructurales, "
+"pero esas rutinas tienden a ser muy lentas, porque el primer paso en "
+"cualquier rutina sin estructura es *analizar las entradas y construir "
+"estructura en ellas*."
 
 #: ../../en/validity.rst:25
 msgid "Here's an example of why structure matters. This polygon is invalid:"
 msgstr ""
+"He aquí un ejemplo del por qué la estructura importa. Este polígono no es "
+"válido:"
 
 #: ../../en/validity.rst:31
 msgid "You can see the invalidity a little more clearly in this diagram:"
-msgstr ""
+msgstr "Puede ver la invalidez un poco más claramente en este diagrama:"
 
 #: ../../en/validity.rst:35
 msgid ""
@@ -105,6 +130,11 @@ msgid ""
 "so that visually it is appears to be an \"area\": two one-unit squares, so a "
 "total area of two units of area."
 msgstr ""
+"El anillo exterior es en realidad una figura de ocho, con una auto-"
+"intersección en el centro. Obsérvese que las rutinas gráficas representan "
+"correctamente el relleno del polígono, de modo que visualmente parece un "
+"«área»: dos cuadrados de una unidad, es decir, un área total de dos unidades "
+"de área."
 
 #: ../../en/validity.rst:37
 msgid "Let's see what the database thinks the area of our polygon is:"

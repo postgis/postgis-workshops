@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2025-03-14 05:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"joins_advanced/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/joins_advanced.rst:4
 msgid "More Spatial Joins"
-msgstr ""
+msgstr "Más Joins Espaciales"
 
 #: ../../en/joins_advanced.rst:6
 msgid ""
@@ -29,6 +31,9 @@ msgid ""
 "`ST_Union([geometry])` functions, and some simple examples. In this section "
 "we will do some more elaborate things with them."
 msgstr ""
+"En la última sección vimos las funciones :command:`ST_Centroid(geometría)` y "
+":command:`ST_Union([geometría])`, y algunos ejemplos sencillos. En esta "
+"sección haremos algunas cosas más elaboradas con ellas."
 
 #: ../../en/joins_advanced.rst:11 ../../en/joins_advanced.rst:31
 msgid "Creating a Census Tracts Table"

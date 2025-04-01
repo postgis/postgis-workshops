@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-01-24 01:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2025-03-18 01:39+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "advanced_geometry_construction/es/>\n"
 "Language: es\n"
@@ -18,18 +19,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/advanced_geometry_construction.rst:4
 msgid "Advanced Geometry Constructions"
-msgstr ""
+msgstr "Construcción de Geometrías"
 
 #: ../../en/advanced_geometry_construction.rst:6
 msgid ""
 "The ``nyc_subway_stations`` layer has provided us with lots of interesting "
 "examples so far, but there is something striking about it:"
 msgstr ""
+"La capa ``nyc_subway_stations`` nos ha proporcionado muchos ejemplos "
+"interesantes, pero hay algo que llama la atención:"
 
 #: ../../en/advanced_geometry_construction.rst:10
 msgid ""
@@ -38,10 +41,14 @@ msgid ""
 "PostgreSQL and PostGIS to build up a new linear routes layer from the point "
 "layer of subway stations."
 msgstr ""
+"Aunque es una base de datos de todas las estaciones, ¡no permite visualizar "
+"fácilmente las rutas! En este capítulo utilizaremos funciones avanzadas de "
+"PostgreSQL y PostGIS para construir una nueva capa de rutas lineales a "
+"partir de la capa de puntos de las estaciones de metro."
 
 #: ../../en/advanced_geometry_construction.rst:12
 msgid "Our task is made especially difficult by two issues:"
-msgstr ""
+msgstr "Dos cuestiones dificultan nuestra tarea:"
 
 #: ../../en/advanced_geometry_construction.rst:14
 msgid ""
@@ -49,6 +56,9 @@ msgid ""
 "identifiers in each row, so a station that might appear in multiple routes "
 "appears only once in the table."
 msgstr ""
+"La columna ``routes`` de ``nyc_subway_stations`` tiene varios "
+"identificadores de ruta en cada fila, por lo que una estación que podría "
+"aparecer en varias rutas sólo aparece una vez en la tabla."
 
 #: ../../en/advanced_geometry_construction.rst:15
 msgid ""
@@ -57,22 +67,30 @@ msgid ""
 "particular route, it's not possible using the attributes to determine what "
 "the order in which trains travel through the stations."
 msgstr ""
+"En relación con el problema anterior, no hay información sobre el orden de "
+"las rutas en la tabla de estaciones, por lo que, aunque es posible encontrar "
+"todas las estaciones de una ruta determinada, no es posible utilizar los "
+"atributos para determinar el orden en que los trenes pasan por las "
+"estaciones."
 
 #: ../../en/advanced_geometry_construction.rst:17
 msgid ""
 "The second problem is the harder one: given an unordered set of points in a "
 "route, how do we order them to match the actual route."
 msgstr ""
+"El segundo problema es el más difícil: dado un conjunto desordenado de "
+"puntos de una ruta, ¿cómo los ordenamos para que coincidan con la ruta real?"
 
 #: ../../en/advanced_geometry_construction.rst:19
 msgid "Here are the stops for the 'Q' train:"
-msgstr ""
+msgstr "Estas son las paradas del tren \"Q\":"
 
 #: ../../en/advanced_geometry_construction.rst:27
 msgid ""
 "In this picture, the stops are labelled with their unique ``gid`` primary "
 "key."
 msgstr ""
+"En esta imagen, las paradas están etiquetadas con su clave primaria ``gid``."
 
 #: ../../en/advanced_geometry_construction.rst:31
 msgid ""
@@ -80,22 +98,32 @@ msgid ""
 "to always be the closest. We can repeat the process each time as long as we "
 "exclude all the previously found stations from our search."
 msgstr ""
+"Si empezamos en una de las estaciones finales, la siguiente estación de la "
+"línea parece ser siempre la más cercana. Podemos repetir el proceso cada vez "
+"siempre que excluyamos de nuestra búsqueda todas las estaciones encontradas "
+"anteriormente."
 
 #: ../../en/advanced_geometry_construction.rst:33
 msgid "There are two ways to run such an iterative routine in a database:"
 msgstr ""
+"Hay dos formas de ejecutar una rutina iterativa de este tipo en una base de "
+"datos:"
 
 #: ../../en/advanced_geometry_construction.rst:35
 msgid ""
 "Using a procedural language, like `PL/PgSQL <http://www.postgresql.org/docs/"
 "current/static/plpgsql.html>`_."
 msgstr ""
+"Utilizando un lenguaje procedimental, como `PL/PgSQL <http://www.postgresql."
+"org/docs/current/static/plpgsql.html>`_."
 
 #: ../../en/advanced_geometry_construction.rst:36
 msgid ""
 "Using recursive `common table expressions <http://www.postgresql.org/docs/"
 "current/static/queries-with.html>`_."
 msgstr ""
+"Uso recursivo de `expresiones comunes <http://www.postgresql.org/docs/"
+"current/static/queries-with.html>`_."
 
 #: ../../en/advanced_geometry_construction.rst:38
 msgid ""
@@ -103,10 +131,14 @@ msgid ""
 "definition to run. Here's the CTE to calculate the route line of the 'Q' "
 "train, starting from the northernmost stop (where ``gid`` is 304)."
 msgstr ""
+"Las expresiones comunes de tabla (CTE) tienen la virtud de no requerir una "
+"definición de función para ejecutarse. Aquí está la CTE para calcular la "
+"línea de ruta del tren 'Q', empezando por la parada más al norte (donde "
+"``gid`` es 304)."
 
 #: ../../en/advanced_geometry_construction.rst:60
 msgid "The CTE consists of two halves, unioned together:"
-msgstr ""
+msgstr "El CTE consta de dos partes unidas entre sí:"
 
 #: ../../en/advanced_geometry_construction.rst:62
 msgid ""
@@ -114,6 +146,9 @@ msgid ""
 "initial geometry and initialize the array of visited identifiers, using the "
 "record of \"gid\" 304 (the end of the line)."
 msgstr ""
+"La primera parte establece un punto de inicio para la expresión. Obtenemos "
+"la geometría inicial e inicializamos la matriz de identificadores visitados, "
+"utilizando el registro de \"gid\" 304 (el final de la línea)."
 
 #: ../../en/advanced_geometry_construction.rst:63
 msgid ""
@@ -124,12 +159,20 @@ msgid ""
 "idlist @> ARRAY[s.gid]**) and order them by their distance from the previous "
 "point, taking just the first one (the nearest)."
 msgstr ""
+"La segunda parte itera hasta que no encuentra más registros. En cada "
+"iteración toma el valor devuelto de la iteración anterior a través de la "
+"autorreferencia a \"next_stop\". Buscamos en cada parada de la línea Q "
+"(**strpos(s.rutas,'Q')**) que no hayamos añadido ya a nuestra lista de "
+"visitadas (**NOT n.idlist @> ARRAY[s.gid]**) y las ordenamos por su "
+"distancia al punto anterior, tomando sólo la primera (la más cercana)."
 
 #: ../../en/advanced_geometry_construction.rst:65
 msgid ""
 "Beyond the recursive CTE itself, there are a number of advanced PostgreSQL "
 "array features being used here:"
 msgstr ""
+"Más allá de la propia CTE recursiva, hay una serie de características "
+"avanzadas de PostgreSQL que se utilizan aquí:"
 
 #: ../../en/advanced_geometry_construction.rst:67
 msgid ""
@@ -137,11 +180,16 @@ msgid ""
 "have an array of integers, but we could also build an array of geometries, "
 "or any other PostgreSQL type."
 msgstr ""
+"¡Estamos usando ARRAY! PostgreSQL soporta arreglos de cualquier tipo. En "
+"este caso tenemos un arreglo de enteros, pero también podríamos construir un "
+"arreglo de geometrías, o cualquier otro tipo de PostgreSQL."
 
 #: ../../en/advanced_geometry_construction.rst:68
 msgid ""
 "We are using **array_append** to build up our array of visited identifiers."
 msgstr ""
+"Estamos utilizando **array_append** para construir nuestro vector de "
+"identificadores de estación visitados."
 
 #: ../../en/advanced_geometry_construction.rst:69
 msgid ""
@@ -150,6 +198,11 @@ msgid ""
 "ARRAY values on both sides, so we have to turn the individual \"gid\" "
 "numbers into single-entry arrays using the ARRAY[] syntax."
 msgstr ""
+"Estamos utilizando el operador de matrices **@>** (\"array contains\") para "
+"averiguar cuál de las estaciones de tren Q ya hemos visitado. El operador "
+"**@>** requiere valores ARRAY en ambos lados, por lo que tenemos que "
+"convertir los números \"gid\" individuales en arrays con un solo elemento "
+"utilizando la sintaxis ARRAY[]."
 
 #: ../../en/advanced_geometry_construction.rst:71
 msgid ""
@@ -159,24 +212,32 @@ msgid ""
 "postgis.net/docs/ST_MakeLine.html>`_ aggregate function turns the set of "
 "geometries into a single linear output, constructed in the provided order."
 msgstr ""
+"Al ejecutar la consulta, se obtiene cada geometría en el orden en que se "
+"encuentra (que es el orden de ruta), así como la lista de identificadores ya "
+"visitados. Envolver las geometrías en la función agregada `ST_MakeLine "
+"<http://postgis.net/docs/ST_MakeLine.html>`_ de PostGIS convierte el "
+"conjunto de geometrías en una única línea, construida en el orden "
+"proporcionado."
 
 #: ../../en/advanced_geometry_construction.rst:93
 msgid "Which looks like this:"
-msgstr ""
+msgstr "La cual luce como:"
 
 #: ../../en/advanced_geometry_construction.rst:97
 msgid "*Success!*"
-msgstr ""
+msgstr "*Éxito!*"
 
 #: ../../en/advanced_geometry_construction.rst:99
 msgid "Except, two problems:"
-msgstr ""
+msgstr "Excepto por dos problemas:"
 
 #: ../../en/advanced_geometry_construction.rst:101
 msgid ""
 "We are only calculating one subway route here, we want to calculate all the "
 "routes."
 msgstr ""
+"Aquí sólo estamos calculando una ruta de metro, queremos calcular todas las "
+"rutas."
 
 #: ../../en/advanced_geometry_construction.rst:102
 msgid ""
@@ -184,18 +245,26 @@ msgid ""
 "identifier that serves as the seed for the search algorithm that builds the "
 "route."
 msgstr ""
+"Nuestra consulta requiere un conocimiento *a priori*, el identificador "
+"inicial de la estación que sirve de semilla para el algoritmo de búsqueda "
+"que construye la ruta."
 
 #: ../../en/advanced_geometry_construction.rst:104
 msgid ""
 "Let's tackle the hard problem first, figuring out the first station on a "
 "route without manually eyeballing the set of stations that make up the route."
 msgstr ""
+"Abordemos primero el problema más difícil: averiguar cuál es la primera "
+"estación de una ruta sin echar un vistazo manual al conjunto de estaciones "
+"que la componen."
 
 #: ../../en/advanced_geometry_construction.rst:106
 msgid ""
 "Our 'Q' train stops can serve as a starting point. What characterizes the "
 "end stations of the route?"
 msgstr ""
+"Nuestras paradas del tren \"Q\" pueden servir de punto de partida. ¿Qué "
+"caracteriza a las estaciones finales de la ruta?"
 
 #: ../../en/advanced_geometry_construction.rst:110
 msgid ""
@@ -203,6 +272,9 @@ msgid ""
 "However, imagine if the 'Q' train ran from east to west. Would the condition "
 "still hold?"
 msgstr ""
+"Una respuesta es \"son las estaciones más al norte (septentrionales) y más "
+"al sur ( meridionales)\". Sin embargo, imagine que el tren \"Q\" circulara "
+"de este a oeste. ¿Se cumpliría la condición?"
 
 #: ../../en/advanced_geometry_construction.rst:112
 msgid ""
@@ -211,12 +283,18 @@ msgid ""
 "it doesn't matter if the route runs north/south or east/west, just that it "
 "run in more-or-less one direction, particularly at the ends."
 msgstr ""
+"Una caracterización menos direccional de las estaciones finales es \"son las "
+"estaciones más alejadas del centro de la ruta\". Con esta caracterización no "
+"importa si la ruta discurre en dirección norte/sur o este/oeste, sólo que "
+"discurra más o menos en una dirección, sobre todo en los extremos."
 
 #: ../../en/advanced_geometry_construction.rst:114
 msgid ""
 "Since there is no 100% heuristic to figure out the end points, let's try "
 "this second rule out."
 msgstr ""
+"Puesto que no existe una heurística al 100% para averiguar los puntos "
+"finales, probemos esta segunda regla."
 
 #: ../../en/advanced_geometry_construction.rst:118
 msgid ""
@@ -224,6 +302,9 @@ msgid ""
 "line, like the Circle Line in London, UK. Fortunately, New York doesn't have "
 "any such lines!"
 msgstr ""
+"Un fallo obvio de la regla \"lo más lejos posible del centro\" es una línea "
+"circular, como la Circle Line de Londres (Reino Unido). Afortunadamente, "
+"Nueva York no tiene líneas de este tipo."
 
 #: ../../en/advanced_geometry_construction.rst:120
 msgid ""

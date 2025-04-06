@@ -3,107 +3,126 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2025-03-27 06:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"geography_exercises/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geography_exercises.rst:4
 msgid "Geography Exercises"
-msgstr ""
+msgstr "Ejercicios de Datos Tipo Geography"
 
 #: ../../en/geography_exercises.rst:6
 msgid ""
 "Here's a reminder of all the functions we have seen so far. They should be "
 "useful for the exercises!"
 msgstr ""
+"Aquí tiene un recordatorio de todas las funciones que hemos visto hasta "
+"ahora. Le serán útiles para los ejercicios!."
 
 #: ../../en/geography_exercises.rst:8
 msgid ":command:`Sum(number)` adds up all the numbers in the result set"
 msgstr ""
+":command:`Sum(number)` suma todos los números del conjunto de resultados"
 
 #: ../../en/geography_exercises.rst:9
 msgid ":command:`ST_GeogFromText(text)` returns a geography"
-msgstr ""
+msgstr ":command:`ST_GeogFromText(text)` retorna un objeto tipo geography"
 
 #: ../../en/geography_exercises.rst:10
 msgid ""
 ":command:`ST_Distance(geography, geography)` returns the distance between "
 "geographies"
 msgstr ""
+":command:`ST_Distance(geography, geography)` retorna la distancia entre dos "
+"objetos tipo geography"
 
 #: ../../en/geography_exercises.rst:11
 msgid ""
 ":command:`ST_Transform(geometry, srid)` returns geometry, in the new "
 "projection"
 msgstr ""
+":command:`ST_Transform(geometry, srid)` retorna el objeto tipo geometría en "
+"la nueva proyección"
 
 #: ../../en/geography_exercises.rst:12
 msgid ":command:`ST_Length(geography)` returns the length of the line"
-msgstr ""
+msgstr ":command:`ST_Length(geography)` retorna la longitud de la línea"
 
 #: ../../en/geography_exercises.rst:13
 msgid ""
 ":command:`ST_Intersects(geometry, geometry)` returns true if the objects are "
 "not disjoint in planar space"
 msgstr ""
+":command:`ST_Intersects(geometry, geometry)` retorna true si los objetos no "
+"son disyuntos en un espacio plano"
 
 #: ../../en/geography_exercises.rst:14
 msgid ""
 ":command:`ST_Intersects(geography, geography)` returns true if the objects "
 "are not disjoint in spheroidal space"
 msgstr ""
+":command:`ST_Intersects(geography, geography)` devuelve true si los objetos "
+"no son disjuntos en el espacio esferoidal"
 
 #: ../../en/geography_exercises.rst:16
 msgid "Also remember the tables we have available:"
-msgstr ""
+msgstr "También recuerde las tablas que tenemos disponibles:"
 
 #: ../../en/geography_exercises.rst:18
 msgid "``nyc_streets``"
-msgstr ""
+msgstr "``nyc_streets``"
 
 #: ../../en/geography_exercises.rst:20
 msgid "name, type, geom"
-msgstr ""
+msgstr "name, type, geom"
 
 #: ../../en/geography_exercises.rst:22
 msgid "``nyc_neighborhoods``"
-msgstr ""
+msgstr "``nyc_neighborhoods``"
 
 #: ../../en/geography_exercises.rst:24
 msgid "name, boroname, geom"
-msgstr ""
+msgstr "name, boroname, geom"
 
 #: ../../en/geography_exercises.rst:28
 msgid "Exercises"
-msgstr ""
+msgstr "Ejercicios"
 
 #: ../../en/geography_exercises.rst:30
 msgid "**How far is New York from Seattle? What are the units of the answer?**"
 msgstr ""
+"**¿A qué distancia está Nueva York de Seattle? ¿Cuáles son las unidades de "
+"la respuesta?**"
 
 #: ../../en/geography_exercises.rst:34
 msgid ""
 "New York = ``POINT(-74.0064 40.7142)`` and Seattle = ``POINT(-122.3331 "
 "47.6097)``"
 msgstr ""
+"New York = ``POINT(-74.0064 40.7142)`` y Seattle = ``POINT(-122.3331 47."
+"6097)``"
 
 #: ../../en/geography_exercises.rst:48
 msgid ""
 "**What is the total length of all streets in New York, calculated on the "
 "spheroid?**"
 msgstr ""
+"**¿Cuál es la longitud total de todas las calles de Nueva York, calculada "
+"sobre el esferoide?"
 
 #: ../../en/geography_exercises.rst:64
 msgid ""
@@ -111,12 +130,17 @@ msgid ""
 "10418904.717, 0.02% different. UTM is good at preserving area and distance, "
 "within the zone boundaries."
 msgstr ""
+"La longitud calculada en la proyección plana «UTM Zone 18» es 10418904,717, "
+"un 0,02% de diferencia. UTM es bueno para preservar el área y la distancia, "
+"dentro de los límites de la zona."
 
 #: ../../en/geography_exercises.rst:67
 msgid ""
 "**Does ‘POINT(1 2.0001)’ intersect with ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ "
 "in geography? In geometry? Why the difference?**"
 msgstr ""
+"**¿Se cruza 'POINT(1 2,0001)' con 'POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))' en "
+"geografía? ¿En geometría? ¿Por qué la diferencia?"
 
 #: ../../en/geography_exercises.rst:87
 msgid ""
@@ -125,3 +149,7 @@ msgid ""
 "edge of the square is a great circle in geography, and passes **above** the "
 "point, so the square does contain the point."
 msgstr ""
+"La arista superior del cuadrado es una línea recta en geometría, y pasa **"
+"por debajo** del punto, por lo que el cuadrado no contiene el punto. La "
+"arista superior del cuadrado es un gran círculo en geografía, y pasa **por "
+"encima** del punto, por lo que el cuadrado sí contiene el punto."

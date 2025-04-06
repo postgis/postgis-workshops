@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chengxiang Wang <wangcx1011@gmail.com>, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-05-20 18:42+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-03-27 06:47+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/geography_exercises/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -83,24 +83,33 @@ msgstr "练习"
 
 #: ../../en/geography_exercises.rst:30
 msgid "**How far is New York from Seattle? What are the units of the answer?**"
-msgstr ""
+msgstr "**纽约与西雅图相距多远？计算结果使用什么单位？**"
 
 #: ../../en/geography_exercises.rst:34
 msgid "New York = ``POINT(-74.0064 40.7142)`` and Seattle = ``POINT(-122.3331 47.6097)``"
-msgstr ""
+msgstr "纽约坐标：``POINT(-74.0064 40.7142)`` 和 西雅图坐标：``POINT(-122.3331 47."
+"6097)``"
 
 #: ../../en/geography_exercises.rst:48
 msgid "**What is the total length of all streets in New York, calculated on the spheroid?**"
-msgstr ""
+msgstr "**如何计算纽约市所有街道在椭球体模型下的总长度？**"
 
 #: ../../en/geography_exercises.rst:64
 msgid "The length calculated in the planar \"UTM Zone 18\" projection is 10418904.717, 0.02% different. UTM is good at preserving area and distance, within the zone boundaries."
 msgstr ""
+"在平面坐标系「UTM Zone 18」中的计算结果为10418904."
+"717，与椭球体计算结果仅相差0."
+"02%。UTM投影在分带范围内能出色保持距离精度和面积准确性。"
 
 #: ../../en/geography_exercises.rst:67
 msgid "**Does ‘POINT(1 2.0001)’ intersect with ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ in geography? In geometry? Why the difference?**"
 msgstr ""
+"**'POINT(1 2.0001)' 与 'POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))' 在地理坐标系（GEO"
+"GRAPHY）和平面坐标系（GEOMETRY）下的相交检测有何差异？原因是什么?**"
 
 #: ../../en/geography_exercises.rst:87
 msgid "The upper edge of the square is a straight line in geometry, and passes **below** the point, so the square does not contain the point. The upper edge of the square is a great circle in geography, and passes **above** the point, so the square does contain the point."
 msgstr ""
+"该正方形的上边界在平面坐标系（GEOMETRY）中是直线，从点的**下方**通过，因此不"
+"包含该点；而在地理坐标系（GEOGRAPHY）中，该边界实为大圆弧线，从点的**上方**通"
+"过，故包含该点。"

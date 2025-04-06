@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2025-03-14 05:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"schemas/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/schemas.rst:4
 msgid "PostgreSQL Schemas"
-msgstr ""
+msgstr "Esquemas en Postgresql"
 
 #: ../../en/schemas.rst:6
 msgid ""
@@ -29,6 +31,9 @@ msgid ""
 "managing them all in one schema can become unwieldy quickly. Fortunately, "
 "PostgreSQL_ includes the concept of a \"_Schema\"."
 msgstr ""
+"Las bases de datos de producción inevitablemente tienen un gran número de "
+"tablas y vistas, y administrarlas puede volverse difícil. Afortunadamente, "
+"PostgreSQL_ incluye el concepto de \"_Schema\"."
 
 #: ../../en/schemas.rst:8
 msgid ""
@@ -36,6 +41,9 @@ msgid ""
 "and other relations.  Every database starts out with one schema, the "
 "``public`` schema."
 msgstr ""
+"Los esquemas son como carpetas y pueden contener tablas, vistas, funciones, "
+"secuencias y otras relaciones.  Toda base de datos comienza con un esquema, "
+"el esquema ``público``."
 
 #: ../../en/schemas.rst:12
 msgid ""
@@ -44,30 +52,42 @@ msgid ""
 "relations, as well as all the types and functions used by PostGIS. So users "
 "of PostGIS always need access to the public schema."
 msgstr ""
+"Dentro de ese esquema, la instalación predeterminada de PostGIS crea las "
+"relaciones de metadatos ``geometry_columns``, ``geography_columns`` y "
+"``spatial_ref_sys``, así como todos los tipos y funciones utilizados por "
+"PostGIS. Así que los usuarios de PostGIS siempre necesitan acceder al "
+"esquema público."
 
 #: ../../en/schemas.rst:14
 msgid ""
 "In the public schema you can also see all the tables we have created so far "
 "in the workshop."
 msgstr ""
+"En el esquema público también puedes ver todas las tablas que hemos creado "
+"hasta ahora en el taller."
 
 #: ../../en/schemas.rst:18
 msgid "Why use Schemas?"
-msgstr ""
+msgstr "¿Por qué usar esquemas?"
 
 #: ../../en/schemas.rst:20
 msgid "There are two very good reasons for using schemas:"
-msgstr ""
+msgstr "Hay dos buenas razones para utilizar esquemas:"
 
 #: ../../en/schemas.rst:22
 msgid "Data that is managed in a schema is easier to apply bulk actions to."
 msgstr ""
+"A los datos que se gestionan en un esquema se puede aplicar acciones masivas "
+"con facilidad."
 
 #: ../../en/schemas.rst:24
 msgid ""
 "It's easier to back-up data that's in a separate schema: so volatile data "
 "can have a different back-up schedule from non-volatile data."
 msgstr ""
+"Es más fácil hacer copias de seguridad de datos que están en un esquema "
+"separado: así, los datos volátiles pueden tener un programa de copias de "
+"seguridad diferente del de los datos no volátiles."
 
 #: ../../en/schemas.rst:25
 msgid ""
@@ -75,6 +95,9 @@ msgid ""
 "oriented schemas can be separately restored and backed up for time travel "
 "and recovery."
 msgstr ""
+"Es más fácil restaurar datos que están en un esquema separado: así, los "
+"esquemas orientados a aplicaciones pueden restaurarse por separado y se "
+"puede hacer una copia de seguridad de ellos para recuperarlos."
 
 #: ../../en/schemas.rst:26
 msgid ""
@@ -82,12 +105,18 @@ msgid ""
 "in a schema: so a new version of software can work off a table structure in "
 "a new schema, and cut-over involves a simple change to the schema name."
 msgstr ""
+"Es más fácil gestionar los cambios en la aplicación cuando los datos de la "
+"aplicación están en un esquema: así, una nueva versión del software puede "
+"funcionar con una estructura de tablas en un nuevo esquema, y la transición "
+"implica un simple cambio en el nombre del esquema."
 
 #: ../../en/schemas.rst:28
 msgid ""
 "Users can be restricted in their work to single schemas to allow isolation "
 "of analytical and test tables from production tables."
 msgstr ""
+"El trabajo de los usuarios puede limitarse a esquemas únicos para aislar las "
+"tablas analíticas y de prueba de las tablas de producción."
 
 #: ../../en/schemas.rst:30
 msgid ""
@@ -95,10 +124,14 @@ msgid ""
 "schemas improves management; and for user purposes, keeping your users in "
 "separate schemas keeps them from treading on each other."
 msgstr ""
+"Así pues, a efectos de producción, mantener los datos de la aplicación "
+"separados en esquemas mejora la gestión; y a efectos de usuario, mantener a "
+"los usuarios en esquemas separados evita que la colisión no deseada de "
+"actividades entre ellos."
 
 #: ../../en/schemas.rst:34
 msgid "Creating a Data Schema"
-msgstr ""
+msgstr "Creando un Esquema de Datos"
 
 #: ../../en/schemas.rst:36
 msgid ""

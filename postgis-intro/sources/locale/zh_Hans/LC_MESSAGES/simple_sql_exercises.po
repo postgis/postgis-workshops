@@ -4,13 +4,13 @@
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2024.
-# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"PO-Revision-Date: 2025-03-27 08:47+0000\n"
 "Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/simple_sql_exercises/zh_Hans/>\n"
@@ -121,7 +121,9 @@ msgstr "**boroname**"
 
 #: ../../en/simple_sql_exercises.rst:34
 msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
-msgstr "纽约市的行政区名称分别是：曼哈顿、布朗克斯、布鲁克林、史泰登岛和皇后区。"
+msgstr ""
+"纽约市行政区名称：曼哈顿（Manhattan）、布朗克斯（The "
+"Bronx）、布鲁克林（Brooklyn）、史泰登岛（Staten Island）、皇后区（Queens）"
 
 #: ../../en/simple_sql_exercises.rst:35
 msgid "**geom**"
@@ -190,19 +192,19 @@ msgstr "函数列表"
 msgid "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the average value of a numeric column."
 msgstr ""
 "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-"
-"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: "
-"返回数值列的平均值的PostgreSQL聚合函数。"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_：PostgreSQL "
+"聚合函数，用于计算数值列的平均值。"
 
 #: ../../en/simple_sql_exercises.rst:145
 msgid "`count(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the number of records in a set of records."
 msgstr ""
 "`count(expression) <http://www.postgresql.org/docs/current/static/functions-"
-"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: "
-"返回一组记录中记录数量的PostgreSQL聚合函数。"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_：PostgreSQL "
+"聚合函数，用于统计记录集中的记录数量。"
 
 #: ../../en/simple_sql_exercises.rst:147
 msgid "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the sum of records in a set of records."
 msgstr ""
 "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-"
-"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL "
-"聚合函数，返回一组记录中的记录总和。"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_：PostgreSQL "
+"聚合函数，用于计算记录集中所有记录的总和值。"

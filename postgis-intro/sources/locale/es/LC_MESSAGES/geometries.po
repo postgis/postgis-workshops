@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-03-14 05:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries/es/>\n"
 "Language: es\n"
@@ -297,7 +297,7 @@ msgstr ""
 
 #: ../../en/geometries.rst:211
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ""
+msgstr ":command:`ST_Area(geometría)` devuelve el área de la geometría."
 
 #: ../../en/geometries.rst:212
 msgid ""

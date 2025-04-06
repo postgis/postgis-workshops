@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-03-14 05:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "creating_db/es/>\n"
 "Language: es\n"
@@ -23,11 +24,11 @@ msgstr ""
 
 #: ../../en/creating_db.rst:4
 msgid "Creating a Spatial Database"
-msgstr ""
+msgstr "Creando una Base de Datos Espacial"
 
 #: ../../en/creating_db.rst:7
 msgid "PgAdmin"
-msgstr ""
+msgstr "PgAdmin"
 
 #: ../../en/creating_db.rst:9
 msgid ""
@@ -39,16 +40,27 @@ msgid ""
 "line with ``psql``. pgAdmin also includes a geometry viewer you can use to "
 "spatial view PostGIS queries."
 msgstr ""
+"PostgreSQL dispone de varios clientes.  El fundamental es `psql <http://www."
+"postgresql.org/docs/current/static/app-psql.html>`_, una herramienta de "
+"línea de comandos para introducir consultas SQL.  Otro popular cliente de "
+"PostgreSQL es la herramienta gráfica gratuita y de código abierto `pgAdmin "
+"<http://www.pgadmin.org/>`_. Todas las consultas realizadas en pgAdmin "
+"también se pueden hacer en la línea de comandos con ``psql``. pgAdmin "
+"también incluye un visor de geometría que se puede utilizar para ver "
+"espacialmente las consultas PostGIS."
 
 #: ../../en/creating_db.rst:12
 msgid "Find pgAdmin and start it up."
-msgstr ""
+msgstr "Busque pgAdmin e inícielo."
 
 #: ../../en/creating_db.rst:17
 msgid ""
 "If this is the first time you have run pgAdmin, you probably don't have any "
 "servers configured. Right click the ``Servers`` item in the Browser panel."
 msgstr ""
+"Si es la primera vez que ejecutas pgAdmin, probablemente no tengas ningún "
+"servidor configurado. Haz click derecho en el ítem ``Servidores`` en el "
+"panel del Navegador."
 
 #: ../../en/creating_db.rst:19
 msgid ""
@@ -57,6 +69,11 @@ msgid ""
 "able to use ``localhost``. If you're using a cloud service, you should be "
 "able to retrieve the host name from your account."
 msgstr ""
+"Llamaremos a nuestro servidor **PostGIS**. En la pestaña Conexión, "
+"introducimos el ``Nombre/dirección del host``. Si estás trabajando con una "
+"instalación local de PostgreSQL, podrás utilizar ``localhost``. Si está "
+"utilizando un servicio en la nube, usted debería ser capaz de recuperar el "
+"nombre de host de su cuenta."
 
 #: ../../en/creating_db.rst:21
 msgid ""
@@ -64,10 +81,13 @@ msgid ""
 "**Username** as ``postgres``. The **Password** should be what you specified "
 "with a local install or with your cloud service."
 msgstr ""
+"Deja **Port** en ``5432``, y tanto **Maintenance database** como **Username**"
+" como ``postgres``. La **Contraseña** debe ser la que especificó con una "
+"instalación local o con su servicio en la nube."
 
 #: ../../en/creating_db.rst:27
 msgid "Creating a Database"
-msgstr ""
+msgstr "Creando una Base de Datos"
 
 #: ../../en/creating_db.rst:29
 msgid ""
@@ -75,62 +95,79 @@ msgid ""
 "The ``postgres`` database is the user database for the default postgres user "
 "and is not too interesting to us."
 msgstr ""
+"Abre el item de bases de datos y echa un vistazo a las bases de datos "
+"disponibles.  La base de datos ``postgres`` es la base de datos de usuario "
+"predeterminada para el usuario postgres y no es demasiado interesante para "
+"nosotros."
 
 #: ../../en/creating_db.rst:31
 msgid "Right-click on the ``Databases`` item and select ``New Database``."
 msgstr ""
+"Haga clic con el botón derecho del ratón en el elemento ``Bases de datos`` y "
+"seleccione ``Nueva base de datos``."
 
 #: ../../en/creating_db.rst:36
 msgid "Fill in the ``Create Database`` form as shown below and click **OK**."
 msgstr ""
+"Rellene el formulario ``Crear base de datos`` como se muestra a continuación "
+"y haga clic en **OK**."
 
 #: ../../en/creating_db.rst:40
 msgid "**Name**"
-msgstr ""
+msgstr "**Nombre**"
 
 #: ../../en/creating_db.rst:41
 msgid "``nyc``"
-msgstr ""
+msgstr "``nyc``"
 
 #: ../../en/creating_db.rst:42
 msgid "**Owner**"
-msgstr ""
+msgstr "**Propietario**"
 
 #: ../../en/creating_db.rst:43
 msgid "``postgres``"
-msgstr ""
+msgstr "``postgres``"
 
 #: ../../en/creating_db.rst:49
 msgid ""
 "Select the new ``nyc`` database and open it up to display the tree of "
 "objects. You'll see the ``public`` schema."
 msgstr ""
+"Selecciona la nueva base de datos ``nyc`` y ábrela para visualizar el árbol "
+"de objetos. Verás el esquema ``public``."
 
 #: ../../en/creating_db.rst:53
 msgid ""
 "Click on the SQL query button indicated below (or go to *Tools > Query "
 "Tool*)."
 msgstr ""
+"Haga clic en el botón de consulta SQL indicado a continuación (o vaya a *"
+"Herramientas > Herramienta de consulta*)."
 
 #: ../../en/creating_db.rst:57
 msgid ""
 "Enter the following query into the query text field to load the PostGIS "
 "spatial extension:"
 msgstr ""
+"Introduzca la siguiente consulta en el campo de texto de consulta para "
+"cargar la extensión espacial PostGIS:"
 
 #: ../../en/creating_db.rst:63
 msgid ""
 "Click the **Play** button in the toolbar (or press **F5**) to \"Execute the "
 "query.\""
 msgstr ""
+"Haz clic en el botón **Play** de la barra de herramientas (o pulsa **F5**) "
+"para \"Ejecutar la consulta\"."
 
 #: ../../en/creating_db.rst:65
 msgid "Now confirm that PostGIS is installed by running a PostGIS function:"
 msgstr ""
+"Ahora confirme que PostGIS está instalado ejecutando una función PostGIS:"
 
 #: ../../en/creating_db.rst:71
 msgid "You have successfully created a PostGIS spatial database!!"
-msgstr ""
+msgstr "¡¡Has creado con éxito una base de datos espacial PostGIS!!"
 
 #: ../../en/creating_db.rst:75
 msgid "Function List"
@@ -141,3 +178,6 @@ msgid ""
 "`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: "
 "Reports full PostGIS version and build configuration info."
 msgstr ""
+"`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: "
+"Informa de la versión completa de PostGIS y de la configuración de "
+"compilación."

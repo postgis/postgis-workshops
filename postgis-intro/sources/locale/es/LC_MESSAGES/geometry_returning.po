@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-03-14 05:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning/es/>\n"
 "Language: es\n"
@@ -269,3 +270,6 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the sum of records in a set of records."
 msgstr ""
+"`sum(expresión) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: Función de PostgreSQL que "
+"devuelve la suma de los valores de un conjunto de registros."

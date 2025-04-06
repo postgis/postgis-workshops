@@ -2,13 +2,14 @@
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-02-23 03:45+0000\n"
-"Last-Translator: Zuochenwei <zuochenwei5@gmail.com>\n"
+"PO-Revision-Date: 2025-03-27 08:47+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/simple_sql/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/simple_sql.rst:4
 msgid "Simple SQL"
@@ -167,8 +168,8 @@ msgstr "函数列表"
 msgid "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the average value of a numeric column."
 msgstr ""
 "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-"
-"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: "
-"返回数值列的平均值的PostgreSQL聚合函数。"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_：PostgreSQL "
+"聚合函数，用于计算数值列的平均值。"
 
 #: ../../en/simple_sql.rst:126
 msgid "`char_length(string) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function that returns the number of character in a string."

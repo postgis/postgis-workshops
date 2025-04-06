@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2025-03-14 05:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"equality/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/equality.rst:4 ../../en/equality.rst:7
 msgid "Equality"
-msgstr ""
+msgstr "Igualdad"
 
 #: ../../en/equality.rst:9
 msgid ""
@@ -30,14 +32,19 @@ msgid ""
 "levels of equality, though for clarity we will use the definitions below.  "
 "To illustrate these functions, we will use the following polygons."
 msgstr ""
+"Determinar la igualdad cuando se trata de geometrías puede ser complicado.  "
+"PostGIS soporta tres funciones diferentes que se pueden utilizar para "
+"determinar los diferentes niveles de igualdad, aunque para mayor claridad "
+"vamos a utilizar las definiciones a continuación.  Para ilustrar estas "
+"funciones, utilizaremos los siguientes polígonos."
 
 #: ../../en/equality.rst:14
 msgid "These polygons are loaded using the following commands."
-msgstr ""
+msgstr "Estos polígonos se cargan utilizando los siguientes comandos."
 
 #: ../../en/equality.rst:36
 msgid "Exactly Equal"
-msgstr ""
+msgstr "Exactamente igual"
 
 #: ../../en/equality.rst:38
 msgid ""
@@ -45,6 +52,10 @@ msgid ""
 "in order, to ensure they are identical in position.  The following examples "
 "show how this method can be limited in its effectiveness."
 msgstr ""
+"La igualdad exacta se determina comparando dos geometrías, vértice por "
+"vértice, en orden, para asegurarse de que son idénticas en posición.  Los "
+"siguientes ejemplos muestran cómo este método puede tener una eficacia "
+"limitada."
 
 #: ../../en/equality.rst:50
 msgid ""
@@ -54,10 +65,16 @@ msgid ""
 "but are defined in differing orders.  Polygon 4 has colinear (and thus "
 "redundant) vertices on the hexagon edges causing inequality with Polygon 1."
 msgstr ""
+"En este ejemplo, los polígonos sólo son iguales a sí mismos, no a otros "
+"polígonos aparentemente equivalentes (como en el caso de los polígonos 1 a 3)"
+".  En el caso de los polígonos 1, 2 y 3, los vértices se encuentran en "
+"posiciones idénticas, pero están definidos en órdenes diferentes.  El "
+"polígono 4 tiene vértices colineales (y, por tanto, redundantes) en los "
+"bordes del hexágono, lo que provoca una desigualdad con el polígono 1."
 
 #: ../../en/equality.rst:53
 msgid "Spatially Equal"
-msgstr ""
+msgstr "Espacialmente igual"
 
 #: ../../en/equality.rst:55
 msgid ""
@@ -66,6 +83,10 @@ msgid ""
 "`ST_Equals`, available to test the spatial equality or equivalence of "
 "geometries."
 msgstr ""
+"Como hemos visto anteriormente, la igualdad exacta no tiene en cuenta la "
+"naturaleza espacial de las geometrías.  Existe una función, acertadamente "
+"denominada :command:`ST_Equals`, disponible para comprobar la igualdad o "
+"equivalencia espacial de las geometrías."
 
 #: ../../en/equality.rst:67
 msgid ""
@@ -76,10 +97,16 @@ msgid ""
 "important here.  What is important is that the polygons contain the same "
 "space."
 msgstr ""
+"Estos resultados son más acordes con nuestra comprensión intuitiva de la "
+"igualdad.  Los polígonos 1 a 4 se consideran iguales, ya que encierran la "
+"misma área.  Observe que ni la dirección en la que se dibuja el polígono, ni "
+"el punto de partida para definir el polígono, ni el número de puntos "
+"utilizados son importantes aquí.  Lo importante es que los polígonos "
+"contengan el mismo espacio."
 
 #: ../../en/equality.rst:70
 msgid "Equal Bounds"
-msgstr ""
+msgstr "Límites iguales"
 
 #: ../../en/equality.rst:72
 msgid ""
@@ -91,6 +118,13 @@ msgid ""
 "geometries occupy the same two dimensional extent, but not necessarily the "
 "same space."
 msgstr ""
+"La igualdad exacta requiere, en el peor de los casos, la comparación de "
+"todos y cada uno de los vértices de la geometría para determinar la "
+"igualdad.  Esto puede ser lento, y puede no ser apropiado para comparar un "
+"gran número de geometrías.  Para permitir una comparación más rápida, se "
+"proporciona el operador de límites iguales, :comando:`~=`.  Este operador "
+"sólo opera en el rectángulo, garantizando que las geometrías ocupan la misma "
+"extensión bidimensional, pero no necesariamente el mismo espacio."
 
 #: ../../en/equality.rst:84
 msgid ""
@@ -102,3 +136,10 @@ msgid ""
 "reduce huge comparison sets into more manageable blocks when joining or "
 "filtering data."
 msgstr ""
+"Como puede ver, todas nuestras geometrías espacialmente iguales también "
+"tienen límites iguales.  Desafortunadamente, el Polígono 5 también se "
+"devuelve como igual bajo esta prueba, porque comparte la misma caja "
+"delimitadora que las otras geometrías.  ¿Por qué es útil?  Aunque esto se "
+"tratará en detalle más adelante, la respuesta corta es que esto permite el "
+"uso de indexación espacial que puede reducir rápidamente enormes conjuntos "
+"de comparación en bloques más manejables al unir o filtrar datos."

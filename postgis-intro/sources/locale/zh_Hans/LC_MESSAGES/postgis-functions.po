@@ -2,13 +2,14 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-02-28 19:52+0000\n"
-"Last-Translator: Chen <onsummer@foxmail.com>\n"
+"PO-Revision-Date: 2025-04-01 09:39+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/postgis-functions/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/postgis-functions.rst:4
 msgid "Appendix A: PostGIS Functions"
@@ -53,7 +54,8 @@ msgid ""
 "Updates the srid on a geometry.  Returns the same geometry.  This does not "
 "alter the coordinates of the geometry, it just updates the srid. This "
 "function is useful for conditioning geometries created without an srid."
-msgstr ""
+msgstr "更新几何图形的空间参考标识符(SRID)。该函数返回原几何图形（坐标值不变），仅更"
+"新其SRID值，适用于处理未定义空间参考的几何数据。"
 
 #: ../../en/postgis-functions.rst:19
 msgid ":command:`ST_Expand(geometry, Radius)`"
@@ -64,7 +66,8 @@ msgid ""
 "Returns a new geometry that is an expanded bounding box of the input "
 "geometry.  This function is useful for creating envelopes for use in indexed "
 "searches."
-msgstr ""
+msgstr "返回一个基于输入几何图形扩展后的边界框新几何图形。该函数适用于为索引搜索创建"
+"包络范围。"
 
 #: ../../en/postgis-functions.rst:22
 msgid "Outputs"
@@ -76,7 +79,7 @@ msgstr ":command:`ST_AsText(geometry)`"
 
 #: ../../en/postgis-functions.rst:25
 msgid "Returns a geometry in a human-readable text format."
-msgstr ""
+msgstr "返回几何图形的可读文本格式。"
 
 #: ../../en/postgis-functions.rst:28
 msgid ":command:`ST_AsGML(geometry)`"
@@ -84,7 +87,7 @@ msgstr ":command:`ST_AsGML(geometry)`"
 
 #: ../../en/postgis-functions.rst:28
 msgid "Returns a geometry in standard OGC :term:`GML` format."
-msgstr ""
+msgstr "返回符合OGC标准 :term:`GML`格式的几何图形表示。"
 
 #: ../../en/postgis-functions.rst:31
 msgid ":command:`ST_AsGeoJSON(geometry)`"
@@ -117,7 +120,7 @@ msgstr ":command:`ST_Length(geometry)`"
 msgid ""
 "Returns the length of the geometry in the units of the spatial reference "
 "system."
-msgstr ""
+msgstr "返回几何图形在空间参考系单位下的长度值。"
 
 #: ../../en/postgis-functions.rst:43
 msgid ":command:`ST_Perimeter(geometry)`"
@@ -127,7 +130,7 @@ msgstr ":command:`ST_Perimeter(geometry)`"
 msgid ""
 "Returns the perimeter of the geometry in the units of the spatial reference "
 "system."
-msgstr ""
+msgstr "返回几何图形在空间参考系单位下的周长值。"
 
 #: ../../en/postgis-functions.rst:46
 msgid ":command:`ST_NumPoints(linestring)`"
@@ -135,7 +138,7 @@ msgstr ":command:`ST_NumPoints(linestring)`"
 
 #: ../../en/postgis-functions.rst:46
 msgid "Returns the number of vertices in a linestring."
-msgstr ""
+msgstr "返回线串图形中的顶点数量。"
 
 #: ../../en/postgis-functions.rst:49
 msgid ":command:`ST_NumRings(polygon)`"
@@ -165,7 +168,7 @@ msgstr ":command:`ST_Distance(geometry, geometry)`"
 msgid ""
 "Returns the distance between two geometries in the units of the spatial "
 "reference system."
-msgstr ""
+msgstr "返回两几何对象间的距离值，其计量单位与空间参考系统(SRID)定义保持一致。"
 
 #: ../../en/postgis-functions.rst:61
 msgid ":command:`ST_DWithin(geometry, geometry, radius)`"
@@ -175,7 +178,7 @@ msgstr ":command:`ST_DWithin(geometry, geometry, radius)`"
 msgid ""
 "Returns true if the geometries are within the radius distance of one "
 "another, otherwise false."
-msgstr ""
+msgstr "若两个几何对象之间的距离小于等于指定半径值则返回 true，否则返回 false。"
 
 #: ../../en/postgis-functions.rst:64
 msgid ":command:`ST_Intersects(geometry, geometry)`"
@@ -183,7 +186,7 @@ msgstr ":command:`ST_Intersects(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:64
 msgid "Returns true if the geometries are not disjoint, otherwise false."
-msgstr ""
+msgstr "若几何图形非相离（即存在空间交集）则返回 true，否则返回 false。"
 
 #: ../../en/postgis-functions.rst:67
 msgid ":command:`ST_Contains(geometry, geometry)`"
@@ -193,7 +196,7 @@ msgstr ":command:`ST_Contains(geometry, geometry)`"
 msgid ""
 "Returns true if the first geometry fully contains the second geometry, "
 "otherwise false."
-msgstr ""
+msgstr "若第一个几何图形完全包含第二个几何图形则返回 true，否则返回 false。"
 
 #: ../../en/postgis-functions.rst:69
 msgid ":command:`ST_Crosses(geometry, geometry)`"
@@ -203,4 +206,5 @@ msgstr ":command:`ST_Crosses(geometry, geometry)`"
 msgid ""
 "Returns true if a line or polygon boundary crosses another line or polygon "
 "boundary, otherwise false."
-msgstr ""
+msgstr "如果一条线或多边形边界与另一条线或多边形边界相交，则返回 true，否则返回 "
+"false。"

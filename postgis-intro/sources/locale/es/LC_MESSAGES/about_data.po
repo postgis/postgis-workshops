@@ -5,13 +5,13 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023.
-# Paulo Cesar <paulocoronado@gmail.com>, 2024.
+# Paulo Cesar <paulocoronado@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-05-02 15:45+0000\n"
+"PO-Revision-Date: 2025-03-14 05:47+0000\n"
 "Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/es/>\n"
@@ -82,7 +82,6 @@ msgid "Number of records: 36592"
 msgstr "Número de registros: 36592"
 
 #: ../../en/about_data.rst:24
-#, fuzzy
 msgid "**blkid**"
 msgstr "**blkid**"
 
@@ -95,7 +94,6 @@ msgstr ""
 "censo. Ej: 360050001009000"
 
 #: ../../en/about_data.rst:26
-#, fuzzy
 msgid "**popn_total**"
 msgstr "**popn_total**"
 
@@ -112,7 +110,6 @@ msgid "Number of people self-identifying as \"White\" in the block"
 msgstr "Número de personas que se auto-identifican como \"Blanco/a\""
 
 #: ../../en/about_data.rst:30
-#, fuzzy
 msgid "**popn_black**"
 msgstr "**popn_black**"
 
@@ -121,7 +118,6 @@ msgid "Number of people self-identifying as \"Black\" in the block"
 msgstr "Número de personas que se auto-identifican con \"Negro/a\""
 
 #: ../../en/about_data.rst:32
-#, fuzzy
 msgid "**popn_nativ**"
 msgstr "**popn_nativ**"
 
@@ -131,7 +127,6 @@ msgstr ""
 "Número de personas que se auto-identifican como \"Nativo/a Americano/a\""
 
 #: ../../en/about_data.rst:34
-#, fuzzy
 msgid "**popn_asian**"
 msgstr "**popn_asian**"
 
@@ -140,7 +135,6 @@ msgid "Number of people self-identifying as \"Asian\" in the block"
 msgstr "Número de personas que se auto-identifican como \"Asiático/a\""
 
 #: ../../en/about_data.rst:36
-#, fuzzy
 msgid "**popn_other**"
 msgstr "**popn_other**"
 
@@ -149,7 +143,6 @@ msgid "Number of people self-identifying with other categories in the block"
 msgstr "Número de personas que se auto-identifican como otras categorías"
 
 #: ../../en/about_data.rst:38 ../../en/about_data.rst:63
-#, fuzzy
 msgid "**boroname**"
 msgstr "**boroname**"
 

@@ -1,248 +1,310 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-04-01 09:39+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/advanced_geometry_construction/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/advanced_geometry_construction.rst:4
 msgid "Advanced Geometry Constructions"
-msgstr ""
+msgstr "高级几何构造"
 
 #: ../../en/advanced_geometry_construction.rst:6
 msgid "The ``nyc_subway_stations`` layer has provided us with lots of interesting examples so far, but there is something striking about it:"
-msgstr ""
+msgstr "``nyc_subway_stations``图层目前已经提供了许多有趣的案例，但其中存在一个显著特"
+"点："
 
 #: ../../en/advanced_geometry_construction.rst:10
 msgid "Although it is a database of all the stations, it doesn't allow easy visualization of routes! In this chapter we will use advanced features of PostgreSQL and PostGIS to build up a new linear routes layer from the point layer of subway stations."
 msgstr ""
+"虽然该数据库包含所有站点信息，但无法直观展示地铁线路！本章将利用PostgreSQL和P"
+"ostGIS的高级功能，基于地铁站点的点图层构建全新的线性线路图层。"
 
 #: ../../en/advanced_geometry_construction.rst:12
 msgid "Our task is made especially difficult by two issues:"
-msgstr ""
+msgstr "我们的任务尤其受到两个问题的困扰："
 
 #: ../../en/advanced_geometry_construction.rst:14
 msgid "The ``routes`` column of ``nyc_subway_stations`` has multiple route identifiers in each row, so a station that might appear in multiple routes appears only once in the table."
 msgstr ""
+"``nyc_subway_stations`` 表中的``routes`` 列每行包含多个线路标识符，因此一个可"
+"能出现在多条线路中的站点在表中仅出现一次。"
 
 #: ../../en/advanced_geometry_construction.rst:15
 msgid "Related to the previous issue, there is no route ordering information in the stations table, so while it is possible to find all the stations in a particular route, it's not possible using the attributes to determine what the order in which trains travel through the stations."
-msgstr ""
+msgstr "与前一个问题相关，站点表中缺少线路顺序信息。虽然可以查询到某条线路上的所有站"
+"点，但无法通过现有属性确定列车经过各站点的运行顺序。"
 
 #: ../../en/advanced_geometry_construction.rst:17
 msgid "The second problem is the harder one: given an unordered set of points in a route, how do we order them to match the actual route."
-msgstr ""
+msgstr "第二个问题更为棘手:给定一条线路上无序的站点集合，如何对它们进行排序以匹配实际"
+"线路走向。"
 
 #: ../../en/advanced_geometry_construction.rst:19
 msgid "Here are the stops for the 'Q' train:"
-msgstr ""
+msgstr "以下是 'Q' 号线列车的站点列表："
 
 #: ../../en/advanced_geometry_construction.rst:27
 msgid "In this picture, the stops are labelled with their unique ``gid`` primary key."
-msgstr ""
+msgstr "如图所示，各站点均标注有其唯一主键``gid`` 值。"
 
 #: ../../en/advanced_geometry_construction.rst:31
 msgid "If we start at one of the end stations, the next station on the line seems to always be the closest. We can repeat the process each time as long as we exclude all the previously found stations from our search."
-msgstr ""
+msgstr "若从任一终点站出发，线路上的下一站似乎始终是距离最近的站点。只要在搜索中排除"
+"已确定的站点，即可重复此过程完成全线排序。"
 
 #: ../../en/advanced_geometry_construction.rst:33
 msgid "There are two ways to run such an iterative routine in a database:"
-msgstr ""
+msgstr "在数据库中执行此类迭代计算有两种实现方式："
 
 #: ../../en/advanced_geometry_construction.rst:35
 msgid "Using a procedural language, like `PL/PgSQL <http://www.postgresql.org/docs/current/static/plpgsql.html>`_."
 msgstr ""
+"使用过程化语言，例如`PL/PgSQL <http://www.postgresql.org/docs/current/static/"
+"plpgsql.html>`_。"
 
 #: ../../en/advanced_geometry_construction.rst:36
 msgid "Using recursive `common table expressions <http://www.postgresql.org/docs/current/static/queries-with.html>`_."
 msgstr ""
+"使用递归式`公用表表达式 <http://www.postgresql.org/docs/current/static/"
+"queries-with.html>`_。"
 
 #: ../../en/advanced_geometry_construction.rst:38
 msgid "Common table expressions (CTE) have the virtue of not requiring a function definition to run. Here's the CTE to calculate the route line of the 'Q' train, starting from the northernmost stop (where ``gid`` is 304)."
 msgstr ""
+"Common table expressions (CTE)的优势在于无需预定义函数即可执行。以下是通过CTE"
+"计算'Q'号线路径的示例，从最北端站点（``gid``为304的位置）开始构建线路。"
 
 #: ../../en/advanced_geometry_construction.rst:60
 msgid "The CTE consists of two halves, unioned together:"
-msgstr ""
+msgstr "该表达式(CTE)由通过UNION连接的两部分组成："
 
 #: ../../en/advanced_geometry_construction.rst:62
 msgid "The first half establishes a start point for the expression. We get the initial geometry and initialize the array of visited identifiers, using the record of \"gid\" 304 (the end of the line)."
-msgstr ""
+msgstr "前半部分为递归表达式设定起始点：通过获取 \"gid\" 为 "
+"304（线路终点站）的初始几何图形，并初始化已访问标识符数组来完成。"
 
 #: ../../en/advanced_geometry_construction.rst:63
 msgid "The second half iterates until it finds no further records. At each iteration it takes in the value at the previous iteration via the self-reference to \"next_stop\". We search every stop on the Q line (**strpos(s.routes,'Q')**) that we have not already added to our visited list (**NOT n.idlist @> ARRAY[s.gid]**) and order them by their distance from the previous point, taking just the first one (the nearest)."
 msgstr ""
+"后半部分通过递归迭代运行，直至无法找到新的记录为止。每次迭代时，"
+"通过自引用\"next_stop\"获取前一次迭代的值"
+"。我们会搜索Q线路上所有站点（**strpos(s."
+"routes,'Q')**），且未加入已访问列表的站点（**NOT n.idlist @> ARRAY[s."
+"gid]**），然后按照与前一站点的距离排序，仅选择最近的一个站点（LIMIT 1）。"
 
 #: ../../en/advanced_geometry_construction.rst:65
 msgid "Beyond the recursive CTE itself, there are a number of advanced PostgreSQL array features being used here:"
-msgstr ""
+msgstr "除递归CTE本身外，此实现还运用了多项PostgreSQL高级数组特性："
 
 #: ../../en/advanced_geometry_construction.rst:67
 msgid "We are using ARRAY! PostgreSQL supports arrays of any type. In this case we have an array of integers, but we could also build an array of geometries, or any other PostgreSQL type."
 msgstr ""
+"我们正在使用数组功能！PostgreSQL支持任意类型的数组——当前示例使用整数数组存储"
+"站点ID，但同样支持构建几何图形数组或任何PostgreSQL数据类型的数组。"
 
 #: ../../en/advanced_geometry_construction.rst:68
 msgid "We are using **array_append** to build up our array of visited identifiers."
-msgstr ""
+msgstr "我们正在使用 **array_append** 函数动态扩展已访问标识符数组。"
 
 #: ../../en/advanced_geometry_construction.rst:69
 msgid "We are using the **@>** array operator (\"array contains\") to find which of the Q train stations we have already visited. The **@>** operators requires ARRAY values on both sides, so we have to turn the individual \"gid\" numbers into single-entry arrays using the ARRAY[] syntax."
 msgstr ""
+"我们使用 **@>** 数组运算符（\"数组包含\"）来筛选已访问过的 Q 线路站点。 "
+"**@>** 要求两侧均为 ARRAY 类型，因此需通过 ARRAY[] 语法将单独的 \"gid\" "
+"数值转换为单元素数组。"
 
 #: ../../en/advanced_geometry_construction.rst:71
 msgid "When you run the query, you get each geometry in the order it is found (which is the route order), as well as the list of identifiers already visited. Wrapping the geometries into the PostGIS `ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_ aggregate function turns the set of geometries into a single linear output, constructed in the provided order."
 msgstr ""
+"执行查询时，系统会按检索顺序（即线路顺序）返回每个几何图形及已访问的标识符列"
+"表。通过PostGIS的 `ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_ "
+"聚合函数，可将这些几何图形按给定顺序构建为单一的线性输出。"
 
 #: ../../en/advanced_geometry_construction.rst:93
 msgid "Which looks like this:"
-msgstr ""
+msgstr "其语法结构如下："
 
 #: ../../en/advanced_geometry_construction.rst:97
 msgid "*Success!*"
-msgstr ""
+msgstr "*成功！*"
 
 #: ../../en/advanced_geometry_construction.rst:99
 msgid "Except, two problems:"
-msgstr ""
+msgstr "然而存在两个技术问题："
 
 #: ../../en/advanced_geometry_construction.rst:101
 msgid "We are only calculating one subway route here, we want to calculate all the routes."
-msgstr ""
+msgstr "当前仅计算单条地铁线路，而实际需求是计算所有线路的路径。"
 
 #: ../../en/advanced_geometry_construction.rst:102
 msgid "Our query includes a piece of *a priori* knowledge, the initial station identifier that serves as the seed for the search algorithm that builds the route."
-msgstr ""
+msgstr "我们的查询语句包含一项*先验知识*——作为路径搜索算法初始种子节点的起始站点标识"
+"符。"
 
 #: ../../en/advanced_geometry_construction.rst:104
 msgid "Let's tackle the hard problem first, figuring out the first station on a route without manually eyeballing the set of stations that make up the route."
-msgstr ""
+msgstr "让我们优先攻克核心难题：如何在不人工识别的情况下，自动确定某条线路的起始站点"
+"。"
 
 #: ../../en/advanced_geometry_construction.rst:106
 msgid "Our 'Q' train stops can serve as a starting point. What characterizes the end stations of the route?"
-msgstr ""
+msgstr "'Q'线地铁站点可作为分析起点，那么该线路的终点站具有哪些特征？"
 
 #: ../../en/advanced_geometry_construction.rst:110
 msgid "One answer is \"they are the most northerly and southerly stations\". However, imagine if the 'Q' train ran from east to west. Would the condition still hold?"
-msgstr ""
+msgstr "一种观点认为\"终点站就是线路最北端和最南端的站点\""
+"。但假设'Q'线改为东西走向运行，这一判定条件是否仍然成立？"
 
 #: ../../en/advanced_geometry_construction.rst:112
 msgid "A less directional characterization of the end stations is \"they are the furthest stations from the middle of the route\". With this characterization it doesn't matter if the route runs north/south or east/west, just that it run in more-or-less one direction, particularly at the ends."
-msgstr ""
+msgstr "对终点站的一种方向无关的界定方式是：\"它们为距离线路中点最远的站点\""
+"。该定义不受线路走向（南北/东西）影响，仅需满足。"
 
 #: ../../en/advanced_geometry_construction.rst:114
 msgid "Since there is no 100% heuristic to figure out the end points, let's try this second rule out."
-msgstr ""
+msgstr "既然不存在百分之百可靠的启发式规则来确定终点站，我们暂时搁置第二条判定准则（"
+"\"距离线路中点最远\"规则），转而探索其他解决方案。"
 
 #: ../../en/advanced_geometry_construction.rst:118
 msgid "An obvious failure mode of the \"furthest from middle\" rule is a circular line, like the Circle Line in London, UK. Fortunately, New York doesn't have any such lines!"
 msgstr ""
+"\"距线路中点最远\"这一判定规则存在明显缺陷，典型反例即英国伦敦的环线（"
+"如Circle Line）。所幸纽约地铁目前不存在环形线路，该规则在此仍可适用！"
 
 #: ../../en/advanced_geometry_construction.rst:120
 msgid "To work out the end stations of every route, we first have to work out what routes there are! We find the distinct routes."
-msgstr ""
+msgstr "确定各线路终点站的首要步骤是提取唯一线路标识。"
 
 #: ../../en/advanced_geometry_construction.rst:130
 msgid "Note the use of two advanced PostgreSQL ARRAY functions:"
-msgstr ""
+msgstr "请注意此处使用的两项PostgreSQL高级数组函数特性："
 
 #: ../../en/advanced_geometry_construction.rst:132
 msgid "**string_to_array** takes in a string and splits it into an array using a separator character. `PostgreSQL supports arrays <http://www.postgresql.org/docs/current/static/arrays.html>`_ of any type, so it's possible to build arrays of strings, as in this case, but also of geometries and geographies as we'll see later in this example."
 msgstr ""
+"**string_to_array** 函数通过分隔符将字符串拆分为数组。`PostgreSQL "
+"支持任意数据类型的数组 http://www.postgresql.org/docs/current/static/arrays.h"
+"tml`_，因此既可构建字符串数组（如本例所示），亦可生成几何图形/地理要素数组（"
+"后续示例将具体展示）。"
 
 #: ../../en/advanced_geometry_construction.rst:133
 msgid "**unnest** takes in an array and builds a new row for each entry in the array. The effect is to take a \"horizontal\" array embedded in a single row and turn it into a \"vertical\" array with a row for each value."
-msgstr ""
+msgstr "**unnest** 函数将数组展开为多行记录，实现从\"横向\"数组（单行存储）到\"纵向"
+"\"数组（每行一个值）的转换。"
 
 #: ../../en/advanced_geometry_construction.rst:135
 msgid "The result is a list of all the unique subway route identifiers."
-msgstr ""
+msgstr "该查询结果将返回地铁系统中所有唯一的线路标识符列表。"
 
 #: ../../en/advanced_geometry_construction.rst:167
 msgid "We can build on this result by joining it back to the ``nyc_subway_stations`` table to create a new table that has, for each route, a row for every station on that route."
-msgstr ""
+msgstr "我们可以基于该结果，通过与 ``nyc_subway_stations`` "
+"表进行关联，创建一个新表，其中每条线路的每个站点都对应一行记录。"
 
 #: ../../en/advanced_geometry_construction.rst:193
 msgid "Now we can find the center point by collecting all the stations for each route into a single multi-point, and calculating the centroid of that multi-point."
-msgstr ""
+msgstr "现在，我们可以通过将每条线路的所有站点收集为一个多点（multi-"
+"point），然后计算该多点的中心点（centroid）来找到中心点。"
 
 #: ../../en/advanced_geometry_construction.rst:214
 msgid "The center point of the collection of 'Q' train stops looks like this:"
-msgstr ""
+msgstr "'Q'线列车站点集合的中心点如下："
 
 #: ../../en/advanced_geometry_construction.rst:218
 msgid "So the northern most stop, the end point, appears to also be the stop furthest from the center. Let's calculate the furthest point for every route."
-msgstr ""
+msgstr "所以最北端的车站（终点站）似乎也是距离中心最远的车站。让我们计算每条线路距离"
+"中心最远的站点。"
 
 #: ../../en/advanced_geometry_construction.rst:249
 msgid "We've added two sub-queries this time:"
-msgstr ""
+msgstr "这次我们添加了两个子查询："
 
 #: ../../en/advanced_geometry_construction.rst:251
 msgid "**stops_distance** joins the centers points back to the stations table and calculates the distance between the stations and center for each route. The result is ordered such that the records come out in batches for each route, with the furthest station as the first record of the batch."
 msgstr ""
+"**stops_distance** 将中心点与车站表连接，并计算每条线路中车站与中心点之间的距"
+"离。结果按线路分批排序，每批的第一条记录是距离中心最远的车站。"
 
 #: ../../en/advanced_geometry_construction.rst:252
 msgid "**first_stops** filters the **stops_distance** output by only taking the first record for each distinct group. Because of the way we ordered **stops_distance** the first record is the furthest record, which means it's the station we want to use as our starting seed to build each subway route."
 msgstr ""
+"**first_stops** 通过仅获取每个不同分组的第一条记录来过滤**stops_distance** "
+"的输出。由于 **stops_distance**已按特定方式排序，因第一条记录就是距离中心最远"
+"的记录，也就是我们希望用作起始点来构建每条地铁线路的站点。"
 
 #: ../../en/advanced_geometry_construction.rst:254
 msgid "Now we know every route, and we know (approximately) what station each route starts from: we're ready to generate the route lines!"
-msgstr ""
+msgstr "现在我们已经确定了每条线路，并且大致知道了每条线路的起始站点：我们可以开始生"
+"成路线线条了！"
 
 #: ../../en/advanced_geometry_construction.rst:256
 msgid "But first, we need to turn our recursive CTE expression into a function we can call with parameters."
-msgstr ""
+msgstr "首先，我们需要将递归 CTE 表达式转换为一个可以通过参数调用的函数。"
 
 #: ../../en/advanced_geometry_construction.rst:283
 msgid "And now we are ready to go!"
-msgstr ""
+msgstr "现在，我们已经准备就绪，可以开始了！"
 
 #: ../../en/advanced_geometry_construction.rst:328
 msgid "Here's what our final table looks like visualized in QGIS:"
-msgstr ""
+msgstr "这是我们的最终表在 QGIS 中的可视化效果："
 
 #: ../../en/advanced_geometry_construction.rst:332
 msgid "As usual, there are some problems with our simple understanding of the data:"
-msgstr ""
+msgstr "和往常一样，我们对数据的简单理解存在一些问题："
 
 #: ../../en/advanced_geometry_construction.rst:334
 msgid "there are actually two 'S' (short distance \"shuttle\") trains, one in Manhattan and one in the Rockaways, and we join them together because they are both called 'S';"
 msgstr ""
+"系统中实际存在两条简称均为'S'的短途接驳线路：一条位于曼哈顿区，另一条位于洛克"
+"威区。尽管二者地理上不相连，但因共享线路标识符'S'，我们在查询中将其合并处理;"
 
 #: ../../en/advanced_geometry_construction.rst:335
 msgid "the '4' train (and a few others) splits at the end of one line into two terminuses, so the \"follow one line\" assumption breaks and the result has a funny hook on the end."
-msgstr ""
+msgstr "'4' 号线（以及其他几条线路）在某一端分成了两个终点站，因此“沿着一条线路前进”"
+"的假设被打破，导致结果在末端出现了一个奇怪的弯钩。"
 
 #: ../../en/advanced_geometry_construction.rst:337
 msgid "Hopefully this example has provided a taste of some of the complex data manipulations that are possible combining the advanced features of PostgreSQL and PostGIS."
-msgstr ""
+msgstr "希望这个示例能让大家体验到，结合 PostgreSQL 和 PostGIS "
+"的高级特性，可以实现多种复杂的数据处理操作。"
 
 #: ../../en/advanced_geometry_construction.rst:341
 msgid "See Also"
-msgstr ""
+msgstr "另请参阅"
 
 #: ../../en/advanced_geometry_construction.rst:343
 msgid "`PostgreSQL Arrays <http://www.postgresql.org/docs/current/static/arrays.html>`_"
 msgstr ""
+"`PostgreSQL Arrays <http://www.postgresql.org/docs/current/static/arrays."
+"html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:344
 msgid "`PostgreSQL Array Functions <http://www.postgresql.org/docs/current/static/functions-array.html>`_"
 msgstr ""
+"`PostgreSQL Array Functions <http://www.postgresql.org/docs/current/static/"
+"functions-array.html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:345
 msgid "`PostgreSQL Recursive Common TABLE Expressions <http://www.postgresql.org/docs/current/static/queries-with.html>`_"
 msgstr ""
+"`PostgreSQL Recursive Common TABLE Expressions <http://www.postgresql.org/"
+"docs/current/static/queries-with.html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:346
 msgid "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"
-msgstr ""
+msgstr "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"

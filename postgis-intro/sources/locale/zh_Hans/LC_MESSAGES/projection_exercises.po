@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"PO-Revision-Date: 2025-03-27 08:47+0000\n"
 "Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/projection_exercises/zh_Hans/>\n"
@@ -28,7 +28,7 @@ msgstr "这里提醒一下我们见过的一些功能。提示：它们应该对
 
 #: ../../en/projection_exercises.rst:8
 msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
-msgstr ":command:`sum(expression)`聚合函数用于对一组记录进行求和并返回总和"
+msgstr ":command:`sum(expression)` 聚合函数，用于计算记录集合的数值总和"
 
 #: ../../en/projection_exercises.rst:9
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"

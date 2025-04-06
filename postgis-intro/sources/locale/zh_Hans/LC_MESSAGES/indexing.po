@@ -2,13 +2,13 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
-# Wangdapeng <wangdapeng20191008@gmail.com>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-09 03:04+0000\n"
-"PO-Revision-Date: 2024-05-06 21:00+0000\n"
+"PO-Revision-Date: 2025-04-01 09:39+0000\n"
 "Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/indexing/zh_Hans/>\n"
@@ -270,19 +270,13 @@ msgstr ""
 "查询性能。"
 
 #: ../../en/indexing.rst:97
-#, fuzzy
-#| msgid ""
-#| "In order to add index acceleration to other functions that are not in "
-#| "this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate."
-#| "html>`_) add an index-only clause as descibed below."
 msgid ""
 "In order to add index acceleration to other functions that are not in this "
 "list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) "
 "add an index-only clause as described below."
 msgstr ""
-"为了把空间索引加速功能添加到不在上述列表中的函数中（譬如，`ST_Relate <http://"
-"postgis.net/docs/ST_Relate.html>`_），你可以想下文的例子一样添加一个 index-"
-"only 子句。"
+"未内置索引加速的函数（如常用函数`ST_Relate <http://postgis.net/docs/ST_Relate"
+".html>`_）添加索引支持，需按以下方式增加索引专用子句。"
 
 #: ../../en/indexing.rst:101
 msgid "Index-Only Queries"
@@ -452,29 +446,22 @@ msgstr ""
 "html>`_：若 A 的范围框覆盖了 B 的，则返回 TRUE."
 
 #: ../../en/indexing.rst:176
-#, fuzzy
-#| msgid ""
-#| "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
-#| "Returns TRUE if A's bounding box is the same as B's."
 msgid ""
 "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
 "Before PostGIS 2.4 returns true if A's bounding box is same as B's. From 2.4 "
 "on Returns TRUE only if A's geometry is the same as B."
 msgstr ""
-"`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_：若 "
-"A 的空间范围框和 B 的一致，返回 TRUE."
+"`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_：在 "
+"PostGIS 2.4 之前，如果 A 的边界框与 B 相同，则返回 TRUE。从 PostGIS 2.4 "
+"开始，只有当 A 的geometry 与 B 完全相同时，才返回 TRUE。"
 
 #: ../../en/indexing.rst:178
-#, fuzzy
-#| msgid ""
-#| "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
-#| "Returns TRUE if A's bounding box is the same as B's."
 msgid ""
 "`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_: "
 "Returns TRUE if A's bounding box equals B's bounding box."
 msgstr ""
-"`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_：若 "
-"A 的空间范围框和 B 的一致，返回 TRUE."
+"`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_："
+"如果 A 的边界框等于 B 的边界框，则返回 TRUE。"
 
 #: ../../en/indexing.rst:180
 msgid ""

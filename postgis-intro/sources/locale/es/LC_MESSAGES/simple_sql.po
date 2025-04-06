@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-03-14 05:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql/es/>\n"
 "Language: es\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #: ../../en/simple_sql.rst:4
 msgid "Simple SQL"
-msgstr ""
+msgstr "SQL Básico"
 
 #: ../../en/simple_sql.rst:6
 msgid ""
@@ -31,70 +32,85 @@ msgid ""
 "questions of, and updating data in, relational databases. You have already "
 "seen SQL when we created our first database.  Recall:"
 msgstr ""
+":term:`SQL`, o \"Lenguaje de consulta estructurado\", es un medio para "
+"formular preguntas y actualizar datos en bases de datos relacionales. Ya has "
+"visto SQL cuando creamos nuestra primera base de datos.  Recuerde:"
 
 #: ../../en/simple_sql.rst:12
 msgid ""
 "But that was a question about the database.  Now that we've loaded data into "
 "our database, let's use SQL to ask questions of the data! For example,"
 msgstr ""
+"Pero ésa era una pregunta sobre la base de datos.  Ahora que hemos cargado "
+"datos en nuestra base de datos, vamos a utilizar SQL para hacer preguntas a "
+"los datos. Por ejemplo,"
 
 #: ../../en/simple_sql.rst:14
 msgid "\"What are the names of all the neighborhoods in New York City?\""
-msgstr ""
+msgstr "\"¿Cómo se llaman los barrios de Nueva York?\"."
 
 #: ../../en/simple_sql.rst:16
 msgid ""
 "Open up the SQL query window in pgAdmin by clicking the \"Query Tool\" "
 "button."
 msgstr ""
+"Abra la ventana de consulta SQL en pgAdmin haciendo clic en el botón "
+"\"Herramienta de consulta\"."
 
 #: ../../en/simple_sql.rst:20
 msgid "then enter the following query in to the query window"
-msgstr ""
+msgstr "Luego, introduzca la siguiente consulta en la ventana de consulta"
 
 #: ../../en/simple_sql.rst:26
 msgid "and click the **Execute Query** button (the green triangle)."
-msgstr ""
+msgstr "y haga clic en el botón **Ejecutar consulta** (el botón Play)."
 
 #: ../../en/simple_sql.rst:30
 msgid "The query will run for a few (milli)seconds and return the 129 results."
 msgstr ""
+"La consulta se ejecutará durante unos (mili)segundos y devolverá los 129 "
+"resultados."
 
 #: ../../en/simple_sql.rst:35
 msgid ""
 "But what exactly happened here?  To understand, let's begin with the four "
 "\"verbs\" of SQL,"
 msgstr ""
+"Pero, ¿qué ha ocurrido exactamente?  Para entenderlo, empecemos por los "
+"cuatro \"verbos\" de SQL,"
 
 #: ../../en/simple_sql.rst:37
 msgid "``SELECT``, returns rows in response to a query"
 msgstr ""
+"``SELECT``, devuelve las filas que cumplen los criterios de una consulta"
 
 #: ../../en/simple_sql.rst:38
 msgid "``INSERT``, adds new rows to a table"
-msgstr ""
+msgstr "``INSERT``, añade nuevas filas a una tabla"
 
 #: ../../en/simple_sql.rst:39
 msgid "``UPDATE``, alters existing rows in a table"
-msgstr ""
+msgstr "``UPDATE``, modifica las filas existentes en una tabla"
 
 #: ../../en/simple_sql.rst:40
 msgid "``DELETE``, removes rows from a table"
-msgstr ""
+msgstr "``DELETE``, elimina filas de una tabla"
 
 #: ../../en/simple_sql.rst:42
 msgid ""
 "We will be working almost exclusively with ``SELECT`` in order to ask "
 "questions of tables using spatial functions."
 msgstr ""
+"Trabajaremos casi exclusivamente con ``SELECT`` para hacer preguntas a "
+"tablas utilizando funciones espaciales."
 
 #: ../../en/simple_sql.rst:45
 msgid "SELECT queries"
-msgstr ""
+msgstr "Consultas SELECT"
 
 #: ../../en/simple_sql.rst:47
 msgid "A select query is generally of the form::"
-msgstr ""
+msgstr "Una consulta SELECT suele tener la forma::"
 
 #: ../../en/simple_sql.rst:53
 msgid ""
@@ -102,6 +118,9 @@ msgid ""
 "documentation  <http://www.postgresql.org/docs/current/interactive/sql-"
 "select.html>`_."
 msgstr ""
+"Para una sinopsis de todos los parámetros ``SELECT``, véase la documentación "
+"`PostgresSQL <http://www.postgresql.org/docs/current/interactive/sql-select."
+"html>`_."
 
 #: ../../en/simple_sql.rst:55
 msgid ""
@@ -110,10 +129,15 @@ msgid ""
 "created by joining two tables on a key or condition. The ``some_condition`` "
 "is a filter that restricts the number of rows to be returned."
 msgstr ""
+"``some_columns`` puede ser nombres de columnas o funciones que se aplican a "
+"los valores de las columnas . ``some_data_source`` puede ser una tabla o una "
+"tabla compuesta a partir de \"juntar\" dos tablas usando una llave o una "
+"condición. ``some_condition`` es un filtro que restringe el número de filas "
+"retornadas."
 
 #: ../../en/simple_sql.rst:57
 msgid "\"What are the names of all the neighborhoods in Brooklyn?\""
-msgstr ""
+msgstr "\"¿Cuál es el nombre de los barrios de Brooklyn?\"."
 
 #: ../../en/simple_sql.rst:59
 msgid ""
@@ -121,29 +145,39 @@ msgid ""
 "table contains all the neighborhoods in New York, but we only want the ones "
 "in Brooklyn."
 msgstr ""
+"Volvemos a nuestra tabla ``nyc_neighborhoods`` pero utilizando un filtro.  "
+"La tabla contiene todos los barrios de Nueva York, pero sólo queremos los de "
+"Brooklyn."
 
 #: ../../en/simple_sql.rst:67
 msgid ""
 "The query will run for even fewer (milli)seconds and return the 23 results."
 msgstr ""
+"La consulta durará aún menos (mili)segundos y devolverá los 23 resultados."
 
 #: ../../en/simple_sql.rst:69
 msgid ""
 "Sometimes we will need to apply a function to the results of our query. For "
 "example,"
 msgstr ""
+"A veces necesitaremos aplicar una función a los resultados de nuestra "
+"consulta. Por ejemplo,"
 
 #: ../../en/simple_sql.rst:71
 msgid ""
 "\"What is the number of letters in the names of all the neighborhoods in "
 "Brooklyn?\""
 msgstr ""
+"\"¿Cuántas letras tienen los nombres de cada uno de los barrios de Brooklyn?"
+"\"."
 
 #: ../../en/simple_sql.rst:73
 msgid ""
 "Fortunately, PostgreSQL has a string length function, :command:"
 "`char_length(string)`."
 msgstr ""
+"Afortunadamente, PostgreSQL tiene una función que calcula la longitud de una "
+"cadena de texto, :command:`char_length(string)`."
 
 #: ../../en/simple_sql.rst:81
 msgid ""
@@ -153,6 +187,11 @@ msgid ""
 "names. Functions that take in multiple rows and return a single result are "
 "called \"aggregate\" functions."
 msgstr ""
+"A menudo, no nos interesan las filas individuales sino una estadística que "
+"se aplique a todas ellas. Así, conocer la longitud de los nombres de los "
+"barrios puede ser menos interesante que conocer la longitud media de los "
+"nombres. Las funciones que toman varias filas y devuelven un único resultado "
+"se denominan funciones \"agregadas\" o de \"agregación\"."
 
 #: ../../en/simple_sql.rst:83
 msgid ""
@@ -160,12 +199,17 @@ msgid ""
 "general purpose :command:`avg()` for average values and :command:`stddev()` "
 "for standard deviations."
 msgstr ""
+"PostgreSQL dispone de una serie de funciones de agregación integradas, entre "
+"las que se incluyen :command:`avg()` para valores medios y "
+":command:`stddev()` para desviaciones estándar."
 
 #: ../../en/simple_sql.rst:85
 msgid ""
 "\"What is the average number of letters and standard deviation of number of "
 "letters in the names of all the neighborhoods in Brooklyn?\""
 msgstr ""
+"\"¿Cuál es la media estándar de la longitud de letras en los nombres de "
+"todos los barrios de Brooklyn?\"."
 
 #: ../../en/simple_sql.rst:99
 msgid ""
@@ -175,12 +219,20 @@ msgid ""
 "Aggregate functions often need an added ``GROUP BY`` statement to group the "
 "result-set by one or more columns."
 msgstr ""
+"Las funciones de agregación de nuestro último ejemplo se aplicaron a todas "
+"las filas del conjunto de resultados. ¿Qué ocurre si queremos que los "
+"resúmenes se realicen sobre grupos más pequeños dentro del conjunto de "
+"resultados global? Para ello añadimos una cláusula ``GROUP BY``. Las "
+"funciones agregadas a menudo necesitan una sentencia ``GROUP BY`` añadida "
+"para agrupar el conjunto de resultados por una o más columnas."
 
 #: ../../en/simple_sql.rst:101
 msgid ""
 "\"What is the average number of letters in the names of all the "
 "neighborhoods in New York City, reported by borough?\""
 msgstr ""
+"\"¿Cuál es la media de la cantidad de letras en los nombres de todos los "
+"barrios de Nueva York, desglosado por distritos?\"."
 
 #: ../../en/simple_sql.rst:109
 msgid ""
@@ -189,6 +241,10 @@ msgid ""
 "only output columns that are either (a) members of the grouping clause or "
 "(b) aggregate functions."
 msgstr ""
+"Incluimos la columna ``boroname`` en el resultado de salida para poder "
+"determinar qué estadística se aplica a qué distrito. En una consulta "
+"agregada, sólo se pueden mostrar columnas que sean (a) miembros de la "
+"cláusula de agrupación o (b) funciones agregadas."
 
 #: ../../en/simple_sql.rst:122
 msgid "Function List"
@@ -200,6 +256,9 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function "
 "that returns the average value of a numeric column."
 msgstr ""
+"`avg(expresión) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: Función de agregación de "
+"PostgreSQL que devuelve la media de una columna numérica."
 
 #: ../../en/simple_sql.rst:126
 msgid ""
@@ -207,6 +266,9 @@ msgid ""
 "functions-string.html>`_: PostgreSQL string function that returns the number "
 "of character in a string."
 msgstr ""
+"`char_length(cadena) <http://www.postgresql.org/docs/current/static/"
+"functions-string.html>`_: Función de PostgreSQL que devuelve el número de "
+"caracteres de una cadena."
 
 #: ../../en/simple_sql.rst:128
 msgid ""
@@ -214,3 +276,7 @@ msgid ""
 "aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: PostgreSQL aggregate "
 "function that returns the standard deviation of input values."
 msgstr ""
+"`stddev(expresión) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: Función de "
+"agregación de PostgreSQL que devuelve la desviación estándar de los valores "
+"de entrada."

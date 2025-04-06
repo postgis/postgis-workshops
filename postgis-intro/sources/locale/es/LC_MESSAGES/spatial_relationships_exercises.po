@@ -3,20 +3,22 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
-#, fuzzy
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2025-03-27 06:47+0000\n"
+"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"spatial_relationships_exercises/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/spatial_relationships_exercises.rst:4
@@ -62,6 +64,8 @@ msgid ""
 ":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance "
 "between geometry A and geometry B"
 msgstr ""
+":command:`ST_Distancia(geometría A, geometría B)` devuelve la distancia "
+"mínima entre la geometría A y la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:14
 msgid ""
@@ -101,7 +105,7 @@ msgstr ""
 
 #: ../../en/spatial_relationships_exercises.rst:21
 msgid "Also remember the tables we have available:"
-msgstr ""
+msgstr "También recuerde las tablas que tenemos disponibles:"
 
 #: ../../en/spatial_relationships_exercises.rst:23
 msgid "``nyc_census_blocks``"
@@ -113,11 +117,11 @@ msgstr ""
 
 #: ../../en/spatial_relationships_exercises.rst:27
 msgid "``nyc_streets``"
-msgstr ""
+msgstr "``nyc_streets``"
 
 #: ../../en/spatial_relationships_exercises.rst:29
 msgid "name, type, geom"
-msgstr ""
+msgstr "name, type, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:31
 msgid "``nyc_subway_stations``"
@@ -129,15 +133,15 @@ msgstr ""
 
 #: ../../en/spatial_relationships_exercises.rst:35
 msgid "``nyc_neighborhoods``"
-msgstr ""
+msgstr "``nyc_neighborhoods``"
 
 #: ../../en/spatial_relationships_exercises.rst:37
 msgid "name, boroname, geom"
-msgstr ""
+msgstr "name, boroname, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:40
 msgid "Exercises"
-msgstr ""
+msgstr "Ejercicios"
 
 #: ../../en/spatial_relationships_exercises.rst:42
 msgid "**What is the geometry value for the street named 'Atlantic Commons'?**"

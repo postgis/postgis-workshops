@@ -2,8 +2,9 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022, 2023.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2023-09-06 00:10+0000\nLast-Translator: Chen <onsummer@foxmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.16.4\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-03-25 21:18+0000\nLast-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/index/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -15,7 +16,7 @@ msgstr "起步"
 
 #: ../../en/index.rst:9
 msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr "本手册使用到 `postgis-workshop-2020.zip <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_ 这份基础数据来辅助讲解。你可以下载它并解压到你觉得方便的位置。"
+msgstr "本手册使用到 `postgis-workshop-2020.zip <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_ 这份基础数据包。下载它并解压到一个方便的位置。"
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."

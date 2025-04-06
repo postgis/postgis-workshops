@@ -4,21 +4,9 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Paulo Cesar <paulocoronado@gmail.com>, 2025.
 msgid ""
-msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-10-20 23:30+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
-"Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/welcome/es/>\n"
-"Language: es\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
-"Generated-By: Babel 2.9.1\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-03-27 06:47+0000\nLast-Translator: Paulo Cesar <paulocoronado@gmail.com>\nLanguage-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/welcome/es/>\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.9.1\n"
 
 #: ../../en/welcome.rst:4
 msgid "Welcome"
@@ -26,28 +14,28 @@ msgstr "Bienvenido"
 
 #: ../../en/welcome.rst:7
 msgid "Workshop Conventions"
-msgstr ""
+msgstr "Convenciones usadas en el Taller"
 
 #: ../../en/welcome.rst:9
 msgid "These sections conform to a number of conventions to make it easier to follow the conversation. This section gives a brief overview of what to expect in the way of typographic conventions, as well as a short overview of the structure of each workbook."
-msgstr ""
+msgstr "Estas secciones se ajustan a una serie de convenciones para facilitar el seguimiento de la interacción. Esta sección ofrece un breve resumen de las convenciones tipográficas y de la estructura de cada cuaderno."
 
 #: ../../en/welcome.rst:12
 msgid "Directions"
-msgstr ""
+msgstr "Indicaciones"
 
 #: ../../en/welcome.rst:14
 msgid "Directions for you, the workshop attendee, will be noted by **bold** font."
-msgstr ""
+msgstr "Las indicaciones para usted, el asistente al taller, se indicarán con letra **negrita**."
 
 #: ../../en/welcome.rst:16 ../../en/welcome.rst:43 ../../en/welcome.rst:52
 #: ../../en/welcome.rst:61
 msgid "For example:"
-msgstr ""
+msgstr "Por ejemplo:"
 
 #: ../../en/welcome.rst:18
 msgid "Click **Next** to continue."
-msgstr ""
+msgstr "Pulse **Siguiente** para continuar."
 
 #: ../../en/welcome.rst:21
 msgid "Code"
@@ -55,23 +43,23 @@ msgstr "Código"
 
 #: ../../en/welcome.rst:23
 msgid "SQL query examples will be displayed in an offset box"
-msgstr ""
+msgstr "Se mostrarán los ejemplos de consultas SQL en un cuadro"
 
 #: ../../en/welcome.rst:29
 msgid "These examples can be entered into the query window or command line interface."
-msgstr ""
+msgstr "Estos ejemplos pueden introducirse en la ventana de consulta o en la interfaz de línea de comandos."
 
 #: ../../en/welcome.rst:32
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 #: ../../en/welcome.rst:34
 msgid "Notes are used to provide information that is useful but not critical to the overall understanding of the topic."
-msgstr ""
+msgstr "Las notas se utilizan para proporcionar información útil pero que no es crítica para la comprensión global del tema."
 
 #: ../../en/welcome.rst:36
 msgid "If you haven't eaten an apple today, the doctor may be on the way."
-msgstr ""
+msgstr "Si hoy no te has comido una manzana, el médico puede estar de camino."
 
 #: ../../en/welcome.rst:39
 msgid "Functions"
@@ -79,40 +67,40 @@ msgstr "Funciones"
 
 #: ../../en/welcome.rst:41
 msgid "Where function names are defined in the text, they will be rendered in a :command:`bold` font."
-msgstr ""
+msgstr "Cuando se definan nombres de funciones en el texto, se mostrarán en :command:`bold`."
 
 #: ../../en/welcome.rst:45
 msgid ":command:`ST_Touches(geometry A, geometry B)` returns TRUE if either of the geometries' boundaries intersect"
-msgstr ""
+msgstr ":command:`ST_Touches(geometry A, geometry B)` devuelve TRUE si cualquiera de los límites de las geometrías se cruzan"
 
 #: ../../en/welcome.rst:48
 msgid "Files, Tables and Column Names"
-msgstr ""
+msgstr "Archivos, Tablas y Nombres de Columnas"
 
 #: ../../en/welcome.rst:50
 msgid "File names, paths, table names and column names will be shown in ``fixed-width`` font."
-msgstr ""
+msgstr "Los nombres de archivo, las rutas, los nombres de tabla y los nombres de columna se mostrarán en tipo de letra ``monoespaciado``."
 
 #: ../../en/welcome.rst:54
 msgid "Select the ``name`` column in the ``nyc_streets`` table."
-msgstr ""
+msgstr "Selecciona la columna ``name`` de la tabla ``nyc_streets``."
 
 #: ../../en/welcome.rst:57
 msgid "Menus and Form elements"
-msgstr ""
+msgstr "Menús y Formularios"
 
 #: ../../en/welcome.rst:59
 msgid "Menus/submenus and form elements such as fields or check boxes and other on-screen artifacts are displayed in *italics*."
-msgstr ""
+msgstr "Los menús/submenús y los elementos de formulario tales como campos, casillas de verificación y otros artefactos se muestran en *cursiva*."
 
 #: ../../en/welcome.rst:63
 msgid "Click on the *File > New* menu. Check the box that says *Confirm*."
-msgstr ""
+msgstr "Haga clic en el menú *Archivo > Nuevo*. Marca la casilla que dice *Confirmar*."
 
 #: ../../en/welcome.rst:66
 msgid "Workflow"
-msgstr ""
+msgstr "Flujo de Trabajo"
 
 #: ../../en/welcome.rst:68
 msgid "Sections are designed to be progressive. Each section will start with the assumption that you have completed and understood the previous section in the series and will build on that knowledge. A single section will progress through a handful of ideas and provide working examples wherever possible. At the end of a section, where appropriate, we have included a handful of exercises to allow you to try out the ideas we've presented. In some cases the section will include \"Things To Try\". These tasks contain more complex problems than the exercises and is designed to challenge participants with advanced knowledge."
-msgstr ""
+msgstr "Las secciones están diseñadas para ser abordadas de manera progresiva. Cada sección empezará con la suposición de que usted ha completado y comprendido la sección anterior de la serie y se basará en ese conocimiento. Cada sección tratará un puñado de ideas y proporcionará ejemplos prácticos siempre que sea posible. Al final de cada sección, cuando procede, incluimos una serie de ejercicios que le permitirán poner en práctica las ideas presentadas. En algunos casos, la sección incluirá «Cosas que probar». Estas tareas contienen problemas más complejos que los ejercicios y están pensadas para desafiar a los participantes con conocimientos avanzados."

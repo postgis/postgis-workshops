@@ -2,20 +2,9 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Chen <onsummer@foxmail.com>, 2022.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
-msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-02-26 02:04+0000\n"
-"Last-Translator: Chen <onsummer@foxmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/3d/zh_Hans/>\n"
-"Language: zh_Hans\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-04-01 09:39+0000\nLast-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\nLanguage-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/postgis-workshop/3d/zh_Hans/>\nLanguage: zh_Hans\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/3d.rst:4
 msgid "3-D"
@@ -27,31 +16,31 @@ msgstr "三维几何"
 
 #: ../../en/3d.rst:9
 msgid "So far, we have been working with 2-D geometries, with only X and Y coordinates. But PostGIS supports additional dimensions on all geometry types, a \"Z\" dimension to add height information and a \"M\" dimension for additional dimensional information (commonly time, or road-mile, or upstream-distance information) for each coordinate."
-msgstr ""
+msgstr "目前我们使用的都是仅含X/Y坐标的二维几何体。实际上PostGIS支持所有几何类型的多维扩展：通过\"Z\"维度表示高程信息，通过\"M\"维度存储附加维度信息（通常用于时间、道路里程或上游距离等数据）。"
 
 #: ../../en/3d.rst:11
 msgid "For 3-D and 4-D geometries, the extra dimensions are added as extra coordinates for each vertex in the geometry, and the geometry type is enhanced to indicate how to interpret the extra dimensions. Adding the extra dimensions results in three extra possible geometry types for each geometry primitive:"
-msgstr ""
+msgstr "对于三维(3-D)和四维(4-D)几何体，每个顶点坐标会增加额外的维度值，并通过扩展几何类型标识符来定义这些额外维度的解释方式。每类基本几何体因此衍生出三种额外类型："
 
 #: ../../en/3d.rst:13
 msgid "Point (a 2-D type) is joined by PointZ, PointM and PointZM types."
-msgstr ""
+msgstr "点（二维类型）与 PointZ、PointM 和 PointZM 类型并存。"
 
 #: ../../en/3d.rst:14
 msgid "Linestring (a 2-D type) is joined by LinestringZ, LinestringM and LinestringZM types."
-msgstr ""
+msgstr "线（二维类型）与 LinestringZ、LinestringM 和 LinestringZM 类型并存。"
 
 #: ../../en/3d.rst:15
 msgid "Polygon (a 2-D type) is joined by PolygonZ, PolygonM and PolygonZM types."
-msgstr ""
+msgstr "多边形（二维类型）与 PolygonZ、PolygonM 和 PolygonZM 类型并存。"
 
 #: ../../en/3d.rst:16
 msgid "And so on."
-msgstr ""
+msgstr "依此类推。"
 
 #: ../../en/3d.rst:18
 msgid "For well-known text (:term:`WKT`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The extra dimensionality information is simply added to the text string after the type name, and the extra coordinates added after the X/Y information. For example:"
-msgstr ""
+msgstr "对于知名文本格式 (:term:`WKT`) 的高维几何表示，其规范由ISO SQL/MM标准定义。维度扩展信息直接追加在几何类型名称之后，额外坐标值则续接在X/Y坐标之后。例如："
 
 #: ../../en/3d.rst:20
 msgid "POINT ZM (1 2 3 4)"
@@ -71,23 +60,23 @@ msgstr "ST_AsText() 函数处理 3D 或 4D 几何对象时会返回上述的格�
 
 #: ../../en/3d.rst:26
 msgid "For well-known binary (:term:`WKB`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The BNF form of the format is available from https://git.osgeo.org/gitea/postgis/postgis/src/branch/master/doc/bnf-wkb.txt."
-msgstr ""
+msgstr "对于二进制格式（:term:`WKB`）表示法，高维几何体的规范由ISO SQL/MM标准定义。该格式的巴科斯范式(BNF)定义详见：https://git.osgeo.org/gitea/postgis/postgis/src/branch/master/doc/bnf-wkb.txt。"
 
 #: ../../en/3d.rst:28
 msgid "In addition to higher-dimensional forms of the standard types, PostGIS includes a few new types that make sense in a 3-D space:"
-msgstr ""
+msgstr "除了标准类型的高维形式外，PostGIS 还引入了若干专为三维空间设计的新类型："
 
 #: ../../en/3d.rst:30
 msgid "The TIN type allows you to model triangular meshes as rows in your database."
-msgstr ""
+msgstr "TIN 类型支持将三角网模型以数据库行形式存储。"
 
 #: ../../en/3d.rst:31
 msgid "The POLYHEDRALSURFACE allows you to model volumetric objects in your database."
-msgstr ""
+msgstr "POLYHEDRALSURFACE 类型支持在数据库中存储三维体对象模型。"
 
 #: ../../en/3d.rst:33
 msgid "Since both these types are for modelling 3-D objects, it only really makes sense to use the Z variants.  An example of a POLYHEDRALSURFACE Z would be the 1 unit cube:"
-msgstr ""
+msgstr "由于这两种类型均用于三维对象建模，实际应用中应优先选用 Z 坐标变体。以边长为1的单位立方体为例，其POLYHEDRALSURFACE Z定义如下："
 
 #: ../../en/3d.rst:48
 msgid "3-D Functions"
@@ -103,72 +92,72 @@ msgstr "ST_3DClosestPoint — 返回距离 3D 点 g1 最近的点 g2. 这是到�
 
 #: ../../en/3d.rst:53
 msgid "ST_3DDistance — For geometry type Returns the 3-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units."
-msgstr ""
+msgstr "ST_3DDistance — 针对几何图形类型，返回两个三维几何对象在投影坐标系下的笛卡尔最小距离（基于空间参考系），单位为投影坐标单位。"
 
 #: ../../en/3d.rst:54
 msgid "ST_3DDWithin — For 3d (z) geometry type Returns true if two geometries 3d distance is within number of units."
-msgstr ""
+msgstr "ST_3DDWithin — 针对三维（Z轴）几何类型，当两个几何对象的三维距离小于等于指定单位值时返回 true。"
 
 #: ../../en/3d.rst:55
 msgid "ST_3DDFullyWithin — Returns true if all of the 3D geometries are within the specified distance of one another."
-msgstr ""
+msgstr "ST_3DDFullyWithin — 若所有三维几何对象彼此间的距离均小于等于指定值，则返回 true。"
 
 #: ../../en/3d.rst:56
 msgid "ST_3DIntersects — Returns TRUE if the Geometries \"spatially intersect\" in 3d - only for points and linestrings"
-msgstr ""
+msgstr "ST_3DIntersects — 当几何图形在三维空间中\"存在空间交集\"时返回 TRUE（当前仅支持点与线串类型）"
 
 #: ../../en/3d.rst:57
 msgid "ST_3DLongestLine — Returns the 3-dimensional longest line between two geometries"
-msgstr ""
+msgstr "ST_3DLongestLine — 返回两个三维几何图形之间的最长三维线段"
 
 #: ../../en/3d.rst:58
 msgid "ST_3DMaxDistance — For geometry type Returns the 3-dimensional cartesian maximum distance (based on spatial ref) between two geometries in projected units."
-msgstr ""
+msgstr "ST_3DMaxDistance — 针对几何图形类型，返回两个三维几何对象在投影坐标系下的笛卡尔最大距离（基于空间参考系），单位为投影坐标单位。"
 
 #: ../../en/3d.rst:59
 msgid "ST_3DShortestLine — Returns the 3-dimensional shortest line between two geometries"
-msgstr ""
+msgstr "ST_3DShortestLine — 返回两个三维几何图形之间的最短三维线段"
 
 #: ../../en/3d.rst:61
 msgid "For example, we can calculate the distance between our unit cube and a point using the ST_3DDistance function:"
-msgstr ""
+msgstr "例如，我们可以使用 ST_3DDistance 函数计算单位立方体与某点之间的三维距离："
 
 #: ../../en/3d.rst:89
 msgid "N-D Indexes"
-msgstr ""
+msgstr "N维索引"
 
 #: ../../en/3d.rst:91
 msgid "Once you have data in higher dimensions it may make sense to index it. However, you should think carefully about the distribution of your data in all dimensions before applying a multi-dimensional index."
-msgstr ""
+msgstr "当数据包含更高维度时，建立索引可能具有价值。但需在应用多维索引前，仔细评估数据在各个维度上的分布特性。"
 
 #: ../../en/3d.rst:93
 msgid "Indexes are only useful when they allow the database to drastically reduce the number of return rows as a result of a WHERE condition. For a higher dimension index to be useful, the data must cover a wide range of that dimension, relative to the kinds of queries you are constructing."
-msgstr ""
+msgstr "索引的有效性取决于其通过WHERE条件大幅减少返回行数的能力。对于高维索引而言，只有当数据在相关维度上具有足够大的值域范围（相对于查询条件的设计）时，索引才能发挥效用。"
 
 #: ../../en/3d.rst:95
 msgid "A set of DEM points would probably be a *poor* candidate for a 3-D index, since the queries would usually be extracting a 2-D box of points, and rarely attempting to select a Z-slice of points."
-msgstr ""
+msgstr "数字高程模型（DEM）点集数据通常*不适合*建立三维索引，因为绝大多数查询仅涉及二维空间范围的点提取，极少需要按高程值（Z轴切片）进行筛选。"
 
 #: ../../en/3d.rst:96
 msgid "A set of GPS traces in X/Y/T space might be a *good* candidate for a 3-D index, if the GPS tracks overlapped each other frequently in all dimensions (for example, driving the same route over and over at different times), since there would be large variability in all dimensions of the data set."
-msgstr ""
+msgstr "在X/Y/时间三维空间中的GPS轨迹数据，若满足以下条件则可成为三维索引的理想应用场景：当轨迹数据在所有维度上均存在频繁重叠（例如车辆在不同时段重复行驶相同路线），此时数据集在各维度上均会呈现显著的可变性。"
 
 #: ../../en/3d.rst:98
 msgid "You can create a multi-dimensional index on data of any dimensionality (even mixed dimensionality). For example, to create a multi-dimensional index on the ``nyc_streets`` table,"
-msgstr ""
+msgstr "您可以为任意维度的数据（甚至混合维度数据）创建多维索引。例如，在``nyc_streets``表上创建多维索引的方法如下，"
 
 #: ../../en/3d.rst:105
 msgid "The ``gist_geometry_ops_nd`` parameter tells PostGIS to use the N-D index instead of the standard 2-D index."
-msgstr ""
+msgstr "参数 ``gist_geometry_ops_nd`` 用于指示 PostGIS 启用N维索引而非标准的二维索引。"
 
 #: ../../en/3d.rst:107
 msgid "Once you have the index built, you can use it in queries with the ``&&&`` index operator. ``&&&`` has the same semantics as ``&&``, \"bounding boxes interact\", but applies those semantics using all the dimensions of the input geometries. Geometries with mis-matching dimensionality do not interact."
-msgstr ""
+msgstr "建立索引后，即可在查询中使用 ``&&&``索引运算符。 ``&&&``与``&&``具有相同的\"边界框相交\"语义，但会应用在输入几何图形的所有维度上。需注意：维度不匹配的几何图形将被判定为不相交。"
 
 #: ../../en/3d.rst:123
 msgid "To search the ``nyc_streets`` table using the N-D index, just replace the usual ``&&`` 2-D index operator with the ``&&&`` operator."
-msgstr ""
+msgstr "要在 ``nyc_streets`` 表中启用N维索引搜索，只需将常规的二维索引运算符``&&`` 替换为多维运算符``&&&`` 即可。"
 
 #: ../../en/3d.rst:139
 msgid "The results should be the same. In general the N-D index is very slightly slower than the 2-D index, so only use the N-D index where you are certain that N-D queries will improve the selectivity of your queries."
-msgstr ""
+msgstr "查询结果应当保持一致。需注意的是，N维索引的性能通常略低于二维索引，因此建议仅在以下场景使用。"

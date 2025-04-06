@@ -2,64 +2,89 @@
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
+# Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-03-27 06:47+0000\n"
+"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
+"postgis-workshop/equality/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/equality.rst:4
 #: ../../en/equality.rst:7
 msgid "Equality"
-msgstr ""
+msgstr "等同性"
 
 #: ../../en/equality.rst:9
 msgid "Determining equality when dealing with geometries can be tricky.  PostGIS supports three different functions that can be used to determine different levels of equality, though for clarity we will use the definitions below.  To illustrate these functions, we will use the following polygons."
 msgstr ""
+"在空间数据处理中，几何对象的等同性判断可能较为复杂。PostGIS 提供三种不同的函"
+"数来实现不同级别的等同性判断，为明确起见，我们采用以下定义。以下面这组多边形"
+"为例进行说明。"
 
 #: ../../en/equality.rst:14
 msgid "These polygons are loaded using the following commands."
-msgstr ""
+msgstr "以下命令用于加载这些多边形数据。"
 
 #: ../../en/equality.rst:36
 msgid "Exactly Equal"
-msgstr ""
+msgstr "完全相等"
 
 #: ../../en/equality.rst:38
 msgid "Exact equality is determined by comparing two geometries, vertex by vertex, in order, to ensure they are identical in position.  The following examples show how this method can be limited in its effectiveness."
-msgstr ""
+msgstr "精确相等性通过逐顶点顺序比对两个几何图形的位置是否完全一致来确定。以下示例展"
+"示了该方法的局限性。"
 
 #: ../../en/equality.rst:50
 msgid "In this example, the polygons are only equal to themselves, not to other seemingly equivalent polygons (as in the case of Polygons 1 through 3).  In the case of Polygons 1, 2, and 3, the vertices are in identical positions but are defined in differing orders.  Polygon 4 has colinear (and thus redundant) vertices on the hexagon edges causing inequality with Polygon 1."
 msgstr ""
+"在示例中，这些多边形仅与自身相等，而不会与其他看似相同的多边形相等（"
+"例如多边形 1 到 3 的情况）。对于多边形 1、2 和 "
+"3，它们的顶点位置相同，但定义顺序不同。而多边形 4 "
+"在六边形的边上包含共线（因此是多余的）顶点，导致它与多边形 1 不相等。"
 
 #: ../../en/equality.rst:53
 msgid "Spatially Equal"
-msgstr ""
+msgstr "空间相等"
 
 #: ../../en/equality.rst:55
 msgid "As we saw above, exact equality does not take into account the spatial nature of the geometries.  There is an function, aptly named :command:`ST_Equals`, available to test the spatial equality or equivalence of geometries."
 msgstr ""
+"如前述所示，精确相等性检测并未考虑几何图形的空间特性。为此，系统专门提供:comm"
+"and:`ST_Equals`函数，用于检测几何图形间的空间相等性或等价关系。"
 
 #: ../../en/equality.rst:67
 msgid "These results are more in line with our intuitive understanding of equality.  Polygons 1 through 4 are considered equal, since they enclose the same area.  Note that neither the direction of the polygon is drawn, the starting point for defining the polygon, nor the number of points used are important here.  What is important is that the polygons contain the same space."
 msgstr ""
+"这一结果更符合我们对\"相等性\"的直观理解——多边形1至4因其包围的区域完全相同而"
+"被判定为相等。需特别注意：多边形的绘制方向、定义起点或顶点数量均不影响判定，"
+"关键在于多边形是否占据相同的空间范围。"
 
 #: ../../en/equality.rst:70
 msgid "Equal Bounds"
-msgstr ""
+msgstr "边界相等"
 
 #: ../../en/equality.rst:72
 msgid "Exact equality requires, in the worst case, comparison of each and every vertex in the geometry to determine equality.  This can be slow, and may not be appropriate for comparing huge numbers of geometries.  To allow for speedier comparison, the equal bounds operator, :command:`~=`, is provided.  This operates only on the bounding box (rectangle), ensuring that the geometries occupy the same two dimensional extent, but not necessarily the same space."
 msgstr ""
+"精确相等性检测在最坏情况下需要逐顶点比对几何图形的所有坐标点，这种计算可能较"
+"慢，尤其不适用于海量几何数据的比对。为提升比对效率，系统提供了边界相等运算符 "
+":command:`~=`，该运算符仅对比几何图形的外包矩形（边界框），确保几何体占据相同"
+"的二维空间范围，但不保证实际空间位置完全一致。"
 
 #: ../../en/equality.rst:84
 msgid "As you can see, all of our spatially equal geometries also have equal bounds.  Unfortunately, Polygon 5 is also returned as equal under this test, because it shares the same bounding box as the other geometries.  Why is this useful, then?  Although this will be covered in detail later, the short answer is that this enables the use of spatial indexing that can quickly reduce huge comparison sets into more manageable blocks when joining or filtering data."
 msgstr ""
+"如图所示，所有空间相等的几何图形必然具有相等的边界框。但值得注意的是，多边形5"
+"在此测试中也会被判定为相等——因其边界框与其他图形重合。这种机制的实用价值在于"
+"：虽然后续将详细阐述，但简而言之，它能利用空间索引在数据连接或过滤时，将海量"
+"比对集快速缩减至更易处理的区块规模。"

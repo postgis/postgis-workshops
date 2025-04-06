@@ -28,7 +28,7 @@ msgstr "这里提醒一下我们见过的一些功能。提示：它们应该对
 
 #: ../../en/projection_exercises.rst:8
 msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
-msgstr "::command:`sum(expression)` 聚合函数，用于计算记录集合的数值总和"
+msgstr ":command:`sum(expression)` 聚合函数，用于计算记录集合的数值总和"
 
 #: ../../en/projection_exercises.rst:9
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"

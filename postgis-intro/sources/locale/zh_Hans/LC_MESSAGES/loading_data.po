@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
 # Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
+# Dapeng Wang <wangdapeng20191008@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-17 01:29-0400\n"
-"PO-Revision-Date: 2025-03-27 08:47+0000\n"
-"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"PO-Revision-Date: 2025-05-14 13:17+0000\n"
+"Last-Translator: Dapeng Wang <wangdapeng20191008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/loading_data/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -81,18 +82,18 @@ msgstr "**Windows**:"
 #: ../../en/loading_data.rst:53
 msgid "Builds of ogr2ogr can be downloaded from `GIS Internals <https://www.gisinternals.com/release.php>`_."
 msgstr ""
-"可以从`GIS Internals <https://www.gisinternals.com/release."
-"php>`_下载ogr2ogr的构建版本。"
+"可以从 `GIS Internals <https://www.gisinternals.com/release.php>`_ "
+"下载ogr2ogr的构建版本。"
 
 #: ../../en/loading_data.rst:54
 msgid "ogr2ogr is included as part of `QGIS Install <https://qgis.org/en/site/forusers/download.html>`_ and accessible via OSGeo4W Shell -"
 msgstr ""
-"ogr2ogr包含在`QGIS安装包 <https://qgis.org/en/site/forusers/download."
-"html>`_中，并可以通过OSGeo4W Shell访问 -"
+"ogr2ogr包含在 `QGIS安装包 <https://qgis.org/en/site/forusers/download.html>`"
+"_ 中，并可以通过OSGeo4W Shell访问 -"
 
 #: ../../en/loading_data.rst:55
 msgid "Builds of ogr2ogr can be downloaded from `MS4W <https://ms4w.com/download.html>`_."
-msgstr "ogr2ogr的构建版本可以从`MS4W <https://ms4w.com/download.html>`_下载。"
+msgstr "ogr2ogr的构建版本可以从 `MS4W <https://ms4w.com/download.html>`_ 下载。"
 
 #: ../../en/loading_data.rst:59
 msgid "**MacOS**:"
@@ -101,15 +102,15 @@ msgstr "**MacOS**:"
 #: ../../en/loading_data.rst:58
 msgid "If you installed `Postgres.app <https://postgresapp.com/>`_, then you will find :file:`ogr2ogr` in the :file:`/Applications/Postgres.app/Contents/Versions/*/bin` directory."
 msgstr ""
-"如果您安装了`Postgres.app <https://postgresapp.com/>`_，那么您会在 :file:`/"
+"如果您安装了 `Postgres.app <https://postgresapp.com/>`_ ，那么您会在 :file:`/"
 "Applications/Postgres.app/Contents/Versions/*/bin` 目录中找到 "
 ":file:`ogr2ogr`。"
 
 #: ../../en/loading_data.rst:59
 msgid "Finally, if you have installed `HomeBrew <https://brew.sh/>`_ you can install the **gdal** package to get access to :file:`ogr2ogr`"
 msgstr ""
-"若已安装 `HomeBrew <https://brew.sh/>`_，可通过安装**gdal** 软件包获取 "
-":file:`ogr2ogr`工具"
+"若已安装 `HomeBrew <https://brew.sh/>`_ ，可通过安装 **gdal** 软件包获取 "
+":file:`ogr2ogr` 工具"
 
 #: ../../en/loading_data.rst:62
 msgid "**Linux**:"
@@ -165,9 +166,9 @@ msgstr ""
 #: ../../en/loading_data.rst:116
 msgid "The **lco** option stands for \"layer create option\". Different drivers have different create options, and we are using three options for the `PostgreSQL driver <https://gdal.org/drivers/vector/pg.html>`_ here."
 msgstr ""
-"**lco**选项代表“图层创建选项”。不同的驱动程序具有不同的创建选项，我们在这里使"
-"用了`PostgreSQL驱动程序 <https://gdal.org/drivers/vector/pg."
-"html>`_的三个选项。"
+"**lco** 选项代表“图层创建选项”。不同的驱动程序具有不同的创建选项，"
+"我们在这里使用了 `PostgreSQL驱动程序 <https://gdal.org/drivers/vector/pg."
+"html>`_ 的三个选项。"
 
 #: ../../en/loading_data.rst:118
 msgid "**GEOMETRY_NAME** sets the column name for the geometry column. We prefer \"geom\" over the default, so that our tables match the standard column names in the workshop."
@@ -386,7 +387,7 @@ msgstr ""
 "QGIS带有一个名为 `DbManager <https://docs.qgis.org/3.28/en/docs/user_manual/"
 "plugins/core_plugins/plugins_db_manager.html#dbmanager>`_ 的工具，它允许您连"
 "接到各种不同类型的数据库，包括启用了PostGIS的数据库。配置了PostGIS数据库连接"
-"后，转到 :command:`Database->DbManager`，展开到您的数据库，如下所示："
+"后，转到 :command:`Database->DbManager` ，展开到您的数据库，如下所示："
 
 #: ../../en/loading_data.rst:288
 msgid "From there you can use the :command:`Import Layer/File` menu option to load numerous different spatial formats. In addition to being able to load data from many spatial formats and export data to many formats, you can also add ad-hoc queries to the canvas or define views in your database, using the highlighted wrench icon."

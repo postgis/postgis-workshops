@@ -2,13 +2,15 @@
 # Copyright (C) 2012, Paul Ramsey | Mark Leslie
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Edouard Choiniere <echoix@users.noreply.weblate.osgeo.org>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2025-06-05 01:39+0000\n"
-"Last-Translator: Edouard Choiniere <echoix@users.noreply.weblate.osgeo.org>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: French <https://weblate.osgeo.org/projects/postgis-workshop/"
 "glossary/fr/>\n"
 "Language: fr\n"
@@ -79,7 +81,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:22
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #: ../../en/glossary.rst:24
 msgid ""

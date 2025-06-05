@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-05 13:50+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries_exercises/sv/>\n"
@@ -174,7 +174,7 @@ msgstr ":command:`ST_AsSVG(geometry)` returnerar SVG ``text``"
 
 #: ../../en/geometries_exercises.rst:39
 msgid "Also remember the tables we have available:"
-msgstr "Tänk också på de bord vi har tillgängliga:"
+msgstr "Tänk också på de tabeller vi har tillgängliga:"
 
 #: ../../en/geometries_exercises.rst:41
 msgid "``nyc_census_blocks``"
@@ -220,7 +220,7 @@ msgstr "**Vad är området för stadsdelen \"West Village\"?**"
 msgid "The area is given in square meters. To get an area in hectares, divide by 10000. To get an area in acres, divide by 4047."
 msgstr ""
 "Arean anges i kvadratmeter. För att få en yta i hektar, dividera med 10000. "
-"För att få en yta i acres, dividera med 4047."
+"För att få en yta i hektar, dividera med 4047."
 
 #: ../../en/geometries_exercises.rst:77
 msgid "**What is the geometry type of ‘Pelham St’? The length?**"
@@ -241,7 +241,7 @@ msgstr ""
 #: ../../en/geometries_exercises.rst:121
 msgid "**What is the area of Manhattan in acres?** (Hint: both ``nyc_census_blocks`` and ``nyc_neighborhoods`` have a ``boroname`` in them.)"
 msgstr ""
-"** Vad är Manhattans yta i acres? ** (Tips: både ``nyc_census_blocks`` och "
+"** Vad är Manhattans yta i hektar? ** (Tips: både ``nyc_census_blocks`` och "
 "``nyc_neighborhoods`` har ett ``boroname`` i sig)"
 
 #: ../../en/geometries_exercises.rst:133

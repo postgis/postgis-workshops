@@ -1,189 +1,262 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"glossary/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/glossary.rst:4
 msgid "Appendix B: Glossary"
-msgstr ""
+msgstr "Bilaga B: Ordlista"
 
 #: ../../en/glossary.rst:7
 msgid "CRS"
-msgstr ""
+msgstr "CRS"
 
 #: ../../en/glossary.rst:9
 msgid "A \"coordinate reference system\". The combination of a geographic coordinate system and a projected coordinate system."
 msgstr ""
+"Ett \"koordinatbaserat referenssystem\". Kombinationen av ett geografiskt "
+"koordinatsystem och ett projicerat koordinatsystem."
 
 #: ../../en/glossary.rst:10
 msgid "GDAL"
-msgstr ""
+msgstr "GDAL"
 
 #: ../../en/glossary.rst:12
 msgid "`Geospatial Data Abstraction Library <http://gdal.org>`_, pronounced \"GOO-duhl\", an open source raster access library with support for a large number of formats, used widely in both open source and proprietary software."
 msgstr ""
+"`Geospatial Data Abstraction Library <http://gdal.org>`_, uttalas \"GOO-"
+"duhl\", ett rasteraccessbibliotek med öppen källkod som stöder ett stort "
+"antal format och används i stor utsträckning i både öppen källkod och "
+"egenutvecklad programvara."
 
 #: ../../en/glossary.rst:13
 msgid "GeoJSON"
-msgstr ""
+msgstr "GeoJSON"
 
 #: ../../en/glossary.rst:15
 msgid "\"Javascript Object Notation\", a text format that is very fast to parse in Javascript virtual machines. In spatial, the extended specification for `GeoJSON <http://geojson.org>`_ is commonly used."
 msgstr ""
+"\"Javascript Object Notation\", ett textformat som är mycket snabbt att "
+"tolka i virtuella Javascript-maskiner. Inom spatial används ofta den utökade "
+"specifikationen för `GeoJSON <http://geojson.org>`_."
 
 #: ../../en/glossary.rst:16
 msgid "GIS"
-msgstr ""
+msgstr "GIS"
 
 #: ../../en/glossary.rst:18
 msgid "`Geographic information system <http://en.wikipedia.org/wiki/Geographic_information_system>`_ or geographical information system captures, stores, analyzes, manages, and presents data that is linked to location."
 msgstr ""
+"`Geografiskt informationssystem <http://en.wikipedia.org/wiki/"
+"Geographic_information_system>`_ eller geografiskt informationssystem samlar "
+"in, lagrar, analyserar, hanterar och presenterar data som är kopplade till "
+"plats."
 
 #: ../../en/glossary.rst:19
 msgid "GML"
-msgstr ""
+msgstr "GML"
 
 #: ../../en/glossary.rst:21
 msgid "`Geography Markup Language <http://www.opengeospatial.org/standards/gml>`_.  GML is the :term:`OGC` standard XML format for representing spatial feature information."
 msgstr ""
+"`Geography Markup Language <http://www.opengeospatial.org/standards/gml>`_.  "
+"GML är :term:`OGC` standard XML-format för att representera information om "
+"spatiala egenskaper."
 
 #: ../../en/glossary.rst:22
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #: ../../en/glossary.rst:24
 msgid "\"`Javascript Object Notation <http://en.wikipedia.org/wiki/JSON>`_\", a text format that is very fast to parse in Javascript virtual machines. In spatial, the extended specification for `GeoJSON <http://geojson.org>`_ is commonly used."
 msgstr ""
+"\"`Javascript Object Notation <http://en.wikipedia.org/wiki/JSON>`_\", ett "
+"textformat som är mycket snabbt att tolka i virtuella Javascript-maskiner. "
+"Inom spatial används ofta den utökade specifikationen för `GeoJSON "
+"<http://geojson.org>`_."
 
 #: ../../en/glossary.rst:25
 msgid "JSTL"
-msgstr ""
+msgstr "JSTL"
 
 #: ../../en/glossary.rst:27
 msgid "\"JavaServer Page Template Library\", a tag library for :term:`JSP` that encapsulates many of the standard functions handled in JSP (database queries, iteration, conditionals) into a terse syntax."
 msgstr ""
+"\"JavaServer Page Template Library\", ett taggbibliotek för :term:`JSP` som "
+"kapslar in många av de standardfunktioner som hanteras i JSP (databasfrågor, "
+"iteration, villkor) i en kortfattad syntax."
 
 #: ../../en/glossary.rst:28
 msgid "JSP"
-msgstr ""
+msgstr "JSP"
 
 #: ../../en/glossary.rst:30
 msgid "\"JavaServer Pages\" a scripting system for Java server applications that allows the interleaving of markup and Java procedural code."
 msgstr ""
+"\"JavaServer Pages\" ett skriptsystem för Java-serverapplikationer som gör "
+"det möjligt att kombinera markup och Java-procedurell kod."
 
 #: ../../en/glossary.rst:31
 msgid "KML"
-msgstr ""
+msgstr "KML"
 
 #: ../../en/glossary.rst:33
 msgid "\"Keyhole Markup Language\", the spatial XML format used by Google Earth. Google Earth was originally written by a company named \"Keyhole\", hence the (now obscure) reference in the name."
 msgstr ""
+"\"Keyhole Markup Language\", det spatiala XML-format som används av Google "
+"Earth. Google Earth skrevs ursprungligen av ett företag som hette \"Keyhole\""
+", därav den (numera obskyra) referensen i namnet."
 
 #: ../../en/glossary.rst:34
 msgid "OGC"
-msgstr ""
+msgstr "OGC"
 
 #: ../../en/glossary.rst:36
 msgid "The `Open Geospatial Consortium <http://opengeospatial.org/>`_ (OGC) is a standards organization that develops specifications for geospatial services."
 msgstr ""
+"`Open Geospatial Consortium <http://opengeospatial.org/>`_ (OGC) är en "
+"standardiseringsorganisation som utvecklar specifikationer för geospatiala "
+"tjänster."
 
 #: ../../en/glossary.rst:37
 msgid "OSGeo"
-msgstr ""
+msgstr "OSGeo"
 
 #: ../../en/glossary.rst:39
 msgid "The `Open Source Geospatial Foundation <http://osgeo.org>`_ (OSGeo) is a non-profit foundation dedicated to the promotion and support of open source geospatial software."
 msgstr ""
+"`Open Source Geospatial Foundation <http://osgeo.org>`_ (OSGeo) är en icke-"
+"vinstdrivande stiftelse som ägnar sig åt att främja och stödja geospatial "
+"programvara med öppen källkod."
 
 #: ../../en/glossary.rst:40
 msgid "SFSQL"
-msgstr ""
+msgstr "SFSQL"
 
 #: ../../en/glossary.rst:42
 msgid "The `Simple Features for SQL <http://www.opengeospatial.org/standards/sfs>`_ (SFSQL) specification from the :term:`OGC` defines the types and functions that make up a standard spatial database."
 msgstr ""
+"Specifikationen `Simple Features for SQL <http://www.opengeospatial.org/"
+"standards/sfs>`_ (SFSQL) från :term:`OGC` definierar de typer och funktioner "
+"som utgör en spatial standarddatabas."
 
 #: ../../en/glossary.rst:43
 msgid "SLD"
-msgstr ""
+msgstr "SLD"
 
 #: ../../en/glossary.rst:45
 msgid "The `Styled Layer Descriptor <http://www.opengeospatial.org/standards/sld>`_ (SLD) specification from the :term:`OGC` defines an format for describing cartographic rendering of vector features."
 msgstr ""
+"Specifikationen `Styled Layer Descriptor <http://www.opengeospatial.org/"
+"standards/sld>`_ (SLD) från :term:`OGC` definierar ett format för att "
+"beskriva kartografisk rendering av vektorfunktioner."
 
 #: ../../en/glossary.rst:46
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: ../../en/glossary.rst:48
 msgid "\"Spatial reference ID\" a unique number assigned to a particular \"coordinate reference system\". The PostGIS table **spatial_ref_sys** contains a large collection of well-known srid values and text representations of the coordinate reference systems."
 msgstr ""
+"\"Spatial reference ID\" ett unikt nummer som tilldelas ett visst "
+"\"koordinatreferenssystem\". PostGIS-tabellen **spatial_ref_sys** innehåller "
+"en stor samling av välkända srid-värden och textrepresentationer av "
+"koordinatreferenssystemen."
 
 #: ../../en/glossary.rst:49
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: ../../en/glossary.rst:51
 msgid "\"`Structured query language <http://en.wikipedia.org/wiki/SQL>`_\" is the standard means for querying relational databases."
 msgstr ""
+"\"`Structured query language <http://en.wikipedia.org/wiki/SQL>`_\" är "
+"standardmetoden för att ställa frågor till relationsdatabaser."
 
 #: ../../en/glossary.rst:52
 msgid "SQL/MM"
-msgstr ""
+msgstr "SQL/MM"
 
 #: ../../en/glossary.rst:54
 msgid "`SQL Multimedia <http://www.fer.hr/_download/repository/SQLMM_Spatial-_The_Standard_to_Manage_Spatial_Data_in_Relational_Database_Systems.pdf>`_; includes several sections on extended types, including a substantial section on spatial types."
 msgstr ""
+"`SQL Multimedia <http://www.fer.hr/_download/repository/SQLMM_Spatial-"
+"_The_Standard_to_Manage_Spatial_Data_in_Relational_Database_Systems.pdf>`_; "
+"innehåller flera avsnitt om utökade typer, inklusive ett betydande avsnitt "
+"om spatiala typer."
 
 #: ../../en/glossary.rst:55
 msgid "SVG"
-msgstr ""
+msgstr "SVG"
 
 #: ../../en/glossary.rst:57
 msgid "\"`Scalable vector graphics <http://en.wikipedia.org/wiki/Scalable_Vector_Graphics>`_\" is a family of specifications of an XML-based file format for describing two-dimensional vector graphics, both static and dynamic (i.e. interactive or animated)."
 msgstr ""
+"\"`Skalerbar vektorgrafik <http://en.wikipedia.org/wiki/"
+"Scalable_Vector_Graphics>`_\" är en familj av specifikationer för ett XML-"
+"baserat filformat för beskrivning av tvådimensionell vektorgrafik, både "
+"statisk och dynamisk (dvs. interaktiv eller animerad)."
 
 #: ../../en/glossary.rst:58
 msgid "WFS"
-msgstr ""
+msgstr "WFS"
 
 #: ../../en/glossary.rst:60
 msgid "The `Web Feature Service <http://www.opengeospatial.org/standards/wfs>`_ (WFS) specification from the :term:`OGC` defines an interface for reading and writing geographic features across the web."
 msgstr ""
+"Specifikationen `Web Feature Service <http://www.opengeospatial.org/"
+"standards/wfs>`_ (WFS) från :term:`OGC` definierar ett gränssnitt för att "
+"läsa och skriva geografiska funktioner över webben."
 
 #: ../../en/glossary.rst:61
 msgid "WMS"
-msgstr ""
+msgstr "WMS"
 
 #: ../../en/glossary.rst:63
 msgid "The `Web Map Service <http://www.opengeospatial.org/standards/wms>`_ (WMS) specification from the :term:`OGC` defines an interface for requesting rendered map images across the web."
 msgstr ""
+"Specifikationen `Web Map Service <http://www.opengeospatial.org/standards/"
+"wms>`_ (WMS) från :term:`OGC` definierar ett gränssnitt för att begära "
+"renderade kartbilder över webben."
 
 #: ../../en/glossary.rst:64
 msgid "WKB"
-msgstr ""
+msgstr "WKB"
 
 #: ../../en/glossary.rst:66
 msgid "\"Well-known binary\". Refers to the binary representation of geometries described in the Simple Features for SQL specification (:term:`SFSQL`)."
 msgstr ""
+"\"Well-known binary\". Refererar till den binära representationen av "
+"geometrier som beskrivs i Simple Features for SQL-specifikationen "
+"(:term:`SFSQL`)."
 
 #: ../../en/glossary.rst:67
 msgid "WKT"
-msgstr ""
+msgstr "WKT"
 
 #: ../../en/glossary.rst:69
 msgid "\"`Well-known text <http://en.wikipedia.org/wiki/Well-known_text>`_\". Can refer either to the text representation of geometries, with strings starting \"POINT\", \"LINESTRING\", \"POLYGON\", etc. Or can refer to the text representation of a :term:`CRS`, with strings starting \"PROJCS\", \"GEOGCS\", etc.  Well-known text representations are :term:`OGC` standards, but do not have their own specification documents. The first descriptions of WKT (for geometries and for CRS) appeared in the :term:`SFSQL` 1.0 specification."
 msgstr ""
+"\"Välkänd text <http://en.wikipedia.org/wiki/Well-known_text>`_\". Kan "
+"hänvisa antingen till textrepresentationen av geometrier, med strängar som "
+"börjar med \"POINT\", \"LINESTRING\", \"POLYGON\", etc. Eller kan hänvisa "
+"till textrepresentationen av en :term:`CRS`, med strängar som börjar med "
+"\"PROJCS\", \"GEOGCS\", etc.  Välkända textrepresentationer är :term:`OGC`-"
+"standarder, men har inte sina egna specifikationsdokument. De första "
+"beskrivningarna av WKT (för geometrier och för CRS) dök upp i :term:`SFSQL` 1"
+".0-specifikationen."

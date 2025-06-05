@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Daniel Nylander <daniel@danielnylander.se>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-06-03 18:45+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/3d/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-06-04 17:47+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/3d/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/3d.rst:4
 msgid "3-D"
@@ -91,7 +91,7 @@ msgstr "ST_3DClosestPoint - Returnerar den 3-dimensionella punkt på g1 som ligg
 
 #: ../../en/3d.rst:53
 msgid "ST_3DDistance — For geometry type Returns the 3-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units."
-msgstr "ST_3DDistance - För geometrityp Returnerar det 3-dimensionella cartesiska minimiavståndet (baserat på rumslig ref) mellan två geometrier i projicerade enheter."
+msgstr "ST_3DDistance - För geometrityp Returnerar det 3-dimensionella cartesiska minimiavståndet (baserat på spatial ref) mellan två geometrier i projicerade enheter."
 
 #: ../../en/3d.rst:54
 msgid "ST_3DDWithin — For 3d (z) geometry type Returns true if two geometries 3d distance is within number of units."
@@ -103,7 +103,7 @@ msgstr "ST_3DDFullyWithin - Returnerar true om alla 3D-geometrier ligger inom de
 
 #: ../../en/3d.rst:56
 msgid "ST_3DIntersects — Returns TRUE if the Geometries \"spatially intersect\" in 3d - only for points and linestrings"
-msgstr "ST_3DIntersects - Returnerar TRUE om geometrierna \"rumsligt korsar varandra\" i 3d - endast för punkter och linjestrings"
+msgstr "ST_3DIntersects - Returnerar TRUE om geometrierna \"spatialt korsar varandra\" i 3d - endast för punkter och linjestrings"
 
 #: ../../en/3d.rst:57
 msgid "ST_3DLongestLine — Returns the 3-dimensional longest line between two geometries"
@@ -111,7 +111,7 @@ msgstr "ST_3DLongestLine - Returnerar den 3-dimensionella längsta linjen mellan
 
 #: ../../en/3d.rst:58
 msgid "ST_3DMaxDistance — For geometry type Returns the 3-dimensional cartesian maximum distance (based on spatial ref) between two geometries in projected units."
-msgstr "ST_3DMaxDistance - För geometrityp Returnerar det 3-dimensionella cartesiska maximala avståndet (baserat på rumslig ref) mellan två geometrier i projicerade enheter."
+msgstr "ST_3DMaxDistance - För geometrityp Returnerar det 3-dimensionella cartesiska maximala avståndet (baserat på spatial ref) mellan två geometrier i projicerade enheter."
 
 #: ../../en/3d.rst:59
 msgid "ST_3DShortestLine — Returns the 3-dimensional shortest line between two geometries"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-05 13:12+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning_exercises/sv/>\n"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: ../../en/geometry_returning_exercises.rst:20
 msgid "Remember the tables we have available:"
-msgstr "Kom ihåg de bord vi har tillgängliga:"
+msgstr "Kom ihåg de tabeller vi har tillgängliga:"
 
 #: ../../en/geometry_returning_exercises.rst:22
 msgid "``nyc_census_blocks``"

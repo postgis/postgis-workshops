@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Daniel Nylander <daniel@danielnylander.se>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-06-04 17:47+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/index/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-06-05 13:55+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/index/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -19,11 +19,11 @@ msgstr "I den här workshopen används ett `datapaket <http://s3.cleverelephant.
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
-msgstr "Den **presentation deck** som hör till denna workshop finns tillgänglig `på Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
+msgstr "Det **presentationsmaterial** som hör till denna workshop finns tillgänglig `på Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
 
 #: ../../en/index.rst:13
 msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
-msgstr "En lista över SQL-kommandon som körs i den här workshopen finns här <workshop-sql.txt>`_."
+msgstr "En **fusklista** över SQL-kommandon som exekveras i den här workshopen `finns här <workshop-sql.txt>`_."
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"

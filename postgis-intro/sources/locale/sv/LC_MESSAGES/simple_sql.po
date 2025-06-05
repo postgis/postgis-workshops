@@ -7,146 +7,206 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-05 13:50+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"simple_sql/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/simple_sql.rst:4
 msgid "Simple SQL"
-msgstr ""
+msgstr "Enkel SQL"
 
 #: ../../en/simple_sql.rst:6
 msgid ":term:`SQL`, or \"Structured Query Language\", is a means of asking questions of, and updating data in, relational databases. You have already seen SQL when we created our first database.  Recall:"
 msgstr ""
+":term:`SQL`, eller \"Structured Query Language\", är ett sätt att ställa "
+"frågor till och uppdatera data i relationsdatabaser. Du har redan sett SQL "
+"när vi skapade vår första databas.  Kom ihåg det:"
 
 #: ../../en/simple_sql.rst:12
 msgid "But that was a question about the database.  Now that we've loaded data into our database, let's use SQL to ask questions of the data! For example,"
 msgstr ""
+"Men det var en fråga om databasen.  Nu när vi har laddat in data i vår "
+"databas kan vi använda SQL för att ställa frågor om data! Ett exempel,"
 
 #: ../../en/simple_sql.rst:14
 msgid "\"What are the names of all the neighborhoods in New York City?\""
-msgstr ""
+msgstr "\"Vad heter alla stadsdelar i New York City?\""
 
 #: ../../en/simple_sql.rst:16
 msgid "Open up the SQL query window in pgAdmin by clicking the \"Query Tool\" button."
 msgstr ""
+"Öppna SQL-frågefönstret i pgAdmin genom att klicka på knappen \"Query Tool\"."
 
 #: ../../en/simple_sql.rst:20
 msgid "then enter the following query in to the query window"
-msgstr ""
+msgstr "ange sedan följande fråga i frågefönstret"
 
 #: ../../en/simple_sql.rst:26
 msgid "and click the **Execute Query** button (the green triangle)."
-msgstr ""
+msgstr "och klicka på knappen **Execute Query** (den gröna triangeln)."
 
 #: ../../en/simple_sql.rst:30
 msgid "The query will run for a few (milli)seconds and return the 129 results."
-msgstr ""
+msgstr "Frågan körs i några (milli)sekunder och returnerar de 129 resultaten."
 
 #: ../../en/simple_sql.rst:35
 msgid "But what exactly happened here?  To understand, let's begin with the four \"verbs\" of SQL,"
 msgstr ""
+"Men vad var det egentligen som hände här?  För att förstå det måste vi börja "
+"med de fyra \"verben\" i SQL,"
 
 #: ../../en/simple_sql.rst:37
 msgid "``SELECT``, returns rows in response to a query"
-msgstr ""
+msgstr "``SELECT``, returnerar rader som svar på en fråga"
 
 #: ../../en/simple_sql.rst:38
 msgid "``INSERT``, adds new rows to a table"
-msgstr ""
+msgstr "``INSERT``, lägger till nya rader i en tabell"
 
 #: ../../en/simple_sql.rst:39
 msgid "``UPDATE``, alters existing rows in a table"
-msgstr ""
+msgstr "``UPDATE``, ändrar befintliga rader i en tabell"
 
 #: ../../en/simple_sql.rst:40
 msgid "``DELETE``, removes rows from a table"
-msgstr ""
+msgstr "``DELETE``, tar bort rader från en tabell"
 
 #: ../../en/simple_sql.rst:42
 msgid "We will be working almost exclusively with ``SELECT`` in order to ask questions of tables using spatial functions."
 msgstr ""
+"Vi kommer nästan uteslutande att arbeta med ``SELECT`` för att ställa frågor "
+"om tabeller med hjälp av spatiala funktioner."
 
 #: ../../en/simple_sql.rst:45
 msgid "SELECT queries"
-msgstr ""
+msgstr "SELECT-frågor"
 
 #: ../../en/simple_sql.rst:47
 msgid "A select query is generally of the form::"
-msgstr ""
+msgstr "En select-fråga är i allmänhet av formen::"
 
 #: ../../en/simple_sql.rst:53
 msgid "For a synopsis of all ``SELECT`` parameters, see the `PostgresSQL documentation  <http://www.postgresql.org/docs/current/interactive/sql-select.html>`_."
 msgstr ""
+"För en sammanfattning av alla ``SELECT`` parametrar, se `PostgresSQL-"
+"dokumentationen <http://www.postgresql.org/docs/current/interactive/sql-"
+"select.html>`_."
 
 #: ../../en/simple_sql.rst:55
 msgid "The ``some_columns`` are either column names or functions of column values. The ``some_data_source`` is either a single table, or a composite table created by joining two tables on a key or condition. The ``some_condition`` is a filter that restricts the number of rows to be returned."
 msgstr ""
+"``some_columns`` är antingen kolumnnamn eller funktioner av kolumnvärden. "
+"``some_data_source`` är antingen en enskild tabell eller en sammansatt "
+"tabell som skapats genom att två tabeller sammanfogats med en nyckel eller "
+"ett villkor. ``some_condition`` är ett filter som begränsar antalet rader "
+"som ska returneras."
 
 #: ../../en/simple_sql.rst:57
 msgid "\"What are the names of all the neighborhoods in Brooklyn?\""
-msgstr ""
+msgstr "\"Vad heter alla stadsdelar i Brooklyn?\""
 
 #: ../../en/simple_sql.rst:59
 msgid "We return to our ``nyc_neighborhoods`` table with a filter in hand.  The table contains all the neighborhoods in New York, but we only want the ones in Brooklyn."
 msgstr ""
+"Vi återvänder till vår tabell ``nyc_neighborhoods`` med ett filter i "
+"handen.  Tabellen innehåller alla stadsdelar i New York, men vi vill bara ha "
+"dem i Brooklyn."
 
 #: ../../en/simple_sql.rst:67
 msgid "The query will run for even fewer (milli)seconds and return the 23 results."
 msgstr ""
+"Frågan kommer att köras under ännu färre (milli)sekunder och ge 23 resultat."
 
 #: ../../en/simple_sql.rst:69
 msgid "Sometimes we will need to apply a function to the results of our query. For example,"
 msgstr ""
+"Ibland behöver vi tillämpa en funktion på resultatet av vår fråga. Det kan "
+"till exempel vara"
 
 #: ../../en/simple_sql.rst:71
 msgid "\"What is the number of letters in the names of all the neighborhoods in Brooklyn?\""
-msgstr ""
+msgstr "\"Vad är antalet bokstäver i namnen på alla stadsdelar i Brooklyn?\""
 
 #: ../../en/simple_sql.rst:73
 msgid "Fortunately, PostgreSQL has a string length function, :command:`char_length(string)`."
 msgstr ""
+"Lyckligtvis har PostgreSQL en stränglängdsfunktion, "
+":command:`char_length(string)`."
 
 #: ../../en/simple_sql.rst:81
 msgid "Often, we are less interested in the individual rows than in a statistic that applies to all of them. So knowing the lengths of the neighborhood names might be less interesting than knowing the average length of the names. Functions that take in multiple rows and return a single result are called \"aggregate\" functions."
 msgstr ""
+"Ofta är vi mindre intresserade av de enskilda raderna än av en statistik som "
+"gäller för dem alla. Att veta längden på grannskapsnamnen kan alltså vara "
+"mindre intressant än att veta den genomsnittliga längden på namnen. "
+"Funktioner som tar in flera rader och returnerar ett enda resultat kallas "
+"\"aggregerade\" funktioner."
 
 #: ../../en/simple_sql.rst:83
 msgid "PostgreSQL has a series of built-in aggregate functions, including the general purpose :command:`avg()` for average values and :command:`stddev()` for standard deviations."
 msgstr ""
+"PostgreSQL har en serie inbyggda aggregerade funktioner, inklusive det "
+"allmänna syftet :command:`avg()` för medelvärden och :command:`stddev()` för "
+"standardavvikelser."
 
 #: ../../en/simple_sql.rst:85
 msgid "\"What is the average number of letters and standard deviation of number of letters in the names of all the neighborhoods in Brooklyn?\""
 msgstr ""
+"\"Vad är det genomsnittliga antalet bokstäver och standardavvikelsen för "
+"antalet bokstäver i namnen på alla stadsdelar i Brooklyn?\""
 
 #: ../../en/simple_sql.rst:99
 msgid "The aggregate functions in our last example were applied to every row in the result set. What if we want the summaries to be carried out over smaller groups within the overall result set? For that we add a ``GROUP BY`` clause. Aggregate functions often need an added ``GROUP BY`` statement to group the result-set by one or more columns."
 msgstr ""
+"De aggregerade funktionerna i vårt förra exempel tillämpades på varje rad i "
+"resultatuppsättningen. Vad händer om vi vill att sammanfattningarna ska "
+"utföras över mindre grupper inom den totala resultatuppsättningen? För det "
+"lägger vi till en ``GROUP BY``-klausul. Aggregerade funktioner behöver ofta "
+"en extra ``GROUP BY``-sats för att gruppera resultatuppsättningen efter en "
+"eller flera kolumner."
 
 #: ../../en/simple_sql.rst:101
 msgid "\"What is the average number of letters in the names of all the neighborhoods in New York City, reported by borough?\""
 msgstr ""
+"\"Vad är det genomsnittliga antalet bokstäver i namnen på alla stadsdelar i "
+"New York City, redovisat per stadsdel?\""
 
 #: ../../en/simple_sql.rst:109
 msgid "We include the ``boroname`` column in the output result so we can determine which statistic applies to which borough. In an aggregate query, you can only output columns that are either (a) members of the grouping clause or (b) aggregate functions."
 msgstr ""
+"Vi inkluderar kolumnen ``boroname`` i utdataresultatet så att vi kan avgöra "
+"vilken statistik som gäller för vilken stadsdel. I en aggregerad fråga kan "
+"du bara mata ut kolumner som antingen är (a) medlemmar i "
+"grupperingsklausulen eller (b) aggregerade funktioner."
 
 #: ../../en/simple_sql.rst:122
 msgid "Function List"
-msgstr ""
+msgstr "Funktionslista"
 
 #: ../../en/simple_sql.rst:124
 msgid "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the average value of a numeric column."
 msgstr ""
+"`avg (uttryck) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL-aggregatfunktion som "
+"returnerar medelvärdet för en numerisk kolumn."
 
 #: ../../en/simple_sql.rst:126
 msgid "`char_length(string) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function that returns the number of character in a string."
 msgstr ""
+"`char_length (sträng) <http://www.postgresql.org/docs/current/static/"
+"functions-string.html>`_: PostgreSQL-strängfunktion som returnerar antalet "
+"tecken i en sträng."
 
 #: ../../en/simple_sql.rst:128
 msgid "`stddev(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: PostgreSQL aggregate function that returns the standard deviation of input values."
 msgstr ""
+"`stddev(uttryck) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE>`_: PostgreSQL-"
+"aggregatfunktion som returnerar standardavvikelsen för ingångsvärden."

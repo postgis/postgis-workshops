@@ -7,102 +7,137 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-05 13:50+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"creating_db/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/creating_db.rst:4
 msgid "Creating a Spatial Database"
-msgstr ""
+msgstr "Skapa en spatial databas"
 
 #: ../../en/creating_db.rst:7
 msgid "PgAdmin"
-msgstr ""
+msgstr "PgAdmin"
 
 #: ../../en/creating_db.rst:9
 msgid "PostgreSQL has a number of administrative front-ends.  The primary one is `psql <http://www.postgresql.org/docs/current/static/app-psql.html>`_, a command-line tool for entering SQL queries.  Another popular PostgreSQL front-end is the free and open source graphical tool `pgAdmin <http://www.pgadmin.org/>`_. All queries done in pgAdmin can also be done on the command line with ``psql``. pgAdmin also includes a geometry viewer you can use to spatial view PostGIS queries."
 msgstr ""
+"PostgreSQL har ett antal administrativa frontend.  Den primära är `psql "
+"<http://www.postgresql.org/docs/current/static/app-psql.html>`_, ett "
+"kommandoradsverktyg för att ange SQL-frågor.  En annan populär PostgreSQL-"
+"frontend är det gratis och öppna källkodsgrafiska verktyget `pgAdmin "
+"<http://www.pgadmin.org/>`_. Alla frågor som görs i pgAdmin kan också göras "
+"på kommandoraden med ``psql``. pgAdmin innehåller också en geometrivisare "
+"som du kan använda för att spatialt visa PostGIS-frågor."
 
 #: ../../en/creating_db.rst:12
 msgid "Find pgAdmin and start it up."
-msgstr ""
+msgstr "Leta upp pgAdmin och starta den."
 
 #: ../../en/creating_db.rst:17
 msgid "If this is the first time you have run pgAdmin, you probably don't have any servers configured. Right click the ``Servers`` item in the Browser panel."
 msgstr ""
+"Om det här är första gången du kör pgAdmin har du förmodligen inte "
+"konfigurerat några servrar. Högerklicka på objektet ``Servrar`` i panelen "
+"Browser."
 
 #: ../../en/creating_db.rst:19
 msgid "We'll name our server **PostGIS**. In the Connection tab, enter the ``Host name/address``. If you're working with a local PostgreSQL install, you'll be able to use ``localhost``. If you're using a cloud service, you should be able to retrieve the host name from your account."
 msgstr ""
+"Vi namnger vår server **PostGIS**. På fliken Anslutning anger du `` Värdnamn/"
+"adress``. Om du arbetar med en lokal PostgreSQL-installation kan du använda "
+"``localhost``. Om du använder en molntjänst bör du kunna hämta värdnamnet "
+"från ditt konto."
 
 #: ../../en/creating_db.rst:21
 msgid "Leave **Port** set at ``5432``, and both **Maintenance database** and **Username** as ``postgres``. The **Password** should be what you specified with a local install or with your cloud service."
 msgstr ""
+"Låt **Port** vara inställd på ``5432``, och både **Maintenance database** "
+"och **Username** vara ``postgres``. Lösenordet **Password** ska vara det som "
+"du angav vid en lokal installation eller med din molntjänst."
 
 #: ../../en/creating_db.rst:27
 msgid "Creating a Database"
-msgstr ""
+msgstr "Skapa en databas"
 
 #: ../../en/creating_db.rst:29
 msgid "Open the Databases tree item and have a look at the available databases.  The ``postgres`` database is the user database for the default postgres user and is not too interesting to us."
 msgstr ""
+"Öppna trädobjektet Databaser och ta en titt på de tillgängliga databaserna.  "
+"Databasen ``postgres`` är användardatabasen för standardanvändaren av "
+"postgres och är inte så intressant för oss."
 
 #: ../../en/creating_db.rst:31
 msgid "Right-click on the ``Databases`` item and select ``New Database``."
-msgstr ""
+msgstr "Högerklicka på objektet ``Databaser`` och välj ``Ny databas``."
 
 #: ../../en/creating_db.rst:36
 msgid "Fill in the ``Create Database`` form as shown below and click **OK**."
 msgstr ""
+"Fyll i formuläret ``Create Database`` enligt nedan och klicka på **OK**."
 
 #: ../../en/creating_db.rst:40
 msgid "**Name**"
-msgstr ""
+msgstr "**Name**"
 
 #: ../../en/creating_db.rst:41
 msgid "``nyc``"
-msgstr ""
+msgstr "``nyc``"
 
 #: ../../en/creating_db.rst:42
 msgid "**Owner**"
-msgstr ""
+msgstr "**Owner**"
 
 #: ../../en/creating_db.rst:43
 msgid "``postgres``"
-msgstr ""
+msgstr "``postgres``"
 
 #: ../../en/creating_db.rst:49
 msgid "Select the new ``nyc`` database and open it up to display the tree of objects. You'll see the ``public`` schema."
 msgstr ""
+"Välj den nya databasen ``nyc`` och öppna den för att visa trädet med objekt. "
+"Du kommer att se schemat ``public``."
 
 #: ../../en/creating_db.rst:53
 msgid "Click on the SQL query button indicated below (or go to *Tools > Query Tool*)."
 msgstr ""
+"Klicka på SQL-frågeknappen som visas nedan (eller gå till *Tools > Query "
+"Tool*)."
 
 #: ../../en/creating_db.rst:57
 msgid "Enter the following query into the query text field to load the PostGIS spatial extension:"
 msgstr ""
+"Ange följande fråga i textfältet för fråga för att ladda det spatiala "
+"tillägget PostGIS:"
 
 #: ../../en/creating_db.rst:63
 msgid "Click the **Play** button in the toolbar (or press **F5**) to \"Execute the query.\""
 msgstr ""
+"Klicka på knappen **Play** i verktygsfältet (eller tryck på **F5**) för att "
+"\"Execute the query\""
 
 #: ../../en/creating_db.rst:65
 msgid "Now confirm that PostGIS is installed by running a PostGIS function:"
 msgstr ""
+"Bekräfta nu att PostGIS är installerat genom att köra en PostGIS-funktion:"
 
 #: ../../en/creating_db.rst:71
 msgid "You have successfully created a PostGIS spatial database!!"
-msgstr ""
+msgstr "Du har lyckats skapa en PostGIS spatial databas!"
 
 #: ../../en/creating_db.rst:75
 msgid "Function List"
-msgstr ""
+msgstr "Funktionslista"
 
 #: ../../en/creating_db.rst:77
 msgid "`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: Reports full PostGIS version and build configuration info."
 msgstr ""
+"`PostGIS_Full_Version <http://postgis.net/docs/PostGIS_Full_Version.html>`_: "
+"Rapporterar fullständig information om PostGIS-version och byggkonfiguration."

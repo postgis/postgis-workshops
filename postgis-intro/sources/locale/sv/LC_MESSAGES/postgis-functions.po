@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-05 13:50+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "postgis-functions/sv/>\n"
@@ -102,7 +102,7 @@ msgstr "Mått"
 
 #: ../../en/postgis-functions.rst:37
 msgid ":command:`ST_Area(geometry)`"
-msgstr ":kommando:`ST_Area(geometri)`"
+msgstr ":command:`ST_Area(geometry)`"
 
 #: ../../en/postgis-functions.rst:37
 msgid "Returns the area of the geometry in the units of the spatial reference system."

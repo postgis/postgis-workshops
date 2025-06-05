@@ -7,282 +7,415 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-05 13:50+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"security/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/security.rst:4
 msgid "PostgreSQL Security"
-msgstr ""
+msgstr "PostgreSQL säkerhet"
 
 #: ../../en/security.rst:6
 msgid "PostgreSQL has a rich and flexible permissions system, with the ability to parcel out particular privileges to particular roles_, and provide users with the powers of one or more of those roles_."
 msgstr ""
+"PostgreSQL har ett rikt och flexibelt behörighetssystem med förmågan att "
+"dela ut särskilda privilegier till särskilda roles_, och ge användare "
+"befogenheterna för en eller flera av dessa roles_."
 
 #: ../../en/security.rst:8
 msgid "In addition, the PostgreSQL server can use multiple different systems to authenticate users. This means that the database can use the same authentication infrastructure as other architecture components, simplifying password management."
 msgstr ""
+"Dessutom kan PostgreSQL-servern använda flera olika system för att "
+"autentisera användare. Detta innebär att databasen kan använda samma "
+"autentiseringsinfrastruktur som andra arkitekturkomponenter, vilket "
+"förenklar lösenordshanteringen."
 
 #: ../../en/security.rst:12
 msgid "Users and Roles"
-msgstr ""
+msgstr "Användare och roller"
 
 #: ../../en/security.rst:14
 msgid "In this chapter we will create two useful production users:"
 msgstr ""
+"I det här kapitlet kommer vi att skapa två användbara produktionsanvändare:"
 
 #: ../../en/security.rst:16
 msgid "A read-only user for use in a publishing application."
-msgstr ""
+msgstr "En skrivskyddad användare för användning i en publiceringsapplikation."
 
 #: ../../en/security.rst:17
 msgid "A read/write user for use by a developer in building a software or analyzing data."
 msgstr ""
+"En läs/skriv-användare som används av en utvecklare för att bygga en "
+"programvara eller analysera data."
 
 #: ../../en/security.rst:19
 msgid "Rather than creating users and granting them the necessary powers, we will create two roles with the right powers and then create two users and add them to the appropriate roles. That way we can easily reuse the roles when we create further users."
 msgstr ""
+"I stället för att skapa användare och ge dem de nödvändiga befogenheterna "
+"skapar vi två roller med rätt befogenheter och skapar sedan två användare "
+"och lägger till dem i lämpliga roller. På så sätt kan vi enkelt återanvända "
+"rollerna när vi skapar ytterligare användare."
 
 #: ../../en/security.rst:23
 msgid "Creating Roles"
-msgstr ""
+msgstr "Skapa roller"
 
 #: ../../en/security.rst:25
 msgid "A role is a user and a user is a role. The only difference is that a \"user\" can be said to be a role with the \"login\" privilege."
 msgstr ""
+"En roll är en användare och en användare är en roll. Den enda skillnaden är "
+"att en \"user\" kan sägas vara en roll med \"login\"-rättigheter."
 
 #: ../../en/security.rst:27
 msgid "So functionally, the two SQL statements below are the same, they both create a \"role with the login privilege\", which is to say, a \"user\"."
 msgstr ""
+"Så funktionellt sett är de två SQL-satserna nedan desamma, de skapar båda en "
+"\"roll med inloggningsbehörighet\", det vill säga en \"användare\"."
 
 #: ../../en/security.rst:36
 msgid "Read-only Users"
-msgstr ""
+msgstr "Skrivskyddade användare"
 
 #: ../../en/security.rst:38
 msgid "Our read-only user will be for a web application to use to query the ``nyc_streets`` table."
 msgstr ""
+"Vår skrivskyddade användare kommer att användas av en webbapplikation för "
+"att söka i tabellen ``nyc_streets``."
 
 #: ../../en/security.rst:40
 msgid "The application will have specific access to the ``nyc_streets`` table, but will inherit the necessary system access for PostGIS operations from the ``postgis_reader`` role."
 msgstr ""
+"Programmet kommer att ha specifik åtkomst till tabellen ``nyc_streets``, men "
+"kommer att ärva den nödvändiga systemåtkomsten för PostGIS-operationer från "
+"rollen ``postgis_reader``."
 
 #: ../../en/security.rst:54
 msgid "Now, when we login as app1, we can select rows from the ``nyc_streets`` table. However, we cannot run an :command:`ST_Transform` call! Why not?"
 msgstr ""
+"Nu, när vi loggar in som app1, kan vi välja rader från tabellen "
+"``nyc_streets``. Vi kan dock inte köra ett :command:`ST_Transform`-anrop! "
+"Varför kan vi inte det?"
 
 #: ../../en/security.rst:70
 msgid "The answer is contained in the error statement. Though our ``app1`` user can view the contents of the ``nyc_streets`` table fine, it cannot view the contents of ``spatial_ref_sys``, so the call to :command:`ST_Transform` fails."
 msgstr ""
+"Svaret finns i felmeddelandet. Även om vår ``app1`` användare kan se "
+"innehållet i ``nyc_streets`` tabellen bra, kan den inte se innehållet i "
+"``spatial_ref_sys``, så anropet till :command:`ST_Transform` misslyckas."
 
 #: ../../en/security.rst:72
 msgid "So, we need to also grant the ``postgis_reader`` role read access to all the PostGIS metadata tables:"
 msgstr ""
+"Därför måste vi också ge rollen ``postgis_reader`` läsåtkomst till alla "
+"PostGIS-metadatatabeller:"
 
 #: ../../en/security.rst:80
 msgid "Now we have a nice generic ``postgis_reader`` role we can apply to any user that need to read from PostGIS tables."
 msgstr ""
+"Nu har vi en generisk roll, ``postgis_reader``, som vi kan använda för alla "
+"användare som behöver läsa från PostGIS-tabeller."
 
 #: ../../en/security.rst:91
 msgid "Read/write Users"
-msgstr ""
+msgstr "Läsa/skriva Användare"
 
 #: ../../en/security.rst:93
 msgid "There are two kinds of read/write scenarios we need to consider:"
-msgstr ""
+msgstr "Det finns två typer av läs/skriv-scenarier som vi måste ta hänsyn till:"
 
 #: ../../en/security.rst:95
 msgid "Web applications and others that need to write to existing data tables."
 msgstr ""
+"Webbapplikationer och andra som behöver skriva till befintliga datatabeller."
 
 #: ../../en/security.rst:96
 msgid "Developers or analysts that need to create new tables and geometry columns as part of their work."
 msgstr ""
+"Utvecklare eller analytiker som behöver skapa nya tabeller och "
+"geometrikolumner som en del av sitt arbete."
 
 #: ../../en/security.rst:98
 msgid "For web applications that require write access to data tables, we just need to grant extra permissions to the tables themselves, and we can continue to use the ``postgis_reader`` role."
 msgstr ""
+"För webbapplikationer som kräver skrivåtkomst till datatabeller behöver vi "
+"bara ge extra behörigheter till själva tabellerna, och vi kan fortsätta att "
+"använda rollen ``postgis_reader``."
 
 #: ../../en/security.rst:105
 msgid "These kinds of permissions would be required for a read/write WFS service, for example."
 msgstr ""
+"Den här typen av behörigheter krävs t.ex. för en WFS-tjänst för läsning/"
+"skrivning."
 
 #: ../../en/security.rst:107
 msgid "For developers and analysts, a little more access is needed to the main PostGIS metadata tables.  We will need a ``postgis_writer`` role that can edit the PostGIS metadata tables!"
 msgstr ""
+"För utvecklare och analytiker behövs lite mer tillgång till de viktigaste "
+"PostGIS-metadatatabellerna.  Vi kommer att behöva en ``postgis_writer`` roll "
+"som kan redigera PostGIS metadatatabeller!"
 
 #: ../../en/security.rst:123
 msgid "Now try the table creation SQL above as the app1 user and see how it goes!"
 msgstr ""
+"Prova nu att skapa tabellen SQL ovan som app1-användare och se hur det går!"
 
 #: ../../en/security.rst:127
 msgid "Encryption"
-msgstr ""
+msgstr "Kryptering"
 
 #: ../../en/security.rst:129
 msgid "PostgreSQL provides a lot of `encryption facilities <http://www.postgresql.org/docs/current/static/encryption-options.html>`_, many of them optional, some of them on by default."
 msgstr ""
+"PostgreSQL tillhandahåller många `krypteringsfaciliteter <http://www."
+"postgresql.org/docs/current/static/encryption-options.html>`_, många av dem "
+"valfria, några av dem är på som standard."
 
 #: ../../en/security.rst:131
 msgid "By default, all passwords are MD5 encrypted. The client/server handshake double encrypts the MD5 password to prevent re-use of the hash by anyone who intercepts the password."
 msgstr ""
+"Som standard är alla lösenord MD5-krypterade. Handskakningen mellan klient "
+"och server dubbelkrypterar MD5-lösenordet för att förhindra att hashen "
+"återanvänds av någon som snappar upp lösenordet."
 
 #: ../../en/security.rst:132
 msgid "`SSL connections <http://www.postgresql.org/docs/current/static/libpq-ssl.html>`_ are optionally available between the client and server, to encrypt all data and login information. SSL certificate authentication is also available when SSL connections are used."
 msgstr ""
+"`SSL-anslutningar <http://www.postgresql.org/docs/current/static/libpq-ssl."
+"html>`_ är valfritt tillgängliga mellan klienten och servern för att "
+"kryptera all data och inloggningsinformation. Autentisering med SSL-"
+"certifikat är också tillgänglig när SSL-anslutningar används."
 
 #: ../../en/security.rst:133
 msgid "Columns inside the database can be encrypted using the pgcrypto_ module, which includes hashing algorithms, direct ciphers (blowfish, aes) and both public key and symmetric PGP encryption."
 msgstr ""
+"Kolumner i databasen kan krypteras med hjälp av modulen pgcrypto_, som "
+"innehåller hash-algoritmer, direkta chiffer (blowfish, aes) och både PGP-"
+"kryptering med offentlig nyckel och symmetrisk kryptering."
 
 #: ../../en/security.rst:136
 msgid "SSL Connections"
-msgstr ""
+msgstr "SSL-anslutningar"
 
 #: ../../en/security.rst:138
 msgid "In order to use SSL connections, both your client and server must support SSL."
 msgstr ""
+"För att kunna använda SSL-anslutningar måste både klienten och servern ha "
+"stöd för SSL."
 
 #: ../../en/security.rst:140
 msgid "First, turn off PostgreSQL, since activating SSL will require a restart."
 msgstr ""
+"Stäng först av PostgreSQL, eftersom aktivering av SSL kommer att kräva en "
+"omstart."
 
 #: ../../en/security.rst:141
 msgid "Next, we acquire or generate an SSL certificate and key. The certificate will need to have no passphrase on it, or the database server won't be able to start up. You can generate a self-signed key as follows:"
 msgstr ""
+"Därefter skaffar eller genererar vi ett SSL-certifikat och en nyckel. "
+"Certifikatet får inte innehålla någon lösenfras, annars kommer "
+"databasservern inte att kunna startas. Du kan generera en självsignerad "
+"nyckel enligt följande:"
 
 #: ../../en/security.rst:157
 msgid "Copy the ``server.crt`` and ``server.key`` into the PostgreSQL data directory."
 msgstr ""
+"Kopiera `` server.crt`` och `` server.key`` till PostgreSQL-datakatalogen."
 
 #: ../../en/security.rst:159
 msgid "Enable SSL support in the ``postgresql.conf`` file by turning the \"ssl\" parameter to \"on\"."
 msgstr ""
+"Aktivera SSL-stöd i filen ``postgresql.conf`` genom att ändra parametern "
+"\"ssl\" till \"on\"."
 
 #: ../../en/security.rst:161
 msgid "Now re-start PostgreSQL; the server is ready for SSL operation."
-msgstr ""
+msgstr "Starta nu PostgreSQL igen; servern är redo för SSL-drift."
 
 #: ../../en/security.rst:163
 msgid "With the server enabled for SSL, creating an encrypted connection is easy. In PgAdmin, create a new server connection (File > Add Server...), and set the SSL parameter to “require”."
 msgstr ""
+"När servern är aktiverad för SSL är det enkelt att skapa en krypterad "
+"anslutning. I PgAdmin skapar du en ny serveranslutning (Arkiv > Lägg till "
+"server...) och ställer in SSL-parametern på \"require\"."
 
 #: ../../en/security.rst:167
 msgid "Once you connect with the new connection, you can see in its properties that it is using an SSL connection."
 msgstr ""
+"När du ansluter till den nya anslutningen kan du se i dess egenskaper att "
+"den använder en SSL-anslutning."
 
 #: ../../en/security.rst:171
 msgid "Since the default SSL connection mode is \"prefer\", you don't even need to specify an SSL preference when connecting. A connection with the command line ``psql`` terminal will pick up the SSL option and use it by default:"
 msgstr ""
+"Eftersom standardläget för SSL-anslutning är \"prefer\" behöver du inte ens "
+"ange en SSL-preferens när du ansluter. En anslutning med kommandoraden "
+"``psql`` terminal kommer att plocka upp SSL-alternativet och använda det som "
+"standard:"
 
 #: ../../en/security.rst:181
 msgid "Note how the terminal reports the SSL status of the connection."
-msgstr ""
+msgstr "Observera hur terminalen rapporterar SSL-statusen för anslutningen."
 
 #: ../../en/security.rst:185
 msgid "Data Encryption"
-msgstr ""
+msgstr "Kryptering av data"
 
 #: ../../en/security.rst:187
 msgid "The pgcrypto_ module has a huge range of encryption options, so we will only demonstrate the simplest use case: encrypting a column of data using a symmetric cipher."
 msgstr ""
+"Modulen pgcrypto_ har ett stort utbud av krypteringsalternativ, så vi kommer "
+"bara att demonstrera det enklaste användningsfallet: kryptering av en "
+"datakolumn med hjälp av ett symmetriskt chiffer."
 
 #: ../../en/security.rst:189
 msgid "First, enable pgcrypto by loading the contrib SQL file, either in PgAdmin or psql."
 msgstr ""
+"Först aktiverar du pgcrypto genom att ladda Contrib SQL-filen, antingen i "
+"PgAdmin eller psql."
 
 #: ../../en/security.rst:196
 msgid "Then, test the encryption function."
-msgstr ""
+msgstr "Testa sedan krypteringsfunktionen."
 
 #: ../../en/security.rst:203
 msgid "And make sure it's reversible too!"
-msgstr ""
+msgstr "Och se till att den är vändbar också!"
 
 #: ../../en/security.rst:212
 msgid "Authentication"
-msgstr ""
+msgstr "Autentisering"
 
 #: ../../en/security.rst:214
 msgid "PostgreSQL supports many different `authentication methods <http://www.postgresql.org/docs/current/static/auth-methods.html>`_, to allow easy integration into existing enterprise architectures. For production purposes, the following methods are commonly used:"
 msgstr ""
+"PostgreSQL stöder många olika `autentiseringsmetoder <http://www.postgresql."
+"org/docs/current/static/auth-methods.html>`_, för att möjliggöra enkel "
+"integration i befintliga företagsarkitekturer. För produktionsändamål "
+"används följande metoder vanligtvis:"
 
 #: ../../en/security.rst:216
 msgid "**Password** is the basic system where the passwords are stored by the database, with MD5 encryption."
 msgstr ""
+"**Password** är ett grundläggande system där lösenorden lagras i databasen "
+"med MD5-kryptering."
 
 #: ../../en/security.rst:217
 msgid "Kerberos_ is a standard enterprise authentication method, which is used by both the GSSAPI_ and SSPI_ schemes in PostgreSQL. Using SSPI_, PostgreSQL can authenticate against Windows servers."
 msgstr ""
+"Kerberos_ är en standard autentiseringsmetod för företag som används av både "
+"GSSAPI_ och SSPI_-scheman i PostgreSQL. Med hjälp av SSPI_ kan PostgreSQL "
+"autentisera mot Windows-servrar."
 
 #: ../../en/security.rst:218
 msgid "LDAP_ is another common enterprise authentication method. The `OpenLDAP <http://www.openldap.org/>`_ server bundled with most Linux distributions provides an open source implementation of LDAP_."
 msgstr ""
+"LDAP_ är en annan vanlig autentiseringsmetod för företag. Servern `OpenLDAP "
+"<http://www.openldap.org/>`_ som levereras med de flesta Linux-"
+"distributioner tillhandahåller en implementering av LDAP_ med öppen källkod."
 
 #: ../../en/security.rst:219
 msgid "**Certificate** authentication is an option if you expect all client connections to be via SSL and are able to manage the distribution of keys."
 msgstr ""
+"**Certificate**-autentisering är ett alternativ om du förväntar dig att alla "
+"klientanslutningar ska ske via SSL och om du kan hantera distributionen av "
+"nycklar."
 
 #: ../../en/security.rst:220
 msgid "PAM_ authentication is an option if you are on Linux or Solaris and use the PAM_ scheme for transparent authentication provision."
 msgstr ""
+"PAM_-autentisering är ett alternativ om du använder Linux eller Solaris och "
+"använder PAM_-schemat för transparent autentisering."
 
 #: ../../en/security.rst:222
 msgid "Authentication methods are controlled by the ``pg_hba.conf`` file. The \"HBA\" in the file name stands for \"host based access\", because in addition to allowing you to specify the authentication method to use for each database, it allows you to limit host access using network addresses."
 msgstr ""
+"Autentiseringsmetoderna styrs av filen ``pg_hba.conf``. \"HBA\" i filnamnet "
+"står för \"host based access\", eftersom du inte bara kan ange vilken "
+"autentiseringsmetod som ska användas för varje databas, utan även kan "
+"begränsa värdåtkomsten med hjälp av nätverksadresser."
 
 #: ../../en/security.rst:224
 msgid "Here is an example ``pg_hba.conf`` file:"
-msgstr ""
+msgstr "Här är ett exempel på filen ``pg_hba.conf``:"
 
 #: ../../en/security.rst:239
 msgid "The file consists of five columns"
-msgstr ""
+msgstr "Filen består av fem kolumner"
 
 #: ../../en/security.rst:241
 msgid "**TYPE** determines the kind of access, either \"local\" for connections from the same server or \"host\" for remote connections."
 msgstr ""
+"**TYPE** avgör vilken typ av åtkomst som avses, antingen \"local\" för "
+"anslutningar från samma server eller \"host\" för fjärranslutningar."
 
 #: ../../en/security.rst:242
 msgid "**DATABASE** specifies what database the configuration line refers to or \"all\" for all databases"
 msgstr ""
+"**DATABASE** anger vilken databas som konfigurationsraden hänvisar till "
+"eller \"all\" för alla databaser"
 
 #: ../../en/security.rst:243
 msgid "**USER** specifies what users the line refers to or \"all\" for all users"
 msgstr ""
+"**USER** anger vilka användare raden avser eller \"all\" för alla användare"
 
 #: ../../en/security.rst:244
 msgid "**CIDR-ADDRESS** specifies the network limitations for remote connections, using network/netmask syntax"
 msgstr ""
+"**CIDR-ADDRESS** anger nätverksbegränsningarna för fjärranslutningar, med "
+"syntaxen network/netmask"
 
 #: ../../en/security.rst:245
 msgid "**METHOD** specifies the authentication protocol to use. \"trust\" skips authentication entirely and simply accepts any valid username without challenge."
 msgstr ""
+"**METHOD** anger vilket autentiseringsprotokoll som ska användas. \"trust\" "
+"hoppar helt över autentisering och accepterar helt enkelt alla giltiga "
+"användarnamn utan utmaning."
 
 #: ../../en/security.rst:247
 msgid "It's common for local connections to be trusted, since access to the server itself is usually privileged. Remote connections are disabled by default when PostgreSQL is installed: if you want to connect from remote machines, you'll have to add an entry."
 msgstr ""
+"Det är vanligt att lokala anslutningar är betrodda, eftersom åtkomst till "
+"själva servern vanligtvis är privilegierad. Fjärranslutningar är "
+"inaktiverade som standard när PostgreSQL installeras: om du vill ansluta "
+"från fjärrmaskiner måste du lägga till en post."
 
 #: ../../en/security.rst:249
 msgid "The line for ``nyc`` in the example above is an example of a remote access entry. The ``nyc`` example allows LDAP authenticated access only to machines on the local network (in this case the 192.168.1. network) and only to the nyc database. Depending on the security of your network, you will use more or less strict versions of these rules in your production set-up."
 msgstr ""
+"Raden för ``nyc`` i exemplet ovan är ett exempel på en fjärråtkomstpost. "
+"Exemplet ``nyc`` tillåter LDAP-autentiserad åtkomst endast till maskiner i "
+"det lokala nätverket (i det här fallet 192.168.1.-nätverket) och endast till "
+"nyc-databasen. Beroende på säkerheten i ditt nätverk kommer du att använda "
+"mer eller mindre strikta versioner av dessa regler i din "
+"produktionskonfiguration."
 
 #: ../../en/security.rst:253
 msgid "Links"
-msgstr ""
+msgstr "Länkar"
 
 #: ../../en/security.rst:255
 msgid "`PostgreSQL Authentication <http://www.postgresql.org/docs/current/static/auth-methods.html>`_"
 msgstr ""
+"`PostgreSQL-autentisering <http://www.postgresql.org/docs/current/static/"
+"auth-methods.html>`_"
 
 #: ../../en/security.rst:256
 msgid "`PostgreSQL Encrpyption <http://www.postgresql.org/docs/current/static/encryption-options.html>`_"
 msgstr ""
+"`PostgreSQL Encrpyption <http://www.postgresql.org/docs/current/static/"
+"encryption-options.html>`_"
 
 #: ../../en/security.rst:257
 msgid "`PostgreSQL SSL Support <http://www.postgresql.org/docs/current/static/libpq-ssl.html>`_"
 msgstr ""
+"`PostgreSQL SSL-stöd <http://www.postgresql.org/docs/current/static/libpq-ssl"
+".html>`_"

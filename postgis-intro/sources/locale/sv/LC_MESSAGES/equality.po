@@ -7,59 +7,99 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"equality/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/equality.rst:4
 #: ../../en/equality.rst:7
 msgid "Equality"
-msgstr ""
+msgstr "Jämlikhet"
 
 #: ../../en/equality.rst:9
 msgid "Determining equality when dealing with geometries can be tricky.  PostGIS supports three different functions that can be used to determine different levels of equality, though for clarity we will use the definitions below.  To illustrate these functions, we will use the following polygons."
 msgstr ""
+"Det kan vara knepigt att bestämma jämlikhet när man hanterar geometrier.  "
+"PostGIS stöder tre olika funktioner som kan användas för att bestämma olika "
+"nivåer av jämlikhet, men för tydlighetens skull använder vi definitionerna "
+"nedan.  För att illustrera dessa funktioner kommer vi att använda följande "
+"polygoner."
 
 #: ../../en/equality.rst:14
 msgid "These polygons are loaded using the following commands."
-msgstr ""
+msgstr "Dessa polygoner laddas med hjälp av följande kommandon."
 
 #: ../../en/equality.rst:36
 msgid "Exactly Equal"
-msgstr ""
+msgstr "Exakt lika"
 
 #: ../../en/equality.rst:38
 msgid "Exact equality is determined by comparing two geometries, vertex by vertex, in order, to ensure they are identical in position.  The following examples show how this method can be limited in its effectiveness."
 msgstr ""
+"Exakt likhet bestäms genom att jämföra två geometrier, toppunkt för "
+"toppunkt, i ordning för att säkerställa att de är identiska i position.  "
+"Följande exempel visar hur denna metod kan vara begränsad i sin effektivitet."
 
 #: ../../en/equality.rst:50
 msgid "In this example, the polygons are only equal to themselves, not to other seemingly equivalent polygons (as in the case of Polygons 1 through 3).  In the case of Polygons 1, 2, and 3, the vertices are in identical positions but are defined in differing orders.  Polygon 4 has colinear (and thus redundant) vertices on the hexagon edges causing inequality with Polygon 1."
 msgstr ""
+"I det här exemplet är polygonerna bara lika med sig själva, inte med andra "
+"till synes likvärdiga polygoner (som i fallet med polygonerna 1 till 3).  I "
+"fallet med polygonerna 1, 2 och 3 är hörnen identiskt placerade men "
+"definierade i olika ordning.  Polygon 4 har kolinjära (och därmed "
+"överflödiga) hörn på hexagonkanterna, vilket orsakar ojämlikhet med polygon "
+"1."
 
 #: ../../en/equality.rst:53
 msgid "Spatially Equal"
-msgstr ""
+msgstr "Spatialt lika"
 
 #: ../../en/equality.rst:55
 msgid "As we saw above, exact equality does not take into account the spatial nature of the geometries.  There is an function, aptly named :command:`ST_Equals`, available to test the spatial equality or equivalence of geometries."
 msgstr ""
+"Som vi såg ovan tar exakt likhet inte hänsyn till geometriernas spatiala "
+"karaktär.  Det finns en funktion, med det passande namnet "
+":command:`ST_Equals`, för att testa geometriers spatiala jämlikhet eller "
+"ekvivalens."
 
 #: ../../en/equality.rst:67
 msgid "These results are more in line with our intuitive understanding of equality.  Polygons 1 through 4 are considered equal, since they enclose the same area.  Note that neither the direction of the polygon is drawn, the starting point for defining the polygon, nor the number of points used are important here.  What is important is that the polygons contain the same space."
 msgstr ""
+"Dessa resultat är mer i linje med vår intuitiva förståelse av jämlikhet.  "
+"Polygonerna 1 till 4 anses vara lika, eftersom de omsluter samma område.  "
+"Observera att varken polygonens riktning, startpunkten för polygonens "
+"definition eller antalet punkter som används är viktiga här.  Det viktiga är "
+"att polygonerna innehåller samma utrymme."
 
 #: ../../en/equality.rst:70
 msgid "Equal Bounds"
-msgstr ""
+msgstr "Jämna gränser"
 
 #: ../../en/equality.rst:72
 msgid "Exact equality requires, in the worst case, comparison of each and every vertex in the geometry to determine equality.  This can be slow, and may not be appropriate for comparing huge numbers of geometries.  To allow for speedier comparison, the equal bounds operator, :command:`~=`, is provided.  This operates only on the bounding box (rectangle), ensuring that the geometries occupy the same two dimensional extent, but not necessarily the same space."
 msgstr ""
+"Exakt likhet kräver, i värsta fall, jämförelse av varje enskilt vertex i "
+"geometrin för att fastställa likhet.  Detta kan ta lång tid och är kanske "
+"inte lämpligt för att jämföra ett stort antal geometrier.  För att "
+"möjliggöra snabbare jämförelser finns operatorn equal bounds, :command:`~=`"
+".  Denna operatör verkar endast på den avgränsande rutan (rektangeln) och "
+"säkerställer att geometrierna har samma tvådimensionella utsträckning, men "
+"inte nödvändigtvis samma utrymme."
 
 #: ../../en/equality.rst:84
 msgid "As you can see, all of our spatially equal geometries also have equal bounds.  Unfortunately, Polygon 5 is also returned as equal under this test, because it shares the same bounding box as the other geometries.  Why is this useful, then?  Although this will be covered in detail later, the short answer is that this enables the use of spatial indexing that can quickly reduce huge comparison sets into more manageable blocks when joining or filtering data."
 msgstr ""
+"Som du kan se har alla våra spatialt lika geometrier också lika gränser.  "
+"Tyvärr returneras Polygon 5 också som lika i det här testet, eftersom den "
+"delar samma bounding box som de andra geometrierna.  Varför är då detta "
+"användbart?  Även om detta kommer att behandlas i detalj senare är det korta "
+"svaret att detta möjliggör användning av spatial indexering som snabbt kan "
+"reducera enorma jämförelseuppsättningar till mer hanterbara block när data "
+"sammanfogas eller filtreras."

@@ -7,242 +7,364 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"advanced_geometry_construction/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/advanced_geometry_construction.rst:4
 msgid "Advanced Geometry Constructions"
-msgstr ""
+msgstr "Avancerade geometriska konstruktioner"
 
 #: ../../en/advanced_geometry_construction.rst:6
 msgid "The ``nyc_subway_stations`` layer has provided us with lots of interesting examples so far, but there is something striking about it:"
 msgstr ""
+"Lagret ``nyc_subway_stations`` har gett oss många intressanta exempel "
+"hittills, men det finns något slående med det:"
 
 #: ../../en/advanced_geometry_construction.rst:10
 msgid "Although it is a database of all the stations, it doesn't allow easy visualization of routes! In this chapter we will use advanced features of PostgreSQL and PostGIS to build up a new linear routes layer from the point layer of subway stations."
 msgstr ""
+"Även om det är en databas med alla stationer, tillåter det inte enkel "
+"visualisering av rutter! I det här kapitlet kommer vi att använda avancerade "
+"funktioner i PostgreSQL och PostGIS för att bygga upp ett nytt linjärt "
+"ruttskikt från punktskiktet för tunnelbanestationer."
 
 #: ../../en/advanced_geometry_construction.rst:12
 msgid "Our task is made especially difficult by two issues:"
-msgstr ""
+msgstr "Vår uppgift försvåras särskilt av två saker:"
 
 #: ../../en/advanced_geometry_construction.rst:14
 msgid "The ``routes`` column of ``nyc_subway_stations`` has multiple route identifiers in each row, so a station that might appear in multiple routes appears only once in the table."
 msgstr ""
+"Kolumnen ``routes`` i ``nyc_subway_stations`` har flera ruttidentifierare i "
+"varje rad, så en station som kan förekomma i flera rutter visas bara en gång "
+"i tabellen."
 
 #: ../../en/advanced_geometry_construction.rst:15
 msgid "Related to the previous issue, there is no route ordering information in the stations table, so while it is possible to find all the stations in a particular route, it's not possible using the attributes to determine what the order in which trains travel through the stations."
 msgstr ""
+"I likhet med föregående fråga finns det ingen information om ruttordning i "
+"stationstabellen, så även om det är möjligt att hitta alla stationer på en "
+"viss rutt är det inte möjligt att använda attributen för att avgöra i vilken "
+"ordning tågen passerar stationerna."
 
 #: ../../en/advanced_geometry_construction.rst:17
 msgid "The second problem is the harder one: given an unordered set of points in a route, how do we order them to match the actual route."
 msgstr ""
+"Det andra problemet är svårare: hur ordnar vi en oordnad uppsättning punkter "
+"i en rutt så att de stämmer överens med den faktiska rutten."
 
 #: ../../en/advanced_geometry_construction.rst:19
 msgid "Here are the stops for the 'Q' train:"
-msgstr ""
+msgstr "Här är hållplatserna för \"Q\"-tåget:"
 
 #: ../../en/advanced_geometry_construction.rst:27
 msgid "In this picture, the stops are labelled with their unique ``gid`` primary key."
 msgstr ""
+"På den här bilden är hållplatserna märkta med sin unika primärnyckel \"gid\"."
 
 #: ../../en/advanced_geometry_construction.rst:31
 msgid "If we start at one of the end stations, the next station on the line seems to always be the closest. We can repeat the process each time as long as we exclude all the previously found stations from our search."
 msgstr ""
+"Om vi börjar på en av slutstationerna verkar nästa station på linjen alltid "
+"vara den närmaste. Vi kan upprepa processen varje gång så länge vi utesluter "
+"alla tidigare funna stationer från vår sökning."
 
 #: ../../en/advanced_geometry_construction.rst:33
 msgid "There are two ways to run such an iterative routine in a database:"
-msgstr ""
+msgstr "Det finns två sätt att köra en sådan iterativ rutin i en databas:"
 
 #: ../../en/advanced_geometry_construction.rst:35
 msgid "Using a procedural language, like `PL/PgSQL <http://www.postgresql.org/docs/current/static/plpgsql.html>`_."
 msgstr ""
+"Använda ett procedurspråk, som `PL/PgSQL <http://www.postgresql.org/docs/"
+"current/static/plpgsql.html>`_."
 
 #: ../../en/advanced_geometry_construction.rst:36
 msgid "Using recursive `common table expressions <http://www.postgresql.org/docs/current/static/queries-with.html>`_."
 msgstr ""
+"Använda rekursiva `gemensamma tabelluttryck <http://www.postgresql.org/docs/"
+"current/static/queries-with.html>`_."
 
 #: ../../en/advanced_geometry_construction.rst:38
 msgid "Common table expressions (CTE) have the virtue of not requiring a function definition to run. Here's the CTE to calculate the route line of the 'Q' train, starting from the northernmost stop (where ``gid`` is 304)."
 msgstr ""
+"Common table expressions (CTE) har den fördelen att de inte kräver någon "
+"funktionsdefinition för att köras. Här är CTE för att beräkna rutten för Q-"
+"tåget, med början från den nordligaste hållplatsen (där ``gid`` är 304)."
 
 #: ../../en/advanced_geometry_construction.rst:60
 msgid "The CTE consists of two halves, unioned together:"
-msgstr ""
+msgstr "CTE består av två halvor som är sammanfogade:"
 
 #: ../../en/advanced_geometry_construction.rst:62
 msgid "The first half establishes a start point for the expression. We get the initial geometry and initialize the array of visited identifiers, using the record of \"gid\" 304 (the end of the line)."
 msgstr ""
+"Den första halvan etablerar en startpunkt för uttrycket. Vi får den initiala "
+"geometrin och initierar matrisen med besökta identifierare, med hjälp av "
+"posten \"gid\" 304 (slutet av raden)."
 
 #: ../../en/advanced_geometry_construction.rst:63
 msgid "The second half iterates until it finds no further records. At each iteration it takes in the value at the previous iteration via the self-reference to \"next_stop\". We search every stop on the Q line (**strpos(s.routes,'Q')**) that we have not already added to our visited list (**NOT n.idlist @> ARRAY[s.gid]**) and order them by their distance from the previous point, taking just the first one (the nearest)."
 msgstr ""
+"Den andra halvan itererar tills den inte hittar några fler poster. Vid varje "
+"iteration tar den in värdet från föregående iteration via självreferensen "
+"till \"next_stop\". Vi söker efter varje hållplats på Q-linjen (**strpos(s."
+"routes,'Q')**) som vi inte redan har lagt till i vår besökslista (**NOT "
+"n.idlist @> ARRAY[s.gid]**) och ordnar dem efter deras avstånd från "
+"föregående punkt, och tar bara den första (den närmaste)."
 
 #: ../../en/advanced_geometry_construction.rst:65
 msgid "Beyond the recursive CTE itself, there are a number of advanced PostgreSQL array features being used here:"
 msgstr ""
+"Utöver den rekursiva CTE i sig finns det ett antal avancerade PostgreSQL-"
+"arrayfunktioner som används här:"
 
 #: ../../en/advanced_geometry_construction.rst:67
 msgid "We are using ARRAY! PostgreSQL supports arrays of any type. In this case we have an array of integers, but we could also build an array of geometries, or any other PostgreSQL type."
 msgstr ""
+"Vi använder ARRAY! PostgreSQL stöder matriser av alla typer. I det här "
+"fallet har vi en matris av heltal, men vi kan också bygga en matris av "
+"geometrier eller någon annan PostgreSQL-typ."
 
 #: ../../en/advanced_geometry_construction.rst:68
 msgid "We are using **array_append** to build up our array of visited identifiers."
 msgstr ""
+"Vi använder **array_append** för att bygga upp vår array av besökta "
+"identifierare."
 
 #: ../../en/advanced_geometry_construction.rst:69
 msgid "We are using the **@>** array operator (\"array contains\") to find which of the Q train stations we have already visited. The **@>** operators requires ARRAY values on both sides, so we have to turn the individual \"gid\" numbers into single-entry arrays using the ARRAY[] syntax."
 msgstr ""
+"Vi använder operatorn **@>** array (\"array contains\") för att ta reda på "
+"vilken av Q-tågstationerna vi redan har besökt. Operatorn **@>** kräver "
+"ARRAY-värden på båda sidor, så vi måste omvandla de enskilda \"gid\"-numren "
+"till arrayer med en enda post med hjälp av ARRAY[]-syntaxen."
 
 #: ../../en/advanced_geometry_construction.rst:71
 msgid "When you run the query, you get each geometry in the order it is found (which is the route order), as well as the list of identifiers already visited. Wrapping the geometries into the PostGIS `ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_ aggregate function turns the set of geometries into a single linear output, constructed in the provided order."
 msgstr ""
+"När du kör frågan får du varje geometri i den ordning den hittas (vilket är "
+"ruttordningen), samt listan över identifierare som redan har besökts. Genom "
+"att paketera geometrierna i PostGIS `ST_MakeLine <http://postgis.net/docs/"
+"ST_MakeLine.html>`_ aggregatfunktion förvandlas uppsättningen geometrier "
+"till en enda linjär utdata, konstruerad i den angivna ordningen."
 
 #: ../../en/advanced_geometry_construction.rst:93
 msgid "Which looks like this:"
-msgstr ""
+msgstr "Det ser ut så här:"
 
 #: ../../en/advanced_geometry_construction.rst:97
 msgid "*Success!*"
-msgstr ""
+msgstr "*Lyckades!**"
 
 #: ../../en/advanced_geometry_construction.rst:99
 msgid "Except, two problems:"
-msgstr ""
+msgstr "Men det finns två problem:"
 
 #: ../../en/advanced_geometry_construction.rst:101
 msgid "We are only calculating one subway route here, we want to calculate all the routes."
 msgstr ""
+"Vi beräknar bara en tunnelbanelinje här, men vi vill beräkna alla linjer."
 
 #: ../../en/advanced_geometry_construction.rst:102
 msgid "Our query includes a piece of *a priori* knowledge, the initial station identifier that serves as the seed for the search algorithm that builds the route."
 msgstr ""
+"Vår fråga innehåller en del *apriori-kunskap*, den första "
+"stationsidentifieraren som fungerar som frö för den sökalgoritm som bygger "
+"rutten."
 
 #: ../../en/advanced_geometry_construction.rst:104
 msgid "Let's tackle the hard problem first, figuring out the first station on a route without manually eyeballing the set of stations that make up the route."
 msgstr ""
+"Låt oss ta itu med det svåra problemet först, att räkna ut den första "
+"stationen på en rutt utan att manuellt titta på de stationer som ingår i "
+"rutten."
 
 #: ../../en/advanced_geometry_construction.rst:106
 msgid "Our 'Q' train stops can serve as a starting point. What characterizes the end stations of the route?"
 msgstr ""
+"Våra Q-tågstopp kan fungera som en utgångspunkt. Vad kännetecknar "
+"slutstationerna på rutten?"
 
 #: ../../en/advanced_geometry_construction.rst:110
 msgid "One answer is \"they are the most northerly and southerly stations\". However, imagine if the 'Q' train ran from east to west. Would the condition still hold?"
 msgstr ""
+"Ett svar är \"det är de nordligaste och sydligaste stationerna\". Men tänk "
+"om Q-tåget gick från öst till väst. Skulle villkoret fortfarande gälla?"
 
 #: ../../en/advanced_geometry_construction.rst:112
 msgid "A less directional characterization of the end stations is \"they are the furthest stations from the middle of the route\". With this characterization it doesn't matter if the route runs north/south or east/west, just that it run in more-or-less one direction, particularly at the ends."
 msgstr ""
+"En mindre riktad karaktärisering av ändstationerna är \"de är de stationer "
+"som ligger längst bort från mitten av rutten\". Med denna karaktärisering "
+"spelar det ingen roll om linjen går i nord-sydlig eller öst-västlig "
+"riktning, bara den går i mer eller mindre en riktning, särskilt i ändarna."
 
 #: ../../en/advanced_geometry_construction.rst:114
 msgid "Since there is no 100% heuristic to figure out the end points, let's try this second rule out."
 msgstr ""
+"Eftersom det inte finns någon 100% heuristik för att räkna ut slutpunkterna, "
+"låt oss prova denna andra regel."
 
 #: ../../en/advanced_geometry_construction.rst:118
 msgid "An obvious failure mode of the \"furthest from middle\" rule is a circular line, like the Circle Line in London, UK. Fortunately, New York doesn't have any such lines!"
 msgstr ""
+"Ett uppenbart fel på regeln \"längst bort från mitten\" är en cirkulär "
+"linje, som Circle Line i London, Storbritannien. Lyckligtvis finns det inga "
+"sådana linjer i New York!"
 
 #: ../../en/advanced_geometry_construction.rst:120
 msgid "To work out the end stations of every route, we first have to work out what routes there are! We find the distinct routes."
 msgstr ""
+"För att räkna ut slutstationerna för varje rutt måste vi först ta reda på "
+"vilka rutter det finns! Vi hittar de olika rutterna."
 
 #: ../../en/advanced_geometry_construction.rst:130
 msgid "Note the use of two advanced PostgreSQL ARRAY functions:"
-msgstr ""
+msgstr "Observera användningen av två avancerade PostgreSQL ARRAY-funktioner:"
 
 #: ../../en/advanced_geometry_construction.rst:132
 msgid "**string_to_array** takes in a string and splits it into an array using a separator character. `PostgreSQL supports arrays <http://www.postgresql.org/docs/current/static/arrays.html>`_ of any type, so it's possible to build arrays of strings, as in this case, but also of geometries and geographies as we'll see later in this example."
 msgstr ""
+"** string_to_array ** tar in en sträng och delar upp den i en matris med "
+"hjälp av ett separatortecken. `PostgreSQL stöder matriser <http://www."
+"postgresql.org/docs/current/static/arrays.html>`_ av vilken typ som helst, "
+"så det är möjligt att bygga matriser av strängar, som i det här fallet, men "
+"också av geometrier och geografier som vi kommer att se senare i detta "
+"exempel."
 
 #: ../../en/advanced_geometry_construction.rst:133
 msgid "**unnest** takes in an array and builds a new row for each entry in the array. The effect is to take a \"horizontal\" array embedded in a single row and turn it into a \"vertical\" array with a row for each value."
 msgstr ""
+"**unnest** tar in en matris och bygger en ny rad för varje post i matrisen. "
+"Effekten är att en \"horisontell\" matris som är inbäddad i en enda rad "
+"omvandlas till en \"vertikal\" matris med en rad för varje värde."
 
 #: ../../en/advanced_geometry_construction.rst:135
 msgid "The result is a list of all the unique subway route identifiers."
 msgstr ""
+"Resultatet är en lista över alla unika identifikatorer för tunnelbanelinjer."
 
 #: ../../en/advanced_geometry_construction.rst:167
 msgid "We can build on this result by joining it back to the ``nyc_subway_stations`` table to create a new table that has, for each route, a row for every station on that route."
 msgstr ""
+"Vi kan bygga vidare på detta resultat genom att koppla det till tabellen "
+"``nyc_subway_stations`` för att skapa en ny tabell som för varje rutt "
+"innehåller en rad för varje station på rutten."
 
 #: ../../en/advanced_geometry_construction.rst:193
 msgid "Now we can find the center point by collecting all the stations for each route into a single multi-point, and calculating the centroid of that multi-point."
 msgstr ""
+"Nu kan vi hitta mittpunkten genom att samla alla stationer för varje rutt i "
+"en enda multipunkt och beräkna centroiden för den multipunkten."
 
 #: ../../en/advanced_geometry_construction.rst:214
 msgid "The center point of the collection of 'Q' train stops looks like this:"
-msgstr ""
+msgstr "Mittpunkten för samlingen av \"Q\"-tågstopp ser ut så här:"
 
 #: ../../en/advanced_geometry_construction.rst:218
 msgid "So the northern most stop, the end point, appears to also be the stop furthest from the center. Let's calculate the furthest point for every route."
 msgstr ""
+"Så den nordligaste hållplatsen, slutpunkten, verkar också vara den hållplats "
+"som ligger längst bort från centrum. Låt oss beräkna den längsta punkten för "
+"varje rutt."
 
 #: ../../en/advanced_geometry_construction.rst:249
 msgid "We've added two sub-queries this time:"
-msgstr ""
+msgstr "Vi har lagt till två underfrågor den här gången:"
 
 #: ../../en/advanced_geometry_construction.rst:251
 msgid "**stops_distance** joins the centers points back to the stations table and calculates the distance between the stations and center for each route. The result is ordered such that the records come out in batches for each route, with the furthest station as the first record of the batch."
 msgstr ""
+"**stops_distance** kopplar ihop centrumpunkterna med stationstabellen och "
+"beräknar avståndet mellan stationerna och centrum för varje rutt. Resultatet "
+"ordnas så att posterna kommer ut i satser för varje rutt, med den station "
+"som ligger längst bort som första post i satsen."
 
 #: ../../en/advanced_geometry_construction.rst:252
 msgid "**first_stops** filters the **stops_distance** output by only taking the first record for each distinct group. Because of the way we ordered **stops_distance** the first record is the furthest record, which means it's the station we want to use as our starting seed to build each subway route."
 msgstr ""
+"**first_stops** filtrerar **stops_distance**-utdata genom att endast ta den "
+"första posten för varje distinkt grupp. På grund av hur vi beställde "
+"**stops_distance** är den första posten den längsta posten, vilket innebär "
+"att det är den station vi vill använda som startpunkt för att bygga varje "
+"tunnelbanesträcka."
 
 #: ../../en/advanced_geometry_construction.rst:254
 msgid "Now we know every route, and we know (approximately) what station each route starts from: we're ready to generate the route lines!"
 msgstr ""
+"Nu känner vi till varje rutt och vi vet (ungefär) vilken station varje rutt "
+"startar från: vi är redo att generera ruttlinjerna!"
 
 #: ../../en/advanced_geometry_construction.rst:256
 msgid "But first, we need to turn our recursive CTE expression into a function we can call with parameters."
 msgstr ""
+"Men först måste vi omvandla vårt rekursiva CTE-uttryck till en funktion som "
+"vi kan anropa med parametrar."
 
 #: ../../en/advanced_geometry_construction.rst:283
 msgid "And now we are ready to go!"
-msgstr ""
+msgstr "Och nu är vi redo att åka!"
 
 #: ../../en/advanced_geometry_construction.rst:328
 msgid "Here's what our final table looks like visualized in QGIS:"
-msgstr ""
+msgstr "Så här ser vår slutliga tabell ut visualiserad i QGIS:"
 
 #: ../../en/advanced_geometry_construction.rst:332
 msgid "As usual, there are some problems with our simple understanding of the data:"
 msgstr ""
+"Som vanligt finns det vissa problem med vår enkla förståelse av uppgifterna:"
 
 #: ../../en/advanced_geometry_construction.rst:334
 msgid "there are actually two 'S' (short distance \"shuttle\") trains, one in Manhattan and one in the Rockaways, and we join them together because they are both called 'S';"
 msgstr ""
+"det finns faktiskt två S-tåg (short distance \"shuttle\"), ett på Manhattan "
+"och ett i Rockaways, och vi slår ihop dem eftersom de båda heter S;"
 
 #: ../../en/advanced_geometry_construction.rst:335
 msgid "the '4' train (and a few others) splits at the end of one line into two terminuses, so the \"follow one line\" assumption breaks and the result has a funny hook on the end."
 msgstr ""
+"4-tåget (och några andra) delar sig i slutet av en linje till två "
+"ändstationer, så antagandet \"följ en linje\" bryts och resultatet har en "
+"rolig krok i slutet."
 
 #: ../../en/advanced_geometry_construction.rst:337
 msgid "Hopefully this example has provided a taste of some of the complex data manipulations that are possible combining the advanced features of PostgreSQL and PostGIS."
 msgstr ""
+"Förhoppningsvis har detta exempel gett en smak av några av de komplexa "
+"datamanipulationerna som är möjliga genom att kombinera de avancerade "
+"funktionerna i PostgreSQL och PostGIS."
 
 #: ../../en/advanced_geometry_construction.rst:341
 msgid "See Also"
-msgstr ""
+msgstr "Se även"
 
 #: ../../en/advanced_geometry_construction.rst:343
 msgid "`PostgreSQL Arrays <http://www.postgresql.org/docs/current/static/arrays.html>`_"
 msgstr ""
+"`PostgreSQL Arrays <http://www.postgresql.org/docs/current/static/arrays."
+"html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:344
 msgid "`PostgreSQL Array Functions <http://www.postgresql.org/docs/current/static/functions-array.html>`_"
 msgstr ""
+"`PostgreSQL Array Functions <http://www.postgresql.org/docs/current/static/"
+"functions-array.html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:345
 msgid "`PostgreSQL Recursive Common TABLE Expressions <http://www.postgresql.org/docs/current/static/queries-with.html>`_"
 msgstr ""
+"`PostgreSQL Recursive Common TABLE Expressions <http://www.postgresql.org/"
+"docs/current/static/queries-with.html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:346
 msgid "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"
-msgstr ""
+msgstr "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"

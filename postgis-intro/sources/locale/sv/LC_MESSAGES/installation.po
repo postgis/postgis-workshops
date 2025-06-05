@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"installation/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/installation.rst:4
+msgid "Installation"
+msgstr "Installation"
+
+#: ../../en/installation.rst:6
+msgid "To explore the PostgreSQL/PostGIS database, and learn about writing spatial queries in SQL, we will need some software, either installed locally or available remotely on the cloud."
+msgstr ""
+"För att utforska PostgreSQL/PostGIS-databasen och lära oss att skriva "
+"spatiala frågor i SQL behöver vi lite programvara, antingen installerad "
+"lokalt eller tillgänglig på distans i molnet."
+
+#: ../../en/installation.rst:8
+msgid "There are instructions below on how to access PostgreSQL for installation on Windows or MacOS. PostgreSQL for Windows and MacOS either include PostGIS or have an easy way to add it on."
+msgstr ""
+"Det finns instruktioner nedan om hur du får tillgång till PostgreSQL för "
+"installation på Windows eller MacOS. PostgreSQL för Windows och MacOS "
+"inkluderar antingen PostGIS eller har ett enkelt sätt att lägga till det."
+
+#: ../../en/installation.rst:9
+msgid "There are instructions below on how to install `PgAdmin <https://www.pgadmin.org/>`_. PgAdmin is a graphical database explorer and SQL editor which provides a \"user facing\" interface to the database engine that does all the world."
+msgstr ""
+"Nedan finns instruktioner om hur du installerar `PgAdmin <https://www.pgadmin"
+".org/>`_. PgAdmin är en grafisk databasutforskare och SQL-editor som ger ett "
+"användarvänligt gränssnitt till databasmotorn som gör allt i världen."
+
+#: ../../en/installation.rst:11
+msgid "For always up-to-date directions on installing PostgreSQL, go to the `PostgreSQL download page  <https://www.postgresql.org/download/>`_ and select the operating system you are using."
+msgstr ""
+"För alltid uppdaterade anvisningar om installation av PostgreSQL, gå till `"
+"PostgreSQL nedladdningssida <https://www.postgresql.org/download/>`_ och "
+"välj det operativsystem du använder."
+
+#: ../../en/installation.rst:15
+msgid "PostgreSQL for Microsoft Windows"
+msgstr "PostgreSQL för Microsoft Windows"
+
+#: ../../en/installation.rst:17
+msgid "For a Windows install:"
+msgstr "För en Windows-installation:"
+
+#: ../../en/installation.rst:19
+msgid "Go to the `Windows PostgreSQL download page <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>`_."
+msgstr ""
+"Gå till nedladdningssidan för `Windows PostgreSQL <https://www.enterprisedb."
+"com/downloads/postgres-postgresql-downloads>`_."
+
+#: ../../en/installation.rst:21
+msgid "Select the latest version of PostgreSQL and save the installer to disk."
+msgstr ""
+"Välj den senaste versionen av PostgreSQL och spara installationsprogrammet "
+"på disken."
+
+#: ../../en/installation.rst:23
+msgid "Run the installer and accept the defaults."
+msgstr "Kör installationsprogrammet och acceptera standardinställningarna."
+
+#: ../../en/installation.rst:25
+msgid "Find and run the \"StackBuilder\" program that was installed with the database."
+msgstr ""
+"Leta reda på och kör programmet \"StackBuilder\" som installerades "
+"tillsammans med databasen."
+
+#: ../../en/installation.rst:27
+msgid "Select the \"Spatial Extensions\" section and choose latest \"PostGIS ..Bundle\" option."
+msgstr ""
+"Välj avsnittet \"Spatial Extensions\" och välj det senaste alternativet "
+"\"PostGIS ..Bundle\"."
+
+#: ../../en/installation.rst:32
+msgid "Accept the defaults and install."
+msgstr "Acceptera standardinställningarna och installera."
+
+#: ../../en/installation.rst:36
+msgid "PostgreSQL for Apple MacOS"
+msgstr "PostgreSQL för Apple MacOS"
+
+#: ../../en/installation.rst:38
+msgid "For a MacOS install:"
+msgstr "För en MacOS-installation:"
+
+#: ../../en/installation.rst:40
+msgid "Go to the `Postgres.app <https://postgresapp.com/>`_ site, and download the latest release."
+msgstr ""
+"Gå till webbplatsen `Postgres.app <https://postgresapp.com/>`_ och ladda ner "
+"den senaste versionen."
+
+#: ../../en/installation.rst:42
+msgid "Open the disk image, and drag the **Postgres** icon into the **Applications** folder."
+msgstr ""
+"Öppna diskavbildningen och dra ikonen **Postgres** till mappen "
+"**Applications**."
+
+#: ../../en/installation.rst:47
+msgid "In the **Applications** folder, double-click the **Postgres** icon to start the server."
+msgstr ""
+"I mappen **Applications** dubbelklickar du på ikonen **Postgres** för att "
+"starta servern."
+
+#: ../../en/installation.rst:49
+msgid "Click the **Initialize** button to create a new blank database instance."
+msgstr ""
+"Klicka på knappen **Initialize** för att skapa en ny tom databasinstans."
+
+#: ../../en/installation.rst:54
+msgid "In the **Applications** folder, go to the **Utilities** folder and open **Terminal**."
+msgstr ""
+"I mappen **Applications** går du till mappen **Utilities** och öppnar "
+"**Terminal**."
+
+#: ../../en/installation.rst:56
+msgid "Add the command-line utilities to your `PATH` for convenience."
+msgstr "Lägg till kommandoradsverktygen i din `PATH` för enkelhetens skull."
+
+#: ../../en/installation.rst:65
+msgid "PgAdmin for Windows and MacOS"
+msgstr "PgAdmin för Windows och MacOS"
+
+#: ../../en/installation.rst:67
+msgid "PgAdmin is available for multiple platforms, at https://www.pgadmin.org/download/."
+msgstr ""
+"PgAdmin är tillgänglig för flera plattformar på https://www.pgadmin.org/"
+"download/."
+
+#: ../../en/installation.rst:69
+msgid "Download and install the latest version for your platform."
+msgstr "Ladda ner och installera den senaste versionen för din plattform."
+
+#: ../../en/installation.rst:71
+msgid "Start PgAdmin!"
+msgstr "Starta PgAdmin!"

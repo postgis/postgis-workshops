@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-05 13:12+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"geometry_returning_exercises/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/geometry_returning_exercises.rst:4
+msgid "Geometry Constructing Exercises"
+msgstr "Övningar för geometrikonstruktion"
+
+#: ../../en/geometry_returning_exercises.rst:6
+msgid "Here's a reminder of some of the functions we have seen.  Hint: they should be useful for the exercises!"
+msgstr ""
+"Här är en påminnelse om några av de funktioner vi har sett.  Tips: de bör "
+"vara användbara för övningarna!"
+
+#: ../../en/geometry_returning_exercises.rst:8
+msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
+msgstr ""
+":command:`sum(expression)` aggregat för att returnera en summa för en "
+"uppsättning poster"
+
+#: ../../en/geometry_returning_exercises.rst:9
+msgid ":command:`ST_Area(geometry)` returns the area of the geometry"
+msgstr ":command:`ST_Area(geometry)` returnerar geometrins area"
+
+#: ../../en/geometry_returning_exercises.rst:10
+msgid ":command:`ST_Centroid(geometry)` returns the ``geometry`` centroid"
+msgstr ":command:`ST_Centroid(geometry)` returnerar ``geometrins`` centroid"
+
+#: ../../en/geometry_returning_exercises.rst:11
+msgid ":command:`ST_Transform(geometry, srid)` converts ``geometries`` into different spatial reference systems"
+msgstr ""
+":command:`ST_Transform(geometry, srid)` konverterar ``geometrier`` till "
+"olika spatiala referenssystem"
+
+#: ../../en/geometry_returning_exercises.rst:12
+msgid ":command:`ST_Buffer(geometry, radius)` returns an expanded ``geometry`` shape"
+msgstr ""
+":command:`ST_Buffer(geometry, radius)` returnerar en utökad ``geometri``-form"
+
+#: ../../en/geometry_returning_exercises.rst:13
+msgid ":command:`ST_Contains(geometry1, geometry2)` returns truw if geometry1 contains geometry2"
+msgstr ""
+":command:`ST_Contains(geometry1, geometry2)` returnerar truw om geometry1 "
+"innehåller geometry2"
+
+#: ../../en/geometry_returning_exercises.rst:14
+msgid ":command:`ST_Union(geometry[])` returns the aggregate union of all geometries in the group"
+msgstr ""
+":command:`ST_Union(geometry[])` returnerar den aggregerade unionen av alla "
+"geometrier i gruppen"
+
+#: ../../en/geometry_returning_exercises.rst:15
+msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
+msgstr ":command:`ST_GeometryType(geometry)` returnerar typen av geometri"
+
+#: ../../en/geometry_returning_exercises.rst:16
+msgid ":command:`ST_NumGeometries(geometry)` returns the number of geometries in a collection or 1 for simple geometries"
+msgstr ""
+":command:`ST_NumGeometries(geometry)` returnerar antalet geometrier i en "
+"samling eller 1 för enkla geometrier"
+
+#: ../../en/geometry_returning_exercises.rst:17
+msgid ":command:`ST_Intersection(geometry, geometry)` returns the area that the two input geometries share in common"
+msgstr ""
+":command:`ST_Intersection(geometry, geometry)` returnerar den yta som de två "
+"inmatade geometrierna har gemensamt"
+
+#: ../../en/geometry_returning_exercises.rst:20
+msgid "Remember the tables we have available:"
+msgstr "Kom ihåg de tabeller vi har tillgängliga:"
+
+#: ../../en/geometry_returning_exercises.rst:22
+msgid "``nyc_census_blocks``"
+msgstr "``nyc_census_blocks``"
+
+#: ../../en/geometry_returning_exercises.rst:24
+msgid "name, popn_total, boroname, geom"
+msgstr "name, popn_total, boroname, geom"
+
+#: ../../en/geometry_returning_exercises.rst:26
+msgid "``nyc_streets``"
+msgstr "``nyc_streets``"
+
+#: ../../en/geometry_returning_exercises.rst:28
+msgid "name, type, geom"
+msgstr "name, type, geom"
+
+#: ../../en/geometry_returning_exercises.rst:30
+msgid "``nyc_subway_stations``"
+msgstr "``nyc_subway_stations``"
+
+#: ../../en/geometry_returning_exercises.rst:32
+msgid "name, geom"
+msgstr "name, geom"
+
+#: ../../en/geometry_returning_exercises.rst:34
+msgid "``nyc_neighborhoods``"
+msgstr "``nyc_neighborhoods``"
+
+#: ../../en/geometry_returning_exercises.rst:36
+msgid "name, boroname, geom"
+msgstr "name, boroname, geom"
+
+#: ../../en/geometry_returning_exercises.rst:39
+msgid "Exercises"
+msgstr "Övningar"
+
+#: ../../en/geometry_returning_exercises.rst:41
+msgid "**How many census blocks don’t contain their own centroid?**"
+msgstr "**Hur många folkbokföringsblock innehåller inte sin egen centroid?**"
+
+#: ../../en/geometry_returning_exercises.rst:57
+msgid "**Union all the census blocks into a single output. What kind of geometry is it? How many parts does it have?**"
+msgstr ""
+"**Sammanfoga alla folkbokföringsblock till en enda utgång. Vilken typ av "
+"geometri är det? Hur många delar har den?**"
+
+#: ../../en/geometry_returning_exercises.rst:82
+msgid "**What is the area of a one unit buffer around the origin? How different is it from what you would expect? Why?**"
+msgstr ""
+"**Vad är arean av en buffert på en enhet runt origo? Hur mycket skiljer den "
+"sig från vad du skulle förvänta dig? Varför?**"
+
+#: ../../en/geometry_returning_exercises.rst:94
+msgid "A unit circle (circle with radius of one) should have an area of pi, 3.1415926... The difference is due to the linear stroking of the edges of the buffer. The buffer has a finite number of edges. Increasing the number of edges in the buffer will get the value closer to pi, but it will always be smaller due to the linearization."
+msgstr ""
+"En enhetscirkel (cirkel med radien ett) bör ha en area av pi, 3,1415926... "
+"Skillnaden beror på den linjära strykningen av buffertens kanter. Bufferten "
+"har ett ändligt antal kanter. Om man ökar antalet kanter i bufferten kommer "
+"värdet att närma sig pi, men det kommer alltid att vara mindre på grund av "
+"linjäriseringen."
+
+#: ../../en/geometry_returning_exercises.rst:96
+msgid "**The Brooklyn neighborhoods of ‘Park Slope’ and ‘Carroll Gardens’ are going to war! Construct a polygon delineating a 100 meter wide DMZ on the border between the neighborhoods. What is the area of the DMZ?**"
+msgstr ""
+"**Brooklynstadsdelarna \"Park Slope\" och \"Carroll Gardens\" går ut i krig! "
+"Konstruera en polygon som avgränsar en 100 meter bred DMZ på gränsen mellan "
+"stadsdelarna. Vad är DMZ:s area?**"
+
+#: ../../en/geometry_returning_exercises.rst:116
+msgid "It is easy to buffer both the neighborhoods of interest, but to get the intersection requires a self-join of the table, creating one relation (``ps``) with just the \"Park Slope\" record and another (``cg``) with just the \"Carroll Gardens\" record. Note that the area of the intersection is in square meters because we are still working in UTM 18 (EPSG:26918)."
+msgstr ""
+"Det är lätt att buffra båda de intressanta stadsdelarna, men för att få fram "
+"skärningspunkten krävs en self-join av tabellen, vilket skapar en relation "
+"(``ps``) med bara \"Park Slope\"-posten och en annan (``cg``) med bara "
+"\"Carroll Gardens\"-posten. Observera att skärningspunktens yta är i "
+"kvadratmeter eftersom vi fortfarande arbetar i UTM 18 (EPSG:26918)."

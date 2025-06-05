@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"linear_referencing/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/linear_referencing.rst:4
+msgid "Linear Referencing"
+msgstr "Linjär referenstagning"
+
+#: ../../en/linear_referencing.rst:6
+msgid "Linear referencing (sometimes called \"dynamic segmentation\") is a means of representing features that can be described by referencing a base set of linear features. Common examples of features that are modelled using linear referencing are:"
+msgstr ""
+"Linjär referenstagning (ibland kallad \"dynamisk segmentering\") är ett sätt "
+"att representera egenskaper som kan beskrivas genom att referera till en "
+"basuppsättning av linjära egenskaper. Vanliga exempel på funktioner som "
+"modelleras med hjälp av linjär referering är:"
+
+#: ../../en/linear_referencing.rst:8
+msgid "Highway assets, which are referenced using miles along a highway network"
+msgstr ""
+"Highway assets, som refereras till med hjälp av mil längs ett "
+"motorvägsnätverk"
+
+#: ../../en/linear_referencing.rst:9
+msgid "Road maintenance operations, which are referenced as occurring along a road network between a pair of mile measurements."
+msgstr ""
+"Väghållningsåtgärder, som refereras till som förekommande längs ett vägnät "
+"mellan ett par milmätningar."
+
+#: ../../en/linear_referencing.rst:10
+msgid "Aquatic inventories, where fish presence is recorded as existing between a pair of mileage-upstream measurements."
+msgstr ""
+"Vatteninventeringar, där fiskförekomst registreras som befintlig mellan ett "
+"par mätningar av kilometer uppströms."
+
+#: ../../en/linear_referencing.rst:11
+msgid "Hydrologic characterizations (\"reaches\") of streams, recorded with a from- and to- mileage."
+msgstr ""
+"Hydrologiska karakteriseringar (\"sträckor\") av vattendrag, registrerade "
+"med en från- och till-kilometer."
+
+#: ../../en/linear_referencing.rst:13
+msgid "The benefit of linear referencing models is that the dependent spatial observations do not need to be separately recorded from the base observations, and updates to the base observation layer can be carried out knowing that the dependent observations will automatically track the new geometry."
+msgstr ""
+"Fördelen med linjära referensmodeller är att de beroende spatiala "
+"observationerna inte behöver registreras separat från basobservationerna, "
+"och uppdateringar av basobservationsskiktet kan utföras i vetskap om att de "
+"beroende observationerna automatiskt kommer att följa den nya geometrin."
+
+#: ../../en/linear_referencing.rst:17
+msgid "The Esri terminological convention for linear referencing is to have a base table of linear spatial features, and a non-spatial table of \"events\" which includes a foreign key reference to the spatial feature and a measure along the referenced feature. We will use the term \"event table\" to refer to the non-spatial tables we build."
+msgstr ""
+"Esris terminologiska konvention för linjär referens är att ha en bastabell "
+"med linjära spatiala egenskaper och en icke-spatial tabell med \"händelser\" "
+"som innehåller en främmande nyckelreferens till den spatiala egenskapen och "
+"en mätning längs den refererade egenskapen. Vi kommer att använda termen "
+"\"händelsetabell\" för att hänvisa till de icke-spatiala tabeller vi bygger."
+
+#: ../../en/linear_referencing.rst:21
+msgid "Creating Linear References"
+msgstr "Skapa linjära referenser"
+
+#: ../../en/linear_referencing.rst:23
+msgid "If you have an existing point table that you want to reference to a linear network, use the :command:`ST_LineLocatePoint` function, which takes a line and point, and returns the proportion along the line that the point can be found."
+msgstr ""
+"Om du har en befintlig punkttabell som du vill referera till ett linjärt "
+"nätverk använder du funktionen :command:`ST_LineLocatePoint`, som tar en "
+"linje och en punkt och returnerar den andel längs linjen som punkten kan "
+"hittas."
+
+#: ../../en/linear_referencing.rst:35
+msgid "We can convert the **nyc_subway_stations** into an \"event table\" relative to the streets by using :command:`ST_LineLocatePoint`."
+msgstr ""
+"Vi kan konvertera **nyc_subway_stations** till en \"händelsetabell\" i "
+"förhållande till gatorna genom att använda :command:`ST_LineLocatePoint`."
+
+#: ../../en/linear_referencing.rst:70
+msgid "Once we have an event table, it's fun to turn it back into a spatial view, so we can visualize the events relative to the original points they were derived from."
+msgstr ""
+"När vi väl har en händelsetabell är det kul att omvandla den till en spatial "
+"vy, så att vi kan visualisera händelserna i förhållande till de ursprungliga "
+"punkter som de härrör från."
+
+#: ../../en/linear_referencing.rst:72
+msgid "To go from a measure to a point, we use the :command:`ST_LineInterpolatePoint` function. Here's our previous simple examples reversed:"
+msgstr ""
+"För att gå från ett mått till en punkt använder vi funktionen "
+":command:`ST_LineInterpolatePoint`. Här är våra tidigare enkla exempel "
+"omvända:"
+
+#: ../../en/linear_referencing.rst:81
+msgid "And we can join the **nyc_subway_station_events** tables back to the **nyc_streets** table and use the **measure** attribute to generate the spatial event points, without referencing the original **nyc_subway_stations** table."
+msgstr ""
+"Och vi kan koppla **nyc_subway_station_events**-tabellerna tillbaka till "
+"**nyc_streets**-tabellen och använda attributet **measure** för att generera "
+"de spatiala händelsepunkterna, utan att hänvisa till den ursprungliga "
+"**nyc_subway_stations**-tabellen."
+
+#: ../../en/linear_referencing.rst:95
+msgid "Viewing the original (red star) and event (blue circle) points with the streets, you can see how the events are snapped directly to the closest street lines."
+msgstr ""
+"Om du tittar på originalpunkterna (röd stjärna) och händelsepunkterna (blå "
+"cirkel) med gatorna kan du se hur händelserna knyts direkt till de närmaste "
+"gatulinjerna."
+
+#: ../../en/linear_referencing.rst:102
+msgid "One surprising use of the linear referencing functions has nothing to do with linear referencing models. As shown above, it's possible to use the functions to snap points to linear features. For use cases like GPS tracks or other inputs that are expected to reference a linear network, snapping is a handy feature to have available."
+msgstr ""
+"En överraskande användning av de linjära referensfunktionerna har inget att "
+"göra med linjära referensmodeller. Som visas ovan är det möjligt att använda "
+"funktionerna för att snäppa punkter till linjära funktioner. För "
+"användningsfall som GPS-spår eller andra ingångar som förväntas referera "
+"till ett linjärt nätverk är snäppning en praktisk funktion att ha "
+"tillgänglig."
+
+#: ../../en/linear_referencing.rst:106
+msgid "Function List"
+msgstr "Funktionslista"
+
+#: ../../en/linear_referencing.rst:108
+msgid "`ST_LineInterpolatePoint(geometry A, double measure) <http://postgis.net/docs/ST_LineInterpolatePoint.html>`_: Returns a point interpolated along a line."
+msgstr ""
+"`ST_LineInterpolatePoint(geometry A, double measure) <http://postgis.net/"
+"docs/ST_LineInterpolatePoint.html>`_: Returnerar en punkt interpolerad längs "
+"en linje."
+
+#: ../../en/linear_referencing.rst:109
+msgid "`ST_LineLocatePoint(geometry A, geometry B) <http://postgis.net/docs/ST_LineLocatePoint.html>`_: Returns a float between 0 and 1 representing the location of the closest point on LineString to the given Point."
+msgstr ""
+"`ST_LineLocatePoint(geometri A, geometri B) <http://postgis.net/docs/"
+"ST_LineLocatePoint.html>`_: Returnerar en flottör mellan 0 och 1 som "
+"representerar platsen för den punkt på LineString som ligger närmast den "
+"angivna Point."
+
+#: ../../en/linear_referencing.rst:110
+msgid "`ST_LineSubstring(geometry A, double from, double to) <http://postgis.net/docs/ST_LineSubstring.html>`_: Return a linestring being a substring of the input one starting and ending at the given fractions of total 2d length."
+msgstr ""
+"`ST_LineSubstring(geometri A, dubbel från, dubbel till) <http://postgis.net/"
+"docs/ST_LineSubstring.html>`_: Returnerar en linjestring som är en delsträng "
+"av den ingående som börjar och slutar vid de angivna fraktionerna av den "
+"totala 2d-längden."
+
+#: ../../en/linear_referencing.rst:111
+msgid "`ST_LocateAlong(geometry A, double measure) <http://postgis.net/docs/ST_LocateAlong.html>`_: Return a derived geometry collection value with elements that match the specified measure."
+msgstr ""
+"`ST_LocateAlong(geometri A, dubbelmått) <http://postgis.net/docs/"
+"ST_LocateAlong.html>`_: Returnerar ett härlett geometrisamlingsvärde med "
+"element som matchar det angivna måttet."
+
+#: ../../en/linear_referencing.rst:112
+msgid "`ST_LocateBetween(geometry A, double from, double to) <http://postgis.net/docs/ST_LocateBetween.html>`_: Return a derived geometry collection value with elements that match the specified range of measures inclusively."
+msgstr ""
+"`ST_LocateBetween(geometry A, double from, double to) <http://postgis.net/"
+"docs/ST_LocateBetween.html>`_: Returnerar ett härlett geometrisamlingsvärde "
+"med element som matchar det angivna intervallet av mått inklusive."
+
+#: ../../en/linear_referencing.rst:113
+msgid "`ST_AddMeasure(geometry A, double from, double to) <http://postgis.net/docs/ST_AddMeasure.html>`_: Return a derived geometry with measure elements linearly interpolated between the start and end points. If the geometry has no measure dimension, one is added."
+msgstr ""
+"`ST_AddMeasure(geometry A, double from, double to) <http://postgis.net/docs/"
+"ST_AddMeasure.html>`_: Returnerar en härledd geometri med måttelement "
+"linjärt interpolerade mellan start- och slutpunkterna. Om geometrin inte har "
+"någon måttdimension läggs en till."

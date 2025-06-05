@@ -1,0 +1,268 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-05 13:50+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"geometries_exercises/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/geometries_exercises.rst:4
+msgid "Geometry Exercises"
+msgstr "Övningar i geometri"
+
+#: ../../en/geometries_exercises.rst:6
+msgid "Here's a reminder of all the functions we have seen so far. They should be useful for the exercises!"
+msgstr ""
+"Här är en påminnelse om alla de funktioner vi har sett hittills. De bör vara "
+"användbara för övningarna!"
+
+#: ../../en/geometries_exercises.rst:8
+msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
+msgstr ""
+":command:`sum(expression)` aggregat för att returnera en summa för en "
+"uppsättning poster"
+
+#: ../../en/geometries_exercises.rst:9
+msgid ":command:`count(expression)` aggregate to return the size of a set of records"
+msgstr ""
+":command:`count(expression)` aggregat för att returnera storleken på en "
+"uppsättning poster"
+
+#: ../../en/geometries_exercises.rst:10
+msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
+msgstr ":command:`ST_GeometryType(geometry)` returnerar typen av geometri"
+
+#: ../../en/geometries_exercises.rst:11
+msgid ":command:`ST_NDims(geometry)` returns the number of dimensions of the geometry"
+msgstr ""
+":command:`ST_NDims(geometry)` returnerar antalet dimensioner för geometrin"
+
+#: ../../en/geometries_exercises.rst:12
+msgid ":command:`ST_SRID(geometry)` returns the spatial reference identifier number of the geometry"
+msgstr ""
+":command:`ST_SRID(geometry)` returnerar geometrins identifieringsnummer för "
+"spatial referens"
+
+#: ../../en/geometries_exercises.rst:13
+msgid ":command:`ST_X(point)` returns the X ordinate"
+msgstr ":command:`ST_X(point)` returnerar X-ordinaten"
+
+#: ../../en/geometries_exercises.rst:14
+msgid ":command:`ST_Y(point)` returns the Y ordinate"
+msgstr ":command:`ST_Y(point)` returnerar Y-ordinaten"
+
+#: ../../en/geometries_exercises.rst:15
+msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
+msgstr ":command:`ST_Length(linestring)` returnerar längden på linestring"
+
+#: ../../en/geometries_exercises.rst:16
+msgid ":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
+msgstr ""
+":command:`ST_StartPoint(geometry)` returnerar den första koordinaten som en "
+"punkt"
+
+#: ../../en/geometries_exercises.rst:17
+msgid ":command:`ST_EndPoint(geometry)` returns the last coordinate as a point"
+msgstr ""
+":command:`ST_EndPoint(geometry)` returnerar den sista koordinaten som en "
+"punkt"
+
+#: ../../en/geometries_exercises.rst:18
+msgid ":command:`ST_NPoints(geometry)` returns the number of coordinates in the linestring"
+msgstr ""
+":command:`ST_NPoints(geometry)` returnerar antalet koordinater i "
+"linjesträngen"
+
+#: ../../en/geometries_exercises.rst:19
+msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
+msgstr ":command:`ST_Area(geometry)` returnerar polygonernas area"
+
+#: ../../en/geometries_exercises.rst:20
+msgid ":command:`ST_NRings(geometry)` returns the number of rings (usually 1, more if there are holes)"
+msgstr ""
+":command:`ST_NRings(geometry)` returnerar antalet ringar (vanligtvis 1, fler "
+"om det finns hål)"
+
+#: ../../en/geometries_exercises.rst:21
+msgid ":command:`ST_ExteriorRing(polygon)` returns the outer ring as a linestring"
+msgstr ""
+":command:`ST_ExteriorRing(polygon)` returnerar den yttre ringen som en "
+"linjestring"
+
+#: ../../en/geometries_exercises.rst:22
+msgid ":command:`ST_InteriorRingN(polygon, integer)` returns a specified interior ring as a linestring"
+msgstr ""
+":command:`ST_InteriorRingN(polygon, integer)` returnerar en angiven inre "
+"ring som en linjestring"
+
+#: ../../en/geometries_exercises.rst:23
+msgid ":command:`ST_Perimeter(geometry)` returns the length of all the rings"
+msgstr ":command:`ST_Perimeter(geometry)` returnerar längden på alla ringar"
+
+#: ../../en/geometries_exercises.rst:24
+msgid ":command:`ST_NumGeometries(multi/geomcollection)` returns the number of parts in the collection"
+msgstr ""
+":command:`ST_NumGeometries(multi/geomcollection)` returnerar antalet delar i "
+"samlingen"
+
+#: ../../en/geometries_exercises.rst:25
+msgid ":command:`ST_GeometryN(geometry, integer)` returns the specified part of the collection"
+msgstr ""
+":command:`ST_GeometryN(geometry, integer)` returnerar den angivna delen av "
+"samlingen"
+
+#: ../../en/geometries_exercises.rst:26
+msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
+msgstr ":command:`ST_GeomFromText(text)` returnerar ``geometri``"
+
+#: ../../en/geometries_exercises.rst:27
+msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
+msgstr ":command:`ST_AsText(geometry)` returnerar WKT ``text``"
+
+#: ../../en/geometries_exercises.rst:28
+msgid ":command:`ST_AsEWKT(geometry)` returns EWKT ``text``"
+msgstr ":command:`ST_AsEWKT(geometry)` returnerar EWKT ``text``"
+
+#: ../../en/geometries_exercises.rst:29
+msgid ":command:`ST_GeomFromWKB(bytea)` returns ``geometry``"
+msgstr ":command:`ST_GeomFromWKB(bytea)` returnerar ``geometri``"
+
+#: ../../en/geometries_exercises.rst:30
+msgid ":command:`ST_AsBinary(geometry)` returns WKB ``bytea``"
+msgstr ":command:`ST_AsBinary(geometry)` returnerar WKB ``bytea``"
+
+#: ../../en/geometries_exercises.rst:31
+msgid ":command:`ST_AsEWKB(geometry)` returns EWKB ``bytea``"
+msgstr ":command:`ST_AsEWKB(geometry)` returnerar EWKB ``bytea``"
+
+#: ../../en/geometries_exercises.rst:32
+msgid ":command:`ST_GeomFromGML(text)` returns ``geometry``"
+msgstr ":command:`ST_GeomFromGML(text)` returnerar ``geometri``"
+
+#: ../../en/geometries_exercises.rst:33
+msgid ":command:`ST_AsGML(geometry)` returns GML ``text``"
+msgstr ":command:`ST_AsGML(geometry)` returnerar GML ``text``"
+
+#: ../../en/geometries_exercises.rst:34
+msgid ":command:`ST_GeomFromKML(text)` returns ``geometry``"
+msgstr ":command:`ST_GeomFromKML(text)` returnerar ``geometri``"
+
+#: ../../en/geometries_exercises.rst:35
+msgid ":command:`ST_AsKML(geometry)` returns KML ``text``"
+msgstr ":command:`ST_AsKML(geometry)` returnerar KML ``text``"
+
+#: ../../en/geometries_exercises.rst:36
+msgid ":command:`ST_AsGeoJSON(geometry)` returns JSON ``text``"
+msgstr ":command:`ST_AsGeoJSON(geometry)` returnerar JSON ``text``"
+
+#: ../../en/geometries_exercises.rst:37
+msgid ":command:`ST_AsSVG(geometry)` returns SVG ``text``"
+msgstr ":command:`ST_AsSVG(geometry)` returnerar SVG ``text``"
+
+#: ../../en/geometries_exercises.rst:39
+msgid "Also remember the tables we have available:"
+msgstr "Tänk också på de tabeller vi har tillgängliga:"
+
+#: ../../en/geometries_exercises.rst:41
+msgid "``nyc_census_blocks``"
+msgstr "``nyc_census_blocks``"
+
+#: ../../en/geometries_exercises.rst:43
+msgid "blkid, popn_total, boroname, geom"
+msgstr "blkid, popn_total, boroname, geom"
+
+#: ../../en/geometries_exercises.rst:45
+msgid "``nyc_streets``"
+msgstr "``nyc_streets``"
+
+#: ../../en/geometries_exercises.rst:47
+msgid "name, type, geom"
+msgstr "name, type, geom"
+
+#: ../../en/geometries_exercises.rst:49
+msgid "``nyc_subway_stations``"
+msgstr "``nyc_subway_stations``"
+
+#: ../../en/geometries_exercises.rst:51
+msgid "name, geom"
+msgstr "name, geom"
+
+#: ../../en/geometries_exercises.rst:53
+msgid "``nyc_neighborhoods``"
+msgstr "``nyc_neighborhoods``"
+
+#: ../../en/geometries_exercises.rst:55
+msgid "name, boroname, geom"
+msgstr "name, boroname, geom"
+
+#: ../../en/geometries_exercises.rst:58
+msgid "Exercises"
+msgstr "Övningar"
+
+#: ../../en/geometries_exercises.rst:60
+msgid "**What is the area of the 'West Village' neighborhood?**"
+msgstr "**Vad är området för stadsdelen \"West Village\"?**"
+
+#: ../../en/geometries_exercises.rst:74
+msgid "The area is given in square meters. To get an area in hectares, divide by 10000. To get an area in acres, divide by 4047."
+msgstr ""
+"Arean anges i kvadratmeter. För att få en yta i hektar, dividera med 10000. "
+"För att få en yta i hektar, dividera med 4047."
+
+#: ../../en/geometries_exercises.rst:77
+msgid "**What is the geometry type of ‘Pelham St’? The length?**"
+msgstr "**Vilken geometri har \"Pelham St\"? Längden?**"
+
+#: ../../en/geometries_exercises.rst:93
+msgid "**What is the GeoJSON representation of the 'Broad St' subway station?**"
+msgstr ""
+"**Vad är GeoJSON-representationen av tunnelbanestationen \"Broad St\"?**"
+
+#: ../../en/geometries_exercises.rst:109
+msgid "**What is the total length of streets (in kilometers) in New York City?** (Hint: The units of measurement of the spatial data are meters, there are 1000 meters in a kilometer.)"
+msgstr ""
+"**Vad är den totala längden på gatorna (i kilometer) i New York City?** "
+"(Tips: Måttenheterna för de spatiala uppgifterna är meter, det går 1000 "
+"meter på en kilometer)"
+
+#: ../../en/geometries_exercises.rst:121
+msgid "**What is the area of Manhattan in acres?** (Hint: both ``nyc_census_blocks`` and ``nyc_neighborhoods`` have a ``boroname`` in them.)"
+msgstr ""
+"** Vad är Manhattans yta i hektar? ** (Tips: både ``nyc_census_blocks`` och "
+"``nyc_neighborhoods`` har ett ``boroname`` i sig)"
+
+#: ../../en/geometries_exercises.rst:133
+msgid "or..."
+msgstr "eller..."
+
+#: ../../en/geometries_exercises.rst:146
+msgid "**What is the most westerly subway station?**"
+msgstr "**Vilken är den västligaste tunnelbanestationen?**"
+
+#: ../../en/geometries_exercises.rst:160
+msgid "**How long is 'Columbus Cir' (aka Columbus Circle)?**"
+msgstr "**Hur lång är Columbus Cir (även kallad Columbus Circle)?**"
+
+#: ../../en/geometries_exercises.rst:173
+msgid "**What is the length of streets in New York City, summarized by type?**"
+msgstr "**Vad är längden på gatorna i New York City, sammanfattat per typ?**"
+
+#: ../../en/geometries_exercises.rst:211
+msgid "The ``ORDER BY length DESC`` clause sorts the result by length in descending order. The result is that most prevalent types are first in the list."
+msgstr ""
+"Klausulen ``ORDER BY length DESC`` sorterar resultatet efter längd i "
+"fallande ordning. Resultatet blir att de mest förekommande typerna står "
+"först i listan."

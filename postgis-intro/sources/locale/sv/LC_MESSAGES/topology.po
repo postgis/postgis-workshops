@@ -1,0 +1,251 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 19:56+0000\nPO-Revision-Date: 2025-06-04 17:47+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/topology/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
+
+#: ../../en/topology.rst:4
+msgid "Topology"
+msgstr "Topologi"
+
+#: ../../en/topology.rst:6
+msgid "PostGIS supports the SQL/MM SQL-MM 3 Topo-Geo and Topo-Net 3 specifications via an extension called **postgis_topology**. You can learn about all the functions and types provided by this extension in `Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_. The *postgis_topology* extension includes another kind of core spatial type, called a **topogeometry**. In addition to the *topogeometry* spatial type, you will find functions for building *topologies* and populating topologies."
+msgstr "PostGIS stöder SQL/MM SQL-MM 3 Topo-Geo och Topo-Net 3 specifikationer via ett tillägg som heter **postgis_topology**. Du kan lära dig mer om alla funktioner och typer som tillhandahålls av detta tillägg i `Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_. Tillägget *postgis_topology* innehåller en annan typ av spatial kärntyp, som kallas **topogeometry**. Förutom den spatiala typen *topogeometry* hittar du funktioner för att bygga *topologier* och fylla i topologier."
+
+#: ../../en/topology.rst:14
+msgid "Before you can start using topologies, you must install postgis_topology extension as follows:"
+msgstr "Innan du kan börja använda topologier måste du installera tillägget postgis_topology enligt följande:"
+
+#: ../../en/topology.rst:21
+msgid "After you install the extension, you will see a new schema in your database called `topology`. The `topology` schema catalogs all the topologies in your database."
+msgstr "När du har installerat tillägget kommer du att se ett nytt schema i din databas som heter `topology`. Schemat `topology` katalogiserar alla topologier i din databas."
+
+#: ../../en/topology.rst:24
+msgid "The `topology` schema contains two tables and all the helper functions for topology."
+msgstr "Schemat `topology` innehåller två tabeller och alla hjälpfunktioner för topologi."
+
+#: ../../en/topology.rst:26
+msgid "topology - lists all the topologies in your database, and what schema they are stored in"
+msgstr "topologi - listar alla topologier i databasen och i vilket schema de lagras"
+
+#: ../../en/topology.rst:27
+msgid "layer - lists all the table columns in your database that hold topogeometries"
+msgstr "layer - listar alla tabellkolumner i din databas som innehåller topogeometrier"
+
+#: ../../en/topology.rst:29
+msgid "The *layer* table is very similar to the `raster_columns`, `geometry_columns`, and `geography_columns` catalogs we learned about earlier, but specifically for topogeometries."
+msgstr "Tabellen *layer* är mycket lik katalogerna `raster_columns`, `geometry_columns` och `geography_columns` som vi lärde oss om tidigare, men specifikt för topogeometrier."
+
+#: ../../en/topology.rst:33
+msgid "Creating topologies"
+msgstr "Skapa topologier"
+
+#: ../../en/topology.rst:34
+msgid "What exactly is a topology and a topogeometry, and how are they related? Before we explain, let's start by creating a topology to house our NYC topologically perfect data using the `CreateTopology <https://postgis.net/docs/CreateTopology.html>`_ function and set the tolerance to be 0.5 meters. Note the 0.5 is in meters since our spatial reference system is State Plany NY meters."
+msgstr "Vad exakt är en topologi och en topogeometri, och hur är de relaterade? Innan vi förklarar, låt oss börja med att skapa en topologi för att hysa våra NYC-topologiskt perfekta data med hjälp av funktionen `CreateTopology <https://postgis.net/docs/CreateTopology.html>`_ och ställa in toleransen till 0,5 meter. Observera att 0,5 är i meter eftersom vårt spatiala referenssystem är State Plany NY meter."
+
+#: ../../en/topology.rst:44
+#: ../../en/topology.rst:211
+msgid "Which outputs:"
+msgstr "Vilket matar ut:"
+
+#: ../../en/topology.rst:50
+msgid "Which is the id it assigned the new topology. Once you run the above command, you will see a new schema in your database called `nyc_topo`. You can name the topology anything you want. My convention is to add `_topo` at the end to distinguish it from other schemas I have in my database."
+msgstr "Vilket är det id som den tilldelade den nya topologin. När du har kört ovanstående kommando kommer du att se ett nytt schema i din databas som heter `nyc_topo`. Du kan namnge topologin vad du vill. Min konvention är att lägga till `_topo` i slutet för att skilja det från andra scheman jag har i min databas."
+
+#: ../../en/topology.rst:56
+msgid "If you explore the `topology.topology` table,"
+msgstr "Om du utforskar tabellen `topology.topology`,"
+
+#: ../../en/topology.rst:62
+msgid "You will see:"
+msgstr "Du kommer att få se:"
+
+#: ../../en/topology.rst:72
+msgid "Storage of topologies and topogeometries"
+msgstr "Lagring av topologier och topogeometrier"
+
+#: ../../en/topology.rst:73
+msgid "A topology is implemented as a schema in a PostgreSQL database. If you explore the `nyc_topo` schema, you will see these tables and views:"
+msgstr "En topologi implementeras som ett schema i en PostgreSQL-databas. Om du utforskar schemat `nyc_topo` kommer du att se dessa tabeller och vyer:"
+
+#: ../../en/topology.rst:76
+msgid "edge - This is a view built against edge_data, mostly for SQL/MM compliance."
+msgstr "edge - Detta är en vy som bygger på edge_data, främst för SQL/MM-överensstämmelse."
+
+#: ../../en/topology.rst:77
+msgid "It has a subset of the columns in the `edge_data` table."
+msgstr "Den har en delmängd av kolumnerna i tabellen `edge_data`."
+
+#: ../../en/topology.rst:78
+msgid "edge_data - Contains all the linestrings that make up the topology"
+msgstr "edge_data - Innehåller alla linjestrings som utgör topologin"
+
+#: ../../en/topology.rst:79
+msgid "face - Contains a list of all closed surfaces that can be formed from the edge_data."
+msgstr "face - Innehåller en lista över alla slutna ytor som kan bildas från edge_data."
+
+#: ../../en/topology.rst:80
+msgid "It does not contain the actual geometry, but instead just the bounding box of the geometry."
+msgstr "Den innehåller inte den faktiska geometrin utan bara geometrins avgränsningsbox."
+
+#: ../../en/topology.rst:81
+msgid "node - Contains all the start and end points of all edges as well as points not connected to anything (isolated nodes)"
+msgstr "nod - Innehåller alla start- och slutpunkter för alla kanter samt punkter som inte är anslutna till något (isolerade noder)"
+
+#: ../../en/topology.rst:82
+msgid "relation - this defines what elements in a topology make up a topogeometry."
+msgstr "relation - detta definierar vilka element i en topologi som utgör en topogeometri."
+
+#: ../../en/topology.rst:84
+msgid "So what is a topogeometry?  A topogeometry is a representation of a geometry formed from the edges, faces, nodes, and other topogeometries in a topology."
+msgstr "Vad är då en topogeometri?  En topogeometri är en representation av en geometri som bildas av kanter, ytor, noder och andra topogeometrier i en topologi."
+
+#: ../../en/topology.rst:87
+msgid "Where does a topogeometry reside?  It resides somewhere else which references elements of a topology via the *relation* table. Although we could throw the topogeometries in our `nyc_topo` schema, the general convention, is to define other tables in other schemas that have a topogeometry, and also have any other kind of data you might be interested in tracking."
+msgstr "Var finns en topogeometri?  Den finns någon annanstans som refererar till element i en topologi via *relation*-tabellen. Även om vi kunde kasta topogeometrierna i vårt `nyc_topo` -schema, är den allmänna konventionen att definiera andra tabeller i andra scheman som har en topogeometri och också har någon annan typ av data som du kanske är intresserad av att spåra."
+
+#: ../../en/topology.rst:93
+msgid "Why use topogeometries?"
+msgstr "Varför använda topogeometrier?"
+
+#: ../../en/topology.rst:94
+msgid "Using topogeometries keeps your data tidy and connected. Topogeometries are very useful for Cadastral work, where you want to make sure two parcels of land don't overlap each other even if you change the boundaries of one or you want to make sure roads stay connected as you change the geometries that form them. Geometries live in an island of their own, you can duplicate them, morph them. Geometries are carefree, not caring about other geometries that share space with them. Topogeometries, in contrast, follow the rules of their topology; they can't exist unless there is an edge, node, face, or other topogeometry that defines them. A topogeometry belongs to one and only one topology. A topogeometry is a relational model of a geometry and as such as each component (edges/faces/nodes) are moved, added etc, they change not one topogeometry shape, but all topogeometries that have components in common."
+msgstr "Genom att använda topogeometrier håller du dina data prydliga och sammankopplade. Topogeometrier är mycket användbara för lantmäteriarbete, där du vill se till att två skiften inte överlappar varandra även om du ändrar gränserna för det ena eller att vägar förblir sammankopplade när du ändrar geometrierna som bildar dem. Geometrier lever på en egen ö, man kan duplicera dem, morfa dem. Geometrier är bekymmerslösa och bryr sig inte om andra geometrier som delar utrymme med dem. Topogeometrier följer däremot reglerna för sin topologi; de kan inte existera om det inte finns en kant, nod, yta eller annan topogeometri som definierar dem. En topogeometri hör till en och endast en topologi. En topogeometri är en relationsmodell av en geometri och när varje komponent (kanter/ytor/noder) flyttas, läggs till etc. ändras inte en topogeometris form, utan alla topogeometrier som har gemensamma komponenter."
+
+#: ../../en/topology.rst:105
+msgid "We have an `nyc_topo` topology devoid of any data.  Let's populate it with our NYC data. Topology edges, faces, and nodes can be created in 2 keys ways."
+msgstr "Vi har en `nyc_topo`-topologi som saknar data.  Låt oss fylla på den med våra NYC-data. Topologikanter, ansikten och noder kan skapas på två olika sätt."
+
+#: ../../en/topology.rst:108
+msgid "Edges, Faces, and Nodes can be created directly using topology primitive functions."
+msgstr "Edges, Faces och Nodes kan skapas direkt med hjälp av primitiva topologifunktioner."
+
+#: ../../en/topology.rst:109
+msgid "Edges, Faces, and Nodes can be formed by creating topogeometries. When a topogeometry is created from a geometry and their are missing edges, faces, or nodes that match its coordinates, then new edges, faces, and nodes are created as part of the process."
+msgstr "Edges, Faces och Nodes kan bildas genom att skapa topogeometrier. När en topogeometri skapas från en geometri och det saknas kanter, ytor eller noder som matchar dess koordinater, skapas nya kanter, ytor och noder som en del av processen."
+
+#: ../../en/topology.rst:115
+msgid "Defining topogeometry columns and creating topogeometries"
+msgstr "Definiera kolumner för topogeometri och skapa topogeometrier"
+
+#: ../../en/topology.rst:116
+msgid "The most common way to populate topologies is to create topogeometries. Lets start by creating a table to hold neighborhoods and then add a topogeometry column using the `AddTopoGeometryColumn <https://postgis.net/docs/AddTopoGeometryColumn.html>`_ function."
+msgstr "Det vanligaste sättet att fylla i topologier är att skapa topogeometrier. Vi börjar med att skapa en tabell som innehåller stadsdelar och lägger sedan till en topogeometrikolumn med hjälp av funktionen `AddTopoGeometryColumn <https://postgis.net/docs/AddTopoGeometryColumn.html>`_."
+
+#: ../../en/topology.rst:128
+msgid "The output of the above is:"
+msgstr "Utgången av ovanstående är:"
+
+#: ../../en/topology.rst:136
+msgid "Now we are ready to populate our table. It's best to ensure your geometries are valid before adding, otherwise you'll get errors such as SQL\\MM geometry is not simple."
+msgstr "Nu är vi redo att fylla i vår tabell. Det är bäst att se till att geometrierna är giltiga innan du lägger till dem, annars får du felmeddelanden som SQL\\MM geometry is not simple."
+
+#: ../../en/topology.rst:140
+msgid "So lets start by adding valid ones.  The 1 used here refers to the layer_id generated from the previous query. If you don't know the layer id, you would look it up using the `FindLayer <https://postgis.net/docs/FindLayer.html>`_ function which we'll use in later examples."
+msgstr "Så låt oss börja med att lägga till giltiga sådana.  Det 1 som används här hänvisar till det layer_id som genererades från den tidigare frågan. Om du inte känner till lager-ID:t kan du leta upp det med hjälp av funktionen `FindLayer <https://postgis.net/docs/FindLayer.html>`_ som vi använder i senare exempel."
+
+#: ../../en/topology.rst:144
+msgid "For these examples you'll use the function `toTopoGeom <https://postgis.net/docs/toTopoGeom.html>`_ function to convert a geometry to it's topogeometry equivalent.  toTopoGeom function handles a lot of book-keeping for you."
+msgstr "I de här exemplen använder du funktionen `toTopoGeom <https://postgis.net/docs/toTopoGeom.html>`_ för att konvertera en geometri till dess topogeometriska motsvarighet. toTopoGeom-funktionen sköter en hel del bokföring åt dig."
+
+#: ../../en/topology.rst:147
+msgid "The `toTopoGeom` function inspects the geometry passed in and injects nodes, edges, and faces as needed into your topology to form the shape of the geometry.  It will then add relationships to the `relation` table that defines how this new topogeometry is related to these new and existing topology elements. In some cases pieces of the geometry may exist or existing pieces need to be split to form the new geometry."
+msgstr "Funktionen `toTopoGeom` inspekterar den geometri som skickas in och injicerar noder, kanter och ytor efter behov i din topologi för att bilda geometrins form.  Den lägger sedan till relationer i tabellen `relation` som definierar hur den nya topogeometrin är relaterad till dessa nya och befintliga topologielement. I vissa fall kan det finnas delar av geometrin eller så måste befintliga delar delas upp för att bilda den nya geometrin."
+
+#: ../../en/topology.rst:157
+msgid "The above step should take 3-4 secs. Now lets add the invalid ones:"
+msgstr "Ovanstående steg bör ta 3-4 sekunder. Låt oss nu lägga till de ogiltiga:"
+
+#: ../../en/topology.rst:171
+msgid "The above should take about 300-400ms."
+msgstr "Ovanstående bör ta cirka 300-400 ms."
+
+#: ../../en/topology.rst:173
+msgid "Now we have data in our topology.  A quick check will show, nyc_topo.edge, nyc_topo.node, and nyc_topo.face have data:"
+msgstr "Nu har vi data i vår topologi.  En snabb kontroll visar att nyc_topo.edge, nyc_topo.node och nyc_topo.face har data:"
+
+#: ../../en/topology.rst:186
+msgid "outputs:"
+msgstr "utgångar:"
+
+#: ../../en/topology.rst:198
+msgid "Now we can express declaritively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
+msgstr "Nu kan vi deklarativt uttrycka att boros bildas av en samling grannskap genom att definiera en kolumn som heter *topo* i *nyc_boros_t*-tabellen som är av typen POLYGON och är en samling av andra topogeometrier från *nyc_neighborhoods_t.topo*-kolumnen."
+
+#: ../../en/topology.rst:221
+msgid "In order to populate this new table, we'll use the `CreateTopoGeom <https://postgis.net/docs/CreateTopoGeom.html>`_ function. Instead of starting with geometries to form a new topogeometry, the CreateTopoGeom starts with existing topology elements which may be primitives or other topogeometries to define a new topogeometry."
+msgstr "För att fylla i denna nya tabell använder vi funktionen `CreateTopoGeom <https://postgis.net/docs/CreateTopoGeom.html>`_. I stället för att börja med geometrier för att bilda en ny topogeometri, börjar CreateTopoGeom med befintliga topologielement som kan vara primitiver eller andra topogeometrier för att definiera en ny topogeometri."
+
+#: ../../en/topology.rst:235
+msgid "Which will insert 5 records corresponding to the boroughs of New York."
+msgstr "Vilket kommer att infoga 5 poster som motsvarar stadsdelarna i New York."
+
+#: ../../en/topology.rst:239
+msgid "If you are using PostGIS 3.4 or higher, you can use the new cast to cast a topogeometry to a topoelement, and replace `topology.TopoElementArray_Agg( ARRAY[ (n.topo).id, (n.topo).layer_id ]::topoelement ) )` in the above example with the shorter `topology.TopoElementArray_Agg( n.topo::topoelement )`"
+msgstr "Om du använder PostGIS 3.4 eller senare kan du använda det nya kastet för att kasta en topogeometri till ett topoelement och ersätta `topology.TopoElementArray_Agg( ARRAY[ (n.topo).id, (n.topo).layer_id ]::topoelement ) )` i exemplet ovan med det kortare `topology.TopoElementArray_Agg( n.topo::topoelement )`"
+
+#: ../../en/topology.rst:244
+msgid "To view these in pgAdmin, you can cast the topogeometry to a geometry as follows:"
+msgstr "Om du vill visa dessa i pgAdmin kan du omvandla topogeometrin till en geometri på följande sätt:"
+
+#: ../../en/topology.rst:252
+msgid "The output will look like below:"
+msgstr "Utdata kommer att se ut som nedan:"
+
+#: ../../en/topology.rst:256
+msgid "If you are thinking, what a total mess, yes it is a total mess. This is what happens after numerous cycles of simplification and other geometry processes where each geometry is treated as a separate unit.  You get gaps, you get dangling islands, and neighborhoods encroaching on each other's territory."
+msgstr "Om du tänker att det är en enda röra, så är det en enda röra. Detta är vad som händer efter många cykler av förenkling och andra geometriska processer där varje geometri behandlas som en separat enhet.  Du får luckor, du får dinglande öar och stadsdelar som inkräktar på varandras territorium."
+
+#: ../../en/topology.rst:261
+msgid "Luckily we can use topology to clean up this mess and to help us maintain good clean connected data."
+msgstr "Som tur är kan vi använda topologi för att städa upp i den här röran och hjälpa oss att behålla bra, rena och sammanhängande data."
+
+#: ../../en/topology.rst:263
+msgid "Let's put our land surveyor hat on and ask the question, if we are dividing our plots of land into districts (boros or neighborhoods) such that each district may border other districts but should not share any area in common, does it make sense for districts to have areas in common?  No it does not make sense. And here we are with our data pointing out some areas belong to more than one neighborhood or more than one borough."
+msgstr "Låt oss ta på oss lantmäterihatten och ställa frågan: om vi delar in våra tomter i distrikt (boros eller stadsdelar) så att varje distrikt kan gränsa till andra distrikt men inte ska ha något gemensamt område, är det då rimligt att distrikten har gemensamma områden?  Nej, det är inte vettigt. Och här är vi med våra data som pekar på att vissa områden tillhör mer än ett grannskap eller mer än en stadsdel."
+
+#: ../../en/topology.rst:269
+msgid "Lets first look at boros and look for neighborhoods that share elements in common:"
+msgstr "Låt oss först titta på Boros och leta efter stadsdelar som delar element gemensamt:"
+
+#: ../../en/topology.rst:279
+msgid "The output is:"
+msgstr "Utgången är:"
+
+#: ../../en/topology.rst:292
+msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaritively inspect what components are shared across boroughs."
+msgstr "Vilket säger oss att Queens och Brooklyn är mitt uppe i ett gränskrig. I den här frågan använder vi funktionen `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ för att deklaritivt inspektera vilka komponenter som delas mellan stadsdelar."
+
+#: ../../en/topology.rst:296
+msgid "What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number being the id of the element, and the second, being the layer (or primitive type) of the element. PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces). All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ to get a visual representation of these shared faces as folows:"
+msgstr "Det som returneras är en uppsättning topolements.  Ett topoelement representeras som en array av 2 heltal där det första talet är elementets id och det andra är elementets lager (eller primitiva typ). PostGIS GetTopoElements returnerar primitiverna i en topogeometri med typerna nummer 1-3 som motsvarar (1: noder, 2: kanter och 3: ytor). Alla topoelements för grannskap och stadsdelar är av typ 3, vilket motsvarar en topologisk yta. Vi kan använda `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ för att få en visuell representation av dessa delade ansikten enligt följande:"
+
+#: ../../en/topology.rst:311
+msgid "The result will be 5 rows corresponding to border disputes between Queens and Brooklyn."
+msgstr "Resultatet blir 5 rader som motsvarar gränstvister mellan Queens och Brooklyn."
+
+#: ../../en/topology.rst:313
+msgid "If we look at our neighborhoods, we'll see a similar story but with 44 border disputes:"
+msgstr "Om vi tittar på våra grannskap ser vi en liknande historia men med 44 gränstvister:"
+
+#: ../../en/topology.rst:324
+msgid "Because boroughs are an aggregation of neighborhoods, we can fix the borough issue by fixing the neighborhood border disputes."
+msgstr "Eftersom stadsdelar är en sammanslagning av grannskap kan vi lösa stadsdelsfrågan genom att lösa grannskapets gränstvister."
+
+#: ../../en/topology.rst:327
+msgid "There are a number of ways we could fix this. We could go out surveying asking people what neighbhood do they think they are standing in.  Alternatively we could just assign slivers of land to the neighborhood with the least amount of area or to the highest bidder."
+msgstr "Det finns ett antal sätt att åtgärda detta. Vi skulle kunna gå ut och fråga folk i vilket grannskap de tror att de bor.  Alternativt kan vi bara tilldela landområden till grannskapet med minst yta eller till den högsta budgivaren."
+
+#: ../../en/topology.rst:331
+msgid "Removing elements from Topogeometries is handled using the `TopoGeom_remElement <https://postgis.net/docs/TopoGeom_remElement.html>`_ function.  So lets get on with it, removing duplicaed elements from neighborhoods with the most amount of area as follows:"
+msgstr "Att ta bort element från topogeometrier hanteras med hjälp av funktionen `TopoGeom_remElement <https://postgis.net/docs/TopoGeom_remElement.html>`_.  Så låt oss sätta igång och ta bort duplicerade element från stadsdelar med störst yta enligt följande:"
+
+#: ../../en/topology.rst:346
+msgid "The result of the above is 29 neighborhoods were updated. If you rerun the border dispute queries for neighborhoods and boroughs, you'll find you have no more border disputes."
+msgstr "Resultatet av ovanstående är att 29 stadsdelar uppdaterades. Om du kör om gränstvistfrågorna för stadsdelar och distrikt kommer du att upptäcka att du inte har några fler gränstvister."
+
+#: ../../en/topology.rst:349
+msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplication. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
+msgstr "Vi har fortfarande tomrum mellan stadsdelar som orsakats av intensiv förenkling. Sådana problem kan lösas genom att direkt redigera topologin med hjälp av funktionerna i `Topology Editor-familjen <https://postgis.net/docs/Topology.html#Topology_Editing>`_ och/eller fylla i hålen och tilldela dem till grannskap."

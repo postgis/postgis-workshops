@@ -1,38 +1,37 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2012, Paul Ramsey | Mark Leslie
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# Regina Obe <regina@arrival3d.com>, 2022.
-# Edouard Choiniere <echoix@users.noreply.weblate.osgeo.org>, 2025.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-06-05 01:39+0000\nLast-Translator: Edouard Choiniere <echoix@users.noreply.weblate.osgeo.org>\nLanguage-Team: French <https://weblate.osgeo.org/projects/postgis-workshop/index/fr/>\nLanguage: fr\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.4.3\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-06-05 13:55+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/index/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
-msgstr "Introduction à PostGIS"
+msgstr "Introduktion till PostGIS"
 
 #: ../../en/index.rst:7
 msgid "Getting Started"
-msgstr "Pour commencer"
+msgstr "Komma igång"
 
 #: ../../en/index.rst:9
 msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr "Cet atelier utilise un `package de données <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Téléchargez-le et extrayez-le à un endroit convenable."
+msgstr "I den här workshopen används ett `datapaket <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Ladda ner den och extrahera den till en lämplig plats."
 
 #: ../../en/index.rst:11
 msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
-msgstr "La **présentation** qui va avec cet atelier est disponible sur Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
+msgstr "Det **presentationsmaterial** som hör till denna workshop finns tillgänglig `på Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
 
 #: ../../en/index.rst:13
 msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
-msgstr "**L'antisèche** de commande SQL utilisées pour cet atelier sont `disponibles ici <workshop-sql.txt>`_."
+msgstr "En **fusklista** över SQL-kommandon som exekveras i den här workshopen `finns här <workshop-sql.txt>`_."
 
 #: ../../en/index.rst:17
 msgid "Data Bundle"
-msgstr "Package de données"
+msgstr "Datapaket"
 
 #: ../../en/index.rst:19
 msgid "Inside the data bundle, you will find:"
-msgstr "Dans le package de données, vous trouverez :"
+msgstr "Inuti datapaketet hittar du:"
 
 #: ../../en/index.rst:22
 msgid "**data/**"
@@ -40,7 +39,7 @@ msgstr "**data/**"
 
 #: ../../en/index.rst:22
 msgid "a directory containing the data files we will be loading"
-msgstr "un dossier contenant les fichiers de données que nous chargerons"
+msgstr "en katalog som innehåller de datafiler som vi ska ladda"
 
 #: ../../en/index.rst:26
 msgid "**printing/**"
@@ -48,35 +47,31 @@ msgstr "**printing/**"
 
 #: ../../en/index.rst:25
 msgid "a directory containing the exercise pages and data model pages"
-msgstr "un dossier contenant les feuilles d'exercices et les feuilles de modèles de données"
+msgstr "en katalog som innehåller övningssidorna och datamodellsidorna"
 
 #: ../../en/index.rst:29
 msgid "License & Copying"
-msgstr "License & Copie"
+msgstr "Licens och kopiering"
 
 #: ../../en/index.rst:31
 msgid "All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons \"`share alike with attribution <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\", and is freely redistributable under the terms of that license."
-msgstr "Toutes les données dans le package sont du domaine public et sont redistribuables librement. Tous les logiciels dans le package sont open source et redistribuables librement. Cet atelier est sous licence Creative Commons \"`partage dans les mêmes conditions <http://creativecommons.org/licenses/by-sa/3.0/fr/>`_\", et est librement redistribuable selon les termes de cette licence."
+msgstr "All data i paketet är offentlig egendom och kan fritt vidarebefordras. All programvara i paketet är öppen källkod och kan fritt distribueras. Denna workshop är licensierad som Creative Commons \"`dela på samma sätt med tillskrivning <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\" och kan fritt vidarebefordras enligt villkoren i den licensen."
 
 #: ../../en/index.rst:35
 msgid "Workshop Modules"
-msgstr "Modules de l'atelier"
+msgstr "Workshop-moduler"
 
 #: ../../en/index.rst:85
 msgid "Links to have on hand"
-msgstr "Liens à avoir sous la main"
+msgstr "Länkar att ha till hands"
 
 #: ../../en/index.rst:87
-#, fuzzy
-#| msgid "PostGIS - http://postgis.net/"
 msgid "PostGIS - https://postgis.net/"
-msgstr "PostGIS - http://postgis.net/"
+msgstr "PostGIS - https://postgis.net/"
 
 #: ../../en/index.rst:89
-#, fuzzy
-#| msgid "Docs - http://postgis.net/docs/"
 msgid "Docs - https://postgis.net/docs/"
-msgstr "Documentations - http://postgis.net/docs/"
+msgstr "Dokument - https://postgis.net/docs/"
 
 #: ../../en/index.rst:91
 msgid "PostgreSQL - https://www.postgresql.org/"
@@ -84,19 +79,19 @@ msgstr "PostgreSQL - https://www.postgresql.org/"
 
 #: ../../en/index.rst:93
 msgid "Docs - https://www.postgresql.org/docs/"
-msgstr "Documentations - https://www.postgresql.org/docs/"
+msgstr "Dokument - https://www.postgresql.org/docs/"
 
 #: ../../en/index.rst:94
 msgid "Downloads - https://www.postgresql.org/download/"
-msgstr "Téléchargements - https://www.postgresql.org/download/"
+msgstr "Nedladdningar - https://www.postgresql.org/download/"
 
 #: ../../en/index.rst:95
 msgid "JDBC Driver - https://jdbc.postgresql.org/"
-msgstr "JDBC Driver - https://jdbc.postgresql.org/"
+msgstr "JDBC-drivrutin - https://jdbc.postgresql.org/"
 
 #: ../../en/index.rst:96
 msgid ".Net Driver - https://www.npgsql.org/"
-msgstr ".Net Driver - https://www.npgsql.org/"
+msgstr ".net-drivrutin - https://www.npgsql.org/"
 
 #: ../../en/index.rst:97
 msgid "Python Driver - http://www.pygresql.org/"
@@ -104,7 +99,7 @@ msgstr "Python Driver - http://www.pygresql.org/"
 
 #: ../../en/index.rst:98
 msgid "C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html"
-msgstr "C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html"
+msgstr "C/C++-drivrutin - https://www.postgresql.org/docs/current/static/libpq.html"
 
 #: ../../en/index.rst:100
 msgid "PgAdmin - https://www.pgadmin.org/"
@@ -112,7 +107,7 @@ msgstr "PgAdmin - https://www.pgadmin.org/"
 
 #: ../../en/index.rst:102
 msgid "Open Source Desktop Clients"
-msgstr ""
+msgstr "Skrivbordsklienter med öppen källkod"
 
 #: ../../en/index.rst:104
 msgid "QGIS - https://qgis.org/"
@@ -123,7 +118,5 @@ msgid "OpenJUMP - http://openjump.org/"
 msgstr "OpenJUMP - http://openjump.org/"
 
 #: ../../en/index.rst:106
-#, fuzzy
-#| msgid "uDig - http://udig.github.io/"
 msgid "uDig - https://udig.github.io/"
-msgstr "uDig - http://udig.github.io/"
+msgstr "uDig - https://udig.github.io/"

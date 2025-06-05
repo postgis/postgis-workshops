@@ -1,0 +1,708 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-05 13:50+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"introduction/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/introduction.rst:4
+msgid "Introduction"
+msgstr "Introduktion"
+
+#: ../../en/introduction.rst:7
+msgid "What is a Spatial Database?"
+msgstr "Vad är en spatial databas?"
+
+#: ../../en/introduction.rst:9
+msgid "PostGIS is a spatial database. Oracle Spatial and SQL Server (2008 and later) are also spatial databases. But what does that mean; what is it that makes an ordinary database a spatial database?"
+msgstr ""
+"PostGIS är en spatial databas. Oracle Spatial och SQL Server (2008 och "
+"senare) är också spatiala databaser. Men vad innebär det, vad är det som gör "
+"en vanlig databas till en spatial databas?"
+
+#: ../../en/introduction.rst:11
+msgid "The short answer, is..."
+msgstr "Det korta svaret är..."
+
+#: ../../en/introduction.rst:13
+msgid "**Spatial databases store and manipulate spatial objects like any other object in the database.**"
+msgstr ""
+"**Spatiala databaser lagrar och manipulerar spatiala objekt som vilket annat "
+"objekt som helst i databasen.**"
+
+#: ../../en/introduction.rst:15
+msgid "The following briefly covers the evolution of spatial databases, and then reviews three aspects that associate *spatial* data with a database -- data types, indexes, and functions."
+msgstr ""
+"I det följande beskrivs kortfattat utvecklingen av spatiala databaser och "
+"sedan granskas tre aspekter som associerar *spatiala* data med en databas - "
+"datatyper, index och funktioner."
+
+#: ../../en/introduction.rst:17
+msgid "**Spatial data types** refer to shapes such as point, line, and polygon;"
+msgstr ""
+"**Spatiala datatyper** hänvisar till former som punkt, linje och polygon;"
+
+#: ../../en/introduction.rst:18
+msgid "Multi-dimensional **spatial indexing** is used for efficient processing of spatial operations;"
+msgstr ""
+"Flerdimensionell **spatial indexering** används för effektiv bearbetning av "
+"spatiala operationer;"
+
+#: ../../en/introduction.rst:19
+msgid "**Spatial functions**, posed in :term:`SQL`, are for querying of spatial properties and relationships."
+msgstr ""
+"**Spatial functions**, som ingår i :term:`SQL`, är till för att ställa "
+"frågor om spatiala egenskaper och relationer."
+
+#: ../../en/introduction.rst:21
+msgid "Combined, spatial data types, indexes, and functions provide a flexible structure for optimized performance and analysis."
+msgstr ""
+"Kombinationen av spatiala datatyper, index och funktioner ger en flexibel "
+"struktur för optimerad prestanda och analys."
+
+#: ../../en/introduction.rst:24
+msgid "In the Beginning"
+msgstr "I början"
+
+#: ../../en/introduction.rst:26
+msgid "In legacy first-generation :term:`GIS` implementations, all spatial data is stored in flat files and special :term:`GIS` software is required to interpret and manipulate the data.  These first-generation management systems are designed to meet the needs of users where all required data is within the user's organizational domain.  They are proprietary, self-contained systems specifically built for handling spatial data."
+msgstr ""
+"I äldre första generationens :term:`GIS`-implementeringar lagras alla "
+"spatiala data i platta filer och det krävs speciell :term:`GIS`-programvara "
+"för att tolka och manipulera data.  Dessa första generationens "
+"ledningssystem är utformade för att tillgodose användarnas behov där alla "
+"nödvändiga data finns inom användarens organisatoriska domän.  De är "
+"proprietära, fristående system som är speciellt byggda för att hantera "
+"spatiala data."
+
+#: ../../en/introduction.rst:28
+msgid "Second-generation spatial systems store some data in relational databases (usually the \"attribute\" or non-spatial parts) but still lack the flexibility afforded with direct integration."
+msgstr ""
+"Andra generationens spatiala system lagrar vissa data i relationsdatabaser ("
+"vanligtvis \"attribut\" eller icke-spatiala delar) men saknar fortfarande "
+"den flexibilitet som direkt integration ger."
+
+#: ../../en/introduction.rst:30
+msgid "**True spatial databases were born when people started to treat spatial features as first class database objects.**"
+msgstr ""
+"**Äkta spatiala databaser föddes när man började behandla spatiala "
+"egenskaper som förstklassiga databasobjekt.**"
+
+#: ../../en/introduction.rst:32
+msgid "Spatial databases fully integrate spatial data with a relational database.  The system orientation changes from GIS-centric to database-centric."
+msgstr ""
+"Spatiala databaser integrerar helt spatiala data med en relationsdatabas.  "
+"Systemets orientering ändras från GIS-centrerat till databascentrerat."
+
+#: ../../en/introduction.rst:37
+msgid "A spatial database management system may be used in applications besides the geographic world.  Spatial databases are used to manage data related to the anatomy of the human body, large-scale integrated circuits, molecular structures, and electro-magnetic fields, among others."
+msgstr ""
+"Ett system för hantering av spatiala databaser kan användas i andra "
+"tillämpningar än den geografiska världen.  Spatiala databaser används bland "
+"annat för att hantera data som rör människokroppens anatomi, storskaliga "
+"integrerade kretsar, molekylära strukturer och elektromagnetiska fält."
+
+#: ../../en/introduction.rst:41
+msgid "Spatial Data Types"
+msgstr "Typer av spatiala data"
+
+#: ../../en/introduction.rst:43
+msgid "An ordinary database has strings, numbers, and dates. A spatial database adds additional (spatial) types for representing **geographic features**. These spatial data types abstract and encapsulate spatial structures such as boundary and dimension. In many respects, spatial data types can be understood simply as shapes."
+msgstr ""
+"En vanlig databas har strängar, siffror och datum. En spatial databas lägger "
+"till ytterligare (spatiala) typer för att representera **geografiska "
+"egenskaper**. Dessa spatiala datatyper abstraherar och kapslar in spatiala "
+"strukturer som gränser och dimensioner. I många avseenden kan spatiala "
+"datatyper helt enkelt förstås som former."
+
+#: ../../en/introduction.rst:49
+msgid "Spatial data types are organized in a type hierarchy.  Each sub-type inherits the structure (attributes) and the behavior (methods or functions) of its super-type."
+msgstr ""
+"Spatiala datatyper är organiserade i en typhierarki.  Varje subtyp ärver "
+"strukturen (attributen) och beteendet (metoderna eller funktionerna) hos sin "
+"supertyp."
+
+#: ../../en/introduction.rst:53
+msgid "Spatial Indexes and Bounding Boxes"
+msgstr "Spatiala index och avgränsande boxar"
+
+#: ../../en/introduction.rst:55
+msgid "An ordinary database provides **indexes** to allow for fast and random access to subsets of data.  Indexing for standard types (numbers, strings, dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ indexes."
+msgstr ""
+"En vanlig databas tillhandahåller **index** för att möjliggöra snabb och "
+"slumpmässig åtkomst till delmängder av data.  Indexering för standardtyper ("
+"tal, strängar, datum) görs vanligtvis med index av typen `B-tree <http://en."
+"wikipedia.org/wiki/B-tree>`_."
+
+#: ../../en/introduction.rst:57
+msgid "A B-tree partitions the data using the natural sort order to put the data into a hierarchical tree. The natural sort order of numbers, strings, and dates is simple to determine -- every value is less than, greater than or equal to every other value."
+msgstr ""
+"Ett B-träd delar upp data med hjälp av den naturliga sorteringsordningen för "
+"att placera data i ett hierarkiskt träd. Den naturliga sorteringsordningen "
+"för tal, strängar och datum är enkel att fastställa - varje värde är mindre "
+"än, större än eller lika med alla andra värden."
+
+#: ../../en/introduction.rst:59
+msgid "But because polygons can overlap, can be contained in one another, and are arrayed in a two-dimensional (or more) space, a B-tree cannot be used to efficiently index them. Real spatial databases provide a \"spatial index\" that instead answers the question \"which objects are within this particular bounding box?\"."
+msgstr ""
+"Men eftersom polygoner kan överlappa varandra, kan vara inneslutna i "
+"varandra och är placerade i ett tvådimensionellt (eller mer) utrymme kan ett "
+"B-träd inte användas för att effektivt indexera dem. Riktiga spatiala "
+"databaser tillhandahåller ett \"spatialt index\" som i stället svarar på "
+"frågan \"vilka objekt finns inom den här avgränsande rutan?\"."
+
+#: ../../en/introduction.rst:61
+msgid "A **bounding box** is the smallest rectangle -- parallel to the coordinate axes -- capable of containing a given feature."
+msgstr ""
+"En **bounding box** är den minsta rektangel - parallell med koordinataxlarna "
+"- som kan innehålla en given funktion."
+
+#: ../../en/introduction.rst:67
+msgid "Bounding boxes are used because answering the question \"is A inside B?\" is very computationally intensive for polygons but very fast in the case of rectangles.  Even the most complex polygons and linestrings can be represented by a simple bounding box."
+msgstr ""
+"Bounding boxes används eftersom svaret på frågan \"är A inuti B?\" är mycket "
+"beräkningsintensivt för polygoner men mycket snabbt när det gäller "
+"rektanglar.  Även de mest komplexa polygonerna och linjestringarna kan "
+"representeras av en enkel bounding box."
+
+#: ../../en/introduction.rst:69
+msgid "Indexes have to perform quickly in order to be useful. So instead of providing exact results, as B-trees do, spatial indexes provide approximate results. The question \"what lines are inside this polygon?\" will be instead interpreted by a spatial index as \"what lines have bounding boxes that are contained inside this polygon's bounding box?\""
+msgstr ""
+"Index måste fungera snabbt för att vara användbara. Så i stället för att ge "
+"exakta resultat, som B-träd gör, ger spatiala index ungefärliga resultat. "
+"Frågan \"vilka linjer finns inuti den här polygonen?\" tolkas istället av "
+"ett spatialt index som \"vilka linjer har begränsningsboxar som finns inuti "
+"den här polygonens begränsningsbox?\""
+
+#: ../../en/introduction.rst:71
+msgid "The actual spatial indexes implemented by various databases vary widely. The most common implementations are the `R-Tree <http://en.wikipedia.org/wiki/R-tree>`_ and `Quadtree <http://en.wikipedia.org/wiki/Quadtree>`_ (used in PostGIS), but there are also `grid-based indexes <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ and `GeoHash indexes <https://en.wikipedia.org/wiki/Geohash>`_ implemented in other spatial databases."
+msgstr ""
+"De faktiska spatiala index som implementeras av olika databaser varierar "
+"mycket. De vanligaste implementationerna är `R-Tree <http://en.wikipedia.org/"
+"wiki/R-tree>`_ och `Quadtree <http://en.wikipedia.org/wiki/Quadtree>`_ ("
+"används i PostGIS), men det finns också `gridbaserade index <http://en."
+"wikipedia.org/wiki/Grid_(spatial_index)>`_ och `GeoHash-index <https://en."
+"wikipedia.org/wiki/Geohash>`_ som implementerats i andra spatiala databaser."
+
+#: ../../en/introduction.rst:74
+msgid "Spatial Functions"
+msgstr "Spatiala funktioner"
+
+#: ../../en/introduction.rst:76
+msgid "For manipulating data during a query, an ordinary database provides **functions** such as concatenating strings, performing hash operations on strings, doing mathematics on numbers, and extracting information from dates."
+msgstr ""
+"För att manipulera data under en sökning tillhandahåller en vanlig databas "
+"**funktioner** som att sammanfoga strängar, utföra hashoperationer på "
+"strängar, göra matematik på siffror och extrahera information från datum."
+
+#: ../../en/introduction.rst:78
+msgid "A spatial database provides a complete set of functions for analyzing geometric components, determining spatial relationships, and manipulating geometries.  These spatial functions serve as the building block for any spatial project."
+msgstr ""
+"En spatial databas innehåller en komplett uppsättning funktioner för att "
+"analysera geometriska komponenter, fastställa spatiala relationer och "
+"manipulera geometrier.  Dessa spatiala funktioner fungerar som byggstenar "
+"för alla spatiala projekt."
+
+#: ../../en/introduction.rst:80
+msgid "The majority of all spatial functions can be grouped into one of the following five categories:"
+msgstr ""
+"Majoriteten av alla spatiala funktioner kan grupperas i någon av följande "
+"fem kategorier:"
+
+#: ../../en/introduction.rst:82
+msgid "**Conversion**: Functions that *convert* between geometries and external data formats."
+msgstr ""
+"**Konvertering**: Funktioner som *konverterar* mellan geometrier och externa "
+"dataformat."
+
+#: ../../en/introduction.rst:83
+msgid "**Management**: Functions that *manage* information about spatial tables and PostGIS administration."
+msgstr ""
+"**Hantering**: Funktioner som *hanterar* information om spatiala tabeller "
+"och PostGIS-administration."
+
+#: ../../en/introduction.rst:84
+msgid "**Retrieval**: Functions that *retrieve* properties and measurements of a Geometry."
+msgstr ""
+"**Hämtning**: Funktioner som *hämtar* egenskaper och mått för en Geometri."
+
+#: ../../en/introduction.rst:85
+msgid "**Comparison**: Functions that *compare* two geometries with respect to their spatial relation."
+msgstr ""
+"**Jämförelse**: Funktioner som *jämför* två geometrier med avseende på deras "
+"spatiala relation."
+
+#: ../../en/introduction.rst:86
+msgid "**Generation**: Functions that *generate* new geometries from others."
+msgstr "**Generering**: Funktioner som *genererar* nya geometrier från andra."
+
+#: ../../en/introduction.rst:88
+msgid "The list of possible functions is very large, but a common set of functions is defined by the :term:`OGC` :term:`SFSQL` and implemented (along with additional useful functions) by PostGIS."
+msgstr ""
+"Listan över möjliga funktioner är mycket lång, men en gemensam uppsättning "
+"funktioner definieras av :term:`OGC` :term:`SFSQL` och implementeras ("
+"tillsammans med ytterligare användbara funktioner) av PostGIS."
+
+#: ../../en/introduction.rst:91
+msgid "What is PostGIS?"
+msgstr "Vad är PostGIS?"
+
+#: ../../en/introduction.rst:93
+msgid "PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database Management System into a spatial database by adding support for the three features: spatial types, spatial indexes, and spatial functions.  Because it is built on PostgreSQL, PostGIS automatically inherits important \"enterprise\" features as well as open standards for implementation."
+msgstr ""
+"PostGIS förvandlar `PostgreSQL <http://www.postgresql.org/>`_ Database "
+"Management System till en spatial databas genom att lägga till stöd för de "
+"tre funktionerna: spatiala typer, spatiala index och spatiala funktioner.  "
+"Eftersom det är byggt på PostgreSQL ärver PostGIS automatiskt viktiga "
+"\"företagsfunktioner\" såväl som öppna standarder för implementering."
+
+#: ../../en/introduction.rst:96
+msgid "But what is PostgreSQL?"
+msgstr "Men vad är PostgreSQL?"
+
+#: ../../en/introduction.rst:98
+msgid "PostgreSQL is a powerful relational database management system (RDBMS). It is released under a BSD-style license and is thus free and open source software. As with many other open source programs, PostgreSQL is not controlled by any single company, but has a `global community of developers <https://www.postgresql.org/community/contributors/>`_ and companies to develop it."
+msgstr ""
+"PostgreSQL är ett kraftfullt system för hantering av relationsdatabaser "
+"(RDBMS). Den släpps under en BSD-stillicens och är därmed gratis och öppen "
+"källkodsprogramvara. Som med många andra program med öppen källkod "
+"kontrolleras PostgreSQL inte av något enda företag, utan har en \"global "
+"gemenskap av utvecklare <https://www.postgresql.org/community/contributors/>`"
+"_ och företag för att utveckla den."
+
+#: ../../en/introduction.rst:100
+msgid "PostgreSQL was designed from the very start with type extension in mind -- the ability to add new data types, functions and indexes at run-time. Because of this, the PostGIS extension can be developed by a separate development team, yet still integrate very tightly into the core PostgreSQL database."
+msgstr ""
+"PostgreSQL designades från början med typförlängning i åtanke - möjligheten "
+"att lägga till nya datatyper, funktioner och index vid körning. På grund av "
+"detta kan PostGIS-tillägget utvecklas av ett separat utvecklingsteam, men "
+"ändå integreras mycket tätt i kärnan i PostgreSQL-databasen."
+
+#: ../../en/introduction.rst:103
+msgid "Why choose PostgreSQL?"
+msgstr "Varför välja PostgreSQL?"
+
+#: ../../en/introduction.rst:105
+msgid "A common question from people familiar with open source databases is, \"Why wasn't PostGIS built on MySQL?\"."
+msgstr ""
+"En vanlig fråga från personer som känner till databaser med öppen källkod är:"
+" \"Varför byggdes inte PostGIS på MySQL?\"."
+
+#: ../../en/introduction.rst:107
+msgid "PostgreSQL has:"
+msgstr "PostgreSQL har det:"
+
+#: ../../en/introduction.rst:109
+msgid "Proven reliability and transactional integrity by default (ACID)"
+msgstr ""
+"Beprövad tillförlitlighet och transaktionsintegritet som standard (ACID)"
+
+#: ../../en/introduction.rst:110
+msgid "Careful support for SQL standards (full SQL92)"
+msgstr "Noggrannt stöd för SQL-standarder (full SQL92)"
+
+#: ../../en/introduction.rst:111
+msgid "Pluggable type extension and function extension"
+msgstr "Pluggbar typförlängning och funktionsförlängning"
+
+#: ../../en/introduction.rst:112
+msgid "Community-oriented development model"
+msgstr "Modell för samhällsorienterad utveckling"
+
+#: ../../en/introduction.rst:113
+msgid "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
+msgstr ""
+"Ingen begränsning av kolumnstorlekar (\"TOAST\"-duples) för att stödja stora "
+"GIS-objekt"
+
+#: ../../en/introduction.rst:114
+msgid "Generic index structure (GiST) to allow R-Tree index"
+msgstr "Generisk indexstruktur (GiST) för att möjliggöra R-Tree-index"
+
+#: ../../en/introduction.rst:115
+msgid "Easy to add custom functions"
+msgstr "Enkelt att lägga till anpassade funktioner"
+
+#: ../../en/introduction.rst:117
+msgid "Combined, PostgreSQL provides a very easy development path to add new spatial types. In the proprietary world, only `Illustra <https://en.wikipedia.org/wiki/Illustra>`_ (now Informix Universal Server) allowed such easy extension. This is no coincidence; Illustra is a proprietary re-working of the original PostgreSQL code base from the 1980's."
+msgstr ""
+"Kombinerat ger PostgreSQL en mycket enkel utvecklingsväg för att lägga till "
+"nya spatiala typer. I den proprietära världen tillät endast `Illustra "
+"<https://en.wikipedia.org/wiki/Illustra>`_ (nu Informix Universal Server) så "
+"enkel förlängning. Detta är ingen slump; Illustra är en proprietär "
+"omarbetning av den ursprungliga PostgreSQL-kodbasen från 1980-talet."
+
+#: ../../en/introduction.rst:119
+msgid "Because the development path for adding types to PostgreSQL was so straightforward, it made sense to start there. When MySQL released basic spatial types in version 4.1, the PostGIS team took a look at their code, and the exercise reinforced the original decision to use PostgreSQL."
+msgstr ""
+"Eftersom utvecklingsvägen för att lägga till typer till PostgreSQL var så "
+"enkel var det vettigt att börja där. När MySQL släppte grundläggande "
+"spatiala typer i version 4.1 tog PostGIS-teamet en titt på sin kod, och "
+"övningen förstärkte det ursprungliga beslutet att använda PostgreSQL."
+
+#: ../../en/introduction.rst:121
+msgid "Because MySQL spatial objects had to be hacked on top of the string type as a special case, the MySQL code was spread over the entire code base. Development of PostGIS 0.1 took under a month. Doing a \"MyGIS\" 0.1 would have taken a lot longer, and as such, might never have seen the light of day."
+msgstr ""
+"Eftersom MySQL:s spatiala objekt måste hackas ovanpå strängtypen som ett "
+"specialfall, spreds MySQL-koden över hela kodbasen. Utvecklingen av PostGIS "
+"0.1 tog mindre än en månad. Att göra en \"MyGIS\" 0.1 skulle ha tagit mycket "
+"längre tid, och som sådan kanske den aldrig hade sett dagens ljus."
+
+#: ../../en/introduction.rst:124
+msgid "Why not files?"
+msgstr "Varför inte filer?"
+
+#: ../../en/introduction.rst:126
+msgid "The `Shapefile <http://en.wikipedia.org/wiki/Shapefile>`_ (and other formats like the Esri File Geodatabase and the `GeoPackage <https://www.geopackage.org/>`_) have been a standard way of storing and interacting with spatial data since GIS software was first written. However, these \"flat\" files have the following disadvantages:"
+msgstr ""
+"Shapefile <http://en.wikipedia.org/wiki/Shapefile>`_ (och andra format som "
+"Esri File Geodatabase och `GeoPackage <https://www.geopackage.org/>`_) har "
+"varit ett standardiserat sätt att lagra och interagera med spatiala data "
+"sedan GIS-programvaran först skrevs. Dessa \"platta\" filer har dock "
+"följande nackdelar:"
+
+#: ../../en/introduction.rst:128
+msgid "**Files require special software to read and write.**  SQL is an abstraction for random data access and analysis. Without that abstraction, you will need to write all the access and analysis code yourself."
+msgstr ""
+"**Filerna kräver särskild programvara för att kunna läsas och skrivas.**  "
+"SQL är en abstraktion för slumpmässig dataåtkomst och analys. Utan denna "
+"abstraktion måste du själv skriva all kod för åtkomst och analys."
+
+#: ../../en/introduction.rst:129
+msgid "**Concurrent users can cause corruption and slowdowns.** While it's possible to write extra code to ensure that multiple writes to the same file do not corrupt the data, by the time you have solved the problem and also solved the associated performance problem, you will have written the better part of a database system. Why not just use a standard database?"
+msgstr ""
+"**Samtidiga användare kan orsaka skadat data och fördröjningar.** Det är "
+"visserligen möjligt att skriva extra kod för att säkerställa att flera "
+"skrivningar till samma fil inte skadar data, men när du har löst problemet "
+"och även löst det därmed sammanhängande prestandaproblemet har du skrivit "
+"större delen av ett databassystem. Varför inte bara använda en "
+"standarddatabas?"
+
+#: ../../en/introduction.rst:130
+msgid "**Complicated questions require complicated software to answer.** Complicated and interesting questions (spatial joins, aggregations, etc) that are expressible in one line of SQL in the database take hundreds of lines of specialized code to answer when programming against files."
+msgstr ""
+"**Komplicerade frågor kräver komplicerad programvara för att besvaras.** "
+"Komplicerade och intressanta frågor (spatial joins, aggregeringar etc) som "
+"kan uttryckas i en SQL-rad i databasen kräver hundratals rader specialiserad "
+"kod för att besvaras när man programmerar mot filer."
+
+#: ../../en/introduction.rst:132
+msgid "Most users of PostGIS are setting up systems where multiple applications will be expected to access the data, so having a standard SQL access method simplifies deployment and development. Some users are working with large data sets; with files, they might be segmented into multiple files, but in a database they can be stored as a single large table."
+msgstr ""
+"De flesta användare av PostGIS sätter upp system där flera applikationer "
+"förväntas komma åt data, så att ha en standard SQL-åtkomstmetod förenklar "
+"driftsättning och utveckling. Vissa användare arbetar med stora datamängder; "
+"med filer kan de segmenteras i flera filer, men i en databas kan de lagras "
+"som en enda stor tabell."
+
+#: ../../en/introduction.rst:134
+msgid "In summation, the combination of support for multiple users, complex ad hoc queries, and performance on large data sets are what sets spatial databases apart from file-based systems."
+msgstr ""
+"Sammanfattningsvis är det kombinationen av stöd för flera användare, "
+"komplexa ad hoc-frågor och prestanda för stora datamängder som gör att "
+"spatiala databaser skiljer sig från filbaserade system."
+
+#: ../../en/introduction.rst:137
+msgid "A brief history of PostGIS"
+msgstr "En kort historik över PostGIS"
+
+#: ../../en/introduction.rst:139
+msgid "In the May of 2001, `Refractions Research <http://www.refractions.net/>`_  released the first version of PostGIS. PostGIS 0.1 had objects, indexes and a handful of functions. The result was a database suitable for storage and retrieval, but not analysis."
+msgstr ""
+"I maj 2001 släppte `Refractions Research <http://www.refractions.net/>`_ den "
+"första versionen av PostGIS. PostGIS 0.1 hade objekt, index och en handfull "
+"funktioner. Resultatet var en databas som lämpade sig för lagring och "
+"hämtning, men inte för analys."
+
+#: ../../en/introduction.rst:141
+msgid "As the number of functions increased, the need for an organizing principle became clear.  The \"Simple Features for SQL\" (:term:`SFSQL`) specification from the Open Geospatial Consortium provided such structure with guidelines for function naming and requirements."
+msgstr ""
+"I takt med att antalet funktioner ökade blev behovet av en organiserande "
+"princip tydligt.  Specifikationen \"Simple Features for SQL\" (:term:`SFSQL`)"
+" från Open Geospatial Consortium gav en sådan struktur med riktlinjer för "
+"namngivning av funktioner och krav."
+
+#: ../../en/introduction.rst:143
+msgid "With PostGIS support for simple analysis and spatial joins, `Mapserver <http://mapserver.org/>`_ became the first external application to provide visualization of data in the database."
+msgstr ""
+"Med PostGIS-stöd för enkel analys och spatiala sammankopplingar blev `"
+"Mapserver <http://mapserver.org/>`_ den första externa applikationen som gav "
+"visualisering av data i databasen."
+
+#: ../../en/introduction.rst:145
+msgid "Over the next several years the number of PostGIS functions grew, but its power remained limited. Many of the most interesting functions (e.g., ST_Intersects(), ST_Buffer(), ST_Union()) were very difficult to code.  Writing them from scratch promised years of work."
+msgstr ""
+"Under de följande åren ökade antalet PostGIS-funktioner, men dess kraft var "
+"fortfarande begränsad. Många av de mest intressanta funktionerna (t.ex. "
+"ST_Intersects(), ST_Buffer(), ST_Union()) var mycket svåra att koda.  Att "
+"skriva dem från grunden lovade åratal av arbete."
+
+#: ../../en/introduction.rst:147
+msgid "Fortunately a second project, the \"Geometry Engine, Open Source\" or `GEOS <http://trac.osgeo.org/geos>`_, came along. The GEOS library provides the necessary algorithms for implementing the :term:`SFSQL` specification. By linking in GEOS, PostGIS provided complete support for :term:`SFSQL` by version 0.8."
+msgstr ""
+"Lyckligtvis kom ett andra projekt, \"Geometry Engine, Open Source\" eller `"
+"GEOS <http://trac.osgeo.org/geos>`_, till. GEOS-biblioteket tillhandahåller "
+"de nödvändiga algoritmerna för att implementera :term:`SFSQL`-"
+"specifikationen. Genom att länka in GEOS gav PostGIS fullständigt stöd för "
+":term:`SFSQL` i version 0.8."
+
+#: ../../en/introduction.rst:149
+msgid "As PostGIS data capacity grew, another issue surfaced: the representation used to store geometry proved relatively inefficient. For small objects like points and short lines, the metadata in the representation had as much as a 300% overhead. For performance reasons, it was necessary to put the representation on a diet.  By shrinking the metadata header and required dimensions, overhead greatly reduced. In PostGIS 1.0, this new, faster, lightweight representation became the default."
+msgstr ""
+"När PostGIS datakapacitet växte dök ett annat problem upp: den "
+"representation som användes för att lagra geometri visade sig vara relativt "
+"ineffektiv. För små objekt som punkter och korta linjer hade metadata i "
+"representationen så mycket som 300% overhead. Av prestandaskäl var det "
+"nödvändigt att sätta representationen på diet.  Genom att krympa "
+"metadatahuvudet och de nödvändiga dimensionerna minskade overhead kraftigt. "
+"I PostGIS 1.0 blev denna nya, snabbare, lättviktiga representation standard."
+
+#: ../../en/introduction.rst:151
+msgid "Recent releases of PostGIS continue to add features and performance improvements, as well as support for new features in the PostgreSQL core system."
+msgstr ""
+"Nya utgåvor av PostGIS fortsätter att lägga till funktioner och "
+"prestandaförbättringar, samt stöd för nya funktioner i PostgreSQL-"
+"kärnsystemet."
+
+#: ../../en/introduction.rst:154
+msgid "Who uses PostGIS?"
+msgstr "Vem använder PostGIS?"
+
+#: ../../en/introduction.rst:156
+msgid "For a complete list of case studies, see the `PostGIS case studies <https://postgis.net/category/casestudy/>`_ page."
+msgstr ""
+"För en fullständig lista över fallstudier, se sidan `PostGIS fallstudier "
+"<https://postgis.net/category/casestudy/>`_."
+
+#: ../../en/introduction.rst:159
+msgid "Institut Geographique National, France"
+msgstr "Institut Geographique National, Frankrike"
+
+#: ../../en/introduction.rst:161
+msgid "IGN is the national mapping agency of France, and uses PostGIS to store the high resolution topographic map of the country, \"BDUni\". BDUni has more than 100 million features, and is maintained by a staff of over 100 field staff who verify observations and add new mapping to the database daily. The IGN installation uses the database transactional system to ensure consistency during update processes, and a `warm standby system <https://www.postgresql.org/docs/devel/warm-standby.html>`_ to maintain uptime in the event of a system failure."
+msgstr ""
+"IGN är Frankrikes nationella kartmyndighet och använder PostGIS för att "
+"lagra den högupplösta topografiska kartan över landet, \"BDUni\". BDUni har "
+"mer än 100 miljoner objekt och underhålls av över 100 anställda på fältet "
+"som dagligen verifierar observationer och lägger till nya kartor i "
+"databasen. IGN-installationen använder databasens transaktionssystem för att "
+"säkerställa konsekvens under uppdateringsprocesser, och ett \"varmt "
+"standbysystem\" <https://www.postgresql.org/docs/devel/warm-standby.html>`_ "
+"för att upprätthålla drifttiden i händelse av ett systemfel."
+
+#: ../../en/introduction.rst:164
+msgid "RedFin"
+msgstr "RedFin"
+
+#: ../../en/introduction.rst:166
+msgid "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based service for exploring properties and estimate values. Their system was originally built on MySQL, but they found that moving to PostgreSQL and PostGIS provided `huge benefits in performance and reliability <https://www.redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
+msgstr ""
+"`RedFin <https://www.redfin.com>`_ är en fastighetsbyrå med en webbaserad "
+"tjänst för att utforska fastigheter och uppskatta värden. Deras system "
+"byggdes ursprungligen på MySQL, men de fann att flyttningen till PostgreSQL "
+"och PostGIS gav \"stora fördelar i prestanda och tillförlitlighet "
+"<https://www.redfin.com/news/"
+"elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
+
+#: ../../en/introduction.rst:169
+msgid "What applications support PostGIS?"
+msgstr "Vilka applikationer stöder PostGIS?"
+
+#: ../../en/introduction.rst:171
+msgid "PostGIS has become a widely used spatial database, and the number of third-party programs that support storing and retrieving data using it has increased as well. The `programs that support PostGIS <http://trac.osgeo.org/postgis/wiki/UsersWikiToolsSupportPostgis>`_ include both open source and proprietary software on both server and desktop systems."
+msgstr ""
+"PostGIS har blivit en allmänt använd spatial databas och antalet "
+"tredjepartsprogram som stöder lagring och hämtning av data med hjälp av den "
+"har också ökat. Programmen som stöder PostGIS <http://trac.osgeo.org/postgis/"
+"wiki/UsersWikiToolsSupportPostgis>`_ inkluderar både öppen källkod och "
+"egenutvecklad programvara på både server- och skrivbordssystem."
+
+#: ../../en/introduction.rst:173
+msgid "The following table shows a list of some of the software that leverages PostGIS:"
+msgstr ""
+"Följande tabell visar en lista över några av de programvaror som utnyttjar "
+"PostGIS:"
+
+#: ../../en/introduction.rst:176
+msgid "Open/Free"
+msgstr "Öppen/fri"
+
+#: ../../en/introduction.rst:176
+msgid "Closed/Proprietary/Paid services"
+msgstr "Stängt/Proprietära/betalda tjänster"
+
+#: ../../en/introduction.rst:179
+msgid "Loading/Extracting"
+msgstr "Inläsning/extrahering"
+
+#: ../../en/introduction.rst:181
+msgid "Shp2Pgsql"
+msgstr "Shp2Pgsql"
+
+#: ../../en/introduction.rst:182
+msgid "ogr2ogr"
+msgstr "ogr2ogr"
+
+#: ../../en/introduction.rst:183
+msgid "Dxf2PostGIS"
+msgstr "Dxf2PostGIS"
+
+#: ../../en/introduction.rst:184
+msgid "GeoKettle"
+msgstr "GeoKettle"
+
+#: ../../en/introduction.rst:186
+#: ../../en/introduction.rst:187
+msgid "Web-Based"
+msgstr "Web-baserad"
+
+#: ../../en/introduction.rst:189
+msgid "Mapserver"
+msgstr "Mapserver"
+
+#: ../../en/introduction.rst:190
+msgid "GeoServer /geoNode"
+msgstr "GeoServer /geoNode"
+
+#: ../../en/introduction.rst:191
+msgid "pg_tileserv"
+msgstr "pg_tileserv"
+
+#: ../../en/introduction.rst:192
+msgid "pg_featureserv"
+msgstr "pg_featureserv"
+
+#: ../../en/introduction.rst:193
+msgid "Deegree"
+msgstr "Deegree"
+
+#: ../../en/introduction.rst:194
+#: ../../en/introduction.rst:197
+msgid "Carto"
+msgstr "Carto"
+
+#: ../../en/introduction.rst:195
+msgid "QGIS Server"
+msgstr "QGIS-server"
+
+#: ../../en/introduction.rst:196
+msgid "MapGuide Open Source (using FDO)"
+msgstr "MapGuide Open Source (med hjälp av FDO)"
+
+#: ../../en/introduction.rst:201
+#: ../../en/introduction.rst:202
+msgid "Desktop"
+msgstr "Desktop"
+
+#: ../../en/introduction.rst:203
+msgid "QGIS"
+msgstr "QGIS"
+
+#: ../../en/introduction.rst:204
+msgid "OpenJUMP"
+msgstr "OpenJUMP"
+
+#: ../../en/introduction.rst:205
+msgid "GRASS"
+msgstr "GRASS"
+
+#: ../../en/introduction.rst:206
+msgid "pgAdmin"
+msgstr "pgAdmin"
+
+#: ../../en/introduction.rst:207
+msgid "DBeaver"
+msgstr "DBeaver"
+
+#: ../../en/introduction.rst:208
+msgid "GvSIG"
+msgstr "GvSIG"
+
+#: ../../en/introduction.rst:209
+msgid "SAGA"
+msgstr "SAGA"
+
+#: ../../en/introduction.rst:210
+msgid "uDig"
+msgstr "uDig"
+
+#: ../../en/introduction.rst:181
+msgid "Safe FME Desktop Translator/Converter"
+msgstr "Säker FME Desktop-översättare/konverterare"
+
+#: ../../en/introduction.rst:182
+msgid "Dbt"
+msgstr "Dbt"
+
+#: ../../en/introduction.rst:188
+msgid "Cadcorp GeognoSIS"
+msgstr "Cadcorp GeognoSIS"
+
+#: ../../en/introduction.rst:189
+msgid "ESRI ArcGIS Server / Online"
+msgstr "ESRI ArcGIS Server / Online"
+
+#: ../../en/introduction.rst:193
+msgid "Services / DbaaS"
+msgstr "Tjänster / DbaaS"
+
+#: ../../en/introduction.rst:195
+msgid "Aiven for PostgreSQL"
+msgstr "Aiven för PostgreSQL"
+
+#: ../../en/introduction.rst:196
+msgid "Amazon RDS / Aurora for PostgreSQL"
+msgstr "Amazon RDS / Aurora för PostgreSQL"
+
+#: ../../en/introduction.rst:198
+msgid "Crunchy Bridge"
+msgstr "Crunchy Bridge"
+
+#: ../../en/introduction.rst:199
+msgid "Microsoft Azure for PostgreSQL"
+msgstr "Microsoft Azure för PostgreSQL"
+
+#: ../../en/introduction.rst:200
+msgid "Google Cloud SQL for PostgreSQL"
+msgstr "Google Cloud SQL för PostgreSQL"
+
+#: ../../en/introduction.rst:204
+msgid "Cadcorp SIS"
+msgstr "Cadcorp SIS"
+
+#: ../../en/introduction.rst:205
+msgid "ESRI Desktop/Pro"
+msgstr "ESRI Desktop/Pro"
+
+#: ../../en/introduction.rst:206
+msgid "GeoConcept"
+msgstr "GeoConcept"
+
+#: ../../en/introduction.rst:207
+msgid "Global Mapper"
+msgstr "Global Mapper"
+
+#: ../../en/introduction.rst:208
+msgid "Manifold"
+msgstr "Manifold"
+
+#: ../../en/introduction.rst:209
+msgid "MapInfo"
+msgstr "MapInfo"
+
+#: ../../en/introduction.rst:210
+msgid "Microimages TNTmips GIS"
+msgstr "Mikroavbildningar TNTmips GIS"

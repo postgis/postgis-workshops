@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2025-06-04 17:47+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/3d/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
+
+#: ../../en/3d.rst:4
+msgid "3-D"
+msgstr "3-D"
+
+#: ../../en/3d.rst:7
+msgid "3-D Geometries"
+msgstr "3-D geometrier"
+
+#: ../../en/3d.rst:9
+msgid "So far, we have been working with 2-D geometries, with only X and Y coordinates. But PostGIS supports additional dimensions on all geometry types, a \"Z\" dimension to add height information and a \"M\" dimension for additional dimensional information (commonly time, or road-mile, or upstream-distance information) for each coordinate."
+msgstr "Hittills har vi arbetat med 2D-geometrier, med endast X- och Y-koordinater. Men PostGIS stöder ytterligare dimensioner för alla geometrityper, en \"Z\"-dimension för att lägga till höjdinformation och en \"M\"-dimension för ytterligare dimensionell information (vanligtvis tid, vägkilometer eller information om avstånd uppströms) för varje koordinat."
+
+#: ../../en/3d.rst:11
+msgid "For 3-D and 4-D geometries, the extra dimensions are added as extra coordinates for each vertex in the geometry, and the geometry type is enhanced to indicate how to interpret the extra dimensions. Adding the extra dimensions results in three extra possible geometry types for each geometry primitive:"
+msgstr "För 3D- och 4D-geometrier läggs de extra dimensionerna till som extra koordinater för varje vertex i geometrin, och geometritypen förbättras för att ange hur de extra dimensionerna ska tolkas. Genom att lägga till de extra dimensionerna skapas tre extra möjliga geometrityper för varje geometriprimitiv:"
+
+#: ../../en/3d.rst:13
+msgid "Point (a 2-D type) is joined by PointZ, PointM and PointZM types."
+msgstr "Point (en 2D-typ) får sällskap av typerna PointZ, PointM och PointZM."
+
+#: ../../en/3d.rst:14
+msgid "Linestring (a 2-D type) is joined by LinestringZ, LinestringM and LinestringZM types."
+msgstr "Linestring (en 2D-typ) får sällskap av LinestringZ-, LinestringM- och LinestringZM-typerna."
+
+#: ../../en/3d.rst:15
+msgid "Polygon (a 2-D type) is joined by PolygonZ, PolygonM and PolygonZM types."
+msgstr "Polygon (en 2D-typ) förenas med typerna PolygonZ, PolygonM och PolygonZM."
+
+#: ../../en/3d.rst:16
+msgid "And so on."
+msgstr "Och så vidare."
+
+#: ../../en/3d.rst:18
+msgid "For well-known text (:term:`WKT`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The extra dimensionality information is simply added to the text string after the type name, and the extra coordinates added after the X/Y information. For example:"
+msgstr "För välkänd text (:term:`WKT`) representation, formatet för högre dimensionella geometrier ges av ISO SQL/MM specifikationen. Den extra dimensionalitetsinformationen läggs helt enkelt till i textsträngen efter typnamnet och de extra koordinaterna läggs till efter X/Y-informationen. Till exempel:"
+
+#: ../../en/3d.rst:20
+msgid "POINT ZM (1 2 3 4)"
+msgstr "PUNKT ZM (1 2 3 4)"
+
+#: ../../en/3d.rst:21
+msgid "LINESTRING M (1 1 0, 1 2 0, 1 3 1, 2 2 0)"
+msgstr "LINESTRING M (1 1 0, 1 2 0, 1 3 1, 2 2 0)"
+
+#: ../../en/3d.rst:22
+msgid "POLYGON Z ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0))"
+msgstr "POLYGON Z ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0, 0 0 0))"
+
+#: ../../en/3d.rst:24
+msgid "The ST_AsText() function will return the above representations when dealing with 3-D and 4-D geometries."
+msgstr "Funktionen ST_AsText() returnerar ovanstående representationer vid hantering av 3-D- och 4-D-geometrier."
+
+#: ../../en/3d.rst:26
+msgid "For well-known binary (:term:`WKB`) representation, the format for higher dimensional geometries is given by the ISO SQL/MM specification. The BNF form of the format is available from https://git.osgeo.org/gitea/postgis/postgis/src/branch/master/doc/bnf-wkb.txt."
+msgstr "För välkänd binär (:term:`WKB`) representation ges formatet för högre dimensionella geometrier av ISO SQL/MM-specifikationen. BNF-formatet för formatet finns tillgängligt från https://git.osgeo.org/gitea/postgis/postgis/src/branch/master/doc/bnf-wkb.txt."
+
+#: ../../en/3d.rst:28
+msgid "In addition to higher-dimensional forms of the standard types, PostGIS includes a few new types that make sense in a 3-D space:"
+msgstr "Förutom högre dimensionella former av standardtyperna innehåller PostGIS några nya typer som är meningsfulla i ett 3D-rum:"
+
+#: ../../en/3d.rst:30
+msgid "The TIN type allows you to model triangular meshes as rows in your database."
+msgstr "Med typen TIN kan du modellera triangulära maskor som rader i din databas."
+
+#: ../../en/3d.rst:31
+msgid "The POLYHEDRALSURFACE allows you to model volumetric objects in your database."
+msgstr "Med POLYHEDRALSURFACE kan du modellera volymetriska objekt i din databas."
+
+#: ../../en/3d.rst:33
+msgid "Since both these types are for modelling 3-D objects, it only really makes sense to use the Z variants.  An example of a POLYHEDRALSURFACE Z would be the 1 unit cube:"
+msgstr "Eftersom båda dessa typer är avsedda för modellering av 3D-objekt är det egentligen bara Z-varianterna som är meningsfulla att använda.  Ett exempel på en POLYHEDRALSURFACE Z skulle vara kuben med 1 enhet:"
+
+#: ../../en/3d.rst:48
+msgid "3-D Functions"
+msgstr "3-D funktioner"
+
+#: ../../en/3d.rst:50
+msgid "There are a number of functions built to calculate relationships between 3-D objects:"
+msgstr "Det finns ett antal funktioner som är konstruerade för att beräkna relationer mellan 3D-objekt:"
+
+#: ../../en/3d.rst:52
+msgid "ST_3DClosestPoint — Returns the 3-dimensional point on g1 that is closest to g2. This is the first point of the 3D shortest line."
+msgstr "ST_3DClosestPoint - Returnerar den 3-dimensionella punkt på g1 som ligger närmast g2. Detta är den första punkten på den kortaste 3D-linjen."
+
+#: ../../en/3d.rst:53
+msgid "ST_3DDistance — For geometry type Returns the 3-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units."
+msgstr "ST_3DDistance - För geometrityp Returnerar det 3-dimensionella cartesiska minimiavståndet (baserat på spatial ref) mellan två geometrier i projicerade enheter."
+
+#: ../../en/3d.rst:54
+msgid "ST_3DDWithin — For 3d (z) geometry type Returns true if two geometries 3d distance is within number of units."
+msgstr "ST_3DDWithin - För geometrityp 3d (z) Returnerar sant om två geometriers 3d-avstånd ligger inom ett antal enheter."
+
+#: ../../en/3d.rst:55
+msgid "ST_3DDFullyWithin — Returns true if all of the 3D geometries are within the specified distance of one another."
+msgstr "ST_3DDFullyWithin - Returnerar true om alla 3D-geometrier ligger inom det angivna avståndet från varandra."
+
+#: ../../en/3d.rst:56
+msgid "ST_3DIntersects — Returns TRUE if the Geometries \"spatially intersect\" in 3d - only for points and linestrings"
+msgstr "ST_3DIntersects - Returnerar TRUE om geometrierna \"spatialt korsar varandra\" i 3d - endast för punkter och linjestrings"
+
+#: ../../en/3d.rst:57
+msgid "ST_3DLongestLine — Returns the 3-dimensional longest line between two geometries"
+msgstr "ST_3DLongestLine - Returnerar den 3-dimensionella längsta linjen mellan två geometrier"
+
+#: ../../en/3d.rst:58
+msgid "ST_3DMaxDistance — For geometry type Returns the 3-dimensional cartesian maximum distance (based on spatial ref) between two geometries in projected units."
+msgstr "ST_3DMaxDistance - För geometrityp Returnerar det 3-dimensionella cartesiska maximala avståndet (baserat på spatial ref) mellan två geometrier i projicerade enheter."
+
+#: ../../en/3d.rst:59
+msgid "ST_3DShortestLine — Returns the 3-dimensional shortest line between two geometries"
+msgstr "ST_3DShortestLine - Returnerar den 3-dimensionella kortaste linjen mellan två geometrier"
+
+#: ../../en/3d.rst:61
+msgid "For example, we can calculate the distance between our unit cube and a point using the ST_3DDistance function:"
+msgstr "Vi kan t.ex. beräkna avståndet mellan vår kub och en punkt med hjälp av funktionen ST_3DDistance:"
+
+#: ../../en/3d.rst:89
+msgid "N-D Indexes"
+msgstr "N-D-index"
+
+#: ../../en/3d.rst:91
+msgid "Once you have data in higher dimensions it may make sense to index it. However, you should think carefully about the distribution of your data in all dimensions before applying a multi-dimensional index."
+msgstr "När du har data i högre dimensioner kan det vara meningsfullt att indexera dem. Du bör dock noga tänka igenom fördelningen av dina data i alla dimensioner innan du använder ett flerdimensionellt index."
+
+#: ../../en/3d.rst:93
+msgid "Indexes are only useful when they allow the database to drastically reduce the number of return rows as a result of a WHERE condition. For a higher dimension index to be useful, the data must cover a wide range of that dimension, relative to the kinds of queries you are constructing."
+msgstr "Index är bara användbara när de gör det möjligt för databasen att drastiskt minska antalet returrader som ett resultat av ett WHERE-villkor. För att ett index med en högre dimension ska vara användbart måste data täcka ett brett område av den dimensionen, i förhållande till de typer av frågor som du konstruerar."
+
+#: ../../en/3d.rst:95
+msgid "A set of DEM points would probably be a *poor* candidate for a 3-D index, since the queries would usually be extracting a 2-D box of points, and rarely attempting to select a Z-slice of points."
+msgstr "En uppsättning DEM-punkter skulle förmodligen vara en * dålig * kandidat för ett 3D-index, eftersom frågorna vanligtvis skulle extrahera en 2D-box med punkter och sällan försöka välja en Z-skiva av punkter."
+
+#: ../../en/3d.rst:96
+msgid "A set of GPS traces in X/Y/T space might be a *good* candidate for a 3-D index, if the GPS tracks overlapped each other frequently in all dimensions (for example, driving the same route over and over at different times), since there would be large variability in all dimensions of the data set."
+msgstr "En uppsättning GPS-spår i X/Y/T-rymden kan vara en *bra* kandidat för ett 3D-index, om GPS-spåren ofta överlappar varandra i alla dimensioner (t.ex. om man kör samma rutt om och om igen vid olika tidpunkter), eftersom det skulle finnas stor variabilitet i alla dimensioner i datauppsättningen."
+
+#: ../../en/3d.rst:98
+msgid "You can create a multi-dimensional index on data of any dimensionality (even mixed dimensionality). For example, to create a multi-dimensional index on the ``nyc_streets`` table,"
+msgstr "Du kan skapa ett flerdimensionellt index på data med vilken dimensionalitet som helst (även blandad dimensionalitet). Så här skapar du till exempel ett flerdimensionellt index på tabellen ``nyc_streets``,"
+
+#: ../../en/3d.rst:105
+msgid "The ``gist_geometry_ops_nd`` parameter tells PostGIS to use the N-D index instead of the standard 2-D index."
+msgstr "Parametern ``gist_geometry_ops_nd`` säger till PostGIS att använda N-D index istället för standard 2-D index."
+
+#: ../../en/3d.rst:107
+msgid "Once you have the index built, you can use it in queries with the ``&&&`` index operator. ``&&&`` has the same semantics as ``&&``, \"bounding boxes interact\", but applies those semantics using all the dimensions of the input geometries. Geometries with mis-matching dimensionality do not interact."
+msgstr "När du har byggt upp indexet kan du använda det i frågor med indexoperatorn ``&&&``. ``&&&`` har samma semantik som ``&&``, \"bounding boxes interagerar\", men tillämpar denna semantik med hjälp av alla dimensioner i de ingående geometrierna. Geometrier med fel matchande dimensionalitet interagerar inte."
+
+#: ../../en/3d.rst:123
+msgid "To search the ``nyc_streets`` table using the N-D index, just replace the usual ``&&`` 2-D index operator with the ``&&&`` operator."
+msgstr "Om du vill söka i tabellen ``nyc_streets`` med hjälp av N-D-index ersätter du bara den vanliga 2D-indexoperatorn ``&&`` med operatorn ``&&&``."
+
+#: ../../en/3d.rst:139
+msgid "The results should be the same. In general the N-D index is very slightly slower than the 2-D index, so only use the N-D index where you are certain that N-D queries will improve the selectivity of your queries."
+msgstr "Resultaten bör vara desamma. I allmänhet är N-D-indexet något långsammare än 2D-indexet, så använd N-D-indexet endast om du är säker på att N-D-frågorna kommer att förbättra selektiviteten i dina frågor."

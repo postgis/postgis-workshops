@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"knn/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/knn.rst:4
+msgid "Nearest-Neighbour Searching"
+msgstr "Närmaste granne-sökning"
+
+#: ../../en/knn.rst:7
+msgid "What is a Nearest Neighbour Search?"
+msgstr "Vad är en Nearest Neighbour-sökning?"
+
+#: ../../en/knn.rst:9
+msgid "A frequently posed spatial query is: \"what is the nearest <candidate feature> to <query feature>?\""
+msgstr ""
+"En ofta ställd spatial fråga är: \"Vad är det närmaste <candidate feature> "
+"till <query feature>?\""
+
+#: ../../en/knn.rst:11
+msgid "Unlike a distance search, the \"nearest neighbour\" search doesn't include any measurement restricting how far away candidate geometries might be, features of any distance away will be accepted, as long as they are the *nearest*."
+msgstr ""
+"Till skillnad från en avståndssökning innehåller sökningen efter \"närmaste "
+"granne\" inte något mått som begränsar hur långt bort kandidatgeometrierna "
+"kan befinna sig. Funktioner på vilket avstånd som helst accepteras, så länge "
+"de är de *närmaste*."
+
+#: ../../en/knn.rst:13
+msgid "PostgreSQL solves the nearest neighbor problem by introducing an \"order by distance\" (``<->``) operator that induces the database to use an index to speed up a sorted return set. With an \"order by distance\" operator in place, a nearest neighbor query can return the \"N nearest features\" just by adding an ordering and limiting the result set to N entries."
+msgstr ""
+"PostgreSQL löser det närmaste grannproblemet genom att införa en \"order by "
+"distance\" (``<->``) operatör som inducerar databasen att använda ett index "
+"för att påskynda en sorterad returuppsättning. Med en \"order by distance\" -"
+"operatör på plats kan en närmaste grannfråga returnera \"N närmaste "
+"funktioner\" bara genom att lägga till en beställning och begränsa "
+"resultatuppsättningen till N-poster."
+
+#: ../../en/knn.rst:15
+msgid "The \"order by distance\" operator works for both geometry and geography types.  The only difference between how they work between the two types is the distance value returned.  For geometry ``<->`` returns the same answer as `ST_Distance` which is dependent on the units of the spatial reference system in use. For geography the distance value returned is the sphere distance, instead of the more accurate spheroidal distance that ``ST_Distance(geography,geography)`` returns."
+msgstr ""
+"Operatorn \"order by distance\" fungerar för både geometri- och "
+"geograftyper.  Den enda skillnaden mellan hur de fungerar mellan de två "
+"typerna är det avståndsvärde som returneras.  För geometri ``<->`` "
+"returneras samma svar som `ST_Distance` som är beroende av enheterna i det "
+"spatiala referenssystem som används. För geografi är avståndsvärdet som "
+"returneras sfäravståndet, istället för det mer exakta sfäroidala avståndet "
+"som ``ST_Distance(geography,geography)`` returnerar."
+
+#: ../../en/knn.rst:17
+msgid "Here's the 3 nearest streets to 'Broad St' subway station:"
+msgstr "Här är de tre närmaste gatorna till \"Broad St\" tunnelbanestation:"
+
+#: ../../en/knn.rst:53
+msgid "How can we be sure we are getting an index-assisted query? It's a good idea to check the ``EXPLAIN`` output for a nearest-neighbor query, because it's possible to get correct answers from non-indexed SQL and the lack of an index might not be obvious until the size of the tables scales up."
+msgstr ""
+"Hur kan vi vara säkra på att vi får en indexassisterad fråga? Det är en bra "
+"idé att kontrollera ``EXPLAIN``-utdata för en närmaste granne-fråga, "
+"eftersom det är möjligt att få korrekta svar från icke-indexerad SQL och "
+"avsaknaden av ett index kanske inte är uppenbart förrän storleken på "
+"tabellerna skalas upp."
+
+#: ../../en/knn.rst:55
+msgid "This is the output from ``EXPLAIN``, note the index scan over the order by:"
+msgstr ""
+"Det här är utdata från ``EXPLAIN``, notera indexskanningen över order by:"
+
+#: ../../en/knn.rst:69
+msgid "Nearest Neighbor Join"
+msgstr "Närmaste granne Join"
+
+#: ../../en/knn.rst:71
+msgid "The index assisted order by operator has one major draw back: it only works with a **single geometry literal** on one side of the operator. This is fine for finding the objects nearest to one query object, but does not help for a spatial join, where the goal is to find the nearest neighbor for each of a full set of candidates."
+msgstr ""
+"Den indexassisterade order by-operatorn har en stor nackdel: den fungerar "
+"bara med en **enkel geometrilitteral** på ena sidan av operatorn. Detta är "
+"bra för att hitta de objekt som ligger närmast ett frågeobjekt, men hjälper "
+"inte för en spatial join, där målet är att hitta den närmaste grannen för "
+"var och en av en fullständig uppsättning kandidater."
+
+#: ../../en/knn.rst:73
+msgid "Fortunately, there's a SQL language feature that allows us to run a query repeatedly driven in a loop: the `LATERAL join <https://medium.com/kkempin/postgresqls-lateral-join-bfd6bd0199df>`_."
+msgstr ""
+"Lyckligtvis finns det en funktion i SQL-språket som gör att vi kan köra en "
+"fråga upprepade gånger i en slinga: `LATERAL join <https://medium.com/"
+"kkempin/postgresqls-lateral-join-bfd6bd0199df>`_."
+
+#: ../../en/knn.rst:75
+msgid "Here we will find the nearest street to each subway station:"
+msgstr "Här hittar vi den närmaste gatan till varje tunnelbanestation:"
+
+#: ../../en/knn.rst:93
+msgid "Note the way the ``CROSS JOIN LATERAL`` acts as the inner part of a loop driven by the subways table. Each record in the subways table gets fed into the lateral subquery, one at a time, so you get a nearest result for each subway record."
+msgstr ""
+"Observera hur ``CROSS JOIN LATERAL`` fungerar som den inre delen av en "
+"slinga som drivs av tunnelbanetabellen. Varje post i tunnelbanetabellen "
+"matas in i den laterala underfrågan, en i taget, så att du får ett närmaste "
+"resultat för varje tunnelbanepost."
+
+#: ../../en/knn.rst:97
+msgid "The explain shows the loop on the subway stations, and the index-assisted order by inside the loop where we want it:"
+msgstr ""
+"Förklaringen visar slingan på tunnelbanestationerna och den indexassisterade "
+"beställningen genom att lägga in slingan där vi vill ha den:"

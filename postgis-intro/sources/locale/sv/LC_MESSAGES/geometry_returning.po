@@ -1,0 +1,270 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"geometry_returning/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/geometry_returning.rst:4
+msgid "Geometry Constructing Functions"
+msgstr "Geometri Konstruktion av funktioner"
+
+#: ../../en/geometry_returning.rst:6
+msgid "All the functions we have seen so far work with geometries \"as they are\" and returns"
+msgstr ""
+"Alla funktioner som vi har sett hittills arbetar med geometrier \"som de är\""
+" och returnerar"
+
+#: ../../en/geometry_returning.rst:8
+msgid "analyses of the objects (:command:`ST_Length(geometry)`, :command:`ST_Area(geometry)`),"
+msgstr ""
+"analyser av objekten (:command:`ST_Length(geometry)`, "
+":command:`ST_Area(geometry)`),"
+
+#: ../../en/geometry_returning.rst:9
+msgid "serializations of the objects (:command:`ST_AsText(geometry)`, :command:`ST_AsGML(geometry)`),"
+msgstr ""
+"serialiseringar av objekten (:command:`ST_AsText(geometry)`, "
+":command:`ST_AsGML(geometry)`),"
+
+#: ../../en/geometry_returning.rst:10
+msgid "parts of the object (:command:`ST_RingN(geometry,n)`) or"
+msgstr "delar av objektet (:command:`ST_RingN(geometry,n)`) eller"
+
+#: ../../en/geometry_returning.rst:11
+msgid "true/false tests (:command:`ST_Contains(geometry,geometry)`, :command:`ST_Intersects(geometry,geometry)`)."
+msgstr ""
+"sant/falskt-test (:command:`ST_Contains(geometry,geometry)`, "
+":command:`ST_Intersects(geometry,geometry)`)."
+
+#: ../../en/geometry_returning.rst:13
+msgid "\"Geometry constructing functions\" take geometries as inputs and output new shapes."
+msgstr ""
+"\"Geometry constructing functions\" tar geometrier som indata och matar ut "
+"nya former."
+
+#: ../../en/geometry_returning.rst:17
+msgid "ST_Centroid / ST_PointOnSurface"
+msgstr "ST_Centroid / ST_PointOnSurface"
+
+#: ../../en/geometry_returning.rst:19
+msgid "A common need when composing a spatial query is to replace a polygon feature with a point representation of the feature. This is useful for spatial joins (as discussed in :ref:`polypolyjoins`) because using :command:`ST_Intersects(geometry,geometry)` on two polygon layers often results in double-counting: a polygon on a boundary will intersect an object on both sides; replacing it with a point forces it to be on one side or the other, not both."
+msgstr ""
+"Ett vanligt behov när man skapar en spatial fråga är att ersätta en "
+"polygonfunktion med en punktrepresentation av funktionen. Detta är "
+"användbart för spatiala sammanfogningar (som diskuteras i "
+":ref:`polypolyjoins`) eftersom användning av "
+":command:`ST_Intersects(geometry,geometry)` på två polygonlager ofta "
+"resulterar i dubbelräkning: en polygon på en gräns kommer att skära ett "
+"objekt på båda sidor; om den ersätts med en punkt måste den vara på den ena "
+"eller andra sidan, inte båda."
+
+#: ../../en/geometry_returning.rst:21
+msgid ":command:`ST_Centroid(geometry)` returns a point that is approximately on the center of mass of the input argument. This simple calculation is very fast, but sometimes not desirable, because the returned point is not necessarily in the feature itself. If the input feature has a convexity (imagine the letter 'C') the returned centroid might not be in the interior of the feature."
+msgstr ""
+":command:`ST_Centroid(geometry)` returnerar en punkt som ligger ungefär på "
+"inmatningsargumentets masscentrum. Denna enkla beräkning är mycket snabb, "
+"men ibland inte önskvärd, eftersom den returnerade punkten inte "
+"nödvändigtvis ligger i själva objektet. Om inmatningsobjektet har en "
+"konvexitet (föreställ dig bokstaven \"C\") är det inte säkert att den "
+"returnerade centroiden ligger i objektets inre."
+
+#: ../../en/geometry_returning.rst:22
+msgid ":command:`ST_PointOnSurface(geometry)` returns a point that is guaranteed to be inside the input argument. This makes it more useful for computing \"proxy points\" for spatial joins."
+msgstr ""
+":command:`ST_PointOnSurface(geometry)` returnerar en punkt som garanterat "
+"befinner sig inuti inmatningsargumentet. Detta gör den mer användbar för att "
+"beräkna \"proxypunkter\" för spatiala sammanfogningar."
+
+#: ../../en/geometry_returning.rst:45
+msgid "ST_Buffer"
+msgstr "ST_Buffer"
+
+#: ../../en/geometry_returning.rst:47
+msgid "The buffering operation is common in GIS workflows, and is also available in PostGIS. :command:`ST_Buffer(geometry,distance)` takes in a buffer distance and geometry type and outputs a polygon with a boundary the buffer distance away from the input geometry."
+msgstr ""
+"Buffringsoperationen är vanlig i GIS-arbetsflöden och finns även tillgänglig "
+"i PostGIS. :command:`ST_Buffer(geometry,distance)` tar in ett buffertavstånd "
+"och en geometrityp och matar ut en polygon med en gräns som ligger "
+"buffertavståndet bort från indatageometrin."
+
+#: ../../en/geometry_returning.rst:52
+msgid "For example, if the US Park Service wanted to enforce a marine traffic zone around Liberty Island, they might build a 500 meter buffer polygon around the island. Liberty Island is a single census block in our ``nyc_census_blocks`` table, so we can easily extract and buffer it."
+msgstr ""
+"Om US Park Service till exempel ville införa en marin trafikzon runt Liberty "
+"Island skulle de kunna bygga en 500 meter buffertpolygon runt ön. Liberty "
+"Island är ett enda folkräkningsblock i vår tabell ``nyc_census_blocks``, så "
+"vi kan enkelt extrahera och buffra det."
+
+#: ../../en/geometry_returning.rst:65
+msgid "The :command:`ST_Buffer` function also accepts negative distances and builds inscribed polygons within polygonal inputs. For lines and points you will just get an empty return."
+msgstr ""
+"Funktionen :command:`ST_Buffer` accepterar även negativa avstånd och bygger "
+"inskrivna polygoner inom polygonala ingångar. För linjer och punkter får du "
+"bara en tom retur."
+
+#: ../../en/geometry_returning.rst:72
+msgid "ST_Intersection"
+msgstr "ST_Intersection"
+
+#: ../../en/geometry_returning.rst:74
+msgid "Another classic GIS operation -- the \"overlay\" -- creates a new coverage by calculating the intersection of two superimposed polygons. The resultant has the property that any polygon in either of the parents can be built by merging polygons in the resultant."
+msgstr ""
+"En annan klassisk GIS-operation - \"overlay\" - skapar en ny täckning genom "
+"att beräkna skärningspunkten mellan två överlagrade polygoner. Den "
+"resulterande polygonen har egenskapen att alla polygoner i någon av "
+"föräldrarna kan byggas genom att slå samman polygoner i den resulterande "
+"polygonen."
+
+#: ../../en/geometry_returning.rst:76
+msgid "The :command:`ST_Intersection(geometry A, geometry B)` function returns the spatial area (or line, or point) that both arguments have in common. If the arguments are disjoint, the function returns an empty geometry."
+msgstr ""
+"Funktionen :command:`ST_Intersection(geometry A, geometry B)` returnerar det "
+"spatiala område (eller den linje eller punkt) som de båda argumenten har "
+"gemensamt. Om argumenten är disjunkta returnerar funktionen en tom geometri."
+
+#: ../../en/geometry_returning.rst:94
+msgid "ST_Union"
+msgstr "ST_Union"
+
+#: ../../en/geometry_returning.rst:96
+msgid "In the previous example we intersected geometries, creating a new geometry that had lines from both the inputs. The :command:`ST_Union` function does the reverse; it takes inputs and removes common lines. There are two forms of the :command:`ST_Union` function:"
+msgstr ""
+"I det föregående exemplet korsade vi geometrier och skapade en ny geometri "
+"som hade linjer från båda ingångarna. Funktionen :command:`ST_Union` gör det "
+"omvända; den tar ingångar och tar bort gemensamma linjer. Det finns två "
+"former av funktionen :command:`ST_Union`:"
+
+#: ../../en/geometry_returning.rst:98
+msgid ":command:`ST_Union(geometry, geometry)`: A two-argument version that takes in two geometries and returns the merged union.  For example, our two-circle example from the previous section looks like this when you replace the intersection with a union."
+msgstr ""
+":command:`ST_Union(geometry, geometry)`: En version med två argument som tar "
+"in två geometrier och returnerar den sammanslagna unionen.  Till exempel ser "
+"vårt exempel med två cirklar från föregående avsnitt ut så här när du "
+"ersätter intersektionen med en union."
+
+#: ../../en/geometry_returning.rst:114
+msgid ":command:`ST_Union([geometry])`: An aggregate version that takes in a set of geometries and returns the merged geometry for the entire group. The aggregate ST_Union can be used with the ``GROUP BY`` SQL statement to create carefully merged subsets of basic geometries. It is very powerful."
+msgstr ""
+":command:`ST_Union([geometry])`: En aggregerad version som tar in en "
+"uppsättning geometrier och returnerar den sammanslagna geometrin för hela "
+"gruppen. Aggregatet ST_Union kan användas med SQL-satsen ``GROUP BY`` för "
+"att skapa noggrant sammanslagna delmängder av grundläggande geometrier. Det "
+"är ett mycket kraftfullt verktyg."
+
+#: ../../en/geometry_returning.rst:116
+msgid "As an example of :command:`ST_Union` aggregation, consider our ``nyc_census_blocks`` table. Census geography is carefully constructed so that larger geographies can be built up from smaller ones. So, we can create a census tracts map by merging the blocks that form each tract (as we do later in :ref:`creatingtractstable`). Or, we can create a county map by merging blocks that fall within each county."
+msgstr ""
+"Som ett exempel på :command:`ST_Union`-aggregering kan vi ta vår tabell "
+"``nyc_census_blocks``. Censusgeografin är noggrant konstruerad så att större "
+"geografier kan byggas upp från mindre. Så vi kan skapa en karta över "
+"folkräkningstrakter genom att slå samman de kvarter som bildar varje trakt ("
+"vilket vi gör senare i :ref:`creatingtractstable`). Eller så kan vi skapa en "
+"länskarta genom att slå samman block som faller inom varje län."
+
+#: ../../en/geometry_returning.rst:118
+msgid "To carry out the merge, note that the unique key ``blkid`` actually embeds information about the higher level geographies. Here are the parts of the key for Liberty Island we used earlier:"
+msgstr ""
+"För att utföra sammanslagningen, notera att den unika nyckeln ``blkid`` "
+"faktiskt innehåller information om geografierna på högre nivå. Här är de "
+"delar av nyckeln för Liberty Island som vi använde tidigare:"
+
+#: ../../en/geometry_returning.rst:131
+msgid "So, we can create a county map by merging all geometries that share the same first 5 digits of their ``blkid``. Be patient; this is computationally expensive and can take a minute or two."
+msgstr ""
+"Så vi kan skapa en länskarta genom att slå samman alla geometrier som delar "
+"samma första 5 siffror i deras ``blkid``. Ha tålamod; detta är "
+"beräkningsmässigt dyrt och kan ta en minut eller två."
+
+#: ../../en/geometry_returning.rst:146
+msgid "An area test can confirm that our union operation did not lose any geometry. First, we calculate the area of each individual census block, and sum those areas grouping by census county id."
+msgstr ""
+"Ett områdestest kan bekräfta att vår fackliga verksamhet inte har förlorat "
+"någon geometri. Först beräknar vi ytan för varje enskilt folkbokföringsblock "
+"och summerar dessa ytor grupperade efter folkbokföringslänets id."
+
+#: ../../en/geometry_returning.rst:165
+msgid "Then we calculate the area of each of our new county polygons from the county table:"
+msgstr ""
+"Sedan beräknar vi arean för var och en av våra nya länspolygoner från "
+"länstabellen:"
+
+#: ../../en/geometry_returning.rst:183
+msgid "The same answer! We have successfully built an NYC county table from our census blocks data."
+msgstr ""
+"Samma svar! Vi har framgångsrikt byggt en NYC county-tabell från våra data "
+"om folkbokföringsblock."
+
+#: ../../en/geometry_returning.rst:212
+msgid "Function List"
+msgstr "Funktionslista"
+
+#: ../../en/geometry_returning.rst:214
+msgid "`ST_Centroid(geometry) <http://postgis.net/docs/ST_Centroid.html>`_: Returns a point geometry that represents the center of mass of the input geometry."
+msgstr ""
+"`ST_Centroid(geometri) <http://postgis.net/docs/ST_Centroid.html>`_: "
+"Returnerar en punktgeometri som representerar masscentrum för "
+"indatageometrin."
+
+#: ../../en/geometry_returning.rst:216
+msgid "`ST_PointOnSurface(geometry) <http://postgis.net/docs/ST_PointOnSurface.html>`_: Returns a point geometry that is guaranteed to be in the interior of the input geometry."
+msgstr ""
+"`ST_PointOnSurface(geometry) <http://postgis.net/docs/ST_PointOnSurface."
+"html>`_: Returnerar en punktgeometri som garanterat befinner sig i det inre "
+"av indatageometrin."
+
+#: ../../en/geometry_returning.rst:218
+msgid "`ST_Buffer(geometry, distance) <http://postgis.net/docs/ST_Buffer.html>`_: For geometry: Returns a geometry that represents all points whose distance from this Geometry is less than or equal to distance. Calculations are in the Spatial Reference System of this Geometry. For geography: Uses a planar transform wrapper."
+msgstr ""
+"`ST_Buffer(geometri, avstånd) <http://postgis.net/docs/ST_Buffer.html>`_: "
+"För geometri: Returnerar en geometri som representerar alla punkter vars "
+"avstånd från denna geometri är mindre än eller lika med distance. "
+"Beräkningar görs i det spatiala referenssystemet för denna geometri. För "
+"geografi: Använder ett omslag för planar transformation."
+
+#: ../../en/geometry_returning.rst:220
+msgid "`ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/ST_Intersection.html>`_: Returns a geometry that represents the shared portion of geomA and geomB. The geography implementation does a transform to geometry to do the intersection and then transform back to WGS84."
+msgstr ""
+"`ST_Intersection(geometri A, geometri B) <http://postgis.net/docs/"
+"ST_Intersection.html>`_: Returnerar en geometri som representerar den delade "
+"delen av geomA och geomB. Geografi-implementeringen gör en transform till "
+"geometri för att göra korsningen och sedan transformera tillbaka till WGS84."
+
+#: ../../en/geometry_returning.rst:222
+msgid "`ST_Union() <http://postgis.net/docs/ST_Union.html>`_: Returns a geometry that represents the point set union of the Geometries."
+msgstr ""
+"`ST_Union() <http://postgis.net/docs/ST_Union.html>`_: Returnerar en "
+"geometri som representerar punktuppsättningens union av geometrierna."
+
+#: ../../en/geometry_returning.rst:224
+msgid "`ST_AsText(text) <http://postgis.net/docs/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata."
+msgstr ""
+"`ST_AsText(text) <http://postgis.net/docs/ST_AsText.html>`_: Returnerar WKT-"
+"representationen (Well-Known Text) av geometrin/geografin utan SRID-metadata."
+
+#: ../../en/geometry_returning.rst:226
+msgid "`substring(string [from int] [for int]) <http://www.postgresql.org/docs/current/static/functions-string.html>`_: PostgreSQL string function to extract substring matching SQL regular expression."
+msgstr ""
+"`substring(sträng [från int] [för int]) <http://www.postgresql.org/docs/"
+"current/static/functions-string.html>`_: PostgreSQL-strängfunktion för att "
+"extrahera delsträng som matchar SQL reguljärt uttryck."
+
+#: ../../en/geometry_returning.rst:228
+msgid "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the sum of records in a set of records."
+msgstr ""
+"`sum(uttryck) <http://www.postgresql.org/docs/current/static/functions-"
+"aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL-aggregeringsfunktion "
+"som returnerar summan av poster i en uppsättning poster."

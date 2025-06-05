@@ -1,0 +1,268 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"de9im/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/de9im.rst:4
+msgid "Dimensionally Extended 9-Intersection Model"
+msgstr "Dimensionsutvidgad 9-intersektionell modell"
+
+#: ../../en/de9im.rst:6
+msgid "The \"`Dimensionally Extended 9-Intersection Model <http://en.wikipedia.org/wiki/DE-9IM>`_\" (DE9IM) is a framework for modelling how two spatial objects interact."
+msgstr ""
+"\"`Dimensionally Extended 9-Intersection Model <http://en.wikipedia.org/wiki/"
+"DE-9IM>`_\" (DE9IM) är ett ramverk för modellering av hur två spatiala "
+"objekt interagerar."
+
+#: ../../en/de9im.rst:8
+msgid "First, every spatial object has:"
+msgstr "För det första har varje spatialt objekt:"
+
+#: ../../en/de9im.rst:10
+msgid "An interior"
+msgstr "En interiör"
+
+#: ../../en/de9im.rst:11
+msgid "A boundary"
+msgstr "En gräns"
+
+#: ../../en/de9im.rst:12
+msgid "An exterior"
+msgstr "En exteriör"
+
+#: ../../en/de9im.rst:14
+msgid "For polygons, the interior, boundary and exterior are obvious:"
+msgstr "För polygoner är insidan, gränsen och utsidan uppenbara:"
+
+#: ../../en/de9im.rst:19
+msgid "The interior is the part bounded by the rings; the boundary is the rings themselves; the exterior is everything else in the plane."
+msgstr ""
+"Insidan är den del som avgränsas av ringarna, gränsen är själva ringarna och "
+"utsidan är allt annat i planet."
+
+#: ../../en/de9im.rst:21
+msgid "For linear features, the interior, boundary and exterior are less well-known:"
+msgstr "För linjära objekt är interiör, gräns och exteriör mindre välkända:"
+
+#: ../../en/de9im.rst:26
+msgid "The interior is the part of the line bounded by the ends; the boundary is the ends of the linear feature, and the exterior is everything else in the plane."
+msgstr ""
+"Insidan är den del av linjen som avgränsas av ändarna, gränsen är ändarna på "
+"den linjära funktionen och utsidan är allt annat i planet."
+
+#: ../../en/de9im.rst:28
+msgid "For points, things are even stranger: the interior is the point; the boundary is the empty set and the exterior is everything else in the plane."
+msgstr ""
+"För punkter är det ännu konstigare: det inre är punkten, gränsen är den "
+"tomma mängden och det yttre är allt annat i planet."
+
+#: ../../en/de9im.rst:30
+msgid "Using these definitions of interior, exterior and boundary, the relationships between any pair of spatial features can be characterized using the dimensionality of the nine possible intersections between the interiors/boundaries/exteriors of a pair of objects."
+msgstr ""
+"Med hjälp av dessa definitioner av interiör, exteriör och gräns kan "
+"relationerna mellan varje par av spatiala egenskaper karakteriseras med "
+"hjälp av dimensionaliteten hos de nio möjliga skärningspunkterna mellan "
+"interiörerna/gränserna/exteriörerna hos ett par av objekt."
+
+#: ../../en/de9im.rst:35
+msgid "For the polygons in the example above, the intersection of the interiors is a 2-dimensional area, so that portion of the matrix is filled out with a \"2\". The boundaries only intersect at points, which are zero-dimensional, so that portion of the matrix is filled out with a 0."
+msgstr ""
+"För polygonerna i exemplet ovan är skärningspunkten mellan interiörerna ett "
+"2-dimensionellt område, så den delen av matrisen fylls i med en \"2\". "
+"Gränserna skärs endast i punkter, som är nolldimensionella, så den delen av "
+"matrisen fylls i med en 0."
+
+#: ../../en/de9im.rst:37
+msgid "When there is no intersection between components, the square the matrix is filled out with an \"F\"."
+msgstr ""
+"När det inte finns någon skärningspunkt mellan komponenterna fylls rutan i "
+"matrisen med ett \"F\"."
+
+#: ../../en/de9im.rst:39
+msgid "Here's another example, of a linestring partially entering a polygon:"
+msgstr ""
+"Här är ett annat exempel, där en linjestring delvis går in i en polygon:"
+
+#: ../../en/de9im.rst:44
+msgid "The DE9IM matrix for the interaction is this:"
+msgstr "DE9IM-matrisen för interaktionen är denna:"
+
+#: ../../en/de9im.rst:49
+msgid "Note that the boundaries of the two objects don't actually intersect at all (the end point of the line interacts with the interior of the polygon, not the boundary, and vice versa), so the B/B cell is filled in with an \"F\"."
+msgstr ""
+"Observera att gränserna för de två objekten faktiskt inte korsar varandra "
+"alls (linjens slutpunkt interagerar med polygonens inre, inte med gränsen, "
+"och vice versa), så B/B-cellen fylls i med ett \"F\"."
+
+#: ../../en/de9im.rst:51
+msgid "While it's fun to visually fill out DE9IM matrices, it would be nice if a computer could do it, and that's what the :command:`ST_Relate` function is for."
+msgstr ""
+"Även om det är roligt att visuellt fylla i DE9IM-matriser, skulle det vara "
+"trevligt om en dator kunde göra det, och det är vad :command:`ST_Relate`-"
+"funktionen är till för."
+
+#: ../../en/de9im.rst:53
+msgid "The previous example can be simplified using a simple box and line, with the same spatial relationship as our polygon and linestring:"
+msgstr ""
+"Det föregående exemplet kan förenklas med en enkel ruta och linje, med samma "
+"spatiala förhållande som vår polygon och linjestring:"
+
+#: ../../en/de9im.rst:58
+msgid "And we can generate the DE9IM information in SQL:"
+msgstr "Och vi kan generera DE9IM-informationen i SQL:"
+
+#: ../../en/de9im.rst:67
+msgid "The answer (1010F0212) is the same as we calculated visually, but returned as a 9-character string, with the first row, second row and third row of the table appended together."
+msgstr ""
+"Svaret (1010F0212) är detsamma som vi beräknade visuellt, men returneras som "
+"en sträng med 9 tecken, med första raden, andra raden och tredje raden i "
+"tabellen sammanfogade."
+
+#: ../../en/de9im.rst:75
+msgid "However, the power of DE9IM matrices is not in generating them, but in using them as a matching key to find geometries with very specific relationships to one another."
+msgstr ""
+"DE9IM-matrisernas styrka ligger dock inte i att generera dem, utan i att "
+"använda dem som en matchningsnyckel för att hitta geometrier med mycket "
+"specifika relationer till varandra."
+
+#: ../../en/de9im.rst:94
+msgid "Suppose we have a data model that includes **Lakes** and **Docks**, and suppose further that Docks must be inside lakes, and must touch the boundary of their containing lake at one end. Can we find all the docks in our database that obey that rule?"
+msgstr ""
+"Anta att vi har en datamodell som innehåller **Sjöar** och **Dockor**, och "
+"anta vidare att dockor måste vara inuti sjöar och måste röra gränsen för "
+"deras innehållande sjö i ena änden. Kan vi hitta alla bryggor i vår databas "
+"som följer denna regel?"
+
+#: ../../en/de9im.rst:99
+msgid "Our legal docks have the following characteristics:"
+msgstr "Våra legala bryggor har följande egenskaper:"
+
+#: ../../en/de9im.rst:101
+msgid "Their interiors have a linear (1D) intersection with the lake interior"
+msgstr "Deras interiörer har en linjär (1D) skärningspunkt med sjöns interiör"
+
+#: ../../en/de9im.rst:102
+msgid "Their boundaries have a point (0D) intersection with the lake interior"
+msgstr "Deras gränser har en punkt (0D) skärningspunkt med sjöns inre"
+
+#: ../../en/de9im.rst:103
+msgid "Their boundaries **also** have a point (0D) intersection with the lake boundary"
+msgstr "Deras gränser har **också** en punkt (0D) som skär sjöns gräns"
+
+#: ../../en/de9im.rst:104
+msgid "Their interiors have no intersection (F) with the lake exterior"
+msgstr "Deras interiörer har ingen skärningspunkt (F) med sjöns exteriör"
+
+#: ../../en/de9im.rst:106
+msgid "So their DE9IM matrix looks like this:"
+msgstr "Så deras DE9IM-matris ser ut så här:"
+
+#: ../../en/de9im.rst:111
+msgid "So to find all the legal docks, we would want to find all the docks that intersect lakes (a super-set of **potential** candidates we use for our join key), and then find all the docks in that set which have the legal relate pattern."
+msgstr ""
+"Så för att hitta alla lagliga bryggor skulle vi vilja hitta alla bryggor som "
+"korsar sjöar (en superuppsättning av **potentiella** kandidater som vi "
+"använder för vår länknyckel) och sedan hitta alla bryggor i den "
+"uppsättningen som har det lagliga relateringsmönstret."
+
+#: ../../en/de9im.rst:121
+msgid "Note the use of the three-parameter version of :command:`ST_Relate`, which returns true if the pattern matches or false if it does not. For a fully-defined pattern like this one, the three-parameter version is not needed -- we could have just used a string equality operator."
+msgstr ""
+"Observera användningen av treparameterversionen av :command:`ST_Relate`, som "
+"returnerar true om mönstret matchar eller false om det inte gör det. För ett "
+"helt definierat mönster som det här behövs inte versionen med tre parametrar "
+"- vi kunde bara ha använt en stränglikhetsoperator."
+
+#: ../../en/de9im.rst:123
+msgid "However, for looser pattern searches, the three-parameter allows substitution characters in the pattern string:"
+msgstr ""
+"För lösare mönstersökningar tillåter dock de tre parametrarna "
+"ersättningstecken i mönstersträngen:"
+
+#: ../../en/de9im.rst:125
+msgid "\"*\" means \"any value in this cell is acceptable\""
+msgstr "\"*\" betyder \"alla värden i den här cellen är acceptabla\""
+
+#: ../../en/de9im.rst:126
+msgid "\"T\" means \"any non-false value (0, 1 or 2) is acceptable\""
+msgstr "\"T\" betyder \"alla icke-falska värden (0, 1 eller 2) är acceptabla\""
+
+#: ../../en/de9im.rst:128
+msgid "So for example, one possible dock we did not include in our example graphic is a dock with a two-dimensional intersection with the lake boundary:"
+msgstr ""
+"En möjlig brygga som vi inte inkluderade i vårt grafiska exempel är en "
+"brygga med en tvådimensionell skärningspunkt med sjögränsen:"
+
+#: ../../en/de9im.rst:138
+msgid "If we are to include this case in our set of \"legal\" docks, we need to change the relate pattern in our query. In particular, the intersection of the dock interior lake boundary can now be either 1 (our new case) or F (our original case). So we use the \"*\" catchall in the pattern."
+msgstr ""
+"Om vi ska inkludera detta fall i vår uppsättning av \"lagliga\" bryggor "
+"måste vi ändra relationsmönstret i vår fråga. I synnerhet kan "
+"skärningspunkten mellan bryggans inre sjögräns nu vara antingen 1 (vårt nya "
+"fall) eller F (vårt ursprungliga fall). Så vi använder \"*\" i mönstret."
+
+#: ../../en/de9im.rst:143
+msgid "And the SQL looks like this:"
+msgstr "Och SQL ser ut så här:"
+
+#: ../../en/de9im.rst:153
+msgid "Confirm that the stricter SQL from the previous example does *not* return the new dock."
+msgstr ""
+"Bekräfta att den striktare SQL från föregående exempel *inte* returnerar den "
+"nya dockan."
+
+#: ../../en/de9im.rst:157
+msgid "Data Quality Testing"
+msgstr "Testning av datakvalitet"
+
+#: ../../en/de9im.rst:159
+msgid "The TIGER data is carefully quality controlled when it is prepared, so we expect our data to meet strict standards. For example: no census block should overlap any other census block. Can we test for that?"
+msgstr ""
+"TIGER-data kvalitetskontrolleras noggrant när de tas fram, så vi förväntar "
+"oss att våra data uppfyller strikta standarder. Till exempel: inget "
+"folkbokföringsblock får överlappa något annat folkbokföringsblock. Kan vi "
+"testa för det?"
+
+#: ../../en/de9im.rst:164
+msgid "Sure!"
+msgstr "Säkert!"
+
+#: ../../en/de9im.rst:177
+msgid "Similarly, we would expect that the roads data is all end-noded. That is, we expect that intersections only occur at the ends of lines, not at the mid-points."
+msgstr ""
+"På samma sätt förväntar vi oss att all vägdata är ändkodad. Det vill säga "
+"att vi förväntar oss att korsningar endast sker i ändarna av linjerna, inte "
+"i mittpunkterna."
+
+#: ../../en/de9im.rst:182
+msgid "We can test for that by looking for streets that intersect (so we have a join) but where the intersection between the boundaries is not zero-dimensional (that is, the end points don't touch):"
+msgstr ""
+"Vi kan testa det genom att leta efter gator som korsar varandra (så att vi "
+"har en skarv) men där skärningen mellan gränserna inte är nolldimensionell ("
+"det vill säga att ändpunkterna inte rör vid varandra):"
+
+#: ../../en/de9im.rst:198
+msgid "Function List"
+msgstr "Funktionslista"
+
+#: ../../en/de9im.rst:200
+msgid "`ST_Relate(geometry A, geometry B) <http://postgis.net/docs/ST_Relate.html>`_: Returns a text string representing the DE9IM relationship between the geometries."
+msgstr ""
+"`ST_Relate(geometri A, geometri B) <http://postgis.net/docs/ST_Relate."
+"html>`_: Returnerar en textsträng som representerar DE9IM-relationen mellan "
+"geometrierna."

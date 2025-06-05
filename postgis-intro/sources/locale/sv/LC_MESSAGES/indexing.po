@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-09 03:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/indexing.rst:4
+msgid "Spatial Indexing"
+msgstr ""
+
+#: ../../en/indexing.rst:6
+msgid "Recall that spatial index is one of the three key features of a spatial database. Indexes make using a spatial database for large data sets possible. Without indexing, any search for a feature would require a \"sequential scan\" of every record in the database. Indexing speeds up searching by organizing the data into a search tree which can be quickly traversed to find a particular record."
+msgstr ""
+
+#: ../../en/indexing.rst:8
+msgid "Spatial indices are one of the greatest assets of PostGIS.  In the previous example building spatial joins requires comparing whole tables with each other. This can get very costly: joining two tables of 10,000 records each without indexes would require 100,000,000 comparisons; with indexes the cost could be as low as 20,000 comparisons."
+msgstr ""
+
+#: ../../en/indexing.rst:10
+msgid "Our data load file already included spatial indexes for all the tables, so in order to demonstrate the efficacy of indexes we will have to first remove them."
+msgstr ""
+
+#: ../../en/indexing.rst:12
+msgid "Let's run a query on ``nyc_census_blocks`` **without** our spatial index."
+msgstr ""
+
+#: ../../en/indexing.rst:14
+msgid "Our first step is to **remove** the index."
+msgstr ""
+
+#: ../../en/indexing.rst:22
+msgid "The ``DROP INDEX`` statement drops an existing index from the database system. For more information, see the PostgreSQL `documentation <http://www.postgresql.org/docs/current/interactive/sql-dropindex.html>`_."
+msgstr ""
+
+#: ../../en/indexing.rst:24
+msgid "Now, watch the \"Timing\" meter at the lower right-hand corner of the pgAdmin query window and run the following. Our query searches through every single census block in order to identify blocks that contain subway stops that start with \"B\"."
+msgstr ""
+
+#: ../../en/indexing.rst:40
+msgid "The ``nyc_census_blocks`` table is very small (only a few thousand records) so even without an index, the query only takes **300 ms** on my test computer."
+msgstr ""
+
+#: ../../en/indexing.rst:42
+msgid "Now add the spatial index back in and run the query again."
+msgstr ""
+
+#: ../../en/indexing.rst:50
+msgid "The ``USING GIST`` clause tells PostgreSQL to use the generic index structure (GIST) when building the index.  If you receive an error that looks like ``ERROR: index row requires 11340 bytes, maximum size is 8191`` when creating your index, you have likely neglected to add the ``USING GIST`` clause."
+msgstr ""
+
+#: ../../en/indexing.rst:52
+msgid "On my test computer the time drops to **50 ms**. The larger your table, the larger the relative speed improvement of an indexed query will be."
+msgstr ""
+
+#: ../../en/indexing.rst:55
+msgid "How Spatial Indexes Work"
+msgstr ""
+
+#: ../../en/indexing.rst:57
+msgid "Standard database indexes create a hierarchical tree based on the values of the column being indexed. Spatial indexes are a little different -- they are unable to index the geometric features themselves and instead index the bounding boxes of the features."
+msgstr ""
+
+#: ../../en/indexing.rst:62
+msgid "In the figure above, the number of lines that intersect the yellow star is **one**, the red line. But the bounding boxes of features that intersect the yellow box is **two**, the red and blue ones."
+msgstr ""
+
+#: ../../en/indexing.rst:64
+msgid "The way the database efficiently answers the question \"what lines intersect the yellow star\" is to first answer the question \"what boxes intersect the yellow box\" using the index (which is very fast) and then do an exact calculation of \"what lines intersect the yellow star\" **only for those features returned by the first test**."
+msgstr ""
+
+#: ../../en/indexing.rst:66
+msgid "For a large table, this \"two pass\" system of evaluating the approximate index first, then carrying out an exact test can radically reduce the amount of calculations necessary to answer a query."
+msgstr ""
+
+#: ../../en/indexing.rst:68
+msgid "Both PostGIS and Oracle Spatial share the same \"R-Tree\" [#RTree]_ spatial index structure. R-Trees break up data into rectangles, and sub-rectangles, and sub-sub rectangles, etc.  It is a self-tuning index structure that automatically handles variable data density, differing amounts of object overlap, and object size."
+msgstr ""
+
+#: ../../en/indexing.rst:74
+msgid "Spatially Indexed Functions"
+msgstr ""
+
+#: ../../en/indexing.rst:76
+msgid "Only a subset of functions will automatically make use of a spatial index, if one is available."
+msgstr ""
+
+#: ../../en/indexing.rst:78
+msgid "`ST_Intersects <http://postgis.net/docs/ST_Intersects.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:79
+msgid "`ST_Contains <http://postgis.net/docs/ST_Contains.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:80
+msgid "`ST_Within <http://postgis.net/docs/ST_Within.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:81
+msgid "`ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:82
+msgid "`ST_ContainsProperly <http://postgis.net/docs/ST_ContainsProperly.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:83
+msgid "`ST_CoveredBy <http://postgis.net/docs/ST_CoveredBy.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:84
+msgid "`ST_Covers <http://postgis.net/docs/ST_Covers.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:85
+msgid "`ST_Overlaps <http://postgis.net/docs/ST_Overlaps.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:86
+msgid "`ST_Crosses <http://postgis.net/docs/ST_Crosses.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:87
+msgid "`ST_DFullyWithin <http://postgis.net/docs/ST_DFullyWithin.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:88
+msgid "`ST_3DIntersects <http://postgis.net/docs/ST_3DIntersects.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:89
+msgid "`ST_3DDWithin <http://postgis.net/docs/ST_3DDWithin.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:90
+msgid "`ST_3DDFullyWithin <http://postgis.net/docs/ST_3DDFullyWithin.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:91
+msgid "`ST_LineCrossingDirection <http://postgis.net/docs/ST_LineCrossingDirection.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:92
+msgid "`ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:93
+msgid "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_"
+msgstr ""
+
+#: ../../en/indexing.rst:95
+msgid "The first four are the ones most commonly used in queries, and `ST_DWithin <http://postgis.net/docs/ST_DWithin.html>`_ is very important for doing \"within a distance\" or \"within a radius\" style queries while still getting a performance boost from the index."
+msgstr ""
+
+#: ../../en/indexing.rst:97
+msgid "In order to add index acceleration to other functions that are not in this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) add an index-only clause as described below."
+msgstr ""
+
+#: ../../en/indexing.rst:101
+msgid "Index-Only Queries"
+msgstr ""
+
+#: ../../en/indexing.rst:103
+msgid "Most of the commonly used functions in PostGIS (:command:`ST_Contains`, :command:`ST_Intersects`, :command:`ST_DWithin`, etc) include an index filter automatically. But some functions (e.g., :command:`ST_Relate`) do not include an index filter."
+msgstr ""
+
+#: ../../en/indexing.rst:105
+msgid "To do a bounding-box search using the index (and no filtering), make use of the :command:`&&` operator. For geometries, the :command:`&&` operator means \"bounding boxes overlap or touch\" in the same way that for numbers the :command:`=` operator means \"values are the same\"."
+msgstr ""
+
+#: ../../en/indexing.rst:107
+msgid "Let's compare an index-only query for the population of the 'West Village' to a more exact query. Using :command:`&&` our index-only query looks like the following:"
+msgstr ""
+
+#: ../../en/indexing.rst:121
+msgid "Now let's do the same query using the more exact :command:`ST_Intersects` function."
+msgstr ""
+
+#: ../../en/indexing.rst:135
+msgid "A much lower answer! The first query summed up every block whose bounding box intersects the neighborhood's bounding box; the second query only summed up those blocks that intersect the neighborhood itself."
+msgstr ""
+
+#: ../../en/indexing.rst:138
+msgid "Analyzing"
+msgstr ""
+
+#: ../../en/indexing.rst:140
+msgid "The PostgreSQL query planner intelligently chooses when to use or not to use indexes to evaluate a query. Counter-intuitively, it is not always faster to do an index search: if the search is going to return every record in the table, traversing the index tree to get each record will actually be slower than just sequentially reading the whole table from the start."
+msgstr ""
+
+#: ../../en/indexing.rst:142
+msgid "Knowing the size of the query rectangle is not enough to pin down whether a query will return a large number or small number of records. Below, the red square is small, but will return many more records than the blue square."
+msgstr ""
+
+#: ../../en/indexing.rst:146
+msgid "In order to figure out what situation it is dealing with (reading a small part of the table versus reading a large portion of the table), PostgreSQL keeps statistics about the distribution of data in each indexed table column.  By default, PostgreSQL gathers statistics on a regular basis. However, if you dramatically change the contents of your table within a short period of time, the statistics will not be up-to-date."
+msgstr ""
+
+#: ../../en/indexing.rst:148
+msgid "To ensure the statistics match your table contents, it is wise the to run the ``ANALYZE`` command after bulk data loads and deletes in your tables. This force the statistics system to gather data for all your indexed columns."
+msgstr ""
+
+#: ../../en/indexing.rst:150
+msgid "The ``ANALYZE`` command asks PostgreSQL to traverse the table and update its internal statistics used for query plan estimation (query plan analysis will be discussed later)."
+msgstr ""
+
+#: ../../en/indexing.rst:157
+msgid "Vacuuming"
+msgstr ""
+
+#: ../../en/indexing.rst:159
+msgid "It's worth stressing that just creating an index is not enough to allow PostgreSQL to use it effectively.  VACUUMing must be performed whenever a large number of UPDATEs, INSERTs or DELETEs are issued against a table.  The ``VACUUM`` command asks PostgreSQL to reclaim any unused space in the table pages left by updates or deletes to records."
+msgstr ""
+
+#: ../../en/indexing.rst:161
+msgid "Vacuuming is so critical for the efficient running of the database that PostgreSQL provides an \"autovacuum\" facility by default."
+msgstr ""
+
+#: ../../en/indexing.rst:163
+msgid "Autovacuum both vacuums (recovers space) and analyzes (updates statistics) on your tables at sensible intervals determined by the level of activity.  While this is essential for highly transactional databases, it is not advisable to wait for an autovacuum run after adding indices or bulk-loading data.  Whenever a large batch update is performed, you should manually run ``VACUUM``."
+msgstr ""
+
+#: ../../en/indexing.rst:165
+msgid "Vacuuming and analyzing the database can be performed separately as needed.  Issuing ``VACUUM`` command will not update the database statistics; likewise issuing an ``ANALYZE`` command will not recover unused table rows.  Both commands can be run against the entire database, a single table, or a single column."
+msgstr ""
+
+#: ../../en/indexing.rst:172
+msgid "Function List"
+msgstr ""
+
+#: ../../en/indexing.rst:174
+msgid "`geometry_a && geometry_b <http://postgis.net/docs/geometry_overlaps.html>`_: Returns TRUE if A's bounding box overlaps B's."
+msgstr ""
+
+#: ../../en/indexing.rst:176
+msgid "`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: Before PostGIS 2.4 returns true if A's bounding box is same as B's. From 2.4 on Returns TRUE only if A's geometry is the same as B."
+msgstr ""
+
+#: ../../en/indexing.rst:178
+msgid "`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_: Returns TRUE if A's bounding box equals B's bounding box."
+msgstr ""
+
+#: ../../en/indexing.rst:180
+msgid "`ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography \"spatially intersect\" - (share any portion of space) and FALSE if they don't (they are Disjoint)."
+msgstr ""
+
+#: ../../en/indexing.rst:183
+msgid "Footnotes"
+msgstr ""
+
+#: ../../en/indexing.rst:184
+msgid "http://postgis.net/docs/support/rtree.pdf"
+msgstr ""

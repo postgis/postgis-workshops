@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"projection/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/projection.rst:4
+msgid "Projecting Data"
+msgstr "Projektering av data"
+
+#: ../../en/projection.rst:6
+msgid "The earth is not flat, and there is no simple way of putting it down on a flat paper map (or computer screen), so people have come up with all sorts of ingenious solutions, each with pros and cons. Some projections preserve area, so all objects have a relative size to each other; other projections preserve angles (conformal) like the Mercator projection; some projections try to find a good intermediate mix with only little distortion on several parameters. Common to all projections is that they transform the (spherical) world onto a flat Cartesian coordinate system, and which projection to choose depends on how you will be using the data."
+msgstr ""
+"Jorden är inte platt, och det finns inget enkelt sätt att avbilda den på en "
+"platt papperskarta (eller datorskärm), så människor har kommit på alla "
+"möjliga geniala lösningar, var och en med för- och nackdelar. Vissa "
+"projektioner bevarar ytan, så att alla objekt har en relativ storlek i "
+"förhållande till varandra; andra projektioner bevarar vinklar (konforma) som "
+"Mercator-projektionen; vissa projektioner försöker hitta en bra "
+"mellanliggande mix med endast liten förvrängning på flera parametrar. "
+"Gemensamt för alla projektioner är att de omvandlar den (sfäriska) världen "
+"till ett platt kartesiskt koordinatsystem, och vilken projektion som ska "
+"väljas beror på hur du ska använda data."
+
+#: ../../en/projection.rst:8
+msgid "We've already encountered projections when we :ref:`loaded our nyc data <loading_data>`.  (Recall that pesky SRID 26918).  Sometimes, however, you need to transform and re-project between spatial reference systems. PostGIS includes built-in support for changing the projection of data, using the :command:`ST_Transform(geometry, srid)` function. For managing the spatial reference identifiers on geometries, PostGIS provides the :command:`ST_SRID(geometry)` and :command:`ST_SetSRID(geometry, srid)` functions."
+msgstr ""
+"Vi har redan stött på projektioner när vi :ref:`laddade våra nyc-data "
+"<loading_data>`.  (Minns den där irriterande SRID 26918).  Ibland behöver du "
+"dock transformera och omprojicera mellan spatiala referenssystem. PostGIS "
+"har inbyggt stöd för att ändra projektionen av data med hjälp av funktionen "
+":command:`ST_Transform(geometry, srid)`. För att hantera de spatiala "
+"referensidentifierarna på geometrier tillhandahåller PostGIS funktionerna "
+":command:`ST_SRID(geometry)` och :command:`ST_SetSRID(geometry, srid)`."
+
+#: ../../en/projection.rst:10
+msgid "We can confirm the SRID of our data with the :command:`ST_SRID` function:"
+msgstr "Vi kan bekräfta SRID för våra data med funktionen :command:`ST_SRID`:"
+
+#: ../../en/projection.rst:20
+msgid "And what is definition of \"26918\"? As we saw in \":ref:`loading data section <loading_data>`\", the definition is contained in the ``spatial_ref_sys`` table. In fact, **two** definitions are there. The \"well-known text\" (:term:`WKT`) definition is in the ``srtext`` column, and there is a second definition in \"proj.4\" format in the ``proj4text`` column."
+msgstr ""
+"Och vad är definitionen av \"26918\"? Som vi såg i \":ref:`loading data "
+"section <loading_data>`\", finns definitionen i tabellen ``spatial_ref_sys``"
+". Faktum är att **två** definitioner finns där. Definitionen \"well-known "
+"text\" (:term:`WKT`) finns i kolumnen ``srtext``, och det finns en andra "
+"definition i \"proj.4\" format i kolumnen ``proj4text``."
+
+#: ../../en/projection.rst:26
+msgid "The PostGIS reprojection engine will attempt to find the best projection from the ``spatial_ref_sys`` table:"
+msgstr ""
+"PostGIS reprojektionsmotor kommer att försöka hitta den bästa projektionen "
+"från tabellen ``spatial_ref_sys``:"
+
+#: ../../en/projection.rst:28
+msgid "**auth_name / auth_srid** If proj can find a valid \"authority name\" and \"authority srid\" in its internal catalogue, it will use that to generate a projection definition."
+msgstr ""
+"**auth_name / auth_srid** Om proj kan hitta ett giltigt \"authority name\" "
+"och \"authority srid\" i sin interna katalog, kommer den att använda det för "
+"att generera en projektionsdefinition."
+
+#: ../../en/projection.rst:29
+msgid "**srtext** If proj can parse and form a definition object from the ``srtext`` it will use that."
+msgstr ""
+"**srtext** Om proj kan tolka och skapa ett definitionsobjekt från ``srtext`` "
+"kommer det att användas."
+
+#: ../../en/projection.rst:30
+msgid "**proj4text** Finally, proj will attempt to process the ``proj4text``."
+msgstr "**proj4text** Slutligen kommer proj att försöka bearbeta ``proj4text``."
+
+#: ../../en/projection.rst:32
+msgid "All this redundancy means that all you need to create a new projection in PostGIS is either a valid ``srtext`` string or ``proj4text`` string. All the common authority name/code pairs are already loaded in the table by default."
+msgstr ""
+"All denna redundans innebär att allt du behöver för att skapa en ny "
+"projektion i PostGIS är antingen en giltig ``rtext``-sträng eller "
+"``proj4text``-sträng. Alla par av namn/kod för gemensamma myndigheter är "
+"redan inlästa i tabellen som standard."
+
+#: ../../en/projection.rst:34
+msgid "If you have a choice when creating a custom projection, fill out the ``srtext`` column, since that column is also used by external programs like `GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_, and `FME <http://www.safe.com/>`_  and others."
+msgstr ""
+"Om du har möjlighet att välja när du skapar en anpassad projektion, fyll i "
+"kolumnen ``rtext``, eftersom den kolumnen också används av externa program "
+"som `GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_ och `FME "
+"<http://www.safe.com/>`_ m.fl."
+
+#: ../../en/projection.rst:38
+msgid "Comparing Data"
+msgstr "Jämförelse av data"
+
+#: ../../en/projection.rst:40
+msgid "Taken together, a coordinate and an SRID define a location on the globe. Without an SRID, a coordinate is just an abstract notion. A \"Cartesian\" coordinate plane is defined as a \"flat\" coordinate system placed on the surface of Earth. Because PostGIS functions work on such a plane, comparison operations require that both geometries be represented in the same SRID."
+msgstr ""
+"Tillsammans definierar en koordinat och en SRID en plats på jordklotet. Utan "
+"en SRID är en koordinat bara ett abstrakt begrepp. Ett \"kartesiskt\" "
+"koordinatplan definieras som ett \"platt\" koordinatsystem placerat på "
+"jordens yta. Eftersom PostGIS-funktioner arbetar i ett sådant plan, kräver "
+"jämförelseoperationer att båda geometrierna representeras i samma SRID."
+
+#: ../../en/projection.rst:42
+msgid "If you feed in geometries with differing SRIDs you will just get an error:"
+msgstr ""
+"Om du matar in geometrier med olika SRID:er kommer du bara att få ett "
+"felmeddelande:"
+
+#: ../../en/projection.rst:58
+msgid "Be careful of getting too happy with using :command:`ST_Transform` for on-the-fly conversion. Spatial indexes are built using SRID of the stored geometries.  If comparison are done in a different SRID, spatial indexes are (often) not used. It is best practice to choose **one SRID** for all the tables in your database. Only use the transformation function when you are reading or writing data to external applications."
+msgstr ""
+"Var försiktig så att du inte blir alltför nöjd med att använda "
+":command:`ST_Transform` för konvertering direkt. Spatiala index byggs upp "
+"med hjälp av SRID för de lagrade geometrierna.  Om jämförelsen görs i en "
+"annan SRID används (ofta) inte spatiala index. Bästa praxis är att välja **"
+"ett SRID** för alla tabeller i databasen. Använd endast "
+"transformationsfunktionen när du läser eller skriver data till externa "
+"applikationer."
+
+#: ../../en/projection.rst:62
+msgid "Transforming Data"
+msgstr "Omvandling av data"
+
+#: ../../en/projection.rst:64
+msgid "If we return to our proj4 definition for SRID 26918, we can see that our working projection is UTM (Universal Transverse Mercator) of zone 18, with meters as the unit of measurement."
+msgstr ""
+"Om vi återgår till vår proj4-definition för SRID 26918 kan vi se att vår "
+"arbetsprojektion är UTM (Universal Transverse Mercator) i zon 18, med meter "
+"som måttenhet."
+
+#: ../../en/projection.rst:92
+msgid "Let's convert some data from our working projection to geographic coordinates -- also known as \"longitude/latitude\"."
+msgstr ""
+"Låt oss konvertera några data från vår arbetsprojektion till geografiska "
+"koordinater - även kända som \"longitud/latitud\"."
+
+#: ../../en/projection.rst:94
+msgid "To convert data from one SRID to another, you must first verify that your geometry has a valid SRID. Since we have already confirmed a valid SRID, we next need the SRID of the projection to transform into. In other words, what is the SRID of geographic coordinates?"
+msgstr ""
+"För att konvertera data från en SRID till en annan måste du först verifiera "
+"att din geometri har en giltig SRID. Eftersom vi redan har bekräftat en "
+"giltig SRID behöver vi nästa SRID för projektionen att transformera till. "
+"Med andra ord, vad är SRID för geografiska koordinater?"
+
+#: ../../en/projection.rst:96
+msgid "The most common SRID for geographic coordinates is 4326, which corresponds to \"longitude/latitude on the WGS84 spheroid\". You can see the definition here:"
+msgstr ""
+"Den vanligaste SRID:en för geografiska koordinater är 4326, vilket motsvarar "
+"\"longitud/latitud på sfäroiden WGS84\". Du kan se definitionen här:"
+
+#: ../../en/projection.rst:98
+msgid "https://epsg.io/4326"
+msgstr "https://epsg.io/4326"
+
+#: ../../en/projection.rst:100
+msgid "You can also pull the definitions from the ``spatial_ref_sys`` table:"
+msgstr "Du kan också hämta definitionerna från tabellen ``spatial_ref_sys``:"
+
+#: ../../en/projection.rst:116
+msgid "Let's convert the coordinates of the 'Broad St' subway station into geographics:"
+msgstr ""
+"Låt oss omvandla koordinaterna för tunnelbanestationen \"Broad St\" till "
+"geografi:"
+
+#: ../../en/projection.rst:128
+msgid "If you load data or create a new geometry without specifying an SRID, the SRID value will be 0.  Recall in :ref:`geometries`, that when we created our ``geometries`` table we didn't specify an SRID. If we query our database, we should expect all the ``nyc_`` tables to have an SRID of 26918, while  the ``geometries`` table defaulted to an SRID of 0."
+msgstr ""
+"Om du laddar data eller skapar en ny geometri utan att ange en SRID, kommer "
+"SRID-värdet att vara 0. Kom ihåg i :ref:`geometries`, att när vi skapade vår "
+"``geometries``-tabell angav vi inte någon SRID. Om vi gör en sökning i vår "
+"databas kan vi förvänta oss att alla ``nyc_``-tabeller har SRID 26918, medan "
+"tabellen ``geometries`` som standard har SRID 0."
+
+#: ../../en/projection.rst:130
+msgid "To view a table's SRID assignment, query the database's ``geometry_columns`` table."
+msgstr ""
+"Om du vill visa en tabells SRID-tilldelning ställer du en fråga till "
+"databasens tabell ``geometry_columns``."
+
+#: ../../en/projection.rst:149
+msgid "However, if you know what the SRID of the coordinates is supposed to be, you can set it post-facto, using :command:`ST_SetSRID` on the geometry. Then you will be able to transform the geometry into other systems."
+msgstr ""
+"Men om du vet vad koordinaternas SRID ska vara kan du ställa in den i "
+"efterhand genom att använda :command:`ST_SetSRID` på geometrin. Då kommer du "
+"att kunna transformera geometrin till andra system."
+
+#: ../../en/projection.rst:162
+msgid "Function List"
+msgstr "Funktionslista"
+
+#: ../../en/projection.rst:163
+msgid "`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata."
+msgstr ""
+"`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: Returnerar WKT-"
+"representationen (Well-Known Text) av geometrin/geografin utan SRID-metadata."
+
+#: ../../en/projection.rst:165
+msgid "`ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>`_: Sets the SRID on a geometry to a particular integer value."
+msgstr ""
+"`ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>`_: "
+"Ställer in SRID på en geometri till ett visst heltalsvärde."
+
+#: ../../en/projection.rst:167
+msgid "`ST_SRID(geometry) <http://postgis.net/docs/ST_SRID.html>`_: Returns the spatial reference identifier for the ST_Geometry as defined in spatial_ref_sys table."
+msgstr ""
+"`ST_SRID(geometri) <http://postgis.net/docs/ST_SRID.html>`_: Returnerar den "
+"spatiala referensidentifieraren för ST_Geometry enligt definitionen i "
+"tabellen spatial_ref_sys."
+
+#: ../../en/projection.rst:169
+msgid "`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: Returns a new geometry with its coordinates transformed to the SRID referenced by the integer parameter."
+msgstr ""
+"`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: "
+"Returnerar en ny geometri med dess koordinater transformerade till den SRID "
+"som refereras till av heltalsparametern."

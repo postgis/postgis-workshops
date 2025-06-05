@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"clusterindex/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/clusterindex.rst:4
+msgid "Clustering on Indices"
+msgstr "Klustring på index"
+
+#: ../../en/clusterindex.rst:6
+msgid "Databases can only retrieve information as fast as they can get it off of disk. Small databases will float up entirely into RAM cache, and get away from physical disk limitations, but for large databases, access to the physical disk will be a limiting stop in disk access speed."
+msgstr ""
+"Databaser kan bara hämta information så snabbt som de kan få ut den från "
+"disken. Små databaser flyter helt upp i RAM-cache och slipper fysiska "
+"diskbegränsningar, men för stora databaser kommer åtkomsten till den fysiska "
+"disken att vara ett begränsande stopp i diskåtkomsthastigheten."
+
+#: ../../en/clusterindex.rst:8
+msgid "Data is written to disk opportunistically, so there is not necessarily any correlation between the order data is stored on the disk and the way it will be accessed or organized by applications."
+msgstr ""
+"Data skrivs till disken på ett opportunistiskt sätt, så det finns inte "
+"nödvändigtvis någon korrelation mellan den ordning data lagras på disken och "
+"hur de kommer att användas eller organiseras av programmen."
+
+#: ../../en/clusterindex.rst:13
+msgid "One way to speed up access to data is to ensure that records which is likely to be retrieved together in the same result set are located in similar physical locations on the hard disk platters. This is called \"clustering\"."
+msgstr ""
+"Ett sätt att snabba upp åtkomsten till data är att se till att poster som "
+"sannolikt kommer att hämtas tillsammans i samma resultatmängd finns på "
+"liknande fysiska platser på hårddiskplattorna. Detta kallas \"klustring\"."
+
+#: ../../en/clusterindex.rst:15
+msgid "The right clustering scheme to use can be tricky, but a general rule applies: indexes define a natural ordering scheme for data which is similar to the access pattern that will be used in retrieving the data."
+msgstr ""
+"Det kan vara svårt att välja rätt klustringsschema, men en allmän regel "
+"gäller: index definierar ett naturligt ordningsschema för data som liknar "
+"det åtkomstmönster som kommer att användas vid hämtning av data."
+
+#: ../../en/clusterindex.rst:20
+msgid "Because of this, ordering the data on the disk in the same order as the index can provide a speed advantage in some cases."
+msgstr ""
+"Därför kan det i vissa fall ge en hastighetsfördel att ordna data på disken "
+"i samma ordning som indexet."
+
+#: ../../en/clusterindex.rst:23
+msgid "Clustering on the R-Tree"
+msgstr "Klustring på R-trädet"
+
+#: ../../en/clusterindex.rst:25
+msgid "Spatial data tends to be accessed in spatially correlated windows: think of the map window in a web or desktop application. All the data in the windows has similar location value (or it wouldn't be in the window!)"
+msgstr ""
+"Spatial data tenderar att nås i spatialt korrelerade fönster: tänk på "
+"kartfönstret i en webb- eller skrivbordsapplikation. Alla data i fönstren "
+"har liknande platsvärde (annars skulle de inte finnas i fönstret!)"
+
+#: ../../en/clusterindex.rst:27
+msgid "So, clustering based on a spatial index makes sense for spatial data that is going to be accessed with spatial queries: similar things tend to have similar locations."
+msgstr ""
+"Klustring baserad på ett spatialt index är därför meningsfullt för spatiala "
+"data som kommer att nås med spatiala frågor: liknande saker tenderar att ha "
+"liknande platser."
+
+#: ../../en/clusterindex.rst:29
+msgid "Let's cluster our ``nyc_census_blocks`` based on their spatial index:"
+msgstr ""
+"Låt oss klustra våra ``nyc_census_block`` baserat på deras spatiala index:"
+
+#: ../../en/clusterindex.rst:36
+msgid "The command re-writes the ``nyc_census_blocks`` in the order defined by the spatial index ``nyc_census_blocks_geom_gist``. Can you perceive a speed difference? Maybe not, because the original data may have already had some pre-existing spatial ordering (this is not uncommon in GIS data sets)."
+msgstr ""
+"Kommandot skriver om ``nyc_census_blocks`` i den ordning som definieras av "
+"det spatiala indexet ``nyc_census_blocks_geom_gist``. Kan du se någon "
+"hastighetsskillnad? Kanske inte, eftersom originaldata redan kan ha haft en "
+"viss befintlig spatial ordning (detta är inte ovanligt i GIS-"
+"datauppsättningar)."
+
+#: ../../en/clusterindex.rst:39
+msgid "Disk Versus Memory/SSD"
+msgstr "Disk jämfört med minne/SSD"
+
+#: ../../en/clusterindex.rst:41
+msgid "Most modern databases are run using SSD storage, which is much faster at random access than old spinning magnetic media. Also, most modern databases are running on top of data which is small enough to fit into the RAM of the database server, and ends up there as the operating system \"virtual filesystem\" caches it."
+msgstr ""
+"De flesta moderna databaser körs med SSD-lagring, som är mycket snabbare vid "
+"slumpmässig åtkomst än gamla roterande magnetiska medier. Dessutom körs de "
+"flesta moderna databaser på data som är tillräckligt små för att rymmas i "
+"databasserverns RAM-minne och som hamnar där när operativsystemets "
+"\"virtuella filsystem\" lagrar dem i cacheminnet."
+
+#: ../../en/clusterindex.rst:43
+msgid "Is clustering still necessary?"
+msgstr "Är klustring fortfarande nödvändigt?"
+
+#: ../../en/clusterindex.rst:45
+msgid "Surprisingly, yes. Keeping records that are \"near each other\" in space \"near each other\" in memory increases the odds that related records will move up the servers \"memory cache heirarchy\" together, and thus make memory accesses faster."
+msgstr ""
+"Förvånansvärt nog, ja. Att hålla poster som är \"nära varandra\" i rymden "
+"\"nära varandra\" i minnet ökar oddsen för att relaterade poster kommer att "
+"flytta upp i servrarnas \"minnescache-hirarki\" tillsammans, och därmed göra "
+"minnesåtkomster snabbare."
+
+#: ../../en/clusterindex.rst:50
+msgid "System RAM is not the fastest memory on a modern computer. There are several levels of cache between system RAM and the actual CPU, and the underlying operating system and processor will move data up and down the cache heirarchy in blocks. If the block getting moved up happens to include the piece of data the system will need next... that's a big win. Correlating the memory structure with the spatial structure is a way in increase the odds of that win happening."
+msgstr ""
+"System-RAM är inte det snabbaste minnet i en modern dator. Det finns flera "
+"nivåer av cache mellan systemets RAM-minne och den faktiska processorn, och "
+"det underliggande operativsystemet och processorn flyttar data upp och ner i "
+"cache-hierarkin i block. Om det block som flyttas upp råkar innehålla den "
+"del av data som systemet behöver härnäst är det en stor vinst. Att korrelera "
+"minnesstrukturen med den spatiala strukturen är ett sätt att öka oddsen för "
+"att den vinsten ska inträffa."
+
+#: ../../en/clusterindex.rst:53
+msgid "Does Index Structure Matter?"
+msgstr "Har indexstrukturen någon betydelse?"
+
+#: ../../en/clusterindex.rst:55
+msgid "In theory, yes. In practice, no really. As long as the index is a \"pretty good\" spatial decomposition of the data, the main determinant of performance will be the order of the actual table tuples."
+msgstr ""
+"I teorin, ja. I praktiken inte riktigt. Så länge indexet är en \"ganska bra\""
+" spatial nedbrytning av data kommer den viktigaste faktorn för prestanda att "
+"vara ordningen på de faktiska tabelltuplerna."
+
+#: ../../en/clusterindex.rst:57
+msgid "The difference between \"no index\" and \"index\" is generally huge and highly measurable. The difference between \"mediocre index\" and \"great index\" usually takes quite careful measurement to discern, and can be very sensitive to the workload being tested."
+msgstr ""
+"Skillnaden mellan \"inget index\" och \"index\" är i allmänhet enorm och "
+"mycket mätbar. Skillnaden mellan \"mediokert index\" och \"bra index\" "
+"kräver vanligtvis ganska noggranna mätningar för att urskiljas och kan vara "
+"mycket känslig för den arbetsbelastning som testas."
+
+#: ../../en/clusterindex.rst:61
+msgid "Function List"
+msgstr "Funktionslista"
+
+#: ../../en/clusterindex.rst:63
+msgid "`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_: Re-orders the data in a table to match the ordering in the index."
+msgstr ""
+"`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_: "
+"Ordnar om data i en tabell så att de stämmer överens med ordningen i indexet."

@@ -1,0 +1,245 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"joins_advanced/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/joins_advanced.rst:4
+msgid "More Spatial Joins"
+msgstr "Fler spatiala sammanfogningar"
+
+#: ../../en/joins_advanced.rst:6
+msgid "In the last section we saw the :command:`ST_Centroid(geometry)` and :command:`ST_Union([geometry])` functions, and some simple examples. In this section we will do some more elaborate things with them."
+msgstr ""
+"I förra avsnittet såg vi funktionerna :command:`ST_Centroid(geometry)` och "
+":command:`ST_Union([geometry])`, och några enkla exempel. I det här "
+"avsnittet ska vi göra lite mer avancerade saker med dem."
+
+#: ../../en/joins_advanced.rst:11
+#: ../../en/joins_advanced.rst:31
+msgid "Creating a Census Tracts Table"
+msgstr "Skapa en tabell över folkräkningsområden"
+
+#: ../../en/joins_advanced.rst:13
+msgid "In the workshop ``\\data\\`` directory, is a file that includes attribute data, but no geometry, ``nyc_census_sociodata.sql``. The table includes interesting socioeconomic data about New York: commute times, incomes, and education attainment. There is just one problem. The data are summarized by \"census tract\" and we have no census tract spatial data!"
+msgstr ""
+"I workshoppens katalog \"data\" finns en fil som innehåller attributdata, "
+"men ingen geometri, \"NYC_census_sociodata.sql\". Tabellen innehåller "
+"intressanta socioekonomiska data om New York: pendlingstider, inkomster och "
+"utbildningsnivå. Det finns bara ett problem. Uppgifterna sammanfattas av "
+"\"census tract\" och vi har inga spatiala data för census tract!"
+
+#: ../../en/joins_advanced.rst:15
+msgid "In this section we will"
+msgstr "I detta avsnitt kommer vi att"
+
+#: ../../en/joins_advanced.rst:17
+msgid "Load the ``nyc_census_sociodata.sql`` table"
+msgstr "Läs in tabellen ``nyc_census_sociodata.sql``"
+
+#: ../../en/joins_advanced.rst:18
+msgid "Create a spatial table for census tracts"
+msgstr "Skapa en spatial tabell för folkräkningstrakter"
+
+#: ../../en/joins_advanced.rst:19
+msgid "Join the attribute data to the spatial data"
+msgstr "Koppla attributdata till spatiala data"
+
+#: ../../en/joins_advanced.rst:20
+msgid "Carry out some analysis using our new data"
+msgstr "Genomföra en analys med hjälp av våra nya data"
+
+#: ../../en/joins_advanced.rst:23
+msgid "Loading nyc_census_sociodata.sql"
+msgstr "Läser in nyc_census_sociodata.sql"
+
+#: ../../en/joins_advanced.rst:25
+msgid "Open the SQL query window in PgAdmin"
+msgstr "Öppna SQL-frågefönstret i PgAdmin"
+
+#: ../../en/joins_advanced.rst:26
+msgid "Select **File->Open** from the menu and browse to the ``nyc_census_sociodata.sql`` file"
+msgstr ""
+"Välj **File->Open** från menyn och bläddra till filen ``nyc_census_sociodata."
+"sql``"
+
+#: ../../en/joins_advanced.rst:27
+msgid "Press the \"Run Query\" button"
+msgstr "Tryck på knappen \"Run Query\" (Kör fråga)"
+
+#: ../../en/joins_advanced.rst:28
+msgid "If you press the \"Refresh\" button in PgAdmin, the list of tables should now include at ``nyc_census_sociodata`` table"
+msgstr ""
+"Om du trycker på knappen \"Uppdatera\" i PgAdmin bör listan över tabeller nu "
+"innehålla tabellen ``nyc_census_sociodata``"
+
+#: ../../en/joins_advanced.rst:33
+msgid "As we saw in the previous section, we can build up higher level geometries from the census block by summarizing on substrings of the ``blkid`` key. In order to get census tracts, we need to summarize grouping on the first 11 characters of the ``blkid``."
+msgstr ""
+"Som vi såg i föregående avsnitt kan vi bygga upp geometrier på högre nivå "
+"från folkräkningsblocket genom att sammanfatta delsträngar av nyckeln "
+"``blkid``. För att få census tracts måste vi sammanfatta grupperingen på de "
+"första 11 tecknen i ``blkid``."
+
+#: ../../en/joins_advanced.rst:46
+msgid "Create the new table using the :command:`ST_Union` aggregate:"
+msgstr "Skapa den nya tabellen med hjälp av aggregatet :command:`ST_Union`:"
+
+#: ../../en/joins_advanced.rst:64
+msgid "Join the Attributes to the Spatial Data"
+msgstr "Koppla attributen till de spatiala data"
+
+#: ../../en/joins_advanced.rst:66
+msgid "Join the table of tract geometries to the table of tract attributes with a standard attribute join"
+msgstr ""
+"Anslut tabellen över traktgeometrier till tabellen över traktattribut med en "
+"standardattributanslutning"
+
+#: ../../en/joins_advanced.rst:87
+msgid "Answer an Interesting Question"
+msgstr "Svara på en intressant fråga"
+
+#: ../../en/joins_advanced.rst:89
+msgid "Answer an interesting question! \"List top 10 New York neighborhoods ordered by the proportion of people who have graduate degrees.\""
+msgstr ""
+"Svara på en intressant fråga! \"Lista de 10 bästa stadsdelarna i New York "
+"ordnade efter andelen människor som har en akademisk examen.\""
+
+#: ../../en/joins_advanced.rst:104
+msgid "We sum up the statistics we are interested, then divide them together at the end. In order to avoid divide-by-zero errors, we don't bother bringing in tracts that have a population count of zero."
+msgstr ""
+"Vi sammanfattar den statistik vi är intresserade av och delar sedan upp den "
+"i slutet. För att undvika dividera med noll-fel bryr vi oss inte om att ta "
+"med områden som har ett befolkningsantal på noll."
+
+#: ../../en/joins_advanced.rst:124
+msgid "New York geographers will be wondering at the presence of \"Flatbush\" in this list of over-educated neighborhoods. The answer is discussed in the next section."
+msgstr ""
+"New York-geografer kommer att undra över närvaron av \"Flatbush\" i denna "
+"lista över överutbildade stadsdelar. Svaret diskuteras i nästa avsnitt."
+
+#: ../../en/joins_advanced.rst:129
+msgid "Polygon/Polygon Joins"
+msgstr "Polygon/Polygon Joins"
+
+#: ../../en/joins_advanced.rst:131
+msgid "In our interesting query (in :ref:`interestingquestion`) we used the :command:`ST_Intersects(geometry_a, geometry_b)` function to determine which census tract polygons to include in each neighborhood summary. Which leads to the question: what if a tract falls on the border between two neighborhoods? It will intersect both, and so will be included in the summary statistics for **both**."
+msgstr ""
+"I vår intressanta fråga (i :ref:`interestingquestion`) använde vi funktionen "
+":command:`ST_Intersects(geometry_a, geometry_b)` för att avgöra vilka "
+"polygoner för folkbokföringstrakter som skulle ingå i varje "
+"grannskapssammanfattning. Vilket leder till frågan: Vad händer om en trakt "
+"faller på gränsen mellan två stadsdelar? Den kommer att korsa båda, och "
+"kommer därför att ingå i den sammanfattande statistiken för **båda**."
+
+#: ../../en/joins_advanced.rst:135
+msgid "To avoid this kind of double counting there are two methods:"
+msgstr "För att undvika denna typ av dubbelräkning finns det två metoder:"
+
+#: ../../en/joins_advanced.rst:137
+msgid "The simple method is to ensure that each tract only falls in **one** summary area (using :command:`ST_Centroid(geometry)`)"
+msgstr ""
+"Den enkla metoden är att se till att varje trakt bara faller inom **ett** "
+"sammanfattningsområde (med hjälp av :command:`ST_Centroid(geometry)`)"
+
+#: ../../en/joins_advanced.rst:138
+msgid "The complex method is to divide crossing tracts at the borders (using :command:`ST_Intersection(geometry,geometry)`)"
+msgstr ""
+"Den komplexa metoden är att dela upp korsande trakter vid gränserna (med "
+":kommandot:`ST_Intersection(geometry,geometry)`)"
+
+#: ../../en/joins_advanced.rst:140
+msgid "Here is an example of using the simple method to avoid double counting in our graduate education query:"
+msgstr ""
+"Här är ett exempel på hur vi använder den enkla metoden för att undvika "
+"dubbelräkning i vår fråga om forskarutbildning:"
+
+#: ../../en/joins_advanced.rst:155
+msgid "Note that the query takes longer to run now, because the :command:`ST_Centroid` function  has to be run on every census tract."
+msgstr ""
+"Observera att det tar längre tid att köra frågan nu, eftersom funktionen "
+":command:`ST_Centroid` måste köras på varje folkräkningstrakt."
+
+#: ../../en/joins_advanced.rst:172
+msgid "Avoiding double counting changes the results!"
+msgstr "Att undvika dubbelräkning förändrar resultatet!"
+
+#: ../../en/joins_advanced.rst:175
+msgid "What about Flatbush?"
+msgstr "Flatbush, då?"
+
+#: ../../en/joins_advanced.rst:177
+msgid "In particular, the Flatbush neighborhood has dropped off the list. The reason why can be seen by looking more closely at the map of the Flatbush neighborhood in our table."
+msgstr ""
+"I synnerhet har Flatbush-kvarteret tappat från listan. Anledningen till "
+"detta kan man se genom att titta närmare på kartan över stadsdelen Flatbush "
+"i vår tabell."
+
+#: ../../en/joins_advanced.rst:181
+msgid "As defined by our data source, Flatbush is not really a neighborhood in the conventional sense, since it just covers the area of Prospect Park. The census tract for that area records, naturally, zero residents. However, the neighborhood boundary does scrape one of the expensive census tracts bordering the north side of the park (in the gentrified Park Slope neighborhood). When using polygon/polygon tests, this single tract was added to the otherwise empty Flatbush, resulting in the very high score for that query."
+msgstr ""
+"Enligt definitionen i vår datakälla är Flatbush egentligen inte en stadsdel "
+"i konventionell mening, eftersom den bara omfattar området Prospect Park. "
+"Folkräkningstrakten för det området registrerar naturligtvis noll invånare. "
+"Grannskapsgränsen skrapar dock ett av de dyra folkräkningstrakterna som "
+"gränsar till norra sidan av parken (i det gentrifierade Park Slope-området). "
+"När man använde polygon/polygontester lades denna enstaka trakt till det "
+"annars tomma Flatbush, vilket resulterade i den mycket höga poängen för den "
+"frågan."
+
+#: ../../en/joins_advanced.rst:186
+msgid "Large Radius Distance Joins"
+msgstr "Förband med stort radieavstånd"
+
+#: ../../en/joins_advanced.rst:188
+msgid "A query that is fun to ask is \"How do the commute times of people near (within 500 meters) subway stations differ from those of people far away from subway stations?\""
+msgstr ""
+"En fråga som är rolig att ställa är \"Hur skiljer sig pendlingstiderna för "
+"människor nära (inom 500 meter) tunnelbanestationer från dem för människor "
+"långt bort från tunnelbanestationer?\""
+
+#: ../../en/joins_advanced.rst:190
+msgid "However, the question runs into some problems of double counting: many people will be within 500 meters of multiple subway stations. Compare the population of New York:"
+msgstr ""
+"Frågan stöter dock på vissa problem med dubbelräkning: många människor "
+"kommer att befinna sig inom 500 meter från flera tunnelbanestationer. Jämför "
+"befolkningen i New York:"
+
+#: ../../en/joins_advanced.rst:201
+msgid "With the population of the people in New York within 500 meters of a subway station:"
+msgstr "Med befolkningen i New York inom 500 meter från en tunnelbanestation:"
+
+#: ../../en/joins_advanced.rst:214
+msgid "There's more people close to the subway than there are people! Clearly, our simple SQL is making a big double-counting error. You can see the problem looking at the picture of the buffered subways."
+msgstr ""
+"Det finns fler människor nära tunnelbanan än det finns människor! Det är "
+"uppenbart att vår enkla SQL gör ett stort dubbelräkningsfel. Du kan se "
+"problemet när du tittar på bilden av de buffrade tunnelbanorna."
+
+#: ../../en/joins_advanced.rst:218
+msgid "The solution is to ensure that we have only distinct census blocks before passing them into the summarization portion of the query. We can do that by breaking our query up into a subquery that finds the distinct blocks, wrapped in a summarization query that returns our answer:"
+msgstr ""
+"Lösningen är att se till att vi bara har distinkta folkräkningsblock innan "
+"vi skickar dem till sammanfattningsdelen av frågan. Vi kan göra det genom "
+"att bryta upp vår fråga i en underfråga som hittar de distinkta blocken, "
+"inslagna i en sammanfattningsfråga som returnerar vårt svar:"
+
+#: ../../en/joins_advanced.rst:235
+msgid "That's better! So a bit over half the population of New York is within 500m (about a 5-7 minute walk) of the subway."
+msgstr ""
+"Det var bättre! Lite mer än hälften av New Yorks befolkning bor alltså inom "
+"500 meter (cirka 5-7 minuters promenad) från tunnelbanan."

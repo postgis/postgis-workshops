@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Daniel Nylander <daniel@danielnylander.se>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"geography_exercises/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/geography_exercises.rst:4
+msgid "Geography Exercises"
+msgstr "Övningar i geografi"
+
+#: ../../en/geography_exercises.rst:6
+msgid "Here's a reminder of all the functions we have seen so far. They should be useful for the exercises!"
+msgstr ""
+"Här är en påminnelse om alla de funktioner vi har sett hittills. De bör vara "
+"användbara för övningarna!"
+
+#: ../../en/geography_exercises.rst:8
+msgid ":command:`Sum(number)` adds up all the numbers in the result set"
+msgstr ":command:`Sum(number)` adderar alla siffror i resultatuppsättningen"
+
+#: ../../en/geography_exercises.rst:9
+msgid ":command:`ST_GeogFromText(text)` returns a geography"
+msgstr ":command:`ST_GeogFromText(text)` returnerar en geografisk"
+
+#: ../../en/geography_exercises.rst:10
+msgid ":command:`ST_Distance(geography, geography)` returns the distance between geographies"
+msgstr ""
+":command:`ST_Distance(geography, geography)` returnerar avståndet mellan "
+"olika geografiska områden"
+
+#: ../../en/geography_exercises.rst:11
+msgid ":command:`ST_Transform(geometry, srid)` returns geometry, in the new projection"
+msgstr ""
+":command:`ST_Transform(geometry, srid)` returnerar geometrin i den nya "
+"projektionen"
+
+#: ../../en/geography_exercises.rst:12
+msgid ":command:`ST_Length(geography)` returns the length of the line"
+msgstr ":command:`ST_Length(geography)` returnerar längden på raden"
+
+#: ../../en/geography_exercises.rst:13
+msgid ":command:`ST_Intersects(geometry, geometry)` returns true if the objects are not disjoint in planar space"
+msgstr ""
+":command:`ST_Intersects(geometry, geometry)` returnerar true om objekten "
+"inte är åtskilda i planar space"
+
+#: ../../en/geography_exercises.rst:14
+msgid ":command:`ST_Intersects(geography, geography)` returns true if the objects are not disjoint in spheroidal space"
+msgstr ""
+":command:`ST_Intersects(geography, geography)` returnerar true om objekten "
+"inte är åtskilda i sfäroidal rymd"
+
+#: ../../en/geography_exercises.rst:16
+msgid "Also remember the tables we have available:"
+msgstr "Tänk också på de bord vi har tillgängliga:"
+
+#: ../../en/geography_exercises.rst:18
+msgid "``nyc_streets``"
+msgstr "``nyc_streets``"
+
+#: ../../en/geography_exercises.rst:20
+msgid "name, type, geom"
+msgstr "name, type, geom"
+
+#: ../../en/geography_exercises.rst:22
+msgid "``nyc_neighborhoods``"
+msgstr "``nyc_neighborhoods``"
+
+#: ../../en/geography_exercises.rst:24
+msgid "name, boroname, geom"
+msgstr "name, boroname, geom"
+
+#: ../../en/geography_exercises.rst:28
+msgid "Exercises"
+msgstr "Övningar"
+
+#: ../../en/geography_exercises.rst:30
+msgid "**How far is New York from Seattle? What are the units of the answer?**"
+msgstr ""
+"**Hur långt är det mellan New York och Seattle? Vilka är enheterna i "
+"svaret?**"
+
+#: ../../en/geography_exercises.rst:34
+msgid "New York = ``POINT(-74.0064 40.7142)`` and Seattle = ``POINT(-122.3331 47.6097)``"
+msgstr ""
+"New York = ``POINT(-74.0064 40.7142)`` och Seattle = ``POINT(-122.3331 47."
+"6097)``"
+
+#: ../../en/geography_exercises.rst:48
+msgid "**What is the total length of all streets in New York, calculated on the spheroid?**"
+msgstr ""
+"**Vad är den totala längden på alla gator i New York, beräknat på "
+"sfäroiden?**"
+
+#: ../../en/geography_exercises.rst:64
+msgid "The length calculated in the planar \"UTM Zone 18\" projection is 10418904.717, 0.02% different. UTM is good at preserving area and distance, within the zone boundaries."
+msgstr ""
+"Den längd som beräknas i den plana projektionen \"UTM Zone 18\" är "
+"10418904.717, 0.02% different. UTM är bra på att bevara yta och avstånd inom "
+"zongränserna."
+
+#: ../../en/geography_exercises.rst:67
+msgid "**Does ‘POINT(1 2.0001)’ intersect with ‘POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))’ in geography? In geometry? Why the difference?**"
+msgstr ""
+"** Skär \"POINT(1 2,0001)\" \"POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))\" i "
+"geografi? I geometri? Varför är det skillnad?**"
+
+#: ../../en/geography_exercises.rst:87
+msgid "The upper edge of the square is a straight line in geometry, and passes **below** the point, so the square does not contain the point. The upper edge of the square is a great circle in geography, and passes **above** the point, so the square does contain the point."
+msgstr ""
+"Kvadratens övre kant är en rät linje i geometri och passerar **under** "
+"punkten, så kvadraten innehåller inte punkten. Kvadratens övre kant är en "
+"storcirkel i geografi, och passerar **över** punkten, så kvadraten "
+"innehåller punkten."

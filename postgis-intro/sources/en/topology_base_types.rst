@@ -3,13 +3,11 @@
 Topology Basic Types
 ====================
 
-Before read this document, at least check one of this documents:
+Before reading this document, please review at least one of these resources:
 
-`Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_.
-
-`Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_.
-
-`ISO Topology: OGC-SFS Geometries <https://www.gaia-gis.it/fossil/libspatialite/wiki?name=topo-intro>`_.
+* `Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_
+* `Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_
+* `ISO Topology: OGC-SFS Geometries <https://www.gaia-gis.it/fossil/libspatialite/wiki?name=topo-intro>`_
 
 In this workshop, we will check some fundamentals of topology, its basics and definitions. It is not intended to be a way to use them directly, is to understand it to then be able to use it easily.
 

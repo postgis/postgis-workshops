@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-06 06:20+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "validity/sv/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../en/validity.rst:4
 msgid "Validity"
-msgstr "Giltighet"
+msgstr "Validitet"
 
 #: ../../en/validity.rst:6
 msgid "In 90% of the cases the answer to the question, \"why is my query giving me a 'TopologyException' error\" is \"one or more of the inputs are invalid\".  Which begs the question: what does it mean to be invalid, and why should we care?"
@@ -99,7 +99,7 @@ msgstr "Du kan se ogiltigheten lite tydligare i det här diagrammet:"
 #: ../../en/validity.rst:35
 msgid "The outer ring is actually a figure-eight, with a self-intersection in the middle. Note that the graphic routines successfully render the polygon fill, so that visually it is appears to be an \"area\": two one-unit squares, so a total area of two units of area."
 msgstr ""
-"Den yttre ringen är egentligen en åtta, med en självskärande punkt i mitten. "
+"Den yttre ringen är egentligen en åtta, med en självkorsande punkt i mitten. "
 "Observera att de grafiska rutinerna lyckas rendera polygonfyllningen, så att "
 "det visuellt ser ut som en \"yta\": två rutor med en enhet, så en total yta "
 "på två ytenheter."

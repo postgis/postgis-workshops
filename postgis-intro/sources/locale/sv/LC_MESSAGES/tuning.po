@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-06 06:30+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "tuning/sv/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../en/tuning.rst:4
 msgid "Basic PostgreSQL Tuning"
-msgstr "Grundläggande PostgreSQL-tuning"
+msgstr "Grundläggande PostgreSQL-justering"
 
 #: ../../en/tuning.rst:6
 msgid "PostgreSQL is a very versatile database system, capable of running efficiently in very low-resource environments and environments shared with a variety of other applications.  In order to ensure it will run properly for many different environments, the default configuration is very conservative and not terribly appropriate for a high-performance production database.  Add the fact that geospatial databases have different usage patterns, and the data tend to consist of fewer, much larger records than non-geospatial databases, and you can see that the default configuration will not be totally appropriate for our purposes."
@@ -83,14 +83,14 @@ msgstr "effective_cache_size"
 #: ../../en/tuning.rst:28
 msgid "In addition to the memory PostgreSQL sets aside for ``shared_buffers`` the query planner also takes into account how many disk blocks the operating system may have cached as part of its virtual file system. For systems with large amount of memory, this can be quite large. The ``effective_cache_size`` is approximately the amount of memory on the machine, less the ``shared_buffers``, less the ``work_mem`` times the expected number of connections, less any memory required for any other processes running on the machine, less about 1GB for other random operating system needs. The database will not **use** the extra cache directly, but it will compute plans expecting that the operating system has cached filesystem data in about that much memory."
 msgstr ""
-"Förutom det minne som PostgreSQL avsätter för `` delade buffertar `` tar "
+"Förutom det minne som PostgreSQL avsätter för ``shared_buffers`` tar "
 "frågeplaneraren också hänsyn till hur många diskblock operativsystemet kan "
 "ha cachat som en del av dess virtuella filsystem. För system med stor mängd "
-"minne kan detta vara ganska stort. Den \"effektiva cachestorleken\" är "
-"ungefär lika stor som maskinens minne, minus de \"delade buffertarna\", "
-"minus \"arbetsminnet\" gånger det förväntade antalet anslutningar, minus det "
-"minne som krävs för andra processer som körs på maskinen, minus ca 1 GB för "
-"andra slumpmässiga behov hos operativsystemet. Databasen kommer inte att "
+"minne kan detta vara ganska stort. Den ``effective_cache_size`` är ungefär "
+"lika stor som maskinens minne, minus de ``shared_buffers``, minus "
+"``work_mem`` gånger det förväntade antalet anslutningar, minus det minne som "
+"krävs för andra processer som körs på maskinen, minus ca 1 GB för andra "
+"slumpmässiga behov hos operativsystemet. Databasen kommer inte att "
 "**använda** den extra cachen direkt, men den kommer att beräkna planer som "
 "förväntar sig att operativsystemet har cachat filsystemdata i ungefär lika "
 "mycket minne."
@@ -229,7 +229,7 @@ msgstr "*Rekommenderat värde*: 6"
 
 #: ../../en/tuning.rst:88
 msgid "random_page_cost"
-msgstr "slumpmässig_sidkostnad"
+msgstr "random_page_cost"
 
 #: ../../en/tuning.rst:90
 msgid "This is a unit-less value that represents the cost of a random page access from disk.  This value is relative to a number of other cost parameters including sequential page access, and CPU operation costs.  While there is no magic bullet for this value, the default is generally conservative and for databases running on spinning media. The random access cost for SSD should be set even lower."

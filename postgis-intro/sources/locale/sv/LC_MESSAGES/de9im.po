@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-06 06:20+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "de9im/sv/>\n"
@@ -76,13 +76,13 @@ msgid "Using these definitions of interior, exterior and boundary, the relations
 msgstr ""
 "Med hjälp av dessa definitioner av interiör, exteriör och gräns kan "
 "relationerna mellan varje par av spatiala egenskaper karakteriseras med "
-"hjälp av dimensionaliteten hos de nio möjliga skärningspunkterna mellan "
+"hjälp av dimensionaliteten hos de nio möjliga korsningspunkterna mellan "
 "interiörerna/gränserna/exteriörerna hos ett par av objekt."
 
 #: ../../en/de9im.rst:35
 msgid "For the polygons in the example above, the intersection of the interiors is a 2-dimensional area, so that portion of the matrix is filled out with a \"2\". The boundaries only intersect at points, which are zero-dimensional, so that portion of the matrix is filled out with a 0."
 msgstr ""
-"För polygonerna i exemplet ovan är skärningspunkten mellan interiörerna ett "
+"För polygonerna i exemplet ovan är korsningspunkten mellan interiörerna ett "
 "2-dimensionellt område, så den delen av matrisen fylls i med en \"2\". "
 "Gränserna skärs endast i punkter, som är nolldimensionella, så den delen av "
 "matrisen fylls i med en 0."
@@ -90,7 +90,7 @@ msgstr ""
 #: ../../en/de9im.rst:37
 msgid "When there is no intersection between components, the square the matrix is filled out with an \"F\"."
 msgstr ""
-"När det inte finns någon skärningspunkt mellan komponenterna fylls rutan i "
+"När det inte finns någon korsningspunkt mellan komponenterna fylls rutan i "
 "matrisen med ett \"F\"."
 
 #: ../../en/de9im.rst:39
@@ -154,11 +154,11 @@ msgstr "Våra legala bryggor har följande egenskaper:"
 
 #: ../../en/de9im.rst:101
 msgid "Their interiors have a linear (1D) intersection with the lake interior"
-msgstr "Deras interiörer har en linjär (1D) skärningspunkt med sjöns interiör"
+msgstr "Deras interiörer har en linjär (1D) korsningspunkt med sjöns interiör"
 
 #: ../../en/de9im.rst:102
 msgid "Their boundaries have a point (0D) intersection with the lake interior"
-msgstr "Deras gränser har en punkt (0D) skärningspunkt med sjöns inre"
+msgstr "Deras gränser har en punkt (0D) korsningspunkt med sjöns inre"
 
 #: ../../en/de9im.rst:103
 msgid "Their boundaries **also** have a point (0D) intersection with the lake boundary"
@@ -166,7 +166,7 @@ msgstr "Deras gränser har **också** en punkt (0D) som skär sjöns gräns"
 
 #: ../../en/de9im.rst:104
 msgid "Their interiors have no intersection (F) with the lake exterior"
-msgstr "Deras interiörer har ingen skärningspunkt (F) med sjöns exteriör"
+msgstr "Deras interiörer har ingen korsningspunkt (F) med sjöns exteriör"
 
 #: ../../en/de9im.rst:106
 msgid "So their DE9IM matrix looks like this:"
@@ -206,14 +206,14 @@ msgstr "\"T\" betyder \"alla icke-falska värden (0, 1 eller 2) är acceptabla\"
 msgid "So for example, one possible dock we did not include in our example graphic is a dock with a two-dimensional intersection with the lake boundary:"
 msgstr ""
 "En möjlig brygga som vi inte inkluderade i vårt grafiska exempel är en "
-"brygga med en tvådimensionell skärningspunkt med sjögränsen:"
+"brygga med en tvådimensionell korsningspunkt med sjögränsen:"
 
 #: ../../en/de9im.rst:138
 msgid "If we are to include this case in our set of \"legal\" docks, we need to change the relate pattern in our query. In particular, the intersection of the dock interior lake boundary can now be either 1 (our new case) or F (our original case). So we use the \"*\" catchall in the pattern."
 msgstr ""
 "Om vi ska inkludera detta fall i vår uppsättning av \"lagliga\" bryggor "
 "måste vi ändra relationsmönstret i vår fråga. I synnerhet kan "
-"skärningspunkten mellan bryggans inre sjögräns nu vara antingen 1 (vårt nya "
+"korsningspunkten mellan bryggans inre sjögräns nu vara antingen 1 (vårt nya "
 "fall) eller F (vårt ursprungliga fall). Så vi använder \"*\" i mönstret."
 
 #: ../../en/de9im.rst:143

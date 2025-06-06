@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-05 13:18+0000\n"
+"PO-Revision-Date: 2025-06-06 06:20+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries/sv/>\n"
@@ -77,10 +77,10 @@ msgstr ""
 #: ../../en/geometries.rst:47
 msgid "``f_table_catalog``, ``f_table_schema``, and ``f_table_name`` provide the fully qualified name of the feature table containing a given geometry.  Because PostgreSQL doesn't make use of catalogs, ``f_table_catalog`` will tend to be empty."
 msgstr ""
-"`` f_table_catalog``, `` f_table_schema`` och `` f_table_name`` ger det "
+"``f_table_catalog``, ``f_table_schema`` och ``f_table_name`` ger det "
 "fullständigt kvalificerade namnet på funktionstabellen som innehåller en "
-"given geometri.  Eftersom PostgreSQL inte använder kataloger tenderar `` "
-"f_table_catalog`` att vara tom."
+"given geometri.  Eftersom PostgreSQL inte använder kataloger tenderar "
+"``f_table_catalog`` att vara tom."
 
 #: ../../en/geometries.rst:48
 msgid "``f_geometry_column`` is the name of the column that geometry containing column -- for feature tables with multiple geometry columns, there will be one record for each."
@@ -422,7 +422,7 @@ msgstr "Välkänd text (:term:`WKT`)"
 
 #: ../../en/geometries.rst:276
 msgid ":command:`ST_GeomFromText(text, srid)` returns ``geometry``"
-msgstr ":command:`ST_GeomFromText(text, srid)` returnerar ``geometri``"
+msgstr ":command:`ST_GeomFromText(text, srid)` returnerar ``geometry``"
 
 #: ../../en/geometries.rst:277
 msgid ":command:`ST_AsText(geometry)` returns ``text``"
@@ -438,7 +438,7 @@ msgstr "Välkänd binär (:term:`WKB`)"
 
 #: ../../en/geometries.rst:282
 msgid ":command:`ST_GeomFromWKB(bytea)` returns ``geometry``"
-msgstr ":command:`ST_GeomFromWKB(bytea)` returnerar ``geometri``"
+msgstr ":command:`ST_GeomFromWKB(bytea)` returnerar ``geometry``"
 
 #: ../../en/geometries.rst:283
 msgid ":command:`ST_AsBinary(geometry)` returns ``bytea``"
@@ -454,7 +454,7 @@ msgstr "Geographic Mark-up Language (:term:`GML`)"
 
 #: ../../en/geometries.rst:288
 msgid ":command:`ST_GeomFromGML(text)` returns ``geometry``"
-msgstr ":command:`ST_GeomFromGML(text)` returnerar ``geometri``"
+msgstr ":command:`ST_GeomFromGML(text)` returnerar ``geometry``"
 
 #: ../../en/geometries.rst:289
 msgid ":command:`ST_AsGML(geometry)` returns ``text``"
@@ -466,7 +466,7 @@ msgstr "Keyhole Mark-up Language (:term:`KML`)"
 
 #: ../../en/geometries.rst:293
 msgid ":command:`ST_GeomFromKML(text)` returns ``geometry``"
-msgstr ":command:`ST_GeomFromKML(text)` returnerar ``geometri``"
+msgstr ":command:`ST_GeomFromKML(text)` returnerar ``geometry``"
 
 #: ../../en/geometries.rst:294
 msgid ":command:`ST_AsKML(geometry)` returns ``text``"

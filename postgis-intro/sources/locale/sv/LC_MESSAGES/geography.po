@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-05 13:18+0000\n"
+"PO-Revision-Date: 2025-06-05 21:38+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geography/sv/>\n"
@@ -100,7 +100,7 @@ msgstr ""
 
 #: ../../en/geography.rst:41
 msgid "PostGIS provides this functionality through the ``geography`` type."
-msgstr "PostGIS tillhandahåller denna funktionalitet genom typen ``geografi``."
+msgstr "PostGIS tillhandahåller denna funktionalitet genom typen ``geography``."
 
 #: ../../en/geography.rst:45
 msgid "Different spatial databases have different approaches for \"handling geographics\""
@@ -133,13 +133,13 @@ msgstr ""
 #: ../../en/geography.rst:52
 msgid "Using the ``geography`` instead of ``geometry`` type, let's try again to measure the distance between Los Angeles and Paris."
 msgstr ""
-"Med hjälp av typen ``geografi`` istället för ``geometri``, låt oss försöka "
+"Med hjälp av typen ``geography`` istället för ``geometry``, låt oss försöka "
 "igen att mäta avståndet mellan Los Angeles och Paris."
 
 #: ../../en/geography.rst:65
 msgid "A big number! All return values from ``geography`` calculations are in **meters**, so our answer is 9125km."
 msgstr ""
-"Ett stort tal! Alla returvärden från ``geografi``-beräkningar är i **meter**"
+"Ett stort tal! Alla returvärden från ``geography``-beräkningar är i **meter**"
 ", så vårt svar är 9125km."
 
 #: ../../en/geography.rst:67
@@ -165,7 +165,7 @@ msgstr ""
 "linjen) ger ett *mycket* felaktigt svar! Att använda storcirkelrutter (de "
 "röda linjerna) ger rätt svar. Om vi konverterar vår flygning LAX-CDG till en "
 "linjestring och beräknar avståndet till en punkt på Island med hjälp av "
-"``geografi`` får vi rätt svar (recall) i meter."
+"``geography`` får vi rätt svar (recall) i meter."
 
 #: ../../en/geography.rst:86
 msgid "So the closest approach to Iceland (as measured from its international airport) on the LAX-CDG route is a relatively small 502km."
@@ -223,7 +223,7 @@ msgstr ":command:`ST_AsText(geografi)` returnerar ``text``"
 
 #: ../../en/geography.rst:151
 msgid ":command:`ST_GeographyFromText(text)` returns ``geography``"
-msgstr ":command:`ST_GeographyFromText(text)` returnerar ``geografi``"
+msgstr ":command:`ST_GeographyFromText(text)` returnerar ``geography``"
 
 #: ../../en/geography.rst:152
 msgid ":command:`ST_AsBinary(geography)` returns ``bytea``"
@@ -231,7 +231,7 @@ msgstr ":command:`ST_AsBinary(geography)` returnerar ``bytea``"
 
 #: ../../en/geography.rst:153
 msgid ":command:`ST_GeogFromWKB(bytea)` returns ``geography``"
-msgstr ":command:`ST_GeogFromWKB(bytea)` returnerar ``geografi``"
+msgstr ":command:`ST_GeogFromWKB(bytea)` returnerar ``geography``"
 
 #: ../../en/geography.rst:154
 msgid ":command:`ST_AsSVG(geography)` returns ``text``"
@@ -433,13 +433,13 @@ msgstr ""
 #: ../../en/geography.rst:251
 msgid "`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth.html>`_: Returns the direction from A to B in radians."
 msgstr ""
-"`ST_Azimuth(geografi_A, geografi_B) <http://postgis.net/docs/ST_Azimuth."
+"`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth."
 "html>`_: Returnerar riktningen från A till B i radianer."
 
 #: ../../en/geography.rst:253
 msgid "`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin.html>`_: Returns true if A is within R meters of B."
 msgstr ""
-"`ST_DWithin(geografi_A, geografi_B, R) <http://postgis.net/docs/ST_DWithin."
+"`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin."
 "html>`_: Returnerar sant om A ligger inom R meter från B."
 
 #: ../../en/geography.rst:257

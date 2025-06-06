@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Daniel Nylander <daniel@danielnylander.se>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 19:56+0000\nPO-Revision-Date: 2025-06-04 17:47+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/topology/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 19:56+0000\nPO-Revision-Date: 2025-06-06 06:20+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/topology/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/topology.rst:4
 msgid "Topology"
@@ -92,7 +92,7 @@ msgstr "Den innehåller inte den faktiska geometrin utan bara geometrins avgrän
 
 #: ../../en/topology.rst:81
 msgid "node - Contains all the start and end points of all edges as well as points not connected to anything (isolated nodes)"
-msgstr "nod - Innehåller alla start- och slutpunkter för alla kanter samt punkter som inte är anslutna till något (isolerade noder)"
+msgstr "node - Innehåller alla start- och slutpunkter för alla kanter samt punkter som inte är anslutna till något (isolerade noder)"
 
 #: ../../en/topology.rst:82
 msgid "relation - this defines what elements in a topology make up a topogeometry."
@@ -136,7 +136,7 @@ msgstr "Det vanligaste sättet att fylla i topologier är att skapa topogeometri
 
 #: ../../en/topology.rst:128
 msgid "The output of the above is:"
-msgstr "Utgången av ovanstående är:"
+msgstr "Utdata av ovanstående är:"
 
 #: ../../en/topology.rst:136
 msgid "Now we are ready to populate our table. It's best to ensure your geometries are valid before adding, otherwise you'll get errors such as SQL\\MM geometry is not simple."
@@ -168,7 +168,7 @@ msgstr "Nu har vi data i vår topologi.  En snabb kontroll visar att nyc_topo.ed
 
 #: ../../en/topology.rst:186
 msgid "outputs:"
-msgstr "utgångar:"
+msgstr "utmatning:"
 
 #: ../../en/topology.rst:198
 msgid "Now we can express declaritively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
@@ -212,7 +212,7 @@ msgstr "Låt oss först titta på Boros och leta efter stadsdelar som delar elem
 
 #: ../../en/topology.rst:279
 msgid "The output is:"
-msgstr "Utgången är:"
+msgstr "Utdata är:"
 
 #: ../../en/topology.rst:292
 msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaritively inspect what components are shared across boroughs."

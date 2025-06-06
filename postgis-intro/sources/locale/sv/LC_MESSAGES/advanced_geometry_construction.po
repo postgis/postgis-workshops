@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-06 06:20+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "advanced_geometry_construction/sv/>\n"
@@ -163,7 +163,7 @@ msgstr "Det ser ut så här:"
 
 #: ../../en/advanced_geometry_construction.rst:97
 msgid "*Success!*"
-msgstr "*Lyckades!**"
+msgstr "*Lyckades!*"
 
 #: ../../en/advanced_geometry_construction.rst:99
 msgid "Except, two problems:"
@@ -234,12 +234,11 @@ msgstr "Observera användningen av två avancerade PostgreSQL ARRAY-funktioner:"
 #: ../../en/advanced_geometry_construction.rst:132
 msgid "**string_to_array** takes in a string and splits it into an array using a separator character. `PostgreSQL supports arrays <http://www.postgresql.org/docs/current/static/arrays.html>`_ of any type, so it's possible to build arrays of strings, as in this case, but also of geometries and geographies as we'll see later in this example."
 msgstr ""
-"** string_to_array ** tar in en sträng och delar upp den i en matris med "
-"hjälp av ett separatortecken. `PostgreSQL stöder matriser <http://www."
-"postgresql.org/docs/current/static/arrays.html>`_ av vilken typ som helst, "
-"så det är möjligt att bygga matriser av strängar, som i det här fallet, men "
-"också av geometrier och geografier som vi kommer att se senare i detta "
-"exempel."
+"**string_to_array** tar in en sträng och delar upp den i en matris med hjälp "
+"av ett separatortecken. `PostgreSQL stöder matriser <http://www.postgresql."
+"org/docs/current/static/arrays.html>`_ av vilken typ som helst, så det är "
+"möjligt att bygga matriser av strängar, som i det här fallet, men också av "
+"geometrier och geografier som vi kommer att se senare i detta exempel."
 
 #: ../../en/advanced_geometry_construction.rst:133
 msgid "**unnest** takes in an array and builds a new row for each entry in the array. The effect is to take a \"horizontal\" array embedded in a single row and turn it into a \"vertical\" array with a row for each value."

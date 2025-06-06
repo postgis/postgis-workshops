@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-05 13:50+0000\n"
+"PO-Revision-Date: 2025-06-06 06:20+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "security/sv/>\n"
@@ -227,7 +227,7 @@ msgstr ""
 #: ../../en/security.rst:157
 msgid "Copy the ``server.crt`` and ``server.key`` into the PostgreSQL data directory."
 msgstr ""
-"Kopiera `` server.crt`` och `` server.key`` till PostgreSQL-datakatalogen."
+"Kopiera ``server.crt`` och ``server.key`` till PostgreSQL-datakatalogen."
 
 #: ../../en/security.rst:159
 msgid "Enable SSL support in the ``postgresql.conf`` file by turning the \"ssl\" parameter to \"on\"."

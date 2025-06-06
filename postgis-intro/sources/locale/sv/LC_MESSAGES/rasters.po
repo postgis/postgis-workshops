@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Daniel Nylander <daniel@danielnylander.se>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-06-05 13:50+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-06-06 06:30+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -11,7 +11,7 @@ msgstr "Raster"
 
 #: ../../en/rasters.rst:6
 msgid "PostGIS supports another kind of spatial data type called a *raster*. Raster data, much like geometry data, uses **Cartesian coordinates** and a spatial reference system. However instead of vector data, raster data is represented as an n-dimensional matrix consisting of pixels and bands. The bands defines the number of matrices you have. Each pixel stores a value corresponding to each band. So a 3-banded raster such as an RGB image, would have 3 values for each pixel corresponding to the Red-Green-Blue bands."
-msgstr "PostGIS stöder en annan typ av spatial datatyp som kallas *raster*. Rasterdata använder, precis som geometridata, **kartesiska koordinater** och ett spatialt referenssystem. Men istället för vektordata representeras rasterdata som en n-dimensionell matris som består av pixlar och band. Banden definierar antalet matriser du har. Varje pixel lagrar ett värde som motsvarar varje band. Så en 3-bandsraster, t.ex. en RGB-bild, skulle ha 3 värden för varje pixel som motsvarar banden rött-grönt-blått."
+msgstr "PostGIS stöder en annan typ av spatial datatyp som kallas *raster*. Rasterdata använder, precis som geometridata, **kartesiska koordinater** och ett spatialt referenssystem. Men istället för vektordata representeras rasterdata som en n-dimensionell matris som består av bildpunkter och band. Banden definierar antalet matriser du har. Varje pixel lagrar ett värde som motsvarar varje band. Så en 3-bandsraster, t.ex. en RGB-bild, skulle ha 3 värden för varje pixel som motsvarar banden rött-grönt-blått."
 
 #: ../../en/rasters.rst:12
 msgid "Although pretty pictures such as those you see on your TV screen are rasters, rasters may not be that exciting to look at. In a nutshell, a raster is a matrix, pinned on a coordinate system, that has values that can represent anything you want them to represent."
@@ -47,7 +47,7 @@ msgstr "I exemplet ovan CREATEs en tabell (**rasters**) från geometrier som bil
 
 #: ../../en/rasters.rst:58
 msgid "You can see some useful metadata of your rasters with the following query which utilizes the postgis raster `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels that have data and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters."
-msgstr "Du kan se några användbara metadata för dina raster med följande fråga som använder postgis raster `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_-funktionen för att räkna antalet pixlar som har data och `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_-funktionen för att tillhandahålla alla typer av användbar bakgrundsinformation för våra raster."
+msgstr "Du kan se några användbara metadata för dina raster med följande fråga som använder postgis raster `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_-funktionen för att räkna antalet bildpunkter som har data och `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_-funktionen för att tillhandahålla alla typer av användbar bakgrundsinformation för våra raster."
 
 #: ../../en/rasters.rst:76
 msgid "There are two levels of raster functions. There are functions such as ST_MetaData that work at the raster level and there are functions such as :command:`ST_Count` function and `ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_ function that work at the band level. Most functions in postgis raster that work at the band level, work with only one band at a time, and assume the band you want is `1`."
@@ -55,7 +55,7 @@ msgstr "Det finns två nivåer av rasterfunktioner. Det finns funktioner som ST_
 
 #: ../../en/rasters.rst:83
 msgid "If you have a multi-band raster, and you need to count the pixel not no-data values in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`."
-msgstr "Om du har ett raster med flera band och du behöver räkna de pixlar som inte har några datavärden i ett annat band än 1, måste du uttryckligen ange bandnumret på följande sätt `ST_Count(rast,2)`."
+msgstr "Om du har ett raster med flera band och du behöver räkna de bildpunkter som inte har några datavärden i ett annat band än 1, måste du uttryckligen ange bandnumret på följande sätt `ST_Count(rast,2)`."
 
 #: ../../en/rasters.rst:85
 msgid "Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that, our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us."
@@ -63,11 +63,11 @@ msgstr "Observera att alla raster har en dimension på 150x150.  Detta är inte 
 
 #: ../../en/rasters.rst:89
 msgid "Loading Rasters using raster2pgsql"
-msgstr "Ladda raster med hjälp av raster2pgsql"
+msgstr "Läs in raster med hjälp av raster2pgsql"
 
 #: ../../en/rasters.rst:90
 msgid "`raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Loader>`_ is a command-line tool often packaged with PostGIS. If you are on windows and used application stackbuilder PostGIS Bundle, you'll find :command:`raster2pgsql.exe` in the folder ``C:\\Program Files\\PostgreSQL\\15\\bin``  where the *15* should be replaced with the version of PostgreSQL you are running."
-msgstr "`raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Loader>`_ är ett kommandoradsverktyg som ofta paketeras med PostGIS. Om du är på Windows och använde applikationsstackbuilder PostGIS Bundle, hittar du :command:`raster2pgsql.exe` i mappen `` C: \\ Program Files \\ PostgreSQL \\ 15 \\ bin`` där * 15 * ska ersättas med den version av PostgreSQL du kör."
+msgstr "`raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Loader>`_ är ett kommandoradsverktyg som ofta paketeras med PostGIS. Om du är på Windows och använde applikationsstackbuilder PostGIS Bundle, hittar du :command:`raster2pgsql.exe` i mappen ``C: \\ Program Files \\ PostgreSQL \\ 15 \\ bin`` där *15* ska ersättas med den version av PostgreSQL du kör."
 
 #: ../../en/rasters.rst:93
 msgid "If you are using Postgres.App, you'll find raster2pgsql among the other `Postgres.app CLI Tools <https://postgresapp.com/documentation/cli-tools.html>`_."
@@ -179,7 +179,7 @@ msgstr "Även om pgAdmin och psql ännu inte har någon mekanism för att visa p
 
 #: ../../en/rasters.rst:178
 msgid "One caveat, by default all different raster types outputs are disabled. In order to utilize these, you'll need to enable drivers, all or a subset as detailed in `Enable GDAL Raster drivers <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_"
-msgstr "En varning, som standard är alla olika utgångar för rastertyper inaktiverade. För att kunna använda dessa måste du aktivera drivrutiner, alla eller en delmängd enligt beskrivningen i `Aktivera GDAL Raster-drivrutiner <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_"
+msgstr "En varning, som standard är alla olika utmatningar för rastertyper inaktiverade. För att kunna använda dessa måste du aktivera drivrutiner, alla eller en delmängd enligt beskrivningen i `Aktivera GDAL Raster-drivrutiner <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_"
 
 #: ../../en/rasters.rst:186
 msgid "If you don't want to have to do this for each connection, you can set at the database level using:"
@@ -315,7 +315,7 @@ msgstr "Overview-faktorn anger vilken upplösning raden har i förhållande till
 
 #: ../../en/rasters.rst:407
 msgid "Common Raster Functions"
-msgstr "Vanliga Raster-funktioner"
+msgstr "Vanliga rasterfunktioner"
 
 #: ../../en/rasters.rst:408
 msgid "The :command:`postgis_raster` extension has over 100 functions to choose from. PostGIS raster functionality was patterned after the PostGIS geometry support. You'll find an overlap of functions between raster and geometry where it makes sense. Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`."
@@ -327,7 +327,7 @@ msgstr "Förutom dessa överlappande funktioner har programmet stöd för överl
 
 #: ../../en/rasters.rst:419
 msgid "You need a function like :command:`ST_Union` to reconstitute a region. Because performance gets slow, the more pixels a function needs to analyse, you need a fast acting function :command:`ST_Clip` to clip the rasters to just the portions of interest for your analysis."
-msgstr "Du behöver en funktion som :command:`ST_Union` för att återskapa en region. Eftersom prestanda blir långsammare ju fler pixlar en funktion behöver analysera, behöver du en snabbverkande funktion :command:`ST_Clip` för att klippa rastren till bara de delar som är intressanta för din analys."
+msgstr "Du behöver en funktion som :command:`ST_Union` för att återskapa en region. Eftersom prestanda blir långsammare ju fler bildpunkter en funktion behöver analysera, behöver du en snabbverkande funktion :command:`ST_Clip` för att klippa rastren till bara de delar som är intressanta för din analys."
 
 #: ../../en/rasters.rst:423
 msgid "Finally you need :command:`ST_Intersects` or :command:`&&` to zoom in on the raster tiles that contain your areas of interest. The `&&` operator, is a faster process than the `ST_Intersects`. Both can take advantage of raster spatial indexes. We'll cover these bread and butter functions first before moving on to other sections where we will use them in concert with other raster and geometry functions."
@@ -355,11 +355,11 @@ msgstr "**ERROR: rt_raster_from_two_rasters: De två raster som tillhandahålls 
 
 #: ../../en/rasters.rst:450
 msgid "What is this same alignment thing, that is preventing you from unioning your precious rasters?"
-msgstr "Vad är det som hindrar er från att organisera era dyrbara rastare i fackföreningar?"
+msgstr "Vad är det för något med denna inriktning som hindrar dig från att sammanfoga dina värdefulla raster?"
 
 #: ../../en/rasters.rst:452
 msgid "In order for rasters to be combined, they need to be on the same grid so to speak. Meaning they must have same pixel sizes, same orientation (the skew), same spatial reference system, and their pixels must not cut into each other, meaning they share the same worldly pixel grid."
-msgstr "För att raster ska kunna kombineras måste de så att säga vara på samma rutnät. Det innebär att de måste ha samma pixelstorlekar, samma orientering (skevheten), samma spatiala referenssystem och att deras pixlar inte får skära in i varandra, vilket innebär att de delar samma världsliga pixelnät."
+msgstr "För att raster ska kunna kombineras måste de så att säga vara på samma rutnät. Det innebär att de måste ha samma pixelstorlekar, samma orientering (skevheten), samma spatiala referenssystem och att deras bildpunkter inte får korsa in i varandra, vilket innebär att de delar samma världsliga pixelnät."
 
 #: ../../en/rasters.rst:456
 msgid "If you try the same query, but just with words we carefully placed in New York."
@@ -371,7 +371,7 @@ msgstr "Återigen, samma fel. Det är samma spatiala ref-system, samma pixelstor
 
 #: ../../en/rasters.rst:462
 msgid "We can fix this by shifting the upper left y coordinates ever so slightly and then trying again. If our grids start at integer level since our pixel sizes are whole integer, then the pixels won't cut into each other."
-msgstr "Vi kan åtgärda detta genom att flytta de övre vänstra y-koordinaterna en aning och sedan försöka igen. Om våra rutnät börjar på heltalsnivå eftersom våra pixelstorlekar är hela heltal, kommer pixlarna inte att skära in i varandra."
+msgstr "Vi kan åtgärda detta genom att flytta de övre vänstra y-koordinaterna en aning och sedan försöka igen. Om våra rutnät börjar på heltalsnivå eftersom våra pixelstorlekar är hela heltal, kommer bildpunkterna inte att korsa in i varandra."
 
 #: ../../en/rasters.rst:477
 #: ../../en/rasters.rst:526
@@ -384,7 +384,7 @@ msgstr "Om du någonsin är osäker på varför dina raster inte har samma inrik
 
 #: ../../en/rasters.rst:490
 msgid "One major way in which the `ST_Union(raster) <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates from the `ST_Union(geometry) <https://postgis.net/docs/ST_Union.html>`_ geometry function is that it allows for an argument called *uniontype*.  This argument by default is set to `LAST` if you don't specify it, which means, take the **LAST** raster pixel values in occasions where the raster pixel values overlap. As a general rule, pixels in a band that are marked as no-data are ignored."
-msgstr "Ett viktigt sätt på vilket rasterfunktionen `ST_Union(raster) <https://postgis.net/docs/RT_ST_Union.html>`_ avviker från geometrifunktionen `ST_Union(geometry) <https://postgis.net/docs/ST_Union.html>`_ är att den tillåter ett argument som kallas *uniontype*.  Detta argument är som standard inställt på `LAST` om du inte anger det, vilket innebär att du tar de **LAST** rasterpixelvärdena vid tillfällen där rasterpixelvärdena överlappar varandra. Som en allmän regel ignoreras pixlar i ett band som är markerade som no-data."
+msgstr "Ett viktigt sätt på vilket rasterfunktionen `ST_Union(raster) <https://postgis.net/docs/RT_ST_Union.html>`_ avviker från geometrifunktionen `ST_Union(geometry) <https://postgis.net/docs/ST_Union.html>`_ är att den tillåter ett argument som kallas *uniontype*.  Detta argument är som standard inställt på `LAST` om du inte anger det, vilket innebär att du tar de **LAST** rasterpixelvärdena vid tillfällen där rasterpixelvärdena överlappar varandra. Som en allmän regel ignoreras bildpunkter i ett band som är markerade som no-data."
 
 #: ../../en/rasters.rst:496
 msgid "Just as with most aggregates in PostgreSQL, you can put a :command:`ORDER BY` clause as part of the function call as is done in the prior example.  Specifying the order, allows you to control which raster takes priority. So in our prior example, *Raster* trumped *Hello* because *Raster* is alphabetically last."
@@ -400,7 +400,7 @@ msgstr "Sedan övertrumfar *Hello* *Raster* eftersom Hello nu är den sista öve
 
 #: ../../en/rasters.rst:512
 msgid "The :command:`FIRST` union type is the reverse of :command:`LAST`."
-msgstr "Fackföreningstypen :command:`FIRST` är motsatsen till :command:`LAST`."
+msgstr "Unionstypen :command:`FIRST` är motsatsen till :command:`LAST`."
 
 #: ../../en/rasters.rst:514
 msgid "But on occassion, **LAST** may not be the right operation. Let's suppose our rasters represented two different sets of observations from two different devices. These devices measure the same thing, and we aren't sure which is right when they cross paths, so we'd instead like to take the `MEAN` of the results.  We'd do this:"
@@ -420,11 +420,11 @@ msgstr "En annan egenskap hos raster :command:`ST_Union` som vi glömde bort är
 
 #: ../../en/rasters.rst:559
 msgid "Note in the case of the **COUNT** union type, which counts the number of pixels filled in and returns that value, the result is always a **32BUI** similar to how when you do a :command:`COUNT` in sql, the result is always a bigint, to accommodate large counts."
-msgstr "Observera att när det gäller unionstypen **COUNT**, som räknar antalet pixlar som fyllts i och returnerar det värdet, är resultatet alltid ett **32BUI** på samma sätt som när du gör ett :command:`COUNT` i sql, är resultatet alltid ett bigint, för att tillgodose stora räkningar."
+msgstr "Observera att när det gäller unionstypen **COUNT**, som räknar antalet bildpunkter som fyllts i och returnerar det värdet, är resultatet alltid ett **32BUI** på samma sätt som när du gör ett :command:`COUNT` i sql, är resultatet alltid ett bigint, för att tillgodose stora räkningar."
 
 #: ../../en/rasters.rst:563
 msgid "In other cases, the band pixel type does not change and is set to the max value or rounded if the amounts exceed the bounds of the type. Why would anyone ever want to count pixels that intersect at a location. Well suppose each of your rasters represent police squadrons and incidents of arrests in the areas. Each value, might represent a different kind of arrest reason. You are doing stats on how many arrests in each region, therefore you only care about the count of arrests."
-msgstr "I andra fall ändras inte bandpixeltypen och den ställs in på maxvärdet eller avrundas om beloppen överskrider gränserna för typen. Varför skulle någon någonsin vilja räkna pixlar som korsar varandra på en plats. Anta att alla dina raster representerar polisskvadroner och incidenter med arresteringar i områdena. Varje värde kan representera en annan typ av arresteringsorsak. Du gör statistik över hur många arresteringar i varje region, därför bryr du dig bara om antalet arresteringar."
+msgstr "I andra fall ändras inte bandpixeltypen och den ställs in på maxvärdet eller avrundas om beloppen överskrider gränserna för typen. Varför skulle någon någonsin vilja räkna bildpunkter som korsar varandra på en plats. Anta att alla dina raster representerar polisskvadroner och incidenter med arresteringar i områdena. Varje värde kan representera en annan typ av arresteringsorsak. Du gör statistik över hur många arresteringar i varje region, därför bryr du dig bara om antalet arresteringar."
 
 #: ../../en/rasters.rst:572
 msgid "Or perhaps, you want to do all bands, but you want different strategies."
@@ -440,11 +440,11 @@ msgstr "Klippning av Rasters med hjälp av ST_Intersects"
 
 #: ../../en/rasters.rst:586
 msgid "The `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ function is one of the most widely used functions for PostGIS rasters.  The main reason is the more pixels you need to inspect or do operations on, the slower your processing. **ST_Clip** clips your raster to just the area of interest, so you can isolate your operations to just that area."
-msgstr "Funktionen `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ är en av de mest använda funktionerna för PostGIS-raster.  Huvudskälet är att ju fler pixlar du behöver inspektera eller göra operationer på, desto långsammare blir din bearbetning. **ST_Clip** klipper ditt raster till bara det intressanta området, så att du kan isolera dina operationer till bara det området."
+msgstr "Funktionen `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ är en av de mest använda funktionerna för PostGIS-raster.  Huvudskälet är att ju fler bildpunkter du behöver inspektera eller göra operationer på, desto långsammare blir din bearbetning. **ST_Clip** klipper ditt raster till bara det intressanta området, så att du kan isolera dina operationer till bara det området."
 
 #: ../../en/rasters.rst:590
 msgid "This function is also special in that it utilizes the power of geometry to help raster analysis. To reduce the number of pixels, :command:`ST_Union` has to handle, each raster is clipped first to the area we are interested in."
-msgstr "Den här funktionen är också speciell eftersom den utnyttjar geometrins möjligheter för att underlätta rasteranalys. För att minska antalet pixlar som :command:`ST_Union` måste hantera, klipps varje raster först till det område som vi är intresserade av."
+msgstr "Den här funktionen är också speciell eftersom den utnyttjar geometrins möjligheter för att underlätta rasteranalys. För att minska antalet bildpunkter som :command:`ST_Union` måste hantera, klipps varje raster först till det område som vi är intresserade av."
 
 #: ../../en/rasters.rst:602
 msgid "This example showcases several functions working in unison.  The :command:`ST_Intersects` function employed is the one packaged with **postgis_raster** and can intersect 2 rasters or a raster and a geometry. Similar to the geometry :command:`ST_Intersects` the `raster ST_Intersects <https://postgis.net/docs/RT_ST_Intersects.html>`_ can take advantage of spatial indexes on the raster or geometry tables."
@@ -452,7 +452,7 @@ msgstr "Detta exempel visar flera funktioner som arbetar tillsammans.  Funktione
 
 #: ../../en/rasters.rst:609
 msgid "By default ST_Clip will leave out pixels where the centroid of the pixel doesn't intersect the geometry.  This can be annoying for big pixels and you may prefer to instead, include a pixel if any part of the pixel touches the geometry. Introduced in PostGIS 3.5, is the touched argument. Replace your  `ST_Clip(r.rast, g.geom)` with  `ST_Clip(r.rast, g.geom, touched => true)` and voila any pixels that intersect your geometry in any way will be included."
-msgstr "Som standard kommer ST_Clip att utelämna pixlar där pixelns centroid inte skär geometrin.  Detta kan vara irriterande för stora pixlar och du kanske föredrar att istället inkludera en pixel om någon del av pixeln vidrör geometrin. Argumentet touched introducerades i PostGIS 3.5. Ersätt din `ST_Clip(r.rast, g.geom)` med `ST_Clip(r.rast, g.geom, touched => true)` och voila alla pixlar som skär din geometri på något sätt kommer att inkluderas."
+msgstr "Som standard kommer ST_Clip att utelämna bildpunkter där pixelns centroid inte skär geometrin.  Detta kan vara irriterande för stora bildpunkter och du kanske föredrar att istället inkludera en pixel om någon del av pixeln vidrör geometrin. Argumentet touched introducerades i PostGIS 3.5. Ersätt din `ST_Clip(r.rast, g.geom)` med `ST_Clip(r.rast, g.geom, touched => true)` och voila alla bildpunkter som skär din geometri på något sätt kommer att inkluderas."
 
 #: ../../en/rasters.rst:618
 msgid "Converting Rasters to Geometries"
@@ -476,7 +476,7 @@ msgstr "Om du klickar på geometrivisaren i pgAdmin kan du se detta i all sin pr
 
 #: ../../en/rasters.rst:638
 msgid ":command:`ST_Polygon` considers all the pixels that have values (not no-data) in a particular band, and converts them to geometry.  Like many other functions in raster, :command:`ST_Polygon` only considers 1 band. If no band is specified, it will consider only the first band."
-msgstr ":command:`ST_Polygon` tar hänsyn till alla pixlar som har värden (inte inga data) i ett visst band och omvandlar dem till geometri.  Liksom många andra funktioner i raster beaktar :command:`ST_Polygon` endast 1 band. Om inget band anges beaktas endast det första bandet."
+msgstr ":command:`ST_Polygon` tar hänsyn till alla bildpunkter som har värden (inte inga data) i ett visst band och omvandlar dem till geometri.  Liksom många andra funktioner i raster beaktar :command:`ST_Polygon` endast 1 band. Om inget band anges beaktas endast det första bandet."
 
 #: ../../en/rasters.rst:643
 msgid "The pixel rectangles of a raster with ST_PixelAsPolygons"
@@ -492,7 +492,7 @@ msgstr ":command:`ST_PixelAsPolygons` returnerar en tabell som består av geom, 
 
 #: ../../en/rasters.rst:650
 msgid ":command:`ST_PixelAsPolygons` similar to other raster functions works on one band at a time and works on band 1 if no band is specified. It also by default returns only pixels that have values."
-msgstr ":command:`ST_PixelAsPolygons` i likhet med andra rasterfunktioner arbetar med ett band i taget och arbetar med band 1 om inget band anges. Den returnerar också som standard endast pixlar som har värden."
+msgstr ":command:`ST_PixelAsPolygons` i likhet med andra rasterfunktioner arbetar med ett band i taget och arbetar med band 1 om inget band anges. Den returnerar också som standard endast bildpunkter som har värden."
 
 #: ../../en/rasters.rst:662
 msgid "Which outputs:"
@@ -504,15 +504,15 @@ msgstr "och om vi inspekterar med geometrivisaren, ser vi:"
 
 #: ../../en/rasters.rst:670
 msgid "If we want all pixels of all our bands, we'd need to do something like below. Note the differences in this example from previous."
-msgstr "Om vi vill ha alla pixlar i alla våra band måste vi göra något liknande nedan. Notera skillnaderna i detta exempel från tidigare."
+msgstr "Om vi vill ha alla bildpunkter i alla våra band måste vi göra något liknande nedan. Notera skillnaderna i detta exempel från tidigare."
 
 #: ../../en/rasters.rst:673
 msgid "1. Setting  :command:`exclude_nodata_value` to make sure all pixels are returned so that our sets of calls return the same number of rows. The rows out of the function will be naturally in the same order."
-msgstr "1. Ställ in :command:`exclude_nodata_value` för att se till att alla pixlar returneras så att våra uppsättningar av anrop returnerar samma antal rader. De rader som kommer ut ur funktionen kommer naturligtvis att vara i samma ordning."
+msgstr "1. Ställ in :command:`exclude_nodata_value` för att se till att alla bildpunkter returneras så att våra uppsättningar av anrop returnerar samma antal rader. De rader som kommer ut ur funktionen kommer naturligtvis att vara i samma ordning."
 
 #: ../../en/rasters.rst:676
 msgid "2. Using the `PostgreSQL ROWS FROM constructor <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_ , and aliasing each set of columns from our function output with names. So for example the band 1 columns (geom, val, x, y) are renamed to g1, v1, x1, x2"
-msgstr "2. Använda `PostgreSQL ROWS FROM-konstruktören <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_ och aliasera varje uppsättning kolumner från vår funktionsutgång med namn. Så till exempel byter band 1-kolumnerna (geom, val, x, y) namn till g1, v1, x1, x2"
+msgstr "2. Använda `PostgreSQL ROWS FROM-konstruktören <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_ och aliasera varje uppsättning kolumner från vår funktionsutdata med namn. Så till exempel byter band 1-kolumnerna (geom, val, x, y) namn till g1, v1, x1, x2"
 
 #: ../../en/rasters.rst:697
 msgid "We used CROSS JOIN LATERAL in these examples because we wanted to be explicit what we are doing. Since these are all set returning functions, you can replace CROSS JOIN LATERAL with , for short-hand.  We'll use a , in the next set of examples"
@@ -532,7 +532,7 @@ msgstr "Du kommer att hitta flera rasterfunktioner som returnerar geomval."
 
 #: ../../en/rasters.rst:711
 msgid "A commonly used function that outputs geomvals is `ST_DumpAsPolygons <https://postgis.net/docs/RT_ST_DumpAsPolygons.html>`_, which returns a set of contiguous pixels with the same value as a polygon.  Again this by default will only check band 1 and exclude no data values unless you override. This example selects only polygons from band 2. You can also apply filters to the values. For most use cases, :command:`ST_DumpAsPolygons` is a better option than :command:`ST_PixelAsPolygons` as it will return far fewer rows."
-msgstr "En vanligt förekommande funktion som ger ut geomval är `ST_DumpAsPolygons <https://postgis.net/docs/RT_ST_DumpAsPolygons.html>`_, som returnerar en uppsättning sammanhängande pixlar med samma värde som en polygon.  Återigen kommer detta som standard endast att kontrollera band 1 och utesluta inga datavärden om du inte åsidosätter. I det här exemplet väljs endast polygoner från band 2. Du kan också tillämpa filter på värdena. För de flesta användningsfall är :command:`ST_DumpAsPolygons` ett bättre alternativ än :command:`ST_PixelAsPolygons` eftersom det kommer att returnera mycket färre rader."
+msgstr "En vanligt förekommande funktion som ger ut geomval är `ST_DumpAsPolygons <https://postgis.net/docs/RT_ST_DumpAsPolygons.html>`_, som returnerar en uppsättning sammanhängande bildpunkter med samma värde som en polygon.  Återigen kommer detta som standard endast att kontrollera band 1 och utesluta inga datavärden om du inte åsidosätter. I det här exemplet väljs endast polygoner från band 2. Du kan också tillämpa filter på värdena. För de flesta användningsfall är :command:`ST_DumpAsPolygons` ett bättre alternativ än :command:`ST_PixelAsPolygons` eftersom det kommer att returnera mycket färre rader."
 
 #: ../../en/rasters.rst:716
 msgid "This will output 6 rows, and return polygons corresponding to the letters in \"Raster\"."
@@ -540,7 +540,7 @@ msgstr "Detta ger 6 rader och returnerar polygoner som motsvarar bokstäverna i 
 
 #: ../../en/rasters.rst:727
 msgid "Note that it doesn't return a single geometry, because it finds continguous set of pixels with the same value that form a polygon. Even though all these values are the same, they are not continguous."
-msgstr "Observera att den inte returnerar en enda geometri, eftersom den hittar en kontinuerlig uppsättning pixlar med samma värde som bildar en polygon. Även om alla dessa värden är desamma är de inte kontinuerliga."
+msgstr "Observera att den inte returnerar en enda geometri, eftersom den hittar en kontinuerlig uppsättning bildpunkter med samma värde som bildar en polygon. Även om alla dessa värden är desamma är de inte kontinuerliga."
 
 #: ../../en/rasters.rst:733
 msgid "A common approach to produce more complex geometries is to group by the values and union."
@@ -576,11 +576,11 @@ msgstr "Denna fråga tar cirka 10 sekunder och ger dig en sammanfattning av hela
 
 #: ../../en/rasters.rst:765
 msgid "Outputs:"
-msgstr "Utgångar:"
+msgstr "Utmatning:"
 
 #: ../../en/rasters.rst:774
 msgid "Which tells we have a lot of pixels and our max elevation is 411 ft."
-msgstr "Det betyder att vi har många pixlar och att vår maxhöjd är 411 fot."
+msgstr "Det betyder att vi har många bildpunkter och att vår maxhöjd är 411 fot."
 
 #: ../../en/rasters.rst:776
 msgid "If you have built overviews, and just need a rough estimate of your mins, maxs, and means use one of your overviews. This next query returns roughly the same values for mins, maxs, and means as the prior but in about 1 second instead of 10."
@@ -704,7 +704,7 @@ msgstr "Skärningspunkten mellan raster och geometrier"
 
 #: ../../en/rasters.rst:980
 msgid "There are a couple of functions commonly used to compute intersections of rasters and geometries. We've already seen :command:`ST_Clip` in action which returns the intersection of a raster and geometry as a raster, but there are others. For point data, the most commonly used is :command:`ST_Value` and then there is the :command:`ST_Intersection` which has several overloads some returning rasters and some returning a set of `geomval`."
-msgstr "Det finns ett par funktioner som ofta används för att beräkna skärningspunkter mellan raster och geometrier. Vi har redan sett :command:`ST_Clip` i aktion, som returnerar skärningspunkten mellan ett raster och en geometri som ett raster, men det finns fler. För punktdata är det vanligaste :command:`ST_Value` och sedan finns :command:`ST_Intersection` som har flera överbelastningar, vissa returnerar raster och andra returnerar en uppsättning `geomval`."
+msgstr "Det finns ett par funktioner som ofta används för att beräkna korsningspunkter mellan raster och geometrier. Vi har redan sett :command:`ST_Clip` i aktion, som returnerar korsningspunkten mellan ett raster och en geometri som ett raster, men det finns fler. För punktdata är det vanligaste :command:`ST_Value` och sedan finns :command:`ST_Intersection` som har flera överbelastningar, vissa returnerar raster och andra returnerar en uppsättning `geomval`."
 
 #: ../../en/rasters.rst:988
 msgid "Pixel values at a geometric Point"
@@ -712,7 +712,7 @@ msgstr "Pixelvärden vid en geometrisk punkt"
 
 #: ../../en/rasters.rst:990
 msgid "If you need to return values from rasters based on intersection of several ad-hoc geometry points, you'll use `ST_Value <https://postgis.net/docs/RT_ST_Value.html>`_ or it's nearest relative `ST_NearestValue <https://postgis.net/docs/RT_ST_NearestValue.html>`_."
-msgstr "Om du behöver returnera värden från raster baserat på skärningspunkten mellan flera ad hoc-geometripunkter använder du `ST_Value <https://postgis.net/docs/RT_ST_Value.html>`_ eller dess närmaste släkting `ST_NearestValue <https://postgis.net/docs/RT_ST_NearestValue.html>`_."
+msgstr "Om du behöver returnera värden från raster baserat på korsningspunkten mellan flera ad hoc-geometripunkter använder du `ST_Value <https://postgis.net/docs/RT_ST_Value.html>`_ eller dess närmaste släkting `ST_NearestValue <https://postgis.net/docs/RT_ST_NearestValue.html>`_."
 
 #: ../../en/rasters.rst:1004
 msgid "This example takes about 1 second to return 2444 rows. If you used :command:`ST_Intersects` instead of :command:`&&`, the process would take about 3 seconds. The reason `ST_Intersects` is slower is that it performs an additional recheck in some cases a pixel by pixel check. If you expect all your points to be represented with data in your raster set and your rasters represent a coverage (a continguous set non-overlapping raster tiles), then `&&` is generally a speedier option."
@@ -728,7 +728,7 @@ msgstr "ST_Intersection rasterstil"
 
 #: ../../en/rasters.rst:1016
 msgid "Just as you can compute the intersection of two geometries using :command:`ST_Intersection`, you can compute intersection of two rasters or a raster and a geometry using `raster ST_Intersection <https://postgis.net/docs/RT_ST_Intersection.html>`_."
-msgstr "Precis som du kan beräkna skärningspunkten mellan två geometrier med hjälp av :command:`ST_Intersection`, kan du beräkna skärningspunkten mellan två raster eller ett raster och en geometri med hjälp av `raster ST_Intersection <https://postgis.net/docs/RT_ST_Intersection.html>`_."
+msgstr "Precis som du kan beräkna korsningspunkten mellan två geometrier med hjälp av :command:`ST_Intersection`, kan du beräkna korsningspunkten mellan två raster eller ett raster och en geometri med hjälp av `raster ST_Intersection <https://postgis.net/docs/RT_ST_Intersection.html>`_."
 
 #: ../../en/rasters.rst:1020
 msgid "What you get out of this beast, are two different kinds of things:"

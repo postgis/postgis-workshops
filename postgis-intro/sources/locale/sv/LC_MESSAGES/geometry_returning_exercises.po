@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-05 13:12+0000\n"
+"PO-Revision-Date: 2025-06-06 06:20+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning_exercises/sv/>\n"
@@ -31,7 +31,7 @@ msgstr ""
 #: ../../en/geometry_returning_exercises.rst:8
 msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
 msgstr ""
-":command:`sum(expression)` aggregat för att returnera en summa för en "
+":command:`sum(uttryck)` aggregat för att returnera en summa för en "
 "uppsättning poster"
 
 #: ../../en/geometry_returning_exercises.rst:9
@@ -51,7 +51,7 @@ msgstr ""
 #: ../../en/geometry_returning_exercises.rst:12
 msgid ":command:`ST_Buffer(geometry, radius)` returns an expanded ``geometry`` shape"
 msgstr ""
-":command:`ST_Buffer(geometry, radius)` returnerar en utökad ``geometri``-form"
+":command:`ST_Buffer(geometry, radius)` returnerar en utökad ``geometry``-form"
 
 #: ../../en/geometry_returning_exercises.rst:13
 msgid ":command:`ST_Contains(geometry1, geometry2)` returns truw if geometry1 contains geometry2"
@@ -128,7 +128,7 @@ msgstr "**Hur många folkbokföringsblock innehåller inte sin egen centroid?**"
 #: ../../en/geometry_returning_exercises.rst:57
 msgid "**Union all the census blocks into a single output. What kind of geometry is it? How many parts does it have?**"
 msgstr ""
-"**Sammanfoga alla folkbokföringsblock till en enda utgång. Vilken typ av "
+"**Sammanfoga alla folkbokföringsblock till en enda utmatning. Vilken typ av "
 "geometri är det? Hur många delar har den?**"
 
 #: ../../en/geometry_returning_exercises.rst:82
@@ -157,7 +157,7 @@ msgstr ""
 msgid "It is easy to buffer both the neighborhoods of interest, but to get the intersection requires a self-join of the table, creating one relation (``ps``) with just the \"Park Slope\" record and another (``cg``) with just the \"Carroll Gardens\" record. Note that the area of the intersection is in square meters because we are still working in UTM 18 (EPSG:26918)."
 msgstr ""
 "Det är lätt att buffra båda de intressanta stadsdelarna, men för att få fram "
-"skärningspunkten krävs en self-join av tabellen, vilket skapar en relation "
+"korsningspunkten krävs en self-join av tabellen, vilket skapar en relation "
 "(``ps``) med bara \"Park Slope\"-posten och en annan (``cg``) med bara "
-"\"Carroll Gardens\"-posten. Observera att skärningspunktens yta är i "
+"\"Carroll Gardens\"-posten. Observera att korsningspunktens yta är i "
 "kvadratmeter eftersom vi fortfarande arbetar i UTM 18 (EPSG:26918)."

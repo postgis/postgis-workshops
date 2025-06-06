@@ -10,6 +10,7 @@ Note that we are working on the translations from English to other languages.
 * English: [[pdf]](https://postgis.net/workshops/en/postgis-intro/PostGISIntro.pdf) https://postgis.net/workshops/en/postgis-intro/
 * Japanese: https://postgis.net/workshops/ja/postgis-intro/
 * Chinese (Simplified): https://postgis.net/workshops/zh_Hans/postgis-intro/
+* Swedish: https://postgis.net/workshops/sv/postgis-intro/
 * German:  [[pdf]](https://postgis.net/workshops/de/postgis-intro/PostGISIntro.pdf) https://postgis.net/workshops/de/postgis-intro/
 * Korean:   https://postgis.net/workshops/ko/postgis-intro/
 * Spanish:  https://postgis.net/workshops/es/postgis-intro/

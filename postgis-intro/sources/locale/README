@@ -23,6 +23,7 @@ cd postgis-intro/sources/en
 make pot
 #test the translations
 LANG=ja make html-translation
+LANG=sv make html-translation
 LANG=de make html-translation
 LANG=es make html-translation
 LANG=it make html-translation
@@ -41,5 +42,6 @@ Respective docs currently set to build are as follows:
 * English:  https://postgis.net/workshops/en/postgis-intro/
 * German:   https://postgis.net/workshops/de/postgis-intro/
 * Japanese: https://postgis.net/workshops/ja/postgis-intro/
+* Swedish:  https://postgis.net/workshops/sv/postgis-intro/
 * Italian:  https://postgis.net/workshops/it/postgis-intro/
 * Spanish:  https://postgis.net/workshops/es/postgis-intro/

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-05 13:12+0000\n"
+"PO-Revision-Date: 2025-06-06 06:20+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships_exercises/sv/>\n"
@@ -31,13 +31,13 @@ msgstr ""
 #: ../../en/spatial_relationships_exercises.rst:8
 msgid ":command:`sum(expression)` aggregate to return a sum for a set of records"
 msgstr ""
-":command:`sum(expression)` aggregat för att returnera en summa för en "
+":command:`sum(uttryck)` aggregat för att returnera en summa för en "
 "uppsättning poster"
 
 #: ../../en/spatial_relationships_exercises.rst:9
 msgid ":command:`count(expression)` aggregate to return the size of a set of records"
 msgstr ""
-":command:`count(expression)` aggregat för att returnera storleken på en "
+":command:`count(uttryck)` aggregat för att returnera storleken på en "
 "uppsättning poster"
 
 #: ../../en/spatial_relationships_exercises.rst:10
@@ -170,5 +170,4 @@ msgstr "**Vilka gator ansluter Atlantic Commons till?**"
 #: ../../en/spatial_relationships_exercises.rst:100
 msgid "**Approximately how many people live on (within 50 meters of) Atlantic Commons?**"
 msgstr ""
-"** Ungefär hur många människor bor på (inom 50 meter från) Atlantic "
-"Commons?**"
+"**Ungefär hur många människor bor på (inom 50 meter från) Atlantic Commons?**"

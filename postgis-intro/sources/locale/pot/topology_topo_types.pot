@@ -1,0 +1,428 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-09 10:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/topology_topo_types.rst:4
+msgid "Topology and Geometry Representation"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:6
+msgid "Before reading this document, please review at least one of these resources:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:8
+msgid "`Topology Basic Types <https://postgis.net/workshops/en/postgis-intro/topology_base_types.html>`_"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:9
+msgid "`Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:10
+msgid "Having a Topology with all its Primitives is useful, but to make it more practical, we need a way to represent these elements in a table. Similar to how we have spatial tables, we can have topology tables."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:13
+msgid "Introduction to geometry representation"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:15
+msgid "If you have followed any example of using Topology to represent geometries you could remember this, when we populate a Topology table from a Geometry one we use TopoGeometries instead of Geometries, and in some way each TopoGeometry is able to represent one or several Primitives contained on the Topology."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:20
+msgid "The point is how we reach the actual primitives from the TopoGeometry, how the data is structured, so first lets see the most global definitions:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:25
+msgid "A TopoGeometry can represent a group of Primitives or other TopoGeometries, in order to create a TopoGeometry you need a Layer."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:27
+msgid "Layers are the biggest box, they store TopoGeometries which also stores TopoElements, this last ones represents Primitives or other TopoGeometries."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:30
+msgid "Just to write in two ways:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:32
+msgid "Layer contains"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:34
+msgid "TopoGeometries where all of them has the same TopoElement's type, each one one contains:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:36
+msgid "TopoElements where each one can represent a:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:38
+msgid "TopoGeometry of other Layer"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:39
+msgid "Geometry Collection"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:40
+msgid "Primitive from the Topology"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:42
+#: ../../en/topology_topo_types.rst:61
+msgid "Nodes"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:43
+#: ../../en/topology_topo_types.rst:62
+msgid "Edges"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:44
+#: ../../en/topology_topo_types.rst:63
+msgid "Faces"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:46
+msgid "TopoGeometries are exposed as keys, they has a unique key inside the Layer, but also stores its Layer Key, this allows Postgis to store it in an arbitrary column and always be able to find its TopoElements, and with them what they represent."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:48
+msgid "You need a Layer where a TopoGeometry will be constructed, and after that you don't need to remember to which Layer it belongs."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:50
+msgid "This concept is the one used for the user, from this point we will explain deep and technical details."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:52
+msgid "As a side note, Postgis Topology has internally some tricks when its about keys, helps to optimize a lot of parts but at the same time there is a lot of reduntant information, do not be supreised if you find the same information in two or more places."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:55
+msgid "Features"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:57
+msgid "TopoElements can represent a TopoGeometry and a Primitive, think in a TopoGeometry, if store them in a TopoElement, they still contain other TopoElements, if we follow its path we will always ends in Primitives of the Topology."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:59
+msgid "Features will represent which type the set of geometries will be, is not important if you use TopoGeometries or Primitives, in the end a Layer can contain directly or indirectly any of this sets:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:64
+msgid "Geometry Collections"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:66
+msgid "The numbers are important, in any function which requests the Feature Type, you can specify it using the number or the name as string."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:69
+msgid "Hierarchical Layers, Childs and Parents"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:71
+msgid "I would like to introduce this concept later, but to explain better and deeper the concept you will find this is needed."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:76
+msgid "The first aspect on the image is a table that is constructed using Primitives, Layer 1 will have TopoGeometries where its TopoElements only make a reference to Primitives of the topology."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:78
+msgid "We define the relationship between Layer 1 and Primitives as:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:80
+msgid "Layer 1 is Parent of the Primitives"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:81
+msgid "Primitives are Childs of the Layer 1"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:83
+msgid "The relation between Parent and Child is about the size, Childs are small, when we have a group of them we build a Parent, a bigger group."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:85
+msgid "Layer 2 has as childs the Layer 1, this implies each TopoGeometry from this layer, can make a reference to one or multiple TopoGeometries of the Layer 1."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:87
+msgid "This also means you can't pick half of a TopoGeometry from Layer 1, pick half of it means you need a reference to one of the TopoElements of a TopoGeometry, which in this case belongs to the Primitives (its Child), if you really need that then build Layer 2 using Layer 1 childs (Primitives)."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:89
+msgid "Each Layer can only have one Child Layer, this means, the Child and Parent share the same Topology schema."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:91
+msgid "You will notice some aspects of Hierarchy could change to maybe support something like half TopoGeometry or mixing Layers, but right now is not implemented."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:94
+msgid "Layers"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:96
+msgid "To store TopoGeometries we need a Layer, due to this when we create a TopoGeometrie's Column, we also create a Layer, this is why we use a special function to create a column for this."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:98
+msgid "`Crete TopoGeometry Column <https://postgis.net/docs/AddTopoGeometryColumn.html>`_"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:100
+msgid "Layers and TopoGeometry Columns have a special relationship, they are linked, but they are not the same."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:102
+msgid "Layers have a lot of information that we must provide to know which type of Layer we want."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:104
+msgid "Layers have a unique identifier in each topology, this identifier is called layer_id."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:106
+msgid "Layers Key: Composed Key with [topology_id, layer_id]"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:107
+msgid "Table route: Schema name, table name and column name to know where it is linked."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:108
+msgid "Feature Type: Feature type the layer will contain."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:109
+msgid "Level: This value starts at 0, in the case we construct this layer using another layer, it will add 1, so we know how many layers we are from the Primitives, if the value is 0 means the Layer is constructed using Primitives instead of TopoGeometries."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:110
+msgid "child_id: In case the layer is built not using Primitives and using another Layer as base, we need the Layer Identifier (layer_id) of this layer, we do not need topology_id because we already know it from the parent."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:113
+msgid "Relation's Table"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:115
+msgid "Finally, the section you may be looking at, how Postgis Topology goes from a TopoGeometry to what they contain."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:117
+msgid "The Relation's table function is be the bridge between the Parent and Childs."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:119
+msgid "This table can be found in: ``my_topology.relation``."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:122
+msgid "Keys and Identifiers we know now"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:124
+msgid "I'll use the word \"Identifier\" as a unique key in a particular context. For example each layer has a number as an identifier (layer_id), it is unique in its topology context, but is not enough to find a layer in a database."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:126
+msgid "While Identifiers will work in a context, the Key will be the full way to address an element, for example the key for any layer are two values [topology_id, layer_id]."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:132
+msgid "The image is a good summary of how the keys for each are composed."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:135
+msgid "Implicit identifiers on Keys"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:137
+msgid "Postgis uses at some extent an implicit logic when working with Layers and TopoGeometries, this is because they have a context where you don't need to store the full Key to know it."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:139
+msgid "To show an example:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:141
+msgid "TopoGeometry is composed by:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:143
+msgid "topology_id"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:144
+msgid "layer_id"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:145
+msgid "topogeometry_id"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:147
+msgid "As we said before, the relation's table is stored inside the topology schema. This table will contain the relation of the TopoGeometry with the TopoElements, to make a reference in this context, do we need the topology_id?"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:149
+msgid "We can skip it! While we are out of the topology schema we need the id to find it, but while we are inside it we can look at the schema name, and find its id on the table ``topology.topology``, which has all topologies ids and names."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:152
+msgid "TopoGeometry"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:154
+msgid "TopoGeometry is a composite key with the next elements:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:156
+msgid "topology_id: topology_id of TopoGeometry Key"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:157
+msgid "layer_id: layer_id of the TopoGeometry Key"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:158
+msgid "id: topogeometry_id of the TopoGeometry Key"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:159
+msgid "type: Feature type as number"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:162
+msgid "Basic Relation's table structure"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:164
+msgid "Each schema topology can have its own relation's table, it will be created when you create your first TopoGeometry, the table is stored inside the topology as ``custom_topology.relation``."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:166
+msgid "Each row of the table is called a \"Component\", like a component of the relations."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:168
+msgid "The component saves pairs of two things, a TopoGeometry Key and a TopoElement, remember that each TopoElement can only represent one Primitive or TopoGeometry, so for a TopoGeometry be able to represent several of them the tables stores multiple rows with the same TopoGeometry Key and different TopoElements, this way only filtering in the table we can get all the TopoElements for any TopoGeometry."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:175
+msgid "Find Components of a TopoGeometry"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:177
+msgid "To find which components belong to a TopoGeometry is a little tricky, because here will work the implicit Keys."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:179
+msgid "A component has the next elements:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:181
+msgid "TopoGeometry Key"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:183
+msgid "topogeom_id: topogeometry_id from TopoGeometry Key"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:184
+msgid "layer_id: layer_id from TopoGeometry Key"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:186
+msgid "TopoElement"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:188
+msgid "element_id"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:189
+msgid "element_type"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:191
+msgid "We can notice the TopoGeometry Key is incomplete, this is because the relation's table already belongs to a topology, so there is no need to store the topology identifier again."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:193
+msgid "To reach from a TopoGeometry to a Component we need to look the TopoGeometry.topology_id and search on ``topology.topology.id`` and retrieve the Topology Name, with it we can found the relation's table in their respective schema."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:200
+msgid "Reading TopoElements"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:202
+msgid "The last part to decompose TopoGeometry is to be able to interpret the TopoElements which is more complex than other keys, because its meaning can change based on the Layer it is saved."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:204
+msgid "As we talked, a Layer can have as Childs two options, Primitives or TopoGeometries."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:206
+msgid "The first we need to know is which Childs it is using, for this we need to look on ``topology.layer.id`` using the ``TopoGeometry Key.layer_id`` and get ```topology.layer.child_id```."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:208
+msgid "So the cases depends on child_id:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:210
+msgid "If is NULL:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:212
+msgid "element_id: Primitive Identifier"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:213
+msgid "element_type: Feature number, look on the Features to know to which primitive table too look on."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:215
+msgid "If is not NULL:"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:217
+msgid "element_id: topogeometry_id from a TopoGeometry Key"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:218
+msgid "element_type: layer_id from a TopoGeometry Key"
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:220
+msgid "The first case is trivial, just look at their respective Primitive table and use the identifier to know which primitive is."
+msgstr ""
+
+#: ../../en/topology_topo_types.rst:222
+msgid "While the second case the TopoElement is used to build a new TopoGeometry Key, the topology_id is implicit as we talked, so the Key is complete, to find the new elements look again on the relation's table but using the new keys."
+msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,7 +241,7 @@ msgid "The :command:`ST_X(point)` function only supports the geometry type. How 
 msgstr ""
 
 #: ../../en/geography.rst:223
-msgid "By appending ``::geometry`` to our geography value, we convert the object to a geometry with an SRID of 4326. From there we can use as many geometry functions as strike our fancy. But, remember -- now that our object is a geometry, the coordinates will be interpretted as Cartesian coordinates, not spherical ones."
+msgid "By appending ``::geometry`` to our geography value, we convert the object to a geometry with an SRID of 4326. From there we can use as many geometry functions as strike our fancy. But, remember -- now that our object is a geometry, the coordinates will be interpreted as Cartesian coordinates, not spherical ones."
 msgstr ""
 
 #: ../../en/geography.rst:227

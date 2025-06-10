@@ -1,0 +1,486 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-09 10:51+0000\n"
+"PO-Revision-Date: 2025-06-09 11:28+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
+"topology_topo_types/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/topology_base_types.rst:4
+msgid "Topology Basic Types"
+msgstr "Grundläggande topologityper"
+
+#: ../../en/topology_base_types.rst:6
+msgid "Before read this document, at least check one of this documents:"
+msgstr ""
+"Innan du läser detta dokument ska du åtminstone titta på ett av dessa "
+"dokument:"
+
+#: ../../en/topology_base_types.rst:8
+msgid "`Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_."
+msgstr ""
+"`Introduktiv workshop: PostGIS Topology Workshop <https://postgis.net/"
+"workshops/en/postgis-intro/topology.html>`_."
+
+#: ../../en/topology_base_types.rst:10
+msgid "`Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_."
+msgstr "`Handbok: PostGIS-topologi <https://postgis.net/docs/Topology.html>`_."
+
+#: ../../en/topology_base_types.rst:12
+msgid "`ISO Topology: OGC-SFS Geometries <https://www.gaia-gis.it/fossil/libspatialite/wiki?name=topo-intro>`_."
+msgstr ""
+"`ISO Topology: OGC-SFS Geometries <https://www.gaia-gis.it/fossil/"
+"libspatialite/wiki?name=topo-intro>`_."
+
+#: ../../en/topology_base_types.rst:14
+msgid "In this workshop, we will check some fundamentals of topology, its basics and definitions. It is not intended to be a way to use them directly, is to understand it to then be able to use it easily."
+msgstr ""
+"I den här workshopen kommer vi att gå igenom några grundläggande principer "
+"för topologi, dess grunder och definitioner. Det är inte tänkt att vara ett "
+"sätt att använda dem direkt, utan att förstå det för att sedan kunna använda "
+"det enkelt."
+
+#: ../../en/topology_base_types.rst:18
+msgid "Types"
+msgstr "Types"
+
+#: ../../en/topology_base_types.rst:23
+msgid "The basic topology works on three basic types."
+msgstr "Den grundläggande topologin fungerar på tre grundläggande typer."
+
+#: ../../en/topology_base_types.rst:25
+msgid "Node: 2D point, everything starts or ends here"
+msgstr "Node: 2D-punkt, allt börjar eller slutar här"
+
+#: ../../en/topology_base_types.rst:26
+msgid "Edge: A linestring with direction that start and ends on a node"
+msgstr "Edge: En linestring med riktning som börjar och slutar på en nod"
+
+#: ../../en/topology_base_types.rst:27
+msgid "Face: Closed set of linestrings, that conforms a polygon"
+msgstr "Face: Sluten uppsättning linestrings, som anpassar sig till en polygon"
+
+#: ../../en/topology_base_types.rst:29
+msgid "There are some rules for a set of nodes, edges and faces to be valid, check the ISO Topology document, has a very good summary of these conditions, a topology that follows all the rules, is a valid topology."
+msgstr ""
+"Det finns vissa regler för att en uppsättning noder, kanter och ytor ska "
+"vara giltiga, se ISO Topology-dokumentet, som har en mycket bra "
+"sammanfattning av dessa villkor, en topologi som följer alla regler är en "
+"giltig topologi."
+
+#: ../../en/topology_base_types.rst:31
+msgid "Is good to know, until now Postgis will save all this information internally, each type has its own unique ID, and with it we can edit and change them using the available functions, for example with ST_RemEdgeNewFace you can remove an edge and create a new face."
+msgstr ""
+"Det är bra att veta, fram till nu sparar Postgis all denna information "
+"internt, varje typ har sitt eget unika ID, och med det kan vi redigera och "
+"ändra dem med hjälp av tillgängliga funktioner, till exempel med "
+"ST_RemEdgeNewFace kan du ta bort en kant och skapa en ny yta."
+
+#: ../../en/topology_base_types.rst:33
+msgid "But there is still a missing piece, how do we say for example, a face has a specific attribute? Postgis implements several concepts to do this like Layers, TopoGeometry, TopoElement."
+msgstr ""
+"Men det finns fortfarande en sak som saknas, hur säger vi till exempel att "
+"ett ansikte har ett specifikt attribut? Postgis implementerar flera koncept "
+"för att göra detta som Layers, TopoGeometry, TopoElement."
+
+#: ../../en/topology_base_types.rst:36
+msgid "Universal Face"
+msgstr "Universal Face"
+
+#: ../../en/topology_base_types.rst:38
+msgid "It Might be intuitive to think that only the faces constructed by edges exist, there is one exception, all the white space out of all the faces is also a face!"
+msgstr ""
+"Det kan vara intuitivt att tro att bara de faces som konstrueras av kanter "
+"existerar, men det finns ett undantag: allt vitt utrymme bland alla faces är "
+"också ett face!"
+
+#: ../../en/topology_base_types.rst:40
+msgid "The empty space is called the Universal Face, when a Topology is empty, all the space is the Universal Face, when we add a linestring is an edge of this face, then when we make a polygon it is like make a hole in the face and stealing it to assign it to a face."
+msgstr ""
+"Det tomma utrymmet kallas Universal Face, när en topologi är tom är allt "
+"utrymme Universal Face, när vi lägger till en linestring är en kant av detta "
+"ansikte, när vi sedan gör en polygon är det som att göra ett hål i ansiktet "
+"och stjäla det för att tilldela det till ett ansikte."
+
+#: ../../en/topology_base_types.rst:42
+msgid "This face is infinite and does not have any boundary."
+msgstr "Denna yta är oändlig och har inte någon gräns."
+
+#: ../../en/topology_base_types.rst:49
+msgid "The Universal Face has the ID 0."
+msgstr "Universal Face har ID 0."
+
+#: ../../en/topology_base_types.rst:52
+msgid "Edge interpretation"
+msgstr "Tolkning av kanter"
+
+#: ../../en/topology_base_types.rst:54
+msgid "To correctly represent a topology and their forms, there are some definitions that are used to construct the tables that store everything, the edge is on the more complex ones."
+msgstr ""
+"För att korrekt representera en topologi och dess former finns det vissa "
+"definitioner som används för att konstruera de tabeller som lagrar allt, "
+"kanten är på de mer komplexa."
+
+#: ../../en/topology_base_types.rst:56
+msgid "All the information about edges is stored on the edge_data table, in your custom topology schema, and which information do we need in the edges? basically its nodes and faces information, edge is the primitive who connects both."
+msgstr ""
+"All information om kanter lagras i tabellen edge_data, i ditt anpassade "
+"topologischema, och vilken information behöver vi i kanterna? i princip är "
+"det information om noder och ansikten, kanten är den primitiva som förbinder "
+"båda."
+
+#: ../../en/topology_base_types.rst:58
+msgid "These linestrings are called Edges because they are the edges of the faces."
+msgstr "Dessa linestrings kallas Edges eftersom de är kanterna på ytorna."
+
+#: ../../en/topology_base_types.rst:61
+msgid "Edge direction, left and right"
+msgstr "Kantriktning, vänster och höger"
+
+#: ../../en/topology_base_types.rst:63
+msgid "Edges in topology has a right defined perspective and view, when we see them must be done in the next way:"
+msgstr ""
+"Kanter i topologin har ett rätt definierat perspektiv och vy, när vi ser dem "
+"måste det göras på nästa sätt:"
+
+#: ../../en/topology_base_types.rst:68
+msgid "When we want to see from the edge perspective is always from the end node to the start edge, always looking the edge forward."
+msgstr ""
+"När vi vill se från kantperspektivet är det alltid från slutnoden till "
+"startkanten, alltid med kanten framåt."
+
+#: ../../en/topology_base_types.rst:74
+msgid "The edges have left and right properties, as we see they are defined using the edge perspective, see the linestring from the start node to the end node, there will always be a well defined left and right."
+msgstr ""
+"Kanterna har vänster- och högeregenskaper, som vi ser definieras de med "
+"hjälp av kantperspektivet, se linjesträngen från startnoden till slutnoden, "
+"det kommer alltid att finnas en väldefinierad vänster och höger."
+
+#: ../../en/topology_base_types.rst:76
+msgid "So see the edge forward and you always have a left and right side."
+msgstr "Så se kanten framåt och du har alltid en vänster och en höger sida."
+
+#: ../../en/topology_base_types.rst:78
+msgid "This helps to relate which faces are on each side of the edge:"
+msgstr ""
+"Detta hjälper till att relatera vilka ytor som finns på vardera sidan av "
+"kanten:"
+
+#: ../../en/topology_base_types.rst:83
+msgid "Check the edges on the image, while almost all the edges go from down to up and left to right, there is an orange edge which has the opposite direction, so its sides left and right are swapped in reference to the others, but if you look the edge forward, the right and left are right."
+msgstr ""
+"Kontrollera kanterna på bilden, medan nästan alla kanter går från ner till "
+"upp och från vänster till höger, finns det en orange kant som har motsatt "
+"riktning, så dess sidor vänster och höger är ombytta i förhållande till de "
+"andra, men om du tittar på kanten framåt är höger och vänster rätt."
+
+#: ../../en/topology_base_types.rst:85
+msgid "Continue seeing the orange edge, while on its right has a polygon built by the edges, on the left is the Universal Face."
+msgstr ""
+"Fortsätt att se den orange kanten, medan den till höger har en polygon byggd "
+"av kanterna, till vänster är Universal Face."
+
+#: ../../en/topology_base_types.rst:87
+msgid "When we want to analyze any edge, and we need to see it from the edge perspective, it is always looking the edge in forward, never in backward!"
+msgstr ""
+"När vi vill analysera en kant, och vi måste se den från kantperspektivet, är "
+"det alltid att titta på kanten framåt, aldrig bakåt!"
+
+#: ../../en/topology_base_types.rst:89
+msgid "Which are all the next edges? Looking forward we go from start node to the end node, all the edges who start or end in the end node of the edge!"
+msgstr ""
+"Vilka är alla de kommande kanterna? Om vi tittar framåt går vi från "
+"startnoden till slutnoden, alla kanter som börjar eller slutar i kantnoden!"
+
+#: ../../en/topology_base_types.rst:92
+msgid "Edge Data"
+msgstr "Kantdata"
+
+#: ../../en/topology_base_types.rst:94
+msgid "The edge_data table has information related to the edge, from what we know right now we can interpret the next columns:"
+msgstr ""
+"Tabellen edge_data innehåller information om kanten, utifrån vad vi vet just "
+"nu kan vi tolka nästa kolumner:"
+
+#: ../../en/topology_base_types.rst:96
+msgid "edge_id: Unique ID for the edge"
+msgstr "edge_id: Unikt ID för kanten"
+
+#: ../../en/topology_base_types.rst:97
+msgid "start_node: ID for the node who is the same as the start point of the edge"
+msgstr "start_node: ID för den nod som är densamma som startpunkten för kanten"
+
+#: ../../en/topology_base_types.rst:98
+msgid "end_node: ID for the node who is the same as the end point of the edge"
+msgstr "end_node: ID för den nod som är densamma som slutpunkten för kanten"
+
+#: ../../en/topology_base_types.rst:99
+msgid "left_face: ID of the face on the left of the edge"
+msgstr "left_face: ID för ytan till vänster om kanten"
+
+#: ../../en/topology_base_types.rst:100
+msgid "right_face: ID of the face on the right of the edge"
+msgstr "right_face: ID för ytan till höger om kanten"
+
+#: ../../en/topology_base_types.rst:101
+msgid "geom: Geometry of the edge"
+msgstr "geom: Geometri för kanten"
+
+#: ../../en/topology_base_types.rst:104
+msgid "Abs Next Edge & Next Edge"
+msgstr "Abs Next Edge & Next Edge"
+
+#: ../../en/topology_base_types.rst:106
+msgid "The table edge_data has the columns abs_next_left_edge and abs_next_right_edge, at this moment it gets a little tricky how to interpret it."
+msgstr ""
+"Tabellen edge_data har kolumnerna abs_next_left_edge och "
+"abs_next_right_edge, och nu blir det lite knepigt att tolka dem."
+
+#: ../../en/topology_base_types.rst:108
+msgid "Until now we mainly see properties of the edge itself and what has on the sides, the next edge properties are different, do not ask only about the edge itself, it is about which is the next edge who builds the face on the right or left."
+msgstr ""
+"Hittills har vi främst sett egenskaper hos själva kanten och vad som har på "
+"sidorna, nästa kants egenskaper är annorlunda, fråga inte bara om själva "
+"kanten, det handlar om vilken som är nästa kant som bygger ansiktet till "
+"höger eller vänster."
+
+#: ../../en/topology_base_types.rst:110
+msgid "The logic of the right_edge and the left_edge are very similar, so we will look first on the left one deeper and then show the right one."
+msgstr ""
+"Logiken för höger_kant och vänster_kant är mycket lika, så vi kommer först "
+"att titta på den vänstra djupare och sedan visa den högra."
+
+#: ../../en/topology_base_types.rst:112
+msgid "We will be using the next topology as example:"
+msgstr "Vi kommer att använda nästa topologi som exempel:"
+
+#: ../../en/topology_base_types.rst:119
+msgid "Left"
+msgstr "Vänster"
+
+#: ../../en/topology_base_types.rst:121
+msgid "Let's pick as an example the Edge 5, this one has on the Left the Face 2, looking forward which is the next edge who builds the Face 2?"
+msgstr ""
+"Låt oss ta Edge 5 som exempel, den här har till vänster Face 2, om vi tittar "
+"framåt vilken är nästa edge vem bygger Face 2?"
+
+#: ../../en/topology_base_types.rst:123
+msgid "This is the Edge 6."
+msgstr "Det här är Edge 6."
+
+#: ../../en/topology_base_types.rst:129
+msgid "Something very important here is the perspective we follow the lines, depending on the Edge direction, is like see the Face clockwise or anticlockwise."
+msgstr ""
+"Något mycket viktigt här är perspektivet vi följer linjerna, beroende på "
+"kantriktningen, är det som att se detta face medurs eller moturs."
+
+#: ../../en/topology_base_types.rst:131
+msgid "With this information we have abs_next_left_edge which will be 6."
+msgstr "Med denna information har vi abs_next_left_edge som kommer att vara 6."
+
+#: ../../en/topology_base_types.rst:133
+msgid "The next_left_edge is almost the same as abs_next_left_edge, except it can be negative which depends on the perspective we see the edge."
+msgstr ""
+"next_left_edge är nästan samma sak som abs_next_left_edge, förutom att den "
+"kan vara negativ, vilket beror på vilket perspektiv vi ser kanten från."
+
+#: ../../en/topology_base_types.rst:135
+msgid "If we follow the Edge perspective we will have two directions, the direction of the next edge, and the direction of the perspective on the next edge."
+msgstr ""
+"Om vi följer Edge-perspektivet kommer vi att ha två riktningar, riktningen "
+"mot nästa kant och riktningen för perspektivet på nästa kant."
+
+#: ../../en/topology_base_types.rst:137
+msgid "We will use the next sign in each case:"
+msgstr "Vi kommer att använda nästa tecken i varje fall:"
+
+#: ../../en/topology_base_types.rst:139
+msgid "Perspective direction and Next edge direction are opposed: \"-\""
+msgstr "Perspektivriktning och riktning mot nästa kant är motsatta: \"-\""
+
+#: ../../en/topology_base_types.rst:140
+msgid "Perspective direction and Next edge direction are the same: None, keep the value positive"
+msgstr ""
+"Perspektivriktningen och Next edge-riktningen är desamma: None, behåll "
+"värdet positivt"
+
+#: ../../en/topology_base_types.rst:142
+msgid "How the Perspective and Edge 6 have the same direction, next_left_edge will be 6."
+msgstr ""
+"Eftersom perspektivet och Edge 6 har samma riktning kommer next_left_edge "
+"att vara 6."
+
+#: ../../en/topology_base_types.rst:144
+msgid "abs_next_left_edge: 6"
+msgstr "abs_next_left_edge: 6"
+
+#: ../../en/topology_base_types.rst:145
+msgid "next_left_edge: 6"
+msgstr "next_left_edge: 6"
+
+#: ../../en/topology_base_types.rst:148
+msgid "Right"
+msgstr "Höger"
+
+#: ../../en/topology_base_types.rst:150
+msgid "The only difference between Left and Right analysis is the perspective, while in Left we use forward, in Right we will see backwards. Be careful, even if we look backwards the definition of Left Face and Right Face are still the same, looking forward! Only changes the perspective to follow."
+msgstr ""
+"Den enda skillnaden mellan vänster och höger analys är perspektivet, medan "
+"vi i vänster använder framåt, kommer vi i höger att se bakåt. Var försiktig, "
+"även om vi tittar bakåt är definitionen av Left Face och Right Face "
+"fortfarande densamma, framåtblickande! Det är bara perspektivet som ändras."
+
+#: ../../en/topology_base_types.rst:152
+msgid "The Edge 5 has the Face 0 on its Right, the Universal Face, looking Edge 5 backwards the next edge who builds Face 0 is the Edge 4."
+msgstr ""
+"Edge 5 har Face 0 på sin högra sida, Universal Face, om man tittar Edge 5 "
+"bakåt är nästa kant som bygger Face 0 Edge 4."
+
+#: ../../en/topology_base_types.rst:158
+msgid "Following the perspective of Edge 5 on Edge 4 we can see it goes up, while the Edge 4 goes down, the Perspective direction and the Edge 4 direction are opposed."
+msgstr ""
+"Om vi följer perspektivet för Edge 5 på Edge 4 kan vi se att den går upp, "
+"medan Edge 4 går ner, perspektivets riktning och Edge 4:s riktning är "
+"motsatta."
+
+#: ../../en/topology_base_types.rst:160
+msgid "abs_next_right_edge: 4"
+msgstr "abs_next_right_edge: 4"
+
+#: ../../en/topology_base_types.rst:161
+msgid "nexr_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)"
+msgstr ""
+"nexr_right_edge: -4 (Perspektivriktning och Edge 4-riktning är motsatta)"
+
+#: ../../en/topology_base_types.rst:164
+msgid "Isolated Edge Case"
+msgstr "Isolerat kantfall"
+
+#: ../../en/topology_base_types.rst:166
+msgid "There is a case that may be confusing, all the rules above follow in the same way but it is good to take a look."
+msgstr ""
+"Det finns ett fall som kan vara förvirrande, alla regler ovan följer på "
+"samma sätt men det är bra att ta en titt."
+
+#: ../../en/topology_base_types.rst:172
+msgid "When we have an Edge that has no connections to other Edges, the first thing we can appreciate is that the Face of the Left is the same as the Right, in this case Face 0, the Universal Face."
+msgstr ""
+"När vi har en kant som inte har några kopplingar till andra kanter är det "
+"första vi kan förstå att vänstersidan är densamma som högersidan, i det här "
+"fallet Face 0, Universal Face."
+
+#: ../../en/topology_base_types.rst:174
+msgid "If we follow the past logic, on the Left is the Face 0, which is the next edge who builds Face 0? Actually there is an Edge, and is itself, and it also has a perspective as before:"
+msgstr ""
+"Om vi följer den tidigare logiken, till vänster är Face 0, vilket är nästa "
+"kant som bygger Face 0? Det finns faktiskt en kant, och den är sig själv, "
+"och den har också ett perspektiv som tidigare:"
+
+#: ../../en/topology_base_types.rst:180
+msgid "If we check the perspective direction we ends looking the same edge but in opposite direction, this means the Edge 1 and its Next Edge (Edge 1) has opposed directions."
+msgstr ""
+"Om vi kontrollerar perspektivriktningen slutar vi titta på samma kant men i "
+"motsatt riktning, vilket innebär att Edge 1 och dess nästa kant (Edge 1) har "
+"motsatta riktningar."
+
+#: ../../en/topology_base_types.rst:182
+#: ../../en/topology_base_types.rst:194
+msgid "edge_id: 1"
+msgstr "edge_id: 1"
+
+#: ../../en/topology_base_types.rst:183
+msgid "abs_next_left_edge: 1"
+msgstr "abs_next_left_edge: 1"
+
+#: ../../en/topology_base_types.rst:184
+msgid "next_left_edge: -1 (This will always be negative while we see forward a isolated edge)"
+msgstr ""
+"next_left_edge: -1 (Detta kommer alltid att vara negativt när vi ser framåt "
+"en isolerad kant)"
+
+#: ../../en/topology_base_types.rst:186
+msgid "For the Next Right Edge is the same, the Next Edge will be it self, the only what it changes is the perspective:"
+msgstr ""
+"För nästa högra kant är densamma, nästa kant kommer att vara sig själv, det "
+"enda som förändras är perspektivet:"
+
+#: ../../en/topology_base_types.rst:192
+msgid "When we look backwards any isolated edge, the perspective will always have the same direction as the Edge so:"
+msgstr ""
+"När vi tittar bakåt på en isolerad kant kommer perspektivet alltid att ha "
+"samma riktning som kanten:"
+
+#: ../../en/topology_base_types.rst:195
+msgid "abs_next_right_edge: 1"
+msgstr "abs_next_right_edge: 1"
+
+#: ../../en/topology_base_types.rst:196
+msgid "next_right_edge: -1 (This will always be positive while we see backwar a isolated edge)"
+msgstr ""
+"next_right_edge: -1 (Detta kommer alltid att vara positivt medan vi ser "
+"bakåt en isolerad kant)"
+
+#: ../../en/topology_base_types.rst:199
+msgid "Full columns of edge_data"
+msgstr "Fullständiga kolumner av edge_data"
+
+#: ../../en/topology_base_types.rst:201
+msgid "We already checked all the columns of the edge_data table:"
+msgstr "Vi har redan kontrollerat alla kolumner i tabellen edge_data:"
+
+#: ../../en/topology_base_types.rst:203
+msgid "edge_id: Unique ID for the edge."
+msgstr "edge_id: Unikt ID för kanten."
+
+#: ../../en/topology_base_types.rst:204
+msgid "start_node: ID for the node which is the same as the start point of the edge."
+msgstr "start_node: ID för den nod som är densamma som startpunkten för kanten."
+
+#: ../../en/topology_base_types.rst:205
+msgid "end_node: ID for the node which is the same as the end point of the edge."
+msgstr "end_node: ID för den nod som är densamma som slutpunkten för kanten."
+
+#: ../../en/topology_base_types.rst:206
+msgid "left_face: ID of the face on the left of the edge."
+msgstr "left_face: ID för den yta som ligger till vänster om kanten."
+
+#: ../../en/topology_base_types.rst:207
+msgid "abs_next_left_edge: Next edge who builds the face on the left."
+msgstr "abs_next_left_edge: Nästa kant som bygger ansiktet till vänster."
+
+#: ../../en/topology_base_types.rst:208
+msgid "next_left_edge: abs_next_left_edge and negative sign if the right face is on the right of the next left edge."
+msgstr ""
+"next_left_edge: abs_next_left_edge och negativt tecken om den högra sidan är "
+"till höger om nästa vänstra kant."
+
+#: ../../en/topology_base_types.rst:209
+msgid "right_face: ID of the face on the right of the edge."
+msgstr "right_face: ID för ytan till höger om kanten."
+
+#: ../../en/topology_base_types.rst:210
+msgid "abs_next_right_edge: Next edge who builds the face on the right."
+msgstr "abs_next_right_edge: Nästa kant som bygger ansiktet till höger."
+
+#: ../../en/topology_base_types.rst:211
+msgid "next_right_edge: abs_next_right_edge and negative sign if the left face is on the right of the next right edge."
+msgstr ""
+"next_right_edge: abs_next_right_edge och negativt tecken om den vänstra "
+"sidan är till höger om nästa högra kant."
+
+#: ../../en/topology_base_types.rst:212
+msgid "geom: Geometry of the edge."
+msgstr "geom: Geometri för kanten."

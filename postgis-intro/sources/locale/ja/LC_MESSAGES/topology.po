@@ -6,60 +6,51 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2024.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 20:32+0000\nPO-Revision-Date: 2024-02-29 04:45+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.3\nGenerated-By: Babel 2.8.0\n"
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
+"PO-Revision-Date: 2024-02-29 04:45+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.3\n"
+"Generated-By: Babel 2.8.0\n"
 
 #: ../../en/topology.rst:4
 msgid "Topology"
 msgstr "トポロジ"
 
 #: ../../en/topology.rst:6
-msgid ""
-"PostGIS supports the SQL/MM SQL-MM 3 Topo-Geo and Topo-Net 3 "
-"specifications via an extension called **postgis_topology**. You can "
-"learn about all the functions and types provided by this extension in "
-"`Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_. The"
-" *postgis_topology* extension includes another kind of core spatial type,"
-" called a **topogeometry**. In addition to the *topogeometry* spatial "
-"type, you will find functions for building *topologies* and populating "
-"topologies."
+msgid "PostGIS supports the SQL/MM SQL-MM 3 Topo-Geo and Topo-Net 3 specifications via an extension called **postgis_topology**. You can learn about all the functions and types provided by this extension in `Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_. The *postgis_topology* extension includes another kind of core spatial type, called a **topogeometry**. In addition to the *topogeometry* spatial type, you will find functions for building *topologies* and populating topologies."
 msgstr "PostGIS は **postgis_topology** というエクステンションを介して SQL/MM SQL-MM 3 Topo-Geo と Topo-Net 3 仕様に対応しています。`マニュアル PostGIS トポロジ <https://postgis.net/docs/ja/Topology.html>`_ でエクステンションで地峡される全ての関数とタイプに関して学習することができます。*postgis_topology* エクステンションには、もうひとつの中核的な空間型である **topogeometry** があります。*topogeometry* 空間型に加えて、*topologies* の構築とトポロジの投入の関数があります。"
 
 #: ../../en/topology.rst:14
-msgid ""
-"Before you can start using topologies, you must install postgis_topology "
-"extension as follows:"
+msgid "Before you can start using topologies, you must install postgis_topology extension as follows:"
 msgstr "トポロジの使用を開始する前に、postgis_topology エクステンションをインストールします。次のようにします:"
 
 #: ../../en/topology.rst:21
-msgid ""
-"After you install the extension, you will see a new schema in your "
-"database called `topology`. The `topology` schema catalogs all the "
-"topologies in your database."
+msgid "After you install the extension, you will see a new schema in your database called `topology`. The `topology` schema catalogs all the topologies in your database."
 msgstr "エクステンションをインストールすると、インストールしたデータベースに `topology` というスキーマができています。データベース内の `topology` スキーマは全てのトポロジをカタログ化しています。"
 
 #: ../../en/topology.rst:24
-msgid ""
-"The `topology` schema contains two tables and all the helper functions "
-"for topology."
+msgid "The `topology` schema contains two tables and all the helper functions for topology."
 msgstr "`topology` スキーマには、二つのテーブルと全てのトポロジの補助関数とがあります。"
 
 #: ../../en/topology.rst:26
-msgid ""
-"topology - lists all the topologies in your database, and what schema "
-"they are stored in"
+msgid "topology - lists all the topologies in your database, and what schema they are stored in"
 msgstr "topology - データベース内の全てのトポロジ覧と、それが格納されていスキーマの一覧です"
 
 #: ../../en/topology.rst:27
-msgid ""
-"layer - lists all the table columns in your database that hold "
-"topogeometries"
+msgid "layer - lists all the table columns in your database that hold topogeometries"
 msgstr "layer - データベースでとぽジオメトリを保持する全てのテーブルカラムの一覧です"
 
 #: ../../en/topology.rst:29
-msgid ""
-"The *layer* table is very similar to the `raster_columns`, "
-"`geometry_columns`, and `geography_columns` catalogs we learned about "
-"earlier, but specifically for topogeometries."
+msgid "The *layer* table is very similar to the `raster_columns`, `geometry_columns`, and `geography_columns` catalogs we learned about earlier, but specifically for topogeometries."
 msgstr "*layer* テーブルは、これより前に学習した `raster_columns`、`geometry_columns`、`geography_columns` カタログによく似ていますが、トポジオメトリ専用です。"
 
 #: ../../en/topology.rst:33
@@ -67,13 +58,7 @@ msgid "Creating topologies"
 msgstr "トポロジの作成"
 
 #: ../../en/topology.rst:34
-msgid ""
-"What exactly is a topology and a topogeometry, and how are they related? "
-"Before we explain, let's start by creating a topology to house our NYC "
-"topologically perfect data using the `CreateTopology "
-"<https://postgis.net/docs/CreateTopology.html>`_ function and set the "
-"tolerance to be 0.5 meters. Note the 0.5 is in meters since our spatial "
-"reference system is State Plany NY meters."
+msgid "What exactly is a topology and a topogeometry, and how are they related? Before we explain, let's start by creating a topology to house our NYC topologically perfect data using the `CreateTopology <https://postgis.net/docs/CreateTopology.html>`_ function and set the tolerance to be 0.5 meters. Note the 0.5 is in meters since our spatial reference system is State Plany NY meters."
 msgstr "トポロジとトポジオメトリとは、正確には何であって、この二つのどういう関係にあるのでしょう? その説明の前に、`CreateTopology <https://postgis.net/docs/ja/CreateTopology.html>`_ を使って、ニューヨーク市のトポロジ的に完全なデータに許容値を 0.5メートル にしたトポロジを作るところから始めてみましょう。ここでの空間参照系はメートル単位ニューヨーク州平面なので 0.5 はメートル単位です。"
 
 #: ../../en/topology.rst:44 ../../en/topology.rst:211
@@ -81,12 +66,7 @@ msgid "Which outputs:"
 msgstr "出力:"
 
 #: ../../en/topology.rst:50
-msgid ""
-"Which is the id it assigned the new topology. Once you run the above "
-"command, you will see a new schema in your database called `nyc_topo`. "
-"You can name the topology anything you want. My convention is to add "
-"`_topo` at the end to distinguish it from other schemas I have in my "
-"database."
+msgid "Which is the id it assigned the new topology. Once you run the above command, you will see a new schema in your database called `nyc_topo`. You can name the topology anything you want. My convention is to add `_topo` at the end to distinguish it from other schemas I have in my database."
 msgstr "これは、新しいトポロジに割り当てられた ID です。一度上のコマンドを実行すると、データベースに `nyc_topo` という名前の新しいスキーマができます。トポロジ名は好きなように付けられます。筆者の規則では、データベース内の他のスキーマと区別するために、最後に `_topo` を付けるようにしています。"
 
 #: ../../en/topology.rst:56
@@ -102,15 +82,11 @@ msgid "Storage of topologies and topogeometries"
 msgstr "トポロジとトポジオメトリの格納"
 
 #: ../../en/topology.rst:73
-msgid ""
-"A topology is implemented as a schema in a PostgreSQL database. If you "
-"explore the `nyc_topo` schema, you will see these tables and views:"
+msgid "A topology is implemented as a schema in a PostgreSQL database. If you explore the `nyc_topo` schema, you will see these tables and views:"
 msgstr "トポロジは PostgreSQL データベース内のスキーマとして実装されています。`nyc_topo` スキーマを調べると、これらのテーブルとビューが見えます:"
 
 #: ../../en/topology.rst:76
-msgid ""
-"edge - This is a view built against edge_data, mostly for SQL/MM "
-"compliance."
+msgid "edge - This is a view built against edge_data, mostly for SQL/MM compliance."
 msgstr "edge - edge_data に対して作られたビューで、主に SQL/MM 準拠のためにあります。"
 
 #: ../../en/topology.rst:77
@@ -122,44 +98,27 @@ msgid "edge_data - Contains all the linestrings that make up the topology"
 msgstr "edge_data - トポロジを構成する全てのラインストリングを含みます"
 
 #: ../../en/topology.rst:79
-msgid ""
-"face - Contains a list of all closed surfaces that can be formed from the"
-" edge_data."
+msgid "face - Contains a list of all closed surfaces that can be formed from the edge_data."
 msgstr "face - edge_data から形成できる閉じたサーフェスの全ての一覧です。"
 
 #: ../../en/topology.rst:80
-msgid ""
-"It does not contain the actual geometry, but instead just the bounding "
-"box of the geometry."
+msgid "It does not contain the actual geometry, but instead just the bounding box of the geometry."
 msgstr "実際のジオメトリはありませんが、その代わりにジオメトリのバウンディングボックスを持っています。"
 
 #: ../../en/topology.rst:81
-msgid ""
-"node - Contains all the start and end points of all edges as well as "
-"points not connected to anything (isolated nodes)"
+msgid "node - Contains all the start and end points of all edges as well as points not connected to anything (isolated nodes)"
 msgstr "node - 全てのエッジの始点終点と接続されていない点 (孤立ノード) の全てを持ちます"
 
 #: ../../en/topology.rst:82
-msgid ""
-"relation - this defines what elements in a topology make up a "
-"topogeometry."
+msgid "relation - this defines what elements in a topology make up a topogeometry."
 msgstr "relation - トポロジのどの要素がトポジオメトリを構成するかを定義します。"
 
 #: ../../en/topology.rst:84
-msgid ""
-"So what is a topogeometry?  A topogeometry is a representation of a "
-"geometry formed from the edges, faces, nodes, and other topogeometries in"
-" a topology."
+msgid "So what is a topogeometry?  A topogeometry is a representation of a geometry formed from the edges, faces, nodes, and other topogeometries in a topology."
 msgstr "ではトポジオメトリは何でしょう? トポジオメトリは、トポロジ内のエッジ、フェイス、ノードや他のトポジオメトリから形成されるジオメトリの表現です。"
 
 #: ../../en/topology.rst:87
-msgid ""
-"Where does a topogeometry reside?  It resides somewhere else which "
-"references elements of a topology via the *relation* table. Although we "
-"could throw the topogeometries in our `nyc_topo` schema, the general "
-"convention, is to define other tables in other schemas that have a "
-"topogeometry, and also have any other kind of data you might be "
-"interested in tracking."
+msgid "Where does a topogeometry reside?  It resides somewhere else which references elements of a topology via the *relation* table. Although we could throw the topogeometries in our `nyc_topo` schema, the general convention, is to define other tables in other schemas that have a topogeometry, and also have any other kind of data you might be interested in tracking."
 msgstr "トポジオメトリはどこにあるでしょう? *relation*テーブル を介してトポロジの要素を参照する、別のどこかにあります。`nyc_topo` スキーマ内にトポジオメトリを投げることもできますが、一般的な規則では、トポジオメトリを保持し、また、他の興味がありそうな種類のデータも保持する、他のスキーマ内の他のテーブルを定義することになります。"
 
 #: ../../en/topology.rst:93
@@ -167,42 +126,19 @@ msgid "Why use topogeometries?"
 msgstr "なぜトポジオメトリを使うか?"
 
 #: ../../en/topology.rst:94
-msgid ""
-"Using topogeometries keeps your data tidy and connected. Topogeometries "
-"are very useful for Cadastral work, where you want to make sure two "
-"parcels of land don't overlap each other even if you change the "
-"boundaries of one or you want to make sure roads stay connected as you "
-"change the geometries that form them. Geometries live in an island of "
-"their own, you can duplicate them, morph them. Geometries are carefree, "
-"not caring about other geometries that share space with them. "
-"Topogeometries, in contrast, follow the rules of their topology; they "
-"can't exist unless there is an edge, node, face, or other topogeometry "
-"that defines them. A topogeometry belongs to one and only one topology. A"
-" topogeometry is a relational model of a geometry and as such as each "
-"component (edges/faces/nodes) are moved, added etc, they change not one "
-"topogeometry shape, but all topogeometries that have components in "
-"common."
+msgid "Using topogeometries keeps your data tidy and connected. Topogeometries are very useful for Cadastral work, where you want to make sure two parcels of land don't overlap each other even if you change the boundaries of one or you want to make sure roads stay connected as you change the geometries that form them. Geometries live in an island of their own, you can duplicate them, morph them. Geometries are carefree, not caring about other geometries that share space with them. Topogeometries, in contrast, follow the rules of their topology; they can't exist unless there is an edge, node, face, or other topogeometry that defines them. A topogeometry belongs to one and only one topology. A topogeometry is a relational model of a geometry and as such as each component (edges/faces/nodes) are moved, added etc, they change not one topogeometry shape, but all topogeometries that have components in common."
 msgstr "トポジオメトリの利用でデータが整然として、接続もされています。トポジオメトリは土地台帳作成作業に非常に便利です。土地台帳では、境界を変更しても二つの土地区画が相互にオーバラップしないように保証できることが必要だったり、これらを構成するジオメトリを変更する時に道路が接続されていることが保証される必要があります。ジオメトリは自身の島に存在し、これらを複製したり、変形したりできます。ジオメトリは心配がなく、空間共有する他のジオメトリに関して気にしません。対照的に、トポジオメトリは、これらを定義するエッジ、ノード、フェイスや他のトポジオメトリが無い場合には存在してはいけないという規則に従います。トポジオメトリは唯一のトポロジに属します。トポジオメトリは、ジオメトリや個々の要素といったもの (エッジ/フェイス/ノード) が動かされたり追加されたりする時に、一つのトポジオメトリだけの形状が変更されるのでなく、共通する要素を持つ全てのジオメトリが変更される関係モデルです。"
 
 #: ../../en/topology.rst:105
-msgid ""
-"We have an `nyc_topo` topology devoid of any data.  Let's populate it "
-"with our NYC data. Topology edges, faces, and nodes can be created in 2 "
-"keys ways."
+msgid "We have an `nyc_topo` topology devoid of any data.  Let's populate it with our NYC data. Topology edges, faces, and nodes can be created in 2 keys ways."
 msgstr "データのない `nyc_topo` トポロジがあります。ニューヨーク市のデータを投入してみましょう。トポロジのエッジ、フェイス、ノードは、二つの主要な方法で作成できます。"
 
 #: ../../en/topology.rst:108
-msgid ""
-"Edges, Faces, and Nodes can be created directly using topology primitive "
-"functions."
+msgid "Edges, Faces, and Nodes can be created directly using topology primitive functions."
 msgstr "エッジ、フェイス、ノードはトポロジ基本関数で直接生成できます。"
 
 #: ../../en/topology.rst:109
-msgid ""
-"Edges, Faces, and Nodes can be formed by creating topogeometries. When a "
-"topogeometry is created from a geometry and their are missing edges, "
-"faces, or nodes that match its coordinates, then new edges, faces, and "
-"nodes are created as part of the process."
+msgid "Edges, Faces, and Nodes can be formed by creating topogeometries. When a topogeometry is created from a geometry and their are missing edges, faces, or nodes that match its coordinates, then new edges, faces, and nodes are created as part of the process."
 msgstr "エッジ、フェイス、ノードはトポジオメトリの生成によって形成することができます。トポジオメトリがジオメトリから形成して、その座標のエッジ、フェイス、ノードのいずれかが欠落している場合には、処理の一部として、新しいエッジ、フェイス、ノードが生成されます。"
 
 #: ../../en/topology.rst:115
@@ -210,11 +146,7 @@ msgid "Defining topogeometry columns and creating topogeometries"
 msgstr "トポジオメトリカラムの定義とトポジオメトリの生成"
 
 #: ../../en/topology.rst:116
-msgid ""
-"The most common way to populate topologies is to create topogeometries. "
-"Lets start by creating a table to hold neighborhoods and then add a "
-"topogeometry column using the `AddTopoGeometryColumn "
-"<https://postgis.net/docs/AddTopoGeometryColumn.html>`_ function."
+msgid "The most common way to populate topologies is to create topogeometries. Lets start by creating a table to hold neighborhoods and then add a topogeometry column using the `AddTopoGeometryColumn <https://postgis.net/docs/AddTopoGeometryColumn.html>`_ function."
 msgstr "トポロジ投入の最も一般的な方法は、トポジオメトリの生成です。地区を保持するテーブルの作成から始めましょう。`AddTopoGeometryColumn <https://postgis.net/docs/ja/AddTopoGeometryColumn.html>`_ 関数を使ってトポジオメトリカラムを追加します。"
 
 #: ../../en/topology.rst:128
@@ -222,37 +154,19 @@ msgid "The output of the above is:"
 msgstr "上の出力は次の通りです:"
 
 #: ../../en/topology.rst:136
-msgid ""
-"Now we are ready to populate our table. It's best to ensure your "
-"geometries are valid before adding, otherwise you'll get errors such as "
-"SQL\\MM geometry is not simple."
+msgid "Now we are ready to populate our table. It's best to ensure your geometries are valid before adding, otherwise you'll get errors such as SQL\\MM geometry is not simple."
 msgstr "テーブルに投入する準備ができています。追加前にジオメトリが妥当であるかを確認するのが最善です。さもないと、SQL/MM ジオメトリが単純でないようなエラーが出ます。"
 
 #: ../../en/topology.rst:140
-msgid ""
-"So lets start by adding valid ones.  The 1 used here refers to the "
-"layer_id generated from the previous query. If you don't know the layer "
-"id, you would look it up using the `FindLayer "
-"<https://postgis.net/docs/FindLayer.html>`_ function which we'll use in "
-"later examples."
+msgid "So lets start by adding valid ones.  The 1 used here refers to the layer_id generated from the previous query. If you don't know the layer id, you would look it up using the `FindLayer <https://postgis.net/docs/FindLayer.html>`_ function which we'll use in later examples."
 msgstr "では妥当なものを追加することろから始めましょう。ここで使われてる 1 は前のクエリで生成された layer_id を参照するものです。レイヤID が分からない場合には、後の例で使用する `FindLayer <https://postgis.net/docs/ja/FindLayer.html>`_ 関数を使って検索します。"
 
 #: ../../en/topology.rst:144
-msgid ""
-"For these examples you'll use the function `toTopoGeom "
-"<https://postgis.net/docs/toTopoGeom.html>`_ function to convert a "
-"geometry to it's topogeometry equivalent.  toTopoGeom function handles a "
-"lot of book-keeping for you."
+msgid "For these examples you'll use the function `toTopoGeom <https://postgis.net/docs/toTopoGeom.html>`_ function to convert a geometry to it's topogeometry equivalent.  toTopoGeom function handles a lot of book-keeping for you."
 msgstr "これらの例では `toTopoGeom <https://postgis.net/docs/ja/toTopoGeom.html>`_ 関数を使って、ジオメトリをトポジオメトリに変換します。toTopoGeom 関数は多数の帳簿を処理します。"
 
 #: ../../en/topology.rst:147
-msgid ""
-"The `toTopoGeom` function inspects the geometry passed in and injects "
-"nodes, edges, and faces as needed into your topology to form the shape of"
-" the geometry.  It will then add relationships to the `relation` table "
-"that defines how this new topogeometry is related to these new and "
-"existing topology elements. In some cases pieces of the geometry may "
-"exist or existing pieces need to be split to form the new geometry."
+msgid "The `toTopoGeom` function inspects the geometry passed in and injects nodes, edges, and faces as needed into your topology to form the shape of the geometry.  It will then add relationships to the `relation` table that defines how this new topogeometry is related to these new and existing topology elements. In some cases pieces of the geometry may exist or existing pieces need to be split to form the new geometry."
 msgstr "`toTopoGeom` 関数は、渡されたジオメトリを調査して、トポロジにジオメトリの形状の形成に必要なノード、エッジ、フェイスを挿入します。この新しいトポジオメトリが、トポロジの新規要素や既存要素とどのように関係しているかを定義する `relation` テーブルに関係を追加します。場合によっては、ジオメトリの断片が存在することがあり、または、新しいジオメトリの形成に、既存の断片を分割する必要があります。"
 
 #: ../../en/topology.rst:157
@@ -264,9 +178,7 @@ msgid "The above should take about 300-400ms."
 msgstr "上のクエリは 300-400ミリ秒 かかります。"
 
 #: ../../en/topology.rst:173
-msgid ""
-"Now we have data in our topology.  A quick check will show, "
-"nyc_topo.edge, nyc_topo.node, and nyc_topo.face have data:"
+msgid "Now we have data in our topology.  A quick check will show, nyc_topo.edge, nyc_topo.node, and nyc_topo.face have data:"
 msgstr "これでトポロジ内のデータができました。nyc_topo.edge, nyc_topo.node, nyc_topo.face にデータがあるかどうかの簡易確認をします:"
 
 #: ../../en/topology.rst:186
@@ -274,20 +186,13 @@ msgid "outputs:"
 msgstr "出力:"
 
 #: ../../en/topology.rst:198
-msgid ""
-"Now we can express declaritively that boros are formed from a collection "
-"of neighborhoods by defining a column called *topo* in *nyc_boros_t* "
-"table that is of type POLYGON and is a collection of other topogeometries"
-" from *nyc_neighborhoods_t.topo* column."
+#, fuzzy
+#| msgid "Now we can express declaritively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
+msgid "Now we can express declaratively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
 msgstr "行政区は、POLYGON タイプであり、かつ *nyc_neighborhoods_t.topo* カラムからの他のトポジオメトリのコレクションである *nyc_boros_t* テーブルの *topo* カラムを定義することで地区のコレクションから形成されることが、宣言的に表現されます。"
 
 #: ../../en/topology.rst:221
-msgid ""
-"In order to populate this new table, we'll use the `CreateTopoGeom "
-"<https://postgis.net/docs/CreateTopoGeom.html>`_ function. Instead of "
-"starting with geometries to form a new topogeometry, the CreateTopoGeom "
-"starts with existing topology elements which may be primitives or other "
-"topogeometries to define a new topogeometry."
+msgid "In order to populate this new table, we'll use the `CreateTopoGeom <https://postgis.net/docs/CreateTopoGeom.html>`_ function. Instead of starting with geometries to form a new topogeometry, the CreateTopoGeom starts with existing topology elements which may be primitives or other topogeometries to define a new topogeometry."
 msgstr "この新しいテーブルに投入するために、`CreateTopoGeom <https://postgis.net/docs/ja/CreateTopoGeom.html>`_ 関数を使います。新しいトポジオメトリを形成するためにジオメトリから始める代わりに、CreateTopoGeom は、新しいトポジオメトリを定義するために、プリミティブである可能性があるか、他のトポジオメトリであるような既存のトポロジ要素から始めます。"
 
 #: ../../en/topology.rst:235
@@ -295,18 +200,11 @@ msgid "Which will insert 5 records corresponding to the boroughs of New York."
 msgstr "ニューヨークの地区に対応する 5つ のレコードが挿入されます。"
 
 #: ../../en/topology.rst:239
-msgid ""
-"If you are using PostGIS 3.4 or higher, you can use the new cast to cast "
-"a topogeometry to a topoelement, and replace "
-"`topology.TopoElementArray_Agg( ARRAY[ (n.topo).id, (n.topo).layer_id "
-"]::topoelement ) )` in the above example with the shorter "
-"`topology.TopoElementArray_Agg( n.topo::topoelement )`"
+msgid "If you are using PostGIS 3.4 or higher, you can use the new cast to cast a topogeometry to a topoelement, and replace `topology.TopoElementArray_Agg( ARRAY[ (n.topo).id, (n.topo).layer_id ]::topoelement ) )` in the above example with the shorter `topology.TopoElementArray_Agg( n.topo::topoelement )`"
 msgstr "PostGIS 3.4 以上を使っている場合には、新しいキャストでトポジオメトリからトポエレメントにキャストすることができます。上の例の`topology.TopoElementArray_Agg( ARRAY[ (n.topo).id, (n.topo).layer_id ]::topoelement ) )` を、より短い `topology.TopoElementArray_Agg( n.topo::topoelement )` に置き換えることができます"
 
 #: ../../en/topology.rst:244
-msgid ""
-"To view these in pgAdmin, you can cast the topogeometry to a geometry as "
-"follows:"
+msgid "To view these in pgAdmin, you can cast the topogeometry to a geometry as follows:"
 msgstr "これらを pgAdmin で見るには、次のように、トポジオメトリからジオメトリにキャストします:"
 
 #: ../../en/topology.rst:252
@@ -314,34 +212,19 @@ msgid "The output will look like below:"
 msgstr "出力は次のようなかんじになります:"
 
 #: ../../en/topology.rst:256
-msgid ""
-"If you are thinking, what a total mess, yes it is a total mess. This is "
-"what happens after numerous cycles of simplification and other geometry "
-"processes where each geometry is treated as a separate unit.  You get "
-"gaps, you get dangling islands, and neighborhoods encroaching on each "
-"other's territory."
+msgid "If you are thinking, what a total mess, yes it is a total mess. This is what happens after numerous cycles of simplification and other geometry processes where each geometry is treated as a separate unit.  You get gaps, you get dangling islands, and neighborhoods encroaching on each other's territory."
 msgstr "なんて完全な混乱なんでしょうと考えているなら、そうですその通りです。これは、ジオメトリごとに個別の単位で扱う単純化と他のジオメトリ処理の、多数のサイクルの後に発生するものです。隙間が出ますし、ぶら下がった島が出ますし、地区同士の領地の侵入が出ます。"
 
 #: ../../en/topology.rst:261
-msgid ""
-"Luckily we can use topology to clean up this mess and to help us maintain"
-" good clean connected data."
+msgid "Luckily we can use topology to clean up this mess and to help us maintain good clean connected data."
 msgstr "幸いなことにトポロジを使して、この混乱を清算でき、また良好できれいな接続されたデータを維持できます。"
 
 #: ../../en/topology.rst:263
-msgid ""
-"Let's put our land surveyor hat on and ask the question, if we are "
-"dividing our plots of land into districts (boros or neighborhoods) such "
-"that each district may border other districts but should not share any "
-"area in common, does it make sense for districts to have areas in common?"
-"  No it does not make sense. And here we are with our data pointing out "
-"some areas belong to more than one neighborhood or more than one borough."
+msgid "Let's put our land surveyor hat on and ask the question, if we are dividing our plots of land into districts (boros or neighborhoods) such that each district may border other districts but should not share any area in common, does it make sense for districts to have areas in common?  No it does not make sense. And here we are with our data pointing out some areas belong to more than one neighborhood or more than one borough."
 msgstr "測量士のふりをして質問をしてみましょう。区域 (行政区や地区) ごとに他の区域と隣接する可能性があるが、区域間で領域を共有しないように、土地の区画を区域に分割する場合に、共有する領域を持つ区域に意味があるでしょうか? と。これは意味がありません。そして、複数の地区に属するか複数の行政区に属するような領域がいくつかあることを示すデータがあります。"
 
 #: ../../en/topology.rst:269
-msgid ""
-"Lets first look at boros and look for neighborhoods that share elements "
-"in common:"
+msgid "Lets first look at boros and look for neighborhoods that share elements in common:"
 msgstr "まず行政区を見て、要素を共有する地区を探しましょう:"
 
 #: ../../en/topology.rst:279
@@ -349,73 +232,43 @@ msgid "The output is:"
 msgstr "出力は次の通りです:"
 
 #: ../../en/topology.rst:292
-msgid ""
-"Which tells us that Queens and Brooklyn are in the middle of border wars."
-" In this query we use the  `GetTopoGeomElements "
-"<https://postgis.net/docs/GetTopoGeomElements.html>`_ function to "
-"declaritively inspect what components are shared across boroughs."
+#, fuzzy
+#| msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaritively inspect what components are shared across boroughs."
+msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaratively inspect what components are shared across boroughs."
 msgstr "クイーンズやブルックリンが境界戦争の真っただ中にあることを示しています。このクエリでは `GetTopoGeomElements <https://postgis.net/docs/ja/GetTopoGeomElements.html>`_ 関数を使って宣言的に、行政区をまたいで共有する要素を調査します。"
 
 #: ../../en/topology.rst:296
-msgid ""
-"What is returned are a set of topolements.  A topoelement is represented "
-"as an array of 2 integers with the first number being the id of the "
-"element, and the second, being the layer (or primitive type) of the "
-"element. PostGIS GetTopoElements returns the primitives of a topogeometry"
-" with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: "
-"faces). All the topoelements for neighborhoods and boroughs are type 3, "
-"which corresponds to a topological face. We can use the "
-"`ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ "
-"to get a visual representation of these shared faces as folows:"
+#, fuzzy
+#| msgid "What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number being the id of the element, and the second, being the layer (or primitive type) of the element. PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces). All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ to get a visual representation of these shared faces as folows:"
+msgid "What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number being the id of the element, and the second, being the layer (or primitive type) of the element. PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces). All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ to get a visual representation of these shared faces as follows:"
 msgstr "トポエレメントの集合が返されます。トポエレメントは二つの整数の配列として表現されます。一つ目は要素識別子、二つ目は要素のレイヤ (またはプリミティブタイプ) です。PostGIS GetTopoElements はタイプ番号 1-3 (1:ノード, 2:エッジ, 3:フェイス) でトポジオメトリのプリミティブを返します。全ての地区と行政区のトポエレメントのタイプ番号は、フェイスに対応する 3 です。 `ST_GetFaceGeometry <https://postgis.net/docs/ja/ST_GetFaceGeometry.html>`_ を使って、これらの共有されたフェイスの視覚表現を得ることができます。次のようにします:"
 
 #: ../../en/topology.rst:311
-msgid ""
-"The result will be 5 rows corresponding to border disputes between Queens"
-" and Brooklyn."
+msgid "The result will be 5 rows corresponding to border disputes between Queens and Brooklyn."
 msgstr "結果はクイーンとブルックリンの境界紛争に対応する 5行 になります。"
 
 #: ../../en/topology.rst:313
-msgid ""
-"If we look at our neighborhoods, we'll see a similar story but with 44 "
-"border disputes:"
+msgid "If we look at our neighborhoods, we'll see a similar story but with 44 border disputes:"
 msgstr "地区を見ると、44件 の似たような境界紛争が見えます:"
 
 #: ../../en/topology.rst:324
-msgid ""
-"Because boroughs are an aggregation of neighborhoods, we can fix the "
-"borough issue by fixing the neighborhood border disputes."
+msgid "Because boroughs are an aggregation of neighborhoods, we can fix the borough issue by fixing the neighborhood border disputes."
 msgstr "行政区は地区を集約したものですので、地区の境界紛争を訂正することで、行政区の問題が訂正できます。"
 
 #: ../../en/topology.rst:327
-msgid ""
-"There are a number of ways we could fix this. We could go out surveying "
-"asking people what neighbhood do they think they are standing in.  "
-"Alternatively we could just assign slivers of land to the neighborhood "
-"with the least amount of area or to the highest bidder."
+msgid "There are a number of ways we could fix this. We could go out surveying asking people what neighbhood do they think they are standing in.  Alternatively we could just assign slivers of land to the neighborhood with the least amount of area or to the highest bidder."
 msgstr "訂正する方法は多数あります。外に出て、人々にどの区域にいると思いますか? と質問できるでしょう。あるいは、面積が最も少ない地区や、最も高額を提示した入札者に、小区画の土地を割当てることも可能です。"
 
 #: ../../en/topology.rst:331
-msgid ""
-"Removing elements from Topogeometries is handled using the "
-"`TopoGeom_remElement "
-"<https://postgis.net/docs/TopoGeom_remElement.html>`_ function.  So lets "
-"get on with it, removing duplicaed elements from neighborhoods with the "
-"most amount of area as follows:"
+msgid "Removing elements from Topogeometries is handled using the `TopoGeom_remElement <https://postgis.net/docs/TopoGeom_remElement.html>`_ function.  So lets get on with it, removing duplicaed elements from neighborhoods with the most amount of area as follows:"
 msgstr "トポジオメトリからの要素の削除は `TopoGeom_remElement <https://postgis.net/docs/ja/TopoGeom_remElement.html>`_ 関数を使って処理します。面積が最も大きい地区から重複要素を除いて、片付けてしまいましょう。次のようにします:"
 
 #: ../../en/topology.rst:346
-msgid ""
-"The result of the above is 29 neighborhoods were updated. If you rerun "
-"the border dispute queries for neighborhoods and boroughs, you'll find "
-"you have no more border disputes."
+msgid "The result of the above is 29 neighborhoods were updated. If you rerun the border dispute queries for neighborhoods and boroughs, you'll find you have no more border disputes."
 msgstr "上の結果として 29地区 が更新されました。地区や行政区の境界紛争のクエリを実行すると、もはや境界紛争がなくなっていることが分かります。"
 
 #: ../../en/topology.rst:349
-msgid ""
-"We do still have gaps of empty space between neighborhoods caused by "
-"intensive simplication. Such issues can be fixed by directly editing the "
-"topology using the `Topology Editor family of functions "
-"<https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or "
-"filling in the holes and assigning those to neighborhoods."
+#, fuzzy
+#| msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplication. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
+msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplification. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
 msgstr "集中的な単純化によってできた地区間の隙間がまだあります。このような問題は、 `トポロジエディタ の関数ファミリ <https://postgis.net/docs/ja/Topology.html#Topology_Editing>`_ を使ってトポロジを直接編集したり、穴を埋めたり、地区に割り当てるといった方法での訂正が可能です。"

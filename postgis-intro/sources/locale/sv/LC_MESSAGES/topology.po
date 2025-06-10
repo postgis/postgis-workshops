@@ -3,7 +3,19 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Daniel Nylander <daniel@danielnylander.se>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-02-05 19:56+0000\nPO-Revision-Date: 2025-06-06 06:20+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/topology/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
+"PO-Revision-Date: 2025-06-06 06:20+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/topology/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/topology.rst:4
 msgid "Topology"
@@ -45,8 +57,7 @@ msgstr "Skapa topologier"
 msgid "What exactly is a topology and a topogeometry, and how are they related? Before we explain, let's start by creating a topology to house our NYC topologically perfect data using the `CreateTopology <https://postgis.net/docs/CreateTopology.html>`_ function and set the tolerance to be 0.5 meters. Note the 0.5 is in meters since our spatial reference system is State Plany NY meters."
 msgstr "Vad exakt är en topologi och en topogeometri, och hur är de relaterade? Innan vi förklarar, låt oss börja med att skapa en topologi för att hysa våra NYC-topologiskt perfekta data med hjälp av funktionen `CreateTopology <https://postgis.net/docs/CreateTopology.html>`_ och ställa in toleransen till 0,5 meter. Observera att 0,5 är i meter eftersom vårt spatiala referenssystem är State Plany NY meter."
 
-#: ../../en/topology.rst:44
-#: ../../en/topology.rst:211
+#: ../../en/topology.rst:44 ../../en/topology.rst:211
 msgid "Which outputs:"
 msgstr "Vilket matar ut:"
 
@@ -171,7 +182,9 @@ msgid "outputs:"
 msgstr "utmatning:"
 
 #: ../../en/topology.rst:198
-msgid "Now we can express declaritively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
+#, fuzzy
+#| msgid "Now we can express declaritively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
+msgid "Now we can express declaratively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
 msgstr "Nu kan vi deklarativt uttrycka att boros bildas av en samling grannskap genom att definiera en kolumn som heter *topo* i *nyc_boros_t*-tabellen som är av typen POLYGON och är en samling av andra topogeometrier från *nyc_neighborhoods_t.topo*-kolumnen."
 
 #: ../../en/topology.rst:221
@@ -215,11 +228,15 @@ msgid "The output is:"
 msgstr "Utdata är:"
 
 #: ../../en/topology.rst:292
-msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaritively inspect what components are shared across boroughs."
+#, fuzzy
+#| msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaritively inspect what components are shared across boroughs."
+msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaratively inspect what components are shared across boroughs."
 msgstr "Vilket säger oss att Queens och Brooklyn är mitt uppe i ett gränskrig. I den här frågan använder vi funktionen `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ för att deklaritivt inspektera vilka komponenter som delas mellan stadsdelar."
 
 #: ../../en/topology.rst:296
-msgid "What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number being the id of the element, and the second, being the layer (or primitive type) of the element. PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces). All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ to get a visual representation of these shared faces as folows:"
+#, fuzzy
+#| msgid "What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number being the id of the element, and the second, being the layer (or primitive type) of the element. PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces). All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ to get a visual representation of these shared faces as folows:"
+msgid "What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number being the id of the element, and the second, being the layer (or primitive type) of the element. PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces). All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ to get a visual representation of these shared faces as follows:"
 msgstr "Det som returneras är en uppsättning topolements.  Ett topoelement representeras som en array av 2 heltal där det första talet är elementets id och det andra är elementets lager (eller primitiva typ). PostGIS GetTopoElements returnerar primitiverna i en topogeometri med typerna nummer 1-3 som motsvarar (1: noder, 2: kanter och 3: ytor). Alla topoelements för grannskap och stadsdelar är av typ 3, vilket motsvarar en topologisk yta. Vi kan använda `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ för att få en visuell representation av dessa delade ansikten enligt följande:"
 
 #: ../../en/topology.rst:311
@@ -247,5 +264,7 @@ msgid "The result of the above is 29 neighborhoods were updated. If you rerun th
 msgstr "Resultatet av ovanstående är att 29 stadsdelar uppdaterades. Om du kör om gränstvistfrågorna för stadsdelar och distrikt kommer du att upptäcka att du inte har några fler gränstvister."
 
 #: ../../en/topology.rst:349
-msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplication. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
+#, fuzzy
+#| msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplication. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
+msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplification. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
 msgstr "Vi har fortfarande tomrum mellan stadsdelar som orsakats av intensiv förenkling. Sådana problem kan lösas genom att direkt redigera topologin med hjälp av funktionerna i `Topology Editor-familjen <https://postgis.net/docs/Topology.html#Topology_Editing>`_ och/eller fylla i hålen och tilldela dem till grannskap."

@@ -1,11 +1,11 @@
-.. _topology:
+.. _topology_base_types:
 
 Topology Basic Types
 ====================
 
 Before read this document, at least check one of this documents:
 
-`Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_.
+`Introductory workshop: PostGIS Topology Workshop <topology.html>`_.
 
 `Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_.
 
@@ -158,7 +158,7 @@ The Edge 5 has the Face 0 on its Right, the Universal Face, looking Edge 5 backw
 Following the perspective of Edge 5 on Edge 4 we can see it goes up, while the Edge 4 goes down, the Perspective direction and the Edge 4 direction are opposed.
 
 - abs_next_right_edge: 4
-- nexr_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)
+- next_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)
 
 Isolated Edge Case
 >>>>>>>>>>>>>>>>>>

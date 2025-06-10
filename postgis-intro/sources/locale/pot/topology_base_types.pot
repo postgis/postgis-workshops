@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-09 10:51+0000\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "Before read this document, at least check one of this documents:"
 msgstr ""
 
 #: ../../en/topology_base_types.rst:8
-msgid "`Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_."
+msgid "`Introductory workshop: PostGIS Topology Workshop <topology.html>`_."
 msgstr ""
 
 #: ../../en/topology_base_types.rst:10
@@ -273,7 +273,7 @@ msgid "abs_next_right_edge: 4"
 msgstr ""
 
 #: ../../en/topology_base_types.rst:161
-msgid "nexr_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)"
+msgid "next_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)"
 msgstr ""
 
 #: ../../en/topology_base_types.rst:164

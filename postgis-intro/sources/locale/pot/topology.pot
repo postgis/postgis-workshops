@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-05 19:56+0000\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,7 +182,7 @@ msgid "outputs:"
 msgstr ""
 
 #: ../../en/topology.rst:198
-msgid "Now we can express declaritively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
+msgid "Now we can express declaratively that boros are formed from a collection of neighborhoods by defining a column called *topo* in *nyc_boros_t* table that is of type POLYGON and is a collection of other topogeometries from *nyc_neighborhoods_t.topo* column."
 msgstr ""
 
 #: ../../en/topology.rst:221
@@ -226,11 +226,11 @@ msgid "The output is:"
 msgstr ""
 
 #: ../../en/topology.rst:292
-msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaritively inspect what components are shared across boroughs."
+msgid "Which tells us that Queens and Brooklyn are in the middle of border wars. In this query we use the  `GetTopoGeomElements <https://postgis.net/docs/GetTopoGeomElements.html>`_ function to declaratively inspect what components are shared across boroughs."
 msgstr ""
 
 #: ../../en/topology.rst:296
-msgid "What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number being the id of the element, and the second, being the layer (or primitive type) of the element. PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces). All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ to get a visual representation of these shared faces as folows:"
+msgid "What is returned are a set of topolements.  A topoelement is represented as an array of 2 integers with the first number being the id of the element, and the second, being the layer (or primitive type) of the element. PostGIS GetTopoElements returns the primitives of a topogeometry with types number 1-3 corresponding to (1: nodes, 2: edges, and 3: faces). All the topoelements for neighborhoods and boroughs are type 3, which corresponds to a topological face. We can use the `ST_GetFaceGeometry <https://postgis.net/docs/ST_GetFaceGeometry.html>`_ to get a visual representation of these shared faces as follows:"
 msgstr ""
 
 #: ../../en/topology.rst:311
@@ -258,5 +258,5 @@ msgid "The result of the above is 29 neighborhoods were updated. If you rerun th
 msgstr ""
 
 #: ../../en/topology.rst:349
-msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplication. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
+msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplification. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
 msgstr ""

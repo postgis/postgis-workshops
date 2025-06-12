@@ -3,7 +3,7 @@
 Topology Basic Types
 ====================
 
-Before read this document, at least check one of this documents:
+Before reading this document, please review at least one of these resources:
 
 `Introductory workshop: PostGIS Topology Workshop <topology.html>`_.
 

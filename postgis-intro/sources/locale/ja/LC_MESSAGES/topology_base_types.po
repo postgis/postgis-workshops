@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-09 10:51+0000\n"
-"PO-Revision-Date: 2025-06-10 13:50+0000\n"
+"PO-Revision-Date: 2025-06-13 10:09+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "topology_base_types/ja/>\n"
@@ -38,7 +38,6 @@ msgid "`Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_."
 msgstr "`マニュアル: PostGIS トポロジ <https://postgis.net/docs/ja/Topology.html>`_."
 
 #: ../../en/topology_base_types.rst:12
-#, fuzzy
 msgid "`ISO Topology: OGC-SFS Geometries <https://www.gaia-gis.it/fossil/libspatialite/wiki?name=topo-intro>`_."
 msgstr ""
 "`ISO Topology: OGC-SFS Geometries <https://www.gaia-gis.it/fossil/"
@@ -151,8 +150,10 @@ msgstr "トポロジのエッジには正しく定義された視点と視界と
 "に見えます:"
 
 #: ../../en/topology_base_types.rst:68
+#, fuzzy
 msgid "When we want to see from the edge perspective is always from the end node to the start edge, always looking the edge forward."
-msgstr ""
+msgstr "エッジ視点から見たいとき、常に終端ノードから始端ノードで、常にエッジ順方向に"
+"見ます"
 
 #: ../../en/topology_base_types.rst:74
 msgid "The edges have left and right properties, as we see they are defined using the edge perspective, see the linestring from the start node to the end node, there will always be a well defined left and right."
@@ -190,8 +191,11 @@ msgstr ""
 "ます。常にエッジの前方を見るようにして、後方を見るようにはしてはいけません!"
 
 #: ../../en/topology_base_types.rst:89
+#, fuzzy
 msgid "Which are all the next edges? Looking forward we go from start node to the end node, all the edges who start or end in the end node of the edge!"
 msgstr ""
+"次のエッジの全てはどれ? 始端ノードから終端ノードへの順方向に見ていくと、エッ"
+"ジの終端ノードを始端または終端とする全てのエッジが当てはまるのです!"
 
 #: ../../en/topology_base_types.rst:92
 msgid "Edge Data"
@@ -274,60 +278,71 @@ msgstr "ここでラインを追いかける、エッジの方向に依存する
 "反時計回りかを見るようなもので、非常に重要です。"
 
 #: ../../en/topology_base_types.rst:131
+#, fuzzy
 msgid "With this information we have abs_next_left_edge which will be 6."
-msgstr ""
+msgstr "この情報で、abs_next_left_edge が 6 になるのが分かります。"
 
 #: ../../en/topology_base_types.rst:133
 msgid "The next_left_edge is almost the same as abs_next_left_edge, except it can be negative which depends on the perspective we see the edge."
-msgstr ""
+msgstr "next_left_edge は abs_next_left_edge "
+"とほぼ同じですが、エッジを見る視点によっては負数になることがあります。"
 
 #: ../../en/topology_base_types.rst:135
 msgid "If we follow the Edge perspective we will have two directions, the direction of the next edge, and the direction of the perspective on the next edge."
-msgstr ""
+msgstr "エッジ視点を追いかける場合には、次のエッジの方向と、次のエッジに来た時の視点"
+"での方向との二つの方向があります。"
 
 #: ../../en/topology_base_types.rst:137
 msgid "We will use the next sign in each case:"
-msgstr ""
+msgstr "次のエッジの符号は次のように使われます:"
 
 #: ../../en/topology_base_types.rst:139
 msgid "Perspective direction and Next edge direction are opposed: \"-\""
-msgstr ""
+msgstr "視点方向と次のエッジの方向が違う: \"-\""
 
 #: ../../en/topology_base_types.rst:140
 msgid "Perspective direction and Next edge direction are the same: None, keep the value positive"
-msgstr ""
+msgstr "視点方向と次のエッジの方向が同じ: 符号なし、正の数のまま"
 
 #: ../../en/topology_base_types.rst:142
 msgid "How the Perspective and Edge 6 have the same direction, next_left_edge will be 6."
-msgstr ""
+msgstr "視点と 6番エッジ は同じ方向なので、next_left_edge は 6 です。"
 
 #: ../../en/topology_base_types.rst:144
 msgid "abs_next_left_edge: 6"
-msgstr ""
+msgstr "abs_next_left_edge: 6"
 
 #: ../../en/topology_base_types.rst:145
 msgid "next_left_edge: 6"
-msgstr ""
+msgstr "next_left_edge: 6"
 
 #: ../../en/topology_base_types.rst:148
 msgid "Right"
-msgstr ""
+msgstr "右側"
 
 #: ../../en/topology_base_types.rst:150
+#, fuzzy
 msgid "The only difference between Left and Right analysis is the perspective, while in Left we use forward, in Right we will see backwards. Be careful, even if we look backwards the definition of Left Face and Right Face are still the same, looking forward! Only changes the perspective to follow."
 msgstr ""
+"左側分析と右側分析との違いは視点だけです。左側解析では順方向ですが、右側解析"
+"では逆方向です。注意してください、左側フェイスの定義を逆方向に見て、右側フェ"
+"イスも同じに見ていたとしても、前に見ています。視点だけが次のように変わります"
+"。"
 
 #: ../../en/topology_base_types.rst:152
 msgid "The Edge 5 has the Face 0 on its Right, the Universal Face, looking Edge 5 backwards the next edge who builds Face 0 is the Edge 4."
 msgstr ""
+"5番エッジ の右側に 0番フェイス すなわちユニバーサルフェイスがあります。"
+"5番エッジ を逆方向に見ると 0版エッジ を構築する次のエッジは 4番エッジ です。"
 
 #: ../../en/topology_base_types.rst:158
 msgid "Following the perspective of Edge 5 on Edge 4 we can see it goes up, while the Edge 4 goes down, the Perspective direction and the Edge 4 direction are opposed."
-msgstr ""
+msgstr "4番エッジ 上で 5番エッジ の順方向の視点で見ると、4番エッジ が下に進み、"
+"視点方向と 4番エッジ の方向とが逆になります。"
 
 #: ../../en/topology_base_types.rst:160
 msgid "abs_next_right_edge: 4"
-msgstr ""
+msgstr "abs_next_right_edge: 4"
 
 #: ../../en/topology_base_types.rst:161
 msgid "nexr_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)"
@@ -335,40 +350,54 @@ msgstr ""
 
 #: ../../en/topology_base_types.rst:164
 msgid "Isolated Edge Case"
-msgstr ""
+msgstr "孤立エッジの場合"
 
 #: ../../en/topology_base_types.rst:166
+#, fuzzy
 msgid "There is a case that may be confusing, all the rules above follow in the same way but it is good to take a look."
-msgstr ""
+msgstr "混乱するかもしれない例です。上の規則全てを同じに適用していますが、見てみると"
+"いいです。"
 
 #: ../../en/topology_base_types.rst:172
 msgid "When we have an Edge that has no connections to other Edges, the first thing we can appreciate is that the Face of the Left is the same as the Right, in this case Face 0, the Universal Face."
 msgstr ""
+"他のエッジと接続しないエッジがある時、最初に私たちが理解できることは、エッジ"
+"は左側のフェイスと右側のフェイスが同じということです。孤立エッジの場合は、"
+"0番フェイス すなわちユニバーサルフェイスです。"
 
 #: ../../en/topology_base_types.rst:174
+#, fuzzy
 msgid "If we follow the past logic, on the Left is the Face 0, which is the next edge who builds Face 0? Actually there is an Edge, and is itself, and it also has a perspective as before:"
 msgstr ""
+"過去のロジックに従うと、左側は 0番フェイス で、0番フェイス を構築する次のエッ"
+"ジはどれでしょうか？実際は、そのエッジ自体が該当します。前と同様の視点も持っ"
+"ています。"
 
 #: ../../en/topology_base_types.rst:180
 msgid "If we check the perspective direction we ends looking the same edge but in opposite direction, this means the Edge 1 and its Next Edge (Edge 1) has opposed directions."
 msgstr ""
+"視点の方向を確認すると、同じエッジを反対方向に見えていることになります。"
+"これは 1番エッジ と次のエッジ (1番エッジ) "
+"とが逆方向になっていることを意味します。"
 
 #: ../../en/topology_base_types.rst:182
 #: ../../en/topology_base_types.rst:194
 msgid "edge_id: 1"
-msgstr ""
+msgstr "edge_id: 1"
 
 #: ../../en/topology_base_types.rst:183
 msgid "abs_next_left_edge: 1"
-msgstr ""
+msgstr "abs_next_left_edge: 1"
 
 #: ../../en/topology_base_types.rst:184
 msgid "next_left_edge: -1 (This will always be negative while we see forward a isolated edge)"
-msgstr ""
+msgstr "next_left_edge: -1 (孤立エッジを順方向に見ると常に負になります)"
 
 #: ../../en/topology_base_types.rst:186
+#, fuzzy
 msgid "For the Next Right Edge is the same, the Next Edge will be it self, the only what it changes is the perspective:"
-msgstr ""
+msgstr "次の右のエッジは同じですから、次のエッジは、それ自体となります。視点だけ変わ"
+"ります。"
 
 #: ../../en/topology_base_types.rst:192
 msgid "When we look backwards any isolated edge, the perspective will always have the same direction as the Edge so:"

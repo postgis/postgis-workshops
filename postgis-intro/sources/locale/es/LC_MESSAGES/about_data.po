@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
 "PO-Revision-Date: 2025-03-14 05:47+0000\n"
 "Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
@@ -78,7 +78,9 @@ msgstr ""
 "algunos datos demográficos a nuestra colección de manzanas."
 
 #: ../../en/about_data.rst:19
-msgid "Number of records: 36592"
+#, fuzzy
+#| msgid "Number of records: 36592"
+msgid "Number of records: 38794"
 msgstr "Número de registros: 36592"
 
 #: ../../en/about_data.rst:24
@@ -176,9 +178,10 @@ msgid ""
 "the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
 msgstr ""
 "Para introducir los datos del censo dentro del SIG, hay que unir dos piezas "
-"de información: los datos reales (texto) y los archivos de limites (espacial)"
-". Hay muchas formas para conseguir estos datos, incluyendo descargar ambos "
-"desde Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
+"de información: los datos reales (texto) y los archivos de limites "
+"(espacial). Hay muchas formas para conseguir estos datos, incluyendo "
+"descargar ambos desde Census Bureau's `American FactFinder <http://"
+"factfinder.census.gov>`_."
 
 #: ../../en/about_data.rst:52
 #, fuzzy
@@ -372,8 +375,8 @@ msgid ""
 "An 11-digit code that uniquely identifies every census **tract**. "
 "(\"36005000100\")"
 msgstr ""
-"Un código de 11 dígitos que identifica unívocamente cada **conjunto censal**"
-". (\"36005000100\")"
+"Un código de 11 dígitos que identifica unívocamente cada **conjunto "
+"censal**. (\"36005000100\")"
 
 #: ../../en/about_data.rst:137
 msgid "**transit_total**"

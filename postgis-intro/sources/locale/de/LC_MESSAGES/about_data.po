@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
 "PO-Revision-Date: 2021-11-18 04:59+0000\n"
 "Last-Translator: robe <regina@arrival3d.com>\n"
 "Language-Team: German <https://weblate.osgeo.org/projects/postgis-workshop/"
@@ -59,7 +59,7 @@ msgid ""
 msgstr ""
 
 #: ../../en/about_data.rst:19
-msgid "Number of records: 36592"
+msgid "Number of records: 38794"
 msgstr ""
 
 #: ../../en/about_data.rst:24

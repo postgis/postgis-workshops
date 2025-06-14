@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023, 2024.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-03-06 02:45+0000\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
+"PO-Revision-Date: 2025-06-11 10:47+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/about_data.rst:4
@@ -71,8 +71,8 @@ msgstr ""
 "に取り付けられた人口統計データがあります。"
 
 #: ../../en/about_data.rst:19
-msgid "Number of records: 36592"
-msgstr "レコード数: 36592"
+msgid "Number of records: 38794"
+msgstr "レコード数: 38794"
 
 #: ../../en/about_data.rst:24
 msgid "**blkid**"

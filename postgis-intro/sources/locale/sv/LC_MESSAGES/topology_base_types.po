@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-09 10:51+0000\n"
-"PO-Revision-Date: 2025-06-09 11:28+0000\n"
+"PO-Revision-Date: 2025-06-10 20:47+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "topology_base_types/sv/>\n"
@@ -93,8 +93,8 @@ msgstr ""
 msgid "But there is still a missing piece, how do we say for example, a face has a specific attribute? Postgis implements several concepts to do this like Layers, TopoGeometry, TopoElement."
 msgstr ""
 "Men det finns fortfarande en sak som saknas, hur säger vi till exempel att "
-"ett ansikte har ett specifikt attribut? Postgis implementerar flera koncept "
-"för att göra detta som Layers, TopoGeometry, TopoElement."
+"en yta har ett specifikt attribut? Postgis implementerar flera koncept för "
+"att göra detta som Layers, TopoGeometry, TopoElement."
 
 #: ../../en/topology_base_types.rst:36
 msgid "Universal Face"
@@ -111,9 +111,9 @@ msgstr ""
 msgid "The empty space is called the Universal Face, when a Topology is empty, all the space is the Universal Face, when we add a linestring is an edge of this face, then when we make a polygon it is like make a hole in the face and stealing it to assign it to a face."
 msgstr ""
 "Det tomma utrymmet kallas Universal Face, när en topologi är tom är allt "
-"utrymme Universal Face, när vi lägger till en linestring är en kant av detta "
-"ansikte, när vi sedan gör en polygon är det som att göra ett hål i ansiktet "
-"och stjäla det för att tilldela det till ett ansikte."
+"utrymme Universal Face, när vi lägger till en linestring är en kant av denna "
+"yta, när vi sedan gör en polygon är det som att göra ett hål i ytan och "
+"stjäla det för att tilldela det till en yta."
 
 #: ../../en/topology_base_types.rst:42
 msgid "This face is infinite and does not have any boundary."
@@ -139,7 +139,7 @@ msgid "All the information about edges is stored on the edge_data table, in your
 msgstr ""
 "All information om kanter lagras i tabellen edge_data, i ditt anpassade "
 "topologischema, och vilken information behöver vi i kanterna? i princip är "
-"det information om noder och ansikten, kanten är den primitiva som förbinder "
+"det information om noder och ytor, kanten är den primitiva som förbinder "
 "båda."
 
 #: ../../en/topology_base_types.rst:58
@@ -254,8 +254,8 @@ msgid "Until now we mainly see properties of the edge itself and what has on the
 msgstr ""
 "Hittills har vi främst sett egenskaper hos själva kanten och vad som har på "
 "sidorna, nästa kants egenskaper är annorlunda, fråga inte bara om själva "
-"kanten, det handlar om vilken som är nästa kant som bygger ansiktet till "
-"höger eller vänster."
+"kanten, det handlar om vilken som är nästa kant som bygger ytan till höger "
+"eller vänster."
 
 #: ../../en/topology_base_types.rst:110
 msgid "The logic of the right_edge and the left_edge are very similar, so we will look first on the left one deeper and then show the right one."
@@ -459,7 +459,7 @@ msgstr "left_face: ID för den yta som ligger till vänster om kanten."
 
 #: ../../en/topology_base_types.rst:207
 msgid "abs_next_left_edge: Next edge who builds the face on the left."
-msgstr "abs_next_left_edge: Nästa kant som bygger ansiktet till vänster."
+msgstr "abs_next_left_edge: Nästa kant som bygger ytan till vänster."
 
 #: ../../en/topology_base_types.rst:208
 msgid "next_left_edge: abs_next_left_edge and negative sign if the right face is on the right of the next left edge."
@@ -473,7 +473,7 @@ msgstr "right_face: ID för ytan till höger om kanten."
 
 #: ../../en/topology_base_types.rst:210
 msgid "abs_next_right_edge: Next edge who builds the face on the right."
-msgstr "abs_next_right_edge: Nästa kant som bygger ansiktet till höger."
+msgstr "abs_next_right_edge: Nästa kant som bygger ytan till höger."
 
 #: ../../en/topology_base_types.rst:211
 msgid "next_right_edge: abs_next_right_edge and negative sign if the left face is on the right of the next right edge."

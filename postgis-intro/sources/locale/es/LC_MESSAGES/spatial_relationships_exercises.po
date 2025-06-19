@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2025-06-18 09:58+0000\n"
-"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships_exercises/es/>\n"
 "Language: es\n"
@@ -43,6 +44,8 @@ msgstr ""
 msgid ""
 ":command:`count(expression)` aggregate to return the size of a set of records"
 msgstr ""
+":command:`count(expression)`: devolver la cantidad de filas (registros) que "
+"retorna una consulta"
 
 #: ../../en/spatial_relationships_exercises.rst:10
 msgid ""

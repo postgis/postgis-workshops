@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Daniel Nylander <daniel@danielnylander.se>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-06-06 06:30+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-06-17 09:48+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/sv/>\nLanguage: sv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -167,7 +167,7 @@ msgstr "Om du använder Windows och behöver hänvisa till mappen, se till att i
 
 #: ../../en/rasters.rst:161
 msgid "You'll often hear in PostGIS lingo, the term **raster tile** and **raster** used somewhat interchangeably. A raster tile really corresponds to a particular raster in a raster column which is a subset of a bigger raster, such as this NYC dem data we just loaded. This is because when rasters are loaded into PostGIS from big raster files, they chopped into many rows to make them manageable.  Each raster in each row then is a part of a bigger raster.  Each tile covers same size area denoted by the blocksize you specified. Rasters are sadly limited by the 1GB PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_ limit and also the slow process of detoasting and so we need to chop up in order to achieve decent performance or to even store them."
-msgstr "I PostGIS-lingo används ofta termerna **raster tile** och **raster** omväxlande. En rasterplatta motsvarar egentligen ett visst raster i en rasterkolumn som är en delmängd av ett större raster, till exempel NYC dem-data som vi just laddade. Detta beror på att när raster laddas in i PostGIS från stora rasterfiler, hackas de i många rader för att göra dem hanterbara.  Varje raster i varje rad är då en del av ett större raster.  Varje kakel täcker samma storlek på området som anges av den blockstorlek du angav. Rasters är tyvärr begränsade av 1 GB PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_-gränsen och även den långsamma processen med detoasting och så måste vi hugga upp för att uppnå anständig prestanda eller till och med lagra dem."
+msgstr "I PostGIS-lingo används ofta termerna **raster tile** och **raster** omväxlande. En rasterplatta motsvarar egentligen ett visst raster i en rasterkolumn som är en delmängd av ett större raster, till exempel NYC dem-data som vi just laddade. Detta beror på att när raster laddas in i PostGIS från stora rasterfiler, hackas de i många rader för att göra dem hanterbara.  Varje raster i varje rad är då en del av ett större raster.  Varje platta täcker samma storlek på området som anges av den blockstorlek du angav. Rasters är tyvärr begränsade av 1 GB PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_-gränsen och även den långsamma processen med detoasting och så måste vi hugga upp för att uppnå anständig prestanda eller till och med lagra dem."
 
 #: ../../en/rasters.rst:170
 msgid "Viewing Rasters in Browser"
@@ -311,7 +311,7 @@ msgstr "Tabellen `raster_overviews` ger dig bara overview_factor och namnet på 
 
 #: ../../en/rasters.rst:400
 msgid "The `overview_factor` tells you at what resolution the row is with respect to it's parent. An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile. Similarly an overview_factor of `3` meants that 2x2x2 = 8 tiles of the original can be shoved into an overview_3 tile."
-msgstr "Overview-faktorn anger vilken upplösning raden har i förhållande till sin överordnade enhet. En `overview_factor` på `2` innebär att 2x2 = 4 brickor får plats på en overview_2-bricka. På samma sätt innebär en overview_factor på `3` att 2x2x2 = 8 brickor av originalet kan tryckas in i en overview_3-bricka."
+msgstr "Overview-faktorn anger vilken upplösning raden har i förhållande till sin överordnade enhet. En `overview_factor` på `2` innebär att 2x2 = 4 plattor får plats på en overview_2-platta. På samma sätt innebär en overview_factor på `3` att 2x2x2 = 8 plattor av originalet kan tryckas in i en overview_3-platta."
 
 #: ../../en/rasters.rst:407
 msgid "Common Raster Functions"
@@ -612,7 +612,7 @@ msgstr "Skapa derivativa raster"
 
 #: ../../en/rasters.rst:827
 msgid "PostGIS raster comes packaged with a number of functions for editing rasters. These functions are both used for editing as well as creating derivative raster data sets. You will find these listed in `Raster Editors <https://postgis.net/docs/RT_reference.html#Raster_Editors>`_ and `Raster Management <https://postgis.net/docs/RT_reference.html#Raster_Management_Functions>`_."
-msgstr "PostGIS raster levereras med ett antal funktioner för att redigera raster. Dessa funktioner används både för att redigera och för att skapa derivata rasterdatauppsättningar. Du hittar dessa listade i `Raster Editors <https://postgis.net/docs/RT_reference.html#Raster_Editors>`_ och `Raster Management <https://postgis.net/docs/RT_reference.html#Raster_Management_Functions>`_."
+msgstr "PostGIS raster levereras med ett antal funktioner för att redigera raster. Dessa funktioner används både för att redigera och för att skapa derivata rasterdatauppsättningar. Du hittar dessa listade i `Raster-redigerare <https://postgis.net/docs/RT_reference.html#Raster_Editors>`_ och `Raster Management <https://postgis.net/docs/RT_reference.html#Raster_Management_Functions>`_."
 
 #: ../../en/rasters.rst:833
 msgid "Transforming rasters with ST_Transform"
@@ -652,7 +652,7 @@ msgstr "Använda ST_MakeEmptyCoverage för att skapa jämnt uppdelade raster"
 
 #: ../../en/rasters.rst:880
 msgid "A better approach, albeit a bit slower, is to define your own coverage tile structure from scratch using `ST_MakeEmptyCoverage <https://postgis.net/docs/RT_ST_MakeEmptyCoverage.html>`_ and then find the intersecting tiles for each new tile, and ST_Union these and then use `ST_Transform(ref, ST_Union...)` to create each tile."
-msgstr "Ett bättre tillvägagångssätt, om än lite långsammare, är att definiera din egen täckningsstruktur från början med `ST_MakeEmptyCoverage <https://postgis.net/docs/RT_ST_MakeEmptyCoverage.html>`_ och sedan hitta de korsande plattorna för varje ny kakel, och ST_Union dessa och sedan använda `ST_Transform(ref, ST_Union...)` för att skapa varje kakel."
+msgstr "Ett bättre tillvägagångssätt, om än lite långsammare, är att definiera din egen täckningsstruktur från början med `ST_MakeEmptyCoverage <https://postgis.net/docs/RT_ST_MakeEmptyCoverage.html>`_ och sedan hitta de korsande plattorna för varje ny platta, och ST_Union dessa och sedan använda `ST_Transform(ref, ST_Union...)` för att skapa varje platta."
 
 #: ../../en/rasters.rst:884
 msgid "For this we'll be using quite a few functions, we learned about earlier."
@@ -820,7 +820,7 @@ msgstr "Vilket skulle ge utdata:"
 
 #: ../../en/rasters.rst:1166
 msgid "If this were a classification scheme we preferred, we could create a new table using the ST_Reclass to recompute each tile."
-msgstr "Om det här var ett klassificeringssystem som vi föredrog skulle vi kunna skapa en ny tabell med ST_Reclass för att räkna om varje bricka."
+msgstr "Om det här var ett klassificeringssystem som vi föredrog skulle vi kunna skapa en ny tabell med ST_Reclass för att räkna om varje platta."
 
 #: ../../en/rasters.rst:1169
 msgid "Coloring your rasters with ST_ColorMap"

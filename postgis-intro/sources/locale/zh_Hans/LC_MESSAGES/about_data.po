@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
 # Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-27 08:47+0000\n"
-"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
+"PO-Revision-Date: 2025-06-12 15:06+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/about_data/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -24,18 +25,28 @@ msgid "About our data"
 msgstr "关于我们的数据"
 
 #: ../../en/about_data.rst:6
-msgid "The data for this workshop is four shapefiles for New York City, and one attribute table of sociodemographic variables.  We've loaded our shapefiles as PostGIS tables and will add sociodemographic data later in the workshop."
+msgid ""
+"The data for this workshop is four shapefiles for New York City, and one "
+"attribute table of sociodemographic variables.  We've loaded our shapefiles "
+"as PostGIS tables and will add sociodemographic data later in the workshop."
 msgstr ""
 "这个研讨会的数据包括纽约市的四个shape文件和一个包含社会人口变量的属性表。我们"
 "已将shape文件加载为PostGIS表，并将在研讨会后期添加社会人口数据。"
 
 #: ../../en/about_data.rst:8
-msgid "The following describes the number of records and table attributes for each of our datasets.  These attribute values and relationships are fundamental to our future analysis."
-msgstr "以下描述了我们每个数据集的记录数和表属性。这些属性值和关系对于我们未来的分析"
+msgid ""
+"The following describes the number of records and table attributes for each "
+"of our datasets.  These attribute values and relationships are fundamental "
+"to our future analysis."
+msgstr ""
+"以下描述了我们每个数据集的记录数和表属性。这些属性值和关系对于我们未来的分析"
 "至关重要。"
 
 #: ../../en/about_data.rst:10
-msgid "To explore the nature of your tables in pgAdmin, right-click a highlighted table and select **Properties**.  You will find a summary of table properties, including a list of table attributes within the **Columns** tab."
+msgid ""
+"To explore the nature of your tables in pgAdmin, right-click a highlighted "
+"table and select **Properties**.  You will find a summary of table "
+"properties, including a list of table attributes within the **Columns** tab."
 msgstr ""
 "要探索pgAdmin中表的性质，右键单击高亮显示的表，然后选择**Properties**。您将找"
 "到包括**Columns**选项卡中的表属性列表的表属性摘要。"
@@ -45,22 +56,28 @@ msgid "nyc_census_blocks"
 msgstr "nyc_census_blocks"
 
 #: ../../en/about_data.rst:17
-msgid "A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks."
+msgid ""
+"A census block is the smallest geography for which census data is reported. "
+"All higher level census geographies (block groups, tracts, metro areas, "
+"counties, etc) can be built from unions of census blocks. We have attached "
+"some demographic data to our collection of blocks."
 msgstr ""
 "人口普查区块是报告人口普查数据的最小地理单位。所有更高级别的人口普查地理单位"
 "（区块组、区块、都会区、县等）都可以由人口普查区块的联合构建而成。我们已经将"
 "一些人口统计数据附加到我们的区块集合中。"
 
 #: ../../en/about_data.rst:19
-msgid "Number of records: 36592"
-msgstr "记录数：36592"
+msgid "Number of records: 38794"
+msgstr "记录数：38794"
 
 #: ../../en/about_data.rst:24
 msgid "**blkid**"
 msgstr "**blkid**"
 
 #: ../../en/about_data.rst:25
-msgid "A 15-digit code that uniquely identifies every census **block**. Eg: 360050001009000"
+msgid ""
+"A 15-digit code that uniquely identifies every census **block**. Eg: "
+"360050001009000"
 msgstr "一个15位的代码，唯一标识每个人口普查**区块**。例如：360050001009000"
 
 #: ../../en/about_data.rst:26
@@ -111,23 +128,21 @@ msgstr "**popn_other**"
 msgid "Number of people self-identifying with other categories in the block"
 msgstr "在该区域自我认同为其他类别的人数"
 
-#: ../../en/about_data.rst:38
-#: ../../en/about_data.rst:63
+#: ../../en/about_data.rst:38 ../../en/about_data.rst:63
 msgid "**boroname**"
 msgstr "**boroname**"
 
-#: ../../en/about_data.rst:39
-#: ../../en/about_data.rst:64
+#: ../../en/about_data.rst:39 ../../en/about_data.rst:64
 #: ../../en/about_data.rst:109
-msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
+msgid ""
+"Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, "
+"Queens"
 msgstr ""
-"纽约市行政区名称：曼哈顿（Manhattan）、布朗克斯（The "
-"Bronx）、布鲁克林（Brooklyn）、史泰登岛（Staten Island）、皇后区（Queens）"
+"纽约市行政区名称：曼哈顿（Manhattan）、布朗克斯（The Bronx）、布鲁克林"
+"（Brooklyn）、史泰登岛（Staten Island）、皇后区（Queens）"
 
-#: ../../en/about_data.rst:40
-#: ../../en/about_data.rst:65
-#: ../../en/about_data.rst:88
-#: ../../en/about_data.rst:116
+#: ../../en/about_data.rst:40 ../../en/about_data.rst:65
+#: ../../en/about_data.rst:88 ../../en/about_data.rst:116
 msgid "**geom**"
 msgstr "**geom**"
 
@@ -140,30 +155,40 @@ msgid "*Black population as a percentage of Total Population*"
 msgstr "* 黑人人口占总人口的百分比 *"
 
 #: ../../en/about_data.rst:49
-msgid "To get census data into GIS, you need to join two pieces of information: the actual data (text), and the boundary files (spatial).  There are many options for getting the data, including downloading data and boundaries from the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
+msgid ""
+"To get census data into GIS, you need to join two pieces of information: the "
+"actual data (text), and the boundary files (spatial).  There are many "
+"options for getting the data, including downloading data and boundaries from "
+"the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
 msgstr ""
 "要将人口普查数据导入地理信息系统（GIS），您需要将两个信息部分连接起来：实际数"
-"据（文本）和边界文件（空间）。有许多选项可以获取数据，包括从人口普查局的`"
-"American FactFinder <http://factfinder.census.gov>`_下载数据和边界。"
+"据（文本）和边界文件（空间）。有许多选项可以获取数据，包括从人口普查局的"
+"`American FactFinder <http://factfinder.census.gov>`_下载数据和边界。"
 
 #: ../../en/about_data.rst:52
 msgid "nyc_neighborhoods"
 msgstr "nyc_neighborhoods"
 
 #: ../../en/about_data.rst:54
-msgid "New York has a rich history of neighborhood names and extent.  Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as \"South Brooklyn.\" And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!"
+msgid ""
+"New York has a rich history of neighborhood names and extent.  Neighborhoods "
+"are social constructs that do not follow lines laid down by the government. "
+"For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and "
+"Cobble Hill were once collectively known as \"South Brooklyn.\" And now, "
+"depending on which real estate agent you talk to, the same four blocks in "
+"the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia "
+"Heights, Carroll Gardens West, or Red Hook!"
 msgstr ""
-"纽约的街区名称和范围有着丰富的历史。 社区是不遵循政府规定的社会结构。 "
-"例如，布鲁克林的卡罗尔花园、红钩和科布尔山社区曾被统称为“南布鲁克林”。 现在，"
-"根据您与哪个房地产经纪人交谈，以前称为雷德胡克的社区中的四个街区可以被称为哥"
-"伦比亚高地、卡罗尔花园西或雷德胡克！"
+"纽约的街区名称和范围有着丰富的历史。 社区是不遵循政府规定的社会结构。 例如，"
+"布鲁克林的卡罗尔花园、红钩和科布尔山社区曾被统称为“南布鲁克林”。 现在，根据您"
+"与哪个房地产经纪人交谈，以前称为雷德胡克的社区中的四个街区可以被称为哥伦比亚"
+"高地、卡罗尔花园西或雷德胡克！"
 
 #: ../../en/about_data.rst:56
 msgid "Number of records: 129"
 msgstr "记录数量：129"
 
-#: ../../en/about_data.rst:61
-#: ../../en/about_data.rst:82
+#: ../../en/about_data.rst:61 ../../en/about_data.rst:82
 #: ../../en/about_data.rst:106
 msgid "**name**"
 msgstr "**name**"
@@ -185,11 +210,16 @@ msgid "nyc_streets"
 msgstr "nyc_streets"
 
 #: ../../en/about_data.rst:75
-msgid "The street centerlines form the transportation network of the city. These streets have been flagged with types in order to distinguish between such thoroughfares as back alleys, arterial streets, freeways, and smaller streets. Desirable areas to live might be on residential streets rather than next to a freeway."
+msgid ""
+"The street centerlines form the transportation network of the city. These "
+"streets have been flagged with types in order to distinguish between such "
+"thoroughfares as back alleys, arterial streets, freeways, and smaller "
+"streets. Desirable areas to live might be on residential streets rather than "
+"next to a freeway."
 msgstr ""
-"街道中心线形成了城市的交通网络。这些街道已经用不同的类型进行标记，以区分小巷"
-"、主干道、高速公路和较小的街道等道路。居住的理想区域可能位于住宅区的街道上，"
-"而不是靠近高速公路。"
+"街道中心线形成了城市的交通网络。这些街道已经用不同的类型进行标记，以区分小"
+"巷、主干道、高速公路和较小的街道等道路。居住的理想区域可能位于住宅区的街道"
+"上，而不是靠近高速公路。"
 
 #: ../../en/about_data.rst:77
 msgid "Number of records: 19091"
@@ -228,8 +258,13 @@ msgid "nyc_subway_stations"
 msgstr "nyc_subway_stations"
 
 #: ../../en/about_data.rst:99
-msgid "The subway stations link the upper world where people live to the invisible network of subways beneath. As portals to the public transportation system, station locations help determine how easy it is for different people to enter the subway system."
-msgstr "地铁站连接着人们生活的上层世界与地下的看不见的地铁网络。作为公共交通系统的门"
+msgid ""
+"The subway stations link the upper world where people live to the invisible "
+"network of subways beneath. As portals to the public transportation system, "
+"station locations help determine how easy it is for different people to "
+"enter the subway system."
+msgstr ""
+"地铁站连接着人们生活的上层世界与地下的看不见的地铁网络。作为公共交通系统的门"
 "户，地铁站的位置决定了不同人们进入地铁系统的便利程度。"
 
 #: ../../en/about_data.rst:101
@@ -281,15 +316,23 @@ msgid "nyc_census_sociodata"
 msgstr "nyc_census_sociodata"
 
 #: ../../en/about_data.rst:126
-msgid "There is a rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract.  Census blocks combine to form census tracts (and block groups). We have collected some social-economic at a census tract level to answer some of these more interesting questions about New York City."
+msgid ""
+"There is a rich collection of social-economic data collected during the "
+"census process, but only at the larger geography level of census tract.  "
+"Census blocks combine to form census tracts (and block groups). We have "
+"collected some social-economic at a census tract level to answer some of "
+"these more interesting questions about New York City."
 msgstr ""
 "人口普查过程中收集了丰富的社会经济数据，但只在人口普查区级别上进行了收集。人"
 "口普查区由人口普查区块组成（以及区块组）。我们已经收集了一些人口普查区级别的"
 "社会经济数据，以回答一些关于纽约市更有趣的问题。"
 
 #: ../../en/about_data.rst:130
-msgid "The ``nyc_census_sociodata`` is a data table.  We will need to connect it to Census geographies before conducting any spatial analysis."
-msgstr "``nyc_census_sociodata``是一个数据表。在进行任何空间分析之前，我们需要将其与"
+msgid ""
+"The ``nyc_census_sociodata`` is a data table.  We will need to connect it to "
+"Census geographies before conducting any spatial analysis."
+msgstr ""
+"``nyc_census_sociodata``是一个数据表。在进行任何空间分析之前，我们需要将其与"
 "人口普查地理信息连接起来。"
 
 #: ../../en/about_data.rst:135
@@ -297,7 +340,9 @@ msgid "**tractid**"
 msgstr "**tractid**"
 
 #: ../../en/about_data.rst:136
-msgid "An 11-digit code that uniquely identifies every census **tract**. (\"36005000100\")"
+msgid ""
+"An 11-digit code that uniquely identifies every census **tract**. "
+"(\"36005000100\")"
 msgstr "每个人口普查**区**唯一标识的11位代码是。(“36005000100”)"
 
 #: ../../en/about_data.rst:137
@@ -313,7 +358,8 @@ msgid "**transit_private**"
 msgstr "**transit_private**"
 
 #: ../../en/about_data.rst:140
-msgid "Number of workers in the tract who use private automobiles / motorcycles"
+msgid ""
+"Number of workers in the tract who use private automobiles / motorcycles"
 msgstr "人口普查区中使用私家车/摩托车的工作人数"
 
 #: ../../en/about_data.rst:141
@@ -337,7 +383,8 @@ msgid "**transit_other**"
 msgstr "**transit_other**"
 
 #: ../../en/about_data.rst:146
-msgid "Number of workers in the tract who use other forms like walking / biking"
+msgid ""
+"Number of workers in the tract who use other forms like walking / biking"
 msgstr "人口普查区中使用其他形式（如步行/骑自行车）上班的工作人数"
 
 #: ../../en/about_data.rst:147
@@ -353,7 +400,9 @@ msgid "**transit_time_mins**"
 msgstr "**transit_time_mins**"
 
 #: ../../en/about_data.rst:150
-msgid "Total number of minutes spent in transit by all workers in the tract (minutes)"
+msgid ""
+"Total number of minutes spent in transit by all workers in the tract "
+"(minutes)"
 msgstr "人口普查区内所有工作人员在交通工具上花费的总时间（分钟）"
 
 #: ../../en/about_data.rst:151

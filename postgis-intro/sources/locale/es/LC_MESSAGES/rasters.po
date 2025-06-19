@@ -3,21 +3,9 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
-#
-#, fuzzy
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
-msgstr ""
-"Project-Id-Version: Introduction to PostGIS 1.1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-02 22:32+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-06-18 09:58+0000\nLast-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\nLanguage-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/es/>\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -565,7 +553,7 @@ msgstr ""
 
 #: ../../en/rasters.rst:746
 msgid "Statistics"
-msgstr ""
+msgstr "Estadísticas"
 
 #: ../../en/rasters.rst:747
 msgid "The most important thing to understand about rasters is that they are statistical tools for storing data in arrays, that you may happen to be able to make look pretty on a screen."

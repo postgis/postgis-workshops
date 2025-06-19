@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-27 06:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning_exercises/es/>\n"
 "Language: es\n"
@@ -37,6 +38,8 @@ msgstr ""
 msgid ""
 ":command:`sum(expression)` aggregate to return a sum for a set of records"
 msgstr ""
+":command:`sum(expresión)` función de agregación para devolver una suma de un "
+"conjunto de registros"
 
 #: ../../en/geometry_returning_exercises.rst:9
 msgid ":command:`ST_Area(geometry)` returns the area of the geometry"
@@ -91,11 +94,11 @@ msgstr ""
 
 #: ../../en/geometry_returning_exercises.rst:22
 msgid "``nyc_census_blocks``"
-msgstr ""
+msgstr "``nyc_census_blocks``"
 
 #: ../../en/geometry_returning_exercises.rst:24
 msgid "name, popn_total, boroname, geom"
-msgstr ""
+msgstr "name, popn_total, boroname, geom"
 
 #: ../../en/geometry_returning_exercises.rst:26
 msgid "``nyc_streets``"
@@ -107,11 +110,11 @@ msgstr "name, type, geom"
 
 #: ../../en/geometry_returning_exercises.rst:30
 msgid "``nyc_subway_stations``"
-msgstr ""
+msgstr "``nyc_subway_stations``"
 
 #: ../../en/geometry_returning_exercises.rst:32
 msgid "name, geom"
-msgstr ""
+msgstr "name, geom"
 
 #: ../../en/geometry_returning_exercises.rst:34
 msgid "``nyc_neighborhoods``"

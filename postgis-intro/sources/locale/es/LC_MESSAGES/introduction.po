@@ -7,13 +7,14 @@
 # Regina Obe <regina@arrival3d.com>, 2023.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2025.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-27 06:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/es/>\n"
 "Language: es\n"
@@ -819,7 +820,7 @@ msgstr "pg_featureserv"
 
 #: ../../en/introduction.rst:193
 msgid "Deegree"
-msgstr "Deegree"
+msgstr "Grado"
 
 #: ../../en/introduction.rst:194 ../../en/introduction.rst:197
 msgid "Carto"
@@ -827,7 +828,7 @@ msgstr "Carto"
 
 #: ../../en/introduction.rst:195
 msgid "QGIS Server"
-msgstr "QGIS Server"
+msgstr "Servidor QGIS"
 
 #: ../../en/introduction.rst:196
 msgid "MapGuide Open Source (using FDO)"

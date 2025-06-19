@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Lucho Ferrer <lefcgis@gmail.com>, 2024.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-02-27 02:45+0000\n"
-"Last-Translator: Lucho Ferrer <lefcgis@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "knn/es/>\n"
 "Language: es\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/knn.rst:4
@@ -34,8 +35,8 @@ msgid ""
 "A frequently posed spatial query is: \"what is the nearest <candidate "
 "feature> to <query feature>?\""
 msgstr ""
-"Una pregunta espacial frecuente es ¿Cuál es la entidad más cercana a la "
-"consulta de entidad realizada?."
+"Una pregunta espacial frecuente es: \"¿Cuál es la <<entidad>> más cercana a "
+"la <<entidad de consulta>>?\""
 
 #: ../../en/knn.rst:11
 msgid ""
@@ -44,6 +45,10 @@ msgid ""
 "features of any distance away will be accepted, as long as they are the "
 "*nearest*."
 msgstr ""
+"A diferencia de la búsqueda por distancia, la búsqueda por «vecino más "
+"próximo» no incluye ninguna medida que restrinja la distancia a la que "
+"pueden estar las geometrías candidatas, se aceptarán características de "
+"cualquier distancia, siempre que sean las *más próximas*."
 
 #: ../../en/knn.rst:13
 msgid ""
@@ -53,6 +58,12 @@ msgid ""
 "place, a nearest neighbor query can return the \"N nearest features\" just "
 "by adding an ordering and limiting the result set to N entries."
 msgstr ""
+"PostgreSQL resuelve el problema del vecino más cercano introduciendo un "
+"operador de «orden por distancia» (``<->``) que induce a la base de datos a "
+"utilizar un índice para acelerar un conjunto de resultados ordenado. Con un "
+"operador de «orden por distancia» en su lugar, una consulta de vecino más "
+"cercano puede devolver las «N características más cercanas» simplemente "
+"añadiendo un orden y limitando el conjunto de resultados a N entradas."
 
 #: ../../en/knn.rst:15
 msgid ""
@@ -64,10 +75,17 @@ msgid ""
 "distance, instead of the more accurate spheroidal distance that "
 "``ST_Distance(geography,geography)`` returns."
 msgstr ""
+"El operador «ordenar por distancia» funciona tanto para los tipos de "
+"geometría como de geografía.  La única diferencia de funcionamiento entre "
+"ambos tipos es el valor de distancia devuelto.  Para geometría ``<->`` "
+"devuelve la misma respuesta que `ST_Distance` que depende de las unidades "
+"del sistema de referencia espacial en uso. Para geografía el valor de "
+"distancia devuelto es la distancia esférica, en lugar de la distancia "
+"esferoidal más precisa que devuelve ``ST_Distance(geography,geography)``."
 
 #: ../../en/knn.rst:17
 msgid "Here's the 3 nearest streets to 'Broad St' subway station:"
-msgstr ""
+msgstr "Aquí están las 3 calles más cercanas a la estación de metro “Broad St”:"
 
 #: ../../en/knn.rst:53
 msgid ""
@@ -76,15 +94,22 @@ msgid ""
 "possible to get correct answers from non-indexed SQL and the lack of an "
 "index might not be obvious until the size of the tables scales up."
 msgstr ""
+"¿Cómo podemos estar seguros de que estamos obteniendo una consulta asistida "
+"por índices? Es una buena idea comprobar la salida de ``EXPLAIN`` para una "
+"consulta de vecino más cercano, porque es posible obtener respuestas "
+"correctas de SQL no indexado y la falta de un índice podría no ser obvia "
+"hasta que el tamaño de las tablas aumente."
 
 #: ../../en/knn.rst:55
 msgid ""
 "This is the output from ``EXPLAIN``, note the index scan over the order by:"
 msgstr ""
+"Esta es la salida de ``EXPLAIN``, observe la exploración del índice sobre el "
+"order by:"
 
 #: ../../en/knn.rst:69
 msgid "Nearest Neighbor Join"
-msgstr ""
+msgstr "Join Vecino más próximo"
 
 #: ../../en/knn.rst:71
 msgid ""
@@ -94,6 +119,11 @@ msgid ""
 "spatial join, where the goal is to find the nearest neighbor for each of a "
 "full set of candidates."
 msgstr ""
+"El operador de ordenación por índice tiene un inconveniente importante: sólo "
+"funciona con **un único literal geométrico** en un lado del operador. Esto "
+"está bien para encontrar los objetos más cercanos a un objeto definido, pero "
+"no ayuda para un JOIN espacial, donde el objetivo es encontrar el vecino más "
+"cercano para cada uno de los objetos de un conjunto completo de candidatos."
 
 #: ../../en/knn.rst:73
 msgid ""
@@ -101,10 +131,13 @@ msgid ""
 "repeatedly driven in a loop: the `LATERAL join <https://medium.com/kkempin/"
 "postgresqls-lateral-join-bfd6bd0199df>`_."
 msgstr ""
+"Afortunadamente, existe una característica del lenguaje SQL que nos permite "
+"ejecutar una consulta en un bucle: el `LATERAL join <https://medium.com/"
+"kkempin/postgresqls-lateral-join-bfd6bd0199df>`_."
 
 #: ../../en/knn.rst:75
 msgid "Here we will find the nearest street to each subway station:"
-msgstr ""
+msgstr "Aquí encontrará la calle más cercana a cada estación de metro:"
 
 #: ../../en/knn.rst:93
 msgid ""
@@ -113,9 +146,15 @@ msgid ""
 "the lateral subquery, one at a time, so you get a nearest result for each "
 "subway record."
 msgstr ""
+"Observe cómo el ``CROSS JOIN LATERAL`` actúa como la parte interna de un "
+"bucle controlado por la tabla subways. Cada registro de la tabla subways se "
+"introduce en la subconsulta lateral, de uno en uno, de forma que se obtiene "
+"un resultado más cercano para cada registro de metro."
 
 #: ../../en/knn.rst:97
 msgid ""
 "The explain shows the loop on the subway stations, and the index-assisted "
 "order by inside the loop where we want it:"
 msgstr ""
+"La explicación muestra el bucle en las estaciones de metro, y el orden "
+"asistido por índices dentro del bucle donde queramos:"

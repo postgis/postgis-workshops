@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-27 06:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "projection_exercises/es/>\n"
 "Language: es\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #: ../../en/projection_exercises.rst:4
 msgid "Projection Exercises"
-msgstr ""
+msgstr "Ejercicios sobre Proyecciones"
 
 #: ../../en/projection_exercises.rst:6
 msgid ""
@@ -37,24 +38,30 @@ msgstr ""
 msgid ""
 ":command:`sum(expression)` aggregate to return a sum for a set of records"
 msgstr ""
+":command:`sum(expresión)` función de agregación para devolver una suma de un "
+"conjunto de registros"
 
 #: ../../en/projection_exercises.rst:9
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
-msgstr ""
+msgstr ":command:`ST_Length(linestring)` retorna la longitud de la línea"
 
 #: ../../en/projection_exercises.rst:10
 msgid ":command:`ST_SRID(geometry)` returns the SRID of the geometry"
-msgstr ""
+msgstr ":command:`ST_SRID(geometry)` retorna el SRID de la geometría"
 
 #: ../../en/projection_exercises.rst:11
 msgid ""
 ":command:`ST_Transform(geometry, srid)` converts geometries into different "
 "spatial reference systems"
 msgstr ""
+":command:`ST_Transform(geometry, srid)` convierte las geometrías a un "
+"determinado SRID"
 
 #: ../../en/projection_exercises.rst:12
 msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
 msgstr ""
+":command:`ST_GeomFromText(text)` retorna un objeto ``geometry`` desde una "
+"definición WKT"
 
 #: ../../en/projection_exercises.rst:13
 msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
@@ -65,14 +72,16 @@ msgstr ""
 #: ../../en/projection_exercises.rst:14
 msgid ":command:`ST_AsGML(geometry)` returns GML ``text``"
 msgstr ""
+":command:`ST_AsGML(geometry)` retorna la geometría expresada como un texto "
+"GML"
 
 #: ../../en/projection_exercises.rst:16
 msgid "Remember the online resources that are available to you:"
-msgstr ""
+msgstr "Recuerde los recursos que están disponibles:"
 
 #: ../../en/projection_exercises.rst:18
 msgid "https://epsg.io/"
-msgstr ""
+msgstr "https://epsg.io/"
 
 #: ../../en/projection_exercises.rst:20
 msgid "Also remember the tables we have available:"
@@ -80,11 +89,11 @@ msgstr "También recuerde las tablas que tenemos disponibles:"
 
 #: ../../en/projection_exercises.rst:22
 msgid "``nyc_census_blocks``"
-msgstr ""
+msgstr "``nyc_census_blocks``"
 
 #: ../../en/projection_exercises.rst:24
 msgid "name, popn_total, boroname, geom"
-msgstr ""
+msgstr "name, popn_total, boroname, geom"
 
 #: ../../en/projection_exercises.rst:26
 msgid "``nyc_streets``"
@@ -96,11 +105,11 @@ msgstr "name, type, geom"
 
 #: ../../en/projection_exercises.rst:30
 msgid "``nyc_subway_stations``"
-msgstr ""
+msgstr "``nyc_subway_stations``"
 
 #: ../../en/projection_exercises.rst:32
 msgid "name, geom"
-msgstr ""
+msgstr "name, geom"
 
 #: ../../en/projection_exercises.rst:34
 msgid "``nyc_neighborhoods``"
@@ -118,19 +127,22 @@ msgstr "Ejercicios"
 msgid ""
 "**What is the length of all streets in New York, as measured in UTM 18?**"
 msgstr ""
+"**¿Cuál es la longitud total de las calles de Nueva York, medida en UTM 18?**"
 
 #: ../../en/projection_exercises.rst:52
 msgid "**What is the WKT definition of SRID 2831?**"
-msgstr ""
+msgstr "**¿Cuál es la definición WKT del SRID 2831?**"
 
 #: ../../en/projection_exercises.rst:59
 msgid "Or, via https://epsg.io/2831"
-msgstr ""
+msgstr "O, vía https://epsg.io/2831"
 
 #: ../../en/projection_exercises.rst:91
 msgid ""
 "**What is the length of all streets in New York, as measured in SRID 2831?**"
 msgstr ""
+"**¿Cuál es la longitud de todas las calles de Nueva York, medida en el SRID "
+"2831?**"
 
 #: ../../en/projection_exercises.rst:104
 msgid ""
@@ -142,10 +154,17 @@ msgid ""
 "(New York City) while UTM 18 has to provide reasonable results for a large "
 "regional area."
 msgstr ""
+"La diferencia entre las medidas de Long Island en UTM 18 y State Plane Long "
+"Island es de (10421993 - 10418904)/10418904, es decir, 0,02%. Calculado en "
+"el esferoide utilizando :ref:`geography` la longitud total de las calles es "
+"10421999, que se aproxima más al valor del State Plane. Esto no es "
+"sorprendente, ya que la proyección State Plane Long Island está calibrada "
+"con precisión para un área muy pequeña (la ciudad de Nueva York), mientras "
+"que UTM 18 tiene que proporcionar resultados para un región grande."
 
 #: ../../en/projection_exercises.rst:107
 msgid "**How many streets cross the 74th meridian?**"
-msgstr ""
+msgstr "**¿Cuántas calles cruza el meridiano 74?**"
 
 #: ../../en/projection_exercises.rst:122
 msgid ""
@@ -156,3 +175,9 @@ msgid ""
 "answer. To get the same answer, you need to \"segmentize\" it, so it has "
 "more points, before transforming."
 msgstr ""
+"El «meridiano 74» es una forma elegante de decir «una línea vertical en "
+"geografía donde el valor X es -74». Podemos construir dicha línea y "
+"compararla con las calles, proyectadas también en geografía. Si proyectamos "
+"la línea en UTM y la comparamos allí, obtendremos una respuesta ligeramente "
+"distinta. Para obtener la misma respuesta, hay que «segmentarla», para que "
+"tenga más puntos, antes de transformarla."

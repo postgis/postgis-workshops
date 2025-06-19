@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-05-04 03:55+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "tuning/es/>\n"
 "Language: es\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/tuning.rst:4
@@ -136,7 +137,7 @@ msgstr ""
 
 #: ../../en/tuning.rst:42
 msgid "*Default value*: 1MB"
-msgstr ""
+msgstr "*Valor predeterminado*: 1MB"
 
 #: ../../en/tuning.rst:44
 msgid "*Recommended value*: 32MB"
@@ -158,7 +159,7 @@ msgstr ""
 
 #: ../../en/tuning.rst:58
 msgid "*Default value*: 16MB"
-msgstr ""
+msgstr "*Valor predeterminado*: 16MB"
 
 #: ../../en/tuning.rst:60
 msgid "*Recommended value*: 128MB"
@@ -190,7 +191,7 @@ msgstr ""
 
 #: ../../en/tuning.rst:70
 msgid "*Default value*: 64kB"
-msgstr ""
+msgstr "*Valor predeterminado*: 64kB"
 
 #: ../../en/tuning.rst:72
 msgid "*Recommended value*: 1MB"
@@ -224,7 +225,7 @@ msgstr ""
 
 #: ../../en/tuning.rst:82
 msgid "*Default value*: 3"
-msgstr ""
+msgstr "*Valor predeterminado*: 3"
 
 #: ../../en/tuning.rst:84
 msgid "*Recommended value*: 6"

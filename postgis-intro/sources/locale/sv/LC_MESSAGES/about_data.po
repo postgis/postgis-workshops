@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-10 20:47+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/sv/>\n"
@@ -71,10 +71,8 @@ msgstr ""
 "data till vår samling av block."
 
 #: ../../en/about_data.rst:19
-#, fuzzy
-#| msgid "Number of records: 36592"
 msgid "Number of records: 38794"
-msgstr "Antal poster: 36592"
+msgstr "Antal poster: 38794"
 
 #: ../../en/about_data.rst:24
 msgid "**blkid**"

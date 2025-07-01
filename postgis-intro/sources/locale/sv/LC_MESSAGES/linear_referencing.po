@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-04 17:47+0000\n"
+"PO-Revision-Date: 2025-06-14 17:47+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "linear_referencing/sv/>\n"
@@ -59,7 +59,7 @@ msgid "The benefit of linear referencing models is that the dependent spatial ob
 msgstr ""
 "Fördelen med linjära referensmodeller är att de beroende spatiala "
 "observationerna inte behöver registreras separat från basobservationerna, "
-"och uppdateringar av basobservationsskiktet kan utföras i vetskap om att de "
+"och uppdateringar av basobservationslagret kan utföras i vetskap om att de "
 "beroende observationerna automatiskt kommer att följa den nya geometrin."
 
 #: ../../en/linear_referencing.rst:17

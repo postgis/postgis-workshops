@@ -7,13 +7,14 @@
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023.
 # Paulo Cesar <paulocoronado@gmail.com>, 2024, 2025.
 # Regina Obe <robe@postgis.net>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-06-12 15:06+0000\n"
-"Last-Translator: Regina Obe <robe@postgis.net>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/es/>\n"
 "Language: es\n"
@@ -61,7 +62,6 @@ msgstr ""
 "dentro de la pestaña **Columnas**."
 
 #: ../../en/about_data.rst:15
-#, fuzzy
 msgid "nyc_census_blocks"
 msgstr "nyc_census_blocks"
 
@@ -153,8 +153,8 @@ msgid ""
 "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, "
 "Queens"
 msgstr ""
-"Nombre del distrito de Nueva York New York. Manhattan, The Bronx, Brooklyn, "
-"Staten Island, Queens"
+"Nombre del distrito de Nueva York, Manhattan, el Bronx, Brooklyn, Staten "
+"Island, Queens"
 
 #: ../../en/about_data.rst:40 ../../en/about_data.rst:65
 #: ../../en/about_data.rst:88 ../../en/about_data.rst:116

@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-14 05:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql/es/>\n"
 "Language: es\n"
@@ -47,7 +48,7 @@ msgstr ""
 
 #: ../../en/simple_sql.rst:14
 msgid "\"What are the names of all the neighborhoods in New York City?\""
-msgstr "\"¿Cómo se llaman los barrios de Nueva York?\"."
+msgstr "\"¿Cómo se llaman los barrios de Nueva York?\""
 
 #: ../../en/simple_sql.rst:16
 msgid ""

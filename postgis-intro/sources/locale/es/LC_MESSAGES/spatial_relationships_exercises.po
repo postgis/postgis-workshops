@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-27 06:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships_exercises/es/>\n"
 "Language: es\n"
@@ -35,6 +36,8 @@ msgstr ""
 msgid ""
 ":command:`sum(expression)` aggregate to return a sum for a set of records"
 msgstr ""
+":command:`sum(expresión)` función de agregación para devolver una suma de un "
+"conjunto de registros"
 
 #: ../../en/spatial_relationships_exercises.rst:9
 msgid ""
@@ -109,7 +112,7 @@ msgstr "También recuerde las tablas que tenemos disponibles:"
 
 #: ../../en/spatial_relationships_exercises.rst:23
 msgid "``nyc_census_blocks``"
-msgstr ""
+msgstr "``nyc_census_blocks``"
 
 #: ../../en/spatial_relationships_exercises.rst:25
 msgid "blkid, popn_total, boroname, geom"
@@ -125,11 +128,11 @@ msgstr "name, type, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:31
 msgid "``nyc_subway_stations``"
-msgstr ""
+msgstr "``nyc_subway_stations``"
 
 #: ../../en/spatial_relationships_exercises.rst:33
 msgid "name, geom"
-msgstr ""
+msgstr "name, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:35
 msgid "``nyc_neighborhoods``"

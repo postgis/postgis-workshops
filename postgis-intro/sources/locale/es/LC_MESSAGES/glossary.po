@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
-#
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-01-28 14:52+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "glossary/es/>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/glossary.rst:4
@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:7
 msgid "CRS"
-msgstr ""
+msgstr "SRC"
 
 #: ../../en/glossary.rst:9
 msgid ""
@@ -37,7 +37,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:10
 msgid "GDAL"
-msgstr ""
+msgstr "GDAL"
 
 #: ../../en/glossary.rst:12
 msgid ""
@@ -48,7 +48,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:13
 msgid "GeoJSON"
-msgstr ""
+msgstr "GeoJSON"
 
 #: ../../en/glossary.rst:15
 msgid ""
@@ -115,7 +115,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:31
 msgid "KML"
-msgstr ""
+msgstr "KML"
 
 #: ../../en/glossary.rst:33
 msgid ""
@@ -126,7 +126,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:34
 msgid "OGC"
-msgstr ""
+msgstr "OGC"
 
 #: ../../en/glossary.rst:36
 msgid ""
@@ -136,7 +136,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:37
 msgid "OSGeo"
-msgstr ""
+msgstr "OSGeo"
 
 #: ../../en/glossary.rst:39
 msgid ""
@@ -169,7 +169,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:46
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: ../../en/glossary.rst:48
 msgid ""
@@ -203,7 +203,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:55
 msgid "SVG"
-msgstr ""
+msgstr "SVG"
 
 #: ../../en/glossary.rst:57
 msgid ""
@@ -215,7 +215,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:58
 msgid "WFS"
-msgstr ""
+msgstr "WFS"
 
 #: ../../en/glossary.rst:60
 msgid ""
@@ -226,7 +226,7 @@ msgstr ""
 
 #: ../../en/glossary.rst:61
 msgid "WMS"
-msgstr ""
+msgstr "WMS"
 
 #: ../../en/glossary.rst:63
 msgid ""

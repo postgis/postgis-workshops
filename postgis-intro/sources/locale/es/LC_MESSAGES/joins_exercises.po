@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2025-03-27 06:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_exercises/es/>\n"
 "Language: es\n"
@@ -50,7 +51,7 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:10
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ":command:`ST_Area(geometría)` devuelve el área de la geometría."
+msgstr ":command:`ST_Area(geometría)` devuelve el área de la geometría"
 
 #: ../../en/joins_exercises.rst:11
 msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
@@ -85,6 +86,8 @@ msgstr ""
 #: ../../en/joins_exercises.rst:15
 msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
 msgstr ""
+":command:`ST_GeomFromText(text)` retorna un objeto ``geometry`` desde una "
+"definición WKT"
 
 #: ../../en/joins_exercises.rst:16
 msgid ""
@@ -94,7 +97,7 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:17
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
-msgstr ""
+msgstr ":command:`ST_Length(linestring)` retorna la longitud de la línea"
 
 #: ../../en/joins_exercises.rst:18
 msgid ""
@@ -114,11 +117,11 @@ msgstr "También recuerde las tablas que tenemos disponibles:"
 
 #: ../../en/joins_exercises.rst:23
 msgid "``nyc_census_blocks``"
-msgstr ""
+msgstr "``nyc_census_blocks``"
 
 #: ../../en/joins_exercises.rst:25
 msgid "name, popn_total, boroname, geom"
-msgstr ""
+msgstr "name, popn_total, boroname, geom"
 
 #: ../../en/joins_exercises.rst:27
 msgid "``nyc_streets``"
@@ -130,7 +133,7 @@ msgstr "name, type, geom"
 
 #: ../../en/joins_exercises.rst:31
 msgid "``nyc_subway_stations``"
-msgstr ""
+msgstr "``nyc_subway_stations``"
 
 #: ../../en/joins_exercises.rst:33
 msgid "name, routes, geom"

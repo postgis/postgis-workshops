@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-14 05:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 12:31+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_advanced/es/>\n"
 "Language: es\n"
@@ -37,7 +38,7 @@ msgstr ""
 
 #: ../../en/joins_advanced.rst:11 ../../en/joins_advanced.rst:31
 msgid "Creating a Census Tracts Table"
-msgstr ""
+msgstr "Creación de una tabla de secciones censales"
 
 #: ../../en/joins_advanced.rst:13
 msgid ""
@@ -47,26 +48,32 @@ msgid ""
 "education attainment. There is just one problem. The data are summarized by "
 "\"census tract\" and we have no census tract spatial data!"
 msgstr ""
+"En el directorio ``\\data\\`` del taller, hay un archivo que incluye datos "
+"de atributos, pero no geometría, ``nyc_census_sociodata.sql``. La tabla "
+"incluye datos socioeconómicos interesantes sobre Nueva York: tiempos de "
+"desplazamiento, ingresos y nivel de estudios. Sólo hay un problema. Los "
+"datos se resumen por «zona censal», ¡y no tenemos datos espaciales por zona "
+"censal!"
 
 #: ../../en/joins_advanced.rst:15
 msgid "In this section we will"
-msgstr ""
+msgstr "En esta sección vamos a"
 
 #: ../../en/joins_advanced.rst:17
 msgid "Load the ``nyc_census_sociodata.sql`` table"
-msgstr ""
+msgstr "Cargar la tabla ``nyc_census_sociodata.sql``"
 
 #: ../../en/joins_advanced.rst:18
 msgid "Create a spatial table for census tracts"
-msgstr ""
+msgstr "Crear una tabla espacial para las secciones censales"
 
 #: ../../en/joins_advanced.rst:19
 msgid "Join the attribute data to the spatial data"
-msgstr ""
+msgstr "Unir los datos de atributos a los datos espaciales"
 
 #: ../../en/joins_advanced.rst:20
 msgid "Carry out some analysis using our new data"
-msgstr ""
+msgstr "Realizar algunos análisis con nuestros nuevos datos"
 
 #: ../../en/joins_advanced.rst:23
 msgid "Loading nyc_census_sociodata.sql"

@@ -83,7 +83,7 @@ Exercises
     FROM nyc_streets 
     WHERE ST_DWithin(
       geom, 
-      ST_GeomFromText('LINESTRING(586782 4504202,586864 4504216)', 26918),
+      (SELECT geom FROM nyc_streets WHERE name = 'Atlantic Commons'),
       0.1
     );
     
@@ -91,6 +91,7 @@ Exercises
   
            name
       ------------------
+       S Oxford St
        Cumberland St
        Atlantic Commons
 

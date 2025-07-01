@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-09 10:51+0000\n"
-"PO-Revision-Date: 2025-06-10 13:50+0000\n"
+"PO-Revision-Date: 2025-06-30 06:41+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "topology_topo_types/ja/>\n"
@@ -25,7 +25,7 @@ msgstr "トポロジ基本タイプ"
 
 #: ../../en/topology_base_types.rst:6
 msgid "Before read this document, at least check one of this documents:"
-msgstr ""
+msgstr "この文書を読む前に、次の文書の少なくとも一つを確認してください:"
 
 #: ../../en/topology_base_types.rst:8
 msgid "`Introductory workshop: PostGIS Topology Workshop <https://postgis.net/workshops/en/postgis-intro/topology.html>`_."
@@ -33,55 +33,71 @@ msgstr ""
 
 #: ../../en/topology_base_types.rst:10
 msgid "`Manual: PostGIS Topology <https://postgis.net/docs/Topology.html>`_."
-msgstr ""
+msgstr "`マニュアル: PostGIS トポロジ <https://postgis.net/docs/ja/Topology.html>`_."
 
 #: ../../en/topology_base_types.rst:12
 msgid "`ISO Topology: OGC-SFS Geometries <https://www.gaia-gis.it/fossil/libspatialite/wiki?name=topo-intro>`_."
 msgstr ""
+"`ISO Topology: OGC-SFS Geometries <https://www.gaia-gis.it/fossil/"
+"libspatialite/wiki?name=topo-intro>`_."
 
 #: ../../en/topology_base_types.rst:14
 msgid "In this workshop, we will check some fundamentals of topology, its basics and definitions. It is not intended to be a way to use them directly, is to understand it to then be able to use it easily."
 msgstr ""
+"このワークショップでは、トポロジの基本や定義といった基礎的な部分について見て"
+"いきます。直接使うことを目的としたものでなく、理解することでトポロジを簡単に"
+"使えるようになることを目的としています。"
 
 #: ../../en/topology_base_types.rst:18
 msgid "Types"
-msgstr ""
+msgstr "タイプ"
 
 #: ../../en/topology_base_types.rst:23
 msgid "The basic topology works on three basic types."
-msgstr ""
+msgstr "基本のトポロジは3種の基本タイプで動作します。"
 
 #: ../../en/topology_base_types.rst:25
 msgid "Node: 2D point, everything starts or ends here"
-msgstr ""
+msgstr "ノード: 2次元のポイントで、すべてのものがノードから始まりノードで終わります"
 
 #: ../../en/topology_base_types.rst:26
 msgid "Edge: A linestring with direction that start and ends on a node"
-msgstr ""
+msgstr "エッジ: 有向ラインストリングで、ノードから始まり、ノードで終わります"
 
 #: ../../en/topology_base_types.rst:27
 msgid "Face: Closed set of linestrings, that conforms a polygon"
-msgstr ""
+msgstr "フェイス: 閉じたラインストリングの集合で、ポリゴンに適合します"
 
 #: ../../en/topology_base_types.rst:29
 msgid "There are some rules for a set of nodes, edges and faces to be valid, check the ISO Topology document, has a very good summary of these conditions, a topology that follows all the rules, is a valid topology."
 msgstr ""
+"ノード、エッジ、フェイスの集合のための規則があります。ISOトポロジドキュメント"
+"を見てください。これらの条件について非常によくまとまっています。全ての規則に"
+"沿うトポロジは妥当なトポロジです。"
 
 #: ../../en/topology_base_types.rst:31
 msgid "Is good to know, until now Postgis will save all this information internally, each type has its own unique ID, and with it we can edit and change them using the available functions, for example with ST_RemEdgeNewFace you can remove an edge and create a new face."
 msgstr ""
+"知るといい話です。PostGIS は全ての情報を内部に格納するまで、"
+"各々のタイプは一意の ID が付きます。この ID "
+"と有効な関数を使って、それらを編集や変更ができます。たとえば "
+"ST_RemEdgeNewFace を使うと、エッジを削除して、新しいフェイスを生成できます。"
 
 #: ../../en/topology_base_types.rst:33
 msgid "But there is still a missing piece, how do we say for example, a face has a specific attribute? Postgis implements several concepts to do this like Layers, TopoGeometry, TopoElement."
 msgstr ""
+"しかし、まだ埋まらないピースがあります。たとえば、"
+"フェイスが特定の属性を持たせるのにどうすればいいのでしょうか? "
+"PostGISはレイヤ、トポジオメトリ、トポエレメントといった概念を実装しています。"
 
 #: ../../en/topology_base_types.rst:36
 msgid "Universal Face"
-msgstr ""
+msgstr "ユニバーサルフェイス"
 
 #: ../../en/topology_base_types.rst:38
 msgid "It Might be intuitive to think that only the faces constructed by edges exist, there is one exception, all the white space out of all the faces is also a face!"
-msgstr ""
+msgstr "存在するエッジで構築されるフェイスだけを考えるのが直感的かも知れませんが、全"
+"てのフェイスの外側にある空白もまたフェイスなのです!"
 
 #: ../../en/topology_base_types.rst:40
 msgid "The empty space is called the Universal Face, when a Topology is empty, all the space is the Universal Face, when we add a linestring is an edge of this face, then when we make a polygon it is like make a hole in the face and stealing it to assign it to a face."
@@ -108,7 +124,7 @@ msgstr "エッジの解釈"
 msgid "To correctly represent a topology and their forms, there are some definitions that are used to construct the tables that store everything, the edge is on the more complex ones."
 msgstr ""
 "トポロジとその形状を正しく表現するために、全てを保存するテーブルを構築するた"
-"めに使われる定義が存在します。エッジは、より複雑なものの上にあります。"
+"めに使われる定義が存在します。エッジは、より複雑な定義で成っています。"
 
 #: ../../en/topology_base_types.rst:56
 msgid "All the information about edges is stored on the edge_data table, in your custom topology schema, and which information do we need in the edges? basically its nodes and faces information, edge is the primitive who connects both."
@@ -132,7 +148,8 @@ msgstr "トポロジのエッジには正しく定義された視点と視界と
 
 #: ../../en/topology_base_types.rst:68
 msgid "When we want to see from the edge perspective is always from the end node to the start edge, always looking the edge forward."
-msgstr ""
+msgstr "エッジから見たいとき、視点は常に終端ノードから始端ノードで、常にエッジ順方向"
+"に見ます。"
 
 #: ../../en/topology_base_types.rst:74
 msgid "The edges have left and right properties, as we see they are defined using the edge perspective, see the linestring from the start node to the end node, there will always be a well defined left and right."
@@ -172,16 +189,17 @@ msgstr ""
 #: ../../en/topology_base_types.rst:89
 msgid "Which are all the next edges? Looking forward we go from start node to the end node, all the edges who start or end in the end node of the edge!"
 msgstr ""
+"次のエッジの全てはどれ? 始端ノードから終端ノードへの順方向に見ていくと、エッ"
+"ジの終端ノードを始端または終端とする全てのエッジが当てはまるのです!"
 
 #: ../../en/topology_base_types.rst:92
 msgid "Edge Data"
 msgstr "エッジデータ"
 
 #: ../../en/topology_base_types.rst:94
-#, fuzzy
 msgid "The edge_data table has information related to the edge, from what we know right now we can interpret the next columns:"
-msgstr "edge_data テーブルには、エッジ関連の情報が入っています。今のところよく知って"
-"いるものから次に示すカラムを解釈することができます:"
+msgstr "edge_data テーブルには、エッジ関連の情報が入っています。これまでで知ったこと"
+"から次に示すカラムを解釈することができます:"
 
 #: ../../en/topology_base_types.rst:96
 msgid "edge_id: Unique ID for the edge"
@@ -255,59 +273,69 @@ msgstr "ここでラインを追いかける、エッジの方向に依存する
 
 #: ../../en/topology_base_types.rst:131
 msgid "With this information we have abs_next_left_edge which will be 6."
-msgstr ""
+msgstr "この情報で、abs_next_left_edge が 6 になるのが分かります。"
 
 #: ../../en/topology_base_types.rst:133
 msgid "The next_left_edge is almost the same as abs_next_left_edge, except it can be negative which depends on the perspective we see the edge."
-msgstr ""
+msgstr "next_left_edge は abs_next_left_edge "
+"とほぼ同じですが、エッジを見る視点によっては負数になることがあります。"
 
 #: ../../en/topology_base_types.rst:135
 msgid "If we follow the Edge perspective we will have two directions, the direction of the next edge, and the direction of the perspective on the next edge."
-msgstr ""
+msgstr "エッジ視点を追いかける場合には、次のエッジの方向と、次のエッジに来た時の視点"
+"での方向との二つの方向があります。"
 
 #: ../../en/topology_base_types.rst:137
 msgid "We will use the next sign in each case:"
-msgstr ""
+msgstr "次のエッジの符号は次のように使われます:"
 
 #: ../../en/topology_base_types.rst:139
 msgid "Perspective direction and Next edge direction are opposed: \"-\""
-msgstr ""
+msgstr "視点方向と次のエッジの方向が違う: \"-\""
 
 #: ../../en/topology_base_types.rst:140
 msgid "Perspective direction and Next edge direction are the same: None, keep the value positive"
-msgstr ""
+msgstr "視点方向と次のエッジの方向が同じ: 符号なし、正の数のまま"
 
 #: ../../en/topology_base_types.rst:142
 msgid "How the Perspective and Edge 6 have the same direction, next_left_edge will be 6."
-msgstr ""
+msgstr "視点と 6番エッジ は同じ方向なので、next_left_edge は 6 です。"
 
 #: ../../en/topology_base_types.rst:144
 msgid "abs_next_left_edge: 6"
-msgstr ""
+msgstr "abs_next_left_edge: 6"
 
 #: ../../en/topology_base_types.rst:145
 msgid "next_left_edge: 6"
-msgstr ""
+msgstr "next_left_edge: 6"
 
 #: ../../en/topology_base_types.rst:148
 msgid "Right"
-msgstr ""
+msgstr "右側"
 
 #: ../../en/topology_base_types.rst:150
+#, fuzzy
 msgid "The only difference between Left and Right analysis is the perspective, while in Left we use forward, in Right we will see backwards. Be careful, even if we look backwards the definition of Left Face and Right Face are still the same, looking forward! Only changes the perspective to follow."
 msgstr ""
+"左側分析と右側分析との違いは視点だけです。左側解析では順方向ですが、右側解析"
+"では逆方向です。注意してください、左側フェイスの定義を逆方向に見て、右側フェ"
+"イスも同じに見ていたとしても、前に見ています。視点だけが次のように変わります"
+"。"
 
 #: ../../en/topology_base_types.rst:152
 msgid "The Edge 5 has the Face 0 on its Right, the Universal Face, looking Edge 5 backwards the next edge who builds Face 0 is the Edge 4."
 msgstr ""
+"5番エッジ の右側に 0番フェイス すなわちユニバーサルフェイスがあります。"
+"5番エッジ を逆方向に見ると 0版エッジ を構築する次のエッジは 4番エッジ です。"
 
 #: ../../en/topology_base_types.rst:158
 msgid "Following the perspective of Edge 5 on Edge 4 we can see it goes up, while the Edge 4 goes down, the Perspective direction and the Edge 4 direction are opposed."
-msgstr ""
+msgstr "4番エッジ 上で 5番エッジ の順方向の視点で見ると、4番エッジ が下に進み、"
+"視点方向と 4番エッジ の方向とが逆になります。"
 
 #: ../../en/topology_base_types.rst:160
 msgid "abs_next_right_edge: 4"
-msgstr ""
+msgstr "abs_next_right_edge: 4"
 
 #: ../../en/topology_base_types.rst:161
 msgid "nexr_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)"
@@ -315,97 +343,112 @@ msgstr ""
 
 #: ../../en/topology_base_types.rst:164
 msgid "Isolated Edge Case"
-msgstr ""
+msgstr "孤立エッジの場合"
 
 #: ../../en/topology_base_types.rst:166
 msgid "There is a case that may be confusing, all the rules above follow in the same way but it is good to take a look."
-msgstr ""
+msgstr "混乱するかもしれない例です。上の規則全てを同じに適用していますが、見てみると"
+"いいです。"
 
 #: ../../en/topology_base_types.rst:172
 msgid "When we have an Edge that has no connections to other Edges, the first thing we can appreciate is that the Face of the Left is the same as the Right, in this case Face 0, the Universal Face."
 msgstr ""
+"他のエッジと接続しないエッジがある時、最初に私たちが理解できることは、エッジ"
+"は左側のフェイスと右側のフェイスが同じということです。孤立エッジの場合は、"
+"0番フェイス すなわちユニバーサルフェイスです。"
 
 #: ../../en/topology_base_types.rst:174
 msgid "If we follow the past logic, on the Left is the Face 0, which is the next edge who builds Face 0? Actually there is an Edge, and is itself, and it also has a perspective as before:"
 msgstr ""
+"過去のロジックに従うと、左側は 0番フェイス となりますが、0番フェイス を構築す"
+"る次のエッジはどれでしょうか？実際は、そのエッジ自体が該当します。前と同じ視"
+"点を持ちます。"
 
 #: ../../en/topology_base_types.rst:180
 msgid "If we check the perspective direction we ends looking the same edge but in opposite direction, this means the Edge 1 and its Next Edge (Edge 1) has opposed directions."
 msgstr ""
+"視点の方向を確認すると、同じエッジを反対方向に見えていることになります。"
+"これは 1番エッジ と次のエッジ (1番エッジ) "
+"とが逆方向になっていることを意味します。"
 
 #: ../../en/topology_base_types.rst:182
 #: ../../en/topology_base_types.rst:194
 msgid "edge_id: 1"
-msgstr ""
+msgstr "edge_id: 1"
 
 #: ../../en/topology_base_types.rst:183
 msgid "abs_next_left_edge: 1"
-msgstr ""
+msgstr "abs_next_left_edge: 1"
 
 #: ../../en/topology_base_types.rst:184
 msgid "next_left_edge: -1 (This will always be negative while we see forward a isolated edge)"
-msgstr ""
+msgstr "next_left_edge: -1 (孤立エッジを順方向に見ると常に負になります)"
 
 #: ../../en/topology_base_types.rst:186
 msgid "For the Next Right Edge is the same, the Next Edge will be it self, the only what it changes is the perspective:"
-msgstr ""
+msgstr "次の右のエッジは同じですから、次のエッジは、それ自体となります。視点だけ変わ"
+"ります。"
 
 #: ../../en/topology_base_types.rst:192
+#, fuzzy
 msgid "When we look backwards any isolated edge, the perspective will always have the same direction as the Edge so:"
-msgstr ""
+msgstr "孤立エッジを逆方向に見ると、視点はそのエッジと同じ方向となり、次のようになり"
+"ます:"
 
 #: ../../en/topology_base_types.rst:195
 msgid "abs_next_right_edge: 1"
-msgstr ""
+msgstr "abs_next_right_edge: 1"
 
 #: ../../en/topology_base_types.rst:196
 msgid "next_right_edge: -1 (This will always be positive while we see backwar a isolated edge)"
-msgstr ""
+msgstr "next_right_edge: -1 (孤立エッジを逆方向に見ると、これは常に正の数になります)"
 
 #: ../../en/topology_base_types.rst:199
 msgid "Full columns of edge_data"
-msgstr ""
+msgstr "edge_data の全てのカラム"
 
 #: ../../en/topology_base_types.rst:201
 msgid "We already checked all the columns of the edge_data table:"
-msgstr ""
+msgstr "edge_dataテーブル の全てのカラムをすでに確認しています:"
 
 #: ../../en/topology_base_types.rst:203
 msgid "edge_id: Unique ID for the edge."
-msgstr ""
+msgstr "edge_id: エッジの一意の ID。"
 
 #: ../../en/topology_base_types.rst:204
 msgid "start_node: ID for the node which is the same as the start point of the edge."
-msgstr ""
+msgstr "start_node: エッジの始端と同じノードの ID。"
 
 #: ../../en/topology_base_types.rst:205
 msgid "end_node: ID for the node which is the same as the end point of the edge."
-msgstr ""
+msgstr "end_node: エッジの終端と同じノードの ID。"
 
 #: ../../en/topology_base_types.rst:206
 msgid "left_face: ID of the face on the left of the edge."
-msgstr ""
+msgstr "left_face: エッジの左側のフェイスの ID。"
 
 #: ../../en/topology_base_types.rst:207
 msgid "abs_next_left_edge: Next edge who builds the face on the left."
-msgstr ""
+msgstr "abs_next_left_edge: 左側のフェイスを構築する次のエッジ。"
 
 #: ../../en/topology_base_types.rst:208
 msgid "next_left_edge: abs_next_left_edge and negative sign if the right face is on the right of the next left edge."
-msgstr ""
+msgstr "next_left_edge: abs_next_left_edge "
+"と、右側のフェイスが次の左側のエッジの右側にあるならマイナス符号。"
 
 #: ../../en/topology_base_types.rst:209
 msgid "right_face: ID of the face on the right of the edge."
-msgstr ""
+msgstr "right_face: 右側のフェイスの ID。"
 
 #: ../../en/topology_base_types.rst:210
 msgid "abs_next_right_edge: Next edge who builds the face on the right."
-msgstr ""
+msgstr "abs_next_right_edge: 右側のエッジを構築する次のエッジ。"
 
 #: ../../en/topology_base_types.rst:211
 msgid "next_right_edge: abs_next_right_edge and negative sign if the left face is on the right of the next right edge."
-msgstr ""
+msgstr "next_right_edge: abs_next_right_edge "
+"と、左側のフェイスが次の右側のエッジの右側にあるならマイナス符号。"
 
 #: ../../en/topology_base_types.rst:212
 msgid "geom: Geometry of the edge."
-msgstr ""
+msgstr "geom: エッジのジオメトリ。"

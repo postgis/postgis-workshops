@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
 "PO-Revision-Date: 2025-06-04 17:47+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
@@ -23,7 +23,10 @@ msgid "About our data"
 msgstr "Om vår data"
 
 #: ../../en/about_data.rst:6
-msgid "The data for this workshop is four shapefiles for New York City, and one attribute table of sociodemographic variables.  We've loaded our shapefiles as PostGIS tables and will add sociodemographic data later in the workshop."
+msgid ""
+"The data for this workshop is four shapefiles for New York City, and one "
+"attribute table of sociodemographic variables.  We've loaded our shapefiles "
+"as PostGIS tables and will add sociodemographic data later in the workshop."
 msgstr ""
 "Data för den här workshopen är fyra shapefiler för New York City och en "
 "attributtabell med sociodemografiska variabler.  Vi har laddat våra "
@@ -31,14 +34,20 @@ msgstr ""
 "data senare under workshopen."
 
 #: ../../en/about_data.rst:8
-msgid "The following describes the number of records and table attributes for each of our datasets.  These attribute values and relationships are fundamental to our future analysis."
+msgid ""
+"The following describes the number of records and table attributes for each "
+"of our datasets.  These attribute values and relationships are fundamental "
+"to our future analysis."
 msgstr ""
 "I det följande beskrivs antalet poster och tabellattribut för var och en av "
 "våra dataset.  Dessa attributvärden och relationer är grundläggande för vår "
 "framtida analys."
 
 #: ../../en/about_data.rst:10
-msgid "To explore the nature of your tables in pgAdmin, right-click a highlighted table and select **Properties**.  You will find a summary of table properties, including a list of table attributes within the **Columns** tab."
+msgid ""
+"To explore the nature of your tables in pgAdmin, right-click a highlighted "
+"table and select **Properties**.  You will find a summary of table "
+"properties, including a list of table attributes within the **Columns** tab."
 msgstr ""
 "Om du vill utforska dina tabeller i pgAdmin högerklickar du på en markerad "
 "tabell och väljer **Properties**.  Du hittar en sammanfattning av tabellens "
@@ -49,7 +58,11 @@ msgid "nyc_census_blocks"
 msgstr "nyc_census_blocks"
 
 #: ../../en/about_data.rst:17
-msgid "A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks."
+msgid ""
+"A census block is the smallest geography for which census data is reported. "
+"All higher level census geographies (block groups, tracts, metro areas, "
+"counties, etc) can be built from unions of census blocks. We have attached "
+"some demographic data to our collection of blocks."
 msgstr ""
 "Ett census block är den minsta geografiska enhet för vilken folkräkningsdata "
 "rapporteras. Alla folkräkningsgeografier på högre nivå (blockgrupper, "
@@ -58,7 +71,9 @@ msgstr ""
 "data till vår samling av block."
 
 #: ../../en/about_data.rst:19
-msgid "Number of records: 36592"
+#, fuzzy
+#| msgid "Number of records: 36592"
+msgid "Number of records: 38794"
 msgstr "Antal poster: 36592"
 
 #: ../../en/about_data.rst:24
@@ -66,7 +81,9 @@ msgid "**blkid**"
 msgstr "**blkid**"
 
 #: ../../en/about_data.rst:25
-msgid "A 15-digit code that uniquely identifies every census **block**. Eg: 360050001009000"
+msgid ""
+"A 15-digit code that uniquely identifies every census **block**. Eg: "
+"360050001009000"
 msgstr ""
 "En 15-siffrig kod som unikt identifierar varje **block** i folkräkningen. T."
 "ex.: 360050001009000"
@@ -119,23 +136,21 @@ msgstr "**popn_other**"
 msgid "Number of people self-identifying with other categories in the block"
 msgstr "Antal personer som identifierar sig med andra kategorier i blocket"
 
-#: ../../en/about_data.rst:38
-#: ../../en/about_data.rst:63
+#: ../../en/about_data.rst:38 ../../en/about_data.rst:63
 msgid "**boroname**"
 msgstr "**boroname**"
 
-#: ../../en/about_data.rst:39
-#: ../../en/about_data.rst:64
+#: ../../en/about_data.rst:39 ../../en/about_data.rst:64
 #: ../../en/about_data.rst:109
-msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
+msgid ""
+"Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, "
+"Queens"
 msgstr ""
 "Namn på stadsdel i New York. Manhattan, Bronx, Brooklyn, Staten Island, "
 "Queens"
 
-#: ../../en/about_data.rst:40
-#: ../../en/about_data.rst:65
-#: ../../en/about_data.rst:88
-#: ../../en/about_data.rst:116
+#: ../../en/about_data.rst:40 ../../en/about_data.rst:65
+#: ../../en/about_data.rst:88 ../../en/about_data.rst:116
 msgid "**geom**"
 msgstr "**geom**"
 
@@ -148,20 +163,31 @@ msgid "*Black population as a percentage of Total Population*"
 msgstr "*Svart befolkning i procent av totalbefolkningen*"
 
 #: ../../en/about_data.rst:49
-msgid "To get census data into GIS, you need to join two pieces of information: the actual data (text), and the boundary files (spatial).  There are many options for getting the data, including downloading data and boundaries from the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
+msgid ""
+"To get census data into GIS, you need to join two pieces of information: the "
+"actual data (text), and the boundary files (spatial).  There are many "
+"options for getting the data, including downloading data and boundaries from "
+"the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
 msgstr ""
 "För att få in folkräkningsdata i GIS måste du sammanfoga två "
-"informationsbitar: de faktiska uppgifterna (text) och gränsfilerna (spatiala)"
-".  Det finns många alternativ för att hämta data, bland annat att ladda ner "
-"data och gränser från Census Bureau's `American FactFinder <http://factfinder"
-".census.gov>`_."
+"informationsbitar: de faktiska uppgifterna (text) och gränsfilerna "
+"(spatiala).  Det finns många alternativ för att hämta data, bland annat att "
+"ladda ner data och gränser från Census Bureau's `American FactFinder <http://"
+"factfinder.census.gov>`_."
 
 #: ../../en/about_data.rst:52
 msgid "nyc_neighborhoods"
 msgstr "nyc_neighborhoods"
 
 #: ../../en/about_data.rst:54
-msgid "New York has a rich history of neighborhood names and extent.  Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as \"South Brooklyn.\" And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!"
+msgid ""
+"New York has a rich history of neighborhood names and extent.  Neighborhoods "
+"are social constructs that do not follow lines laid down by the government. "
+"For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and "
+"Cobble Hill were once collectively known as \"South Brooklyn.\" And now, "
+"depending on which real estate agent you talk to, the same four blocks in "
+"the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia "
+"Heights, Carroll Gardens West, or Red Hook!"
 msgstr ""
 "New York har en rik historia av kvartersnamn och utbredning.  Stadsdelar är "
 "sociala konstruktioner som inte följer linjer som fastställts av regeringen. "
@@ -175,8 +201,7 @@ msgstr ""
 msgid "Number of records: 129"
 msgstr "Antal poster: 129"
 
-#: ../../en/about_data.rst:61
-#: ../../en/about_data.rst:82
+#: ../../en/about_data.rst:61 ../../en/about_data.rst:82
 #: ../../en/about_data.rst:106
 msgid "**name**"
 msgstr "**name**"
@@ -198,7 +223,12 @@ msgid "nyc_streets"
 msgstr "nyc_streets"
 
 #: ../../en/about_data.rst:75
-msgid "The street centerlines form the transportation network of the city. These streets have been flagged with types in order to distinguish between such thoroughfares as back alleys, arterial streets, freeways, and smaller streets. Desirable areas to live might be on residential streets rather than next to a freeway."
+msgid ""
+"The street centerlines form the transportation network of the city. These "
+"streets have been flagged with types in order to distinguish between such "
+"thoroughfares as back alleys, arterial streets, freeways, and smaller "
+"streets. Desirable areas to live might be on residential streets rather than "
+"next to a freeway."
 msgstr ""
 "Gatornas mittlinjer utgör stadens transportnät. Dessa gator har markerats "
 "med typer för att skilja mellan genomfartsgator som bakgator, huvudgator, "
@@ -242,7 +272,11 @@ msgid "nyc_subway_stations"
 msgstr "nyc_subway_stations"
 
 #: ../../en/about_data.rst:99
-msgid "The subway stations link the upper world where people live to the invisible network of subways beneath. As portals to the public transportation system, station locations help determine how easy it is for different people to enter the subway system."
+msgid ""
+"The subway stations link the upper world where people live to the invisible "
+"network of subways beneath. As portals to the public transportation system, "
+"station locations help determine how easy it is for different people to "
+"enter the subway system."
 msgstr ""
 "Tunnelbanestationerna länkar samman den övre världen där människor bor med "
 "det osynliga nätverket av tunnelbanor under. Som portaler till "
@@ -298,7 +332,12 @@ msgid "nyc_census_sociodata"
 msgstr "nyc_census_sociodata"
 
 #: ../../en/about_data.rst:126
-msgid "There is a rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract.  Census blocks combine to form census tracts (and block groups). We have collected some social-economic at a census tract level to answer some of these more interesting questions about New York City."
+msgid ""
+"There is a rich collection of social-economic data collected during the "
+"census process, but only at the larger geography level of census tract.  "
+"Census blocks combine to form census tracts (and block groups). We have "
+"collected some social-economic at a census tract level to answer some of "
+"these more interesting questions about New York City."
 msgstr ""
 "Det finns en rik samling av socioekonomiska data som samlas in under "
 "folkräkningsprocessen, men endast på den större geografiska nivån av "
@@ -308,7 +347,9 @@ msgstr ""
 "mer intressanta frågorna om New York City."
 
 #: ../../en/about_data.rst:130
-msgid "The ``nyc_census_sociodata`` is a data table.  We will need to connect it to Census geographies before conducting any spatial analysis."
+msgid ""
+"The ``nyc_census_sociodata`` is a data table.  We will need to connect it to "
+"Census geographies before conducting any spatial analysis."
 msgstr ""
 "``nyc_census_sociodata`` är en datatabell.  Vi kommer att behöva koppla den "
 "till Census-geografier innan vi genomför någon spatial analys."
@@ -318,10 +359,12 @@ msgid "**tractid**"
 msgstr "**tractid**"
 
 #: ../../en/about_data.rst:136
-msgid "An 11-digit code that uniquely identifies every census **tract**. (\"36005000100\")"
+msgid ""
+"An 11-digit code that uniquely identifies every census **tract**. "
+"(\"36005000100\")"
 msgstr ""
-"En 11-siffrig kod som unikt identifierar varje census **tract**. ("
-"\"36005000100\")"
+"En 11-siffrig kod som unikt identifierar varje census **tract**. "
+"(\"36005000100\")"
 
 #: ../../en/about_data.rst:137
 msgid "**transit_total**"
@@ -336,7 +379,8 @@ msgid "**transit_private**"
 msgstr "**transit_private**"
 
 #: ../../en/about_data.rst:140
-msgid "Number of workers in the tract who use private automobiles / motorcycles"
+msgid ""
+"Number of workers in the tract who use private automobiles / motorcycles"
 msgstr "Antal arbetare i området som använder privata bilar/motorcyklar"
 
 #: ../../en/about_data.rst:141
@@ -360,7 +404,8 @@ msgid "**transit_other**"
 msgstr "**transit_other**"
 
 #: ../../en/about_data.rst:146
-msgid "Number of workers in the tract who use other forms like walking / biking"
+msgid ""
+"Number of workers in the tract who use other forms like walking / biking"
 msgstr "Antal arbetare i området som använder andra former som att gå/cykla"
 
 #: ../../en/about_data.rst:147
@@ -376,7 +421,9 @@ msgid "**transit_time_mins**"
 msgstr "**transit_time_mins**"
 
 #: ../../en/about_data.rst:150
-msgid "Total number of minutes spent in transit by all workers in the tract (minutes)"
+msgid ""
+"Total number of minutes spent in transit by all workers in the tract "
+"(minutes)"
 msgstr ""
 "Totalt antal minuter som alla arbetstagare i området tillbringar i "
 "kollektivtrafiken (minuter)"

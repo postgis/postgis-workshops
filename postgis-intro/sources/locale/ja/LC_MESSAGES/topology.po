@@ -3,10 +3,10 @@
 # This file is distributed under the same license as the Introduction to
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2024, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2025-06-10 18:57+0000\nPO-Revision-Date: 2025-06-11 10:47+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.8.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2025-06-10 18:57+0000\nPO-Revision-Date: 2025-06-11 10:47+0000\nLast-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/topology/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.8.0\n"
 
 #: ../../en/topology.rst:4
 msgid "Topology"
@@ -249,7 +249,5 @@ msgid "The result of the above is 29 neighborhoods were updated. If you rerun th
 msgstr "上の結果として 29地区 が更新されました。地区や行政区の境界紛争のクエリを実行すると、もはや境界紛争がなくなっていることが分かります。"
 
 #: ../../en/topology.rst:349
-#, fuzzy
-#| msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplication. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
 msgid "We do still have gaps of empty space between neighborhoods caused by intensive simplification. Such issues can be fixed by directly editing the topology using the `Topology Editor family of functions <https://postgis.net/docs/Topology.html#Topology_Editing>`_ and/or filling in the holes and assigning those to neighborhoods."
 msgstr "集中的な単純化によってできた地区間の隙間がまだあります。このような問題は、 `トポロジエディタ の関数ファミリ <https://postgis.net/docs/ja/Topology.html#Topology_Editing>`_ を使ってトポロジを直接編集したり、穴を埋めたり、地区に割り当てるといった方法での訂正が可能です。"

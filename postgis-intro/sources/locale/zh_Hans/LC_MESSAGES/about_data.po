@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Zuochenwei <zuochenwei5@gmail.com>, 2024.
 # Wangdapeng <wangdapeng20191008@gmail.com>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-03-27 08:47+0000\n"
-"Last-Translator: Wangdapeng <wangdapeng20191008@gmail.com>\n"
+"PO-Revision-Date: 2025-06-12 15:06+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.osgeo.org/projects/"
 "postgis-workshop/about_data/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -66,10 +67,8 @@ msgstr ""
 "一些人口统计数据附加到我们的区块集合中。"
 
 #: ../../en/about_data.rst:19
-#, fuzzy
-#| msgid "Number of records: 36592"
 msgid "Number of records: 38794"
-msgstr "记录数：36592"
+msgstr "记录数：38794"
 
 #: ../../en/about_data.rst:24
 msgid "**blkid**"

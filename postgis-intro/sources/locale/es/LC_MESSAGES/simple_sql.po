@@ -200,8 +200,8 @@ msgid ""
 "for standard deviations."
 msgstr ""
 "PostgreSQL dispone de una serie de funciones de agregación integradas, entre "
-"las que se incluyen :command:`avg()` para valores medios y "
-":command:`stddev()` para desviaciones estándar."
+"las que se incluyen :command:`avg()` para valores medios y :command:"
+"`stddev()` para desviaciones estándar."
 
 #: ../../en/simple_sql.rst:85
 msgid ""
@@ -232,7 +232,7 @@ msgid ""
 "neighborhoods in New York City, reported by borough?\""
 msgstr ""
 "\"¿Cuál es la media de la cantidad de letras en los nombres de todos los "
-"barrios de Nueva York, desglosado por distritos?\"."
+"barrios de Nueva York, desglosado por distritos?\""
 
 #: ../../en/simple_sql.rst:109
 msgid ""

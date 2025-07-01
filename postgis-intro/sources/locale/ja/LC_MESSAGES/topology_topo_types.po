@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-09 10:51+0000\n"
-"PO-Revision-Date: 2025-06-30 06:41+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2025-07-01 01:16+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "topology_topo_types/ja/>\n"
 "Language: ja\n"
@@ -120,11 +120,9 @@ msgid "Edge interpretation"
 msgstr "エッジの解釈"
 
 #: ../../en/topology_base_types.rst:54
-#, fuzzy
 msgid "To correctly represent a topology and their forms, there are some definitions that are used to construct the tables that store everything, the edge is on the more complex ones."
-msgstr ""
-"トポロジとその形状を正しく表現するために、全てを保存するテーブルを構築するた"
-"めに使われる定義が存在します。エッジは、より複雑な定義で成っています。"
+msgstr "トポロジとその形状を正しく表現するために、全てを保存するテーブルを構築するた"
+"めの定義が存在します。エッジは、より複雑な定義になっています。"
 
 #: ../../en/topology_base_types.rst:56
 msgid "All the information about edges is stored on the edge_data table, in your custom topology schema, and which information do we need in the edges? basically its nodes and faces information, edge is the primitive who connects both."
@@ -266,10 +264,9 @@ msgid "This is the Edge 6."
 msgstr "6番エッジ です。"
 
 #: ../../en/topology_base_types.rst:129
-#, fuzzy
 msgid "Something very important here is the perspective we follow the lines, depending on the Edge direction, is like see the Face clockwise or anticlockwise."
-msgstr "ここでラインを追いかける、エッジの方向に依存する視点が、フェイスが時計回りか"
-"反時計回りかを見るようなもので、非常に重要です。"
+msgstr "ここで非常に重要なものはラインを追う視点で、これはエッジ方向に依存するもので"
+"、フェイスが時計回りか反時計回りかを見るようなものです。"
 
 #: ../../en/topology_base_types.rst:131
 msgid "With this information we have abs_next_left_edge which will be 6."
@@ -314,13 +311,12 @@ msgid "Right"
 msgstr "右側"
 
 #: ../../en/topology_base_types.rst:150
-#, fuzzy
 msgid "The only difference between Left and Right analysis is the perspective, while in Left we use forward, in Right we will see backwards. Be careful, even if we look backwards the definition of Left Face and Right Face are still the same, looking forward! Only changes the perspective to follow."
 msgstr ""
 "左側分析と右側分析との違いは視点だけです。左側解析では順方向ですが、右側解析"
-"では逆方向です。注意してください、左側フェイスの定義を逆方向に見て、右側フェ"
-"イスも同じに見ていたとしても、前に見ています。視点だけが次のように変わります"
-"。"
+"では逆方向です。逆方向に見ていたとしても左側フェイスの定義と右側フェイスの定"
+"義は、順方向で見るのと同じことに注意してください。エッジを追う視点だけが変わ"
+"ります。"
 
 #: ../../en/topology_base_types.rst:152
 msgid "The Edge 5 has the Face 0 on its Right, the Universal Face, looking Edge 5 backwards the next edge who builds Face 0 is the Edge 4."
@@ -390,10 +386,9 @@ msgstr "次の右のエッジは同じですから、次のエッジは、それ
 "ります。"
 
 #: ../../en/topology_base_types.rst:192
-#, fuzzy
 msgid "When we look backwards any isolated edge, the perspective will always have the same direction as the Edge so:"
-msgstr "孤立エッジを逆方向に見ると、視点はそのエッジと同じ方向となり、次のようになり"
-"ます:"
+msgstr "どの孤立エッジでも逆方向に見ると、視点はそのエッジと同じ方向となり、次のよう"
+"になります:"
 
 #: ../../en/topology_base_types.rst:195
 msgid "abs_next_right_edge: 1"

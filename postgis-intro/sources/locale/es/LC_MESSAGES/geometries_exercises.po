@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-27 06:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries_exercises/es/>\n"
 "Language: es\n"
@@ -31,17 +31,21 @@ msgid ""
 "useful for the exercises!"
 msgstr ""
 "Aquí tiene un recordatorio de todas las funciones que hemos visto hasta "
-"ahora. Le serán útiles para los ejercicios!."
+"ahora. Le serán útiles para los ejercicios!"
 
 #: ../../en/geometries_exercises.rst:8
 msgid ""
 ":command:`sum(expression)` aggregate to return a sum for a set of records"
 msgstr ""
+":command:`sum(expresión)` función de agregación para devolver una suma de un "
+"conjunto de registros"
 
 #: ../../en/geometries_exercises.rst:9
 msgid ""
 ":command:`count(expression)` aggregate to return the size of a set of records"
 msgstr ""
+":command:`count(expression)`: devolver la cantidad de filas (registros) que "
+"retorna una consulta"
 
 #: ../../en/geometries_exercises.rst:10
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
@@ -69,7 +73,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:15
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
-msgstr ""
+msgstr ":command:`ST_Length(linestring)` retorna la longitud de la línea"
 
 #: ../../en/geometries_exercises.rst:16
 msgid ""
@@ -88,7 +92,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:19
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ":command:`ST_Area(geometría)` devuelve el área de la geometría."
+msgstr ":command:`ST_Area(geometría)` devuelve el área de la geometría"
 
 #: ../../en/geometries_exercises.rst:20
 msgid ""
@@ -126,6 +130,8 @@ msgstr ""
 #: ../../en/geometries_exercises.rst:26
 msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
 msgstr ""
+":command:`ST_GeomFromText(text)` retorna un objeto ``geometry`` desde una "
+"definición WKT"
 
 #: ../../en/geometries_exercises.rst:27
 msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
@@ -156,6 +162,8 @@ msgstr ""
 #: ../../en/geometries_exercises.rst:33
 msgid ":command:`ST_AsGML(geometry)` returns GML ``text``"
 msgstr ""
+":command:`ST_AsGML(geometry)` retorna la geometría expresada como un texto "
+"GML"
 
 #: ../../en/geometries_exercises.rst:34
 msgid ":command:`ST_GeomFromKML(text)` returns ``geometry``"
@@ -179,7 +187,7 @@ msgstr "También recuerde las tablas que tenemos disponibles:"
 
 #: ../../en/geometries_exercises.rst:41
 msgid "``nyc_census_blocks``"
-msgstr ""
+msgstr "``nyc_census_blocks``"
 
 #: ../../en/geometries_exercises.rst:43
 msgid "blkid, popn_total, boroname, geom"
@@ -195,11 +203,11 @@ msgstr "name, type, geom"
 
 #: ../../en/geometries_exercises.rst:49
 msgid "``nyc_subway_stations``"
-msgstr ""
+msgstr "``nyc_subway_stations``"
 
 #: ../../en/geometries_exercises.rst:51
 msgid "name, geom"
-msgstr ""
+msgstr "name, geom"
 
 #: ../../en/geometries_exercises.rst:53
 msgid "``nyc_neighborhoods``"

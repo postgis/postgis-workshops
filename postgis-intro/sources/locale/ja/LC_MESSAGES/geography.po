@@ -4,13 +4,13 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
-# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
+# Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-21 08:47+0000\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
+"PO-Revision-Date: 2025-06-11 10:47+0000\n"
 "Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geography/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geography.rst:4
@@ -30,7 +30,8 @@ msgstr "ジオグラフィ"
 msgid ""
 "It is very common to have data in which the coordinate are \"geographics\" "
 "or \"latitude/longitude\"."
-msgstr "座標が「地理座標系」または「緯度/経度」のデータを持つことは極めて一般的です。"
+msgstr ""
+"座標が「地理座標系」または「緯度/経度」のデータを持つことは極めて一般的です。"
 
 #: ../../en/geography.rst:8
 msgid ""
@@ -44,8 +45,8 @@ msgstr ""
 "地理座標系は、メルカトル、UTM、州平面、座標と違い、**デカルト座標ではありませ"
 "ん**。地理座標系では、平面上にプロットするような原点からの線形距離を表現しな"
 "い座標系です。これらの**球面座標**は、地球上の角度の座標を表します。球面座標"
-"では、ポイントは基準子午線からの回転角度 (経度) と赤道からの角度 (緯度) "
-"で指定されます。"
+"では、ポイントは基準子午線からの回転角度 (経度) と赤道からの角度 (緯度) で指"
+"定されます。"
 
 #: ../../en/geography.rst:13
 msgid ""
@@ -61,8 +62,8 @@ msgstr ""
 "かしながら、距離、長さ、面積の計測は**無意味**です。球面座標系は**角度**の距"
 "離を計測し、単位は「度」となるためです。さらに、インデックスとインタセクトや"
 "包含といった真偽テストからの近似的な結果が、ひどく悪くなる可能性があります。"
-"ポイント間の距離は、極 (北極や南極) "
-"や日付変更線といった問題の領域では大きくなります。"
+"ポイント間の距離は、極 (北極や南極) や日付変更線といった問題の領域では大きく"
+"なります。"
 
 #: ../../en/geography.rst:15
 msgid "For example, here are the coordinates of Los Angeles and Paris."
@@ -83,8 +84,8 @@ msgid ""
 "Note that the SRID of 4326 declares a geographic spatial reference system."
 msgstr ""
 "通常のPostGISデカルト距離の計算である  :command:`ST_Distance(geometry, "
-"geometry)` を使ってロサンゼルスとパリの間の距離の計算は次のように行います。SR"
-"IDが4326で地理空間参照系を宣言していることに注意して下さい。"
+"geometry)` を使ってロサンゼルスとパリの間の距離の計算は次のように行います。"
+"SRIDが4326で地理空間参照系を宣言していることに注意して下さい。"
 
 #: ../../en/geography.rst:33
 msgid "Aha! 122! But, what does that mean?"
@@ -94,8 +95,9 @@ msgstr "わっ! 122! でもこれはどういう意味でしょう?"
 msgid ""
 "The units for spatial reference 4326 are degrees. So our answer is 122 "
 "degrees. But (again), what does that mean?"
-msgstr "空間参照系 4326 の単位は度です。結果は 122 度でした。でも "
-"(二度目)、これはどういう意味でしょう?"
+msgstr ""
+"空間参照系 4326 の単位は度です。結果は 122 度でした。でも (二度目)、これはど"
+"ういう意味でしょう?"
 
 #: ../../en/geography.rst:37
 msgid ""
@@ -123,27 +125,31 @@ msgstr ""
 
 #: ../../en/geography.rst:41
 msgid "PostGIS provides this functionality through the ``geography`` type."
-msgstr "PostGISはこの機能を「ジオグラフィ (geography)」型を通して提供しています。"
+msgstr ""
+"PostGISはこの機能を「ジオグラフィ (geography)」型を通して提供しています。"
 
 #: ../../en/geography.rst:45
 msgid ""
 "Different spatial databases have different approaches for \"handling "
 "geographics\""
-msgstr "空間データベースが異なると、「ジオグラフィの処理」のアプローチも異なります"
+msgstr ""
+"空間データベースが異なると、「ジオグラフィの処理」のアプローチも異なります"
 
 #: ../../en/geography.rst:47
 msgid ""
 "Oracle attempts to paper over the differences by transparently doing "
 "geographic calculations when the SRID is geographic."
-msgstr "ORACLEは、SRIDが地理座標系の時に、透過的な地理座標系計算によって、違いを覆い"
+msgstr ""
+"ORACLEは、SRIDが地理座標系の時に、透過的な地理座標系計算によって、違いを覆い"
 "隠そうとします。"
 
 #: ../../en/geography.rst:48
 msgid ""
 "SQL Server uses two spatial types, \"STGeometry\" for Cartesian data and "
 "\"STGeography\" for geographics."
-msgstr "SQL Serverでは、デカルト座標では\"STGeometry\"、地理座標では\"STGeography\"を"
-"、それおれ使います。"
+msgstr ""
+"SQL Serverでは、デカルト座標では\"STGeometry\"、地理座標では"
+"\"STGeography\"を、それおれ使います。"
 
 #: ../../en/geography.rst:49
 msgid ""
@@ -155,24 +161,27 @@ msgstr ""
 
 #: ../../en/geography.rst:50
 msgid ""
-"Similar to SQL Server, PostGIS uses two types, \"geometry\" and \"geography"
-"\"."
-msgstr "PostGISは「ジオメトリ」と「ジオグラフィ」の二つの型を使っていて、SQL "
-"Serverと近いです。"
+"Similar to SQL Server, PostGIS uses two types, \"geometry\" and "
+"\"geography\"."
+msgstr ""
+"PostGISは「ジオメトリ」と「ジオグラフィ」の二つの型を使っていて、SQL Serverと"
+"近いです。"
 
 #: ../../en/geography.rst:52
 msgid ""
 "Using the ``geography`` instead of ``geometry`` type, let's try again to "
 "measure the distance between Los Angeles and Paris."
-msgstr "では、``geometry`` のかわりに ``geography`` "
-"を使って、ロサンゼルスとパリの間の距離の計測を、もう一度やってみます。"
+msgstr ""
+"では、``geometry`` のかわりに ``geography`` を使って、ロサンゼルスとパリの間"
+"の距離の計測を、もう一度やってみます。"
 
 #: ../../en/geography.rst:65
 msgid ""
 "A big number! All return values from ``geography`` calculations are in "
 "**meters**, so our answer is 9125km."
-msgstr "大きい値ですね! 「ジオグラフィ」計算からの返り値は全て**メートル**単位で、"
-"結果が 9125km です。"
+msgstr ""
+"大きい値ですね! 「ジオグラフィ」計算からの返り値は全て**メートル**単位で、結"
+"果が 9125km です。"
 
 #: ../../en/geography.rst:67
 msgid ""
@@ -206,18 +215,19 @@ msgid ""
 "string and calculate the distance to a point in Iceland using ``geography`` "
 "we'll get the right answer (recall) in meters."
 msgstr ""
-"デカルト平面 (紫線) で地理座標を使うと、確かに、*非常に*"
-"誤った答えが得られます! 大円ルート (赤線) "
-"を使うと正しい答えが得られます。「ジオグラフィ」を使ってLAX-CDG "
-"(ロサンゼルス-ド・ゴール) のフライトをラインストリングに変換して、アイスラン"
-"ドのあるポイントまでの距離を計算すると、メートル単位の正しい答が得られます。"
+"デカルト平面 (紫線) で地理座標を使うと、確かに、*非常に*誤った答えが得られま"
+"す! 大円ルート (赤線) を使うと正しい答えが得られます。「ジオグラフィ」を使っ"
+"てLAX-CDG (ロサンゼルス-ド・ゴール) のフライトをラインストリングに変換して、"
+"アイスランドのあるポイントまでの距離を計算すると、メートル単位の正しい答が得"
+"られます。"
 
 #: ../../en/geography.rst:86
 msgid ""
 "So the closest approach to Iceland (as measured from its international "
 "airport) on the LAX-CDG route is a relatively small 502km."
-msgstr "LAX-CDGルートでアイスランドに最も接近する距離 "
-"(アイスランドの国際空港からの距離とします) は比較的小さな502kmです。"
+msgstr ""
+"LAX-CDGルートでアイスランドに最も接近する距離 (アイスランドの国際空港からの距"
+"離とします) は比較的小さな502kmです。"
 
 #: ../../en/geography.rst:88
 msgid ""
@@ -244,17 +254,17 @@ msgid ""
 "geography."
 msgstr ""
 "ジオメトリデータをジオグラフィテーブルにロードするために、ジオメトリは最初に "
-"EPSG:4326 (経度/緯度) "
-"に投影変換する必要があります。それから、ジオグラフィに変換します。 "
-":command:`ST_Transform(geometry,srid)` 関数は座標で地理座標系に変換し、 "
-":command:`Geography(geometry)` 関数または ``::geography`` "
-"後置詞でジオグラフィに「キャスト」します。"
+"EPSG:4326 (経度/緯度) に投影変換する必要があります。それから、ジオグラフィに"
+"変換します。 :command:`ST_Transform(geometry,srid)` 関数は座標で地理座標系に"
+"変換し、 :command:`Geography(geometry)` 関数または ``::geography`` 後置詞でジ"
+"オグラフィに「キャスト」します。"
 
 #: ../../en/geography.rst:124
 msgid ""
 "Building a spatial index on a geography table is exactly the same as for "
 "geometry:"
-msgstr "ジオグラフィテーブルで空間インデックスを構築することは、全くジオメトリと同じ"
+msgstr ""
+"ジオグラフィテーブルで空間インデックスを構築することは、全くジオメトリと同じ"
 "です:"
 
 #: ../../en/geography.rst:131
@@ -271,7 +281,8 @@ msgstr ""
 msgid ""
 "Here's a query to find all the subway stations within 500 meters of the "
 "Empire State Building."
-msgstr "次に、エンパイアステートビルから500メートル圏内にある全ての地下鉄の駅を検索す"
+msgstr ""
+"次に、エンパイアステートビルから500メートル圏内にある全ての地下鉄の駅を検索す"
 "るクエリを示します。"
 
 #: ../../en/geography.rst:148
@@ -313,13 +324,14 @@ msgstr ":command:`ST_AsGeoJson(geography)` は ``text`` 型を返します"
 
 #: ../../en/geography.rst:158
 msgid ":command:`ST_Distance(geography, geography)` returns ``double``"
-msgstr ":command:`ST_Distance(geography, geography)` は ``double`` 型を返します"
+msgstr ""
+":command:`ST_Distance(geography, geography)` は ``double`` 型を返します"
 
 #: ../../en/geography.rst:159
 msgid ":command:`ST_DWithin(geography, geography, float8)` returns ``boolean``"
 msgstr ""
-":command:`ST_DWithin(geography, geography, float8)` は ``boolean`` "
-"型を返します"
+":command:`ST_DWithin(geography, geography, float8)` は ``boolean`` 型を返しま"
+"す"
 
 #: ../../en/geography.rst:160
 msgid ":command:`ST_Area(geography)` returns ``double``"
@@ -335,19 +347,21 @@ msgstr ":command:`ST_Covers(geography, geography)` は ``boolean`` 型を返し�
 
 #: ../../en/geography.rst:163
 msgid ":command:`ST_CoveredBy(geography, geography)` returns ``boolean``"
-msgstr ":command:`ST_CoveredBy(geography, geography)` は ``boolean`` 型を返します"
+msgstr ""
+":command:`ST_CoveredBy(geography, geography)` は ``boolean`` 型を返します"
 
 #: ../../en/geography.rst:164
 msgid ":command:`ST_Intersects(geography, geography)` returns ``boolean``"
-msgstr ":command:`ST_Intersects(geography, geography)` は ``boolean`` 型を返します"
+msgstr ""
+":command:`ST_Intersects(geography, geography)` は ``boolean`` 型を返します"
 
 #: ../../en/geography.rst:165
 msgid ""
 ":command:`ST_Buffer(geography, float8)` returns ``geography`` "
 "[#Casting_note]_"
 msgstr ""
-":command:`ST_Buffer(geography, float8)` は ``geography`` [#Casting_note]_ "
-"型を返します"
+":command:`ST_Buffer(geography, float8)` は ``geography`` [#Casting_note]_ 型"
+"を返します"
 
 #: ../../en/geography.rst:166
 msgid ""
@@ -378,10 +392,9 @@ msgid ""
 "``geometry_columns`` view. Instead, they are registered in a view called "
 "``geography_columns``."
 msgstr ""
-"テーブル定義では ``GEOGRAPHY(Point)`` "
-"は空港データタイプをポイントとして指定します。新しいジオグラフィフィールドは "
-"``geometry_columns`` ビューには登録されません。かわりに ``geography_columns``"
-" と呼ばれるビューに登録されます。"
+"テーブル定義では ``GEOGRAPHY(Point)`` は空港データタイプをポイントとして指定"
+"します。新しいジオグラフィフィールドは ``geometry_columns`` ビューには登録さ"
+"れません。かわりに ``geography_columns`` と呼ばれるビューに登録されます。"
 
 #: ../../en/geography.rst:200
 msgid "Some columns were omitted from the above output."
@@ -409,10 +422,10 @@ msgid ""
 "numeric two to a text string '2'. And ``'POINT(0 0)'::geometry`` will "
 "convert the text representation of point into a geometry point."
 msgstr ""
-"PostgreSQLのキャストに関する構文規則では、キャストしたい値の後ろに ``::型名``"
-" を追加します。よって ``2::text`` は 2 という数値を '2' "
-"という文字列に変換します。また、``'POINT(0 0)'::geometry`` "
-"はポイントの文字列表現をジオメトリのポイントに変換します。"
+"PostgreSQLのキャストに関する構文規則では、キャストしたい値の後ろに ``::型名"
+"`` を追加します。よって ``2::text`` は 2 という数値を '2' という文字列に変換"
+"します。また、``'POINT(0 0)'::geometry`` はポイントの文字列表現をジオメトリの"
+"ポイントに変換します。"
 
 #: ../../en/geography.rst:209
 msgid ""
@@ -427,7 +440,7 @@ msgid ""
 "By appending ``::geometry`` to our geography value, we convert the object to "
 "a geometry with an SRID of 4326. From there we can use as many geometry "
 "functions as strike our fancy. But, remember -- now that our object is a "
-"geometry, the coordinates will be interpretted as Cartesian coordinates, not "
+"geometry, the coordinates will be interpreted as Cartesian coordinates, not "
 "spherical ones."
 msgstr ""
 "ジオグラフィ値の後ろに ``::geometry`` を追加して、SRID が 4326 のジオメトリに"
@@ -455,8 +468,8 @@ msgid ""
 "that directly support the geography type. You may spend a lot of time "
 "working around geography type limitations."
 msgstr ""
-"まず、前述の通り、ジオグラフィ型を直接サポートする関数は (今のところ) "
-"ごく少数です。ジオグラフィ型の制限の回避に多くの時間を費やす場合もあります。"
+"まず、前述の通り、ジオグラフィ型を直接サポートする関数は (今のところ) ごく少"
+"数です。ジオグラフィ型の制限の回避に多くの時間を費やす場合もあります。"
 
 #: ../../en/geography.rst:232
 msgid ""
@@ -468,10 +481,10 @@ msgid ""
 "calculations involve a lot of them."
 msgstr ""
 "それと、球面上の計算は、デカルト計算よりも非常に計算量が多くなります。たとえ"
-"ば、デカルト空間の距離に関する式 (ピタゴラスの定理) は、sqrt() "
-"を1回呼びます。球面上の距離に関する式 (半正矢関数) は、sqrt() "
-"を2回呼び、arctan() を1回呼び、sin() を4回呼び、cos() を2回呼びます。三角関数"
-"は非常に計算コストがかかり、球面計算には多数の三角関数が使われます。"
+"ば、デカルト空間の距離に関する式 (ピタゴラスの定理) は、sqrt() を1回呼びま"
+"す。球面上の距離に関する式 (半正矢関数) は、sqrt() を2回呼び、arctan() を1回"
+"呼び、sin() を4回呼び、cos() を2回呼びます。三角関数は非常に計算コストがかか"
+"り、球面計算には多数の三角関数が使われます。"
 
 #: ../../en/geography.rst:234
 msgid "The conclusion?"
@@ -526,8 +539,8 @@ msgid ""
 "representation or extended (WKT)."
 msgstr ""
 "`ST_GeographyFromText(text) <http://postgis.net/docs/ST_GeographyFromText."
-"html>`_: Well-Known Text (WKT) 表現または拡張 WKT (EWKT) "
-"表現から、ジオグラフィを返します。"
+"html>`_: Well-Known Text (WKT) 表現または拡張 WKT (EWKT) 表現から、ジオグラ"
+"フィを返します。"
 
 #: ../../en/geography.rst:247
 msgid ""
@@ -543,9 +556,8 @@ msgid ""
 "`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate "
 "of the point, or NULL if not available. Input must be a point."
 msgstr ""
-"`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: "
-"ポイントのX座標値を返します。有効でないなら NULL "
-"を返します。入力はポイントでなければなりません。"
+"`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: ポイントのX座標値を返しま"
+"す。有効でないなら NULL を返します。入力はポイントでなければなりません。"
 
 #: ../../en/geography.rst:251
 msgid ""
@@ -588,6 +600,6 @@ msgid ""
 "buffer."
 msgstr ""
 "たとえば、:command:`ST_Buffer(geography,distance)` 関数はジオグラフィオブジェ"
-"クトを「最良の」投影法に変換し、バッファを生成して、地理座標系に戻します。「"
-"最適な」投影法が無い (オブジェクトが大きすぎる) "
-"場合には、計算が失敗して、不正なバッファが返されます。"
+"クトを「最良の」投影法に変換し、バッファを生成して、地理座標系に戻します。"
+"「最適な」投影法が無い (オブジェクトが大きすぎる) 場合には、計算が失敗して、"
+"不正なバッファが返されます。"

@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-18 01:39+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "advanced_geometry_construction/es/>\n"
 "Language: es\n"
@@ -79,7 +80,7 @@ msgid ""
 "route, how do we order them to match the actual route."
 msgstr ""
 "El segundo problema es el más difícil: dado un conjunto desordenado de "
-"puntos de una ruta, ¿cómo los ordenamos para que coincidan con la ruta real?"
+"puntos de una ruta, ¿cómo los ordenamos para que coincidan con la ruta real?."
 
 #: ../../en/advanced_geometry_construction.rst:19
 msgid "Here are the stops for the 'Q' train:"
@@ -304,7 +305,7 @@ msgid ""
 msgstr ""
 "Un fallo obvio de la regla \"lo más lejos posible del centro\" es una línea "
 "circular, como la Circle Line de Londres (Reino Unido). Afortunadamente, "
-"Nueva York no tiene líneas de este tipo."
+"Nueva York no tiene líneas de este tipo!"
 
 #: ../../en/advanced_geometry_construction.rst:120
 msgid ""

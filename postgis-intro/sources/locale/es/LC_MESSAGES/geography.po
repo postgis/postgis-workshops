@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
 "PO-Revision-Date: 2025-03-18 00:30+0000\n"
 "Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
@@ -129,8 +129,8 @@ msgstr ""
 
 #: ../../en/geography.rst:50
 msgid ""
-"Similar to SQL Server, PostGIS uses two types, \"geometry\" and \"geography"
-"\"."
+"Similar to SQL Server, PostGIS uses two types, \"geometry\" and "
+"\"geography\"."
 msgstr ""
 
 #: ../../en/geography.rst:52
@@ -348,7 +348,7 @@ msgid ""
 "By appending ``::geometry`` to our geography value, we convert the object to "
 "a geometry with an SRID of 4326. From there we can use as many geometry "
 "functions as strike our fancy. But, remember -- now that our object is a "
-"geometry, the coordinates will be interpretted as Cartesian coordinates, not "
+"geometry, the coordinates will be interpreted as Cartesian coordinates, not "
 "spherical ones."
 msgstr ""
 

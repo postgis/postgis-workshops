@@ -9,7 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
 "PO-Revision-Date: 2025-08-11 14:45+0000\n"
-"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
 "postgis-workshop/joins_exercises/uk/>\n"
 "Language: uk\n"
@@ -125,15 +126,15 @@ msgstr "name, popn_total, boroname, geom"
 
 #: ../../en/joins_exercises.rst:27
 msgid "``nyc_streets``"
-msgstr ""
+msgstr "``nyc_streets``"
 
 #: ../../en/joins_exercises.rst:29
 msgid "name, type, geom"
-msgstr ""
+msgstr "name, type, geom"
 
 #: ../../en/joins_exercises.rst:31
 msgid "``nyc_subway_stations``"
-msgstr ""
+msgstr "``nyc_subway_stations``"
 
 #: ../../en/joins_exercises.rst:33
 msgid "name, routes, geom"
@@ -141,7 +142,7 @@ msgstr "name, routes, geom"
 
 #: ../../en/joins_exercises.rst:35
 msgid "``nyc_neighborhoods``"
-msgstr ""
+msgstr "``nyc_neighborhoods``"
 
 #: ../../en/joins_exercises.rst:37
 msgid "name, boroname, geom"
@@ -149,7 +150,7 @@ msgstr "name, boroname, geom"
 
 #: ../../en/joins_exercises.rst:40
 msgid "Exercises"
-msgstr ""
+msgstr "Вправи"
 
 #: ../../en/joins_exercises.rst:42
 msgid ""

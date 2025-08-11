@@ -8,11 +8,10 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2025-08-11 14:42+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/postgis-"
-"workshop/joins_exercises/uk/>\n"
+"PO-Revision-Date: 2025-08-11 14:45+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/joins_exercises/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,7 +121,7 @@ msgstr "``nyc_census_blocks``"
 
 #: ../../en/joins_exercises.rst:25
 msgid "name, popn_total, boroname, geom"
-msgstr ""
+msgstr "name, popn_total, boroname, geom"
 
 #: ../../en/joins_exercises.rst:27
 msgid "``nyc_streets``"
@@ -138,7 +137,7 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:33
 msgid "name, routes, geom"
-msgstr ""
+msgstr "name, routes, geom"
 
 #: ../../en/joins_exercises.rst:35
 msgid "``nyc_neighborhoods``"
@@ -146,7 +145,7 @@ msgstr ""
 
 #: ../../en/joins_exercises.rst:37
 msgid "name, boroname, geom"
-msgstr ""
+msgstr "name, boroname, geom"
 
 #: ../../en/joins_exercises.rst:40
 msgid "Exercises"
@@ -156,6 +155,8 @@ msgstr ""
 msgid ""
 "**What subway station is in 'Little Italy'? What subway route is it on?**"
 msgstr ""
+"**Яка станція метро знаходиться в 'Little Italy'? Яким маршрутом метро вона "
+"обслуговується?**"
 
 #: ../../en/joins_exercises.rst:58
 msgid ""
@@ -163,18 +164,24 @@ msgid ""
 "``routes`` column in the ``nyc_subway_stations`` table has values like 'B,"
 "D,6,V' and 'C,6')"
 msgstr ""
+"**Які райони обслуговує поїзд 6?**(Підказка: у стовпці ``routes `` таблиц `` "
+"nyc_subway_stations `` містяться значення типу 'B,D,6,V' та 'C,6')"
 
 #: ../../en/joins_exercises.rst:90
 msgid ""
 "We used the ``DISTINCT`` keyword to remove duplicate values from our result "
 "set where there were more than one subway station in a neighborhood."
 msgstr ""
+"Ми використали ключове слово DISTINCT, щоб видалити дублікати зі списку "
+"результатів, коли в одному районі було більше однієї станції метро."
 
 #: ../../en/joins_exercises.rst:92
 msgid ""
 "**After 9/11, the 'Battery Park' neighborhood was off limits for several "
 "days. How many people had to be evacuated?**"
 msgstr ""
+"**Після подій 11 вересня район 'Battery Park' був закритий на кілька днів. "
+"Скільки людей довелося евакуювати?**"
 
 #: ../../en/joins_exercises.rst:106
 msgid "**What neighborhood has the highest population density (persons/km2)?**"

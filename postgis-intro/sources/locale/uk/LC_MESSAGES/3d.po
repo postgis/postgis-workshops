@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Denys Kovshun <deniskovshun@gmail.com>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2025-06-10 18:57+0000\nPO-Revision-Date: 2025-08-11 14:42+0000\nLast-Translator: Denys Kovshun <deniskovshun@gmail.com>\nLanguage-Team: Ukrainian <https://weblate.osgeo.org/projects/postgis-workshop/3d/uk/>\nLanguage: uk\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.4.3\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2025-06-10 18:57+0000\nPO-Revision-Date: 2025-08-11 19:49+0000\nLast-Translator: Denys Kovshun <deniskovshun@gmail.com>\nLanguage-Team: Ukrainian <https://weblate.osgeo.org/projects/postgis-workshop/3d/uk/>\nLanguage: uk\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.4.3\n"
 
 #: ../../en/3d.rst:4
 msgid "3-D"
@@ -143,7 +143,7 @@ msgstr "Набір GPS-треків у просторі X/Y/T може бути 
 
 #: ../../en/3d.rst:98
 msgid "You can create a multi-dimensional index on data of any dimensionality (even mixed dimensionality). For example, to create a multi-dimensional index on the ``nyc_streets`` table,"
-msgstr "Ви можете створити багатовимірний індекс для даних будь-якої розмірності (навіть змішаної). Наприклад, щоб створити багатовимірний індекс для таблиці nyc_streets,."
+msgstr "Ви можете створити багатовимірний індекс для даних будь-якої розмірності (навіть змішаної). Наприклад, щоб створити багатовимірний індекс для таблиці nyc_streets,"
 
 #: ../../en/3d.rst:105
 msgid "The ``gist_geometry_ops_nd`` parameter tells PostGIS to use the N-D index instead of the standard 2-D index."

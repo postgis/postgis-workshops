@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Denys Kovshun <deniskovshun@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 22:14-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../en/joins_exercises.rst:4
+msgid "Spatial Joins Exercises"
+msgstr "Вправи з просторових з’єднань (Spatial Joins)"
+
+#: ../../en/joins_exercises.rst:6
+msgid ""
+"Here's a reminder of some of the functions we have seen.  Hint: they should "
+"be useful for the exercises!"
+msgstr ""
+"Ось нагадування про деякі функції, які ми вже розглядали. Підказка: вони "
+"будуть корисні для виконання вправ!"
+
+#: ../../en/joins_exercises.rst:8
+msgid ""
+":command:`sum(expression)`: aggregate to return a sum for a set of records"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:9
+msgid ""
+":command:`count(expression)`: aggregate to return the size of a set of "
+"records"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:10
+msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
+msgstr ":command:`ST_Area(geometry)` повертає площу полігону"
+
+#: ../../en/joins_exercises.rst:11
+msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
+msgstr ":command:`ST_AsText(geometry)` повертає WKT ``text``"
+
+#: ../../en/joins_exercises.rst:12
+msgid ""
+":command:`ST_Contains(geometry A, geometry B)` returns the true if geometry "
+"A contains geometry B"
+msgstr ""
+":command:`ST_Contains(geometry A, geometry B)` повертає true, якщо геометрія "
+"A містить геометрію B"
+
+#: ../../en/joins_exercises.rst:13
+msgid ""
+":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance "
+"between geometry A and geometry B"
+msgstr ""
+":command:`ST_Distance(geometry A, geometry B)`повертає мінімальну відстань "
+"між геометрією A та геометрією B"
+
+#: ../../en/joins_exercises.rst:14
+msgid ""
+":command:`ST_DWithin(geometry A, geometry B, radius)` returns the true if "
+"geometry A is radius distance or less from geometry B"
+msgstr ""
+":command:`ST_DWithin(geometry A, geometry B, radius)` повертає true, якщо "
+"геометрія A знаходиться на відстані радіуса або ближче до геометрії B"
+
+#: ../../en/joins_exercises.rst:15
+msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
+msgstr ":command:`ST_GeomFromText(text)` повертає ``geometry``"
+
+#: ../../en/joins_exercises.rst:16
+msgid ""
+":command:`ST_Intersects(geometry A, geometry B)` returns the true if "
+"geometry A intersects geometry B"
+msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` повертає true, якщо "
+"геометрія A перетинається з геометрією B"
+
+#: ../../en/joins_exercises.rst:17
+msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
+msgstr ":command:`ST_Length(linestring)` повертає довжину лінії (linestring)"
+
+#: ../../en/joins_exercises.rst:18
+msgid ""
+":command:`ST_Touches(geometry A, geometry B)` returns the true if the "
+"boundary of geometry A touches geometry B"
+msgstr ""
+":command:`ST_Touches(geometry A, geometry B)` повертає true, якщо межа "
+"геометрії A торкається геометрії B"
+
+#: ../../en/joins_exercises.rst:19
+msgid ""
+":command:`ST_Within(geometry A, geometry B)` returns the true if geometry A "
+"is within geometry B"
+msgstr ""
+":command:`ST_Within(geometry A, geometry B)` повертає true, якщо геометрія A "
+"знаходиться всередині геометрії B"
+
+#: ../../en/joins_exercises.rst:21
+msgid "Also remember the tables we have available:"
+msgstr "Також пам’ятайте про таблиці, які у нас є:"
+
+#: ../../en/joins_exercises.rst:23
+msgid "``nyc_census_blocks``"
+msgstr "``nyc_census_blocks``"
+
+#: ../../en/joins_exercises.rst:25
+msgid "name, popn_total, boroname, geom"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:27
+msgid "``nyc_streets``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:29
+msgid "name, type, geom"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:31
+msgid "``nyc_subway_stations``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:33
+msgid "name, routes, geom"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:35
+msgid "``nyc_neighborhoods``"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:37
+msgid "name, boroname, geom"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:40
+msgid "Exercises"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:42
+msgid ""
+"**What subway station is in 'Little Italy'? What subway route is it on?**"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:58
+msgid ""
+"**What are all the neighborhoods served by the 6-train?** (Hint: The "
+"``routes`` column in the ``nyc_subway_stations`` table has values like 'B,"
+"D,6,V' and 'C,6')"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:90
+msgid ""
+"We used the ``DISTINCT`` keyword to remove duplicate values from our result "
+"set where there were more than one subway station in a neighborhood."
+msgstr ""
+
+#: ../../en/joins_exercises.rst:92
+msgid ""
+"**After 9/11, the 'Battery Park' neighborhood was off limits for several "
+"days. How many people had to be evacuated?**"
+msgstr ""
+
+#: ../../en/joins_exercises.rst:106
+msgid "**What neighborhood has the highest population density (persons/km2)?**"
+msgstr ""

@@ -1,0 +1,463 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Denys Kovshun <deniskovshun@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-10 18:57+0000\n"
+"PO-Revision-Date: 2025-08-09 20:47+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/about_data/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/about_data.rst:4
+msgid "About our data"
+msgstr "Про наші дані"
+
+#: ../../en/about_data.rst:6
+msgid "The data for this workshop is four shapefiles for New York City, and one attribute table of sociodemographic variables.  We've loaded our shapefiles as PostGIS tables and will add sociodemographic data later in the workshop."
+msgstr ""
+"Дані для цього семінару складаються з чотирьох файлів форм для міста Нью-"
+"Йорк та однієї таблиці атрибутів соціально-демографічних змінних.  Ми "
+"завантажили наші shapefiles як таблиці PostGIS і додамо соціально-"
+"демографічні дані пізніше під час семінару."
+
+#: ../../en/about_data.rst:8
+msgid "The following describes the number of records and table attributes for each of our datasets.  These attribute values and relationships are fundamental to our future analysis."
+msgstr ""
+"Нижче наведено кількість записів та атрибути таблиць для кожного з наших "
+"наборів даних.  Ці значення атрибутів та взаємозв'язки мають фундаментальне "
+"значення для нашого майбутнього аналізу."
+
+#: ../../en/about_data.rst:10
+msgid "To explore the nature of your tables in pgAdmin, right-click a highlighted table and select **Properties**.  You will find a summary of table properties, including a list of table attributes within the **Columns** tab."
+msgstr ""
+"Щоб дослідити властивості таблиць у pgAdmin, клацніть правою кнопкою миші на "
+"виділеній таблиці та виберіть **Властивості**.  Ви побачите підсумок "
+"властивостей таблиці, включаючи список атрибутів таблиці у вкладці "
+"**Стовпці**."
+
+#: ../../en/about_data.rst:15
+msgid "nyc_census_blocks"
+msgstr "nyc_census_blocks"
+
+#: ../../en/about_data.rst:17
+msgid "A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks."
+msgstr ""
+"Блок перепису — це найменша географічна одиниця, за якою подаються дані "
+"перепису. Усі географічні одиниці перепису вищого рівня (групи блоків, "
+"ділянки, метрополітенські райони, округи тощо) можуть бути побудовані на "
+"основі об'єднань блоків перепису. Ми додали деякі демографічні дані до нашої "
+"колекції блоків."
+
+#: ../../en/about_data.rst:19
+msgid "Number of records: 38794"
+msgstr "Кількість записів: 38794"
+
+#: ../../en/about_data.rst:24
+msgid "**blkid**"
+msgstr "**blkid**"
+
+#: ../../en/about_data.rst:25
+msgid "A 15-digit code that uniquely identifies every census **block**. Eg: 360050001009000"
+msgstr ""
+"15-значний код, який однозначно ідентифікує кожен **блок** перепису. "
+"Наприклад: 360050001009000"
+
+#: ../../en/about_data.rst:26
+msgid "**popn_total**"
+msgstr "**popn_total**"
+
+#: ../../en/about_data.rst:27
+msgid "Total number of people in the census block"
+msgstr "Загальна кількість людей у переписному блоці"
+
+#: ../../en/about_data.rst:28
+msgid "**popn_white**"
+msgstr "**popn_white**"
+
+#: ../../en/about_data.rst:29
+msgid "Number of people self-identifying as \"White\" in the block"
+msgstr "Кількість людей, які самоідентифікуються як «білі» у цьому кварталі"
+
+#: ../../en/about_data.rst:30
+msgid "**popn_black**"
+msgstr "**popn_black**"
+
+#: ../../en/about_data.rst:31
+msgid "Number of people self-identifying as \"Black\" in the block"
+msgstr ""
+"Кількість людей, які самоідентифікуються як «чорношкірі» в цьому кварталі"
+
+#: ../../en/about_data.rst:32
+msgid "**popn_nativ**"
+msgstr "**popn_nativ**"
+
+#: ../../en/about_data.rst:33
+msgid "Number of people self-identifying as \"Native American\" in the block"
+msgstr ""
+"Кількість людей, які самоідентифікуються як «корінні американці» в цьому "
+"кварталі"
+
+#: ../../en/about_data.rst:34
+msgid "**popn_asian**"
+msgstr "**popn_asian**"
+
+#: ../../en/about_data.rst:35
+msgid "Number of people self-identifying as \"Asian\" in the block"
+msgstr "Кількість людей, які самоідентифікуються як «азіати» в цьому кварталі"
+
+#: ../../en/about_data.rst:36
+msgid "**popn_other**"
+msgstr "**popn_other**"
+
+#: ../../en/about_data.rst:37
+msgid "Number of people self-identifying with other categories in the block"
+msgstr "Кількість осіб, які самоідентифікуються з іншими категоріями в блоці"
+
+#: ../../en/about_data.rst:38
+#: ../../en/about_data.rst:63
+msgid "**boroname**"
+msgstr "**boroname**"
+
+#: ../../en/about_data.rst:39
+#: ../../en/about_data.rst:64
+#: ../../en/about_data.rst:109
+msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
+msgstr ""
+"Назва району Нью-Йорка. Манхеттен, Бронкс, Бруклін, Статен-Айленд, Квінс"
+
+#: ../../en/about_data.rst:40
+#: ../../en/about_data.rst:65
+#: ../../en/about_data.rst:88
+#: ../../en/about_data.rst:116
+msgid "**geom**"
+msgstr "**geom**"
+
+#: ../../en/about_data.rst:41
+msgid "Polygon boundary of the block"
+msgstr "Полігональна межа блоку"
+
+#: ../../en/about_data.rst:45
+msgid "*Black population as a percentage of Total Population*"
+msgstr "*Частка чорношкірого населення у загальній чисельності населення*"
+
+#: ../../en/about_data.rst:49
+msgid "To get census data into GIS, you need to join two pieces of information: the actual data (text), and the boundary files (spatial).  There are many options for getting the data, including downloading data and boundaries from the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
+msgstr ""
+"Щоб отримати дані перепису населення в ГІС, потрібно об'єднати дві частини "
+"інформації: фактичні дані (текст) та файли меж (просторові).  Існує багато "
+"варіантів отримання даних, включаючи завантаження даних та меж з веб-сайту "
+"Бюро перепису населення «American FactFinder <http://factfinder.census."
+"gov>»_."
+
+#: ../../en/about_data.rst:52
+msgid "nyc_neighborhoods"
+msgstr "nyc_neighborhoods"
+
+#: ../../en/about_data.rst:54
+msgid "New York has a rich history of neighborhood names and extent.  Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as \"South Brooklyn.\" And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!"
+msgstr ""
+"Нью-Йорк має багату історію назв і розмірів районів.  Райони є соціальними "
+"утвореннями, які не відповідають межам, встановленим урядом. Наприклад, "
+"райони Брукліна Керролл-Гарденс, Ред-Хук і Коббл-Хілл колись були відомі під "
+"загальною назвою «Південний Бруклін». А зараз, залежно від того, з яким "
+"агентом з нерухомості ви розмовляєте, ті самі чотири квартали в районі, який "
+"раніше називався Ред-Хук, можуть називатися Колумбія-Хайтс, Керролл-Гарденс-"
+"Вест або Ред-Хук!"
+
+#: ../../en/about_data.rst:56
+msgid "Number of records: 129"
+msgstr "Кількість записів: 129"
+
+#: ../../en/about_data.rst:61
+#: ../../en/about_data.rst:82
+#: ../../en/about_data.rst:106
+msgid "**name**"
+msgstr "**name**"
+
+#: ../../en/about_data.rst:62
+msgid "Name of the neighborhood"
+msgstr "Назва району"
+
+#: ../../en/about_data.rst:66
+msgid "Polygon boundary of the neighborhood"
+msgstr "Полігональна межа району"
+
+#: ../../en/about_data.rst:70
+msgid "*The neighborhoods of New York City*"
+msgstr "*Райони Нью-Йорка*"
+
+#: ../../en/about_data.rst:73
+msgid "nyc_streets"
+msgstr "nyc_streets"
+
+#: ../../en/about_data.rst:75
+msgid "The street centerlines form the transportation network of the city. These streets have been flagged with types in order to distinguish between such thoroughfares as back alleys, arterial streets, freeways, and smaller streets. Desirable areas to live might be on residential streets rather than next to a freeway."
+msgstr ""
+"Центральні лінії вулиць утворюють транспортну мережу міста. Ці вулиці "
+"позначені типами, щоб розрізнити такі магістралі, як провулки, артеріальні "
+"вулиці, автомагістралі та менші вулиці. Бажані райони для проживання можуть "
+"бути розташовані на житлових вулицях, а не поруч з автомагістраллю."
+
+#: ../../en/about_data.rst:77
+msgid "Number of records: 19091"
+msgstr "Кількість записів: 19091"
+
+#: ../../en/about_data.rst:83
+msgid "Name of the street"
+msgstr "Назва вулиці"
+
+#: ../../en/about_data.rst:84
+msgid "**oneway**"
+msgstr "**oneway**"
+
+#: ../../en/about_data.rst:85
+msgid "Is the street one-way? \"yes\" = yes, \"\" = no"
+msgstr "Чи є вулиця односторонньою? \"yes\" = yes, \"\" = no"
+
+#: ../../en/about_data.rst:86
+msgid "**type**"
+msgstr "**type**"
+
+#: ../../en/about_data.rst:87
+msgid "Road type (primary, secondary, residential, motorway)"
+msgstr "Тип дороги (primary, secondary, residential, motorway)"
+
+#: ../../en/about_data.rst:89
+msgid "Linear centerline of the street"
+msgstr "Лінійна центральна лінія вулиці"
+
+#: ../../en/about_data.rst:93
+msgid "*The streets of New York City. Major roads are in red.*"
+msgstr "*Вулиці Нью-Йорка. Основні дороги позначені червоним кольором.*"
+
+#: ../../en/about_data.rst:97
+msgid "nyc_subway_stations"
+msgstr "nyc_subway_stations"
+
+#: ../../en/about_data.rst:99
+msgid "The subway stations link the upper world where people live to the invisible network of subways beneath. As portals to the public transportation system, station locations help determine how easy it is for different people to enter the subway system."
+msgstr ""
+"Станції метро з'єднують верхній світ, де живуть люди, з невидимою мережею "
+"метро під землею. Як портали до системи громадського транспорту, "
+"розташування станцій допомагає визначити, наскільки легко різним людям "
+"потрапити в систему метро."
+
+#: ../../en/about_data.rst:101
+msgid "Number of records: 491"
+msgstr "Кількість записів: 491"
+
+#: ../../en/about_data.rst:107
+msgid "Name of the station"
+msgstr "Назва станції"
+
+#: ../../en/about_data.rst:108
+msgid "**borough**"
+msgstr "**borough**"
+
+#: ../../en/about_data.rst:110
+msgid "**routes**"
+msgstr "**routes**"
+
+#: ../../en/about_data.rst:111
+msgid "Subway lines that run through this station"
+msgstr "Лінії метро, які проходять через цю станцію"
+
+#: ../../en/about_data.rst:112
+msgid "**transfers**"
+msgstr "**transfers**"
+
+#: ../../en/about_data.rst:113
+msgid "Lines you can transfer to via this station"
+msgstr "Лінії, на які можна пересісти на цій станції"
+
+#: ../../en/about_data.rst:114
+msgid "**express**"
+msgstr "**express**"
+
+#: ../../en/about_data.rst:115
+msgid "Stations where express trains stop, \"express\" = yes, \"\" = no"
+msgstr "Станції, на яких зупиняються експреси, \"express\" = yes, \"\" = no"
+
+#: ../../en/about_data.rst:117
+msgid "Point location of the station"
+msgstr "Точка розташування станції"
+
+#: ../../en/about_data.rst:121
+msgid "*Point locations for New York City subway stations*"
+msgstr "*Точки розташування станцій метро Нью-Йорка*"
+
+#: ../../en/about_data.rst:124
+msgid "nyc_census_sociodata"
+msgstr "nyc_census_sociodata"
+
+#: ../../en/about_data.rst:126
+msgid "There is a rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract.  Census blocks combine to form census tracts (and block groups). We have collected some social-economic at a census tract level to answer some of these more interesting questions about New York City."
+msgstr ""
+"Існує багата колекція соціально-економічних даних, зібраних під час перепису "
+"населення, але тільки на рівні великих географічних одиниць перепису.  Блоки "
+"перепису об'єднуються, утворюючи ділянки перепису (та групи блоків). Ми "
+"зібрали деякі соціально-економічні дані на рівні ділянок перепису, щоб "
+"відповісти на деякі з цих більш цікавих питань про місто Нью-Йорк."
+
+#: ../../en/about_data.rst:130
+msgid "The ``nyc_census_sociodata`` is a data table.  We will need to connect it to Census geographies before conducting any spatial analysis."
+msgstr ""
+"``nyc_census_sociodata`` — це таблиця даних.  Перед проведенням будь-якого "
+"просторового аналізу нам потрібно буде пов'язати її з географічними даними "
+"перепису населення."
+
+#: ../../en/about_data.rst:135
+msgid "**tractid**"
+msgstr "**tractid**"
+
+#: ../../en/about_data.rst:136
+msgid "An 11-digit code that uniquely identifies every census **tract**. (\"36005000100\")"
+msgstr ""
+"11-значний код, який однозначно ідентифікує кожен **tract** перепису. "
+"(«36005000100»)"
+
+#: ../../en/about_data.rst:137
+msgid "**transit_total**"
+msgstr "**transit_total**"
+
+#: ../../en/about_data.rst:138
+msgid "Number of workers in the tract"
+msgstr "Кількість працівників у районі"
+
+#: ../../en/about_data.rst:139
+msgid "**transit_private**"
+msgstr "**transit_private**"
+
+#: ../../en/about_data.rst:140
+msgid "Number of workers in the tract who use private automobiles / motorcycles"
+msgstr ""
+"Кількість працівників у районі, які користуються приватними автомобілями / "
+"мотоциклами"
+
+#: ../../en/about_data.rst:141
+msgid "**transit_public**"
+msgstr "**transit_public**"
+
+#: ../../en/about_data.rst:142
+msgid "Number of workers in the tract who take public transit"
+msgstr ""
+"Кількість працівників у районі, які користуються громадським транспортом"
+
+#: ../../en/about_data.rst:143
+msgid "**transit_walk**"
+msgstr "**transit_walk**"
+
+#: ../../en/about_data.rst:144
+msgid "Number of workers in the tract who walk"
+msgstr "Кількість працівників у районі, які ходять пішки"
+
+#: ../../en/about_data.rst:145
+msgid "**transit_other**"
+msgstr "**transit_other**"
+
+#: ../../en/about_data.rst:146
+msgid "Number of workers in the tract who use other forms like walking / biking"
+msgstr ""
+"Кількість працівників у районі, які використовують інші види транспорту, "
+"такі як піші прогулянки/велосипед"
+
+#: ../../en/about_data.rst:147
+msgid "**transit_none**"
+msgstr "**transit_none**"
+
+#: ../../en/about_data.rst:148
+msgid "Number of workers in the tract who work from home"
+msgstr "Кількість працівників у районі, які працюють з дому"
+
+#: ../../en/about_data.rst:149
+msgid "**transit_time_mins**"
+msgstr "**transit_time_mins**"
+
+#: ../../en/about_data.rst:150
+msgid "Total number of minutes spent in transit by all workers in the tract (minutes)"
+msgstr ""
+"Загальна кількість хвилин, витрачених на дорогу всіма працівниками в районі "
+"(хвилини)"
+
+#: ../../en/about_data.rst:151
+msgid "**family_count**"
+msgstr "**family_count**"
+
+#: ../../en/about_data.rst:152
+msgid "Number of families in the tract"
+msgstr "Кількість сімей у районі"
+
+#: ../../en/about_data.rst:153
+msgid "**family_income_median**"
+msgstr "**family_income_median**"
+
+#: ../../en/about_data.rst:154
+msgid "Median family income in the tract (dollars)"
+msgstr "Мебіанний дохід сім'ї в районі (долари)"
+
+#: ../../en/about_data.rst:155
+msgid "**family_income_mean**"
+msgstr "**family_income_mean**"
+
+#: ../../en/about_data.rst:156
+msgid "Average family income in the tract (dollars)"
+msgstr "Середній дохід сім'ї в районі (долари)"
+
+#: ../../en/about_data.rst:157
+msgid "**family_income_aggregate**"
+msgstr "**family_income_aggregate**"
+
+#: ../../en/about_data.rst:158
+msgid "Total income of all families in the tract (dollars)"
+msgstr "Загальний дохід усіх сімей у районі (долари)"
+
+#: ../../en/about_data.rst:159
+msgid "**edu_total**"
+msgstr "**edu_total**"
+
+#: ../../en/about_data.rst:160
+msgid "Number of people with educational history"
+msgstr "Кількість осіб з історією освіти"
+
+#: ../../en/about_data.rst:161
+msgid "**edu_no_highschool_dipl**"
+msgstr "**edu_no_highschool_dipl**"
+
+#: ../../en/about_data.rst:162
+msgid "Number of people with no high school diploma"
+msgstr "Кількість осіб без атестата про середню освіту"
+
+#: ../../en/about_data.rst:163
+msgid "**edu_highschool_dipl**"
+msgstr "**edu_highschool_dipl**"
+
+#: ../../en/about_data.rst:164
+msgid "Number of people with high school diploma and no further education"
+msgstr "Кількість осіб із середньою освітою без подальшої освіти"
+
+#: ../../en/about_data.rst:165
+msgid "**edu_college_dipl**"
+msgstr "**edu_college_dipl**"
+
+#: ../../en/about_data.rst:166
+msgid "Number of people with college diploma and no further education"
+msgstr "Кількість осіб з дипломом про вищу освіту, які не продовжували навчання"
+
+#: ../../en/about_data.rst:167
+msgid "**edu_graduate_dipl**"
+msgstr "**edu_graduate_dipl**"
+
+#: ../../en/about_data.rst:168
+msgid "Number of people with graduate school diploma"
+msgstr "Кількість осіб з дипломом про вищу освіту"

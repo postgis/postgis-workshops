@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-08-12 00:37+0000\n"
-"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"PO-Revision-Date: 2025-08-12 01:10+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
 "postgis-workshop/simple_sql_exercises/uk/>\n"
 "Language: uk\n"
@@ -96,7 +97,7 @@ msgstr "**popn_other**"
 
 #: ../../en/simple_sql_exercises.rst:26
 msgid "Number of people self-identifying with other categories in the block"
-msgstr ""
+msgstr "Кількість осіб, які самоідентифікуються з іншими категоріями в блоці"
 
 #: ../../en/simple_sql_exercises.rst:27
 msgid "**hous_total**"
@@ -124,19 +125,20 @@ msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:33
 msgid "**boroname**"
-msgstr ""
+msgstr "**boroname**"
 
 #: ../../en/simple_sql_exercises.rst:34
 msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
 msgstr ""
+"Назва району Нью-Йорка. Манхеттен, Бронкс, Бруклін, Статен-Айленд, Квінс"
 
 #: ../../en/simple_sql_exercises.rst:35
 msgid "**geom**"
-msgstr ""
+msgstr "**geom**"
 
 #: ../../en/simple_sql_exercises.rst:36
 msgid "Polygon boundary of the block"
-msgstr ""
+msgstr "Полігональна межа блоку"
 
 #: ../../en/simple_sql_exercises.rst:38
 msgid "And, here are some common SQL aggregation functions you might find useful:"

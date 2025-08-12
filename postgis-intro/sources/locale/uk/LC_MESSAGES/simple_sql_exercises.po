@@ -10,8 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2025-08-12 01:10+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
 "Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
 "postgis-workshop/simple_sql_exercises/uk/>\n"
 "Language: uk\n"
@@ -101,27 +100,27 @@ msgstr "Кількість осіб, які самоідентифікуютьс
 
 #: ../../en/simple_sql_exercises.rst:27
 msgid "**hous_total**"
-msgstr ""
+msgstr "**hous_total**"
 
 #: ../../en/simple_sql_exercises.rst:28
 msgid "Number of housing units in the block"
-msgstr ""
+msgstr "Кількість житлових одиниць у кварталі"
 
 #: ../../en/simple_sql_exercises.rst:29
 msgid "**hous_own**"
-msgstr ""
+msgstr "**hous_own**"
 
 #: ../../en/simple_sql_exercises.rst:30
 msgid "Number of owner-occupied housing units in the block"
-msgstr ""
+msgstr "Кількість житлових одиниць, що належать власникам, у кварталі"
 
 #: ../../en/simple_sql_exercises.rst:31
 msgid "**hous_rent**"
-msgstr ""
+msgstr "**hous_rent**"
 
 #: ../../en/simple_sql_exercises.rst:32
 msgid "Number of renter-occupied housing units in the block"
-msgstr ""
+msgstr "Кількість житлових одиниць, зайнятих орендарями в кварталі"
 
 #: ../../en/simple_sql_exercises.rst:33
 msgid "**boroname**"

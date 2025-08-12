@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Denys Kovshun <deniskovshun@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-08-10 01:40+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/knn/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/knn.rst:4
+msgid "Nearest-Neighbour Searching"
+msgstr "Пошук найближчого сусіда"
+
+#: ../../en/knn.rst:7
+msgid "What is a Nearest Neighbour Search?"
+msgstr "Що таке пошук найближчого сусіда?"
+
+#: ../../en/knn.rst:9
+msgid "A frequently posed spatial query is: \"what is the nearest <candidate feature> to <query feature>?\""
+msgstr ""
+"Часто задається просторовий запит: «що є найближчим <кандидат-елемент> до "
+"<елемент запиту>?»"
+
+#: ../../en/knn.rst:11
+msgid "Unlike a distance search, the \"nearest neighbour\" search doesn't include any measurement restricting how far away candidate geometries might be, features of any distance away will be accepted, as long as they are the *nearest*."
+msgstr ""
+"На відміну від пошуку за відстанню, пошук «найближчого сусіда» не включає "
+"жодних обмежень щодо відстані, на якій можуть знаходитися геометрії-"
+"кандидати. Будуть прийняті об'єкти, що знаходяться на будь-якій відстані, "
+"якщо вони є *найближчими*."
+
+#: ../../en/knn.rst:13
+msgid "PostgreSQL solves the nearest neighbor problem by introducing an \"order by distance\" (``<->``) operator that induces the database to use an index to speed up a sorted return set. With an \"order by distance\" operator in place, a nearest neighbor query can return the \"N nearest features\" just by adding an ordering and limiting the result set to N entries."
+msgstr ""
+"PostgreSQL вирішує проблему найближчого сусіда, вводячи оператор «order by "
+"distance» (``<->``), який змушує базу даних використовувати індекс для "
+"прискорення сортування набору результатів. За допомогою оператора «order by "
+"distance» запит на найближчого сусіда може повернути «N найближчих об'єктів»"
+", просто додавши сортування та обмеживши набір результатів до N записів."
+
+#: ../../en/knn.rst:15
+msgid "The \"order by distance\" operator works for both geometry and geography types.  The only difference between how they work between the two types is the distance value returned.  For geometry ``<->`` returns the same answer as `ST_Distance` which is dependent on the units of the spatial reference system in use. For geography the distance value returned is the sphere distance, instead of the more accurate spheroidal distance that ``ST_Distance(geography,geography)`` returns."
+msgstr ""
+"Оператор «order by distance» працює як для геометричних, так і для "
+"географічних типів.  Єдина відмінність між цими двома типами полягає у "
+"значенні відстані, що повертається.  Для геометрії ``<->`` повертає той "
+"самий результат, що і `ST_Distance`, який залежить від одиниць виміру "
+"використовуваної системи просторових координат. Для географії повертається "
+"значення відстані по сфері, а не більш точна сфероїдальна відстань, яку "
+"повертає ``ST_Distance(geography,geography)``."
+
+#: ../../en/knn.rst:17
+msgid "Here's the 3 nearest streets to 'Broad St' subway station:"
+msgstr "Ось 3 найближчі вулиці до станції метро «Broad St»:"
+
+#: ../../en/knn.rst:53
+msgid "How can we be sure we are getting an index-assisted query? It's a good idea to check the ``EXPLAIN`` output for a nearest-neighbor query, because it's possible to get correct answers from non-indexed SQL and the lack of an index might not be obvious until the size of the tables scales up."
+msgstr ""
+"Як ми можемо бути впевнені, що отримуємо запит з індексом? Варто перевірити "
+"вихідні дані ``EXPLAIN`` для запиту найближчого сусіда, оскільки можна "
+"отримати правильні відповіді з неіндексованого SQL, а відсутність індексу "
+"може бути непомітною, доки розмір таблиць не збільшиться."
+
+#: ../../en/knn.rst:55
+msgid "This is the output from ``EXPLAIN``, note the index scan over the order by:"
+msgstr ""
+"Це вивід команди EXPLAIN, зверніть увагу на сканування індексу під час "
+"виконання операції сортування (order by):"
+
+#: ../../en/knn.rst:69
+msgid "Nearest Neighbor Join"
+msgstr "З’єднання найближчих сусідів"
+
+#: ../../en/knn.rst:71
+msgid "The index assisted order by operator has one major draw back: it only works with a **single geometry literal** on one side of the operator. This is fine for finding the objects nearest to one query object, but does not help for a spatial join, where the goal is to find the nearest neighbor for each of a full set of candidates."
+msgstr ""
+"Оператор сортування з підтримкою індексу має один суттєвий недолік: він "
+"працює лише з одним геометричним літералом з одного боку оператора. Це "
+"підходить для пошуку об’єктів, найближчих до одного запитного об’єкта, але "
+"не допомагає для просторового з’єднання, де мета — знайти найближчого сусіда "
+"для кожного об’єкта з повного набору кандидатів."
+
+#: ../../en/knn.rst:73
+msgid "Fortunately, there's a SQL language feature that allows us to run a query repeatedly driven in a loop: the `LATERAL join <https://medium.com/kkempin/postgresqls-lateral-join-bfd6bd0199df>`_."
+msgstr ""
+"На щастя, у мові SQL є можливість виконувати запит багаторазово в циклі — це "
+"LATERAL join <https://medium.com/kkempin/postgresqls-lateral-join-"
+"bfd6bd0199df>_."
+
+#: ../../en/knn.rst:75
+msgid "Here we will find the nearest street to each subway station:"
+msgstr "Тут ми знайдемо найближчу вулицю до кожної станції метро:"
+
+#: ../../en/knn.rst:93
+msgid "Note the way the ``CROSS JOIN LATERAL`` acts as the inner part of a loop driven by the subways table. Each record in the subways table gets fed into the lateral subquery, one at a time, so you get a nearest result for each subway record."
+msgstr ""
+"Зверніть увагу, що CROSS JOIN LATERAL працює як внутрішня частина циклу, "
+"керованого таблицею метро. Кожен запис із таблиці метро по черзі передається "
+"в латеральний підзапит, тож ви отримуєте найближчий результат для кожного "
+"запису метро."
+
+#: ../../en/knn.rst:97
+msgid "The explain shows the loop on the subway stations, and the index-assisted order by inside the loop where we want it:"
+msgstr ""
+"План виконання показує цикл по станціях метро та сортування з підтримкою "
+"індексу всередині циклу, саме там, де це потрібно:"

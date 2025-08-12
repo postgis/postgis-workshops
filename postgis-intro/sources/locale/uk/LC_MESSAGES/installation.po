@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Denys Kovshun <deniskovshun@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-08-09 20:47+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/installation/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/installation.rst:4
+msgid "Installation"
+msgstr "Встановлення"
+
+#: ../../en/installation.rst:6
+msgid "To explore the PostgreSQL/PostGIS database, and learn about writing spatial queries in SQL, we will need some software, either installed locally or available remotely on the cloud."
+msgstr ""
+"Щоб ознайомитися з базою даних PostgreSQL/PostGIS та навчитися писати "
+"просторові запити в SQL, нам знадобиться програмне забезпечення, яке можна "
+"встановити локально або отримати віддалено в хмарі."
+
+#: ../../en/installation.rst:8
+msgid "There are instructions below on how to access PostgreSQL for installation on Windows or MacOS. PostgreSQL for Windows and MacOS either include PostGIS or have an easy way to add it on."
+msgstr ""
+"Нижче наведені інструкції щодо встановлення PostgreSQL на Windows або MacOS. "
+"Версії PostgreSQL для Windows і MacOS або вже містять PostGIS, або мають "
+"простий спосіб його додати."
+
+#: ../../en/installation.rst:9
+msgid "There are instructions below on how to install `PgAdmin <https://www.pgadmin.org/>`_. PgAdmin is a graphical database explorer and SQL editor which provides a \"user facing\" interface to the database engine that does all the world."
+msgstr ""
+"Нижче наведено інструкції щодо встановлення `PgAdmin <https://www.pgadmin."
+"org/>`_. PgAdmin — це графічний браузер баз даних та редактор SQL, який "
+"надає «користувацький» інтерфейс до механізму бази даних, що виконує всі "
+"необхідні функції."
+
+#: ../../en/installation.rst:11
+msgid "For always up-to-date directions on installing PostgreSQL, go to the `PostgreSQL download page  <https://www.postgresql.org/download/>`_ and select the operating system you are using."
+msgstr ""
+"Щоб отримати завжди актуальні інструкції з інсталяції PostgreSQL, перейдіть "
+"на сторінку завантаження PostgreSQL  <https://www.postgresql.org/download/>_ "
+"і виберіть операційну систему, яку ви використовуєте."
+
+#: ../../en/installation.rst:15
+msgid "PostgreSQL for Microsoft Windows"
+msgstr "PostgreSQL для Microsoft Windows"
+
+#: ../../en/installation.rst:17
+msgid "For a Windows install:"
+msgstr "Для встановлення в Windows:"
+
+#: ../../en/installation.rst:19
+msgid "Go to the `Windows PostgreSQL download page <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>`_."
+msgstr ""
+"Перейдіть на сторінку завантаження Windows PostgreSQL <https://www."
+"enterprisedb.com/downloads/postgres-postgresql-downloads>_."
+
+#: ../../en/installation.rst:21
+msgid "Select the latest version of PostgreSQL and save the installer to disk."
+msgstr ""
+"Виберіть останню версію PostgreSQL і збережіть інсталятор на комп'ютері."
+
+#: ../../en/installation.rst:23
+msgid "Run the installer and accept the defaults."
+msgstr "Запустіть інсталятор і прийміть стандартні налаштування."
+
+#: ../../en/installation.rst:25
+msgid "Find and run the \"StackBuilder\" program that was installed with the database."
+msgstr ""
+"Знайдіть і запустіть програму «StackBuilder», яка була встановлена разом із "
+"базою даних."
+
+#: ../../en/installation.rst:27
+msgid "Select the \"Spatial Extensions\" section and choose latest \"PostGIS ..Bundle\" option."
+msgstr ""
+"Виберіть розділ «Spatial Extensions» і виберіть останню опцію «PostGIS .."
+"Bundle»."
+
+#: ../../en/installation.rst:32
+msgid "Accept the defaults and install."
+msgstr "Прийміть стандартні налаштування та інсталюйте."
+
+#: ../../en/installation.rst:36
+msgid "PostgreSQL for Apple MacOS"
+msgstr "PostgreSQL для Apple MacOS"
+
+#: ../../en/installation.rst:38
+msgid "For a MacOS install:"
+msgstr "Для встановлення на MacOS:"
+
+#: ../../en/installation.rst:40
+msgid "Go to the `Postgres.app <https://postgresapp.com/>`_ site, and download the latest release."
+msgstr ""
+"Перейдіть на сайт `Postgres.app <https://postgresapp.com/>`_ і завантажте "
+"останню версію."
+
+#: ../../en/installation.rst:42
+msgid "Open the disk image, and drag the **Postgres** icon into the **Applications** folder."
+msgstr ""
+"Відкрийте образ диска та перетягніть піктограму **Postgres** у папку "
+"**Програми**."
+
+#: ../../en/installation.rst:47
+msgid "In the **Applications** folder, double-click the **Postgres** icon to start the server."
+msgstr ""
+"У папці **Applications** двічі клацніть піктограму **Postgres**, щоб "
+"запустити сервер."
+
+#: ../../en/installation.rst:49
+msgid "Click the **Initialize** button to create a new blank database instance."
+msgstr ""
+"Натисніть кнопку **Ініціалізувати**, щоб створити новий порожній екземпляр "
+"бази даних."
+
+#: ../../en/installation.rst:54
+msgid "In the **Applications** folder, go to the **Utilities** folder and open **Terminal**."
+msgstr ""
+"У папці **Програми** перейдіть до папки **Утиліти** та відкрийте "
+"**Термінал**."
+
+#: ../../en/installation.rst:56
+msgid "Add the command-line utilities to your `PATH` for convenience."
+msgstr "Для зручності додайте утиліти командного рядка до вашого `PATH`."
+
+#: ../../en/installation.rst:65
+msgid "PgAdmin for Windows and MacOS"
+msgstr "PgAdmin для Windows і MacOS"
+
+#: ../../en/installation.rst:67
+msgid "PgAdmin is available for multiple platforms, at https://www.pgadmin.org/download/."
+msgstr ""
+"PgAdmin доступний для різних платформ на сайті https://www.pgadmin.org/"
+"download/."
+
+#: ../../en/installation.rst:69
+msgid "Download and install the latest version for your platform."
+msgstr "Завантажте та встановіть останню версію для вашої платформи."
+
+#: ../../en/installation.rst:71
+msgid "Start PgAdmin!"
+msgstr "Запустіть PgAdmin!"

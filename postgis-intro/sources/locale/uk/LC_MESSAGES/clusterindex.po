@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Denys Kovshun <deniskovshun@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-08-11 19:49+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/clusterindex/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/clusterindex.rst:4
+msgid "Clustering on Indices"
+msgstr "Кластеризація індексів"
+
+#: ../../en/clusterindex.rst:6
+msgid "Databases can only retrieve information as fast as they can get it off of disk. Small databases will float up entirely into RAM cache, and get away from physical disk limitations, but for large databases, access to the physical disk will be a limiting stop in disk access speed."
+msgstr ""
+"Бази даних можуть отримувати інформацію лише так швидко, як швидко вони "
+"можуть зчитувати її з диска. Невеликі бази даних повністю поміщаються в кеш "
+"оперативної пам’яті (RAM) і таким чином обходять обмеження фізичного диска, "
+"але для великих баз даних доступ до фізичного диска стає вузьким місцем у "
+"швидкості доступу до даних."
+
+#: ../../en/clusterindex.rst:8
+msgid "Data is written to disk opportunistically, so there is not necessarily any correlation between the order data is stored on the disk and the way it will be accessed or organized by applications."
+msgstr ""
+"Дані записуються на диск за можливістю, тому немає обов’язкової кореляції "
+"між порядком зберігання даних на диску і тим, як вони будуть доступні або "
+"організовані в додатках."
+
+#: ../../en/clusterindex.rst:13
+msgid "One way to speed up access to data is to ensure that records which is likely to be retrieved together in the same result set are located in similar physical locations on the hard disk platters. This is called \"clustering\"."
+msgstr ""
+"Один зі способів прискорити доступ до даних — гарантувати, що записи, які, "
+"ймовірно, будуть отримані разом у одному наборі результатів, розташовані у "
+"схожих фізичних місцях на пластинах жорсткого диска. Це називається "
+"«кластеризацією»."
+
+#: ../../en/clusterindex.rst:15
+msgid "The right clustering scheme to use can be tricky, but a general rule applies: indexes define a natural ordering scheme for data which is similar to the access pattern that will be used in retrieving the data."
+msgstr ""
+"Вибір правильної схеми кластеризації може бути складним, але існує загальне "
+"правило: індекси визначають природний порядок даних, який схожий на патерн "
+"доступу, що буде використовуватись для отримання даних."
+
+#: ../../en/clusterindex.rst:20
+msgid "Because of this, ordering the data on the disk in the same order as the index can provide a speed advantage in some cases."
+msgstr ""
+"Через це впорядкування даних на диску в тому ж порядку, що й індекс, може в "
+"деяких випадках забезпечити прискорення роботи."
+
+#: ../../en/clusterindex.rst:23
+msgid "Clustering on the R-Tree"
+msgstr "Кластеризація на основі R-Tree"
+
+#: ../../en/clusterindex.rst:25
+msgid "Spatial data tends to be accessed in spatially correlated windows: think of the map window in a web or desktop application. All the data in the windows has similar location value (or it wouldn't be in the window!)"
+msgstr ""
+"Просторові дані зазвичай отримують доступ у просторово корельованих вікнах: "
+"уявіть собі вікно карти у веб або настільному додатку. Всі дані у вікні "
+"мають схожі координати (інакше вони б не були у цьому вікні!)"
+
+#: ../../en/clusterindex.rst:27
+msgid "So, clustering based on a spatial index makes sense for spatial data that is going to be accessed with spatial queries: similar things tend to have similar locations."
+msgstr ""
+"Отже, кластеризація на основі просторового індексу має сенс для просторових "
+"даних, які будуть доступні через просторові запити: схожі об’єкти зазвичай "
+"розташовані близько один до одного."
+
+#: ../../en/clusterindex.rst:29
+msgid "Let's cluster our ``nyc_census_blocks`` based on their spatial index:"
+msgstr ""
+"Давайте виконаємо кластеризацію таблиці ``nyc_census_blocks ``на основі їх "
+"просторового індексу:"
+
+#: ../../en/clusterindex.rst:36
+msgid "The command re-writes the ``nyc_census_blocks`` in the order defined by the spatial index ``nyc_census_blocks_geom_gist``. Can you perceive a speed difference? Maybe not, because the original data may have already had some pre-existing spatial ordering (this is not uncommon in GIS data sets)."
+msgstr ""
+"Ця команда переписує таблицю ``nyc_census_blocks`` у порядку, визначеному "
+"просторовим індексом ``nyc_census_blocks_geom_gist``. Чи відчуєте ви різницю "
+"у швидкості? Можливо, ні, бо початкові дані могли вже мати певне просторове "
+"впорядкування (це не рідкість у наборах даних GIS)."
+
+#: ../../en/clusterindex.rst:39
+msgid "Disk Versus Memory/SSD"
+msgstr "Диск проти ОЗП/SSD"
+
+#: ../../en/clusterindex.rst:41
+msgid "Most modern databases are run using SSD storage, which is much faster at random access than old spinning magnetic media. Also, most modern databases are running on top of data which is small enough to fit into the RAM of the database server, and ends up there as the operating system \"virtual filesystem\" caches it."
+msgstr ""
+"Більшість сучасних баз даних працюють на SSD-накопичувачах, які значно "
+"швидші при випадковому доступі, ніж старі магнітні диски з обертанням. Також "
+"більшість сучасних баз даних працюють із даними, які достатньо малі, щоб "
+"поміститися в оперативну пам’ять сервера бази даних, і в кінцевому "
+"результаті там опиняються завдяки кешуванню віртуальної файлової системи "
+"операційної системи."
+
+#: ../../en/clusterindex.rst:43
+msgid "Is clustering still necessary?"
+msgstr "Чи кластеризація все ще потрібна?"
+
+#: ../../en/clusterindex.rst:45
+msgid "Surprisingly, yes. Keeping records that are \"near each other\" in space \"near each other\" in memory increases the odds that related records will move up the servers \"memory cache heirarchy\" together, and thus make memory accesses faster."
+msgstr ""
+"Дивно, але так. Зберігання записів, які \"розташовані близько один до "
+"одного\" у просторі, також \"поряд\" у пам’яті збільшує ймовірність того, що "
+"пов’язані записи одночасно потраплять до кешу пам’яті сервера, що прискорює "
+"доступ до пам’яті."
+
+#: ../../en/clusterindex.rst:50
+msgid "System RAM is not the fastest memory on a modern computer. There are several levels of cache between system RAM and the actual CPU, and the underlying operating system and processor will move data up and down the cache heirarchy in blocks. If the block getting moved up happens to include the piece of data the system will need next... that's a big win. Correlating the memory structure with the spatial structure is a way in increase the odds of that win happening."
+msgstr ""
+"Оперативна пам’ять системи — не найшвидша пам’ять у сучасному комп’ютері. "
+"Існує кілька рівнів кешу між системною пам’яттю і процесором, і операційна "
+"система разом із процесором переміщують дані по ієрархії кешу блоками. Якщо "
+"блок, що переміщується вгору, містить потрібний для системи наступний "
+"фрагмент даних — це велика перевага. Узгодження структури пам’яті зі "
+"просторовою структурою збільшує шанси на таку вигідну ситуацію."
+
+#: ../../en/clusterindex.rst:53
+msgid "Does Index Structure Matter?"
+msgstr "Чи має значення структура індексу?"
+
+#: ../../en/clusterindex.rst:55
+msgid "In theory, yes. In practice, no really. As long as the index is a \"pretty good\" spatial decomposition of the data, the main determinant of performance will be the order of the actual table tuples."
+msgstr ""
+"Теоретично — так. Насправді ж — не дуже. Поки індекс є «досить хорошим» "
+"просторовим поділом даних, основним чинником продуктивності буде порядок "
+"розташування рядків у таблиці."
+
+#: ../../en/clusterindex.rst:57
+msgid "The difference between \"no index\" and \"index\" is generally huge and highly measurable. The difference between \"mediocre index\" and \"great index\" usually takes quite careful measurement to discern, and can be very sensitive to the workload being tested."
+msgstr ""
+"Різниця між «відсутністю індексу» і «наявністю індексу» зазвичай величезна "
+"та легко вимірювана. Різниця між «посереднім індексом» і «відмінним індексом»"
+" зазвичай потребує дуже ретельного вимірювання і може сильно залежати від "
+"навантаження, яке тестується."
+
+#: ../../en/clusterindex.rst:61
+msgid "Function List"
+msgstr "Список функцій"
+
+#: ../../en/clusterindex.rst:63
+msgid "`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_: Re-orders the data in a table to match the ordering in the index."
+msgstr ""
+"`CLUSTER <https://www.postgresql.org/docs/current/sql-cluster.html>`_ : "
+"Перепорядковує дані в таблиці відповідно до порядку, заданого індексом."

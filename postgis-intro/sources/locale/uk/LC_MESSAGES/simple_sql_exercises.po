@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Denys Kovshun <deniskovshun@gmail.com>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-08-12 01:10+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/simple_sql_exercises/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/simple_sql_exercises.rst:4
+msgid "Simple SQL Exercises"
+msgstr "Прості вправи з SQL"
+
+#: ../../en/simple_sql_exercises.rst:6
+msgid "Using the ``nyc_census_blocks`` table, answer the following questions (don't peek at the answers!)."
+msgstr ""
+"Використовуючи таблицю «nyc_census_blocks», дайте відповіді на наступні "
+"питання (не підглядайте відповіді!)."
+
+#: ../../en/simple_sql_exercises.rst:8
+msgid "Here is some helpful information to get started.  Recall from the :ref:`About Our Data <about_data>` section our ``nyc_census_blocks`` table definition."
+msgstr ""
+"Ось деяка корисна інформація для початку. Згадайте з розділу :ref:`Про наші "
+"дані <about_data>` визначення таблиці ``nyc_census_blocks``."
+
+#: ../../en/simple_sql_exercises.rst:13
+msgid "**blkid**"
+msgstr "**blkid**"
+
+#: ../../en/simple_sql_exercises.rst:14
+msgid "A 15-digit code that uniquely identifies every census **block**. (\"360050001009000\")"
+msgstr ""
+"15-значний код, який однозначно ідентифікує кожен **блок** перепису. "
+"Наприклад: 360050001009000"
+
+#: ../../en/simple_sql_exercises.rst:15
+msgid "**popn_total**"
+msgstr "**popn_total**"
+
+#: ../../en/simple_sql_exercises.rst:16
+msgid "Total number of people in the census block"
+msgstr "Загальна кількість людей у переписному блоці"
+
+#: ../../en/simple_sql_exercises.rst:17
+msgid "**popn_white**"
+msgstr "**popn_white**"
+
+#: ../../en/simple_sql_exercises.rst:18
+msgid "Number of people self-identifying as \"white\" in the block"
+msgstr "Кількість людей, які самоідентифікуються як «білі» у цьому кварталі"
+
+#: ../../en/simple_sql_exercises.rst:19
+msgid "**popn_black**"
+msgstr "**popn_black**"
+
+#: ../../en/simple_sql_exercises.rst:20
+msgid "Number of people self-identifying as \"black\" in the block"
+msgstr ""
+"Кількість людей, які самоідентифікуються як «чорношкірі» в цьому кварталі"
+
+#: ../../en/simple_sql_exercises.rst:21
+msgid "**popn_nativ**"
+msgstr "**popn_nativ**"
+
+#: ../../en/simple_sql_exercises.rst:22
+msgid "Number of people self-identifying as \"native american\" in the block"
+msgstr ""
+"Кількість людей, які самоідентифікуються як «корінні американці» в цьому "
+"кварталі"
+
+#: ../../en/simple_sql_exercises.rst:23
+msgid "**popn_asian**"
+msgstr "**popn_asian**"
+
+#: ../../en/simple_sql_exercises.rst:24
+msgid "Number of people self-identifying as \"asias\" in the block"
+msgstr "Кількість людей, які самоідентифікуються як «азіати» в блоці"
+
+#: ../../en/simple_sql_exercises.rst:25
+msgid "**popn_other**"
+msgstr "**popn_other**"
+
+#: ../../en/simple_sql_exercises.rst:26
+msgid "Number of people self-identifying with other categories in the block"
+msgstr "Кількість осіб, які самоідентифікуються з іншими категоріями в блоці"
+
+#: ../../en/simple_sql_exercises.rst:27
+msgid "**hous_total**"
+msgstr "**hous_total**"
+
+#: ../../en/simple_sql_exercises.rst:28
+msgid "Number of housing units in the block"
+msgstr "Кількість житлових одиниць у кварталі"
+
+#: ../../en/simple_sql_exercises.rst:29
+msgid "**hous_own**"
+msgstr "**hous_own**"
+
+#: ../../en/simple_sql_exercises.rst:30
+msgid "Number of owner-occupied housing units in the block"
+msgstr "Кількість житлових одиниць, що належать власникам, у кварталі"
+
+#: ../../en/simple_sql_exercises.rst:31
+msgid "**hous_rent**"
+msgstr "**hous_rent**"
+
+#: ../../en/simple_sql_exercises.rst:32
+msgid "Number of renter-occupied housing units in the block"
+msgstr "Кількість житлових одиниць, зайнятих орендарями в кварталі"
+
+#: ../../en/simple_sql_exercises.rst:33
+msgid "**boroname**"
+msgstr "**boroname**"
+
+#: ../../en/simple_sql_exercises.rst:34
+msgid "Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens"
+msgstr ""
+"Назва району Нью-Йорка. Манхеттен, Бронкс, Бруклін, Статен-Айленд, Квінс"
+
+#: ../../en/simple_sql_exercises.rst:35
+msgid "**geom**"
+msgstr "**geom**"
+
+#: ../../en/simple_sql_exercises.rst:36
+msgid "Polygon boundary of the block"
+msgstr "Полігональна межа блоку"
+
+#: ../../en/simple_sql_exercises.rst:38
+msgid "And, here are some common SQL aggregation functions you might find useful:"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:40
+msgid "avg() - the average (mean) of the values in a set of records"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:41
+msgid "sum() - the sum of the values in a set of records"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:42
+msgid "count() - the number of records in a set of records"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:44
+msgid "Now the questions:"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:46
+msgid "**How many records are in the nyc_streets table?**"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:57
+msgid "**How many streets in NYC start with ‘B’?**"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:70
+msgid "**What is the population of the City of New York?**"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:83
+msgid "What is this ``AS``? You can give a table or a column another name by using an alias.  Aliases can make queries easier to both write and to read. So instead of our outputted column name as ``sum`` we write it **AS** the more readable ``population``."
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:85
+msgid "**What is the population of the Bronx?**"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:98
+msgid "**How many \"neighborhoods\" are in each borough?**"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:118
+msgid "**For each borough, what percentage of the population is white?**"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:141
+msgid "Function List"
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:143
+msgid "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the average value of a numeric column."
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:145
+msgid "`count(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the number of records in a set of records."
+msgstr ""
+
+#: ../../en/simple_sql_exercises.rst:147
+msgid "`sum(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the sum of records in a set of records."
+msgstr ""

@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# Denys Kovshun <deniskovshun@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-08-12 00:24+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/projection/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/projection.rst:4
+msgid "Projecting Data"
+msgstr "Проекція даних"
+
+#: ../../en/projection.rst:6
+msgid "The earth is not flat, and there is no simple way of putting it down on a flat paper map (or computer screen), so people have come up with all sorts of ingenious solutions, each with pros and cons. Some projections preserve area, so all objects have a relative size to each other; other projections preserve angles (conformal) like the Mercator projection; some projections try to find a good intermediate mix with only little distortion on several parameters. Common to all projections is that they transform the (spherical) world onto a flat Cartesian coordinate system, and which projection to choose depends on how you will be using the data."
+msgstr ""
+"Земля не є пласкою, і немає простого способу зобразити її на плоскому "
+"паперовому мапі (або на екрані комп’ютера), тому люди придумали різноманітні "
+"винахідливі рішення, кожне з яких має свої переваги і недоліки. Деякі "
+"проекції зберігають площу, тож усі об’єкти мають відносний розмір один до "
+"одного; інші проекції зберігають кути (конформні), як, наприклад, проекція "
+"Меркатора; деякі проекції намагаються знайти хороший проміжний варіант із "
+"мінімальними спотвореннями по кількох параметрах. Спільним для всіх проекцій "
+"є те, що вони трансформують (сферичний) світ у плоску декартову систему "
+"координат, а вибір проекції залежить від того, як ви плануєте "
+"використовувати ці дані."
+
+#: ../../en/projection.rst:8
+msgid "We've already encountered projections when we :ref:`loaded our nyc data <loading_data>`.  (Recall that pesky SRID 26918).  Sometimes, however, you need to transform and re-project between spatial reference systems. PostGIS includes built-in support for changing the projection of data, using the :command:`ST_Transform(geometry, srid)` function. For managing the spatial reference identifiers on geometries, PostGIS provides the :command:`ST_SRID(geometry)` and :command:`ST_SetSRID(geometry, srid)` functions."
+msgstr ""
+"Ми вже зустрічали проекції, коли :ref:`завантажували наші дані Нью-Йорка "
+"<loading_data>` — пам’ятаєте той нав’язливий SRID 26918? Іноді, однак, "
+"потрібно трансформувати та повторно проектувати між системами просторових "
+"координат. PostGIS має вбудовану підтримку зміни проекції даних за допомогою "
+"функції :command:`ST_Transform(geometry, srid)`. Для керування "
+"ідентифікаторами просторових систем координат (SRID) у геометріях, PostGIS "
+"надає функції :command:`ST_SRID(geometry)` та :command:`ST_SetSRID(geometry, "
+"srid)`."
+
+#: ../../en/projection.rst:10
+msgid "We can confirm the SRID of our data with the :command:`ST_SRID` function:"
+msgstr ""
+"Ми можемо підтвердити SRID наших даних за допомогою функції "
+":command:`ST_SRID`:"
+
+#: ../../en/projection.rst:20
+msgid "And what is definition of \"26918\"? As we saw in \":ref:`loading data section <loading_data>`\", the definition is contained in the ``spatial_ref_sys`` table. In fact, **two** definitions are there. The \"well-known text\" (:term:`WKT`) definition is in the ``srtext`` column, and there is a second definition in \"proj.4\" format in the ``proj4text`` column."
+msgstr ""
+"А що таке визначення \"26918\"? Як ми бачили у розділі \":ref: `завантаження "
+"даних <loading_data>\"`, це визначення міститься у таблиці "
+"``spatial_ref_sys``. Насправді, там є дві версії визначення. Визначення у "
+"форматі \"well-known text\" (:term:`WKT`) знаходиться у стовпці ``srtext``, "
+"а друга версія у форматі \"proj.4\" — у стовпці ``proj4text``."
+
+#: ../../en/projection.rst:26
+msgid "The PostGIS reprojection engine will attempt to find the best projection from the ``spatial_ref_sys`` table:"
+msgstr ""
+"Механізм перепроектування PostGIS спробує знайти найкращу проекцію з таблиці "
+"``spatial_ref_sys``:"
+
+#: ../../en/projection.rst:28
+msgid "**auth_name / auth_srid** If proj can find a valid \"authority name\" and \"authority srid\" in its internal catalogue, it will use that to generate a projection definition."
+msgstr ""
+"**auth_name / auth_srid** Якщо proj може знайти дійсне «authority name» та «"
+"authority srid» у своєму внутрішньому каталозі, він використає їх для "
+"створення визначення проекції."
+
+#: ../../en/projection.rst:29
+msgid "**srtext** If proj can parse and form a definition object from the ``srtext`` it will use that."
+msgstr ""
+"**srtext** Якщо proj може проаналізувати та сформувати об'єкт визначення з "
+"``srtext``, він буде використовувати його."
+
+#: ../../en/projection.rst:30
+msgid "**proj4text** Finally, proj will attempt to process the ``proj4text``."
+msgstr "**proj4text** Зрештою, proj спробує обробити ``proj4text``."
+
+#: ../../en/projection.rst:32
+msgid "All this redundancy means that all you need to create a new projection in PostGIS is either a valid ``srtext`` string or ``proj4text`` string. All the common authority name/code pairs are already loaded in the table by default."
+msgstr ""
+"Вся ця надмірність означає, що для створення нової проекції в PostGIS вам "
+"потрібно лише дійсний рядок ``srtext`` або ``proj4text``. Усі поширені пари "
+"назв/кодів органів влади вже завантажені в таблицю за замовчуванням."
+
+#: ../../en/projection.rst:34
+msgid "If you have a choice when creating a custom projection, fill out the ``srtext`` column, since that column is also used by external programs like `GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_, and `FME <http://www.safe.com/>`_  and others."
+msgstr ""
+"Якщо у вас є вибір під час створення власного проектування, заповніть "
+"стовпець «srtext», оскільки цей стовпець також використовується зовнішніми "
+"програмами, такими як «GeoServer <http://geoserver.org>», «QGIS <https://qgis"
+".org>» та «FME <http://www.safe.com/>» та іншими."
+
+#: ../../en/projection.rst:38
+msgid "Comparing Data"
+msgstr "Порівняння даних"
+
+#: ../../en/projection.rst:40
+msgid "Taken together, a coordinate and an SRID define a location on the globe. Without an SRID, a coordinate is just an abstract notion. A \"Cartesian\" coordinate plane is defined as a \"flat\" coordinate system placed on the surface of Earth. Because PostGIS functions work on such a plane, comparison operations require that both geometries be represented in the same SRID."
+msgstr ""
+"Разом координати та SRID визначають місце на земній кулі. Без SRID "
+"координати є лише абстрактним поняттям. «Декартова» координатна площина "
+"визначається як «плоска» система координат, розміщена на поверхні Землі. "
+"Оскільки функції PostGIS працюють на такій площині, операції порівняння "
+"вимагають, щоб обидві геометрії були представлені в одному SRID."
+
+#: ../../en/projection.rst:42
+msgid "If you feed in geometries with differing SRIDs you will just get an error:"
+msgstr "Якщо ви введете геометрії з різними SRID, ви отримаєте помилку:"
+
+#: ../../en/projection.rst:58
+msgid "Be careful of getting too happy with using :command:`ST_Transform` for on-the-fly conversion. Spatial indexes are built using SRID of the stored geometries.  If comparison are done in a different SRID, spatial indexes are (often) not used. It is best practice to choose **one SRID** for all the tables in your database. Only use the transformation function when you are reading or writing data to external applications."
+msgstr ""
+"Будьте обережні, не захоплюйтеся використанням команди "
+":command:`ST_Transform` для перетворення на льоту. Просторові індекси "
+"будуються з використанням SRID збережених геометрій.  Якщо порівняння "
+"виконується в іншому SRID, просторові індекси (часто) не використовуються. "
+"Найкраще вибрати **один SRID** для всіх таблиць у вашій базі даних. "
+"Використовуйте функцію перетворення тільки під час читання або запису даних "
+"у зовнішні додатки."
+
+#: ../../en/projection.rst:62
+msgid "Transforming Data"
+msgstr "Перетворення даних"
+
+#: ../../en/projection.rst:64
+msgid "If we return to our proj4 definition for SRID 26918, we can see that our working projection is UTM (Universal Transverse Mercator) of zone 18, with meters as the unit of measurement."
+msgstr ""
+"Якщо повернутися до нашого визначення proj4 для SRID 26918, ми побачимо, що "
+"наша робоча проекція — це UTM (універсальна поперечна проекція Меркатора) "
+"зони 18, з метрами як одиницею вимірювання."
+
+#: ../../en/projection.rst:92
+msgid "Let's convert some data from our working projection to geographic coordinates -- also known as \"longitude/latitude\"."
+msgstr ""
+"Давайте перетворимо деякі дані з нашої робочої проекції в географічні "
+"координати, також відомі як «довгота/широта»."
+
+#: ../../en/projection.rst:94
+msgid "To convert data from one SRID to another, you must first verify that your geometry has a valid SRID. Since we have already confirmed a valid SRID, we next need the SRID of the projection to transform into. In other words, what is the SRID of geographic coordinates?"
+msgstr ""
+"Щоб перетворити дані з одного SRID в інший, спочатку потрібно перевірити, чи "
+"має ваша геометрія дійсний SRID. Оскільки ми вже підтвердили дійсність SRID, "
+"нам потрібно SRID проекції, в яку ми хочемо перетворити дані. Іншими "
+"словами, який SRID мають географічні координати?"
+
+#: ../../en/projection.rst:96
+msgid "The most common SRID for geographic coordinates is 4326, which corresponds to \"longitude/latitude on the WGS84 spheroid\". You can see the definition here:"
+msgstr ""
+"Найпоширенішим SRID для географічних координат є 4326, що відповідає "
+"«довготі/широті на сфероїді WGS84». Ви можете ознайомитися з визначенням тут:"
+
+#: ../../en/projection.rst:98
+msgid "https://epsg.io/4326"
+msgstr "https://epsg.io/4326"
+
+#: ../../en/projection.rst:100
+msgid "You can also pull the definitions from the ``spatial_ref_sys`` table:"
+msgstr "Ви також можете витягти визначення з таблиці ``spatial_ref_sys``:"
+
+#: ../../en/projection.rst:116
+msgid "Let's convert the coordinates of the 'Broad St' subway station into geographics:"
+msgstr "Перетворимо координати станції метро «Broad St» у географічні:"
+
+#: ../../en/projection.rst:128
+msgid "If you load data or create a new geometry without specifying an SRID, the SRID value will be 0.  Recall in :ref:`geometries`, that when we created our ``geometries`` table we didn't specify an SRID. If we query our database, we should expect all the ``nyc_`` tables to have an SRID of 26918, while  the ``geometries`` table defaulted to an SRID of 0."
+msgstr ""
+"Якщо ви завантажуєте дані або створюєте нову геометрію без вказання SRID, "
+"значення SRID буде 0.  Згадайте в :ref:`geometries`, що коли ми створювали "
+"нашу таблицю ``geometries``, ми не вказали SRID. Якщо ми зробимо запит до "
+"нашої бази даних, ми повинні очікувати, що всі таблиці ``nyc_`` матимуть "
+"SRID 26918, тоді як  таблиця ``geometries`` за замовчуванням матиме SRID 0."
+
+#: ../../en/projection.rst:130
+msgid "To view a table's SRID assignment, query the database's ``geometry_columns`` table."
+msgstr ""
+"Щоб переглянути призначення SRID таблиці, виконайте запит до таблиці "
+"``geometry_columns`` бази даних."
+
+#: ../../en/projection.rst:149
+msgid "However, if you know what the SRID of the coordinates is supposed to be, you can set it post-facto, using :command:`ST_SetSRID` on the geometry. Then you will be able to transform the geometry into other systems."
+msgstr ""
+"Однак, якщо ви знаєте, яким має бути SRID координат, ви можете встановити "
+"його постфактум, використовуючи :command:`ST_SetSRID` на геометрії. Після "
+"цього ви зможете перетворити геометрію в інші системи."
+
+#: ../../en/projection.rst:162
+msgid "Function List"
+msgstr "Список функцій"
+
+#: ../../en/projection.rst:163
+msgid "`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: Returns the Well-Known Text (WKT) representation of the geometry/geography without SRID metadata."
+msgstr ""
+"`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: Повертає "
+"представлення геометрії/географії у вигляді добре відомого тексту (WKT) без "
+"метаданих SRID."
+
+#: ../../en/projection.rst:165
+msgid "`ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>`_: Sets the SRID on a geometry to a particular integer value."
+msgstr ""
+"`ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>`_: "
+"Встановлює SRID для геометрії на певне ціле значення."
+
+#: ../../en/projection.rst:167
+msgid "`ST_SRID(geometry) <http://postgis.net/docs/ST_SRID.html>`_: Returns the spatial reference identifier for the ST_Geometry as defined in spatial_ref_sys table."
+msgstr ""
+"`ST_SRID(geometry) <http://postgis.net/docs/ST_SRID.html>`_: Повертає "
+"ідентифікатор просторового посилання для ST_Geometry, як визначено в таблиці "
+"spatial_ref_sys."
+
+#: ../../en/projection.rst:169
+msgid "`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: Returns a new geometry with its coordinates transformed to the SRID referenced by the integer parameter."
+msgstr ""
+"`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: "
+"Повертає нову геометрію з координатами, перетвореними у SRID, на який "
+"посилається цілочисельний параметр."

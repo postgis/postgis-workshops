@@ -1,503 +1,719 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
-# Denys Kovshun <deniskovshun@gmail.com>, 2023.
+# Denys Kovshun <deniskovshun@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-08-09 19:23+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/introduction/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/introduction.rst:4
 msgid "Introduction"
-msgstr ""
+msgstr "Вступ"
 
 #: ../../en/introduction.rst:7
 msgid "What is a Spatial Database?"
-msgstr ""
+msgstr "Що таке просторова база даних?"
 
 #: ../../en/introduction.rst:9
 msgid "PostGIS is a spatial database. Oracle Spatial and SQL Server (2008 and later) are also spatial databases. But what does that mean; what is it that makes an ordinary database a spatial database?"
 msgstr ""
+"PostGIS — це просторова база даних. Oracle Spatial і SQL Server (2008 і "
+"пізніші версії) також є просторовими базами даних. Але що це означає? Що "
+"саме робить звичайну базу даних просторовою?"
 
 #: ../../en/introduction.rst:11
 msgid "The short answer, is..."
-msgstr ""
+msgstr "Коротка відповідь така..."
 
 #: ../../en/introduction.rst:13
 msgid "**Spatial databases store and manipulate spatial objects like any other object in the database.**"
 msgstr ""
+"**Просторові бази даних зберігають і обробляють просторові об'єкти так само, "
+"як і будь-які інші об'єкти в базі даних.**"
 
 #: ../../en/introduction.rst:15
 msgid "The following briefly covers the evolution of spatial databases, and then reviews three aspects that associate *spatial* data with a database -- data types, indexes, and functions."
 msgstr ""
+"Нижче коротко розглядається еволюція просторових баз даних, а потім "
+"аналізуються три аспекти, що пов'язують *просторові* дані з базою даних — "
+"типи даних, індекси та функції."
 
 #: ../../en/introduction.rst:17
 msgid "**Spatial data types** refer to shapes such as point, line, and polygon;"
 msgstr ""
+"**Типи просторових даних** відносяться до фігур, таких як точка, лінія та "
+"багатокутник;"
 
 #: ../../en/introduction.rst:18
 msgid "Multi-dimensional **spatial indexing** is used for efficient processing of spatial operations;"
 msgstr ""
+"Для ефективної обробки просторових операцій використовується багатовимірне **"
+"просторове індексування**;"
 
 #: ../../en/introduction.rst:19
 msgid "**Spatial functions**, posed in :term:`SQL`, are for querying of spatial properties and relationships."
 msgstr ""
+"**Просторові функції**, задані в :term:`SQL`, призначені для запиту "
+"просторових властивостей і взаємозв'язків."
 
 #: ../../en/introduction.rst:21
 msgid "Combined, spatial data types, indexes, and functions provide a flexible structure for optimized performance and analysis."
 msgstr ""
+"У поєднанні типи просторових даних, індекси та функції забезпечують гнучку "
+"структуру для оптимізації продуктивності та аналізу."
 
 #: ../../en/introduction.rst:24
 msgid "In the Beginning"
-msgstr ""
+msgstr "На початку"
 
 #: ../../en/introduction.rst:26
 msgid "In legacy first-generation :term:`GIS` implementations, all spatial data is stored in flat files and special :term:`GIS` software is required to interpret and manipulate the data.  These first-generation management systems are designed to meet the needs of users where all required data is within the user's organizational domain.  They are proprietary, self-contained systems specifically built for handling spatial data."
 msgstr ""
+"У застарілих реалізаціях :term:`GIS` першого покоління всі просторові дані "
+"зберігаються у плоских файлах, а для їх інтерпретації та обробки потрібне "
+"спеціальне програмне забезпечення :term:`GIS`.  Ці системи управління "
+"першого покоління розроблені для задоволення потреб користувачів, у яких усі "
+"необхідні дані знаходяться в межах організаційної домену користувача.  Вони "
+"є пропрієтарними, автономними системами, спеціально створеними для обробки "
+"просторових даних."
 
 #: ../../en/introduction.rst:28
 msgid "Second-generation spatial systems store some data in relational databases (usually the \"attribute\" or non-spatial parts) but still lack the flexibility afforded with direct integration."
 msgstr ""
+"Просторові системи другого покоління зберігають деякі дані в реляційних "
+"базах даних (зазвичай «атрибути» або непросторові частини), але все ще не "
+"мають гнучкості, яку забезпечує пряма інтеграція."
 
 #: ../../en/introduction.rst:30
 msgid "**True spatial databases were born when people started to treat spatial features as first class database objects.**"
 msgstr ""
+"**Справжні просторові бази даних з'явилися, коли люди почали розглядати "
+"просторові об'єкти як об'єкти першокласних баз даних.**"
 
 #: ../../en/introduction.rst:32
 msgid "Spatial databases fully integrate spatial data with a relational database.  The system orientation changes from GIS-centric to database-centric."
 msgstr ""
+"Просторові бази даних повністю інтегрують просторові дані з реляційною базою "
+"даних.  Орієнтація системи змінюється з орієнтованої на ГІС на орієнтовану "
+"на базу даних."
 
 #: ../../en/introduction.rst:37
 msgid "A spatial database management system may be used in applications besides the geographic world.  Spatial databases are used to manage data related to the anatomy of the human body, large-scale integrated circuits, molecular structures, and electro-magnetic fields, among others."
 msgstr ""
+"Система управління просторовими базами даних може використовуватися в "
+"застосунках, що не стосуються географічного світу.  Просторові бази даних "
+"використовуються для управління даними, пов'язаними, зокрема, з анатомією "
+"людського тіла, великомасштабними інтегральними схемами, молекулярними "
+"структурами та електромагнітними полями."
 
 #: ../../en/introduction.rst:41
 msgid "Spatial Data Types"
-msgstr ""
+msgstr "Типи просторових даних"
 
 #: ../../en/introduction.rst:43
 msgid "An ordinary database has strings, numbers, and dates. A spatial database adds additional (spatial) types for representing **geographic features**. These spatial data types abstract and encapsulate spatial structures such as boundary and dimension. In many respects, spatial data types can be understood simply as shapes."
 msgstr ""
+"Звичайна база даних містить рядки, числа та дати. Просторова база даних "
+"додає додаткові (просторові) типи для представлення **географічних об'єктів**"
+". Ці просторові типи даних абстрагують та інкапсулюють просторові структури, "
+"такі як межі та розміри. У багатьох відношеннях просторові типи даних можна "
+"просто розуміти як фігури."
 
 #: ../../en/introduction.rst:49
 msgid "Spatial data types are organized in a type hierarchy.  Each sub-type inherits the structure (attributes) and the behavior (methods or functions) of its super-type."
 msgstr ""
+"Типи просторових даних організовані в ієрархію типів.  Кожен підтип "
+"успадковує структуру (атрибути) та поведінку (методи або функції) свого "
+"супертипу."
 
 #: ../../en/introduction.rst:53
 msgid "Spatial Indexes and Bounding Boxes"
-msgstr ""
+msgstr "Просторові індекси та обмежувальні прямокутники"
 
 #: ../../en/introduction.rst:55
 msgid "An ordinary database provides **indexes** to allow for fast and random access to subsets of data.  Indexing for standard types (numbers, strings, dates) is usually done with `B-tree <http://en.wikipedia.org/wiki/B-tree>`_ indexes."
 msgstr ""
+"Звичайна база даних надає **індекси**, що забезпечують швидкий і довільний "
+"доступ до підмножин даних.  Індексування стандартних типів (числа, рядки, "
+"дати) зазвичай виконується за допомогою `B-tree <http://en.wikipedia.org/"
+"wiki/B-tree>`_індексів."
 
 #: ../../en/introduction.rst:57
 msgid "A B-tree partitions the data using the natural sort order to put the data into a hierarchical tree. The natural sort order of numbers, strings, and dates is simple to determine -- every value is less than, greater than or equal to every other value."
 msgstr ""
+"B-дерево розділяє дані, використовуючи природний порядок сортування, щоб "
+"розмістити дані в ієрархічному дереві. Природний порядок сортування чисел, "
+"рядків і дат визначити просто — кожне значення менше, більше або дорівнює "
+"кожному іншому значенню."
 
 #: ../../en/introduction.rst:59
 msgid "But because polygons can overlap, can be contained in one another, and are arrayed in a two-dimensional (or more) space, a B-tree cannot be used to efficiently index them. Real spatial databases provide a \"spatial index\" that instead answers the question \"which objects are within this particular bounding box?\"."
 msgstr ""
+"Але оскільки полігони можуть перекриватися, міститися один в одному і "
+"розташовуватися у двовимірному (або більш вимірному) просторі, B-дерево не "
+"може бути використане для їх ефективного індексування. Реальні просторові "
+"бази даних надають «просторовий індекс», який замість цього відповідає на "
+"питання «які об'єкти знаходяться в межах цієї конкретної обмежувальної "
+"рамки?»."
 
 #: ../../en/introduction.rst:61
 msgid "A **bounding box** is the smallest rectangle -- parallel to the coordinate axes -- capable of containing a given feature."
 msgstr ""
+"**Обмежувальна рамка** — це найменший прямокутник, паралельний осям "
+"координат, який може вмістити задану фігуру."
 
 #: ../../en/introduction.rst:67
 msgid "Bounding boxes are used because answering the question \"is A inside B?\" is very computationally intensive for polygons but very fast in the case of rectangles.  Even the most complex polygons and linestrings can be represented by a simple bounding box."
 msgstr ""
+"Обмежувальні рамки використовуються тому, що відповідь на питання «чи "
+"знаходиться A всередині B?» є дуже обчислювально інтенсивною для "
+"багатокутників, але дуже швидкою у випадку прямокутників.  Навіть "
+"найскладніші багатокутники та лінійні ланцюжки можуть бути представлені "
+"простим обмежувальним рамкою."
 
 #: ../../en/introduction.rst:69
 msgid "Indexes have to perform quickly in order to be useful. So instead of providing exact results, as B-trees do, spatial indexes provide approximate results. The question \"what lines are inside this polygon?\" will be instead interpreted by a spatial index as \"what lines have bounding boxes that are contained inside this polygon's bounding box?\""
 msgstr ""
+"Індекси повинні працювати швидко, щоб бути корисними. Тому замість того, щоб "
+"надавати точні результати, як це роблять B-дерева, просторові індекси "
+"надають приблизні результати. Питання «які лінії знаходяться всередині цього "
+"багатокутника?» буде інтерпретуватися просторовим індексом як «які лінії "
+"мають обмежувальні рамки, що містяться всередині обмежувальної рамки цього "
+"багатокутника?»"
 
 #: ../../en/introduction.rst:71
 msgid "The actual spatial indexes implemented by various databases vary widely. The most common implementations are the `R-Tree <http://en.wikipedia.org/wiki/R-tree>`_ and `Quadtree <http://en.wikipedia.org/wiki/Quadtree>`_ (used in PostGIS), but there are also `grid-based indexes <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ and `GeoHash indexes <https://en.wikipedia.org/wiki/Geohash>`_ implemented in other spatial databases."
 msgstr ""
+"Фактичні просторові індекси, що реалізуються різними базами даних, сильно "
+"відрізняються між собою. Найпоширенішими реалізаціями є `R-Tree <http://en."
+"wikipedia.org/wiki/R-tree>`_ та `Quadtree <http://en.wikipedia.org/wiki/"
+"Quadtree>`_ (використовується в PostGIS), але є також `індекси на основі "
+"сітки <http://en.wikipedia.org/wiki/Grid_(spatial_index)>`_ та `індекси "
+"GeoHash <https://en.wikipedia.org/wiki/Geohash>`_, реалізовані в інших "
+"просторових базах даних."
 
 #: ../../en/introduction.rst:74
 msgid "Spatial Functions"
-msgstr ""
+msgstr "Просторові функції"
 
 #: ../../en/introduction.rst:76
 msgid "For manipulating data during a query, an ordinary database provides **functions** such as concatenating strings, performing hash operations on strings, doing mathematics on numbers, and extracting information from dates."
 msgstr ""
+"Для обробки даних під час запиту звичайна база даних надає **функції**, такі "
+"як об'єднання рядків, виконання хеш-операцій над рядками, математичні "
+"операції над числами та вилучення інформації з дат."
 
 #: ../../en/introduction.rst:78
 msgid "A spatial database provides a complete set of functions for analyzing geometric components, determining spatial relationships, and manipulating geometries.  These spatial functions serve as the building block for any spatial project."
 msgstr ""
+"Просторова база даних надає повний набір функцій для аналізу геометричних "
+"компонентів, визначення просторових взаємозв'язків та маніпулювання "
+"геометріями.  Ці просторові функції слугують основою для будь-якого "
+"просторового проекту."
 
 #: ../../en/introduction.rst:80
 msgid "The majority of all spatial functions can be grouped into one of the following five categories:"
 msgstr ""
+"Більшість усіх просторових функцій можна об'єднати в одну з п'яти наступних "
+"категорій:"
 
 #: ../../en/introduction.rst:82
 msgid "**Conversion**: Functions that *convert* between geometries and external data formats."
 msgstr ""
+"**Перетворення**: Функції, що *перетворюють* геометрії та зовнішні формати "
+"даних."
 
 #: ../../en/introduction.rst:83
 msgid "**Management**: Functions that *manage* information about spatial tables and PostGIS administration."
 msgstr ""
+"**Управління**: Функції, що *управляють* інформацією про просторові таблиці "
+"та адміністрування PostGIS."
 
 #: ../../en/introduction.rst:84
 msgid "**Retrieval**: Functions that *retrieve* properties and measurements of a Geometry."
 msgstr ""
+"**Отримання**: Функції, які *отримують* властивості та виміри геометрії."
 
 #: ../../en/introduction.rst:85
 msgid "**Comparison**: Functions that *compare* two geometries with respect to their spatial relation."
 msgstr ""
+"**Порівняння**: Функції, які *порівнюють* дві геометрії щодо їх просторового "
+"відношення."
 
 #: ../../en/introduction.rst:86
 msgid "**Generation**: Functions that *generate* new geometries from others."
-msgstr ""
+msgstr "**Генерація**: Функції, які *генерують* нові геометрії на основі інших."
 
 #: ../../en/introduction.rst:88
 msgid "The list of possible functions is very large, but a common set of functions is defined by the :term:`OGC` :term:`SFSQL` and implemented (along with additional useful functions) by PostGIS."
 msgstr ""
+"Список можливих функцій дуже великий, але загальний набір функцій "
+"визначається :term:`OGC` :term:`SFSQL` і реалізується (разом з додатковими "
+"корисними функціями) PostGIS."
 
 #: ../../en/introduction.rst:91
 msgid "What is PostGIS?"
-msgstr ""
+msgstr "Що таке PostGIS?"
 
 #: ../../en/introduction.rst:93
 msgid "PostGIS turns the `PostgreSQL <http://www.postgresql.org/>`_ Database Management System into a spatial database by adding support for the three features: spatial types, spatial indexes, and spatial functions.  Because it is built on PostgreSQL, PostGIS automatically inherits important \"enterprise\" features as well as open standards for implementation."
 msgstr ""
+"PostGIS перетворює систему управління базами даних `PostgreSQL <http://www."
+"postgresql.org/>`_ на просторову базу даних, додаючи підтримку трьох функцій:"
+" просторових типів, просторових індексів та просторових функцій.  Оскільки "
+"PostGIS побудований на базі PostgreSQL, він автоматично успадковує важливі "
+"«корпоративні» функції, а також відкриті стандарти реалізації."
 
 #: ../../en/introduction.rst:96
 msgid "But what is PostgreSQL?"
-msgstr ""
+msgstr "Але що таке PostgreSQL?"
 
 #: ../../en/introduction.rst:98
 msgid "PostgreSQL is a powerful relational database management system (RDBMS). It is released under a BSD-style license and is thus free and open source software. As with many other open source programs, PostgreSQL is not controlled by any single company, but has a `global community of developers <https://www.postgresql.org/community/contributors/>`_ and companies to develop it."
 msgstr ""
+"PostgreSQL — це потужна система управління реляційними базами даних (СУБД). "
+"Вона випускається під ліцензією типу BSD і, отже, є безкоштовним програмним "
+"забезпеченням з відкритим кодом. Як і багато інших програм з відкритим "
+"кодом, PostgreSQL не контролюється жодною окремою компанією, а має «"
+"глобальну спільноту розробників <https://www.postgresql.org/community/"
+"contributors/>»_ та компаній, які займаються її розробкою."
 
 #: ../../en/introduction.rst:100
 msgid "PostgreSQL was designed from the very start with type extension in mind -- the ability to add new data types, functions and indexes at run-time. Because of this, the PostGIS extension can be developed by a separate development team, yet still integrate very tightly into the core PostgreSQL database."
 msgstr ""
+"PostgreSQL з самого початку розроблявся з урахуванням розширення типів — "
+"можливості додавати нові типи даних, функції та індекси під час виконання. "
+"Завдяки цьому розширення PostGIS може розроблятися окремою командою "
+"розробників, але при цьому дуже тісно інтегруватися в основну базу даних "
+"PostgreSQL."
 
 #: ../../en/introduction.rst:103
 msgid "Why choose PostgreSQL?"
-msgstr ""
+msgstr "Чому варто вибрати PostgreSQL?"
 
 #: ../../en/introduction.rst:105
 msgid "A common question from people familiar with open source databases is, \"Why wasn't PostGIS built on MySQL?\"."
 msgstr ""
+"Часто зустрічається питання від людей, які знайомі з базами даних з "
+"відкритим кодом: «Чому PostGIS не було побудовано на MySQL?»."
 
 #: ../../en/introduction.rst:107
 msgid "PostgreSQL has:"
-msgstr ""
+msgstr "PostgreSQL має:"
 
 #: ../../en/introduction.rst:109
 msgid "Proven reliability and transactional integrity by default (ACID)"
-msgstr ""
+msgstr "Доведена надійність і цілісність транзакцій за замовчуванням (ACID)"
 
 #: ../../en/introduction.rst:110
 msgid "Careful support for SQL standards (full SQL92)"
-msgstr ""
+msgstr "Ретельна підтримка стандартів SQL (повний SQL92)"
 
 #: ../../en/introduction.rst:111
 msgid "Pluggable type extension and function extension"
-msgstr ""
+msgstr "Розширюваність типу підключення та розширюваність функцій"
 
 #: ../../en/introduction.rst:112
 msgid "Community-oriented development model"
-msgstr ""
+msgstr "Модель розвитку, орієнтована на спільноту"
 
 #: ../../en/introduction.rst:113
 msgid "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
 msgstr ""
+"Немає обмежень на розмір стовпців (tuples, що підтримують TOAST) для "
+"підтримки великих об'єктів GIS"
 
 #: ../../en/introduction.rst:114
 msgid "Generic index structure (GiST) to allow R-Tree index"
-msgstr ""
+msgstr "Generic index structure (GiST) для забезпечення індексу R-Tree"
 
 #: ../../en/introduction.rst:115
 msgid "Easy to add custom functions"
-msgstr ""
+msgstr "Легко додавати власні функції"
 
 #: ../../en/introduction.rst:117
 msgid "Combined, PostgreSQL provides a very easy development path to add new spatial types. In the proprietary world, only `Illustra <https://en.wikipedia.org/wiki/Illustra>`_ (now Informix Universal Server) allowed such easy extension. This is no coincidence; Illustra is a proprietary re-working of the original PostgreSQL code base from the 1980's."
 msgstr ""
+"У поєднанні PostgreSQL забезпечує дуже простий шлях розробки для додавання "
+"нових просторових типів. У світі пропрієтарного програмного забезпечення "
+"тільки `Illustra <https://en.wikipedia.org/wiki/Illustra>`_ (зараз Informix "
+"Universal Server) дозволяв таке просте розширення. Це не випадково; Illustra "
+"є пропрієтарною переробкою оригінальної кодової бази PostgreSQL 1980-х років."
 
 #: ../../en/introduction.rst:119
 msgid "Because the development path for adding types to PostgreSQL was so straightforward, it made sense to start there. When MySQL released basic spatial types in version 4.1, the PostGIS team took a look at their code, and the exercise reinforced the original decision to use PostgreSQL."
 msgstr ""
+"Оскільки шлях розвитку для додавання типів до PostgreSQL був настільки "
+"простим, було логічно почати саме звідти. Коли MySQL випустив базові "
+"просторові типи у версії 4.1, команда PostGIS ознайомилася з їхнім кодом, і "
+"це підкріпило початкове рішення використовувати PostgreSQL."
 
 #: ../../en/introduction.rst:121
 msgid "Because MySQL spatial objects had to be hacked on top of the string type as a special case, the MySQL code was spread over the entire code base. Development of PostGIS 0.1 took under a month. Doing a \"MyGIS\" 0.1 would have taken a lot longer, and as such, might never have seen the light of day."
 msgstr ""
+"Оскільки просторові об'єкти MySQL довелося хакнути поверх типу string як "
+"особливий випадок, код MySQL був розповсюджений по всій кодовій базі. "
+"Розробка PostGIS 0.1 зайняла менше місяця. Створення «MyGIS» 0.1 зайняло б "
+"набагато більше часу і, як наслідок, могло б ніколи не побачити світ."
 
 #: ../../en/introduction.rst:124
 msgid "Why not files?"
-msgstr ""
+msgstr "Чому не файли?"
 
 #: ../../en/introduction.rst:126
 msgid "The `Shapefile <http://en.wikipedia.org/wiki/Shapefile>`_ (and other formats like the Esri File Geodatabase and the `GeoPackage <https://www.geopackage.org/>`_) have been a standard way of storing and interacting with spatial data since GIS software was first written. However, these \"flat\" files have the following disadvantages:"
 msgstr ""
+"Формат Shapefile <http://en.wikipedia.org/wiki/Shapefile>_ (та інші формати, "
+"такі як Esri File Geodatabase та GeoPackage <https://www.geopackage.org/>_) "
+"є стандартним способом зберігання та взаємодії з просторовими даними з "
+"моменту створення першого програмного забезпечення GIS. Однак ці «плоскі» "
+"файли мають такі недоліки:"
 
 #: ../../en/introduction.rst:128
 msgid "**Files require special software to read and write.**  SQL is an abstraction for random data access and analysis. Without that abstraction, you will need to write all the access and analysis code yourself."
 msgstr ""
+"**Для читання та запису файлів потрібне спеціальне програмне забезпечення.**"
+"  SQL — це абстракція для довільного доступу до даних та їх аналізу. Без "
+"цієї абстракції вам доведеться самостійно писати весь код для доступу та "
+"аналізу."
 
 #: ../../en/introduction.rst:129
 msgid "**Concurrent users can cause corruption and slowdowns.** While it's possible to write extra code to ensure that multiple writes to the same file do not corrupt the data, by the time you have solved the problem and also solved the associated performance problem, you will have written the better part of a database system. Why not just use a standard database?"
 msgstr ""
+"**Одночасні користувачі можуть спричинити пошкодження та уповільнення "
+"роботи.** Хоча можна написати додатковий код, щоб гарантувати, що "
+"багаторазове записування в один і той самий файл не пошкодить дані, до того "
+"часу, як ви вирішите цю проблему, а також пов'язану з нею проблему "
+"продуктивності, ви вже напишете більшу частину системи бази даних. Чому б "
+"просто не використовувати стандартну базу даних?"
 
 #: ../../en/introduction.rst:130
 msgid "**Complicated questions require complicated software to answer.** Complicated and interesting questions (spatial joins, aggregations, etc) that are expressible in one line of SQL in the database take hundreds of lines of specialized code to answer when programming against files."
 msgstr ""
+"**Складні питання вимагають складного програмного забезпечення для "
+"відповіді.** Складні та цікаві питання (просторові з'єднання, агрегації тощо)"
+", які можна виразити в одному рядку SQL у базі даних, вимагають сотень "
+"рядків спеціалізованого коду для відповіді при програмуванні з файлами."
 
 #: ../../en/introduction.rst:132
 msgid "Most users of PostGIS are setting up systems where multiple applications will be expected to access the data, so having a standard SQL access method simplifies deployment and development. Some users are working with large data sets; with files, they might be segmented into multiple files, but in a database they can be stored as a single large table."
 msgstr ""
+"Більшість користувачів PostGIS налаштовують системи, в яких очікується "
+"доступ до даних з боку декількох додатків, тому наявність стандартного "
+"методу доступу SQL спрощує розгортання та розробку. Деякі користувачі "
+"працюють з великими наборами даних; у файлах вони можуть бути розділені на "
+"кілька файлів, але в базі даних їх можна зберігати як одну велику таблицю."
 
 #: ../../en/introduction.rst:134
 msgid "In summation, the combination of support for multiple users, complex ad hoc queries, and performance on large data sets are what sets spatial databases apart from file-based systems."
 msgstr ""
+"Підсумовуючи, поєднання підтримки кількох користувачів, складних ad hoc-"
+"запитів та високої продуктивності на великих обсягах даних — ось що "
+"відрізняє просторові бази даних від файлових систем."
 
 #: ../../en/introduction.rst:137
 msgid "A brief history of PostGIS"
-msgstr ""
+msgstr "Коротка історія PostGIS"
 
 #: ../../en/introduction.rst:139
 msgid "In the May of 2001, `Refractions Research <http://www.refractions.net/>`_  released the first version of PostGIS. PostGIS 0.1 had objects, indexes and a handful of functions. The result was a database suitable for storage and retrieval, but not analysis."
 msgstr ""
+"У травні 2001 року компанія `Refractions Research <http://www.refractions."
+"net/>`_  випустила першу версію PostGIS. PostGIS 0.1 мала об'єкти, індекси "
+"та кілька функцій. Результатом стала база даних, придатна для зберігання та "
+"пошуку, але не для аналізу."
 
 #: ../../en/introduction.rst:141
 msgid "As the number of functions increased, the need for an organizing principle became clear.  The \"Simple Features for SQL\" (:term:`SFSQL`) specification from the Open Geospatial Consortium provided such structure with guidelines for function naming and requirements."
 msgstr ""
+"Зі збільшенням кількості функцій стала очевидною необхідність в організації "
+"принципу.  Специфікація «Прості функції для SQL» (:term:`SFSQL`) від Open "
+"Geospatial Consortium надала таку структуру з рекомендаціями щодо "
+"найменування функцій та вимог."
 
 #: ../../en/introduction.rst:143
 msgid "With PostGIS support for simple analysis and spatial joins, `Mapserver <http://mapserver.org/>`_ became the first external application to provide visualization of data in the database."
 msgstr ""
+"Завдяки підтримці PostGIS для простого аналізу та просторових з'єднань, `"
+"Mapserver <http://mapserver.org/>`_ став першим зовнішнім додатком, що "
+"забезпечує візуалізацію даних у базі даних."
 
 #: ../../en/introduction.rst:145
 msgid "Over the next several years the number of PostGIS functions grew, but its power remained limited. Many of the most interesting functions (e.g., ST_Intersects(), ST_Buffer(), ST_Union()) were very difficult to code.  Writing them from scratch promised years of work."
 msgstr ""
+"Протягом наступних кількох років кількість функцій PostGIS зростала, але "
+"його можливості залишалися обмеженими. Багато найцікавіших функцій ("
+"наприклад, ST_Intersects(), ST_Buffer(), ST_Union()) було дуже складно "
+"запрограмувати.  Написання їх з нуля обіцяло роки роботи."
 
 #: ../../en/introduction.rst:147
 msgid "Fortunately a second project, the \"Geometry Engine, Open Source\" or `GEOS <http://trac.osgeo.org/geos>`_, came along. The GEOS library provides the necessary algorithms for implementing the :term:`SFSQL` specification. By linking in GEOS, PostGIS provided complete support for :term:`SFSQL` by version 0.8."
 msgstr ""
+"На щастя, з'явився другий проект, «Geometry Engine, Open Source» або `GEOS "
+"<http://trac.osgeo.org/geos>`_. Бібліотека GEOS надає необхідні алгоритми "
+"для реалізації специфікації :term:`SFSQL`. Завдяки зв'язку з GEOS, PostGIS "
+"забезпечив повну підтримку :term:`SFSQL` у версії 0.8."
 
 #: ../../en/introduction.rst:149
 msgid "As PostGIS data capacity grew, another issue surfaced: the representation used to store geometry proved relatively inefficient. For small objects like points and short lines, the metadata in the representation had as much as a 300% overhead. For performance reasons, it was necessary to put the representation on a diet.  By shrinking the metadata header and required dimensions, overhead greatly reduced. In PostGIS 1.0, this new, faster, lightweight representation became the default."
 msgstr ""
+"Зі збільшенням обсягу даних PostGIS виникла ще одна проблема: представлення, "
+"яке використовувалося для зберігання геометрії, виявилося відносно "
+"неефективним. Для невеликих об'єктів, таких як точки та короткі лінії, "
+"метадані в представленні мали на 300% більше накладних витрат. З міркувань "
+"продуктивності було необхідно скоротити представлення.  Завдяки зменшенню "
+"розміру заголовка метаданих та необхідних розмірів накладні витрати значно "
+"зменшилися. У PostGIS 1.0 це нове, швидше та легше представлення стало "
+"стандартним."
 
 #: ../../en/introduction.rst:151
 msgid "Recent releases of PostGIS continue to add features and performance improvements, as well as support for new features in the PostgreSQL core system."
 msgstr ""
+"Останні версії PostGIS продовжують додавати нові функції та покращення "
+"продуктивності, а також підтримку нових функцій в основній системі "
+"PostgreSQL."
 
 #: ../../en/introduction.rst:154
 msgid "Who uses PostGIS?"
-msgstr ""
+msgstr "Хто використовує PostGIS?"
 
 #: ../../en/introduction.rst:156
 msgid "For a complete list of case studies, see the `PostGIS case studies <https://postgis.net/category/casestudy/>`_ page."
 msgstr ""
+"Повний перелік прикладів використання див. на сторінці «Приклади "
+"використання PostGIS <https://postgis.net/category/casestudy/>»_."
 
 #: ../../en/introduction.rst:159
 msgid "Institut Geographique National, France"
-msgstr ""
+msgstr "Institut Geographique National, Франція"
 
 #: ../../en/introduction.rst:161
 msgid "IGN is the national mapping agency of France, and uses PostGIS to store the high resolution topographic map of the country, \"BDUni\". BDUni has more than 100 million features, and is maintained by a staff of over 100 field staff who verify observations and add new mapping to the database daily. The IGN installation uses the database transactional system to ensure consistency during update processes, and a `warm standby system <https://www.postgresql.org/docs/devel/warm-standby.html>`_ to maintain uptime in the event of a system failure."
 msgstr ""
+"IGN — це національне картографічне агентство Франції, яке використовує "
+"PostGIS для зберігання топографічної карти країни з високою роздільною "
+"здатністю «BDUni». BDUni містить понад 100 мільйонів об'єктів і "
+"підтримується штатом із понад 100 польових співробітників, які щодня "
+"перевіряють спостереження та додають нові карти до бази даних. Встановлення "
+"IGN використовує транзакційну систему бази даних для забезпечення "
+"узгодженості під час процесів оновлення, а також «систему теплого "
+"резервування <https://www.postgresql.org/docs/devel/warm-standby.html>»_ для "
+"підтримання безперебійної роботи в разі збою системи."
 
 #: ../../en/introduction.rst:164
 msgid "RedFin"
-msgstr ""
+msgstr "RedFin"
 
 #: ../../en/introduction.rst:166
 msgid "`RedFin <https://www.redfin.com>`_ is a real estate agency with a web-based service for exploring properties and estimate values. Their system was originally built on MySQL, but they found that moving to PostgreSQL and PostGIS provided `huge benefits in performance and reliability <https://www.redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/>`_."
 msgstr ""
+"`RedFin <https://www.redfin.com>`_ — це агентство нерухомості, яке надає веб-"
+"сервіс для пошуку об'єктів нерухомості та оцінки їх вартості. Спочатку їхня "
+"система була побудована на MySQL, але вони виявили, що перехід на PostgreSQL "
+"і PostGIS дав `величезні переваги в продуктивності та надійності <https://www"
+".redfin.com/news/elephant_versus_dolphin_which_is_faster_which_is_smarter/"
+">`_."
 
 #: ../../en/introduction.rst:169
 msgid "What applications support PostGIS?"
-msgstr ""
+msgstr "Які програми підтримують PostGIS?"
 
 #: ../../en/introduction.rst:171
 msgid "PostGIS has become a widely used spatial database, and the number of third-party programs that support storing and retrieving data using it has increased as well. The `programs that support PostGIS <http://trac.osgeo.org/postgis/wiki/UsersWikiToolsSupportPostgis>`_ include both open source and proprietary software on both server and desktop systems."
 msgstr ""
+"PostGIS став широко використовуваною просторовою базою даних, і кількість "
+"сторонніх програм, що підтримують зберігання та вилучення даних за допомогою "
+"нього, також зросла. Програми, що підтримують PostGIS <http://trac.osgeo.org/"
+"postgis/wiki/UsersWikiToolsSupportPostgis>_, включають як відкрите, так і "
+"пропрієтарне програмне забезпечення як на серверних, так і на настільних "
+"системах."
 
 #: ../../en/introduction.rst:173
 msgid "The following table shows a list of some of the software that leverages PostGIS:"
 msgstr ""
+"У наступній таблиці наведено перелік деяких програм, що використовують "
+"PostGIS:"
 
 #: ../../en/introduction.rst:176
 msgid "Open/Free"
-msgstr ""
+msgstr "Відкритий/Безкоштовний"
 
 #: ../../en/introduction.rst:176
 msgid "Closed/Proprietary/Paid services"
-msgstr ""
+msgstr "Закриті/власні/платні послуги"
 
 #: ../../en/introduction.rst:179
 msgid "Loading/Extracting"
-msgstr ""
+msgstr "Завантаження/вивантаження"
 
 #: ../../en/introduction.rst:181
 msgid "Shp2Pgsql"
-msgstr ""
+msgstr "Shp2Pgsql"
 
 #: ../../en/introduction.rst:182
 msgid "ogr2ogr"
-msgstr ""
+msgstr "ogr2ogr"
 
 #: ../../en/introduction.rst:183
 msgid "Dxf2PostGIS"
-msgstr ""
+msgstr "Dxf2PostGIS"
 
 #: ../../en/introduction.rst:184
 msgid "GeoKettle"
-msgstr ""
+msgstr "GeoKettle"
 
 #: ../../en/introduction.rst:186
 #: ../../en/introduction.rst:187
 msgid "Web-Based"
-msgstr ""
+msgstr "Web-Based"
 
 #: ../../en/introduction.rst:189
 msgid "Mapserver"
-msgstr ""
+msgstr "Mapserver"
 
 #: ../../en/introduction.rst:190
 msgid "GeoServer /geoNode"
-msgstr ""
+msgstr "GeoServer /geoNode"
 
 #: ../../en/introduction.rst:191
 msgid "pg_tileserv"
-msgstr ""
+msgstr "pg_tileserv"
 
 #: ../../en/introduction.rst:192
 msgid "pg_featureserv"
-msgstr ""
+msgstr "pg_featureserv"
 
 #: ../../en/introduction.rst:193
 msgid "Deegree"
-msgstr ""
+msgstr "Deegree"
 
 #: ../../en/introduction.rst:194
 #: ../../en/introduction.rst:197
 msgid "Carto"
-msgstr ""
+msgstr "Carto"
 
 #: ../../en/introduction.rst:195
 msgid "QGIS Server"
-msgstr ""
+msgstr "QGIS Server"
 
 #: ../../en/introduction.rst:196
 msgid "MapGuide Open Source (using FDO)"
-msgstr ""
+msgstr "MapGuide Open Source (використовуючи FDO)"
 
 #: ../../en/introduction.rst:201
 #: ../../en/introduction.rst:202
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
 #: ../../en/introduction.rst:203
 msgid "QGIS"
-msgstr ""
+msgstr "QGIS"
 
 #: ../../en/introduction.rst:204
 msgid "OpenJUMP"
-msgstr ""
+msgstr "OpenJUMP"
 
 #: ../../en/introduction.rst:205
 msgid "GRASS"
-msgstr ""
+msgstr "GRASS"
 
 #: ../../en/introduction.rst:206
 msgid "pgAdmin"
-msgstr ""
+msgstr "pgAdmin"
 
 #: ../../en/introduction.rst:207
 msgid "DBeaver"
-msgstr ""
+msgstr "DBeaver"
 
 #: ../../en/introduction.rst:208
 msgid "GvSIG"
-msgstr ""
+msgstr "GvSIG"
 
 #: ../../en/introduction.rst:209
 msgid "SAGA"
-msgstr ""
+msgstr "SAGA"
 
 #: ../../en/introduction.rst:210
 msgid "uDig"
-msgstr ""
+msgstr "uDig"
 
 #: ../../en/introduction.rst:181
 msgid "Safe FME Desktop Translator/Converter"
-msgstr ""
+msgstr "Safe FME Desktop Translator/Converter"
 
 #: ../../en/introduction.rst:182
 msgid "Dbt"
-msgstr ""
+msgstr "Dbt"
 
 #: ../../en/introduction.rst:188
 msgid "Cadcorp GeognoSIS"
-msgstr ""
+msgstr "Cadcorp GeognoSIS"
 
 #: ../../en/introduction.rst:189
 msgid "ESRI ArcGIS Server / Online"
-msgstr ""
+msgstr "ESRI ArcGIS Server / Online"
 
 #: ../../en/introduction.rst:193
 msgid "Services / DbaaS"
-msgstr ""
+msgstr "Сервіси / DbaaS"
 
 #: ../../en/introduction.rst:195
 msgid "Aiven for PostgreSQL"
-msgstr ""
+msgstr "Aiven for PostgreSQL"
 
 #: ../../en/introduction.rst:196
 msgid "Amazon RDS / Aurora for PostgreSQL"
-msgstr ""
+msgstr "Amazon RDS / Aurora для PostgreSQL"
 
 #: ../../en/introduction.rst:198
 msgid "Crunchy Bridge"
-msgstr ""
+msgstr "Crunchy Bridge"
 
 #: ../../en/introduction.rst:199
 msgid "Microsoft Azure for PostgreSQL"
-msgstr ""
+msgstr "Microsoft Azure для PostgreSQL"
 
 #: ../../en/introduction.rst:200
 msgid "Google Cloud SQL for PostgreSQL"
-msgstr ""
+msgstr "Google Cloud SQL для PostgreSQL"
 
 #: ../../en/introduction.rst:204
 msgid "Cadcorp SIS"
-msgstr ""
+msgstr "Cadcorp SIS"
 
 #: ../../en/introduction.rst:205
 msgid "ESRI Desktop/Pro"
-msgstr ""
+msgstr "ESRI Desktop/Pro"
 
 #: ../../en/introduction.rst:206
 msgid "GeoConcept"
-msgstr ""
+msgstr "GeoConcept"
 
 #: ../../en/introduction.rst:207
 msgid "Global Mapper"
-msgstr ""
+msgstr "Global Mapper"
 
 #: ../../en/introduction.rst:208
 msgid "Manifold"
-msgstr ""
+msgstr "Manifold"
 
 #: ../../en/introduction.rst:209
 msgid "MapInfo"
-msgstr ""
+msgstr "MapInfo"
 
 #: ../../en/introduction.rst:210
 msgid "Microimages TNTmips GIS"
-msgstr ""
+msgstr "Microimages TNTmips GIS"

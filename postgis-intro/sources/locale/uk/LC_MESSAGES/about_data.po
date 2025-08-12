@@ -118,7 +118,7 @@ msgstr "Кількість людей, які самоідентифікують
 
 #: ../../en/about_data.rst:36
 msgid "**popn_other**"
-msgstr ""
+msgstr "**popn_other**"
 
 #: ../../en/about_data.rst:37
 msgid "Number of people self-identifying with other categories in the block"

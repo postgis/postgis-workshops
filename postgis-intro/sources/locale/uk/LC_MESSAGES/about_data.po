@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-08-09 20:47+0000\n"
+"PO-Revision-Date: 2025-08-12 00:37+0000\n"
 "Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
 "Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
 "postgis-workshop/about_data/uk/>\n"
@@ -118,7 +118,7 @@ msgstr "Кількість людей, які самоідентифікують
 
 #: ../../en/about_data.rst:36
 msgid "**popn_other**"
-msgstr "**popn_other**"
+msgstr ""
 
 #: ../../en/about_data.rst:37
 msgid "Number of people self-identifying with other categories in the block"

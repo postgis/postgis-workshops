@@ -10,7 +10,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2025-08-12 00:37+0000\n"
-"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
 "postgis-workshop/simple_sql_exercises/uk/>\n"
 "Language: uk\n"
@@ -92,7 +93,7 @@ msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:25
 msgid "**popn_other**"
-msgstr ""
+msgstr "**popn_other**"
 
 #: ../../en/simple_sql_exercises.rst:26
 msgid "Number of people self-identifying with other categories in the block"

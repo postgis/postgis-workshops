@@ -2,13 +2,15 @@
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Denys Kovshun <deniskovshun@gmail.com>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2025-08-12 00:24+0000\n"
-"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
 "postgis-workshop/simple_sql_exercises/uk/>\n"
 "Language: uk\n"
@@ -45,15 +47,15 @@ msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:15
 msgid "**popn_total**"
-msgstr ""
+msgstr "**popn_total**"
 
 #: ../../en/simple_sql_exercises.rst:16
 msgid "Total number of people in the census block"
-msgstr ""
+msgstr "Загальна кількість людей у переписному блоці"
 
 #: ../../en/simple_sql_exercises.rst:17
 msgid "**popn_white**"
-msgstr ""
+msgstr "**popn_white**"
 
 #: ../../en/simple_sql_exercises.rst:18
 msgid "Number of people self-identifying as \"white\" in the block"
@@ -61,7 +63,7 @@ msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:19
 msgid "**popn_black**"
-msgstr ""
+msgstr "**popn_black**"
 
 #: ../../en/simple_sql_exercises.rst:20
 msgid "Number of people self-identifying as \"black\" in the block"
@@ -69,7 +71,7 @@ msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:21
 msgid "**popn_nativ**"
-msgstr ""
+msgstr "**popn_nativ**"
 
 #: ../../en/simple_sql_exercises.rst:22
 msgid "Number of people self-identifying as \"native american\" in the block"
@@ -77,7 +79,7 @@ msgstr ""
 
 #: ../../en/simple_sql_exercises.rst:23
 msgid "**popn_asian**"
-msgstr ""
+msgstr "**popn_asian**"
 
 #: ../../en/simple_sql_exercises.rst:24
 msgid "Number of people self-identifying as \"asias\" in the block"

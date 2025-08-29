@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-14 05:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-08-29 07:48+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "backup/es/>\n"
 "Language: es\n"
@@ -65,7 +66,7 @@ msgstr ""
 
 #: ../../en/backup.rst:15
 msgid "Laying Out your Data"
-msgstr ""
+msgstr "Organización de tus datos"
 
 #: ../../en/backup.rst:17
 msgid ""
@@ -73,22 +74,29 @@ msgid ""
 "stored in separate schemas is a very important **best practice** in managing "
 "data. There are two reasons:"
 msgstr ""
+"Como se discutió en :ref:`schemas`, asegurarse de que los datos de "
+"producción siempre se almacenen en esquemas separados es una **mejor "
+"práctica** muy importante en la gestión de datos. Hay dos razones:"
 
 #: ../../en/backup.rst:19
 msgid ""
 "Backing up and restoring data in schemas is much simpler than managing lists "
 "of tables to be backed up individually."
 msgstr ""
+"Respaldar y restaurar datos en esquemas es mucho más simple que gestionar "
+"listas de tablas a respaldar individualmente."
 
 #: ../../en/backup.rst:20
 msgid ""
 "Keeping data tables out of the \"public\" schema allows far easier upgrades, "
 "as discussed in :ref:`upgrades`."
 msgstr ""
+"Mantener las tablas de datos fuera del esquema \"public\" permite "
+"actualizaciones mucho más fáciles, como se discutió en :ref:`upgrades`."
 
 #: ../../en/backup.rst:24
 msgid "Basic Backup and Restore"
-msgstr ""
+msgstr "Respaldo y restauración básicos"
 
 #: ../../en/backup.rst:26
 msgid ""
@@ -96,21 +104,29 @@ msgid ""
 "is a command-line tool, which makes it easy to automate with scripting, and "
 "it can also be invoke via a GUI in the PgAdmin utility."
 msgstr ""
+"Respaldar una base de datos completa es fácil usando la utilidad pg_dump_. "
+"La utilidad es una herramienta de línea de comandos, lo que hace fácil "
+"automatizarla con scripts, y también puede invocarse mediante una GUI en la "
+"utilidad PgAdmin."
 
 #: ../../en/backup.rst:28
 msgid ""
 "To backup our ``nyc`` database, we can use the GUI, just right-click the "
 "database you want to backup:"
 msgstr ""
+"Para respaldar nuestra base de datos ``nyc``, podemos usar la GUI, "
+"simplemente haz clic derecho en la base de datos que quieres respaldar:"
 
 #: ../../en/backup.rst:32
 msgid "Enter the name of the backup file you want to create."
-msgstr ""
+msgstr "Ingresa el nombre del archivo de respaldo que quieres crear."
 
 #: ../../en/backup.rst:36
 msgid ""
 "Note that there are three backup format options: compress, tar and plain."
 msgstr ""
+"Ten en cuenta que hay tres opciones de formato de respaldo: compress, tar y "
+"plain."
 
 #: ../../en/backup.rst:38
 msgid ""
@@ -119,6 +135,10 @@ msgid ""
 "then loaded back into a database, allowing offline changes to things like "
 "ownership or other global information."
 msgstr ""
+"**Plain** es solo un archivo SQL textual. Este es el formato más simple y en "
+"muchos sentidos el más flexible, ya que puede editarse o modificarse "
+"fácilmente y luego cargarse de nuevo en una base de datos, permitiendo "
+"cambios sin conexión en cosas como propiedad u otra información global."
 
 #: ../../en/backup.rst:39
 msgid ""
@@ -126,6 +146,9 @@ msgid ""
 "separate files. Using the tar format allows the pg_restore_ utility to "
 "selectively restore parts of the dump."
 msgstr ""
+"**Tar** usa un formato de archivo de UNIX para guardar componentes del "
+"volcado en archivos separados. Usar el formato tar permite a la utilidad "
+"pg_restore_ restaurar de manera selectiva partes del volcado."
 
 #: ../../en/backup.rst:40
 msgid ""
@@ -133,14 +156,19 @@ msgid ""
 "individually, allowing them to be selectively restored without decompressing "
 "the entire archive."
 msgstr ""
+"**Compress** es como el formato Tar, pero comprime los componentes internos "
+"individualmente, permitiendo que se restauren selectivamente sin "
+"descomprimir todo el archivo."
 
 #: ../../en/backup.rst:42
 msgid "We'll check the Compress option and go, saving out a backup file."
 msgstr ""
+"Marcaremos la opción Compress y procederemos, guardando un archivo de "
+"respaldo."
 
 #: ../../en/backup.rst:44
 msgid "The same operation can be done with the command line like this:"
-msgstr ""
+msgstr "La misma operación puede hacerse desde la línea de comandos así:"
 
 #: ../../en/backup.rst:50
 msgid ""
@@ -148,18 +176,26 @@ msgid ""
 "using the pg_restore_ command to list the manifest. In the PgAdmin GUI, "
 "\"View\" is an option in the panel."
 msgstr ""
+"Como el archivo de respaldo está en formato Compress, podemos ver el "
+"contenido usando el comando pg_restore_ para listar el manifiesto. En la GUI "
+"de PgAdmin, \"View\" es una opción en el panel."
 
 #: ../../en/backup.rst:54
 msgid ""
 "When you look at the manifest, one of the things you might notice is that "
 "there are a lot of \"FUNCTION\" signatures in there."
 msgstr ""
+"Cuando observas el manifiesto, una de las cosas que notarás es que hay "
+"muchas firmas de \"FUNCTION\"."
 
 #: ../../en/backup.rst:58
 msgid ""
 "That's because the pg_dump_ utility dumps **every** non-system object in the "
 "database, and that includes the PostGIS function definitions."
 msgstr ""
+"Eso se debe a que la utilidad pg_dump_ vuelca **todos** los objetos no del "
+"sistema en la base de datos, y eso incluye las definiciones de funciones de "
+"PostGIS."
 
 #: ../../en/backup.rst:62
 msgid ""
@@ -168,18 +204,27 @@ msgid ""
 "therefore excluded from pg_dump_ output. PostGIS 2.0 and higher support "
 "installation using this extension system."
 msgstr ""
+"PostgreSQL 9.1+ incluye una característica \"EXTENSION\" que permite que "
+"paquetes adicionales como PostGIS se instalen como componentes de sistema "
+"registrados y por lo tanto sean excluidos de la salida de pg_dump_. PostGIS "
+"2.0 y superiores soportan instalación usando este sistema de extensiones."
 
 #: ../../en/backup.rst:64
 msgid ""
 "We can see the same manifest from the command-line using pg_restore_ "
 "directly:"
 msgstr ""
+"Podemos ver el mismo manifiesto desde la línea de comandos usando "
+"pg_restore_ directamente:"
 
 #: ../../en/backup.rst:70
 msgid ""
 "The problem with a dump file full of PostGIS function signatures is that we "
 "really wanted a dump of our data, not our system functions."
 msgstr ""
+"El problema con un archivo de volcado lleno de firmas de funciones de "
+"PostGIS es que realmente queremos un volcado de nuestros datos, no de "
+"nuestras funciones de sistema."
 
 #: ../../en/backup.rst:72
 msgid ""
@@ -189,10 +234,16 @@ msgid ""
 "from (since the function signature definitions reference a particular "
 "version of the PostGIS shared library)."
 msgstr ""
+"Dado que cada objeto está en el archivo de volcado, podemos restaurar en una "
+"base de datos vacía y obtener funcionalidad completa. Al hacerlo, esperamos "
+"que el sistema al que restauramos tenga exactamente la misma versión de "
+"PostGIS que la que usamos para el volcado (ya que las definiciones de firmas "
+"de funciones hacen referencia a una versión particular de la biblioteca "
+"compartida de PostGIS)."
 
 #: ../../en/backup.rst:74
 msgid "From the command-line the restore looks like this:"
-msgstr ""
+msgstr "Desde la línea de comandos, la restauración se ve así:"
 
 #: ../../en/backup.rst:81
 msgid ""
@@ -200,12 +251,17 @@ msgid ""
 "schemas is handy, because there is a command-line flag to only dump a "
 "particular schema:"
 msgstr ""
+"Volcar solo datos, sin firmas de funciones, es donde tener datos en esquemas "
+"resulta útil, porque hay una bandera en la línea de comandos para volcar "
+"solo un esquema en particular:"
 
 #: ../../en/backup.rst:87
 msgid ""
 "Now when we list the contents of the dump, we see just the data tables we "
 "wanted::"
 msgstr ""
+"Ahora, cuando listamos el contenido del volcado, vemos solo las tablas de "
+"datos que queríamos::"
 
 #: ../../en/backup.rst:116
 msgid ""
@@ -213,10 +269,13 @@ msgid ""
 "database with any version of PostGIS installed, as we talk about in :ref:"
 "`upgrades`."
 msgstr ""
+"Tener solo las tablas de datos es útil, porque significa que podemos "
+"restaurar a una base de datos con cualquier versión de PostGIS instalada, "
+"como hablamos en :ref:`upgrades`."
 
 #: ../../en/backup.rst:120
 msgid "Backing Up Users"
-msgstr ""
+msgstr "Respaldo de usuarios"
 
 #: ../../en/backup.rst:122
 msgid ""
@@ -224,12 +283,17 @@ msgid ""
 "a time, if you restrict it). However, information about users is is stored "
 "across an entire cluster, it's not stored in any one database!"
 msgstr ""
+"La utilidad pg_dump_ opera sobre una base de datos a la vez (o un esquema o "
+"tabla a la vez, si lo restringes). Sin embargo, la información de usuarios "
+"se almacena en todo un clúster, ¡no está en ninguna base de datos específica!"
 
 #: ../../en/backup.rst:124
 msgid ""
 "To backup your user information, use the pg_dumpall_ utility, with the \"--"
 "globals-only\" flag."
 msgstr ""
+"Para respaldar tu información de usuarios, usa la utilidad pg_dumpall_ con "
+"la bandera \"--globals-only\"."
 
 #: ../../en/backup.rst:130
 msgid ""
@@ -239,10 +303,15 @@ msgid ""
 "identical software installation, it can't be used as part of an upgrade "
 "process."
 msgstr ""
+"También puedes usar pg_dumpall_ en su modo por defecto para respaldar un "
+"clúster completo, pero ten en cuenta que, al igual que con pg_dump_, "
+"terminarás respaldando las firmas de funciones de PostGIS, por lo que el "
+"volcado deberá restaurarse en una instalación de software idéntica, no puede "
+"usarse como parte de un proceso de actualización."
 
 #: ../../en/backup.rst:134
 msgid "Online Backup and Restore"
-msgstr ""
+msgstr "Respaldo y restauración en línea"
 
 #: ../../en/backup.rst:136
 msgid ""
@@ -251,6 +320,11 @@ msgid ""
 "entire database. If the database is under frequent insert and update load, "
 "then online backup might be preferable to basic backup."
 msgstr ""
+"El respaldo y restauración en línea permite a un administrador mantener un "
+"conjunto extremadamente actualizado de archivos de respaldo sin la "
+"sobrecarga de volcar repetidamente toda la base de datos. Si la base de "
+"datos tiene una carga frecuente de inserciones y actualizaciones, entonces "
+"el respaldo en línea podría ser preferible al respaldo básico."
 
 #: ../../en/backup.rst:140
 msgid ""
@@ -260,10 +334,16 @@ msgid ""
 "This section of the PostGIS workshop will just provide a brief snapshot of "
 "online backup set-up."
 msgstr ""
+"La mejor forma de aprender sobre el respaldo en línea es leer las secciones "
+"relevantes del manual de PostgreSQL sobre `archivado continuo y recuperación "
+"a un punto en el tiempo <http://www.postgresql.org/docs/current/static/"
+"continuous-archiving.html>`_. Esta sección del taller de PostGIS solo "
+"proporcionará una breve visión del proceso de configuración del respaldo en "
+"línea."
 
 #: ../../en/backup.rst:144
 msgid "How it Works"
-msgstr ""
+msgstr "Cómo funciona"
 
 #: ../../en/backup.rst:146
 msgid ""
@@ -273,6 +353,12 @@ msgid ""
 "consists of taking a copy of the database main data table, then taking a "
 "copy of each WAL that is generated from then on."
 msgstr ""
+"En lugar de escribir continuamente en las tablas principales de datos, "
+"PostgreSQL almacena los cambios inicialmente en \"write-ahead logs\" (WAL). "
+"Tomados en conjunto, estos registros son un registro completo de todos los "
+"cambios hechos a una base de datos. El respaldo en línea consiste en tomar "
+"una copia de la tabla principal de datos de la base de datos, luego tomar "
+"una copia de cada WAL que se genere a partir de entonces."
 
 #: ../../en/backup.rst:150
 msgid ""
@@ -281,6 +367,10 @@ msgid ""
 "is a restored database in the same state as the original at the time of the "
 "last WAL received."
 msgstr ""
+"Cuando llega el momento de recuperar en una nueva base de datos, el sistema "
+"comienza con la copia principal de datos, luego reproduce todos los archivos "
+"WAL en la base de datos. El resultado final es una base de datos restaurada "
+"en el mismo estado que la original en el momento del último WAL recibido."
 
 #: ../../en/backup.rst:152
 msgid ""
@@ -289,10 +379,14 @@ msgid ""
 "keeping a very up-to-date backup of a system without resorting to intensive "
 "regular full dumps."
 msgstr ""
+"Como los WAL se escriben de todas formas y transferir copias a un servidor "
+"de archivo es computacionalmente barato, el respaldo en línea es un medio "
+"eficaz de mantener un respaldo muy actualizado de un sistema sin recurrir a "
+"volcados completos regulares intensivos."
 
 #: ../../en/backup.rst:156
 msgid "Archiving the WAL Files"
-msgstr ""
+msgstr "Archivado de archivos WAL"
 
 #: ../../en/backup.rst:158
 msgid ""
@@ -301,6 +395,10 @@ msgid ""
 "PostgreSQL backend simply calls a script specified in the "
 "``archive_command`` configuration parameter."
 msgstr ""
+"Lo primero que hay que hacer al configurar respaldo en línea es crear un "
+"método de archivado. Los métodos de archivado de PostgreSQL son lo último en "
+"flexibilidad: el backend de PostgreSQL simplemente llama a un script "
+"especificado en el parámetro de configuración ``archive_command``."
 
 #: ../../en/backup.rst:160
 msgid ""
@@ -308,18 +406,27 @@ msgid ""
 "mounted drive, and as complex as encrypting and emailing the files to the "
 "remote archive. Any process you can script you can use to archive the files."
 msgstr ""
+"Eso significa que el archivado puede ser tan simple como copiar el archivo a "
+"una unidad montada en red, o tan complejo como encriptar y enviar por correo "
+"electrónico los archivos al archivo remoto. Cualquier proceso que puedas "
+"escribir en un script puedes usarlo para archivar los archivos."
 
 #: ../../en/backup.rst:162
 msgid ""
 "To turn on archiving we will edit ``postgresql.conf``, first turning on WAL "
 "archiving:"
 msgstr ""
+"Para activar el archivado editaremos ``postgresql.conf``, primero activando "
+"el archivado WAL:"
 
 #: ../../en/backup.rst:169
 msgid ""
 "And then setting the ``archive_command`` to copy our archive files to a safe "
 "location (changing the destination paths as appropriate):"
 msgstr ""
+"Y luego configurando el ``archive_command`` para copiar nuestros archivos de "
+"archivo a una ubicación segura (cambiando las rutas de destino según "
+"corresponda):"
 
 #: ../../en/backup.rst:179
 msgid ""
@@ -328,20 +435,28 @@ msgid ""
 "already there. It is also important that the command returns a non-zero "
 "status if the copy process fails."
 msgstr ""
+"Es importante que el comando de archivado no sobrescriba archivos "
+"existentes, por lo que el comando de unix incluye una prueba inicial para "
+"asegurarse de que los archivos no estén ya allí. También es importante que "
+"el comando devuelva un estado distinto de cero si el proceso de copia falla."
 
 #: ../../en/backup.rst:181
 msgid ""
 "Once the changes are made you can re-start PostgreSQL to make them effective."
 msgstr ""
+"Una vez hechos los cambios, puedes reiniciar PostgreSQL para hacerlos "
+"efectivos."
 
 #: ../../en/backup.rst:185
 msgid "Taking the Base Backup"
-msgstr ""
+msgstr "Tomando la copia base"
 
 #: ../../en/backup.rst:187
 msgid ""
 "Once the archiving process is in place, you need to take a base back-up."
 msgstr ""
+"Una vez que el proceso de archivado está en marcha, necesitas tomar una "
+"copia base."
 
 #: ../../en/backup.rst:189
 msgid ""
@@ -349,28 +464,36 @@ msgid ""
 "operation of queries or data updates, it just forces a checkpoint and writes "
 "a label file indicating when the backup was taken)."
 msgstr ""
+"Pon la base de datos en modo respaldo (esto no altera en nada la operación "
+"de consultas o actualizaciones de datos, solo fuerza un checkpoint y escribe "
+"un archivo de etiqueta indicando cuándo se tomó el respaldo)."
 
 #: ../../en/backup.rst:195
 msgid ""
 "For the label, using the path to the backup file is a good practice, as it "
 "helps you track down where the backup was stored."
 msgstr ""
+"Para la etiqueta, usar la ruta del archivo de respaldo es una buena "
+"práctica, ya que te ayuda a rastrear dónde se almacenó el respaldo."
 
 #: ../../en/backup.rst:197
 msgid "Copy the database to an archival location:"
-msgstr ""
+msgstr "Copia la base de datos a una ubicación de archivo:"
 
 #: ../../en/backup.rst:204
 msgid "Then tell the database the backup process is complete."
 msgstr ""
+"Luego indica a la base de datos que el proceso de respaldo está completo."
 
 #: ../../en/backup.rst:210
 msgid "All these steps can of course be scripted for regular base backups."
 msgstr ""
+"Todos estos pasos, por supuesto, pueden ser automatizados con scripts para "
+"respaldos base regulares."
 
 #: ../../en/backup.rst:214
 msgid "Restoring from the Archive"
-msgstr ""
+msgstr "Restauración desde el archivo"
 
 #: ../../en/backup.rst:216
 msgid ""
@@ -378,10 +501,13 @@ msgid ""
 "and point-in-time recovery <http://www.postgresql.org/docs/current/static/"
 "continuous-archiving.html>`_."
 msgstr ""
+"Estos pasos están tomados del manual de PostgreSQL sobre `archivado continuo "
+"y recuperación a un punto en el tiempo <http://www.postgresql.org/docs/"
+"current/static/continuous-archiving.html>`_."
 
 #: ../../en/backup.rst:218
 msgid "Stop the server, if it's running."
-msgstr ""
+msgstr "Detén el servidor, si está en ejecución."
 
 #: ../../en/backup.rst:219
 msgid ""
@@ -393,12 +519,22 @@ msgid ""
 "subdirectory, as it might contain logs which were not archived before the "
 "system went down."
 msgstr ""
+"Si tienes espacio suficiente, copia todo el directorio de datos del clúster "
+"y cualquier tablespace a una ubicación temporal en caso de que los necesites "
+"más adelante. Ten en cuenta que esta precaución requiere tener suficiente "
+"espacio libre en tu sistema para mantener dos copias de tu base de datos "
+"existente. Si no tienes espacio suficiente, al menos deberías guardar el "
+"contenido del subdirectorio pg_xlog del clúster, ya que podría contener "
+"registros que no fueron archivados antes de que el sistema se detuviera."
 
 #: ../../en/backup.rst:220
 msgid ""
 "Remove all existing files and subdirectories under the cluster data "
 "directory and under the root directories of any tablespaces you are using."
 msgstr ""
+"Elimina todos los archivos y subdirectorios existentes en el directorio de "
+"datos del clúster y en los directorios raíz de cualquier tablespace que "
+"estés utilizando."
 
 #: ../../en/backup.rst:221
 msgid ""
@@ -407,6 +543,11 @@ msgid ""
 "and with the right permissions. If you are using tablespaces, you should "
 "verify that the symbolic links in pg_tblspc/ were correctly restored."
 msgstr ""
+"Restaura los archivos de la base de datos desde tu respaldo del sistema de "
+"archivos. Asegúrate de que se restauren con la propiedad correcta (el "
+"usuario del sistema de base de datos, ¡no root!) y con los permisos "
+"adecuados. Si estás usando tablespaces, deberías verificar que los enlaces "
+"simbólicos en pg_tblspc/ se restauraron correctamente."
 
 #: ../../en/backup.rst:222
 msgid ""
@@ -416,6 +557,11 @@ msgid ""
 "careful to ensure that you re-establish it as a symbolic link if you had it "
 "set up that way before."
 msgstr ""
+"Elimina cualquier archivo presente en pg_xlog/; estos provienen del respaldo "
+"del sistema de archivos y probablemente estén obsoletos en lugar de ser "
+"actuales. Si no archivaste pg_xlog/ en absoluto, entonces recréalo con los "
+"permisos adecuados, asegurándote de restablecerlo como un enlace simbólico "
+"si lo tenías configurado de esa manera antes."
 
 #: ../../en/backup.rst:223
 msgid ""
@@ -423,6 +569,10 @@ msgid ""
 "into pg_xlog/. (It is best to copy them, not move them, so you still have "
 "the unmodified files if a problem occurs and you have to start over.)"
 msgstr ""
+"Si tienes archivos de segmentos WAL no archivados que guardaste en el paso "
+"2, cópialos en pg_xlog/. (Es mejor copiarlos, no moverlos, para que aún "
+"tengas los archivos sin modificar si ocurre un problema y debes empezar de "
+"nuevo.)"
 
 #: ../../en/backup.rst:224
 msgid ""
@@ -431,6 +581,10 @@ msgid ""
 "prevent ordinary users from connecting until you are sure the recovery was "
 "successful."
 msgstr ""
+"Crea un archivo de comando de recuperación recovery.conf en el directorio de "
+"datos del clúster (ver el Capítulo 26). También puedes querer modificar "
+"temporalmente pg_hba.conf para evitar que usuarios ordinarios se conecten "
+"hasta que estés seguro de que la recuperación fue exitosa."
 
 #: ../../en/backup.rst:225
 msgid ""
@@ -441,6 +595,13 @@ msgid ""
 "rename recovery.conf to recovery.done (to prevent accidentally re-entering "
 "recovery mode later) and then commence normal database operations."
 msgstr ""
+"Inicia el servidor. El servidor entrará en modo de recuperación y procederá "
+"a leer los archivos WAL archivados que necesita. Si la recuperación se "
+"interrumpe por un error externo, el servidor puede simplemente reiniciarse y "
+"continuará con la recuperación. Al completarse el proceso de recuperación, "
+"el servidor renombrará recovery.conf a recovery.done (para evitar entrar "
+"accidentalmente en modo de recuperación más adelante) y luego comenzará las "
+"operaciones normales de base de datos."
 
 #: ../../en/backup.rst:226
 msgid ""
@@ -448,36 +609,49 @@ msgid ""
 "desired state. If not, return to step 1. If all is well, allow your users to "
 "connect by restoring pg_hba.conf to normal."
 msgstr ""
+"Inspecciona el contenido de la base de datos para asegurarte de que se haya "
+"recuperado al estado deseado. Si no es así, vuelve al paso 1. Si todo está "
+"correcto, permite que tus usuarios se conecten restaurando pg_hba.conf a su "
+"estado normal."
 
 #: ../../en/backup.rst:231
 msgid "Links"
-msgstr ""
+msgstr "Enlaces"
 
 #: ../../en/backup.rst:233
 msgid ""
 "`pg_dump <http://www.postgresql.org/docs/current/static/app-pgdump.html>`_"
 msgstr ""
+"`pg_dump <http://www.postgresql.org/docs/current/static/app-pgdump.html>`_"
 
 #: ../../en/backup.rst:234
 msgid ""
 "`pg_dumpall <http://www.postgresql.org/docs/current/static/app-pg-dumpall."
 "html>`_"
 msgstr ""
+"`pg_dumpall <http://www.postgresql.org/docs/current/static/app-pg-dumpall."
+"html>`_"
 
 #: ../../en/backup.rst:235
 msgid ""
 "`pg_restore <http://www.postgresql.org/docs/current/static/app-pgrestore."
 "html>`_"
 msgstr ""
+"`pg_restore <http://www.postgresql.org/docs/current/static/app-pgrestore."
+"html>`_"
 
 #: ../../en/backup.rst:236
 msgid ""
 "`PostgreSQL High Availability <http://www.postgresql.org/docs/current/static/"
 "high-availability.html>`_"
 msgstr ""
+"`Alta Disponibilidad en PostgreSQL <http://www.postgresql.org/docs/current/"
+"static/high-availability.html>`_"
 
 #: ../../en/backup.rst:237
 msgid ""
 "`PostgreSQL High Availability Continuous Archiving and PITR <http://www."
 "postgresql.org/docs/current/static/continuous-archiving.html>`_"
 msgstr ""
+"`Archivo continuo en alta disponibilidad y PITR en PostgreSQL <http://www."
+"postgresql.org/docs/current/static/continuous-archiving.html>`_"

@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-08-29 06:47+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships_exercises/es/>\n"
 "Language: es\n"
@@ -119,7 +119,7 @@ msgstr "``nyc_census_blocks``"
 
 #: ../../en/spatial_relationships_exercises.rst:25
 msgid "blkid, popn_total, boroname, geom"
-msgstr ""
+msgstr "blkid, popn_total, boroname, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:27
 msgid "``nyc_streets``"

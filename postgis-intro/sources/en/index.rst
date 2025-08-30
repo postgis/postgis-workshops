@@ -108,3 +108,7 @@ Links to have on hand
   - OpenJUMP - http://openjump.org/
   - uDig - https://udig.github.io/
 
+* Online Playground
+
+  - PostgreSQL playground - https://sqlize.online/s/4Q
+  - PostGIS playground with workshop data - https://sqlize.online/s/pQ

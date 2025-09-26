@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-27 06:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "upgrades/es/>\n"
 "Language: es\n"
@@ -55,14 +56,16 @@ msgstr ""
 #: ../../en/upgrades.rst:10
 msgid "Upgrades can be considered in terms of upgrading each component."
 msgstr ""
+"Las actualizaciones pueden considerarse en términos de actualizar cada "
+"componente."
 
 #: ../../en/upgrades.rst:14
 msgid "Upgrading PostgreSQL"
-msgstr ""
+msgstr "Actualizando PostgreSQL"
 
 #: ../../en/upgrades.rst:16
 msgid "There are two kinds of PostgreSQL upgrade scenarios:"
-msgstr ""
+msgstr "Existen dos tipos de escenarios de actualización de PostgreSQL:"
 
 #: ../../en/upgrades.rst:18
 msgid ""
@@ -71,6 +74,11 @@ msgid ""
 "of more than one patch version are just fine. Minor upgrades fix bugs but do "
 "not add any new features or change behaviour."
 msgstr ""
+"Una \"actualización menor\" cuando la versión del software aumenta a nivel "
+"de \"parche\". Por ejemplo, de 8.4.3 a 8.4.4, o de 9.0.1 a 9.0.3. Aumentos "
+"de más de una versión de parche también están bien. Las actualizaciones "
+"menores corrigen errores pero no agregan nuevas características ni cambian "
+"el comportamiento."
 
 #: ../../en/upgrades.rst:19
 msgid ""
@@ -78,28 +86,35 @@ msgid ""
 "example, from 8.4.5 to 9.0.0, or from 9.0.5 to 9.1.1. Major upgrades add new "
 "features and change behavior."
 msgstr ""
+"Una \"actualización mayor\" cuando aumentan las versiones \"mayor\" o \"menor"
+"\". Por ejemplo, de 8.4.5 a 9.0.0, o de 9.0.5 a 9.1.1. Las actualizaciones "
+"mayores agregan nuevas características y cambian el comportamiento."
 
 #: ../../en/upgrades.rst:22
 msgid "Minor PostgreSQL Upgrades"
-msgstr ""
+msgstr "Actualizaciones menores de PostgreSQL"
 
 #: ../../en/upgrades.rst:24
 msgid ""
 "For \"minor upgrades\", no special process is necessary. Simply install the "
 "new software, and re-start the server."
 msgstr ""
+"Para las \"actualizaciones menores\", no es necesario un proceso especial. "
+"Simplemente instala el nuevo software y reinicia el servidor."
 
 #: ../../en/upgrades.rst:27
 msgid "Major PostgreSQL Upgrades"
-msgstr ""
+msgstr "Actualizaciones mayores de PostgreSQL"
 
 #: ../../en/upgrades.rst:29
 msgid "For \"major upgrades\" there are two ways to carry out the upgrade."
 msgstr ""
+"Para las \"actualizaciones mayores\" hay dos formas de llevar a cabo la "
+"actualización."
 
 #: ../../en/upgrades.rst:32
 msgid "Dump/Restore"
-msgstr ""
+msgstr "Volacdo(Dump)/Restaurar"
 
 #: ../../en/upgrades.rst:34
 msgid ""
@@ -110,10 +125,17 @@ msgid ""
 "process. It's also a time-tested and well-understood upgrade path, so if "
 "your database is not too big, there's no reason not to stick with it."
 msgstr ""
+"Volcar y restaurar implica convertir todos los datos a un formato neutral de "
+"plataforma (representaciones de texto) al hacer el volcado, y de vuelta a "
+"representaciones nativas al restaurar, por lo que puede consumir tiempo y "
+"ser intensivo en CPU. Sin embargo, si estás migrando a una nueva "
+"arquitectura o sistema operativo, es un proceso requerido. También es una "
+"ruta de actualización probada y bien entendida, así que si tu base de datos "
+"no es demasiado grande, no hay razón para no seguir con ella."
 
 #: ../../en/upgrades.rst:36
 msgid "Dump your data ``pg_dumpall`` from the old database."
-msgstr ""
+msgstr "Vuelca tus datos con ``pg_dumpall`` desde la base de datos antigua."
 
 #: ../../en/upgrades.rst:37
 msgid ""
@@ -122,24 +144,30 @@ msgid ""
 "that the dump file function definitions reference an expected version of the "
 "PostGIS library."
 msgstr ""
+"Instala la nueva versión de PostgreSQL y la misma versión de PostGIS que "
+"estás usando en tu base de datos antigua. Necesitas que coincida la versión "
+"de PostGIS para que las definiciones de funciones en el archivo de volcado "
+"hagan referencia a la versión esperada de la biblioteca PostGIS."
 
 #: ../../en/upgrades.rst:38
 msgid ""
 "Initialize the new data area using the ``initdb`` program from the new "
 "software."
 msgstr ""
+"Inicializa la nueva área de datos usando el programa ``initdb`` del nuevo "
+"software."
 
 #: ../../en/upgrades.rst:39
 msgid "Start the new server on the new data area."
-msgstr ""
+msgstr "Inicia el nuevo servidor en la nueva área de datos."
 
 #: ../../en/upgrades.rst:40
 msgid "Restore the dump file using ``pg_restore``."
-msgstr ""
+msgstr "Restaura el archivo de volcado usando ``pg_restore``."
 
 #: ../../en/upgrades.rst:43
 msgid "pg_upgrade"
-msgstr ""
+msgstr "pg_upgrade"
 
 #: ../../en/upgrades.rst:45
 msgid ""
@@ -148,12 +176,19 @@ msgid ""
 "changes to the data files themselves, but handles the more common and "
 "frequent changes to system tables that occur in PostgreSQL major upgrades."
 msgstr ""
+"La utilidad pg_upgrade_ permite que los directorios de datos de PostgreSQL "
+"se actualicen sin el requisito de un paso de volcado/restauración. La "
+"utilidad no puede manejar cambios en los propios archivos de datos, pero "
+"maneja los cambios más comunes y frecuentes en las tablas del sistema que "
+"ocurren en las actualizaciones mayores de PostgreSQL."
 
 #: ../../en/upgrades.rst:49
 msgid ""
 "The full instructions for running the upgrade process are in the pg_upgrade_ "
 "web page at the PostgreSQL site."
 msgstr ""
+"Las instrucciones completas para ejecutar el proceso de actualización están "
+"en la página web de pg_upgrade_ en el sitio de PostgreSQL."
 
 #: ../../en/upgrades.rst:51
 msgid ""
@@ -161,43 +196,54 @@ msgid ""
 "PostgreSQL it is working with, the old and the new version, so you will have "
 "to install them both."
 msgstr ""
+"El programa pg_upgrade_ espera tener acceso a ambas versiones de PostgreSQL "
+"con las que está trabajando, la versión antigua y la nueva, por lo que "
+"tendrás que instalar ambas."
 
 #: ../../en/upgrades.rst:53
 msgid "Install the new version of PostgreSQL you will be using."
-msgstr ""
+msgstr "Instala la nueva versión de PostgreSQL que vas a usar."
 
 #: ../../en/upgrades.rst:54
 msgid ""
 "Install the same version of PostGIS you are using in the old PostgreSQL into "
 "the new PostgreSQL."
 msgstr ""
+"Instala en el nuevo PostgreSQL la misma versión de PostGIS que estabas "
+"usando en el PostgreSQL antiguo."
 
 #: ../../en/upgrades.rst:55
 msgid ""
 "Initialize the new PostgreSQL data area with the new copy of ``initdb``."
 msgstr ""
+"Inicializa la nueva área de datos de PostgreSQL con la nueva copia de "
+"``initdb``."
 
 #: ../../en/upgrades.rst:56
 msgid "Ensure both the old and new PostgreSQL servers are turned off."
 msgstr ""
+"Asegúrate de que tanto el servidor antiguo como el nuevo de PostgreSQL estén "
+"apagados."
 
 #: ../../en/upgrades.rst:57
 msgid ""
 "Run pg_upgrade_, making sure to use the binary from the new software "
 "installation."
 msgstr ""
+"Ejecuta pg_upgrade_, asegurándote de usar el binario de la nueva instalación "
+"de software."
 
 #: ../../en/upgrades.rst:67
 msgid "If pg_upgrade_ generated any ``.sql`` files, run them now."
-msgstr ""
+msgstr "Si pg_upgrade_ generó algún archivo ``.sql``, ejecútalos ahora."
 
 #: ../../en/upgrades.rst:68
 msgid "Start the new server."
-msgstr ""
+msgstr "Inicia el nuevo servidor."
 
 #: ../../en/upgrades.rst:72
 msgid "Upgrading PostGIS"
-msgstr ""
+msgstr "Actualización de PostGIS"
 
 #: ../../en/upgrades.rst:74
 msgid ""
@@ -205,11 +251,17 @@ msgid ""
 "If you spatially-enabled your database using ``CREATE EXTENSION postgis``, "
 "you can update your database using the same functionality."
 msgstr ""
+"PostGIS maneja las actualizaciones menores y mayores a través del mecanismo "
+"de ``EXTENSION``. Si habilitaste espacialmente tu base de datos usando ``"
+"CREATE EXTENSION postgis``, puedes actualizar tu base de datos usando la "
+"misma funcionalidad."
 
 #: ../../en/upgrades.rst:76
 msgid "First, install the new software so it is available to the database."
 msgstr ""
+"Primero, instala el nuevo software para que esté disponible en la base de "
+"datos."
 
 #: ../../en/upgrades.rst:78
 msgid "Then, run the SQL to upgrade your PostGIS extension."
-msgstr ""
+msgstr "Luego, ejecuta el SQL para actualizar tu extensión de PostGIS."

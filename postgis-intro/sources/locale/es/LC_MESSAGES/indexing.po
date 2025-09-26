@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <david@dmts.es>, 2022.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023, 2024.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-09 03:04+0000\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "indexing/es/>\n"
 "Language: es\n"
@@ -160,6 +161,9 @@ msgid ""
 "**one**, the red line. But the bounding boxes of features that intersect the "
 "yellow box is **two**, the red and blue ones."
 msgstr ""
+"En la figura anterior, el número de líneas que intersectan la estrella "
+"amarilla es **una**, la línea roja. Pero las cajas envolventes de las "
+"entidades que intersectan la caja amarilla son **dos**, la roja y la azul."
 
 #: ../../en/indexing.rst:64
 msgid ""
@@ -280,7 +284,7 @@ msgstr "`ST_OrderingEquals <http://postgis.net/docs/ST_OrderingEquals.html>`_,"
 
 #: ../../en/indexing.rst:93
 msgid "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_"
-msgstr "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_."
+msgstr "`ST_Equals <http://postgis.net/docs/ST_Equals.html>`_"
 
 #: ../../en/indexing.rst:95
 msgid ""
@@ -295,11 +299,6 @@ msgstr ""
 "consiguiendo un rendimiento óptimo por el índice."
 
 #: ../../en/indexing.rst:97
-#, fuzzy
-#| msgid ""
-#| "In order to add index acceleration to other functions that are not in "
-#| "this list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate."
-#| "html>`_) add an index-only clause as descibed below."
 msgid ""
 "In order to add index acceleration to other functions that are not in this "
 "list (most commonly, `ST_Relate <http://postgis.net/docs/ST_Relate.html>`_) "
@@ -311,7 +310,7 @@ msgstr ""
 
 #: ../../en/indexing.rst:101
 msgid "Index-Only Queries"
-msgstr ""
+msgstr "Consultas solo con índice"
 
 #: ../../en/indexing.rst:103
 msgid ""
@@ -332,6 +331,11 @@ msgid ""
 "\"bounding boxes overlap or touch\" in the same way that for numbers the :"
 "command:`=` operator means \"values are the same\"."
 msgstr ""
+"Para hacer una búsqueda por bounding-box usando el índice (y sin filtrado), "
+"usa el operador :command:`&&`. Para geometrías, el operador :command:`&&` "
+"significa \"las cajas envolventes se superponen o se tocan\" de la misma "
+"forma en que para números el operador :command:`=` significa \"los valores "
+"son iguales\"."
 
 #: ../../en/indexing.rst:107
 msgid ""
@@ -339,6 +343,9 @@ msgid ""
 "to a more exact query. Using :command:`&&` our index-only query looks like "
 "the following:"
 msgstr ""
+"Comparemos una consulta solo con índice para la población de 'West Village' "
+"con una consulta más exacta. Usando :command:`&&` nuestra consulta solo con "
+"índice se ve así:"
 
 #: ../../en/indexing.rst:121
 msgid ""
@@ -354,10 +361,13 @@ msgid ""
 "box intersects the neighborhood's bounding box; the second query only summed "
 "up those blocks that intersect the neighborhood itself."
 msgstr ""
+"¡Una respuesta mucho menor! La primera consulta sumó todos los bloques cuya "
+"caja envolvente intersecta la caja envolvente del vecindario; la segunda "
+"consulta solo sumó aquellos bloques que intersectan el vecindario mismo."
 
 #: ../../en/indexing.rst:138
 msgid "Analyzing"
-msgstr ""
+msgstr "Analizando"
 
 #: ../../en/indexing.rst:140
 msgid ""
@@ -367,6 +377,12 @@ msgid ""
 "table, traversing the index tree to get each record will actually be slower "
 "than just sequentially reading the whole table from the start."
 msgstr ""
+"El planificador de consultas de PostgreSQL elige de forma inteligente cuándo "
+"usar o no usar índices para evaluar una consulta. Contraintuitivamente, no "
+"siempre es más rápido hacer una búsqueda con índice: si la búsqueda va a "
+"devolver todos los registros de la tabla, recorrer el árbol del índice para "
+"obtener cada registro será en realidad más lento que leer secuencialmente "
+"toda la tabla desde el principio."
 
 #: ../../en/indexing.rst:142
 msgid ""
@@ -374,6 +390,10 @@ msgid ""
 "query will return a large number or small number of records. Below, the red "
 "square is small, but will return many more records than the blue square."
 msgstr ""
+"Saber el tamaño del rectángulo de la consulta no es suficiente para "
+"determinar si una consulta devolverá un número grande o pequeño de "
+"registros. Abajo, el cuadrado rojo es pequeño, pero devolverá muchos más "
+"registros que el cuadrado azul."
 
 #: ../../en/indexing.rst:146
 msgid ""
@@ -384,6 +404,12 @@ msgid ""
 "However, if you dramatically change the contents of your table within a "
 "short period of time, the statistics will not be up-to-date."
 msgstr ""
+"Para determinar con qué situación se enfrenta (leer una pequeña parte de la "
+"tabla versus leer una gran porción de la tabla), PostgreSQL mantiene "
+"estadísticas sobre la distribución de datos en cada columna indexada de la "
+"tabla. Por defecto, PostgreSQL recopila estadísticas de forma regular. Sin "
+"embargo, si cambias dramáticamente el contenido de tu tabla en un corto "
+"periodo de tiempo, las estadísticas no estarán actualizadas."
 
 #: ../../en/indexing.rst:148
 msgid ""
@@ -391,6 +417,10 @@ msgid ""
 "the ``ANALYZE`` command after bulk data loads and deletes in your tables. "
 "This force the statistics system to gather data for all your indexed columns."
 msgstr ""
+"Para asegurarte de que las estadísticas coincidan con el contenido de tu "
+"tabla, es recomendable ejecutar el comando ``ANALYZE`` después de cargas "
+"masivas de datos y eliminaciones en tus tablas. Esto fuerza al sistema de "
+"estadísticas a recopilar datos de todas tus columnas indexadas."
 
 #: ../../en/indexing.rst:150
 msgid ""
@@ -398,10 +428,13 @@ msgid ""
 "internal statistics used for query plan estimation (query plan analysis will "
 "be discussed later)."
 msgstr ""
+"El comando ``ANALYZE`` le pide a PostgreSQL recorrer la tabla y actualizar "
+"sus estadísticas internas usadas para la estimación de planes de consulta ("
+"el análisis de planes de consulta se discutirá más adelante)."
 
 #: ../../en/indexing.rst:157
 msgid "Vacuuming"
-msgstr ""
+msgstr "Vacuuming"
 
 #: ../../en/indexing.rst:159
 msgid ""
@@ -411,12 +444,20 @@ msgid ""
 "``VACUUM`` command asks PostgreSQL to reclaim any unused space in the table "
 "pages left by updates or deletes to records."
 msgstr ""
+"Vale la pena enfatizar que simplemente crear un índice no es suficiente para "
+"permitir que PostgreSQL lo use de manera efectiva. Se debe realizar VACUUM "
+"siempre que se ejecuten un gran número de UPDATEs, INSERTs o DELETEs contra "
+"una tabla. El comando ``VACUUM`` le pide a PostgreSQL recuperar cualquier "
+"espacio no usado en las páginas de la tabla dejado por actualizaciones o "
+"eliminaciones de registros."
 
 #: ../../en/indexing.rst:161
 msgid ""
 "Vacuuming is so critical for the efficient running of the database that "
 "PostgreSQL provides an \"autovacuum\" facility by default."
 msgstr ""
+"El vacuuming es tan crítico para la ejecución eficiente de la base de datos "
+"que PostgreSQL proporciona una facilidad de \"autovacuum\" predeterminda."
 
 #: ../../en/indexing.rst:163
 msgid ""
@@ -427,6 +468,12 @@ msgid ""
 "data.  Whenever a large batch update is performed, you should manually run "
 "``VACUUM``."
 msgstr ""
+"Autovacuum tanto vacía (recupera espacio) como analiza (actualiza "
+"estadísticas) tus tablas en intervalos razonables determinados por el nivel "
+"de actividad. Aunque esto es esencial para bases de datos altamente "
+"transaccionales, no es recomendable esperar una ejecución de autovacuum "
+"después de añadir índices o cargar datos masivamente. Siempre que se realice "
+"una actualización en lote grande, debes ejecutar manualmente ``VACUUM``."
 
 #: ../../en/indexing.rst:165
 msgid ""
@@ -436,6 +483,11 @@ msgid ""
 "commands can be run against the entire database, a single table, or a single "
 "column."
 msgstr ""
+"Vacuuming y analizar la base de datos pueden realizarse por separado según "
+"sea necesario. Ejecutar el comando ``VACUUM`` no actualizará las "
+"estadísticas de la base de datos; del mismo modo, ejecutar un comando "
+"``ANALYZE`` no recuperará filas de tabla no usadas. Ambos comandos pueden "
+"ejecutarse contra toda la base de datos, una sola tabla o una sola columna."
 
 #: ../../en/indexing.rst:172
 msgid "Function List"
@@ -446,6 +498,8 @@ msgid ""
 "`geometry_a && geometry_b <http://postgis.net/docs/geometry_overlaps."
 "html>`_: Returns TRUE if A's bounding box overlaps B's."
 msgstr ""
+"`geometry_a && geometry_b <http://postgis.net/docs/geometry_overlaps.html>`_:"
+" Devuelve TRUE si la caja envolvente de A se superpone con la de B."
 
 #: ../../en/indexing.rst:176
 msgid ""
@@ -453,12 +507,18 @@ msgid ""
 "Before PostGIS 2.4 returns true if A's bounding box is same as B's. From 2.4 "
 "on Returns TRUE only if A's geometry is the same as B."
 msgstr ""
+"`geometry_a = geometry_b <http://postgis.net/docs/ST_Geometry_EQ.html>`_: "
+"Antes de PostGIS 2.4 devuelve TRUE si la caja envolvente de A es la misma "
+"que la de B. A partir de la versión 2.4 devuelve TRUE solo si la geometría "
+"de A es la misma que la de B."
 
 #: ../../en/indexing.rst:178
 msgid ""
 "`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_: "
 "Returns TRUE if A's bounding box equals B's bounding box."
 msgstr ""
+"`geometry_a ~= geometry_b <http://postgis.net/docs/ST_Geometry_Same.html>`_: "
+"Devuelve TRUE si la caja envolvente de A es igual a la caja envolvente de B."
 
 #: ../../en/indexing.rst:180
 msgid ""
@@ -467,11 +527,15 @@ msgid ""
 "intersect\" - (share any portion of space) and FALSE if they don't (they are "
 "Disjoint)."
 msgstr ""
+"`ST_Intersects(geometry_a, geometry_b) <http://postgis.net/docs/ST_Intersects"
+".html>`_: Devuelve TRUE si las geometrías/geografías \"intersectan "
+"espacialmente\" (comparten alguna porción del espacio) y FALSE si no lo "
+"hacen (son disjuntas)."
 
 #: ../../en/indexing.rst:183
 msgid "Footnotes"
-msgstr ""
+msgstr "Nota al pie"
 
 #: ../../en/indexing.rst:184
 msgid "http://postgis.net/docs/support/rtree.pdf"
-msgstr ""
+msgstr "http://postgis.net/docs/support/rtree.pdf"

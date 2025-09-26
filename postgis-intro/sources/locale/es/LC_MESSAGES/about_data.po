@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/es/>\n"
@@ -183,7 +183,6 @@ msgstr ""
 "factfinder.census.gov>`_."
 
 #: ../../en/about_data.rst:52
-#, fuzzy
 msgid "nyc_neighborhoods"
 msgstr "nyc_neighborhoods"
 
@@ -203,8 +202,8 @@ msgstr ""
 "Gardens, Red Hook, y Cobble Hill se conocieron en cierto momento "
 "colectivamente como \"Brooklyn Sur\". Y ahora, en función del agente "
 "inmobiliario con el que se hable, los mismos cuatro bloques del barrio antes "
-"conocido como Red Hook  ¡pueden ser Columbia Heights, Carroll Gardens West, "
-"o Red Hook!"
+"conocido como Red Hook ¡pueden ser Columbia Heights, Carroll Gardens West, o "
+"Red Hook!"
 
 #: ../../en/about_data.rst:56
 msgid "Number of records: 129"
@@ -212,7 +211,6 @@ msgstr "Número de registros: 129"
 
 #: ../../en/about_data.rst:61 ../../en/about_data.rst:82
 #: ../../en/about_data.rst:106
-#, fuzzy
 msgid "**name**"
 msgstr "**name**"
 
@@ -350,12 +348,12 @@ msgid ""
 "collected some social-economic at a census tract level to answer some of "
 "these more interesting questions about New York City."
 msgstr ""
-"Existe una rica colección de datos socioeconómicos recopilados durante el el "
+"Existe una rica colección de datos socio-económicos recopilados durante el "
 "censo, pero sólo a nivel geográfico más amplio de sección censal. Las "
 "manzanas censales se combinan para formar secciones censales (grupos de "
-"manzanas). Hemos recopilado algunos datos socioeconómicos a nivel de sección "
-"censal para responder a algunas de las preguntas más interesantes sobre la "
-"ciudad de Nueva York."
+"manzanas). Hemos recopilado algunos datos socio-económicos a nivel de "
+"sección censal para responder a algunas de las preguntas más interesantes "
+"sobre la ciudad de Nueva York."
 
 #: ../../en/about_data.rst:130
 msgid ""
@@ -433,82 +431,84 @@ msgstr "Número de trabajadores de la zona que trabajan desde casa"
 
 #: ../../en/about_data.rst:149
 msgid "**transit_time_mins**"
-msgstr ""
+msgstr "**transit_time_mins**"
 
 #: ../../en/about_data.rst:150
 msgid ""
 "Total number of minutes spent in transit by all workers in the tract "
 "(minutes)"
 msgstr ""
+"Número total de minutos dedicados al transporte por todos los trabajadores "
+"en la zona censal (minutos)"
 
 #: ../../en/about_data.rst:151
 msgid "**family_count**"
-msgstr ""
+msgstr "**family_count**"
 
 #: ../../en/about_data.rst:152
 msgid "Number of families in the tract"
-msgstr ""
+msgstr "Número de familias en la zona censal"
 
 #: ../../en/about_data.rst:153
 msgid "**family_income_median**"
-msgstr ""
+msgstr "**family_income_median** (Media de ingresos por familia)"
 
 #: ../../en/about_data.rst:154
 msgid "Median family income in the tract (dollars)"
-msgstr ""
+msgstr "Ingreso familiar mediano en la zona censal (dólares)"
 
 #: ../../en/about_data.rst:155
 msgid "**family_income_mean**"
-msgstr ""
+msgstr "**family_income_mean**"
 
 #: ../../en/about_data.rst:156
 msgid "Average family income in the tract (dollars)"
-msgstr ""
+msgstr "Ingreso familiar promedio en la zona censal (dólares)"
 
 #: ../../en/about_data.rst:157
 msgid "**family_income_aggregate**"
-msgstr ""
+msgstr "**family_income_aggregate**"
 
 #: ../../en/about_data.rst:158
 msgid "Total income of all families in the tract (dollars)"
-msgstr ""
+msgstr "Ingreso total de todas las familias en la zona censal (dólares)"
 
 #: ../../en/about_data.rst:159
 msgid "**edu_total**"
-msgstr ""
+msgstr "**edu_total**"
 
 #: ../../en/about_data.rst:160
 msgid "Number of people with educational history"
-msgstr ""
+msgstr "Número de personas con historial educativo"
 
 #: ../../en/about_data.rst:161
 msgid "**edu_no_highschool_dipl**"
-msgstr ""
+msgstr "**edu_no_highschool_dipl**"
 
 #: ../../en/about_data.rst:162
 msgid "Number of people with no high school diploma"
-msgstr ""
+msgstr "Número de personas sin diploma de secundaria"
 
 #: ../../en/about_data.rst:163
 msgid "**edu_highschool_dipl**"
-msgstr ""
+msgstr "**edu_highschool_dipl**"
 
 #: ../../en/about_data.rst:164
 msgid "Number of people with high school diploma and no further education"
-msgstr ""
+msgstr "Número de personas con diploma de secundaria y sin educación posterior"
 
 #: ../../en/about_data.rst:165
 msgid "**edu_college_dipl**"
-msgstr ""
+msgstr "**edu_college_dipl**"
 
 #: ../../en/about_data.rst:166
 msgid "Number of people with college diploma and no further education"
-msgstr ""
+msgstr "Número de personas con diploma universitario"
 
 #: ../../en/about_data.rst:167
 msgid "**edu_graduate_dipl**"
-msgstr ""
+msgstr "**edu_graduate_dipl**"
 
 #: ../../en/about_data.rst:168
 msgid "Number of people with graduate school diploma"
-msgstr ""
+msgstr "Número de personas con diploma de posgrado"

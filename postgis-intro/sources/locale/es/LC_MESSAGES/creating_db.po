@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-14 05:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "creating_db/es/>\n"
 "Language: es\n"
@@ -158,7 +159,7 @@ msgid ""
 "query.\""
 msgstr ""
 "Haz clic en el botón **Play** de la barra de herramientas (o pulsa **F5**) "
-"para \"Ejecutar la consulta\"."
+"para \"Ejecutar la consulta.\""
 
 #: ../../en/creating_db.rst:65
 msgid "Now confirm that PostGIS is installed by running a PostGIS function:"

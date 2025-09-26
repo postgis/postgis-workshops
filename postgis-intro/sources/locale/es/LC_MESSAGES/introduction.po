@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "introduction/es/>\n"
@@ -263,7 +263,7 @@ msgstr ""
 "dan resultados aproximados. La pregunta \"¿qué lineas están dentro de este "
 "polígono?\" interpretada por un índice espacial se reformularia como \"¿qué "
 "lineas tienen cajas envolventes que están contenidas dentro de la envolvente "
-"de este polígono?\"."
+"de este polígono?\""
 
 #: ../../en/introduction.rst:71
 msgid ""
@@ -437,11 +437,11 @@ msgstr "PostgreSQL tiene:"
 
 #: ../../en/introduction.rst:109
 msgid "Proven reliability and transactional integrity by default (ACID)"
-msgstr "Una fiabilidad probada e integridad transaccional por defecto (ACID)."
+msgstr "Una fiabilidad probada e integridad transaccional por defecto (ACID)"
 
 #: ../../en/introduction.rst:110
 msgid "Careful support for SQL standards (full SQL92)"
-msgstr "Soporte escrupuloso de los estándares SQL (SQL92 completo)."
+msgstr "Soporte escrupuloso de los estándares SQL (SQL92 completo)"
 
 #: ../../en/introduction.rst:111
 msgid "Pluggable type extension and function extension"
@@ -449,24 +449,24 @@ msgstr "Funciones extensibles y tipos conectables y extensibles"
 
 #: ../../en/introduction.rst:112
 msgid "Community-oriented development model"
-msgstr "Modelo de desarrollo orientado a la comunidad."
+msgstr "Modelo de desarrollo orientado a la comunidad"
 
 #: ../../en/introduction.rst:113
 msgid ""
 "No limit on column sizes (\"TOAST\"able tuples) to support big GIS objects"
 msgstr ""
 "Tamaños de columna no limitados (tuplas \"TOAST\") para soportar objetos SIG "
-"grandes."
+"grandes"
 
 #: ../../en/introduction.rst:114
 msgid "Generic index structure (GiST) to allow R-Tree index"
 msgstr ""
 "Estructura de índices genéricos (GiST, por sus siglas en inglés) que "
-"permiten el índice R-Tree."
+"permiten el índice R-Tree"
 
 #: ../../en/introduction.rst:115
 msgid "Easy to add custom functions"
-msgstr "Facilidad para añadir funciones personalizadas."
+msgstr "Facilidad para añadir funciones personalizadas"
 
 #: ../../en/introduction.rst:117
 msgid ""

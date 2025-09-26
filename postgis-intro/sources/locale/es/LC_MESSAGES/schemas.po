@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-03-14 05:47+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "schemas/es/>\n"
 "Language: es\n"
@@ -138,11 +139,15 @@ msgid ""
 "Let's create a new schema and move a table into it.  First, create a new "
 "schema in the database:"
 msgstr ""
+"Vamos a crear un nuevo esquema y mover una tabla dentro de él.  Primero, "
+"crea un nuevo esquema en la base de datos:"
 
 #: ../../en/schemas.rst:42
 msgid ""
 "Next, we will move the ``nyc_census_blocks`` table to the ``census`` schema:"
 msgstr ""
+"A continuación, moveremos la tabla ``nyc_census_blocks`` al esquema "
+"``census``:"
 
 #: ../../en/schemas.rst:48
 msgid ""
@@ -151,32 +156,42 @@ msgid ""
 "using PgAdmin, you might have to refresh your view to see the new schema and "
 "the table inside it."
 msgstr ""
+"Si estás usando el programa de línea de comandos :command:`psql`, notarás "
+"que ``nyc_census_blocks`` ha desaparecido de tu lista de tablas ahora! Si "
+"estás usando PgAdmin, puede que tengas que refrescar tu vista para ver el "
+"nuevo esquema y la tabla dentro de él."
 
 #: ../../en/schemas.rst:50
 msgid "You can access tables inside schemas in two ways:"
-msgstr ""
+msgstr "Puedes acceder a las tablas dentro de los esquemas de dos maneras:"
 
 #: ../../en/schemas.rst:52
 msgid "by referencing them using ``schema.table`` notation"
-msgstr ""
+msgstr "haciendo referencia a ellas usando la notación ``schema.table``"
 
 #: ../../en/schemas.rst:53
 msgid "by adding the schema to your ``search_path``"
-msgstr ""
+msgstr "añadiendo el esquema a tu ``search_path``"
 
 #: ../../en/schemas.rst:55
 msgid "Explicit referencing is easy, but it gets tiring to type after a while:"
 msgstr ""
+"La referencia explícita es fácil, pero con el tiempo se vuelve tediosa de "
+"escribir:"
 
 #: ../../en/schemas.rst:61
 msgid ""
 "Manipulating the ``search_path`` is a nice way to provide access to tables "
 "in multiple schemas without lots of extra typing."
 msgstr ""
+"Manipular el ``search_path`` es una buena manera de proporcionar acceso a "
+"tablas en múltiples esquemas sin mucho tipeo adicional."
 
 #: ../../en/schemas.rst:63
 msgid "You can set the ``search_path`` at run time using the ``SET`` command:"
 msgstr ""
+"Puedes establecer el ``search_path`` en tiempo de ejecución usando el "
+"comando ``SET``:"
 
 #: ../../en/schemas.rst:69
 msgid ""
@@ -185,22 +200,31 @@ msgid ""
 "PostGIS functions and types are in ``public`` so we don't want to drop that "
 "from the search path."
 msgstr ""
+"Esto asegura que todas las referencias a relaciones y funciones sean "
+"buscadas tanto en los esquemas ``census`` como ``public``. Recuerda que "
+"todas las funciones y tipos de PostGIS están en ``public`` así que no "
+"queremos quitarlo del search path."
 
 #: ../../en/schemas.rst:71
 msgid ""
 "Setting the search path every time you connect can get tiring too, but "
 "fortunately it's possible to permanently set the search path for a user:"
 msgstr ""
+"Configurar el search path cada vez que te conectas también puede ser "
+"cansado, pero afortunadamente es posible establecerlo de forma permanente "
+"para un usuario:"
 
 #: ../../en/schemas.rst:77
 msgid ""
 "Now the postgres user will always have the ``census`` schema in their search "
 "path."
 msgstr ""
+"Ahora el usuario postgres siempre tendrá el esquema ``census`` en su search "
+"path."
 
 #: ../../en/schemas.rst:81
 msgid "Creating a User Schema"
-msgstr ""
+msgstr "Creación de un esquema de usuario"
 
 #: ../../en/schemas.rst:83
 msgid ""
@@ -209,6 +233,11 @@ msgid ""
 "results, so spatial SQL tends to require that users have CREATE privileges "
 "more than ordinary database workloads."
 msgstr ""
+"A los usuarios les gusta crear tablas, y los usuarios de PostGIS en "
+"particular: las operaciones de análisis con SQL requieren tablas temporales "
+"para visualización o resultados intermedios, así que el SQL espacial tiende "
+"a requerir que los usuarios tengan privilegios de CREATE más que las cargas "
+"de trabajo ordinarias de bases de datos."
 
 #: ../../en/schemas.rst:85
 msgid ""
@@ -216,6 +245,9 @@ msgid ""
 "practice to use for PostgreSQL users too, and is easy to replicate using "
 "PostgreSQL roles, schemas, and search paths."
 msgstr ""
+"De manera predeterminada, cada rol en Oracle recibe un esquema personal. "
+"Esta es una buena práctica para usar también con los usuarios de PostgreSQL, "
+"y es fácil de replicar usando roles, esquemas y search paths de PostgreSQL."
 
 #: ../../en/schemas.rst:87
 msgid ""
@@ -223,35 +255,48 @@ msgid ""
 "information about the ``postgis_writer`` role), then create a schema with "
 "that user as the authorization:"
 msgstr ""
+"Crea un nuevo usuario con privilegios de creación de tablas (ver "
+":ref:`security` para información sobre el rol ``postgis_writer``), luego "
+"crea un esquema con ese usuario como autorización:"
 
 #: ../../en/schemas.rst:94
 msgid ""
 "If you log in as that user, you'll find the default ``search_path`` for "
 "PostgreSQL is actually this:"
 msgstr ""
+"Si inicias sesión como ese usuario, encontrarás que el ``search_path`` "
+"predeterminado para PostgreSQL es en realidad este:"
 
 #: ../../en/schemas.rst:106
 msgid ""
 "The first schema on the search path us the user's named schema! So now the "
 "following conditions exist:"
 msgstr ""
+"¡El primer esquema en el search path es el esquema con el nombre del "
+"usuario! Así que ahora existen las siguientes condiciones:"
 
 #: ../../en/schemas.rst:108
 msgid "The user exists, with the ability to create spatial tables."
-msgstr ""
+msgstr "El usuario existe, con la capacidad de crear tablas espaciales."
 
 #: ../../en/schemas.rst:109
 msgid "The user's named schema exists, and the user owns it."
 msgstr ""
+"El esquema con el nombre del usuario existe, y el usuario es su propietario."
 
 #: ../../en/schemas.rst:110
 msgid ""
 "The user's search path has the user schema first, so new tables are "
 "automatically created there, and queries automatically search there first."
 msgstr ""
+"El search path del usuario tiene primero el esquema del usuario, por lo que "
+"las nuevas tablas se crean automáticamente allí, y las consultas buscan "
+"automáticamente allí primero."
 
 #: ../../en/schemas.rst:112
 msgid ""
 "That's all there is to it, the user's default work area is now nicely "
 "separated from any tables in other schemas."
 msgstr ""
+"Eso es todo, el área de trabajo predeterminada del usuario ahora está bien "
+"separada de cualquier tabla en otros esquemas."

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "tuning/es/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../../en/tuning.rst:4
 msgid "Basic PostgreSQL Tuning"
-msgstr ""
+msgstr "Afinamiento Básico de PostgreSQL"
 
 #: ../../en/tuning.rst:6
 msgid ""
@@ -38,6 +38,16 @@ msgid ""
 "databases, and you can see that the default configuration will not be "
 "totally appropriate for our purposes."
 msgstr ""
+"PostgreSQL es un sistema de bases de datos muy versátil, capaz de ejecutarse "
+"de manera eficiente en entornos de muy bajos recursos y en entornos "
+"compartidos con una variedad de otras aplicaciones. Para garantizar que "
+"funcione correctamente en muchos entornos diferentes, la configuración "
+"predeterminada es muy conservadora y no resulta del todo adecuada para una "
+"base de datos de producción de alto rendimiento. Si añadimos el hecho de que "
+"las bases de datos geoespaciales tienen diferentes patrones de uso, y los "
+"datos tienden a consistir en menos registros pero mucho más grandes que en "
+"bases de datos no geoespaciales, se puede ver que la configuración por "
+"defecto no será totalmente apropiada para nuestros propósitos."
 
 #: ../../en/tuning.rst:8
 msgid ""
@@ -46,12 +56,18 @@ msgid ""
 "using any text editor.  The changes will not take effect until the server is "
 "restarted."
 msgstr ""
+"Todos estos parámetros de configuración pueden editarse en el archivo de "
+"configuración de la base de datos postgresql.conf. Este es un archivo de "
+"texto normal y puede editarse con cualquier editor de texto. Los cambios no "
+"tendrán efecto hasta que se reinicie el servidor."
 
 #: ../../en/tuning.rst:10
 msgid ""
 "This section describes some of the configuration parameters that can be "
 "adjusted for a more production-ready geospatial database."
 msgstr ""
+"Esta sección describe algunos de los parámetros de configuración que pueden "
+"ajustarse para una base de datos geoespacial más preparada para producción."
 
 #: ../../en/tuning.rst:12
 msgid ""
@@ -59,10 +75,13 @@ msgid ""
 "testing is required to determine the optimal configuration.  But this "
 "section should get you off to a good start."
 msgstr ""
+"Estos valores son solo recomendaciones; cada entorno será diferente y se "
+"requiere hacer pruebas para determinar la configuración óptima. Pero esta "
+"sección debería servirte como un buen punto de partida."
 
 #: ../../en/tuning.rst:16
 msgid "shared_buffers"
-msgstr ""
+msgstr "shared_buffers"
 
 #: ../../en/tuning.rst:18
 msgid ""
@@ -71,19 +90,25 @@ msgid ""
 "suggests.  The default values are typically woefully inadequate for "
 "production databases."
 msgstr ""
+"Define la cantidad de memoria que el servidor de base de datos utiliza para "
+"los búferes de memoria compartida. Estos se comparten entre los procesos de "
+"back-end, como su nombre lo indica. Los valores predeterminados suelen ser "
+"totalmente inadecuados para bases de datos en producción."
 
 #: ../../en/tuning.rst:20
 msgid "*Default value*: typically 32MB"
-msgstr ""
+msgstr "*Default value*: típicamente 32MB"
 
 #: ../../en/tuning.rst:22
 msgid ""
 "*Recommended value*: about 75% of database memory up to a max of about 2GB"
 msgstr ""
+"*Recommended value*: alrededor del 75% de la memoria de la base de datos "
+"hasta un máximo de aproximadamente 2GB"
 
 #: ../../en/tuning.rst:26
 msgid "effective_cache_size"
-msgstr ""
+msgstr "effective_cache_size"
 
 #: ../../en/tuning.rst:28
 msgid ""
@@ -99,20 +124,34 @@ msgid ""
 "will compute plans expecting that the operating system has cached filesystem "
 "data in about that much memory."
 msgstr ""
+"Además de la memoria que PostgreSQL reserva para shared_buffers, el "
+"planificador de consultas también tiene en cuenta cuántos bloques de disco "
+"puede haber almacenado en caché el sistema operativo como parte de su "
+"sistema de archivos virtual. En sistemas con grandes cantidades de memoria, "
+"esto puede ser bastante elevado. El effective_cache_size es aproximadamente "
+"la cantidad de memoria de la máquina, menos shared_buffers, menos work_mem "
+"multiplicado por el número esperado de conexiones, menos cualquier memoria "
+"requerida para otros procesos que se estén ejecutando en la máquina, menos "
+"alrededor de 1GB para otras necesidades aleatorias del sistema operativo. La "
+"base de datos no usará directamente esta memoria adicional como caché, pero "
+"calculará planes suponiendo que el sistema operativo ha almacenado en caché "
+"datos del sistema de archivos en aproximadamente esa cantidad de memoria."
 
 #: ../../en/tuning.rst:30
 msgid "*Default value*: typically 4GB"
-msgstr ""
+msgstr "*Default value*: típicamente 4GB"
 
 #: ../../en/tuning.rst:32
 msgid ""
 "*Recommended value*: any amount of \"free\" memory expected to be around "
 "under ordinary operating conditions"
 msgstr ""
+"*Recommended value*: cualquier cantidad de memoria “libre” que se espere "
+"tener bajo condiciones normales de operación"
 
 #: ../../en/tuning.rst:36
 msgid "work_mem"
-msgstr ""
+msgstr "work_mem"
 
 #: ../../en/tuning.rst:38
 msgid ""
@@ -122,6 +161,12 @@ msgid ""
 "complex queries may have several sort or hash operations running in "
 "parallel, and each connected session may be executing a query."
 msgstr ""
+"Define la cantidad de memoria que las operaciones internas de ordenamiento, "
+"operaciones de indexación y tablas hash pueden consumir antes de que la base "
+"de datos cambie a usar archivos en disco. Este valor define la memoria "
+"disponible para cada operación; las consultas complejas pueden tener varias "
+"operaciones de ordenamiento o hash ejecutándose en paralelo, y cada sesión "
+"conectada puede estar ejecutando una consulta."
 
 #: ../../en/tuning.rst:40
 msgid ""
@@ -134,6 +179,14 @@ msgid ""
 "used **per connection**, which can be quite high with production levels of "
 "connections."
 msgstr ""
+"Por lo tanto, debes considerar cuántas conexiones habrá y la complejidad de "
+"las consultas esperadas antes de aumentar este valor. El **beneficio** de "
+"aumentarlo es el procesamiento de más operaciones —incluyendo cláusulas "
+"ORDER BY y DISTINCT, uniones merge y hash, agregaciones basadas en hash y "
+"procesamiento de subconsultas con hash— puede realizarse sin incurrir en "
+"escrituras a disco. El **costo** de aumentarlo es que la memoria que se "
+"usará por conexión, lo que puede ser bastante elevado en niveles de "
+"producción con muchas conexiones."
 
 #: ../../en/tuning.rst:42
 msgid "*Default value*: 1MB"
@@ -141,11 +194,11 @@ msgstr "*Valor predeterminado*: 1MB"
 
 #: ../../en/tuning.rst:44
 msgid "*Recommended value*: 32MB"
-msgstr ""
+msgstr "*Recommended value*: 32MB"
 
 #: ../../en/tuning.rst:48
 msgid "maintenance_work_mem"
-msgstr ""
+msgstr "maintenance_work_mem"
 
 #: ../../en/tuning.rst:50
 msgid ""
@@ -156,6 +209,13 @@ msgid ""
 "alternately be increased for a single session before the execution of a "
 "number of :command:`CREATE INDEX` or :command:`VACUUM` calls as shown below."
 msgstr ""
+"Define la cantidad de memoria utilizada para operaciones de mantenimiento, "
+"incluyendo vaciado (vacuum), creación de índices y de claves foráneas. Como "
+"estas operaciones no son muy comunes, un valor más alto solo tendrá un costo "
+"ocasional y puede acelerar sustancialmente las actividades de mantenimiento. "
+"Este parámetro también puede aumentarse para una sola sesión antes de "
+"ejecutar varios :command:CREATE INDEX o :command:VACUUM, como se muestra a "
+"continuación."
 
 #: ../../en/tuning.rst:58
 msgid "*Default value*: 16MB"
@@ -163,11 +223,11 @@ msgstr "*Valor predeterminado*: 16MB"
 
 #: ../../en/tuning.rst:60
 msgid "*Recommended value*: 128MB"
-msgstr ""
+msgstr "*Valor recomendado*: 128MB"
 
 #: ../../en/tuning.rst:64
 msgid "wal_buffers"
-msgstr ""
+msgstr "wal_buffers"
 
 #: ../../en/tuning.rst:66
 msgid ""
@@ -180,6 +240,15 @@ msgid ""
 "manner while ensuring that, in the event of a crash, all data changes can be "
 "recovered from the WAL."
 msgstr ""
+"Define la cantidad de memoria utilizada para los registros de escritura "
+"anticipada (WAL, write-ahead log). Los WAL proporcionan un mecanismo de alto "
+"rendimiento para garantizar la integridad de los datos. Durante cada comando "
+"de modificación, los efectos de los cambios se escriben primero en los "
+"archivos WAL y se vacían en el disco. Solo una vez que los archivos WAL se "
+"han vaciado, los cambios se escriben en los archivos de datos. Esto permite "
+"que los archivos de datos se escriban en el disco de manera óptima y "
+"asíncrona, asegurando que, en caso de un fallo, todos los cambios de datos "
+"puedan recuperarse a partir del WAL."
 
 #: ../../en/tuning.rst:68
 msgid ""
@@ -188,6 +257,11 @@ msgid ""
 "most data, geospatial data tends to be much larger.  Therefore, it is "
 "recommended to increase the size of this parameter."
 msgstr ""
+"El tamaño de este búfer solo necesita ser lo suficientemente grande para "
+"contener los datos WAL de una transacción típica. Aunque el valor "
+"predeterminado suele ser suficiente para la mayoría de los datos, los datos "
+"geoespaciales tienden a ser mucho más grandes. Por lo tanto, se recomienda "
+"aumentar el tamaño de este parámetro."
 
 #: ../../en/tuning.rst:70
 msgid "*Default value*: 64kB"
@@ -195,11 +269,11 @@ msgstr "*Valor predeterminado*: 64kB"
 
 #: ../../en/tuning.rst:72
 msgid "*Recommended value*: 1MB"
-msgstr ""
+msgstr "*Valor recomendado*: 1MB"
 
 #: ../../en/tuning.rst:76
 msgid "checkpoint_segments"
-msgstr ""
+msgstr "checkpoint_segments"
 
 #: ../../en/tuning.rst:78
 msgid ""
@@ -212,6 +286,16 @@ msgid ""
 "the latest checkpoint record and apply all following log segments to "
 "complete the data recovery."
 msgstr ""
+"Este valor define el número máximo de segmentos de archivo de registro ("
+"típicamente 16MB) que pueden llenarse entre puntos de control automáticos de "
+"WAL (checkpoints). Un punto de control es un punto en la secuencia de "
+"transacciones WAL en el que se garantiza que los archivos de datos se han "
+"actualizado con toda la información anterior al punto de control. En ese "
+"momento, todas las páginas de datos sucias se vacían al disco y se escribe "
+"un registro de punto de control en el archivo de log. Esto permite que el "
+"proceso de recuperación tras un fallo encuentre el último registro de punto "
+"de control y aplique todos los segmentos posteriores para completar la "
+"recuperación de datos."
 
 #: ../../en/tuning.rst:80
 msgid ""
@@ -222,6 +306,12 @@ msgid ""
 "though it may cause the server to restart more slowly in the event of a "
 "crash."
 msgstr ""
+"Como el proceso de punto de control requiere vaciar todas las páginas de "
+"datos sucias al disco, crea una carga de E/S significativa. El mismo "
+"argumento anterior aplica aquí: los datos geoespaciales son lo bastante "
+"grandes para desequilibrar las optimizaciones no geoespaciales. Aumentar "
+"este valor evitará puntos de control excesivos, aunque puede hacer que el "
+"servidor tarde más en reiniciarse en caso de fallo."
 
 #: ../../en/tuning.rst:82
 msgid "*Default value*: 3"
@@ -229,11 +319,11 @@ msgstr "*Valor predeterminado*: 3"
 
 #: ../../en/tuning.rst:84
 msgid "*Recommended value*: 6"
-msgstr ""
+msgstr "*Valor recomendado*: 6"
 
 #: ../../en/tuning.rst:88
 msgid "random_page_cost"
-msgstr ""
+msgstr "random_page_cost"
 
 #: ../../en/tuning.rst:90
 msgid ""
@@ -244,6 +334,13 @@ msgid ""
 "for databases running on spinning media. The random access cost for SSD "
 "should be set even lower."
 msgstr ""
+"Este es un valor sin unidades que representa el costo de un acceso aleatorio "
+"a una página en disco. Este valor es relativo a otros parámetros de costo, "
+"incluyendo el acceso secuencial a páginas y los costos de operación de CPU. "
+"Aunque no existe un valor único perfecto, el valor predeterminado suele ser "
+"conservador y está pensado para bases de datos que funcionan sobre discos "
+"mecánicos (spinning media). Para SSD, el costo de acceso aleatorio debería "
+"configurarse aún más bajo."
 
 #: ../../en/tuning.rst:92
 msgid ""
@@ -251,6 +348,9 @@ msgid ""
 "random_page_cost TO 2.0`` command, which can be useful for testing how it "
 "effects query plans."
 msgstr ""
+"Este valor puede establecerse por sesión usando el comando SET "
+"random_page_cost TO 2.0, lo cual puede ser útil para probar cómo afecta a "
+"los planes de consulta."
 
 #: ../../en/tuning.rst:94
 msgid "*Default value*: 4.0"
@@ -258,11 +358,11 @@ msgstr "Valor predeterminado: 4.0"
 
 #: ../../en/tuning.rst:96
 msgid "*Recommended value*: 2.0 for spinning media, 1.0 for SSD"
-msgstr ""
+msgstr "Valor recomendado: 2.0 para discos mecánicos, 1.0 para SSD"
 
 #: ../../en/tuning.rst:100
 msgid "seq_page_cost"
-msgstr ""
+msgstr "seq_page_cost"
 
 #: ../../en/tuning.rst:102
 msgid ""
@@ -271,6 +371,10 @@ msgid ""
 "this value and ``random_page_cost`` greatly affects the choices made by the "
 "query planner.  This value can also be set on a per-session basis."
 msgstr ""
+"Este parámetro controla el costo de un acceso secuencial a páginas. "
+"Generalmente no requiere ajustes, pero la diferencia entre este valor y "
+"random_page_cost afecta en gran medida a las decisiones tomadas por el "
+"planificador de consultas. Este valor también puede configurarse por sesión."
 
 #: ../../en/tuning.rst:104
 msgid "*Default value*: 1.0"
@@ -278,30 +382,38 @@ msgstr "Valor predeterminado: 1.0"
 
 #: ../../en/tuning.rst:106
 msgid "*Recommended value*: 1.0"
-msgstr ""
+msgstr "Valor recomendado: 1.0"
 
 #: ../../en/tuning.rst:110
 msgid "Reload configuration"
-msgstr ""
+msgstr "Recargar configuración"
 
 #: ../../en/tuning.rst:112
 msgid ""
 "After these changes are made, save changes and reload the configuration. The "
 "easiest way to do this is to restart the PostgreSQL service."
 msgstr ""
+"Después de realizar estos cambios, guarda y recarga la configuración. La "
+"forma más sencilla de hacerlo es reiniciando el servicio de PostgreSQL."
 
 #: ../../en/tuning.rst:114
 msgid ""
 "In pgAdmin, right-click the server **PostGIS (localhost:5432)** and select "
 "*Disconnect*."
 msgstr ""
+"En pgAdmin, haz clic derecho en el servidor **PostGIS (localhost:5432)** y "
+"selecciona *Disconnect*."
 
 #: ../../en/tuning.rst:115
 msgid ""
 "In Windows Services (``services.msc``) right-click **PostgreSQL** and select "
 "*Restart*."
 msgstr ""
+"En Servicios de Windows (services.msc), haz clic derecho en **PostgreSQL** y "
+"selecciona *Restart*."
 
 #: ../../en/tuning.rst:116
 msgid "Back in pgAdmin, click the server again select *Disconnect*."
 msgstr ""
+"De vuelta en pgAdmin, haz clic nuevamente en el servidor y selecciona "
+"*Disconnect*."

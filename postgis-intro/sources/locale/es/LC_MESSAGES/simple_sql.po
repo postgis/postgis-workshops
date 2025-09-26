@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql/es/>\n"
@@ -138,7 +138,7 @@ msgstr ""
 
 #: ../../en/simple_sql.rst:57
 msgid "\"What are the names of all the neighborhoods in Brooklyn?\""
-msgstr "\"¿Cuál es el nombre de los barrios de Brooklyn?\"."
+msgstr "\"¿Cuál es el nombre de los barrios de Brooklyn?\""
 
 #: ../../en/simple_sql.rst:59
 msgid ""
@@ -170,7 +170,7 @@ msgid ""
 "Brooklyn?\""
 msgstr ""
 "\"¿Cuántas letras tienen los nombres de cada uno de los barrios de Brooklyn?"
-"\"."
+"\""
 
 #: ../../en/simple_sql.rst:73
 msgid ""
@@ -210,7 +210,7 @@ msgid ""
 "letters in the names of all the neighborhoods in Brooklyn?\""
 msgstr ""
 "\"¿Cuál es la media estándar de la longitud de letras en los nombres de "
-"todos los barrios de Brooklyn?\"."
+"todos los barrios de Brooklyn?\""
 
 #: ../../en/simple_sql.rst:99
 msgid ""

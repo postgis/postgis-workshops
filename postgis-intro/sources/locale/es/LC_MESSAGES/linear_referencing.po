@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-09-02 22:31+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "linear_referencing/es/>\n"
 "Language: es\n"
@@ -33,29 +34,41 @@ msgid ""
 "linear features. Common examples of features that are modelled using linear "
 "referencing are:"
 msgstr ""
+"La referenciación lineal (a veces llamada \"segmentación dinámica\") es un "
+"medio de representar entidades que pueden describirse haciendo referencia a "
+"un conjunto base de entidades lineales. Ejemplos comunes de entidades que se "
+"modelan usando referenciación lineal son:"
 
 #: ../../en/linear_referencing.rst:8
 msgid ""
 "Highway assets, which are referenced using miles along a highway network"
 msgstr ""
+"Activos de carreteras, que se referencian usando millas a lo largo de una "
+"red de carreteras"
 
 #: ../../en/linear_referencing.rst:9
 msgid ""
 "Road maintenance operations, which are referenced as occurring along a road "
 "network between a pair of mile measurements."
 msgstr ""
+"Operaciones de mantenimiento de carreteras, que se referencian como "
+"ocurriendo a lo largo de una red vial entre un par de medidas de millas."
 
 #: ../../en/linear_referencing.rst:10
 msgid ""
 "Aquatic inventories, where fish presence is recorded as existing between a "
 "pair of mileage-upstream measurements."
 msgstr ""
+"Inventarios acuáticos, donde la presencia de peces se registra como "
+"existente entre un par de medidas río arriba."
 
 #: ../../en/linear_referencing.rst:11
 msgid ""
 "Hydrologic characterizations (\"reaches\") of streams, recorded with a from- "
 "and to- mileage."
 msgstr ""
+"Caracterizaciones hidrológicas (\"reaches\") de arroyos, registradas con una "
+"milla de inicio y de fin."
 
 #: ../../en/linear_referencing.rst:13
 msgid ""
@@ -65,6 +78,11 @@ msgid ""
 "knowing that the dependent observations will automatically track the new "
 "geometry."
 msgstr ""
+"El beneficio de los modelos de referenciación lineal es que las "
+"observaciones espaciales dependientes no necesitan ser registradas por "
+"separado de las observaciones base, y las actualizaciones a la capa de "
+"observación base pueden llevarse a cabo sabiendo que las observaciones "
+"dependientes seguirán automáticamente la nueva geometría."
 
 #: ../../en/linear_referencing.rst:17
 msgid ""
@@ -74,10 +92,16 @@ msgid ""
 "along the referenced feature. We will use the term \"event table\" to refer "
 "to the non-spatial tables we build."
 msgstr ""
+"La convención terminológica de Esri para la referenciación lineal es tener "
+"una tabla base de entidades espaciales lineales y una tabla no espacial de "
+"\"eventos\" que incluye una clave foránea de referencia a la entidad "
+"espacial y una medida a lo largo de la entidad referenciada. Usaremos el "
+"término \"tabla de eventos\" para referirnos a las tablas no espaciales que "
+"construimos."
 
 #: ../../en/linear_referencing.rst:21
 msgid "Creating Linear References"
-msgstr ""
+msgstr "Creando referencias lineales"
 
 #: ../../en/linear_referencing.rst:23
 msgid ""
@@ -86,12 +110,18 @@ msgid ""
 "and point, and returns the proportion along the line that the point can be "
 "found."
 msgstr ""
+"Si tienes una tabla de puntos existente que quieres referenciar a una red "
+"lineal, usa la función :command:`ST_LineLocatePoint`, que toma una línea y "
+"un punto, y devuelve la proporción a lo largo de la línea donde se puede "
+"encontrar el punto."
 
 #: ../../en/linear_referencing.rst:35
 msgid ""
 "We can convert the **nyc_subway_stations** into an \"event table\" relative "
 "to the streets by using :command:`ST_LineLocatePoint`."
 msgstr ""
+"Podemos convertir la tabla **nyc_subway_stations** en una \"tabla de "
+"eventos\" relativa a las calles usando :command:`ST_LineLocatePoint`."
 
 #: ../../en/linear_referencing.rst:70
 msgid ""
@@ -99,6 +129,9 @@ msgid ""
 "so we can visualize the events relative to the original points they were "
 "derived from."
 msgstr ""
+"Una vez que tenemos una tabla de eventos, es divertido convertirla "
+"nuevamente en una vista espacial, para que podamos visualizar los eventos en "
+"relación con los puntos originales de los que se derivaron."
 
 #: ../../en/linear_referencing.rst:72
 msgid ""
@@ -106,6 +139,9 @@ msgid ""
 "`ST_LineInterpolatePoint` function. Here's our previous simple examples "
 "reversed:"
 msgstr ""
+"Para ir de una medida a un punto, usamos la función "
+":command:`ST_LineInterpolatePoint`. Aquí están nuestros ejemplos simples "
+"anteriores invertidos:"
 
 #: ../../en/linear_referencing.rst:81
 msgid ""
@@ -114,6 +150,10 @@ msgid ""
 "spatial event points, without referencing the original "
 "**nyc_subway_stations** table."
 msgstr ""
+"Y podemos unir las tablas **nyc_subway_station_events** de nuevo a la tabla "
+"**nyc_streets** y usar el atributo **measure** para generar los puntos de "
+"eventos espaciales, sin hacer referencia a la tabla original "
+"**nyc_subway_stations**."
 
 #: ../../en/linear_referencing.rst:95
 msgid ""
@@ -121,6 +161,9 @@ msgid ""
 "streets, you can see how the events are snapped directly to the closest "
 "street lines."
 msgstr ""
+"Viendo los puntos originales (estrella roja) y los puntos de eventos ("
+"círculo azul) con las calles, puedes ver cómo los eventos se ajustan "
+"directamente a las líneas de calle más cercanas."
 
 #: ../../en/linear_referencing.rst:102
 msgid ""
@@ -130,6 +173,12 @@ msgid ""
 "or other inputs that are expected to reference a linear network, snapping is "
 "a handy feature to have available."
 msgstr ""
+"Un uso sorprendente de las funciones de referenciación lineal no tiene nada "
+"que ver con modelos de referenciación lineal. Como se muestra arriba, es "
+"posible usar las funciones para ajustar puntos a entidades lineales. Para "
+"casos de uso como trayectorias GPS u otras entradas que se espera que hagan "
+"referencia a una red lineal, el ajuste es una característica útil a tener "
+"disponible."
 
 #: ../../en/linear_referencing.rst:106
 msgid "Function List"
@@ -141,6 +190,9 @@ msgid ""
 "docs/ST_LineInterpolatePoint.html>`_: Returns a point interpolated along a "
 "line."
 msgstr ""
+"`ST_LineInterpolatePoint(geometry A, double measure) <http://postgis.net/"
+"docs/ST_LineInterpolatePoint.html>`_: Devuelve un punto interpolado a lo "
+"largo de una línea."
 
 #: ../../en/linear_referencing.rst:109
 msgid ""
@@ -148,6 +200,9 @@ msgid ""
 "ST_LineLocatePoint.html>`_: Returns a float between 0 and 1 representing the "
 "location of the closest point on LineString to the given Point."
 msgstr ""
+"`ST_LineLocatePoint(geometry A, geometry B) <http://postgis.net/docs/"
+"ST_LineLocatePoint.html>`_: Devuelve un número flotante entre 0 y 1 que "
+"representa la ubicación del punto más cercano en LineString al Punto dado."
 
 #: ../../en/linear_referencing.rst:110
 msgid ""
@@ -155,6 +210,10 @@ msgid ""
 "docs/ST_LineSubstring.html>`_: Return a linestring being a substring of the "
 "input one starting and ending at the given fractions of total 2d length."
 msgstr ""
+"`ST_LineSubstring(geometry A, double from, double to) <http://postgis.net/"
+"docs/ST_LineSubstring.html>`_: Devuelve un linestring que es una subcadena "
+"del de entrada comenzando y terminando en las fracciones dadas de la "
+"longitud total 2D."
 
 #: ../../en/linear_referencing.rst:111
 msgid ""
@@ -162,6 +221,9 @@ msgid ""
 "ST_LocateAlong.html>`_: Return a derived geometry collection value with "
 "elements that match the specified measure."
 msgstr ""
+"`ST_LocateAlong(geometry A, double measure) <http://postgis.net/docs/"
+"ST_LocateAlong.html>`_: Devuelve un valor de colección de geometrías "
+"derivadas con elementos que coinciden con la medida especificada."
 
 #: ../../en/linear_referencing.rst:112
 msgid ""
@@ -169,6 +231,10 @@ msgid ""
 "docs/ST_LocateBetween.html>`_: Return a derived geometry collection value "
 "with elements that match the specified range of measures inclusively."
 msgstr ""
+"`ST_LocateBetween(geometry A, double from, double to) <http://postgis.net/"
+"docs/ST_LocateBetween.html>`_: Devuelve un valor de colección de geometrías "
+"derivadas con elementos que coinciden con el rango de medidas especificado "
+"de forma inclusiva."
 
 #: ../../en/linear_referencing.rst:113
 msgid ""
@@ -177,3 +243,7 @@ msgid ""
 "linearly interpolated between the start and end points. If the geometry has "
 "no measure dimension, one is added."
 msgstr ""
+"`ST_AddMeasure(geometry A, double from, double to) <http://postgis.net/docs/"
+"ST_AddMeasure.html>`_: Devuelve una geometría derivada con elementos de "
+"medida interpolados linealmente entre los puntos inicial y final. Si la "
+"geometría no tiene dimensión de medida, se añade una."

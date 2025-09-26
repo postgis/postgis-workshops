@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-09-02 03:56+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins/es/>\n"
@@ -34,6 +34,11 @@ msgid ""
 "as the join key.  Much of what we think of as \"standard GIS analysis\" can "
 "be expressed as spatial joins."
 msgstr ""
+"Las uniones espaciales son el pan de cada día de las bases de datos "
+"espaciales. Permiten combinar información de diferentes tablas usando "
+"relaciones espaciales como la clave de unión. Gran parte de lo que "
+"consideramos \"análisis GIS estándar\" puede expresarse como uniones "
+"espaciales."
 
 #: ../../en/joins.rst:8
 msgid ""
@@ -42,12 +47,19 @@ msgid ""
 "used that point to ask further questions such as \"what neighborhood is the "
 "'Broad St' station in?\""
 msgstr ""
+"En la sección anterior, exploramos relaciones espaciales usando un proceso "
+"de dos pasos: primero extrajimos un punto de estación de metro para 'Broad "
+"St'; luego, usamos ese punto para hacer más preguntas como \"¿en qué "
+"vecindario está la estación 'Broad St'?\""
 
 #: ../../en/joins.rst:10
 msgid ""
 "Using a spatial join, we can answer the question in one step, retrieving "
 "information about the subway station and the neighborhood that contains it:"
 msgstr ""
+"Usando una unión espacial, podemos responder la pregunta en un solo paso, "
+"recuperando información sobre la estación de metro y el vecindario que la "
+"contiene:"
 
 #: ../../en/joins.rst:29
 msgid ""
@@ -57,16 +69,23 @@ msgid ""
 "spatial join, but the most commonly used ones are: :command:"
 "`ST_Intersects`, :command:`ST_Contains`, and :command:`ST_DWithin`."
 msgstr ""
+"Podríamos haber unido cada estación de metro con su vecindario contenedor, "
+"pero en este caso queríamos información solo de una. Cualquier función que "
+"proporcione una relación verdadero/falso entre dos tablas puede usarse para "
+"realizar una unión espacial, pero las más comúnmente usadas son: "
+":command:`ST_Intersects`, :command:`ST_Contains`, y :command:`ST_DWithin`."
 
 #: ../../en/joins.rst:32
 msgid "Join and Summarize"
-msgstr ""
+msgstr "Unir y resumir"
 
 #: ../../en/joins.rst:34
 msgid ""
 "The combination of a ``JOIN`` with a ``GROUP BY`` provides the kind of "
 "analysis that is usually done in a GIS system."
 msgstr ""
+"La combinación de un ``JOIN`` con un ``GROUP BY`` proporciona el tipo de "
+"análisis que usualmente se hace en un SIG."
 
 #: ../../en/joins.rst:36
 msgid ""
@@ -75,35 +94,50 @@ msgid ""
 "information from about population from the census with the boundaries of "
 "neighborhoods, with a restriction to just one borough of Manhattan."
 msgstr ""
+"Por ejemplo: **\"¿Cuál es la población y la composición racial de los "
+"vecindarios de Manhattan?\"** Aquí tenemos una pregunta que combina "
+"información de la población del censo con los límites de los vecindarios, "
+"con una restricción a solo un distrito de Manhattan."
 
 #: ../../en/joins.rst:88
 msgid ""
 "What's going on here? Notionally (the actual evaluation order is optimized "
 "under the covers by the database) this is what happens:"
 msgstr ""
+"¿Qué está pasando aquí? En teoría (el orden de evaluación real es optimizado "
+"internamente por la base de datos) esto es lo que ocurre:"
 
 #: ../../en/joins.rst:90
 msgid ""
 "The ``JOIN`` clause creates a virtual table that includes columns from both "
 "the neighborhoods and census tables."
 msgstr ""
+"La cláusula ``JOIN`` crea una tabla virtual que incluye columnas tanto de la "
+"tabla de vecindarios como de la tabla del censo."
 
 #: ../../en/joins.rst:91
 msgid ""
 "The ``WHERE`` clause filters our virtual table to just rows in Manhattan."
 msgstr ""
+"La cláusula ``WHERE`` filtra nuestra tabla virtual a solo filas en Manhattan."
 
 #: ../../en/joins.rst:92
 msgid ""
 "The remaining rows are grouped by the neighborhood name and fed through the "
 "aggregation function to :command:`Sum()` the population values."
 msgstr ""
+"Las filas restantes se agrupan por el nombre del vecindario y se procesan a "
+"través de la función de agregación :command:`Sum()` de los valores de "
+"población."
 
 #: ../../en/joins.rst:93
 msgid ""
 "After a little arithmetic and formatting (e.g., ``GROUP BY``, ``ORDER BY``) "
 "on the final numbers, our query spits out the percentages."
 msgstr ""
+"Después de un poco de aritmética y formato (por ejemplo, ``GROUP BY``, ``"
+"ORDER BY``) sobre los números finales, nuestra consulta arroja los "
+"porcentajes."
 
 #: ../../en/joins.rst:97
 msgid ""
@@ -113,6 +147,10 @@ msgid ""
 "interactive/sql-select.html#SQL-FROM>`_ definition in the PostgreSQL "
 "documentation."
 msgstr ""
+"La cláusula ``JOIN`` combina dos elementos de ``FROM``. Por defecto, estamos "
+"usando un ``INNER JOIN``, pero hay otros cuatro tipos de joins. Para más "
+"información ver la definición de `join_type <http://www.postgresql.org/docs/9"
+".1/interactive/sql-select.html#SQL-FROM>`_ en la documentación de PostgreSQL."
 
 #: ../../en/joins.rst:99
 msgid ""
@@ -120,16 +158,21 @@ msgid ""
 "items within a radius\" queries. Let's explore the racial geography of New "
 "York using distance queries."
 msgstr ""
+"También podemos usar pruebas de distancia como clave de unión, para crear "
+"consultas resumidas de \"todos los elementos dentro de un radio\". "
+"Exploremos la geografía racial de Nueva York usando consultas de distancia."
 
 #: ../../en/joins.rst:101
 msgid "First, let's get the baseline racial make-up of the city."
-msgstr ""
+msgstr "Primero, obtengamos la composición racial de referencia de la ciudad."
 
 #: ../../en/joins.rst:118
 msgid ""
 "So, of the 8M people in New York, about 44% are recorded as \"white\" and "
 "26% are recorded as \"black\"."
 msgstr ""
+"Así, de los 8 millones de personas en Nueva York, aproximadamente 44% están "
+"registradas como \"blancas\" y 26% están registradas como \"negras\"."
 
 #: ../../en/joins.rst:120
 msgid ""
@@ -138,6 +181,10 @@ msgid ""
 "the highest African-American population in Manhattan (80.5%). Is the same "
 "true of Duke's A-train?"
 msgstr ""
+"Duke Ellington una vez cantó \"You / must take the A-train / To / go to "
+"Sugar Hill way up in Harlem.\" Como vimos antes, Harlem tiene por mucho la "
+"mayor población afroamericana en Manhattan (80.5%). ¿Es lo mismo cierto para "
+"el tren A de Duke?"
 
 #: ../../en/joins.rst:122
 msgid ""
@@ -145,6 +192,9 @@ msgid ""
 "``routes`` field is what we are interested in to find the A-train. The "
 "values in there are a little complex."
 msgstr ""
+"Primero, nota que el contenido del campo ``routes`` de la tabla "
+"``nyc_subway_stations`` es lo que nos interesa para encontrar el tren A. Los "
+"valores allí son un poco complejos."
 
 #: ../../en/joins.rst:140
 msgid ""
@@ -152,6 +202,9 @@ msgid ""
 "the ``DISTINCT`` keyword, the query above identifies 491 results instead of "
 "73."
 msgstr ""
+"La palabra clave ``DISTINCT`` elimina filas duplicadas del resultado. Sin la "
+"palabra clave ``DISTINCT``, la consulta anterior identifica 491 resultados "
+"en lugar de 73."
 
 #: ../../en/joins.rst:142
 msgid ""
@@ -160,21 +213,28 @@ msgid ""
 "command:`strpos(routes,'A')` will return a non-zero number only if 'A' is in "
 "the ``routes`` field."
 msgstr ""
+"Así que para encontrar el tren A, queremos cualquier fila en ``routes`` que "
+"tenga una 'A'. Podemos hacerlo de varias formas, pero hoy usaremos el hecho "
+"de que :command:`strpos(routes,'A')` devolverá un número distinto de cero "
+"solo si 'A' está en el campo ``routes``."
 
 #: ../../en/joins.rst:162
 msgid ""
 "Let's summarize the racial make-up of within 200 meters of the A-train line."
 msgstr ""
+"Resumamos la composición racial dentro de 200 metros de la línea del tren A."
 
 #: ../../en/joins.rst:181
 msgid ""
 "So the racial make-up along the A-train isn't radically different from the "
 "make-up of New York City as a whole."
 msgstr ""
+"Así que la composición racial a lo largo del tren A no es radicalmente "
+"diferente de la composición de la ciudad de Nueva York en su conjunto."
 
 #: ../../en/joins.rst:184
 msgid "Advanced Join"
-msgstr ""
+msgstr "Joins avanzados"
 
 #: ../../en/joins.rst:186
 msgid ""
@@ -182,6 +242,9 @@ msgid ""
 "differed much from the racial make-up of the rest of the city. Are there any "
 "trains that have a non-average racial make-up?"
 msgstr ""
+"En la última sección vimos que el tren A no servía a una población que "
+"difiriera mucho de la composición racial del resto de la ciudad. ¿Hay "
+"algunos trenes que tengan una composición racial no promedio?"
 
 #: ../../en/joins.rst:188
 msgid ""
@@ -190,10 +253,15 @@ msgid ""
 "that, we'll need to create a new table that enumerates all the lines we want "
 "to summarize."
 msgstr ""
+"Para responder a esa pregunta, añadiremos otra unión a nuestra consulta, de "
+"modo que podamos calcular simultáneamente la composición de muchas líneas de "
+"metro a la vez. Para hacer eso, necesitaremos crear una nueva tabla que "
+"enumere todas las líneas que queremos resumir."
 
 #: ../../en/joins.rst:199
 msgid "Now we can join the table of subway lines onto our original query."
 msgstr ""
+"Ahora podemos unir la tabla de líneas de metro a nuestra consulta original."
 
 #: ../../en/joins.rst:244
 msgid ""
@@ -203,6 +271,11 @@ msgid ""
 "``ST_DWithin`` function, that ensures only census blocks close to the "
 "appropriate subway stations are included in the calculation."
 msgstr ""
+"Como antes, las uniones crean una tabla virtual de todas las combinaciones "
+"posibles disponibles dentro de las restricciones de ``JOIN ON``, y esas "
+"filas luego se pasan a un resumen con ``GROUP``. La magia espacial está en "
+"la función ``ST_DWithin``, que asegura que solo los bloques censales "
+"cercanos a las estaciones de metro apropiadas se incluyan en el cálculo."
 
 #: ../../en/joins.rst:247
 msgid "Function List"
@@ -214,6 +287,10 @@ msgid ""
 "html>`_: Returns true if and only if no points of B lie in the exterior of "
 "A, and at least one point of the interior of B lies in the interior of A."
 msgstr ""
+"`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains."
+"html>`_: Devuelve true si y solo si ningún punto de B se encuentra en el "
+"exterior de A, y al menos un punto del interior de B se encuentra en el "
+"interior de A."
 
 #: ../../en/joins.rst:251
 msgid ""
@@ -221,6 +298,9 @@ msgid ""
 "ST_DWithin.html>`_: Returns true if the geometries are within the specified "
 "distance of one another."
 msgstr ""
+"`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/"
+"ST_DWithin.html>`_: Devuelve true si las geometrías están dentro de la "
+"distancia especificada entre sí."
 
 #: ../../en/joins.rst:253
 msgid ""
@@ -229,6 +309,10 @@ msgid ""
 "intersect\" - (share any portion of space) and FALSE if they don't (they are "
 "Disjoint)."
 msgstr ""
+"`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects"
+".html>`_: Devuelve TRUE si las geometrías/geografías \"intersectan "
+"espacialmente\" (comparten alguna porción del espacio) y FALSE si no lo "
+"hacen (son disjuntas)."
 
 #: ../../en/joins.rst:255
 msgid ""
@@ -236,6 +320,9 @@ msgid ""
 "interactive/functions-math.html>`_: PostgreSQL math function that rounds to "
 "s decimal places"
 msgstr ""
+"`round(v numeric, s integer) <http://www.postgresql.org/docs/current/"
+"interactive/functions-math.html>`_: Función matemática de PostgreSQL que "
+"redondea a s decimales"
 
 #: ../../en/joins.rst:257
 msgid ""
@@ -243,6 +330,9 @@ msgid ""
 "functions-string.html>`_: PostgreSQL string function that returns an integer "
 "location of a specified substring."
 msgstr ""
+"`strpos(string, substring) <http://www.postgresql.org/docs/current/static/"
+"functions-string.html>`_: Función de cadena de PostgreSQL que devuelve una "
+"ubicación entera de una subcadena especificada."
 
 #: ../../en/joins.rst:259
 msgid ""

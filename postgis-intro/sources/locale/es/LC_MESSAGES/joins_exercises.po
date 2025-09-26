@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-08-31 22:39+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_exercises/es/>\n"
@@ -94,6 +94,8 @@ msgid ""
 ":command:`ST_Intersects(geometry A, geometry B)` returns the true if "
 "geometry A intersects geometry B"
 msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` devuelve verdadero si la "
+"geometría A intersecta la geometría B"
 
 #: ../../en/joins_exercises.rst:17
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
@@ -104,12 +106,16 @@ msgid ""
 ":command:`ST_Touches(geometry A, geometry B)` returns the true if the "
 "boundary of geometry A touches geometry B"
 msgstr ""
+":command:`ST_Touches(geometry A, geometry B)` devuelve verdadero si el "
+"límite de la geometría A toca la geometría B"
 
 #: ../../en/joins_exercises.rst:19
 msgid ""
 ":command:`ST_Within(geometry A, geometry B)` returns the true if geometry A "
 "is within geometry B"
 msgstr ""
+":command:`ST_Within(geometry A, geometry B)` devuelve verdadero si la "
+"geometría A está dentro de la geometría B"
 
 #: ../../en/joins_exercises.rst:21
 msgid "Also remember the tables we have available:"
@@ -137,7 +143,7 @@ msgstr "``nyc_subway_stations``"
 
 #: ../../en/joins_exercises.rst:33
 msgid "name, routes, geom"
-msgstr ""
+msgstr "name, routes, geom"
 
 #: ../../en/joins_exercises.rst:35
 msgid "``nyc_neighborhoods``"
@@ -155,6 +161,8 @@ msgstr "Ejercicios"
 msgid ""
 "**What subway station is in 'Little Italy'? What subway route is it on?**"
 msgstr ""
+"**¿Qué estación de metro está en 'Little Italy'? ¿En qué ruta de metro "
+"está?**"
 
 #: ../../en/joins_exercises.rst:58
 msgid ""
@@ -162,19 +170,28 @@ msgid ""
 "``routes`` column in the ``nyc_subway_stations`` table has values like 'B,"
 "D,6,V' and 'C,6')"
 msgstr ""
+"**¿Cuáles son todos los vecindarios servidos por el tren 6?** (Pista: la "
+"columna ``routes`` en la tabla ``nyc_subway_stations`` tiene valores como "
+"'B,D,6,V' y 'C,6')"
 
 #: ../../en/joins_exercises.rst:90
 msgid ""
 "We used the ``DISTINCT`` keyword to remove duplicate values from our result "
 "set where there were more than one subway station in a neighborhood."
 msgstr ""
+"Usamos la palabra clave ``DISTINCT`` para eliminar valores duplicados de "
+"nuestro conjunto de resultados cuando había más de una estación de metro en "
+"un vecindario."
 
 #: ../../en/joins_exercises.rst:92
 msgid ""
 "**After 9/11, the 'Battery Park' neighborhood was off limits for several "
 "days. How many people had to be evacuated?**"
 msgstr ""
+"**Después del 11/9, el vecindario 'Battery Park' estuvo fuera de límites "
+"durante varios días. ¿Cuántas personas tuvieron que ser evacuadas?**"
 
 #: ../../en/joins_exercises.rst:106
 msgid "**What neighborhood has the highest population density (persons/km2)?**"
 msgstr ""
+"**¿Qué vecindario tiene la mayor densidad de población (personas/km2)?**"

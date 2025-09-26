@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-08-31 10:25+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "de9im/es/>\n"
 "Language: es\n"
@@ -32,37 +33,43 @@ msgid ""
 "wiki/DE-9IM>`_\" (DE9IM) is a framework for modelling how two spatial "
 "objects interact."
 msgstr ""
+"El \"Dimensionally Extended 9-Intersection Model <http://en.wikipedia.org/"
+"wiki/DE-9IM>\" (DE9IM) es un marco para modelar cómo interactúan dos objetos "
+"espaciales."
 
 #: ../../en/de9im.rst:8
 msgid "First, every spatial object has:"
-msgstr ""
+msgstr "Primero, cada objeto espacial tiene:"
 
 #: ../../en/de9im.rst:10
 msgid "An interior"
-msgstr ""
+msgstr "Un interior"
 
 #: ../../en/de9im.rst:11
 msgid "A boundary"
-msgstr ""
+msgstr "Un límite"
 
 #: ../../en/de9im.rst:12
 msgid "An exterior"
-msgstr ""
+msgstr "Un exterior"
 
 #: ../../en/de9im.rst:14
 msgid "For polygons, the interior, boundary and exterior are obvious:"
-msgstr ""
+msgstr "Para polígonos, el interior, límite y exterior son obvios:"
 
 #: ../../en/de9im.rst:19
 msgid ""
 "The interior is the part bounded by the rings; the boundary is the rings "
 "themselves; the exterior is everything else in the plane."
 msgstr ""
+"El interior es la parte delimitada por los anillos; el límite son los "
+"anillos mismos; el exterior es todo lo demás en el plano."
 
 #: ../../en/de9im.rst:21
 msgid ""
 "For linear features, the interior, boundary and exterior are less well-known:"
 msgstr ""
+"Para elementos lineales, el interior, límite y exterior son menos conocidos:"
 
 #: ../../en/de9im.rst:26
 msgid ""
@@ -70,12 +77,16 @@ msgid ""
 "the ends of the linear feature, and the exterior is everything else in the "
 "plane."
 msgstr ""
+"El interior es la parte de la línea delimitada por los extremos; el límite "
+"son los extremos de la línea, y el exterior es todo lo demás en el plano."
 
 #: ../../en/de9im.rst:28
 msgid ""
 "For points, things are even stranger: the interior is the point; the "
 "boundary is the empty set and the exterior is everything else in the plane."
 msgstr ""
+"Para puntos, las cosas son aún más extrañas: el interior es el punto; el "
+"límite es el conjunto vacío y el exterior es todo lo demás en el plano."
 
 #: ../../en/de9im.rst:30
 msgid ""
@@ -84,6 +95,10 @@ msgid ""
 "using the dimensionality of the nine possible intersections between the "
 "interiors/boundaries/exteriors of a pair of objects."
 msgstr ""
+"Usando estas definiciones de interior, exterior y límite, las relaciones "
+"entre cualquier par de objetos espaciales pueden caracterizarse usando la "
+"dimensionalidad de las nueve posibles intersecciones entre los interiores/lí"
+"mites/exteriores de un par de objetos."
 
 #: ../../en/de9im.rst:35
 msgid ""
@@ -92,20 +107,27 @@ msgid ""
 "\"2\". The boundaries only intersect at points, which are zero-dimensional, "
 "so that portion of the matrix is filled out with a 0."
 msgstr ""
+"Para los polígonos en el ejemplo anterior, la intersección de los interiores "
+"es un área bidimensional, por lo que esa parte de la matriz se completa con "
+"un \"2\". Los límites solo se intersectan en puntos, que son de dimensión "
+"cero, por lo que esa parte de la matriz se completa con un 0."
 
 #: ../../en/de9im.rst:37
 msgid ""
 "When there is no intersection between components, the square the matrix is "
 "filled out with an \"F\"."
 msgstr ""
+"Cuando no hay intersección entre componentes, el cuadro de la matriz se "
+"completa con una \"F\"."
 
 #: ../../en/de9im.rst:39
 msgid "Here's another example, of a linestring partially entering a polygon:"
 msgstr ""
+"Aquí hay otro ejemplo, de una línea que entra parcialmente en un polígono:"
 
 #: ../../en/de9im.rst:44
 msgid "The DE9IM matrix for the interaction is this:"
-msgstr ""
+msgstr "La matriz DE9IM para la interacción es esta:"
 
 #: ../../en/de9im.rst:49
 msgid ""
@@ -113,6 +135,10 @@ msgid ""
 "(the end point of the line interacts with the interior of the polygon, not "
 "the boundary, and vice versa), so the B/B cell is filled in with an \"F\"."
 msgstr ""
+"Observa que los límites de los dos objetos en realidad no se intersectan en "
+"absoluto (el extremo de la línea interactúa con el interior del polígono, no "
+"con el límite, y viceversa), por lo que la celda B/B se completa con una \"F"
+"\"."
 
 #: ../../en/de9im.rst:51
 msgid ""
@@ -120,16 +146,21 @@ msgid ""
 "computer could do it, and that's what the :command:`ST_Relate` function is "
 "for."
 msgstr ""
+"Aunque es divertido completar matrices DE9IM visualmente, sería mejor si una "
+"computadora pudiera hacerlo, y para eso sirve la función "
+":command:`ST_Relate`."
 
 #: ../../en/de9im.rst:53
 msgid ""
 "The previous example can be simplified using a simple box and line, with the "
 "same spatial relationship as our polygon and linestring:"
 msgstr ""
+"El ejemplo anterior puede simplificarse usando una simple caja y línea, con "
+"la misma relación espacial que nuestro polígono y línea:"
 
 #: ../../en/de9im.rst:58
 msgid "And we can generate the DE9IM information in SQL:"
-msgstr ""
+msgstr "Y podemos generar la información DE9IM en SQL:"
 
 #: ../../en/de9im.rst:67
 msgid ""
@@ -137,6 +168,9 @@ msgid ""
 "as a 9-character string, with the first row, second row and third row of the "
 "table appended together."
 msgstr ""
+"La respuesta (1010F0212) es la misma que calculamos visualmente, pero "
+"devuelta como una cadena de 9 caracteres, con la primera fila, segunda fila "
+"y tercera fila de la tabla concatenadas."
 
 #: ../../en/de9im.rst:75
 msgid ""
@@ -144,6 +178,9 @@ msgid ""
 "them as a matching key to find geometries with very specific relationships "
 "to one another."
 msgstr ""
+"Sin embargo, el poder de las matrices DE9IM no está en generarlas, sino en "
+"usarlas como clave de coincidencia para encontrar geometrías con relaciones "
+"muy específicas entre sí."
 
 #: ../../en/de9im.rst:94
 msgid ""
@@ -152,32 +189,40 @@ msgid ""
 "of their containing lake at one end. Can we find all the docks in our "
 "database that obey that rule?"
 msgstr ""
+"Supongamos que tenemos un modelo de datos que incluye **Lagos** y **Muelles**"
+", y supongamos además que los muelles deben estar dentro de los lagos, y "
+"deben tocar el límite de su lago contenedor en un extremo. ¿Podemos "
+"encontrar todos los muelles en nuestra base de datos que obedezcan esa regla?"
 
 #: ../../en/de9im.rst:99
 msgid "Our legal docks have the following characteristics:"
-msgstr ""
+msgstr "Nuestros muelles legales tienen las siguientes características:"
 
 #: ../../en/de9im.rst:101
 msgid "Their interiors have a linear (1D) intersection with the lake interior"
 msgstr ""
+"Sus interiores tienen una intersección lineal (1D) con el interior del lago"
 
 #: ../../en/de9im.rst:102
 msgid "Their boundaries have a point (0D) intersection with the lake interior"
 msgstr ""
+"Sus límites tienen una intersección puntual (0D) con el interior del lago"
 
 #: ../../en/de9im.rst:103
 msgid ""
 "Their boundaries **also** have a point (0D) intersection with the lake "
 "boundary"
 msgstr ""
+"Sus límites **también** tienen una intersección puntual (0D) con el límite "
+"del lago"
 
 #: ../../en/de9im.rst:104
 msgid "Their interiors have no intersection (F) with the lake exterior"
-msgstr ""
+msgstr "Sus interiores no tienen intersección (F) con el exterior del lago"
 
 #: ../../en/de9im.rst:106
 msgid "So their DE9IM matrix looks like this:"
-msgstr ""
+msgstr "Así que su matriz DE9IM se ve así:"
 
 #: ../../en/de9im.rst:111
 msgid ""
@@ -186,6 +231,10 @@ msgid ""
 "key), and then find all the docks in that set which have the legal relate "
 "pattern."
 msgstr ""
+"Entonces, para encontrar todos los muelles legales, queremos encontrar todos "
+"los muelles que intersecten lagos (un superconjunto de **candidatos "
+"potenciales** que usamos como clave de unión), y luego encontrar todos los "
+"muelles en ese conjunto que tengan el patrón legal de relación."
 
 #: ../../en/de9im.rst:121
 msgid ""
@@ -194,26 +243,36 @@ msgid ""
 "defined pattern like this one, the three-parameter version is not needed -- "
 "we could have just used a string equality operator."
 msgstr ""
+"Observa el uso de la versión de tres parámetros de :command:`ST_Relate`, que "
+"devuelve verdadero si el patrón coincide o falso si no lo hace. Para un "
+"patrón completamente definido como este, la versión de tres parámetros no es "
+"necesaria: podríamos haber usado simplemente un operador de igualdad de "
+"cadena."
 
 #: ../../en/de9im.rst:123
 msgid ""
 "However, for looser pattern searches, the three-parameter allows "
 "substitution characters in the pattern string:"
 msgstr ""
+"Sin embargo, para búsquedas de patrones más flexibles, la de tres parámetros "
+"permite caracteres de sustitución en la cadena de patrón:"
 
 #: ../../en/de9im.rst:125
 msgid "\"*\" means \"any value in this cell is acceptable\""
-msgstr ""
+msgstr "\"*\" significa \"cualquier valor en esta celda es aceptable\""
 
 #: ../../en/de9im.rst:126
 msgid "\"T\" means \"any non-false value (0, 1 or 2) is acceptable\""
-msgstr ""
+msgstr "\"T\" significa \"cualquier valor no falso (0, 1 o 2) es aceptable\""
 
 #: ../../en/de9im.rst:128
 msgid ""
 "So for example, one possible dock we did not include in our example graphic "
 "is a dock with a two-dimensional intersection with the lake boundary:"
 msgstr ""
+"Así que, por ejemplo, un muelle posible que no incluimos en nuestro gráfico "
+"de ejemplo es un muelle con una intersección bidimensional con el límite del "
+"lago:"
 
 #: ../../en/de9im.rst:138
 msgid ""
@@ -222,20 +281,27 @@ msgid ""
 "the dock interior lake boundary can now be either 1 (our new case) or F (our "
 "original case). So we use the \"*\" catchall in the pattern."
 msgstr ""
+"Si vamos a incluir este caso en nuestro conjunto de muelles \"legales\", "
+"necesitamos cambiar el patrón de relación en nuestra consulta. En "
+"particular, la intersección del interior del muelle con el límite del lago "
+"ahora puede ser 1 (nuestro nuevo caso) o F (nuestro caso original). Así que "
+"usamos el comodín \"*\" en el patrón."
 
 #: ../../en/de9im.rst:143
 msgid "And the SQL looks like this:"
-msgstr ""
+msgstr "Y el SQL se ve así:"
 
 #: ../../en/de9im.rst:153
 msgid ""
 "Confirm that the stricter SQL from the previous example does *not* return "
 "the new dock."
 msgstr ""
+"Confirma que el SQL más estricto del ejemplo anterior *no* devuelve el nuevo "
+"muelle."
 
 #: ../../en/de9im.rst:157
 msgid "Data Quality Testing"
-msgstr ""
+msgstr "Pruebas de Calidad de Datos"
 
 #: ../../en/de9im.rst:159
 msgid ""
@@ -243,10 +309,14 @@ msgid ""
 "expect our data to meet strict standards. For example: no census block "
 "should overlap any other census block. Can we test for that?"
 msgstr ""
+"Los datos TIGER se controlan cuidadosamente en cuanto a calidad cuando se "
+"preparan, por lo que esperamos que nuestros datos cumplan normas estrictas. "
+"Por ejemplo: ningún bloque censal debería superponerse con otro bloque "
+"censal. ¿Podemos probar eso?"
 
 #: ../../en/de9im.rst:164
 msgid "Sure!"
-msgstr ""
+msgstr "¡Claro!"
 
 #: ../../en/de9im.rst:177
 msgid ""
@@ -254,6 +324,10 @@ msgid ""
 "expect that intersections only occur at the ends of lines, not at the mid-"
 "points."
 msgstr ""
+"De manera similar, esperaríamos que los datos de carreteras estén todos "
+"correctamente nodificados en los extremos. Es decir, esperamos que las "
+"intersecciones solo ocurran en los extremos de las líneas, no en los puntos "
+"medios."
 
 #: ../../en/de9im.rst:182
 msgid ""
@@ -261,6 +335,9 @@ msgid ""
 "join) but where the intersection between the boundaries is not zero-"
 "dimensional (that is, the end points don't touch):"
 msgstr ""
+"Podemos probar eso buscando calles que se intersecten (de modo que tengamos "
+"una unión) pero donde la intersección entre los límites no sea de dimensión "
+"cero (es decir, los extremos no se tocan):"
 
 #: ../../en/de9im.rst:198
 msgid "Function List"
@@ -272,3 +349,6 @@ msgid ""
 "html>`_: Returns a text string representing the DE9IM relationship between "
 "the geometries."
 msgstr ""
+"ST_Relate(geometry A, geometry B) <http://postgis.net/docs/ST_Relate.html>: "
+"Devuelve una cadena de texto que representa la relación DE9IM entre las "
+"geometrías."

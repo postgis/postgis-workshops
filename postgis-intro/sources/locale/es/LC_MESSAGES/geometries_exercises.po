@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-08-29 06:47+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries_exercises/es/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:4
 msgid "Geometry Exercises"
-msgstr ""
+msgstr "Ejercicios de Geometría"
 
 #: ../../en/geometries_exercises.rst:6
 msgid ""
@@ -49,27 +49,31 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:10
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
-msgstr ""
+msgstr ":command:`ST_GeometryType(geometry)` devuelve el tipo de geometría"
 
 #: ../../en/geometries_exercises.rst:11
 msgid ""
 ":command:`ST_NDims(geometry)` returns the number of dimensions of the "
 "geometry"
 msgstr ""
+":command:`ST_NDims(geometry)` devuelve el número de dimensiones de la "
+"geometría"
 
 #: ../../en/geometries_exercises.rst:12
 msgid ""
 ":command:`ST_SRID(geometry)` returns the spatial reference identifier number "
 "of the geometry"
 msgstr ""
+":command:`ST_SRID(geometry)` devuelve el número identificador de referencia "
+"espacial de la geometría"
 
 #: ../../en/geometries_exercises.rst:13
 msgid ":command:`ST_X(point)` returns the X ordinate"
-msgstr ""
+msgstr ":command:`ST_X(point)` retorna la coordenada X"
 
 #: ../../en/geometries_exercises.rst:14
 msgid ":command:`ST_Y(point)` returns the Y ordinate"
-msgstr ""
+msgstr ":command:`ST_Y(point)` retorna la coordenada Y"
 
 #: ../../en/geometries_exercises.rst:15
 msgid ":command:`ST_Length(linestring)` returns the length of the linestring"
@@ -79,16 +83,21 @@ msgstr ":command:`ST_Length(linestring)` retorna la longitud de la línea"
 msgid ""
 ":command:`ST_StartPoint(geometry)` returns the first coordinate as a point"
 msgstr ""
+":command:`ST_StartPoint(geometry)` devuelve la primera coordenada como un "
+"punto"
 
 #: ../../en/geometries_exercises.rst:17
 msgid ":command:`ST_EndPoint(geometry)` returns the last coordinate as a point"
 msgstr ""
+":command:`ST_EndPoint(geometry)` devuelve la última coordenada como un punto"
 
 #: ../../en/geometries_exercises.rst:18
 msgid ""
 ":command:`ST_NPoints(geometry)` returns the number of coordinates in the "
 "linestring"
 msgstr ""
+":command:`ST_NPoints(geometry)` devuelve el número de coordenadas en la "
+"linestring"
 
 #: ../../en/geometries_exercises.rst:19
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
@@ -99,33 +108,43 @@ msgid ""
 ":command:`ST_NRings(geometry)` returns the number of rings (usually 1, more "
 "if there are holes)"
 msgstr ""
+":command:`ST_NRings(geometry)` devuelve el número de anillos, usualmente 1 ("
+"o más si hay agujeros)"
 
 #: ../../en/geometries_exercises.rst:21
 msgid ""
 ":command:`ST_ExteriorRing(polygon)` returns the outer ring as a linestring"
 msgstr ""
+":command:`ST_ExteriorRing(polygon)` retorna el anillo exterior como una línea"
 
 #: ../../en/geometries_exercises.rst:22
 msgid ""
 ":command:`ST_InteriorRingN(polygon, integer)` returns a specified interior "
 "ring as a linestring"
 msgstr ""
+":command:`ST_InteriorRingN(polygon, integer)` retorna el anillo interior "
+"especificado como una linea"
 
 #: ../../en/geometries_exercises.rst:23
 msgid ":command:`ST_Perimeter(geometry)` returns the length of all the rings"
 msgstr ""
+":command:`ST_Perimeter(geometry)` devuelve la longitud de todos los anillos"
 
 #: ../../en/geometries_exercises.rst:24
 msgid ""
 ":command:`ST_NumGeometries(multi/geomcollection)` returns the number of "
 "parts in the collection"
 msgstr ""
+":command:`ST_NumGeometries(multi/geomcollection)` retorna el número de "
+"partes de una colección"
 
 #: ../../en/geometries_exercises.rst:25
 msgid ""
 ":command:`ST_GeometryN(geometry, integer)` returns the specified part of the "
 "collection"
 msgstr ""
+":command:`ST_GeometryN(geometry, integer)` retorna la parte especificada de "
+"una colección"
 
 #: ../../en/geometries_exercises.rst:26
 msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"
@@ -141,23 +160,23 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:28
 msgid ":command:`ST_AsEWKT(geometry)` returns EWKT ``text``"
-msgstr ""
+msgstr ":command:`ST_AsEWKT(geometry)` retorna un texto EWKT"
 
 #: ../../en/geometries_exercises.rst:29
 msgid ":command:`ST_GeomFromWKB(bytea)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromWKB(bytea)` devuelve ``geometry``"
 
 #: ../../en/geometries_exercises.rst:30
 msgid ":command:`ST_AsBinary(geometry)` returns WKB ``bytea``"
-msgstr ""
+msgstr ":command:`ST_AsBinary(geometry)` retorna un WKB de tipo ``bytea``"
 
 #: ../../en/geometries_exercises.rst:31
 msgid ":command:`ST_AsEWKB(geometry)` returns EWKB ``bytea``"
-msgstr ""
+msgstr ":command:`ST_AsEWKB(geometry)` retorna un EWKB de tipo ``bytea``"
 
 #: ../../en/geometries_exercises.rst:32
 msgid ":command:`ST_GeomFromGML(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromGML(text)` devuelve ``geometry``"
 
 #: ../../en/geometries_exercises.rst:33
 msgid ":command:`ST_AsGML(geometry)` returns GML ``text``"
@@ -167,19 +186,19 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:34
 msgid ":command:`ST_GeomFromKML(text)` returns ``geometry``"
-msgstr ""
+msgstr ":command:`ST_GeomFromKML(text)` devuelve ``geometry``"
 
 #: ../../en/geometries_exercises.rst:35
 msgid ":command:`ST_AsKML(geometry)` returns KML ``text``"
-msgstr ""
+msgstr ":command:`ST_AsKML(geometry)` retorna un texto KML"
 
 #: ../../en/geometries_exercises.rst:36
 msgid ":command:`ST_AsGeoJSON(geometry)` returns JSON ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGeoJSON(geometry)` retorna un texto en formato JSON"
 
 #: ../../en/geometries_exercises.rst:37
 msgid ":command:`ST_AsSVG(geometry)` returns SVG ``text``"
-msgstr ""
+msgstr ":command:`ST_AsSVG(geometry)` retorna un texto en formato SVG"
 
 #: ../../en/geometries_exercises.rst:39
 msgid "Also remember the tables we have available:"
@@ -191,7 +210,7 @@ msgstr "``nyc_census_blocks``"
 
 #: ../../en/geometries_exercises.rst:43
 msgid "blkid, popn_total, boroname, geom"
-msgstr ""
+msgstr "blkid, popn_total, boroname, geom"
 
 #: ../../en/geometries_exercises.rst:45
 msgid "``nyc_streets``"
@@ -223,22 +242,25 @@ msgstr "Ejercicios"
 
 #: ../../en/geometries_exercises.rst:60
 msgid "**What is the area of the 'West Village' neighborhood?**"
-msgstr ""
+msgstr "**¿Cuál es el área del barrio 'West Village'?**"
 
 #: ../../en/geometries_exercises.rst:74
 msgid ""
 "The area is given in square meters. To get an area in hectares, divide by "
 "10000. To get an area in acres, divide by 4047."
 msgstr ""
+"El área se da en metros cuadrados. Para obtener un área en hectáreas, divide "
+"entre 10000. Para obtener un área en acres, divide entre 4047."
 
 #: ../../en/geometries_exercises.rst:77
 msgid "**What is the geometry type of ‘Pelham St’? The length?**"
-msgstr ""
+msgstr "**¿Cuál es el tipo de geometría de ‘Pelham St’? ¿La longitud?**"
 
 #: ../../en/geometries_exercises.rst:93
 msgid ""
 "**What is the GeoJSON representation of the 'Broad St' subway station?**"
 msgstr ""
+"**¿Cuál es la representación GeoJSON de la estación de metro 'Broad St'?**"
 
 #: ../../en/geometries_exercises.rst:109
 msgid ""
@@ -246,31 +268,44 @@ msgid ""
 "(Hint: The units of measurement of the spatial data are meters, there are "
 "1000 meters in a kilometer.)"
 msgstr ""
+"**¿Cuál es la longitud total de las calles (en kilómetros) en la ciudad de "
+"Nueva York?** (Pista: las unidades de medida de los datos espaciales son "
+"metros, hay 1000 metros en un kilómetro.)"
 
 #: ../../en/geometries_exercises.rst:121
 msgid ""
 "**What is the area of Manhattan in acres?** (Hint: both "
 "``nyc_census_blocks`` and ``nyc_neighborhoods`` have a ``boroname`` in them.)"
 msgstr ""
+"**¿Cuál es el área de Manhattan en acres?** (Pista: tanto "
+"``nyc_census_blocks`` como ``nyc_neighborhoods`` tienen un ``boroname`` en "
+"ellos.)"
 
 #: ../../en/geometries_exercises.rst:133
 msgid "or..."
-msgstr ""
+msgstr "o..."
 
 #: ../../en/geometries_exercises.rst:146
 msgid "**What is the most westerly subway station?**"
-msgstr ""
+msgstr "**¿Cuál es la estación de metro más al occidente?**"
 
 #: ../../en/geometries_exercises.rst:160
 msgid "**How long is 'Columbus Cir' (aka Columbus Circle)?**"
 msgstr ""
+"**¿Cuál es la longitud de 'Columbus Cir' (también conocido como Columbus "
+"Circle)?**"
 
 #: ../../en/geometries_exercises.rst:173
 msgid "**What is the length of streets in New York City, summarized by type?**"
 msgstr ""
+"**¿Cuál es la longitud de las calles en la ciudad de Nueva York, resumida "
+"por tipo?**"
 
 #: ../../en/geometries_exercises.rst:211
 msgid ""
 "The ``ORDER BY length DESC`` clause sorts the result by length in descending "
 "order. The result is that most prevalent types are first in the list."
 msgstr ""
+"La cláusula ``ORDER BY length DESC`` ordena el resultado por longitud en "
+"orden descendente. El resultado es que los tipos más frecuentes aparecen "
+"primero en la lista."

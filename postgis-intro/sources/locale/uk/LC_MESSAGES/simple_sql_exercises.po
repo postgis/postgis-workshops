@@ -10,7 +10,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
 "PO-Revision-Date: 2025-08-12 03:01+0000\n"
-"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
 "postgis-workshop/simple_sql_exercises/uk/>\n"
 "Language: uk\n"
@@ -194,7 +195,7 @@ msgstr "**Який відсоток населення кожного район
 
 #: ../../en/simple_sql_exercises.rst:141
 msgid "Function List"
-msgstr ""
+msgstr "Список функцій"
 
 #: ../../en/simple_sql_exercises.rst:143
 msgid "`avg(expression) <http://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-TABLE>`_: PostgreSQL aggregate function that returns the average value of a numeric column."

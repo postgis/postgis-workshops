@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-07-01 05:08+0000\n"
-"Last-Translator: Regina Obe <robe@postgis.net>\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "postgis-functions/es/>\n"
 "Language: es\n"
@@ -50,10 +50,11 @@ msgstr ":command:`ST_GeomFromText(WellKnownText, srid)`"
 #: ../../en/postgis-functions.rst:13
 msgid "Returns a new geometry from a standard WKT string and srid."
 msgstr ""
+"Devuelve una nueva geometría a partir de una cadena estándar WKT y un srid."
 
 #: ../../en/postgis-functions.rst:16
 msgid ":command:`ST_SetSRID(geometry, srid)`"
-msgstr ""
+msgstr ":command:`ST_SetSRID(geometry, srid)`"
 
 #: ../../en/postgis-functions.rst:16
 msgid ""
@@ -61,10 +62,13 @@ msgid ""
 "alter the coordinates of the geometry, it just updates the srid. This "
 "function is useful for conditioning geometries created without an srid."
 msgstr ""
+"Actualiza el srid de una geometría. Devuelve la misma geometría. Esto no "
+"altera las coordenadas de la geometría, solo actualiza el srid. Esta función "
+"es útil para acondicionar geometrías creadas sin un srid."
 
 #: ../../en/postgis-functions.rst:19
 msgid ":command:`ST_Expand(geometry, Radius)`"
-msgstr ""
+msgstr ":command:`ST_Expand(geometry, Radius)`"
 
 #: ../../en/postgis-functions.rst:19
 msgid ""
@@ -72,6 +76,9 @@ msgid ""
 "geometry.  This function is useful for creating envelopes for use in indexed "
 "searches."
 msgstr ""
+"Devuelve una nueva geometría que es una caja envolvente expandida de la "
+"geometría de entrada. Esta función es útil para crear envolventes que se "
+"usan en búsquedas indexadas."
 
 #: ../../en/postgis-functions.rst:22
 msgid "Outputs"
@@ -83,7 +90,7 @@ msgstr ":command:`ST_AsText(geometry)`"
 
 #: ../../en/postgis-functions.rst:25
 msgid "Returns a geometry in a human-readable text format."
-msgstr ""
+msgstr "Devuelve una geometría en un formato de texto legible por humanos."
 
 #: ../../en/postgis-functions.rst:28
 msgid ":command:`ST_AsGML(geometry)`"
@@ -91,7 +98,7 @@ msgstr ":command:`ST_AsGML(geometry)`"
 
 #: ../../en/postgis-functions.rst:28
 msgid "Returns a geometry in standard OGC :term:`GML` format."
-msgstr ""
+msgstr "Devuelve una geometría en formato estándar OGC :term:`GML`."
 
 #: ../../en/postgis-functions.rst:31
 msgid ":command:`ST_AsGeoJSON(geometry)`"
@@ -101,113 +108,131 @@ msgstr ":command:`ST_AsGeoJSON(geometry)`"
 msgid ""
 "Returns a geometry to a standard `GeoJSON <http://geojson.org>`_ format."
 msgstr ""
+"Devuelve una geometría en un formato estándar `GeoJSON <http://geojson."
+"org>`_."
 
 #: ../../en/postgis-functions.rst:34
 msgid "Measurements"
-msgstr ""
+msgstr "Mediciones"
 
 #: ../../en/postgis-functions.rst:37
 msgid ":command:`ST_Area(geometry)`"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)`"
 
 #: ../../en/postgis-functions.rst:37
 msgid ""
 "Returns the area of the geometry in the units of the spatial reference "
 "system."
 msgstr ""
+"Devuelve el área de la geometría en las unidades del sistema de referencia "
+"espacial."
 
 #: ../../en/postgis-functions.rst:40
 msgid ":command:`ST_Length(geometry)`"
-msgstr ""
+msgstr ":command:`ST_Length(geometry)`"
 
 #: ../../en/postgis-functions.rst:40
 msgid ""
 "Returns the length of the geometry in the units of the spatial reference "
 "system."
 msgstr ""
+"Devuelve la longitud de la geometría en las unidades del sistema de "
+"referencia espacial."
 
 #: ../../en/postgis-functions.rst:43
 msgid ":command:`ST_Perimeter(geometry)`"
-msgstr ""
+msgstr ":command:`ST_Perimeter(geometry)`"
 
 #: ../../en/postgis-functions.rst:43
 msgid ""
 "Returns the perimeter of the geometry in the units of the spatial reference "
 "system."
 msgstr ""
+"Devuelve el perímetro de la geometría en las unidades del sistema de "
+"referencia espacial."
 
 #: ../../en/postgis-functions.rst:46
 msgid ":command:`ST_NumPoints(linestring)`"
-msgstr ""
+msgstr ":command:`ST_NumPoints(linestring)`"
 
 #: ../../en/postgis-functions.rst:46
 msgid "Returns the number of vertices in a linestring."
-msgstr ""
+msgstr "Devuelve el número de vértices en un linestring."
 
 #: ../../en/postgis-functions.rst:49
 msgid ":command:`ST_NumRings(polygon)`"
-msgstr ""
+msgstr ":command:`ST_NumRings(polygon)`"
 
 #: ../../en/postgis-functions.rst:49
 msgid "Returns the number of rings in a polygon."
-msgstr ""
+msgstr "Devuelve el número de anillos en un polígono."
 
 #: ../../en/postgis-functions.rst:52
 msgid ":command:`ST_NumGeometries(geometry)`"
-msgstr ""
+msgstr ":command:`ST_NumGeometries(geometry)`"
 
 #: ../../en/postgis-functions.rst:52
 msgid "Returns the number of geometries in a geometry collection."
-msgstr ""
+msgstr "Devuelve el número de geometrías en una colección de geometrías."
 
 #: ../../en/postgis-functions.rst:55
 msgid "Relationships"
-msgstr ""
+msgstr "Relaciones"
 
 #: ../../en/postgis-functions.rst:58
 msgid ":command:`ST_Distance(geometry, geometry)`"
-msgstr ""
+msgstr ":command:`ST_Distance(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:58
 msgid ""
 "Returns the distance between two geometries in the units of the spatial "
 "reference system."
 msgstr ""
+"Devuelve la distancia entre dos geometrías en las unidades del sistema de "
+"referencia espacial."
 
 #: ../../en/postgis-functions.rst:61
 msgid ":command:`ST_DWithin(geometry, geometry, radius)`"
-msgstr ""
+msgstr ":command:`ST_DWithin(geometry, geometry, radius)`"
 
 #: ../../en/postgis-functions.rst:61
 msgid ""
 "Returns true if the geometries are within the radius distance of one "
 "another, otherwise false."
 msgstr ""
+"Devuelve verdadero si las geometrías están dentro de la distancia del radio "
+"entre sí, en caso contrario devuelve falso."
 
 #: ../../en/postgis-functions.rst:64
 msgid ":command:`ST_Intersects(geometry, geometry)`"
-msgstr ""
+msgstr ":command:`ST_Intersects(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:64
 msgid "Returns true if the geometries are not disjoint, otherwise false."
 msgstr ""
+"Devuelve verdadero si las geometrías no están disjuntas, en caso contrario "
+"devuelve falso."
 
 #: ../../en/postgis-functions.rst:67
 msgid ":command:`ST_Contains(geometry, geometry)`"
-msgstr ""
+msgstr ":command:`ST_Contains(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:67
 msgid ""
 "Returns true if the first geometry fully contains the second geometry, "
 "otherwise false."
 msgstr ""
+"Devuelve verdadero si la primera geometría contiene completamente a la "
+"segunda geometría, en caso contrario devuelve falso."
 
 #: ../../en/postgis-functions.rst:69
 msgid ":command:`ST_Crosses(geometry, geometry)`"
-msgstr ""
+msgstr ":command:`ST_Crosses(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:70
 msgid ""
 "Returns true if a line or polygon boundary crosses another line or polygon "
 "boundary, otherwise false."
 msgstr ""
+"Devuelve verdadero si un límite de línea o polígono cruza otro límite de "
+"línea o polígono, en caso contrario devuelve falso."

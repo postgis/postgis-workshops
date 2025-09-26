@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
+# This file is distributed under the same license as the Introduction to PostGIS package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"PO-Revision-Date: 2025-08-13 12:47+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/spatial_relationships/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
+
+#: ../../en/spatial_relationships.rst:4
+msgid "Spatial Relationships"
+msgstr "Просторові відносини"
+
+#: ../../en/spatial_relationships.rst:6
+msgid "So far we have only used spatial functions that measure (:command:`ST_Area`, :command:`ST_Length`), serialize (:command:`ST_GeomFromText`) or deserialize (:command:`ST_AsGML`) geometries. What these functions have in common is that they only work on one geometry at a time."
+msgstr ""
+"До цього часу ми використовували лише просторові функції, які вимірюють "
+"(:command:`ST_Area`, :command:`ST_Length`), серіалізують "
+"(:command:`ST_GeomFromText`) або десеріалізують (:command:`ST_AsGML`) "
+"геометрії. Спільним для цих функцій є те, що вони працюють лише з однією "
+"геометрією за раз."
+
+#: ../../en/spatial_relationships.rst:8
+msgid "Spatial databases are powerful because they not only store geometry, they also have the ability to compare *relationships between geometries*."
+msgstr ""
+"Просторові бази даних є потужними, оскільки вони не тільки зберігають "
+"геометрію, але й мають можливість порівнювати *відносини між геометріями*."
+
+#: ../../en/spatial_relationships.rst:10
+msgid "Questions like \"Which are the closest bike racks to a park?\" or \"Where are the intersections of subway lines and streets?\" can only be answered by comparing geometries representing the bike racks, streets, and subway lines."
+msgstr ""
+"На такі питання, як «Де найближчі велосипедні стоянки до парку?» або «Де "
+"перетинаються лінії метро та вулиці?», можна відповісти лише порівнявши "
+"геометрію велосипедних стійок, вулиць та ліній метро."
+
+#: ../../en/spatial_relationships.rst:12
+msgid "The OGC standard defines the following set of methods to compare geometries."
+msgstr "Стандарт OGC визначає наступний набір методів для порівняння геометрій."
+
+#: ../../en/spatial_relationships.rst:15
+msgid "ST_Equals"
+msgstr "ST_Equals"
+
+#: ../../en/spatial_relationships.rst:17
+msgid ":command:`ST_Equals(geometry A, geometry B)` tests the spatial equality of two geometries."
+msgstr ""
+":command:`ST_Equals(geometry A, geometry B)`перевіряє просторову рівність "
+"двох геометрій."
+
+#: ../../en/spatial_relationships.rst:22
+msgid "ST_Equals returns TRUE if two geometries of the same type have identical x,y coordinate values, i.e. if the second shape is equal (identical) to the first shape."
+msgstr ""
+"ST_Equals повертає TRUE, якщо дві геометрії одного типу мають однакові "
+"значення координат x, y, тобто якщо друга фігура дорівнює (ідентична) першій "
+"фігурі."
+
+#: ../../en/spatial_relationships.rst:24
+msgid "First, let's retrieve a representation of a point from our ``nyc_subway_stations`` table. We'll take just the entry for 'Broad St'."
+msgstr ""
+"Спочатку витягнемо представлення точки з таблиці ``nyc_subway_stations``. "
+"Візьмемо тільки запис для “Broad St”."
+
+#: ../../en/spatial_relationships.rst:38
+msgid "Then, plug the geometry representation back into an :command:`ST_Equals` test:"
+msgstr "Потім додайте геометричне представлення назад у :command:`ST_Equals`:"
+
+#: ../../en/spatial_relationships.rst:54
+msgid "The representation of the point was not very human readable (``0101000020266900000EEBD4CF27CF2141BC17D69516315141``) but it was an exact representation of the coordinate values. For a test like equality, using the exact coordinates is necessary."
+msgstr ""
+"Представлення точки не було дуже зрозумілим для людини "
+"(``0101000020266900000EEBD4CF27CF2141BC17D69516315141``), але це було точне "
+"представлення значень координат. Для тесту на рівність необхідно "
+"використовувати точні координати."
+
+#: ../../en/spatial_relationships.rst:58
+msgid "ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps"
+msgstr "ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps"
+
+#: ../../en/spatial_relationships.rst:60
+msgid ":command:`ST_Intersects`, :command:`ST_Crosses`, and :command:`ST_Overlaps` test whether the interiors of the geometries intersect."
+msgstr ""
+":command:`ST_Intersects`, :command:`ST_Crosses`, та :command:`ST_Overlaps` "
+"перевірити, чи перетинаються внутрішні частини геометрій."
+
+#: ../../en/spatial_relationships.rst:65
+msgid ":command:`ST_Intersects(geometry A, geometry B)` returns t (TRUE) if the two shapes have any space in common, i.e., if their boundaries or interiors intersect."
+msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` повертає t (TRUE), якщо дві "
+"фігури мають спільний простір, тобто якщо їхні межі або внутрішні частини "
+"перетинаються."
+
+#: ../../en/spatial_relationships.rst:70
+msgid "The opposite of ST_Intersects is :command:`ST_Disjoint(geometry A , geometry B)`. If two geometries are disjoint, they do not intersect, and vice-versa. In fact, it is often more efficient to test \"not intersects\" than to test \"disjoint\" because the intersects tests can be spatially indexed, while the disjoint test cannot."
+msgstr ""
+"Протилежністю ST_Intersects є :command:`ST_Disjoint(geometry A , geometry B)`"
+". Якщо дві геометрії є роз'єднаними, вони не перетинаються, і навпаки. "
+"Насправді, часто ефективніше перевіряти «не перетинається», ніж «роз'єднане»"
+", оскільки перевірки перетину можуть бути індексовані просторово, а "
+"перевірки роз'єднання — ні."
+
+#: ../../en/spatial_relationships.rst:75
+msgid "For multipoint/polygon, multipoint/linestring, linestring/linestring, linestring/polygon, and linestring/multipolygon comparisons, :command:`ST_Crosses(geometry A, geometry B)` returns t (TRUE) if the intersection results in a geometry whose dimension is one less than the maximum dimension of the two source geometries and the intersection set is interior to both source geometries."
+msgstr ""
+"Для порівняння багатоточкового/багатокутного, багатоточкового/лінійного, "
+"лінійного/лінійного, лінійного/багатокутного та лінійного/багатокутного: "
+":command:`ST_Crosses(geometry A, geometry B)` повертає t (TRUE), якщо "
+"перетин дає геометрію, розмір якої на один менше, ніж максимальний розмір "
+"двох вихідних геометрій, а множина перетину знаходиться всередині обох "
+"вихідних геометрій."
+
+#: ../../en/spatial_relationships.rst:80
+msgid ":command:`ST_Overlaps(geometry A, geometry B)` compares two geometries of the same dimension and returns TRUE if their intersection set results in a geometry different from both but of the same dimension."
+msgstr ""
+":команда:`ST_Overlaps(geometry A, geometry B)` порівнює дві геометрії "
+"однакового розміру і повертає TRUE, якщо їх перетин дає геометрію, відмінну "
+"від обох, але однакового розміру."
+
+#: ../../en/spatial_relationships.rst:82
+msgid "Let's take our Broad Street subway station and determine its neighborhood using the :command:`ST_Intersects` function:"
+msgstr ""
+"Візьмемо станцію метро Broad Street і визначимо її околиці за допомогою "
+"функції :command:`ST_Intersects`:"
+
+#: ../../en/spatial_relationships.rst:109
+msgid "ST_Touches"
+msgstr "ST_Touches"
+
+#: ../../en/spatial_relationships.rst:111
+msgid ":command:`ST_Touches` tests whether two geometries touch at their boundaries, but do not intersect in their interiors"
+msgstr ""
+":command:`ST_Touches` перевіряє, чи дві геометрії стикаються на своїх межах, "
+"але не перетинаються всередині"
+
+#: ../../en/spatial_relationships.rst:116
+msgid ":command:`ST_Touches(geometry A, geometry B)` returns TRUE if either of the geometries' boundaries intersect or if only one of the geometry's interiors intersects the other's boundary."
+msgstr ""
+":команда:`ST_Touches(geometry A, geometry B)` повертає TRUE, якщо межі будь-"
+"якої з геометрій перетинаються або якщо тільки одна з внутрішніх частин "
+"геометрії перетинається з межею іншої."
+
+#: ../../en/spatial_relationships.rst:119
+msgid "ST_Within and ST_Contains"
+msgstr "ST_Within та ST_Contains"
+
+#: ../../en/spatial_relationships.rst:121
+msgid ":command:`ST_Within` and :command:`ST_Contains` test whether one geometry is fully within the other."
+msgstr ""
+":command:`ST_Within` та :command:`ST_Contains` перевіряють, чи одна "
+"геометрія повністю знаходиться всередині іншої."
+
+#: ../../en/spatial_relationships.rst:126
+msgid ":command:`ST_Within(geometry A , geometry B)` returns TRUE if the first geometry is completely within the second geometry. ST_Within tests for the exact opposite result of ST_Contains."
+msgstr ""
+":команда:`ST_Within(геометрія A , геометрія B)` повертає TRUE, якщо перша "
+"геометрія повністю знаходиться всередині другої геометрії. ST_Within "
+"перевіряє результат, який є точно протилежним до ST_Contains."
+
+#: ../../en/spatial_relationships.rst:128
+msgid ":command:`ST_Contains(geometry A, geometry B)` returns TRUE if the second geometry is completely contained by the first geometry."
+msgstr ""
+":команда:`ST_Contains(geometry A, geometry B)` повертає TRUE, якщо друга "
+"геометрія повністю міститься в першій геометрії."
+
+#: ../../en/spatial_relationships.rst:132
+msgid "ST_Distance and ST_DWithin"
+msgstr "ST_Distance та ST_DWithin"
+
+#: ../../en/spatial_relationships.rst:134
+msgid "An extremely common GIS question is \"find all the stuff within distance X of this other stuff\"."
+msgstr ""
+"Дуже поширеним питанням у сфері ГІС є «знайти всі об'єкти, що знаходяться на "
+"відстані X від цього об'єкта»."
+
+#: ../../en/spatial_relationships.rst:136
+msgid "The :command:`ST_Distance(geometry A, geometry B)` calculates the *shortest* distance between two geometries and returns it as a float. This is useful for actually reporting back the distance between objects."
+msgstr ""
+"Команда :command:`ST_Distance(geometry A, geometry B)` обчислює *найкоротшу* "
+"відстань між двома геометріями та повертає її у вигляді числа з плаваючою "
+"комою. Це корисно для фактичного повідомлення про відстань між об'єктами."
+
+#: ../../en/spatial_relationships.rst:148
+msgid "For testing whether two objects are within a distance of one another, the :command:`ST_DWithin` function provides an index-accelerated true/false test. This is useful for questions like \"how many trees are within a 500 meter buffer of the road?\". You don't have to calculate an actual buffer, you just have to test the distance relationship."
+msgstr ""
+"Для перевірки, чи два об'єкти знаходяться на відстані один від одного, "
+"функція :command:`ST_DWithin` надає індексоване прискорення перевірки true/"
+"false. Це корисно для таких питань, як «скільки дерев знаходиться в межах "
+"500 метрів від дороги?». Вам не потрібно обчислювати фактичний буфер, "
+"достатньо перевірити відношення відстаней."
+
+#: ../../en/spatial_relationships.rst:153
+msgid "Using our Broad Street subway station again, we can find the streets nearby (within 10 meters of) the subway stop:"
+msgstr ""
+"Знову скориставшись станцією метро Broad Street, ми можемо знайти вулиці "
+"поблизу (в радіусі 10 метрів) від станції метро:"
+
+#: ../../en/spatial_relationships.rst:173
+msgid "And we can verify the answer on a map. The Broad St station is actually at the intersection of Wall, Broad and Nassau Streets."
+msgstr ""
+"І ми можемо перевірити відповідь на карті. Станція Broad St насправді "
+"знаходиться на перетині вулиць Wall, Broad і Nassau."
+
+#: ../../en/spatial_relationships.rst:178
+msgid "Function List"
+msgstr "Список функцій"
+
+#: ../../en/spatial_relationships.rst:180
+msgid "`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains.html>`_: Returns true if and only if no points of B lie in the exterior of A, and at least one point of the interior of B lies in the interior of A."
+msgstr ""
+"`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains."
+"html>`_: Повертає true, якщо і тільки якщо жодна точка B не лежить зовні A, "
+"і принаймні одна точка всередині B лежить всередині A."
+
+#: ../../en/spatial_relationships.rst:182
+msgid "`ST_Crosses(geometry A, geometry B)  <http://postgis.net/docs/ST_Crosses.html>`_: Returns TRUE if the supplied geometries have some, but not all, interior points in common."
+msgstr ""
+"`ST_Crosses(geometry A, geometry B)  <http://postgis.net/docs/ST_Crosses."
+"html>`_: Повертає TRUE, якщо надані геометрії мають деякі, але не всі "
+"внутрішні точки спільні."
+
+#: ../../en/spatial_relationships.rst:184
+msgid "`ST_Disjoint(geometry A , geometry B) <http://postgis.net/docs/ST_Disjoint.html>`_: Returns TRUE if the Geometries do not \"spatially intersect\" - if they do not share any space together."
+msgstr ""
+"`ST_Disjoint(geometry A , geometry B) <http://postgis.net/docs/ST_Disjoint."
+"html>`_: Повертає TRUE, якщо геометрії не «перетинаються в просторі» — якщо "
+"вони не мають спільного простору."
+
+#: ../../en/spatial_relationships.rst:186
+msgid "`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/ST_Distance.html>`_: Returns the 2-dimensional cartesian minimum distance (based on spatial ref) between two geometries in projected units."
+msgstr ""
+"`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/ST_Distance."
+"html>`_: Повертає двовимірну декартову мінімальну відстань (на основі "
+"просторової референції) між двома геометріями в проекційних одиницях."
+
+#: ../../en/spatial_relationships.rst:188
+msgid "`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/ST_DWithin.html>`_: Returns true if the geometries are within the specified distance (radius) of one another."
+msgstr ""
+"`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/"
+"ST_DWithin.html>`_: Повертає true, якщо геометрії знаходяться на відстані "
+"(радіусі) одна від одної, що не перевищує задане значення."
+
+#: ../../en/spatial_relationships.rst:190
+msgid "`ST_Equals(geometry A, geometry B) <http://postgis.net/docs/ST_Equals.html>`_: Returns true if the given geometries represent the same geometry. Directionality is ignored."
+msgstr ""
+"`ST_Equals(geometry A, geometry B) <http://postgis.net/docs/ST_Equals."
+"html>`_: Повертає true, якщо задані геометрії представляють одну і ту ж "
+"геометрію. Напрямок ігнорується."
+
+#: ../../en/spatial_relationships.rst:192
+msgid "`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects.html>`_: Returns TRUE if the Geometries/Geography \"spatially intersect\" - (share any portion of space) and FALSE if they don't (they are Disjoint)."
+msgstr ""
+"`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects"
+".html>`_: Повертає TRUE, якщо геометрії/географія «просторово перетинаються» "
+"(мають спільну частину простору), і FALSE, якщо вони не перетинаються (вони "
+"роз'єднані)."
+
+#: ../../en/spatial_relationships.rst:194
+msgid "`ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/ST_Overlaps.html>`_: Returns TRUE if the Geometries share space, are of the same dimension, but are not completely contained by each other."
+msgstr ""
+"`ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/ST_Overlaps."
+"html>`_: Повертає TRUE, якщо геометрії мають спільний простір, мають "
+"однаковий розмір, але не повністю містяться одна в одній."
+
+#: ../../en/spatial_relationships.rst:196
+msgid "`ST_Touches(geometry A, geometry B)  <http://postgis.net/docs/ST_Touches.html>`_: Returns TRUE if the geometries have at least one point in common, but their interiors do not intersect."
+msgstr ""
+"`ST_Touches(geometry A, geometry B)  <http://postgis.net/docs/ST_Touches."
+"html>`_: Повертає TRUE, якщо геометрії мають принаймні одну спільну точку, "
+"але їхні внутрішні частини не перетинаються."
+
+#: ../../en/spatial_relationships.rst:198
+msgid "`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within.html>`_: Returns true if the geometry A is completely inside geometry B"
+msgstr ""
+"`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within."
+"html>`_: Повертає true, якщо геометрія A повністю знаходиться всередині "
+"геометрії B"

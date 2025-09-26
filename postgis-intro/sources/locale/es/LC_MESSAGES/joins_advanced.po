@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 12:31+0000\n"
+"PO-Revision-Date: 2025-08-31 10:25+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_advanced/es/>\n"
@@ -77,27 +77,31 @@ msgstr "Realizar algunos análisis con nuestros nuevos datos"
 
 #: ../../en/joins_advanced.rst:23
 msgid "Loading nyc_census_sociodata.sql"
-msgstr ""
+msgstr "Cargando nyc_census_sociodata.sql"
 
 #: ../../en/joins_advanced.rst:25
 msgid "Open the SQL query window in PgAdmin"
-msgstr ""
+msgstr "Abrir la ventana de consulta SQL en PgAdmin"
 
 #: ../../en/joins_advanced.rst:26
 msgid ""
 "Select **File->Open** from the menu and browse to the ``nyc_census_sociodata."
 "sql`` file"
 msgstr ""
+"Selecciona **File->Open** en el menú y busca el archivo "
+"``nyc_census_sociodata.sql``"
 
 #: ../../en/joins_advanced.rst:27
 msgid "Press the \"Run Query\" button"
-msgstr ""
+msgstr "Presiona el botón \"Run Query\""
 
 #: ../../en/joins_advanced.rst:28
 msgid ""
 "If you press the \"Refresh\" button in PgAdmin, the list of tables should "
 "now include at ``nyc_census_sociodata`` table"
 msgstr ""
+"Si presionas el botón \"Refresh\" en PgAdmin, la lista de tablas ahora "
+"debería incluir la tabla ``nyc_census_sociodata``"
 
 #: ../../en/joins_advanced.rst:33
 msgid ""
@@ -106,30 +110,39 @@ msgid ""
 "order to get census tracts, we need to summarize grouping on the first 11 "
 "characters of the ``blkid``."
 msgstr ""
+"Como vimos en la sección anterior, podemos construir geometrías de nivel "
+"superior a partir del bloque censal resumiendo en subcadenas de la clave "
+"``blkid``. Para obtener distritos censales, necesitamos resumir agrupando "
+"los primeros 11 caracteres del ``blkid``."
 
 #: ../../en/joins_advanced.rst:46
 msgid "Create the new table using the :command:`ST_Union` aggregate:"
-msgstr ""
+msgstr "Crea la nueva tabla usando el agregado :command:`ST_Union`:"
 
 #: ../../en/joins_advanced.rst:64
 msgid "Join the Attributes to the Spatial Data"
-msgstr ""
+msgstr "Unir los Atributos a los Datos Espaciales"
 
 #: ../../en/joins_advanced.rst:66
 msgid ""
 "Join the table of tract geometries to the table of tract attributes with a "
 "standard attribute join"
 msgstr ""
+"Une la tabla de geometrías de distrito con la tabla de atributos de distrito "
+"mediante una unión de atributos estándar"
 
 #: ../../en/joins_advanced.rst:87
 msgid "Answer an Interesting Question"
-msgstr ""
+msgstr "Responder una Pregunta Interesante"
 
 #: ../../en/joins_advanced.rst:89
 msgid ""
 "Answer an interesting question! \"List top 10 New York neighborhoods ordered "
 "by the proportion of people who have graduate degrees.\""
 msgstr ""
+"Responde una pregunta interesante! \"Lista los 10 principales vecindarios de "
+"Nueva York ordenados por la proporción de personas que tienen títulos de "
+"posgrado.\""
 
 #: ../../en/joins_advanced.rst:104
 msgid ""
@@ -137,6 +150,9 @@ msgid ""
 "end. In order to avoid divide-by-zero errors, we don't bother bringing in "
 "tracts that have a population count of zero."
 msgstr ""
+"Sumamos las estadísticas que nos interesan y luego las dividimos al final. "
+"Para evitar errores de división por cero, no incluimos distritos con "
+"población igual a cero."
 
 #: ../../en/joins_advanced.rst:124
 msgid ""
@@ -144,10 +160,13 @@ msgid ""
 "this list of over-educated neighborhoods. The answer is discussed in the "
 "next section."
 msgstr ""
+"Los geógrafos de Nueva York se preguntarán por la presencia de \"Flatbush\" "
+"en esta lista de vecindarios sobreeducados. La respuesta se analiza en la "
+"siguiente sección."
 
 #: ../../en/joins_advanced.rst:129
 msgid "Polygon/Polygon Joins"
-msgstr ""
+msgstr "Polygon/Polygon Joins"
 
 #: ../../en/joins_advanced.rst:131
 msgid ""
@@ -158,42 +177,56 @@ msgid ""
 "neighborhoods? It will intersect both, and so will be included in the "
 "summary statistics for **both**."
 msgstr ""
+"En nuestra consulta interesante (en :ref:`interestingquestion`) usamos la "
+"función :command:`ST_Intersects(geometry_a, geometry_b)` para determinar qué "
+"polígonos de distritos censales incluir en cada resumen de vecindario. Lo "
+"que lleva a la pregunta: ¿qué pasa si un distrito se encuentra en la "
+"frontera entre dos vecindarios? Intersectará ambos, y por lo tanto será "
+"incluido en las estadísticas resumidas de **ambos**."
 
 #: ../../en/joins_advanced.rst:135
 msgid "To avoid this kind of double counting there are two methods:"
-msgstr ""
+msgstr "Para evitar este tipo de doble conteo hay dos métodos:"
 
 #: ../../en/joins_advanced.rst:137
 msgid ""
 "The simple method is to ensure that each tract only falls in **one** summary "
 "area (using :command:`ST_Centroid(geometry)`)"
 msgstr ""
+"El método simple es asegurar que cada distrito solo caiga en **una** área de "
+"resumen (usando :command:`ST_Centroid(geometry)`)"
 
 #: ../../en/joins_advanced.rst:138
 msgid ""
 "The complex method is to divide crossing tracts at the borders (using :"
 "command:`ST_Intersection(geometry,geometry)`)"
 msgstr ""
+"El método complejo es dividir los distritos que cruzan fronteras (usando "
+":command:`ST_Intersection(geometry,geometry)`)"
 
 #: ../../en/joins_advanced.rst:140
 msgid ""
 "Here is an example of using the simple method to avoid double counting in "
 "our graduate education query:"
 msgstr ""
+"Aquí hay un ejemplo de cómo usar el método simple para evitar el doble "
+"conteo en nuestra consulta de educación de posgrado:"
 
 #: ../../en/joins_advanced.rst:155
 msgid ""
 "Note that the query takes longer to run now, because the :command:"
 "`ST_Centroid` function  has to be run on every census tract."
 msgstr ""
+"Observa que la consulta tarda más en ejecutarse ahora, porque la función "
+":command:`ST_Centroid` debe ejecutarse en cada distrito censal."
 
 #: ../../en/joins_advanced.rst:172
 msgid "Avoiding double counting changes the results!"
-msgstr ""
+msgstr "Evitar el doble conteo cambia los resultados!"
 
 #: ../../en/joins_advanced.rst:175
 msgid "What about Flatbush?"
-msgstr ""
+msgstr "¿Qué pasa con Flatbush?"
 
 #: ../../en/joins_advanced.rst:177
 msgid ""
@@ -201,6 +234,9 @@ msgid ""
 "reason why can be seen by looking more closely at the map of the Flatbush "
 "neighborhood in our table."
 msgstr ""
+"En particular, el vecindario de Flatbush ha desaparecido de la lista. La "
+"razón se puede ver observando más de cerca el mapa del vecindario Flatbush "
+"en nuestra tabla."
 
 #: ../../en/joins_advanced.rst:181
 msgid ""
@@ -213,10 +249,18 @@ msgid ""
 "to the otherwise empty Flatbush, resulting in the very high score for that "
 "query."
 msgstr ""
+"Según lo definido por nuestra fuente de datos, Flatbush no es realmente un "
+"vecindario en el sentido convencional, ya que solo cubre el área de Prospect "
+"Park. El distrito censal de esa área registra, naturalmente, cero "
+"residentes. Sin embargo, el límite del vecindario toca uno de los distritos "
+"censales costosos que bordean el lado norte del parque (en el gentrificado "
+"vecindario de Park Slope). Al usar pruebas de polígono/polígono, este único "
+"distrito fue agregado al Flatbush vacío, resultando en la puntuación muy "
+"alta de esa consulta."
 
 #: ../../en/joins_advanced.rst:186
 msgid "Large Radius Distance Joins"
-msgstr ""
+msgstr "Large Radius Distance Joins"
 
 #: ../../en/joins_advanced.rst:188
 msgid ""
@@ -224,6 +268,9 @@ msgid ""
 "(within 500 meters) subway stations differ from those of people far away "
 "from subway stations?\""
 msgstr ""
+"Una consulta divertida de hacer es: \"¿Cómo difieren los tiempos de viaje de "
+"las personas que viven cerca (a menos de 500 metros) de estaciones de metro "
+"de aquellos que viven lejos de las estaciones de metro?\""
 
 #: ../../en/joins_advanced.rst:190
 msgid ""
@@ -231,12 +278,17 @@ msgid ""
 "people will be within 500 meters of multiple subway stations. Compare the "
 "population of New York:"
 msgstr ""
+"Sin embargo, la pregunta se enfrenta a algunos problemas de doble conteo: "
+"muchas personas estarán a menos de 500 metros de múltiples estaciones de "
+"metro. Compara la población de Nueva York:"
 
 #: ../../en/joins_advanced.rst:201
 msgid ""
 "With the population of the people in New York within 500 meters of a subway "
 "station:"
 msgstr ""
+"Con la población de personas en Nueva York dentro de 500 metros de una "
+"estación de metro:"
 
 #: ../../en/joins_advanced.rst:214
 msgid ""
@@ -244,6 +296,9 @@ msgid ""
 "simple SQL is making a big double-counting error. You can see the problem "
 "looking at the picture of the buffered subways."
 msgstr ""
+"Hay más personas cerca del metro de las que existen! Claramente, nuestro SQL "
+"simple está cometiendo un gran error de doble conteo. Puedes ver el problema "
+"observando la imagen de los buffers de las estaciones de metro."
 
 #: ../../en/joins_advanced.rst:218
 msgid ""
@@ -252,9 +307,16 @@ msgid ""
 "breaking our query up into a subquery that finds the distinct blocks, "
 "wrapped in a summarization query that returns our answer:"
 msgstr ""
+"La solución es asegurarse de tener solo bloques censales distintos antes de "
+"pasarlos a la parte de resumen de la consulta. Podemos hacerlo dividiendo "
+"nuestra consulta en una subconsulta que encuentra los bloques distintos, "
+"envuelta en una consulta de resumen que devuelve nuestra respuesta:"
 
 #: ../../en/joins_advanced.rst:235
 msgid ""
 "That's better! So a bit over half the population of New York is within 500m "
 "(about a 5-7 minute walk) of the subway."
 msgstr ""
+"Eso es mejor! Así que un poco más de la mitad de la población de Nueva York "
+"está dentro de 500 m (aproximadamente una caminata de 5 a 7 minutos) del "
+"metro."

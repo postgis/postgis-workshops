@@ -6,13 +6,14 @@
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-09-01 05:23+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships_exercises/es/>\n"
 "Language: es\n"
@@ -25,13 +26,15 @@ msgstr ""
 
 #: ../../en/spatial_relationships_exercises.rst:4
 msgid "Spatial Relationships Exercises"
-msgstr ""
+msgstr "Ejercicios de relaciones espaciales"
 
 #: ../../en/spatial_relationships_exercises.rst:6
 msgid ""
 "Here's a reminder of the functions we saw in the last section. They should "
 "be useful for the exercises!"
 msgstr ""
+"Aquí tienes un recordatorio de las funciones que vimos en la sección "
+"anterior. ¡Deberían ser útiles para los ejercicios!"
 
 #: ../../en/spatial_relationships_exercises.rst:8
 msgid ""
@@ -52,25 +55,31 @@ msgid ""
 ":command:`ST_Contains(geometry A, geometry B)` returns true if geometry A "
 "contains geometry B"
 msgstr ""
+":command:`ST_Contains(geometry A, geometry B)` devuelve verdadero si la "
+"geometría A contiene a la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:11
 msgid ""
 ":command:`ST_Crosses(geometry A, geometry B)` returns true if geometry A "
 "crosses geometry B"
 msgstr ""
+":command:`ST_Crosses(geometry A, geometry B)` devuelve verdadero si la "
+"geometría A cruza a la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:12
 msgid ""
 ":command:`ST_Disjoint(geometry A , geometry B)` returns true if the "
 "geometries do not \"spatially intersect\""
 msgstr ""
+":command:`ST_Disjoint(geometry A , geometry B)` devuelve verdadero si las "
+"geometrías no \"intersectan espacialmente\""
 
 #: ../../en/spatial_relationships_exercises.rst:13
 msgid ""
 ":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance "
 "between geometry A and geometry B"
 msgstr ""
-":command:`ST_Distancia(geometría A, geometría B)` devuelve la distancia "
+":command:`ST_Distance(geometría A, geometría B)` devuelve la distancia "
 "mínima entre la geometría A y la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:14
@@ -78,36 +87,50 @@ msgid ""
 ":command:`ST_DWithin(geometry A, geometry B, radius)` returns true if "
 "geometry A is radius distance or less from geometry B"
 msgstr ""
+":command:`ST_DWithin(geometry A, geometry B, radius)` devuelve verdadero si "
+"la geometría A está a una distancia igual o menor que radius de la geometría "
+"B"
 
 #: ../../en/spatial_relationships_exercises.rst:15
 msgid ""
 ":command:`ST_Equals(geometry A, geometry B)` returns true if geometry A is "
 "the same as geometry B"
 msgstr ""
+":command:`ST_Equals(geometry A, geometry B)` devuelve verdadero si la "
+"geometría A es igual a la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:16
 msgid ""
 ":command:`ST_Intersects(geometry A, geometry B)` returns true if geometry A "
 "intersects geometry B"
 msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` devuelve verdadero si la "
+"geometría A intersecta la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:17
 msgid ""
 ":command:`ST_Overlaps(geometry A, geometry B)` returns true if geometry A "
 "and geometry B share space, but are not completely contained by each other."
 msgstr ""
+":command:`ST_Overlaps(geometry A, geometry B)` devuelve verdadero si la "
+"geometría A y la geometría B comparten espacio, pero no están completamente "
+"contenidas una en la otra."
 
 #: ../../en/spatial_relationships_exercises.rst:18
 msgid ""
 ":command:`ST_Touches(geometry A, geometry B)` returns true if the boundary "
 "of geometry A touches geometry B"
 msgstr ""
+":command:`ST_Touches(geometry A, geometry B)` devuelve verdadero si el "
+"límite de la geometría A toca la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:19
 msgid ""
 ":command:`ST_Within(geometry A, geometry B)` returns true if geometry A is "
 "within geometry B"
 msgstr ""
+":command:`ST_Within(geometry A, geometry B)` devuelve verdadero si la "
+"geometría A está dentro de la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:21
 msgid "Also remember the tables we have available:"
@@ -119,7 +142,7 @@ msgstr "``nyc_census_blocks``"
 
 #: ../../en/spatial_relationships_exercises.rst:25
 msgid "blkid, popn_total, boroname, geom"
-msgstr ""
+msgstr "blkid, popn_total, boroname, geom"
 
 #: ../../en/spatial_relationships_exercises.rst:27
 msgid "``nyc_streets``"
@@ -152,10 +175,11 @@ msgstr "Ejercicios"
 #: ../../en/spatial_relationships_exercises.rst:42
 msgid "**What is the geometry value for the street named 'Atlantic Commons'?**"
 msgstr ""
+"**¿Cuál es el valor de geometría para la calle llamada 'Atlantic Commons'?**"
 
 #: ../../en/spatial_relationships_exercises.rst:54
 msgid "**What neighborhood and borough is Atlantic Commons in?**"
-msgstr ""
+msgstr "**¿Qué vecindario y distrito (borough) contiene a Atlantic Commons?**"
 
 #: ../../en/spatial_relationships_exercises.rst:73
 msgid ""
@@ -163,6 +187,9 @@ msgid ""
 "Spatially they describe the same shape, so going from a single-item multi-"
 "geometry to a singleton saves a few keystrokes."
 msgstr ""
+"\"¿Por qué cambiaste de 'MULTILINESTRING' a 'LINESTRING'?\" Espacialmente "
+"describen la misma forma, así que pasar de una geometría múltiple con un "
+"solo elemento a una geometría simple ahorra algunos caracteres."
 
 #: ../../en/spatial_relationships_exercises.rst:75
 msgid ""
@@ -171,13 +198,19 @@ msgid ""
 "predicate to find out which roads join Atlantic Commons, because the "
 "coordinates are not exactly the same anymore."
 msgstr ""
+"Más importante aún, redondeamos las coordenadas para que sean más fáciles de "
+"leer, lo cual sí cambia los resultados: no pudimos usar el predicado "
+"ST_Touches() para descubrir con qué calles se une Atlantic Commons, porque "
+"las coordenadas ya no son exactamente iguales."
 
 #: ../../en/spatial_relationships_exercises.rst:78
 msgid "**What streets does Atlantic Commons join with?**"
-msgstr ""
+msgstr "**¿Con qué calles se une Atlantic Commons?**"
 
 #: ../../en/spatial_relationships_exercises.rst:100
 msgid ""
 "**Approximately how many people live on (within 50 meters of) Atlantic "
 "Commons?**"
 msgstr ""
+"**Aproximadamente cuántas personas viven en (o dentro de 50 metros de) "
+"Atlantic Commons?**"

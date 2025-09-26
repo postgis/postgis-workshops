@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2022.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2022-01-24 01:52+0000\n"
-"Last-Translator: Regina Obe <regina@arrival3d.com>\n"
+"PO-Revision-Date: 2025-08-31 22:39+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "history_tracking/es/>\n"
 "Language: es\n"
@@ -18,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/history_tracking.rst:4
 msgid "Tracking Edit History using Triggers"
-msgstr ""
+msgstr "Seguimiento del historial de ediciones usando triggers"
 
 #: ../../en/history_tracking.rst:6
 msgid ""
@@ -33,6 +34,11 @@ msgid ""
 "management in the client interface, but that adds a lot of **complexity** to "
 "editing tools."
 msgstr ""
+"Un requisito común para bases de datos en producción es la capacidad de "
+"rastrear el historial: ¿cómo han cambiado los datos entre dos fechas, quién "
+"hizo los cambios y dónde ocurrieron? Algunos sistemas GIS rastrean los "
+"cambios incluyendo gestión de cambios en la interfaz del cliente, pero eso "
+"agrega mucha **complejidad** a las herramientas de edición."
 
 #: ../../en/history_tracking.rst:8
 msgid ""
@@ -40,30 +46,37 @@ msgid ""
 "tracking to any table, while maintaining simple \"direct edit\" access to "
 "the primary table."
 msgstr ""
+"Usando la base de datos y el sistema de triggers, es posible añadir "
+"seguimiento de historial a cualquier tabla, mientras se mantiene un acceso "
+"simple de \"edición directa\" a la tabla principal."
 
 #: ../../en/history_tracking.rst:10
 msgid ""
 "History tracking works by keeping a history table that records, for every "
 "edit:"
 msgstr ""
+"El seguimiento de historial funciona manteniendo una tabla de historial que "
+"registra, para cada edición:"
 
 #: ../../en/history_tracking.rst:12
 msgid "If a record was created, when it was added and by whom."
-msgstr ""
+msgstr "Si un registro fue creado, cuándo se añadió y por quién."
 
 #: ../../en/history_tracking.rst:13
 msgid "If a record was deleted, when it was deleted and by whom."
-msgstr ""
+msgstr "Si un registro fue eliminado, cuándo se eliminó y por quién."
 
 #: ../../en/history_tracking.rst:14
 msgid ""
 "If a record was updated, adding a deletion record (for the old state) and a "
 "creation record (for the new state)."
 msgstr ""
+"Si un registro fue actualizado, añadiendo un registro de eliminación (para "
+"el estado antiguo) y un registro de creación (para el nuevo estado)."
 
 #: ../../en/history_tracking.rst:17
 msgid "Using TSTZRANGE"
-msgstr ""
+msgstr "Usando TSTZRANGE"
 
 #: ../../en/history_tracking.rst:19
 msgid ""
@@ -73,6 +86,12 @@ msgid ""
 "timestamp ranges in the history table for a particular feature can be "
 "expected to be non-overlapping but adjacent."
 msgstr ""
+"La tabla de historial utiliza una característica específica de PostgreSQL: "
+"el tipo \"`timestamp range <https://www.postgresql.org/docs/current/"
+"rangetypes.html>`_\" para almacenar el rango de tiempo en el cual un "
+"registro de historial fue el registro \"activo\". Se espera que todos los "
+"rangos de tiempo en la tabla de historial para una característica en "
+"particular no se superpongan, pero sí sean adyacentes."
 
 #: ../../en/history_tracking.rst:21
 msgid ""
@@ -80,12 +99,18 @@ msgid ""
 "point, so that the range covers all time from the current time into the "
 "future."
 msgstr ""
+"El rango para un nuevo registro comenzará en ``now()`` y tendrá un extremo "
+"abierto, de modo que el rango cubra todo el tiempo desde el actual hacia el "
+"futuro."
 
 #: ../../en/history_tracking.rst:34
 msgid ""
 "Similarly, the time range for a deleted record will be updated to include "
 "the current time as the end point of the time range."
 msgstr ""
+"De manera similar, el rango de tiempo para un registro eliminado se "
+"actualizará para incluir el tiempo actual como el extremo final del rango de "
+"tiempo."
 
 #: ../../en/history_tracking.rst:36
 msgid ""
@@ -94,16 +119,23 @@ msgid ""
 "point to infinity. The \"contains\" operator ``@>`` for ranges is the one we "
 "will use."
 msgstr ""
+"Buscar en rangos de tiempo es mucho más simple que buscar en un par de "
+"marcas de tiempo, debido a la forma en que un rango abierto de tiempo abarca "
+"todo el tiempo desde el inicio hasta el infinito. El operador \"contains\" "
+"``@>`` para rangos es el que usaremos."
 
 #: ../../en/history_tracking.rst:47
 msgid ""
 "Ranges can be very efficiently indexed using a GIST index, just like spatial "
 "data, as we will show below. This makes history queries very efficient."
 msgstr ""
+"Los rangos pueden indexarse de manera muy eficiente usando un índice GIST, "
+"al igual que los datos espaciales, como mostraremos a continuación. Esto "
+"hace que las consultas de historial sean muy eficientes."
 
 #: ../../en/history_tracking.rst:51
 msgid "Building the History Table"
-msgstr ""
+msgstr "Construyendo la tabla de historial"
 
 #: ../../en/history_tracking.rst:53
 msgid ""
@@ -111,6 +143,9 @@ msgid ""
 "table at any point in time. In this example, we will add history tracking to "
 "our **nyc_streets** table."
 msgstr ""
+"Usando esta información es posible reconstruir el estado de la tabla de "
+"edición en cualquier punto en el tiempo. En este ejemplo, añadiremos "
+"seguimiento de historial a nuestra tabla **nyc_streets**."
 
 #: ../../en/history_tracking.rst:55
 msgid ""
@@ -118,30 +153,42 @@ msgid ""
 "use to store all the historical edit information. In addition to all the "
 "fields from **nyc_streets**, we add five more fields."
 msgstr ""
+"Primero, añade una nueva tabla **nyc_streets_history**. Esta es la tabla que "
+"usaremos para almacenar toda la información histórica de edición. Además de "
+"todos los campos de **nyc_streets**, añadimos cinco campos más."
 
 #: ../../en/history_tracking.rst:57
 msgid "**hid** the primary key for the history table"
-msgstr ""
+msgstr "**hid** la clave primaria para la tabla de historial"
 
 #: ../../en/history_tracking.rst:58
 msgid "**created_by** the database user that caused the record to be created"
 msgstr ""
+"**created_by** el usuario de base de datos que hizo que el registro fuera "
+"creado"
 
 #: ../../en/history_tracking.rst:59
 msgid ""
 "**deleted_by** the database user that caused the record to be marked as "
 "deleted"
 msgstr ""
+"**deleted_by** el usuario de base de datos que hizo que el registro fuera "
+"marcado como eliminado"
 
 #: ../../en/history_tracking.rst:60
 msgid "**valid_range** the time range within which the record was \"live\""
 msgstr ""
+"**valid_range** el rango de tiempo dentro del cual el registro estuvo "
+"\"activo\""
 
 #: ../../en/history_tracking.rst:62
 msgid ""
 "Note that we don't actually delete any records in the history table, we just "
 "mark the time they ceased to be part of the current state of the edit table."
 msgstr ""
+"Observa que en realidad no eliminamos ningún registro en la tabla de "
+"historial, solo marcamos el momento en que dejaron de ser parte del estado "
+"actual de la tabla de edición."
 
 #: ../../en/history_tracking.rst:87
 msgid ""
@@ -150,6 +197,11 @@ msgid ""
 "that we fill in the creation time and creation user, but leave the end of "
 "the time range and the deleted by information NULL."
 msgstr ""
+"A continuación, importamos el estado actual de la tabla activa, "
+"**nyc_streets**, en la tabla de historial, para tener un punto de partida "
+"desde el cual rastrear la historia. Observa que llenamos el tiempo de "
+"creación y el usuario de creación, pero dejamos el final del rango de tiempo "
+"y la información de \"deleted_by\" en NULL."
 
 #: ../../en/history_tracking.rst:98
 msgid ""
@@ -157,34 +209,47 @@ msgid ""
 "UPDATE actions. First we create the trigger functions, then bind them to the "
 "table as triggers."
 msgstr ""
+"Ahora necesitamos tres triggers en la tabla activa, para las acciones "
+"INSERT, DELETE y UPDATE. Primero creamos las funciones de trigger, luego las "
+"vinculamos a la tabla como triggers."
 
 #: ../../en/history_tracking.rst:100
 msgid ""
 "For an insert, we just add a new record into the history table with the "
 "creation time/user."
 msgstr ""
+"Para un insert, solo añadimos un nuevo registro en la tabla de historial con "
+"el tiempo/usuario de creación."
 
 #: ../../en/history_tracking.rst:123
 msgid ""
 "For a deletion, we just mark the currently active history record (the one "
 "with a NULL deletion time) as deleted."
 msgstr ""
+"Para una eliminación, solo marcamos el registro de historial actualmente "
+"activo (el que tiene NULL en el tiempo de eliminación) como eliminado."
 
 #: ../../en/history_tracking.rst:145
 msgid ""
 "For an update, we first mark the active history record as deleted, then "
 "insert a new record for the updated state."
 msgstr ""
+"Para una actualización, primero marcamos el registro de historial activo "
+"como eliminado, luego insertamos un nuevo registro para el estado "
+"actualizado."
 
 #: ../../en/history_tracking.rst:176
 msgid "Editing the Table"
-msgstr ""
+msgstr "Editando la tabla"
 
 #: ../../en/history_tracking.rst:178
 msgid ""
 "Now that the history table is enabled, we can make edits on the main table "
 "and watch the log entries appear in the history table."
 msgstr ""
+"Ahora que la tabla de historial está habilitada, podemos hacer ediciones en "
+"la tabla principal y ver cómo las entradas de log aparecen en la tabla de "
+"historial."
 
 #: ../../en/history_tracking.rst:180
 msgid ""
@@ -193,16 +258,22 @@ msgid ""
 "JDBC tool, or a desktop tool like QGIS, the history is consistently tracked."
 "**"
 msgstr ""
+"Observa el poder de este enfoque basado en base de datos para el historial: "
+"**sin importar qué herramienta se use para hacer las ediciones, ya sea la "
+"línea de comandos SQL, una herramienta web basada en JDBC o una herramienta "
+"de escritorio como QGIS, el historial se rastrea de manera consistente.**"
 
 #: ../../en/history_tracking.rst:183
 msgid "SQL Edits"
-msgstr ""
+msgstr "Ediciones SQL"
 
 #: ../../en/history_tracking.rst:185
 msgid ""
 "Let's turn the two streets named \"Cumberland Walk\" to the more stylish "
 "\"Cumberland Wynde\":"
 msgstr ""
+"Cambiemos las dos calles llamadas \"Cumberland Walk\" al más elegante "
+"\"Cumberland Wynde\":"
 
 #: ../../en/history_tracking.rst:193
 msgid ""
@@ -211,10 +282,14 @@ msgid ""
 "streets with the new name added, with an addition time of now. You can "
 "inspect the historical records:"
 msgstr ""
+"Actualizar las dos calles hará que las calles originales sean marcadas como "
+"eliminadas en la tabla de historial, con un tiempo de eliminación de now, y "
+"dos nuevas calles con el nuevo nombre añadidas, con un tiempo de creación de "
+"now. Puedes inspeccionar los registros históricos:"
 
 #: ../../en/history_tracking.rst:202
 msgid "Querying the History Table"
-msgstr ""
+msgstr "Consultando la tabla de historial"
 
 #: ../../en/history_tracking.rst:204
 msgid ""
@@ -222,14 +297,20 @@ msgid ""
 "travel! To travel to a particular time **T**, you need to construct a query "
 "that includes:"
 msgstr ""
+"Ahora que tenemos una tabla de historial, ¿para qué sirve? ¡Es útil para "
+"viajar en el tiempo! Para viajar a un tiempo particular **T**, necesitas "
+"construir una consulta que incluya:"
 
 #: ../../en/history_tracking.rst:206
 msgid "All records created before T, and not yet deleted; and also"
 msgstr ""
+"Todos los registros creados antes de T, y que no hayan sido eliminados; y "
+"también"
 
 #: ../../en/history_tracking.rst:207
 msgid "All records created before T, but deleted **after** T."
 msgstr ""
+"Todos los registros creados antes de T, pero eliminados **después** de T."
 
 #: ../../en/history_tracking.rst:209
 msgid ""
@@ -239,12 +320,19 @@ msgid ""
 "state of the table 10 minutes ago, **before you started editing** (so, the "
 "original data)."
 msgstr ""
+"Podemos usar esta lógica para crear una consulta, o una vista, del estado de "
+"los datos en el pasado. Como presumiblemente todas tus ediciones de prueba "
+"ocurrieron en los últimos minutos, creemos una vista de la tabla de "
+"historial que muestre el estado de la tabla hace 10 minutos, **antes de que "
+"empezaras a editar** (es decir, los datos originales)."
 
 #: ../../en/history_tracking.rst:221
 msgid ""
 "We can also create views that show just what a particular used has added, "
 "for example:"
 msgstr ""
+"También podemos crear vistas que muestren solo lo que un usuario particular "
+"ha añadido, por ejemplo:"
 
 #: ../../en/history_tracking.rst:231
 msgid "See Also"
@@ -252,16 +340,20 @@ msgstr "Ver también"
 
 #: ../../en/history_tracking.rst:233
 msgid "`QGIS open source GIS <http://qgis.org>`_"
-msgstr ""
+msgstr "`SIG de código abierto QGIS <http://qgis.org>`_"
 
 #: ../../en/history_tracking.rst:234
 msgid ""
 "`PostgreSQL Triggers <http://www.postgresql.org/docs/current/static/plpgsql-"
 "trigger.html>`_"
 msgstr ""
+"`Triggers en PostgreSQL <http://www.postgresql.org/docs/current/static/"
+"plpgsql-trigger.html>`_"
 
 #: ../../en/history_tracking.rst:235
 msgid ""
 "`PostgreSQL Range Types <https://www.postgresql.org/docs/current/rangetypes."
 "html>`_"
 msgstr ""
+"`Tipo de dato Range en PostgreSQL <https://www.postgresql.org/docs/current/"
+"rangetypes.html>`_"

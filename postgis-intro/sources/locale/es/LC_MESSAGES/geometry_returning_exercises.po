@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
-"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning_exercises/es/>\n"
 "Language: es\n"
@@ -24,7 +25,7 @@ msgstr ""
 
 #: ../../en/geometry_returning_exercises.rst:4
 msgid "Geometry Constructing Exercises"
-msgstr ""
+msgstr "Ejercicios de Construcción de Geometrías"
 
 #: ../../en/geometry_returning_exercises.rst:6
 msgid ""
@@ -43,54 +44,67 @@ msgstr ""
 
 #: ../../en/geometry_returning_exercises.rst:9
 msgid ":command:`ST_Area(geometry)` returns the area of the geometry"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)` devuelve el área de la geometría"
 
 #: ../../en/geometry_returning_exercises.rst:10
 msgid ":command:`ST_Centroid(geometry)` returns the ``geometry`` centroid"
 msgstr ""
+":command:`ST_Centroid(geometry)` devuelve el centroide de la ``geometry``"
 
 #: ../../en/geometry_returning_exercises.rst:11
 msgid ""
 ":command:`ST_Transform(geometry, srid)` converts ``geometries`` into "
 "different spatial reference systems"
 msgstr ""
+":command:`ST_Transform(geometry, srid)` convierte las geometrías a un "
+"determinado SRID"
 
 #: ../../en/geometry_returning_exercises.rst:12
 msgid ""
 ":command:`ST_Buffer(geometry, radius)` returns an expanded ``geometry`` shape"
 msgstr ""
+":command:`ST_Buffer(geometry, radius)` devuelve una forma de ``geometry`` "
+"expandida"
 
 #: ../../en/geometry_returning_exercises.rst:13
 msgid ""
 ":command:`ST_Contains(geometry1, geometry2)` returns truw if geometry1 "
 "contains geometry2"
 msgstr ""
+":command:`ST_Contains(geometry1, geometry2)` devuelve verdadero si geometry1 "
+"contiene a geometry2"
 
 #: ../../en/geometry_returning_exercises.rst:14
 msgid ""
 ":command:`ST_Union(geometry[])` returns the aggregate union of all "
 "geometries in the group"
 msgstr ""
+":command:`ST_Union(geometry[])` devuelve la unión agregada de todas las "
+"geometrías en el grupo"
 
 #: ../../en/geometry_returning_exercises.rst:15
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
-msgstr ""
+msgstr ":command:`ST_GeometryType(geometry)` devuelve el tipo de geometría"
 
 #: ../../en/geometry_returning_exercises.rst:16
 msgid ""
 ":command:`ST_NumGeometries(geometry)` returns the number of geometries in a "
 "collection or 1 for simple geometries"
 msgstr ""
+":command:`ST_NumGeometries(geometry)` devuelve el número de geometrías en "
+"una colección o 1 para geometrías simples"
 
 #: ../../en/geometry_returning_exercises.rst:17
 msgid ""
 ":command:`ST_Intersection(geometry, geometry)` returns the area that the two "
 "input geometries share in common"
 msgstr ""
+":command:`ST_Intersection(geometry, geometry)` devuelve el área que las dos "
+"geometrías de entrada comparten en común"
 
 #: ../../en/geometry_returning_exercises.rst:20
 msgid "Remember the tables we have available:"
-msgstr ""
+msgstr "Recuerda las tablas que tenemos disponibles:"
 
 #: ../../en/geometry_returning_exercises.rst:22
 msgid "``nyc_census_blocks``"
@@ -130,19 +144,23 @@ msgstr "Ejercicios"
 
 #: ../../en/geometry_returning_exercises.rst:41
 msgid "**How many census blocks don’t contain their own centroid?**"
-msgstr ""
+msgstr "**¿Cuántos bloques censales no contienen su propio centroide?**"
 
 #: ../../en/geometry_returning_exercises.rst:57
 msgid ""
 "**Union all the census blocks into a single output. What kind of geometry is "
 "it? How many parts does it have?**"
 msgstr ""
+"**Une todos los bloques censales en una sola salida. ¿Qué tipo de geometría "
+"es? ¿Cuántas partes tiene?**"
 
 #: ../../en/geometry_returning_exercises.rst:82
 msgid ""
 "**What is the area of a one unit buffer around the origin? How different is "
 "it from what you would expect? Why?**"
 msgstr ""
+"**¿Cuál es el área de un buffer de una unidad alrededor del origen? ¿Qué tan "
+"diferente es de lo que esperarías? ¿Por qué?**"
 
 #: ../../en/geometry_returning_exercises.rst:94
 msgid ""
@@ -152,6 +170,11 @@ msgid ""
 "of edges in the buffer will get the value closer to pi, but it will always "
 "be smaller due to the linearization."
 msgstr ""
+"Un círculo unitario (círculo con radio de uno) debería tener un área de pi, "
+"3.1415926... La diferencia se debe al trazado lineal de los bordes del "
+"buffer. El buffer tiene un número finito de bordes. Aumentar el número de "
+"bordes en el buffer hará que el valor se acerque a pi, pero siempre será "
+"menor debido a la linearización."
 
 #: ../../en/geometry_returning_exercises.rst:96
 msgid ""
@@ -159,6 +182,9 @@ msgid ""
 "to war! Construct a polygon delineating a 100 meter wide DMZ on the border "
 "between the neighborhoods. What is the area of the DMZ?**"
 msgstr ""
+"**¡Los vecindarios de Brooklyn ‘Park Slope’ y ‘Carroll Gardens’ van a la "
+"guerra! Construye un polígono que delimite una DMZ de 100 metros de ancho en "
+"la frontera entre los vecindarios. ¿Cuál es el área de la DMZ?**"
 
 #: ../../en/geometry_returning_exercises.rst:116
 msgid ""
@@ -168,3 +194,8 @@ msgid ""
 "the \"Carroll Gardens\" record. Note that the area of the intersection is in "
 "square meters because we are still working in UTM 18 (EPSG:26918)."
 msgstr ""
+"Es fácil crear un buffer de ambos vecindarios de interés, pero para obtener "
+"la intersección se requiere un self-join de la tabla, creando una relación "
+"(``ps``) con solo el registro de \"Park Slope\" y otra (``cg``) con solo el "
+"registro de \"Carroll Gardens\". Observa que el área de la intersección está "
+"en metros cuadrados porque todavía estamos trabajando en UTM 18 (EPSG:26918)."

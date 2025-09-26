@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
+"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "projection/es/>\n"
 "Language: es\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #: ../../en/projection.rst:4
 msgid "Projecting Data"
-msgstr ""
+msgstr "Proyección de datos"
 
 #: ../../en/projection.rst:6
 msgid ""
@@ -37,6 +38,16 @@ msgid ""
 "world onto a flat Cartesian coordinate system, and which projection to "
 "choose depends on how you will be using the data."
 msgstr ""
+"La Tierra no es plana, y no hay una manera simple de representarla en un "
+"mapa de papel plano (o en una pantalla de computadora), por lo que se han "
+"ideado todo tipo de soluciones ingeniosas, cada una con pros y contras. "
+"Algunas proyecciones preservan el área, de modo que todos los objetos tienen "
+"un tamaño relativo entre sí; otras proyecciones preservan los ángulos "
+"(conformes), como la proyección de Mercator; algunas proyecciones intentan "
+"encontrar un buen equilibrio intermedio con poca distorsión en varios "
+"parámetros. Lo común a todas las proyecciones es que transforman el mundo "
+"(esférico) en un sistema de coordenadas cartesianas planas, y la proyección "
+"a elegir depende de cómo se usarán los datos."
 
 #: ../../en/projection.rst:8
 msgid ""
@@ -48,11 +59,21 @@ msgid ""
 "reference identifiers on geometries, PostGIS provides the :command:"
 "`ST_SRID(geometry)` and :command:`ST_SetSRID(geometry, srid)` functions."
 msgstr ""
+"Ya nos hemos encontrado con proyecciones cuando :ref:`cargamos nuestros "
+"datos de nyc <loading_data>`. (Recuerde ese molesto SRID 26918). Sin "
+"embargo, a veces es necesario transformar y reproyectar entre sistemas de "
+"referencia espacial. PostGIS incluye soporte integrado para cambiar la "
+"proyección de los datos, usando la función :command:`ST_Transform(geometry, "
+"srid)`. Para gestionar los identificadores de referencia espacial en "
+"geometrías, PostGIS proporciona las funciones :command:`ST_SRID(geometry)` y "
+":command:`ST_SetSRID(geometry, srid)`."
 
 #: ../../en/projection.rst:10
 msgid ""
 "We can confirm the SRID of our data with the :command:`ST_SRID` function:"
 msgstr ""
+"Podemos confirmar el SRID de nuestros datos con la función "
+":command:`ST_SRID`:"
 
 #: ../../en/projection.rst:20
 msgid ""
@@ -63,12 +84,19 @@ msgid ""
 "and there is a second definition in \"proj.4\" format in the ``proj4text`` "
 "column."
 msgstr ""
+"¿Y cuál es la definición de \"26918\"? Como vimos en \":ref:`sección de "
+"carga de datos <loading_data>`\", la definición está contenida en la tabla "
+"``spatial_ref_sys``. De hecho, hay **dos** definiciones allí. La definición "
+"en \"texto bien conocido\" (:term:`WKT`) está en la columna ``srtext``, y "
+"hay una segunda definición en formato \"proj.4\" en la columna ``proj4text``."
 
 #: ../../en/projection.rst:26
 msgid ""
 "The PostGIS reprojection engine will attempt to find the best projection "
 "from the ``spatial_ref_sys`` table:"
 msgstr ""
+"El motor de reproyección de PostGIS intentará encontrar la mejor proyección "
+"de la tabla ``spatial_ref_sys``:"
 
 #: ../../en/projection.rst:28
 msgid ""
@@ -76,16 +104,21 @@ msgid ""
 "\"authority srid\" in its internal catalogue, it will use that to generate a "
 "projection definition."
 msgstr ""
+"**auth_name / auth_srid** Si proj puede encontrar un \"nombre de autoridad\" "
+"y un \"srid de autoridad\" válidos en su catálogo interno, lo usará para "
+"generar una definición de proyección."
 
 #: ../../en/projection.rst:29
 msgid ""
 "**srtext** If proj can parse and form a definition object from the "
 "``srtext`` it will use that."
 msgstr ""
+"**srtext** Si proj puede analizar y formar un objeto de definición a partir "
+"de ``srtext``, lo usará."
 
 #: ../../en/projection.rst:30
 msgid "**proj4text** Finally, proj will attempt to process the ``proj4text``."
-msgstr ""
+msgstr "**proj4text** Finalmente, proj intentará procesar el ``proj4text``."
 
 #: ../../en/projection.rst:32
 msgid ""
@@ -93,6 +126,10 @@ msgid ""
 "PostGIS is either a valid ``srtext`` string or ``proj4text`` string. All the "
 "common authority name/code pairs are already loaded in the table by default."
 msgstr ""
+"Toda esta redundancia significa que todo lo que necesita para crear una "
+"nueva proyección en PostGIS es una cadena ``srtext`` válida o una cadena "
+"``proj4text`` válida. Todos los pares comunes de nombre/código de autoridad "
+"ya están cargados en la tabla de manera predeterminada."
 
 #: ../../en/projection.rst:34
 msgid ""
@@ -101,10 +138,14 @@ msgid ""
 "`GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`_, and `FME "
 "<http://www.safe.com/>`_  and others."
 msgstr ""
+"Si tiene la opción al crear una proyección personalizada, complete la "
+"columna ``srtext``, ya que esa columna también es utilizada por programas "
+"externos como `GeoServer <http://geoserver.org>`_, `QGIS <https://qgis.org>`"
+"_, y `FME <http://www.safe.com/>`_, entre otros."
 
 #: ../../en/projection.rst:38
 msgid "Comparing Data"
-msgstr ""
+msgstr "Comparación de datos"
 
 #: ../../en/projection.rst:40
 msgid ""
@@ -114,11 +155,17 @@ msgid ""
 "surface of Earth. Because PostGIS functions work on such a plane, comparison "
 "operations require that both geometries be represented in the same SRID."
 msgstr ""
+"Tomados en conjunto, una coordenada y un SRID definen una ubicación en el "
+"globo. Sin un SRID, una coordenada es solo una noción abstracta. Un plano de "
+"coordenadas \"cartesiano\" se define como un sistema de coordenadas \"plano\""
+" colocado en la superficie de la Tierra. Dado que las funciones de PostGIS "
+"funcionan en dicho plano, las operaciones de comparación requieren que ambas "
+"geometrías estén representadas en el mismo SRID."
 
 #: ../../en/projection.rst:42
 msgid ""
 "If you feed in geometries with differing SRIDs you will just get an error:"
-msgstr ""
+msgstr "Si introduce geometrías con SRID diferentes, solo obtendrá un error:"
 
 #: ../../en/projection.rst:58
 msgid ""
@@ -129,10 +176,17 @@ msgid ""
 "tables in your database. Only use the transformation function when you are "
 "reading or writing data to external applications."
 msgstr ""
+"Tenga cuidado de abusar del uso de :command:`ST_Transform` para conversiones "
+"al vuelo. Los índices espaciales se construyen usando el SRID de las "
+"geometrías almacenadas. Si las comparaciones se realizan en un SRID "
+"diferente, los índices espaciales (a menudo) no se usan. La mejor práctica "
+"es elegir **un SRID** para todas las tablas de su base de datos. Use la "
+"función de transformación solo cuando esté leyendo o escribiendo datos en "
+"aplicaciones externas."
 
 #: ../../en/projection.rst:62
 msgid "Transforming Data"
-msgstr ""
+msgstr "Transformación de datos"
 
 #: ../../en/projection.rst:64
 msgid ""
@@ -140,12 +194,17 @@ msgid ""
 "working projection is UTM (Universal Transverse Mercator) of zone 18, with "
 "meters as the unit of measurement."
 msgstr ""
+"Si volvemos a nuestra definición proj4 para el SRID 26918, podemos ver que "
+"nuestra proyección de trabajo es UTM (Transversa Universal de Mercator) de "
+"la zona 18, con metros como unidad de medida."
 
 #: ../../en/projection.rst:92
 msgid ""
 "Let's convert some data from our working projection to geographic "
 "coordinates -- also known as \"longitude/latitude\"."
 msgstr ""
+"Convirtamos algunos datos de nuestra proyección de trabajo a coordenadas "
+"geográficas —también conocidas como \"longitud/latitud\"."
 
 #: ../../en/projection.rst:94
 msgid ""
@@ -154,6 +213,11 @@ msgid ""
 "next need the SRID of the projection to transform into. In other words, what "
 "is the SRID of geographic coordinates?"
 msgstr ""
+"Para convertir datos de un SRID a otro, primero debe verificar que su "
+"geometría tenga un SRID válido. Como ya hemos confirmado un SRID válido, lo "
+"siguiente que necesitamos es el SRID de la proyección a la que se desea "
+"transformar. En otras palabras, ¿cuál es el SRID de las coordenadas "
+"geográficas?"
 
 #: ../../en/projection.rst:96
 msgid ""
@@ -161,20 +225,23 @@ msgid ""
 "to \"longitude/latitude on the WGS84 spheroid\". You can see the definition "
 "here:"
 msgstr ""
+"El SRID más común para coordenadas geográficas es 4326, que corresponde a "
+"\"longitud/latitud en el esferoide WGS84\". Puede ver la definición aquí:"
 
 #: ../../en/projection.rst:98
 msgid "https://epsg.io/4326"
-msgstr ""
+msgstr "https://epsg.io/4326"
 
 #: ../../en/projection.rst:100
 msgid "You can also pull the definitions from the ``spatial_ref_sys`` table:"
-msgstr ""
+msgstr "También puede extraer las definiciones de la tabla ``spatial_ref_sys``:"
 
 #: ../../en/projection.rst:116
 msgid ""
 "Let's convert the coordinates of the 'Broad St' subway station into "
 "geographics:"
 msgstr ""
+"Convirtamos las coordenadas de la estación de metro 'Broad St' a geográficas:"
 
 #: ../../en/projection.rst:128
 msgid ""
@@ -184,12 +251,20 @@ msgid ""
 "should expect all the ``nyc_`` tables to have an SRID of 26918, while  the "
 "``geometries`` table defaulted to an SRID of 0."
 msgstr ""
+"Si carga datos o crea una nueva geometría sin especificar un SRID, el valor "
+"de SRID será 0. Recuerde en :ref:`geometrías`, que cuando creamos nuestra "
+"tabla ``geometries`` no especificamos un SRID. Si consultamos nuestra base "
+"de datos, deberíamos esperar que todas las tablas ``nyc_`` tengan un SRID de "
+"26918, mientras que la tabla ``geometries`` tiene de manera predeterinada un "
+"SRID de 0."
 
 #: ../../en/projection.rst:130
 msgid ""
 "To view a table's SRID assignment, query the database's ``geometry_columns`` "
 "table."
 msgstr ""
+"Para ver la asignación de SRID de una tabla, consulte la tabla "
+"``geometry_columns`` de la base de datos."
 
 #: ../../en/projection.rst:149
 msgid ""
@@ -197,6 +272,9 @@ msgid ""
 "can set it post-facto, using :command:`ST_SetSRID` on the geometry. Then you "
 "will be able to transform the geometry into other systems."
 msgstr ""
+"Sin embargo, si sabe cuál se supone que es el SRID de las coordenadas, puede "
+"establecerlo a posteriori usando :command:`ST_SetSRID` en la geometría. "
+"Luego podrá transformar la geometría a otros sistemas."
 
 #: ../../en/projection.rst:162
 msgid "Function List"
@@ -208,12 +286,17 @@ msgid ""
 "Known Text (WKT) representation of the geometry/geography without SRID "
 "metadata."
 msgstr ""
+"`ST_AsText <http://postgis.net/docs/ST_AsText.html>`_: Devuelve la "
+"representación Well-Known Text (WKT) de la geometría/geografía sin metadatos "
+"SRID."
 
 #: ../../en/projection.rst:165
 msgid ""
 "`ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>`_: "
 "Sets the SRID on a geometry to a particular integer value."
 msgstr ""
+"ST_SetSRID(geometry, srid) <http://postgis.net/docs/ST_SetSRID.html>_: "
+"Establece el SRID de una geometría en un valor entero específico."
 
 #: ../../en/projection.rst:167
 msgid ""
@@ -221,6 +304,9 @@ msgid ""
 "spatial reference identifier for the ST_Geometry as defined in "
 "spatial_ref_sys table."
 msgstr ""
+"ST_SRID(geometry) <http://postgis.net/docs/ST_SRID.html>_: Devuelve el "
+"identificador de referencia espacial (SRID) de la geometría definida en la "
+"tabla spatial_ref_sys."
 
 #: ../../en/projection.rst:169
 msgid ""
@@ -228,3 +314,6 @@ msgid ""
 "Returns a new geometry with its coordinates transformed to the SRID "
 "referenced by the integer parameter."
 msgstr ""
+"`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: "
+"Devuelve una nueva geometría con sus coordenadas transformadas al SRID "
+"indicado."

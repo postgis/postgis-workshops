@@ -5,551 +5,551 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-06-18 09:58+0000\nLast-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\nLanguage-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/es/>\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-09-02 22:31+0000\nLast-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\nLanguage-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/es/>\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
-msgstr ""
+msgstr "Rasters"
 
 #: ../../en/rasters.rst:6
 msgid "PostGIS supports another kind of spatial data type called a *raster*. Raster data, much like geometry data, uses **Cartesian coordinates** and a spatial reference system. However instead of vector data, raster data is represented as an n-dimensional matrix consisting of pixels and bands. The bands defines the number of matrices you have. Each pixel stores a value corresponding to each band. So a 3-banded raster such as an RGB image, would have 3 values for each pixel corresponding to the Red-Green-Blue bands."
-msgstr ""
+msgstr "PostGIS soporta otro tipo de dato espacial llamado *raster*. Los datos raster, al igual que los datos de geometría, usan **coordenadas cartesianas** y un sistema de referencia espacial. Sin embargo, en lugar de datos vectoriales, los datos raster se representan como una matriz n-dimensional compuesta de píxeles y bandas. Las bandas definen el número de matrices que tienes. Cada píxel almacena un valor correspondiente a cada banda. Así, un raster de 3 bandas como una imagen RGB, tendría 3 valores para cada píxel correspondientes a las bandas Rojo-Verde-Azul."
 
 #: ../../en/rasters.rst:12
 msgid "Although pretty pictures such as those you see on your TV screen are rasters, rasters may not be that exciting to look at. In a nutshell, a raster is a matrix, pinned on a coordinate system, that has values that can represent anything you want them to represent."
-msgstr ""
+msgstr "Aunque imágenes bonitas como las que ves en la pantalla de tu televisor son raster, los raster pueden no ser tan emocionantes de ver. En pocas palabras, un raster es una matriz, fijada en un sistema de coordenadas, que tiene valores que pueden representar lo que quieras que representen."
 
 #: ../../en/rasters.rst:17
 msgid "Since rasters live in cartesian space, rasters can interact with geometries. PostGIS offers many functions that take as input both rasters and geometries. Many operations applied to rasters will result in geometries. Common ones are the `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, and `ST_MinConvexHull` as shown below.  When you cast a raster to a geometry, what is output is the `ST_ConvexHull` of the raster."
-msgstr ""
+msgstr "Dado que los raster viven en el espacio cartesiano, los raster pueden interactuar con geometrías. PostGIS ofrece muchas funciones que toman como entrada tanto raster como geometrías. Muchas operaciones aplicadas a raster resultarán en geometrías. Algunas comunes son `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, y `ST_MinConvexHull` como se muestra a continuación. Cuando conviertes un raster en una geometría, lo que se genera es el `ST_ConvexHull` del raster."
 
 #: ../../en/rasters.rst:24
 msgid "The raster format is commonly used to store elevation data, temperature data, satellite data, and thematic data representing things like environmental contamination, population density, and environmental hazard occurrences. You can use rasters to store any numeric data that has a meaningful coordinate location. The only restriction is that for all data in a specific band the numeric data types have to be the same."
-msgstr ""
+msgstr "El formato raster se usa comúnmente para almacenar datos de elevación, datos de temperatura, datos satelitales y datos temáticos que representan cosas como contaminación ambiental, densidad poblacional y ocurrencias de riesgos ambientales. Puedes usar raster para almacenar cualquier dato numérico que tenga una ubicación de coordenadas significativa. La única restricción es que para todos los datos en una banda específica los tipos de datos numéricos deben ser los mismos."
 
 #: ../../en/rasters.rst:28
 msgid "Although raster data can be created from scratch in PostGIS, a more common approach is to load raster data from various formats using the :command:`raster2pgsql` command line tool packaged with PostGIS. Before all of that, you must enable raster support in your database by running the command:"
-msgstr ""
+msgstr "Aunque los datos raster pueden crearse desde cero en PostGIS, un enfoque más común es cargar datos raster desde varios formatos usando la herramienta de línea de comandos :command:`raster2pgsql` incluida con PostGIS. Antes de todo eso, debes habilitar el soporte raster en tu base de datos ejecutando el comando:"
 
 #: ../../en/rasters.rst:37
 msgid "Creating Rasters From Geometries"
-msgstr ""
+msgstr "Creando raster desde geometrías"
 
 #: ../../en/rasters.rst:38
 msgid "We'll start off by first creating raster data from vector data, and then move on to the more exciting approach of loading data from a raster source. You will find that raster data is available in abundance and often free from various government sites."
-msgstr ""
+msgstr "Comenzaremos creando datos raster a partir de datos vectoriales, y luego pasaremos al enfoque más interesante de cargar datos desde una fuente raster. Verás que los datos raster están disponibles en abundancia y, a menudo, de forma gratuita en varios sitios gubernamentales."
 
 #: ../../en/rasters.rst:41
 msgid "We'll start by converting some geometries into rasters using `ST_AsRaster <https://postgis.net/docs/RT_ST_AsRaster.html>`_ function as follows."
-msgstr ""
+msgstr "Comenzaremos convirtiendo algunas geometrías en raster usando la función `ST_AsRaster <https://postgis.net/docs/RT_ST_AsRaster.html>`_ de la siguiente manera."
 
 #: ../../en/rasters.rst:55
 msgid "The above example CREATEs a table (**rasters**) from geometries formed from letters using the PostGIS 3.2+ `ST_Letters <https://postgis.net/docs/ST_Letters.html>`_ function. Rasters similar to geometries, can take advantage of spatial indexes. The spatial index used for raster is a functional index that indexes the geometry convexhull of the raster."
-msgstr ""
+msgstr "El ejemplo anterior crea una tabla (**rasters**) a partir de geometrías formadas de letras usando la función `ST_Letters <https://postgis.net/docs/ST_Letters.html>`_ de PostGIS 3.2+. Los raster, al igual que las geometrías, pueden aprovechar los índices espaciales. El índice espacial usado para raster es un índice funcional que indexa el convexhull geométrico del raster."
 
 #: ../../en/rasters.rst:58
 msgid "You can see some useful metadata of your rasters with the following query which utilizes the postgis raster `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ function to count the number of pixels that have data and the `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ function to provide all sorts of useful background info for our rasters."
-msgstr ""
+msgstr "Puedes ver algunos metadatos útiles de tus raster con la siguiente consulta que utiliza la función raster de postgis `ST_Count <https://postgis.net/docs/RT_ST_Count.html>`_ para contar el número de píxeles que tienen datos y la función `ST_MetaData <https://postgis.net/docs/RT_ST_MetaData.html>`_ para proporcionar todo tipo de información de fondo útil para nuestros raster."
 
 #: ../../en/rasters.rst:76
 msgid "There are two levels of raster functions. There are functions such as ST_MetaData that work at the raster level and there are functions such as :command:`ST_Count` function and `ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_ function that work at the band level. Most functions in postgis raster that work at the band level, work with only one band at a time, and assume the band you want is `1`."
-msgstr ""
+msgstr "Hay dos niveles de funciones raster. Hay funciones como ST_MetaData que trabajan a nivel de raster y hay funciones como la función :command:`ST_Count` y la función `ST_BandMetaData <https://postgis.net/docs/RT_ST_BandMetaData.html>`_ que trabajan a nivel de banda. La mayoría de las funciones en postgis raster que trabajan a nivel de banda, funcionan con solo una banda a la vez, y asumen que la banda que quieres es la `1`."
 
 #: ../../en/rasters.rst:83
 msgid "If you have a multi-band raster, and you need to count the pixel not no-data values in a band other than 1, you would explicitly specify the band number as follows `ST_Count(rast,2)`."
-msgstr ""
+msgstr "Si tienes un raster multibanda, y necesitas contar los valores de píxeles no nulos en una banda distinta de la 1, deberías especificar explícitamente el número de banda como sigue `ST_Count(rast,2)`."
 
 #: ../../en/rasters.rst:85
 msgid "Note how all the rasters have a 150x150 dimension.  This is not ideal. This means that in order to force that, our rasters, are squished in all sorts of ways.  If only we could see the ugliness of the rasters before us."
-msgstr ""
+msgstr "Observa cómo todos los raster tienen una dimensión de 150x150. Esto no es ideal. Esto significa que para forzarlo, nuestros raster están deformados de diversas formas. Si tan solo pudiéramos ver lo feo de los raster frente a nosotros."
 
 #: ../../en/rasters.rst:89
 msgid "Loading Rasters using raster2pgsql"
-msgstr ""
+msgstr "Cargando raster usando raster2pgsql"
 
 #: ../../en/rasters.rst:90
 msgid "`raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Loader>`_ is a command-line tool often packaged with PostGIS. If you are on windows and used application stackbuilder PostGIS Bundle, you'll find :command:`raster2pgsql.exe` in the folder ``C:\\Program Files\\PostgreSQL\\15\\bin``  where the *15* should be replaced with the version of PostgreSQL you are running."
-msgstr ""
+msgstr "`raster2pgsql <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Loader>`_ es una herramienta de línea de comandos que a menudo viene incluida con PostGIS. Si estás en Windows y usaste el instalador PostGIS Bundle con stackbuilder, encontrarás :command:`raster2pgsql.exe` en la carpeta ``C:\\Program Files\\PostgreSQL\\15\\bin`` donde el *15* debe ser reemplazado con la versión de PostgreSQL que estés usando."
 
 #: ../../en/rasters.rst:93
 msgid "If you are using Postgres.App, you'll find raster2pgsql among the other `Postgres.app CLI Tools <https://postgresapp.com/documentation/cli-tools.html>`_."
-msgstr ""
+msgstr "Si estás usando Postgres.App, encontrarás raster2pgsql entre las otras `Postgres.app CLI Tools <https://postgresapp.com/documentation/cli-tools.html>`_."
 
 #: ../../en/rasters.rst:95
 msgid "On Ubuntu and Debian, you will need"
-msgstr ""
+msgstr "En Ubuntu y Debian, necesitarás"
 
 #: ../../en/rasters.rst:101
 msgid "to have the PostGIS commandline tools installed. This may install an additional version of PostgreSQL as well. You can see a list of clusters in Debian/Ubuntu using the :command:`pg_lsclusters` command and drop them using the :command:`pg_dropcluster` command."
-msgstr ""
+msgstr "tener instaladas las herramientas de línea de comandos de PostGIS. Esto también puede instalar una versión adicional de PostgreSQL. Puedes ver una lista de clusters en Debian/Ubuntu usando el comando :command:`pg_lsclusters` y eliminarlos usando el comando :command:`pg_dropcluster`."
 
 #: ../../en/rasters.rst:106
 msgid "For this and later exercises, we'll be using `nyc_dem.tif` found in the file `PG Raster Workshop Dataset https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip <https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip>`_. For some geometry/raster examples, we will also be using NYC data loaded from prior chapters.  In-lieu of loading the tif, you can restore the `nyc_dem.backup` included in the zip file in your database using the :command:`pg_restore` commandline tool or the pgAdmin **Restore** menu."
-msgstr ""
+msgstr "Para este y los siguientes ejercicios, usaremos `nyc_dem.tif` que se encuentra en el archivo `PG Raster Workshop Dataset https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip <https://postgis.net/stuff/workshop-data/postgis_raster_workshop.zip>`_. Para algunos ejemplos de geometría/raster, también usaremos datos de NYC cargados de capítulos anteriores. En lugar de cargar el tif, puedes restaurar el `nyc_dem.backup` incluido en el archivo zip en tu base de datos usando la herramienta de línea de comandos :command:`pg_restore` o el menú **Restore** de pgAdmin."
 
 #: ../../en/rasters.rst:112
 msgid "This raster data was sourced from `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_ which is a 3GB DEM tif representing elevation relative to sea level with buildings and overwater removed. We then created a lower res version of it."
-msgstr ""
+msgstr "Estos datos raster provienen de `NYC DEM 1-foot Integer <https://data.cityofnewyork.us/City-Government/1-foot-Digital-Elevation-Model-DEM-/dpc8-z3jc>`_ que es un tif DEM de 3GB que representa elevación relativa al nivel del mar con edificios y superficies de agua eliminados. Luego creamos una versión de menor resolución de este."
 
 #: ../../en/rasters.rst:115
 msgid "The :command:`raster2pgsql` tool is similar to the :command:`shp2gpsql` except instead of loading ESRI shapefiles into PostGIS geometry/geography tables, it loads any GDAL supported raster format into raster tables. Just like :command:`shp2pgsql` you can pass it a spatial reference id (SRID) of the source. Unlike :command:`shp2pgsql` it can infer the spatial references system of the source data if your source data has suitable metadata."
-msgstr ""
+msgstr "La herramienta :command:`raster2pgsql` es similar a :command:`shp2gpsql` excepto que en lugar de cargar archivos shapefiles de ESRI en tablas de geometría/geografía de PostGIS, carga cualquier formato raster soportado por GDAL en tablas raster. Al igual que :command:`shp2pgsql` puedes pasarle un identificador de referencia espacial (SRID) de la fuente. A diferencia de :command:`shp2pgsql` puede inferir el sistema de referencia espacial de los datos de origen si tus datos contienen metadatos adecuados."
 
 #: ../../en/rasters.rst:119
 msgid "For a full exposure of all the possible switches offered refer to `raster2pgsql options <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_."
-msgstr ""
+msgstr "Para ver todas las posibles opciones ofrecidas consulta `raster2pgsql options <https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters>`_."
 
 #: ../../en/rasters.rst:121
 msgid "Some other notable options :command:`raster2pgsql` offers which we will not cover are:"
-msgstr ""
+msgstr "Algunas otras opciones notables que ofrece :command:`raster2pgsql` que no cubriremos son:"
 
 #: ../../en/rasters.rst:123
 msgid "Ability to denote the SRID of the source. Instead, we'll rely on raster2pgsql guessing skills."
-msgstr ""
+msgstr "Capacidad para indicar el SRID de la fuente. En su lugar, confiaremos en la capacidad de raster2pgsql para adivinar."
 
 #: ../../en/rasters.rst:124
 msgid "Ability to set the `nodata` value, when not specified, raster2pgsql tries to infer from the file."
-msgstr ""
+msgstr "Capacidad para establecer el valor `nodata`, cuando no se especifica, raster2pgsql intenta inferirlo del archivo."
 
 #: ../../en/rasters.rst:125
 msgid "Abiliity to load out-of-database rasters."
-msgstr ""
+msgstr "Capacidad para cargar rasters fuera de la base de datos."
 
 #: ../../en/rasters.rst:127
 msgid "To load all the tif files in our folder and also create overviews, we would run the below."
-msgstr ""
+msgstr "Para cargar todos los archivos tif en nuestra carpeta y también crear vistas generales (overviews), ejecutaríamos lo siguiente."
 
 #: ../../en/rasters.rst:133
 msgid "-d to drop the tables if they already exist"
-msgstr ""
+msgstr "-d para eliminar las tablas si ya existen"
 
 #: ../../en/rasters.rst:134
 msgid "The above command uses `-e` to do load immediately instead of committing in a transaction"
-msgstr ""
+msgstr "El comando anterior usa `-e` para cargar inmediatamente en lugar de confirmar en una transacción"
 
 #: ../../en/rasters.rst:135
 msgid "`-C` set raster constraints, this is useful for `raster_columns` to show info. You may want to combine with `-x` to exclude the extent constraint, which is a slow constraint to check and also hampers future loads in the table."
-msgstr ""
+msgstr "`-C` establece restricciones raster, esto es útil para que `raster_columns` muestre información. Puedes querer combinarlo con `-x` para excluir la restricción de extensión, que es una restricción lenta de verificar y también dificulta futuras cargas en la tabla."
 
 #: ../../en/rasters.rst:138
 msgid "`-M` to vacuum and analyze after load, to improve query planner statistics"
-msgstr ""
+msgstr "`-M` para hacer vacuum y analyze después de cargar, para mejorar las estadísticas del planificador de consultas"
 
 #: ../../en/rasters.rst:139
 msgid "`-Y` to use copy in batches of 50. If you are running PostGIS 3.3 or higher, you can use `-Y 1000` to have copy be in batches of 1000, or even higher number. This will run faster, but will use more memory."
-msgstr ""
+msgstr "`-Y` para usar copy en lotes de 50. Si estás ejecutando PostGIS 3.3 o superior, puedes usar `-Y 1000` para que copy se haga en lotes de 1000, o incluso un número mayor. Esto será más rápido, pero usará más memoria."
 
 #: ../../en/rasters.rst:141
 msgid "`-l 2,3` to create over view tables: `o_2_ncy_dem` and `o_3_nyc_dem`. This is useful for viewing data."
-msgstr ""
+msgstr "`-l 2,3` para crear tablas de vista general: `o_2_ncy_dem` y `o_3_nyc_dem`. Esto es útil para visualizar datos."
 
 #: ../../en/rasters.rst:142
 msgid "-I to create a spatial index"
-msgstr ""
+msgstr "-I para crear un índice espacial"
 
 #: ../../en/rasters.rst:143
 msgid "`-F` to add file name, if you have only one tif file, this is kinda pointless. If you had multiple, this would be useful to tell you what file each row came from."
-msgstr ""
+msgstr "`-F` para añadir el nombre de archivo, si solo tienes un archivo tif, esto no tiene mucho sentido. Si tuvieras varios, sería útil para saber de qué archivo proviene cada fila."
 
 #: ../../en/rasters.rst:145
 msgid "`-t` to set the block size. Note if you are not sure the best size use, use `-t auto` instead and raster2pgql will use the same tiling as what was in the tif. The output will tell you what the blocksize is it chose. Cancel if it looks huge or weird. The original file had a size of 300x7 which is not ideal."
-msgstr ""
+msgstr "`-t` para establecer el tamaño de bloque. Nota: si no estás seguro del mejor tamaño a usar, usa `-t auto` y raster2pgql usará el mismo tamaño de teselado que el tif original. La salida te dirá cuál es el tamaño de bloque elegido. Cancela si parece enorme o extraño. El archivo original tenía un tamaño de 300x7, lo cual no es ideal."
 
 #: ../../en/rasters.rst:149
 msgid "Use :command:`psql` to run the generated sql against the database. If you want to dump to a file instead, use `> nyc_dem.sql`"
-msgstr ""
+msgstr "Usa :command:`psql` para ejecutar el sql generado contra la base de datos. Si quieres volcarlo a un archivo en su lugar, usa `> nyc_dem.sql`"
 
 #: ../../en/rasters.rst:153
 msgid "For this example, we have only one tif file, so we could instead specify the full file name, instead of `*.tif`.  If the files are not in your current directory, you can also specify a folder path with `*.tif`."
-msgstr ""
+msgstr "Para este ejemplo, solo tenemos un archivo tif, así que podríamos especificar el nombre completo del archivo, en lugar de `*.tif`. Si los archivos no están en tu directorio actual, también puedes especificar una ruta de carpeta con `*.tif`."
 
 #: ../../en/rasters.rst:158
 msgid "If you are on windows and need to reference the folder, make sure to include the drive letter such as `C:/workshop/*.tif`"
-msgstr ""
+msgstr "Si estás en Windows y necesitas referenciar la carpeta, asegúrate de incluir la letra de la unidad, como `C:/workshop/*.tif`"
 
 #: ../../en/rasters.rst:161
 msgid "You'll often hear in PostGIS lingo, the term **raster tile** and **raster** used somewhat interchangeably. A raster tile really corresponds to a particular raster in a raster column which is a subset of a bigger raster, such as this NYC dem data we just loaded. This is because when rasters are loaded into PostGIS from big raster files, they chopped into many rows to make them manageable.  Each raster in each row then is a part of a bigger raster.  Each tile covers same size area denoted by the blocksize you specified. Rasters are sadly limited by the 1GB PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_ limit and also the slow process of detoasting and so we need to chop up in order to achieve decent performance or to even store them."
-msgstr ""
+msgstr "A menudo escucharás en la jerga de PostGIS los términos **raster tile** y **raster** usados de manera algo intercambiable. Un raster tile realmente corresponde a un raster particular en una columna raster que es un subconjunto de un raster más grande, como estos datos DEM de NYC que acabamos de cargar. Esto se debe a que cuando los raster se cargan en PostGIS desde archivos raster grandes, se cortan en muchas filas para hacerlos manejables. Cada raster en cada fila es entonces parte de un raster más grande. Cada tile cubre un área del mismo tamaño indicada por el blocksize que especificaste. Los raster están tristemente limitados por el límite de 1GB de PostgreSQL `TOAST <https://www.postgresql.org/docs/current/storage-toast.html>`_ y también por el proceso lento de \"detoasting\", por lo que necesitamos cortarlos para lograr un rendimiento decente o incluso para poder almacenarlos."
 
 #: ../../en/rasters.rst:170
 msgid "Viewing Rasters in Browser"
-msgstr ""
+msgstr "Visualizando raster en el navegador"
 
 #: ../../en/rasters.rst:171
 msgid "Although pgAdmin and psql have no mechanism yet to view postgis rasters, we have a couple of options. For smallish rasters the easiest is to output to a web-friendly raster format such as PNG using batteries included postgis raster functions like `ST_AsPNG` or `ST_AsGDALRaster` listed in `PostGIS Raster output functions <https://postgis.net/docs/RT_reference.html#Raster_Outputs>`_. As your rasters get larger, you'll want to graduate to a tool such as QGIS to view them in all their glory or the GDAL family of commandline tools such as :command:`gdal_translate` to export them to other raster formats.  Remember though, postgis rasters are built for analysis, not for generating pretty pictures for you to look at."
-msgstr ""
+msgstr "Aunque pgAdmin y psql no tienen aún un mecanismo para ver raster de PostGIS, tenemos un par de opciones. Para raster pequeños la forma más fácil es exportarlos a un formato raster amigable para la web como PNG usando funciones incluidas de PostGIS raster como `ST_AsPNG` o `ST_AsGDALRaster` listadas en `PostGIS Raster output functions <https://postgis.net/docs/RT_reference.html#Raster_Outputs>`_. A medida que tus raster sean más grandes, querrás pasar a una herramienta como QGIS para verlos en todo su esplendor o la familia de herramientas de línea de comandos GDAL como :command:`gdal_translate` para exportarlos a otros formatos raster. Recuerda, sin embargo, que los raster de PostGIS están construidos para análisis, no para generar imágenes bonitas para que las mires."
 
 #: ../../en/rasters.rst:178
 msgid "One caveat, by default all different raster types outputs are disabled. In order to utilize these, you'll need to enable drivers, all or a subset as detailed in `Enable GDAL Raster drivers <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_"
-msgstr ""
+msgstr "Un detalle: de manera predeterminada todos los tipos de salida raster están deshabilitados. Para utilizarlos, necesitarás habilitar drivers, todos o un subconjunto, como se detalla en `Enable GDAL Raster drivers <https://postgis.net/docs/postgis_gdal_enabled_drivers.html>`_"
 
 #: ../../en/rasters.rst:186
 msgid "If you don't want to have to do this for each connection, you can set at the database level using:"
-msgstr ""
+msgstr "Si no quieres tener que hacer esto para cada conexión, puedes establecerlo a nivel de base de datos usando:"
 
 #: ../../en/rasters.rst:192
 msgid "Each new connection to the database will use that setting."
-msgstr ""
+msgstr "Cada nueva conexión a la base de datos usará esa configuración."
 
 #: ../../en/rasters.rst:194
 msgid "Run the below query and copy and paste the output into the address bar of your web browser."
-msgstr ""
+msgstr "Ejecuta la siguiente consulta y copia y pega la salida en la barra de direcciones de tu navegador web."
 
 #: ../../en/rasters.rst:205
 msgid "For the rasters created thus far, we didn't specify the number of bands nor did we even define their relation to earth.  As such our rasters have an unknown spatial reference system (0)."
-msgstr ""
+msgstr "Para los raster creados hasta ahora, no especificamos el número de bandas ni siquiera definimos su relación con la Tierra. Como tal, nuestros raster tienen un sistema de referencia espacial desconocido (0)."
 
 #: ../../en/rasters.rst:208
 msgid "You can think of a rasters exoskeletal as a geometry. A matrix encased in a geometric envelop. In order to do useful analysis, we need to georeference our rasters, meaning we want each pixel (rectangle) to represent some meaningful plot of space."
-msgstr ""
+msgstr "Puedes pensar en el exoesqueleto de un raster como una geometría. Una matriz encerrada en un envolvente geométrico. Para hacer análisis útil, necesitamos georreferenciar nuestros raster, lo que significa que queremos que cada píxel (rectángulo) represente alguna parcela significativa de espacio."
 
 #: ../../en/rasters.rst:213
 msgid "The `ST_AsRaster` has many overloaded representations. The earlier example used the simplest such implementation and accepted the default arguments which are 8BUI and 1 band, with no data being 0. If you need to use the other variants, you should use the named arguments call syntax so that you don't accidentally fall into the wrong variant of the function or get **function is not unique** errors."
-msgstr ""
+msgstr "El `ST_AsRaster` tiene muchas representaciones sobrecargadas. El ejemplo anterior usó la implementación más simple y aceptó los argumentos predeterminados que son 8BUI y 1 banda, con nodata siendo 0. Si necesitas usar las otras variantes, deberías usar la sintaxis de llamada con argumentos nombrados para no caer accidentalmente en la variante equivocada de la función o recibir errores de **function is not unique**."
 
 #: ../../en/rasters.rst:221
 msgid "If you start with a geometry that has a spatial reference system, you'll end up with a raster with same spatial reference system. In this next example, we'll plop our words in New York in bright cheery colors. We will also use pixel scale instead of width and height so that our raster pixel sizes represent 1 meter x 1 meter of space."
-msgstr ""
+msgstr "Si comienzas con una geometría que tiene un sistema de referencia espacial, terminarás con un raster con el mismo sistema de referencia espacial. En este siguiente ejemplo, colocaremos nuestras palabras en Nueva York en colores brillantes y alegres. También usaremos escala de píxel en lugar de ancho y alto para que el tamaño de nuestros píxeles raster represente 1 metro x 1 metro de espacio."
 
 #: ../../en/rasters.rst:244
 msgid "If we then look at this, we'll see a non-squashed colored geometry."
-msgstr ""
+msgstr "Si luego miramos esto, veremos una geometría coloreada no deformada."
 
 #: ../../en/rasters.rst:255
 msgid "Repeat for Raster:"
-msgstr ""
+msgstr "Repetir para Raster:"
 
 #: ../../en/rasters.rst:266
 msgid "What is more telling, if we rerun the"
-msgstr ""
+msgstr "Lo más revelador es que si volvemos a ejecutar el"
 
 #: ../../en/rasters.rst:273
 msgid "Observe the metadata of the New York entries. They have the New York state plane meter spatial reference system. They also have the same scale.  Since each unit is 1x1 meter, the width of the word **Raster** is now wider than **Hello**."
-msgstr ""
+msgstr "Observa los metadatos de las entradas de Nueva York. Tienen el sistema de referencia espacial state plane meter de Nueva York. También tienen la misma escala. Como cada unidad es de 1x1 metro, el ancho de la palabra **Raster** es ahora mayor que **Hello**."
 
 #: ../../en/rasters.rst:288
 msgid "Raster Spatial Catalog tables"
-msgstr ""
+msgstr "Tablas de catálogo espacial de raster"
 
 #: ../../en/rasters.rst:289
 msgid "Similar to the geometry and geography types, raster has a set of catalogs that show you all raster columns in your database. These are `raster_columns and raster_overviews <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Catalog>`_."
-msgstr ""
+msgstr "Al igual que con los tipos geometry y geography, raster tiene un conjunto de catálogos que muestran todas las columnas raster en tu base de datos. Estos son `raster_columns and raster_overviews <https://postgis.net/docs/using_raster_dataman.html#RT_Raster_Catalog>`_."
 
 #: ../../en/rasters.rst:295
 msgid "raster_columns"
-msgstr ""
+msgstr "raster_columns"
 
 #: ../../en/rasters.rst:297
 msgid "The `raster_columns` view to the sibling to the  `geometry_columns` and `geography_columns`, providing much the same data and more, but for raster columns."
-msgstr ""
+msgstr "La vista `raster_columns` es la hermana de `geometry_columns` y `geography_columns`, proporcionando básicamente los mismos datos y más, pero para columnas raster."
 
 #: ../../en/rasters.rst:305
 msgid "Explore the table, and you'll find this:"
-msgstr ""
+msgstr "Explora la tabla y encontrarás esto:"
 
 #: ../../en/rasters.rst:317
 msgid "a disappointing row of largely unfilled information for the `rasters` table."
-msgstr ""
+msgstr "una fila decepcionante de datos, en gran parte sin llenar, para la tabla `rasters`."
 
 #: ../../en/rasters.rst:319
 msgid "Unlike geometry and geography, raster does not support type modifiers, because type modifier space is too limited and there are more critical properties than what can fit in a type modifier."
-msgstr ""
+msgstr "A diferencia de geometry y geography, raster no soporta modificadores de tipo, porque el espacio de modificador de tipo es demasiado limitado y hay propiedades más críticas que las que caben en un modificador de tipo."
 
 #: ../../en/rasters.rst:322
 msgid "Raster instead relies on constraints, and reads these constraints back as part of the view."
-msgstr ""
+msgstr "Raster en su lugar se basa en restricciones, y lee estas restricciones como parte de la vista."
 
 #: ../../en/rasters.rst:324
 msgid "Look at the other rows from the tables we loaded using :command:`raster2pgsql`. Because we used the `-C` switch :command:`raster2pgsql` added constraints for the srid and other info it was able to read from the tif or that we passed in. The overview tables generated with the `-l` switch `o_2_nyc_dem` and `o_3_nyc_dem` show up as well."
-msgstr ""
+msgstr "Mira las otras filas de las tablas que cargamos usando :command:`raster2pgsql`. Debido a que usamos la opción `-C`, :command:`raster2pgsql` añadió restricciones para el srid y otra información que pudo leer del tif o que pasamos nosotros. Las tablas de overview generadas con la opción `-l` `o_2_nyc_dem` y `o_3_nyc_dem` también aparecen."
 
 #: ../../en/rasters.rst:327
 msgid "Let's try to add some constraints to our table."
-msgstr ""
+msgstr "Intentemos añadir algunas restricciones a nuestra tabla."
 
 #: ../../en/rasters.rst:334
 msgid "And you'll be bombarded with a whole bunch of notices about how your raster data is a mess and nothing can be constrained. If you look at raster_columns again, still the same disappointing story of many blank rows for `rasters`."
-msgstr ""
+msgstr "Y serás bombardeado con un montón de avisos sobre cómo tus datos raster son un desastre y nada puede ser restringido. Si vuelves a mirar raster_columns, todavía la misma decepcionante historia de muchas filas en blanco para `rasters`."
 
 #: ../../en/rasters.rst:338
 msgid "In order for constraints to be applied, all rasters in your table must be constrainable by at least one rule."
-msgstr ""
+msgstr "Para que las restricciones puedan aplicarse, todos los raster en tu tabla deben ser restringibles por al menos una regla."
 
 #: ../../en/rasters.rst:341
 msgid "We can perhaps do this, let's just lie and say all our data is in New York State plane."
-msgstr ""
+msgstr "Podemos quizás hacer esto, digamos simplemente que todos nuestros datos están en el sistema de coordenadas state plane de Nueva York."
 
 #: ../../en/rasters.rst:355
 msgid "Ah progress:"
-msgstr ""
+msgstr "Ah, progreso:"
 
 #: ../../en/rasters.rst:364
 msgid "The more you can constrain all your rasters, the more columns you'll see filled in and also the more operations you'll be able to do across all the tiles in your raster. Keep in mind that in some cases, you may not want to apply all constraints."
-msgstr ""
+msgstr "Cuanto más puedas restringir todos tus raster, más columnas verás llenas y también más operaciones podrás realizar en todos los tiles de tu raster. Ten en cuenta que en algunos casos puede que no quieras aplicar todas las restricciones."
 
 #: ../../en/rasters.rst:368
 msgid "For example, if you plan to load more data into your raster table, you'll want to skip the extent constraint since that would require that all rasters are within the extent of the extent constraint."
-msgstr ""
+msgstr "Por ejemplo, si planeas cargar más datos en tu tabla raster, querrás omitir la restricción de extensión ya que eso requeriría que todos los raster estén dentro de la extensión de la restricción."
 
 #: ../../en/rasters.rst:373
 msgid "raster_overviews"
-msgstr ""
+msgstr "raster_overviews"
 
 #: ../../en/rasters.rst:374
 msgid "Raster overview columns appear both in the `raster_columns` meta catalog and another meta catalog called `raster_overviews`. Overviews are used mostly to speed up viewing at higher zoom levels. They can also be used for quick back of the envelop analysis, providing less accurate stats, but at a much faster speed than applying to the raw raster table."
-msgstr ""
+msgstr "Las columnas de raster overview aparecen tanto en el meta-catálogo `raster_columns` como en otro meta-catálogo llamado `raster_overviews`. Los overviews se usan principalmente para acelerar la visualización en niveles de zoom altos. También pueden usarse para análisis rápidos y aproximados, proporcionando estadísticas menos precisas, pero a una velocidad mucho mayor que al aplicar sobre la tabla raster original."
 
 #: ../../en/rasters.rst:379
 msgid "To inspect the overviews, run:"
-msgstr ""
+msgstr "Para inspeccionar los overviews, ejecuta:"
 
 #: ../../en/rasters.rst:386
 msgid "and you'll see the output:"
-msgstr ""
+msgstr "y verás la salida:"
 
 #: ../../en/rasters.rst:396
 msgid "The `raster_overviews` table only provides you the overview_factor and the name of the parent table. All this information is something you could have figured out yourself by the `raster2pgsql` naming convention for overviews."
-msgstr ""
+msgstr "La tabla `raster_overviews` solo te proporciona el overview_factor y el nombre de la tabla padre. Toda esta información es algo que podrías haber deducido tú mismo por la convención de nombres de `raster2pgsql` para overviews."
 
 #: ../../en/rasters.rst:400
 msgid "The `overview_factor` tells you at what resolution the row is with respect to it's parent. An `overview_factor` of `2` means that 2x2 = 4 tiles can fit into one overview_2 tile. Similarly an overview_factor of `3` meants that 2x2x2 = 8 tiles of the original can be shoved into an overview_3 tile."
-msgstr ""
+msgstr "El `overview_factor` te dice en qué resolución está la fila con respecto a su padre. Un `overview_factor` de `2` significa que 2x2 = 4 tiles pueden caber en un tile overview_2. De manera similar, un overview_factor de `3` significa que 2x2x2 = 8 tiles del original pueden agruparse en un tile overview_3."
 
 #: ../../en/rasters.rst:407
 msgid "Common Raster Functions"
-msgstr ""
+msgstr "Funciones raster comunes"
 
 #: ../../en/rasters.rst:408
 msgid "The :command:`postgis_raster` extension has over 100 functions to choose from. PostGIS raster functionality was patterned after the PostGIS geometry support. You'll find an overlap of functions between raster and geometry where it makes sense. Common ones you'll use that have equivalent in geometry world are :command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, and :command:`ST_Transform`."
-msgstr ""
+msgstr "La extensión :command:`postgis_raster` tiene más de 100 funciones para elegir. La funcionalidad raster de PostGIS fue diseñada siguiendo el soporte de geometría de PostGIS. Encontrarás una superposición de funciones entre raster y geometría donde tiene sentido. Algunas comunes que usarás y que tienen equivalentes en el mundo de geometría son: :command:`ST_Intersects`, :command:`ST_SetSRID`, :command:`ST_SRID`, :command:`ST_Union`, :command:`ST_Intersection`, y :command:`ST_Transform`."
 
 #: ../../en/rasters.rst:415
 msgid "In addition to those overlapping functions, it supports the `&&` overlap operator between rasters and between a raster and geometry. It also offers many functions that work in conjunction with geometry or are very specific to rasters."
-msgstr ""
+msgstr "Además de esas funciones superpuestas, soporta el operador `&&` de solapamiento entre rasters y entre un raster y una geometría. También ofrece muchas funciones que trabajan en conjunto con geometría o que son muy específicas de raster."
 
 #: ../../en/rasters.rst:419
 msgid "You need a function like :command:`ST_Union` to reconstitute a region. Because performance gets slow, the more pixels a function needs to analyse, you need a fast acting function :command:`ST_Clip` to clip the rasters to just the portions of interest for your analysis."
-msgstr ""
+msgstr "Necesitas una función como :command:`ST_Union` para reconstituir una región. Debido a que el rendimiento se vuelve lento mientras más píxeles necesita analizar una función, necesitas una función de acción rápida :command:`ST_Clip` para recortar los raster solo a las porciones de interés para tu análisis."
 
 #: ../../en/rasters.rst:423
 msgid "Finally you need :command:`ST_Intersects` or :command:`&&` to zoom in on the raster tiles that contain your areas of interest. The `&&` operator, is a faster process than the `ST_Intersects`. Both can take advantage of raster spatial indexes. We'll cover these bread and butter functions first before moving on to other sections where we will use them in concert with other raster and geometry functions."
-msgstr ""
+msgstr "Finalmente necesitas :command:`ST_Intersects` o :command:`&&` para acercarte a los tiles raster que contienen tus áreas de interés. El operador `&&` es un proceso más rápido que :command:`ST_Intersects`. Ambos pueden aprovechar los índices espaciales raster. Cubriremos estas funciones esenciales primero antes de pasar a otras secciones donde las usaremos en conjunto con otras funciones raster y de geometría."
 
 #: ../../en/rasters.rst:429
 msgid "Unioning Rasters with ST_Union"
-msgstr ""
+msgstr "Uniendo rasters con ST_Union"
 
 #: ../../en/rasters.rst:430
 msgid "The `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ function for raster, just as the geometry equivalent :command:`ST_Union`, aggregates a set of rasters together into a single raster.  However, just as with geometry, not all rasters can be combined together, but the rules for raster unioning are more complicated than geometry rules. In the case of geometries, all you need is to have the same spatial reference system, but for rasters that is not sufficient."
-msgstr ""
+msgstr "La función `ST_Union <https://postgis.net/docs/RT_ST_Union.html>`_ para raster, al igual que su equivalente en geometría :command:`ST_Union`, agrega un conjunto de raster en un solo raster. Sin embargo, al igual que con geometría, no todos los raster pueden combinarse, pero las reglas para unir raster son más complicadas que las reglas de geometría. En el caso de geometrías, todo lo que necesitas es tener el mismo sistema de referencia espacial, pero para raster eso no es suficiente."
 
 #: ../../en/rasters.rst:438
 msgid "If you were to attempt, the following:"
-msgstr ""
+msgstr "Si intentaras lo siguiente:"
 
 #: ../../en/rasters.rst:445
 msgid "You'd be summarily punished with an error:"
-msgstr ""
+msgstr "Serías castigado inmediatamente con un error:"
 
 #: ../../en/rasters.rst:447
 msgid "**ERROR:  rt_raster_from_two_rasters: The two rasters provided do not have the same alignment SQL state: XX000**"
-msgstr ""
+msgstr "**ERROR: rt_raster_from_two_rasters: The two rasters provided do not have the same alignment SQL state: XX000**"
 
 #: ../../en/rasters.rst:450
 msgid "What is this same alignment thing, that is preventing you from unioning your precious rasters?"
-msgstr ""
+msgstr "¿Qué es esto del mismo alineamiento, que impide unir tus preciados raster?"
 
 #: ../../en/rasters.rst:452
 msgid "In order for rasters to be combined, they need to be on the same grid so to speak. Meaning they must have same pixel sizes, same orientation (the skew), same spatial reference system, and their pixels must not cut into each other, meaning they share the same worldly pixel grid."
-msgstr ""
+msgstr "Para que los raster se combinen, deben estar en la misma grilla por así decirlo. Esto significa que deben tener los mismos tamaños de píxel, la misma orientación (la inclinación), el mismo sistema de referencia espacial, y sus píxeles no deben cortarse entre sí, es decir, deben compartir la misma grilla de píxeles en el mundo."
 
 #: ../../en/rasters.rst:456
 msgid "If you try the same query, but just with words we carefully placed in New York."
-msgstr ""
+msgstr "Si intentas la misma consulta, pero solo con palabras que colocamos cuidadosamente en Nueva York."
 
 #: ../../en/rasters.rst:458
 msgid "Again, the same error. These are the same spatial ref system, the same pixel sizes, and yet it's still not good enough. Because their grids are off."
-msgstr ""
+msgstr "De nuevo, el mismo error. Estos son el mismo sistema de referencia espacial, los mismos tamaños de píxel, y aun así no es suficiente. Porque sus grillas no coinciden."
 
 #: ../../en/rasters.rst:462
 msgid "We can fix this by shifting the upper left y coordinates ever so slightly and then trying again. If our grids start at integer level since our pixel sizes are whole integer, then the pixels won't cut into each other."
-msgstr ""
+msgstr "Podemos arreglar esto ajustando ligeramente las coordenadas superiores izquierdas en y y luego probando de nuevo. Si nuestras grillas comienzan a nivel entero, ya que nuestros tamaños de píxel son enteros, entonces los píxeles no se cortarán entre sí."
 
 #: ../../en/rasters.rst:477 ../../en/rasters.rst:526
 msgid "Voila it worked, and if we were to view, we'd see something like this:"
-msgstr ""
+msgstr "Voilà, funcionó, y si lo viéramos, veríamos algo como esto:"
 
 #: ../../en/rasters.rst:483
 msgid "If ever you are unclear why your rasters don't have the same alignment, you can use the function `ST_SameAlignment <https://postgis.net/docs/RT_ST_SameAlignment.html>`_, which will compare 2 rasters or a set of rasters and tell you if they have the same alignment.  If you have notices enabled, the NOTICE will tell you what is off with the rasters in question. The `ST_NotSameAlignmentReason <https://postgis.net/docs/RT_ST_NotSameAlignmentReason.html>`_, instead of just a notice will output the reason. It however only works with two rasters at a time."
-msgstr ""
+msgstr "Si alguna vez no tienes claro por qué tus raster no tienen el mismo alineamiento, puedes usar la función `ST_SameAlignment <https://postgis.net/docs/RT_ST_SameAlignment.html>`_, que comparará 2 raster o un conjunto de raster y te dirá si tienen el mismo alineamiento. Si tienes los avisos habilitados, el NOTICE te dirá qué está mal con los raster en cuestión. La función `ST_NotSameAlignmentReason <https://postgis.net/docs/RT_ST_NotSameAlignmentReason.html>`_, en lugar de solo un aviso, devolverá la razón. Sin embargo, solo funciona con dos raster a la vez."
 
 #: ../../en/rasters.rst:490
 msgid "One major way in which the `ST_Union(raster) <https://postgis.net/docs/RT_ST_Union.html>`_ raster function deviates from the `ST_Union(geometry) <https://postgis.net/docs/ST_Union.html>`_ geometry function is that it allows for an argument called *uniontype*.  This argument by default is set to `LAST` if you don't specify it, which means, take the **LAST** raster pixel values in occasions where the raster pixel values overlap. As a general rule, pixels in a band that are marked as no-data are ignored."
-msgstr ""
+msgstr "Una forma importante en que la función `ST_Union(raster) <https://postgis.net/docs/RT_ST_Union.html>`_ difiere de la función `ST_Union(geometry) <https://postgis.net/docs/ST_Union.html>`_ es que permite un argumento llamado *uniontype*. Este argumento por defecto se establece en `LAST` si no lo especificas, lo que significa tomar los valores de píxeles del **LAST** raster en las ocasiones donde los valores de píxeles raster se superponen. Como regla general, los píxeles en una banda que están marcados como no-data se ignoran."
 
 #: ../../en/rasters.rst:496
 msgid "Just as with most aggregates in PostgreSQL, you can put a :command:`ORDER BY` clause as part of the function call as is done in the prior example.  Specifying the order, allows you to control which raster takes priority. So in our prior example, *Raster* trumped *Hello* because *Raster* is alphabetically last."
-msgstr ""
+msgstr "Al igual que con la mayoría de los agregados en PostgreSQL, puedes poner una cláusula :command:`ORDER BY` como parte de la llamada a la función, como se hace en el ejemplo anterior. Especificar el orden te permite controlar qué raster tiene prioridad. Así que en nuestro ejemplo anterior, *Raster* venció a *Hello* porque *Raster* es alfabéticamente el último."
 
 #: ../../en/rasters.rst:500
 msgid "Observe, if you switch the order:"
-msgstr ""
+msgstr "Observa, si cambias el orden:"
 
 #: ../../en/rasters.rst:510
 msgid "Then *Hello* trumps *Raster* because Hello is now the last overlaid."
-msgstr ""
+msgstr "Entonces *Hello* vence a *Raster* porque Hello ahora es el último superpuesto."
 
 #: ../../en/rasters.rst:512
 msgid "The :command:`FIRST` union type is the reverse of :command:`LAST`."
-msgstr ""
+msgstr "El tipo de unión :command:`FIRST` es lo contrario de :command:`LAST`."
 
 #: ../../en/rasters.rst:514
 msgid "But on occassion, **LAST** may not be the right operation. Let's suppose our rasters represented two different sets of observations from two different devices. These devices measure the same thing, and we aren't sure which is right when they cross paths, so we'd instead like to take the `MEAN` of the results.  We'd do this:"
-msgstr ""
+msgstr "Pero en ocasiones, **LAST** puede no ser la operación correcta. Supongamos que nuestros raster representan dos conjuntos diferentes de observaciones de dos dispositivos distintos. Estos dispositivos miden lo mismo, y no estamos seguros de cuál es correcto cuando se cruzan, por lo que en su lugar nos gustaría tomar el `MEAN` de los resultados. Haríamos esto:"
 
 #: ../../en/rasters.rst:530
 msgid "So instead of trumping, we have a blending of the two forces. In the case of :command:`MEAN` union type, there is no point in specifying order, because the result would be the average of overlapping pixel values."
-msgstr ""
+msgstr "Así que en lugar de imponerse, tenemos una mezcla de las dos fuerzas. En el caso del tipo de unión :command:`MEAN`, no tiene sentido especificar el orden, porque el resultado sería el promedio de los valores de píxeles superpuestos."
 
 #: ../../en/rasters.rst:534
 msgid "Note that for geometries since geometries are vector and thus have no values besides there or not there, there really isn't any ambiguity on how to combine two vectors when they intersect."
-msgstr ""
+msgstr "Ten en cuenta que para geometrías, dado que las geometrías son vectores y, por lo tanto, no tienen valores aparte de estar o no estar, realmente no hay ambigüedad sobre cómo combinar dos vectores cuando se intersectan."
 
 #: ../../en/rasters.rst:538
 msgid "Another feature of the raster :command:`ST_Union` we glossed over, is this idea of if you should return all bands or just some bands. When you don't specify what bands to union, :command:`ST_Union` will combine same banded numbers and use the :command:`LAST` unioning strategy.  If you have multiple bands, this may not be what you want to do. Perhaps you only want to union, the second band. In this case, the Green Band and you want the count of pixel values."
-msgstr ""
+msgstr "Otra característica del raster :command:`ST_Union` que pasamos por alto, es esta idea de si deberías devolver todas las bandas o solo algunas bandas. Cuando no especificas qué bandas unir, :command:`ST_Union` combinará los números de las mismas bandas y usará la estrategia de unión :command:`LAST`. Si tienes múltiples bandas, esto puede no ser lo que quieras hacer. Quizás solo quieras unir la segunda banda. En este caso, la banda verde, y quieres el conteo de valores de píxel."
 
 #: ../../en/rasters.rst:559
 msgid "Note in the case of the **COUNT** union type, which counts the number of pixels filled in and returns that value, the result is always a **32BUI** similar to how when you do a :command:`COUNT` in sql, the result is always a bigint, to accommodate large counts."
-msgstr ""
+msgstr "Nota que en el caso del tipo de unión **COUNT**, que cuenta el número de píxeles rellenados y devuelve ese valor, el resultado es siempre un **32BUI** similar a cómo cuando haces un :command:`COUNT` en SQL, el resultado siempre es un bigint, para acomodar conteos grandes."
 
 #: ../../en/rasters.rst:563
 msgid "In other cases, the band pixel type does not change and is set to the max value or rounded if the amounts exceed the bounds of the type. Why would anyone ever want to count pixels that intersect at a location. Well suppose each of your rasters represent police squadrons and incidents of arrests in the areas. Each value, might represent a different kind of arrest reason. You are doing stats on how many arrests in each region, therefore you only care about the count of arrests."
-msgstr ""
+msgstr "En otros casos, el tipo de píxel de la banda no cambia y se establece en el valor máximo o se redondea si las cantidades exceden los límites del tipo. ¿Por qué alguien querría contar píxeles que se intersectan en una ubicación? Bueno, supongamos que cada uno de tus raster representa escuadrones de policía e incidentes de arrestos en las áreas. Cada valor podría representar una razón diferente de arresto. Estás haciendo estadísticas sobre cuántos arrestos en cada región, por lo tanto solo te importa el conteo de arrestos."
 
 #: ../../en/rasters.rst:572
 msgid "Or perhaps, you want to do all bands, but you want different strategies."
-msgstr ""
+msgstr "O quizás quieras usar todas las bandas, pero quieres diferentes estrategias."
 
 #: ../../en/rasters.rst:582
 msgid "Using the *unionarg[]* variant of the :command:`ST_Union` function, also allows you to shuffle the order of the bands."
-msgstr ""
+msgstr "Usar la variante *unionarg[]* de la función :command:`ST_Union`, también te permite reorganizar el orden de las bandas."
 
 #: ../../en/rasters.rst:585
 msgid "Clipping Rasters with help of ST_Intersects"
-msgstr ""
+msgstr "Recortando raster con ayuda de ST_Intersects"
 
 #: ../../en/rasters.rst:586
 msgid "The `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ function is one of the most widely used functions for PostGIS rasters.  The main reason is the more pixels you need to inspect or do operations on, the slower your processing. **ST_Clip** clips your raster to just the area of interest, so you can isolate your operations to just that area."
-msgstr ""
+msgstr "La función `ST_Clip <https://postgis.net/docs/RT_ST_Clip.html>`_ es una de las funciones más utilizadas para raster en PostGIS. La razón principal es que mientras más píxeles necesites inspeccionar o realizar operaciones, más lento será tu procesamiento. **ST_Clip** recorta tu raster solo al área de interés, para que puedas aislar tus operaciones únicamente a esa área."
 
 #: ../../en/rasters.rst:590
 msgid "This function is also special in that it utilizes the power of geometry to help raster analysis. To reduce the number of pixels, :command:`ST_Union` has to handle, each raster is clipped first to the area we are interested in."
-msgstr ""
+msgstr "Esta función es también especial en que utiliza el poder de la geometría para ayudar al análisis raster. Para reducir el número de píxeles que :command:`ST_Union` tiene que manejar, cada raster se recorta primero al área de interés."
 
 #: ../../en/rasters.rst:602
 msgid "This example showcases several functions working in unison.  The :command:`ST_Intersects` function employed is the one packaged with **postgis_raster** and can intersect 2 rasters or a raster and a geometry. Similar to the geometry :command:`ST_Intersects` the `raster ST_Intersects <https://postgis.net/docs/RT_ST_Intersects.html>`_ can take advantage of spatial indexes on the raster or geometry tables."
-msgstr ""
+msgstr "Este ejemplo muestra varias funciones trabajando en conjunto. La función :command:`ST_Intersects` empleada es la que viene con **postgis_raster** y puede intersectar 2 raster o un raster y una geometría. Similar a la función de geometría :command:`ST_Intersects`, el `raster ST_Intersects <https://postgis.net/docs/RT_ST_Intersects.html>`_ puede aprovechar los índices espaciales en las tablas raster o de geometría."
 
 #: ../../en/rasters.rst:609
 msgid "By default ST_Clip will leave out pixels where the centroid of the pixel doesn't intersect the geometry.  This can be annoying for big pixels and you may prefer to instead, include a pixel if any part of the pixel touches the geometry. Introduced in PostGIS 3.5, is the touched argument. Replace your  `ST_Clip(r.rast, g.geom)` with  `ST_Clip(r.rast, g.geom, touched => true)` and voila any pixels that intersect your geometry in any way will be included."
-msgstr ""
+msgstr "De manera predeterminada ST_Clip dejará fuera píxeles donde el centroide del píxel no intersecta la geometría. Esto puede ser molesto para píxeles grandes y puede que prefieras en su lugar incluir un píxel si cualquier parte del píxel toca la geometría. Introducido en PostGIS 3.5, está el argumento touched. Reemplaza tu `ST_Clip(r.rast, g.geom)` con `ST_Clip(r.rast, g.geom, touched => true)` y voilà, cualquier píxel que intersecte tu geometría de cualquier forma será incluido."
 
 #: ../../en/rasters.rst:618
 msgid "Converting Rasters to Geometries"
-msgstr ""
+msgstr "Convirtiendo raster en geometrías"
 
 #: ../../en/rasters.rst:619
 msgid "Rasters can just as easily be morphed into geometries."
-msgstr ""
+msgstr "Los raster pueden convertirse fácilmente en geometrías."
 
 #: ../../en/rasters.rst:622
 msgid "The polygon of a raster with ST_Polygon"
-msgstr ""
+msgstr "El polígono de un raster con ST_Polygon"
 
 #: ../../en/rasters.rst:623
 msgid "Lets start with our prior example, but convert it to a polygon using `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_ function."
-msgstr ""
+msgstr "Comencemos con nuestro ejemplo anterior, pero convirtámoslo en un polígono usando la función `ST_Polygon <https://postgis.net/docs/RT_ST_Polygon.html>`_."
 
 #: ../../en/rasters.rst:634
 msgid "If you click on the geometry viewer in pgAdmin, you can see this in all it's glory without any hacks."
-msgstr ""
+msgstr "Si haces clic en el visor de geometría en pgAdmin, puedes ver esto en todo su esplendor sin ningún truco."
 
 #: ../../en/rasters.rst:638
 msgid ":command:`ST_Polygon` considers all the pixels that have values (not no-data) in a particular band, and converts them to geometry.  Like many other functions in raster, :command:`ST_Polygon` only considers 1 band. If no band is specified, it will consider only the first band."
-msgstr ""
+msgstr ":command:`ST_Polygon` considera todos los píxeles que tienen valores (no no-data) en una banda particular, y los convierte en geometría. Al igual que muchas otras funciones en raster, :command:`ST_Polygon` solo considera una banda. Si no se especifica ninguna banda, considerará solo la primera banda."
 
 #: ../../en/rasters.rst:643
 msgid "The pixel rectangles of a raster with ST_PixelAsPolygons"
-msgstr ""
+msgstr "Los rectángulos de píxel de un raster con ST_PixelAsPolygons"
 
 #: ../../en/rasters.rst:644
 msgid "Another popularly used function is the `ST_PixelAsPolygons <https://postgis.net/docs/RT_ST_PixelAsPolygons.html>`_ function. You should rarely use :command:`ST_PixelAsPolygons` on a large raster without first clipping because you will end up with millions of rows, one for each pixel."
-msgstr ""
+msgstr "Otra función popularmente utilizada es la función `ST_PixelAsPolygons <https://postgis.net/docs/RT_ST_PixelAsPolygons.html>`_. Rara vez deberías usar :command:`ST_PixelAsPolygons` en un raster grande sin antes recortarlo porque terminarás con millones de filas, una por cada píxel."
 
 #: ../../en/rasters.rst:647
 msgid ":command:`ST_PixelAsPolygons` returns a table consisting of geom, val, x, and y. Where x is the column number, and y is the row number in the raster."
-msgstr ""
+msgstr ":command:`ST_PixelAsPolygons` devuelve una tabla que consiste en geom, val, x y y. Donde x es el número de columna, e y es el número de fila en el raster."
 
 #: ../../en/rasters.rst:650
 msgid ":command:`ST_PixelAsPolygons` similar to other raster functions works on one band at a time and works on band 1 if no band is specified. It also by default returns only pixels that have values."
-msgstr ""
+msgstr ":command:`ST_PixelAsPolygons`, similar a otras funciones raster, trabaja en una banda a la vez y trabaja sobre la banda 1 si no se especifica ninguna banda. También, por defecto, devuelve solo los píxeles que tienen valores."
 
 #: ../../en/rasters.rst:662
 msgid "Which outputs:"
-msgstr ""
+msgstr "La salida es:"
 
 #: ../../en/rasters.rst:666
 msgid "and if we inspect using the geometry viewer, we'd see:"
-msgstr ""
+msgstr "y si inspeccionamos usando el visor de geometría, veríamos:"
 
 #: ../../en/rasters.rst:670
 msgid "If we want all pixels of all our bands, we'd need to do something like below. Note the differences in this example from previous."
-msgstr ""
+msgstr "Si queremos todos los píxeles de todas nuestras bandas, necesitaríamos hacer algo como lo siguiente. Nota las diferencias en este ejemplo con respecto al anterior."
 
 #: ../../en/rasters.rst:673
 msgid "1. Setting  :command:`exclude_nodata_value` to make sure all pixels are returned so that our sets of calls return the same number of rows. The rows out of the function will be naturally in the same order."
-msgstr ""
+msgstr "1. Configurar :command:`exclude_nodata_value` para asegurarnos de que todos los píxeles sean devueltos de modo que nuestros conjuntos de llamadas devuelvan el mismo número de filas. Las filas de la función estarán naturalmente en el mismo orden."
 
 #: ../../en/rasters.rst:676
 msgid "2. Using the `PostgreSQL ROWS FROM constructor <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_ , and aliasing each set of columns from our function output with names. So for example the band 1 columns (geom, val, x, y) are renamed to g1, v1, x1, x2"
-msgstr ""
+msgstr "2. Usar el `PostgreSQL ROWS FROM constructor <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLEFUNCTIONS>`_, y asignar alias a cada conjunto de columnas de la salida de nuestra función con nombres. Así, por ejemplo, las columnas de la banda 1 (geom, val, x, y) son renombradas a g1, v1, x1, x2"
 
 #: ../../en/rasters.rst:697
 msgid "We used CROSS JOIN LATERAL in these examples because we wanted to be explicit what we are doing. Since these are all set returning functions, you can replace CROSS JOIN LATERAL with , for short-hand.  We'll use a , in the next set of examples"
-msgstr ""
+msgstr "Usamos CROSS JOIN LATERAL en estos ejemplos porque queríamos ser explícitos en lo que estamos haciendo. Como estas son todas funciones que devuelven conjuntos, puedes reemplazar CROSS JOIN LATERAL con , como abreviatura. Usaremos , en el siguiente conjunto de ejemplos"
 
 #: ../../en/rasters.rst:703
 msgid "Dumping polygons with ST_DumpAsPolygons"
-msgstr ""
+msgstr "Guardando polígonos con ST_DumpAsPolygons"
 
 #: ../../en/rasters.rst:705
 msgid "Raster also introduces an additional composite type called a :command:`geomval`. Consider a :command:`geomval` as the offspring of a geometry and raster. It contains a geometry and it contains a pixel value."
-msgstr ""
+msgstr "Raster también introduce un tipo compuesto adicional llamado :command:`geomval`. Considera un :command:`geomval` como la descendencia de una geometría y un raster. Contiene una geometría y contiene un valor de píxel."
 
 #: ../../en/rasters.rst:709
 msgid "You will find several raster functions that return geomvals."
-msgstr ""
+msgstr "Encontrarás varias funciones raster que devuelven geomvals."
 
 #: ../../en/rasters.rst:711
 msgid "A commonly used function that outputs geomvals is `ST_DumpAsPolygons <https://postgis.net/docs/RT_ST_DumpAsPolygons.html>`_, which returns a set of contiguous pixels with the same value as a polygon.  Again this by default will only check band 1 and exclude no data values unless you override. This example selects only polygons from band 2. You can also apply filters to the values. For most use cases, :command:`ST_DumpAsPolygons` is a better option than :command:`ST_PixelAsPolygons` as it will return far fewer rows."
-msgstr ""
+msgstr "Una función comúnmente usada que produce geomvals es `ST_DumpAsPolygons <https://postgis.net/docs/RT_ST_DumpAsPolygons.html>`_, que devuelve un conjunto de píxeles contiguos con el mismo valor como un polígono. Nuevamente, por defecto, solo revisará la banda 1 y excluirá los valores no-data a menos que los sobrescribas. Este ejemplo selecciona solo polígonos de la banda 2. También puedes aplicar filtros a los valores. Para la mayoría de los casos de uso, :command:`ST_DumpAsPolygons` es una mejor opción que :command:`ST_PixelAsPolygons`, ya que devolverá muchas menos filas."
 
 #: ../../en/rasters.rst:716
 msgid "This will output 6 rows, and return polygons corresponding to the letters in \"Raster\"."
-msgstr ""
+msgstr "Esto producirá 6 filas, y devolverá polígonos correspondientes a las letras en \"Raster\"."
 
 #: ../../en/rasters.rst:727
 msgid "Note that it doesn't return a single geometry, because it finds continguous set of pixels with the same value that form a polygon. Even though all these values are the same, they are not continguous."
-msgstr ""
+msgstr "Observa que no devuelve una geometría única, porque encuentra conjuntos contiguos de píxeles con el mismo valor que forman un polígono. Aunque todos estos valores son iguales, no son contiguos."
 
 #: ../../en/rasters.rst:733
 msgid "A common approach to produce more complex geometries is to group by the values and union."
-msgstr ""
+msgstr "Un enfoque común para producir geometrías más complejas es agrupar por los valores y unir."
 
 #: ../../en/rasters.rst:743
 msgid "This will give you 2 rows back corresponding to the words \"Raster\" and \"Hello\"."
-msgstr ""
+msgstr "Esto te devolverá 2 filas correspondientes a las palabras \"Raster\" y \"Hello\"."
 
 #: ../../en/rasters.rst:746
 msgid "Statistics"
@@ -557,288 +557,288 @@ msgstr "Estadísticas"
 
 #: ../../en/rasters.rst:747
 msgid "The most important thing to understand about rasters is that they are statistical tools for storing data in arrays, that you may happen to be able to make look pretty on a screen."
-msgstr ""
+msgstr "Lo más importante que debes entender sobre los raster es que son herramientas estadísticas para almacenar datos en matrices, que puede que logres hacer ver bonitos en una pantalla."
 
 #: ../../en/rasters.rst:750
 msgid "You can find a menu of these statistical functions in `Raster Band Statistics <https://postgis.net/docs/RT_reference.html#RasterBand_Stats>`_."
-msgstr ""
+msgstr "Puedes encontrar un menú de estas funciones estadísticas en `Raster Band Statistics <https://postgis.net/docs/RT_reference.html#RasterBand_Stats>`_."
 
 #: ../../en/rasters.rst:754
 msgid "ST_SummaryStatsAgg and ST_SummaryStats"
-msgstr ""
+msgstr "ST_SummaryStatsAgg y ST_SummaryStats"
 
 #: ../../en/rasters.rst:756
 msgid "Want all stats for a set or rasters, reach for the function `ST_SummaryStatsAgg <https://postgis.net/docs/RT_ST_SummaryStatsAgg.html>`_."
-msgstr ""
+msgstr "¿Quieres todas las estadísticas para un conjunto de raster? Usa la función `ST_SummaryStatsAgg <https://postgis.net/docs/RT_ST_SummaryStatsAgg.html>`_."
 
 #: ../../en/rasters.rst:758
 msgid "This query takes about 10 seconds and gives you a summary of the whole table:"
-msgstr ""
+msgstr "Esta consulta toma unos 10 segundos y te da un resumen de toda la tabla:"
 
 #: ../../en/rasters.rst:765
 msgid "Outputs:"
-msgstr ""
+msgstr "Salidas:"
 
 #: ../../en/rasters.rst:774
 msgid "Which tells we have a lot of pixels and our max elevation is 411 ft."
-msgstr ""
+msgstr "Lo cual nos dice que tenemos muchos píxeles y nuestra elevación máxima es de 411 pies."
 
 #: ../../en/rasters.rst:776
 msgid "If you have built overviews, and just need a rough estimate of your mins, maxs, and means use one of your overviews. This next query returns roughly the same values for mins, maxs, and means as the prior but in about 1 second instead of 10."
-msgstr ""
+msgstr "Si has construido overviews y solo necesitas una estimación aproximada de tus mínimos, máximos y medias usa uno de tus overviews. Esta siguiente consulta devuelve aproximadamente los mismos valores de mínimos, máximos y medias que la anterior, pero en alrededor de 1 segundo en lugar de 10."
 
 #: ../../en/rasters.rst:785
 msgid "Now armed with this bit of information, we can ask more questions."
-msgstr ""
+msgstr "Ahora, con esta información, podemos hacer más preguntas."
 
 #: ../../en/rasters.rst:788
 msgid "ST_Histogram"
-msgstr ""
+msgstr "ST_Histogram"
 
 #: ../../en/rasters.rst:790
 msgid "Generally you won't want stats for your whole table, but instead just stats for a particular area, in that case, you'll want to also employ our old friends :command:`ST_Intersects` and :command:`ST_Clip`. If you are also in need of a raster statistics function that doesn't have an aggregate version, you'll want to carry :command:`ST_Union` along for the ride."
-msgstr ""
+msgstr "Generalmente no querrás estadísticas para toda tu tabla, sino solo estadísticas para un área en particular, en ese caso, también querrás emplear a nuestros viejos amigos :command:`ST_Intersects` y :command:`ST_Clip`. Si también necesitas una función estadística raster que no tenga una versión agregada, deberás llevar :command:`ST_Union` contigo."
 
 #: ../../en/rasters.rst:795
 msgid "For this next example we'll use a different stats function `ST_Histogram <https://postgis.net/docs/RT_ST_Histogram.html>`_ which has no aggregate equivalent, and for this particular variant, is a set returning function. We are using the same area of interest as some prior examples, but we also need to employ geometry :command:`ST_Transform` to transform our NY state plane meters geometry to our NYC State Plane feet rasters.  It is almost always more performant to transform the geometry instead of raster and definitely if your geometry is just a single one."
-msgstr ""
+msgstr "Para el siguiente ejemplo usaremos una función de estadísticas diferente `ST_Histogram <https://postgis.net/docs/RT_ST_Histogram.html>`_ que no tiene equivalente agregado, y para esta variante en particular, es una función que devuelve un conjunto. Estamos usando la misma área de interés que en algunos ejemplos anteriores, pero también necesitamos emplear la geometría :command:`ST_Transform` para transformar nuestra geometría en metros state plane de NY a nuestros raster en pies state plane de NYC. Casi siempre es más eficiente transformar la geometría en lugar del raster, y definitivamente si tu geometría es solo una."
 
 #: ../../en/rasters.rst:812
 msgid "the above query completes in under 60ms and outputs:"
-msgstr ""
+msgstr "la consulta anterior se completa en menos de 60ms y produce:"
 
 #: ../../en/rasters.rst:826
 msgid "Creating Derivative Rasters"
-msgstr ""
+msgstr "Creando raster derivados"
 
 #: ../../en/rasters.rst:827
 msgid "PostGIS raster comes packaged with a number of functions for editing rasters. These functions are both used for editing as well as creating derivative raster data sets. You will find these listed in `Raster Editors <https://postgis.net/docs/RT_reference.html#Raster_Editors>`_ and `Raster Management <https://postgis.net/docs/RT_reference.html#Raster_Management_Functions>`_."
-msgstr ""
+msgstr "PostGIS raster viene con varias funciones para editar raster. Estas funciones se usan tanto para editar como para crear conjuntos de datos raster derivados. Encontrarás estas listadas en `Raster Editors <https://postgis.net/docs/RT_reference.html#Raster_Editors>`_ y `Raster Management <https://postgis.net/docs/RT_reference.html#Raster_Management_Functions>`_."
 
 #: ../../en/rasters.rst:833
 msgid "Transforming rasters with ST_Transform"
-msgstr ""
+msgstr "Transformando raster con ST_Transform"
 
 #: ../../en/rasters.rst:834
 msgid "Most of our data is in NY State Plane meters (SRID: 26918), however our DEM raster dataset is in NY State Plane feet (SRID: 2263). For the least cumbersome workflow, we need our core datasets to be in the same spatial reference system."
-msgstr ""
+msgstr "La mayoría de nuestros datos están en NY State Plane metros (SRID: 26918), sin embargo nuestro conjunto de datos DEM raster está en NY State Plane pies (SRID: 2263). Para un flujo de trabajo menos engorroso, necesitamos que nuestros conjuntos de datos principales estén en el mismo sistema de referencia espacial."
 
 #: ../../en/rasters.rst:838
 msgid "The `raster ST_Transform <https://postgis.net/docs/RT_ST_Transform.html>`_ is the function most suited for this job."
-msgstr ""
+msgstr "La función `raster ST_Transform <https://postgis.net/docs/RT_ST_Transform.html>`_ es la más adecuada para este trabajo."
 
 #: ../../en/rasters.rst:840
 msgid "In order to create a new nyc dem dataset in NY State Plane meters, we'll do the following:"
-msgstr ""
+msgstr "Para crear un nuevo conjunto de datos nyc dem en NY State Plane metros, haremos lo siguiente:"
 
 #: ../../en/rasters.rst:850
 msgid "The above on my system took about 1.5 minutes. For a larger data set it would take much longer."
-msgstr ""
+msgstr "Lo anterior en mi sistema tardó alrededor de 1.5 minutos. Para un conjunto de datos más grande tardaría mucho más."
 
 #: ../../en/rasters.rst:853
 msgid "The aforementioned examples used two variants of the :command:`ST_Transform` raster function. The first was to get a reference raster that will be used to transform the other raster tiles to guarantee that all tiles have the same alignment.  Note the second variant of :command:`ST_Transform` used doesn't even take an input SRID. This is because the SRID and all the pixel scale and block sizes are read from the reference raster. If you used `ST_Transform(rast, srid)` form, then all your rasters might come out with different alignment making it impossible to apply an operation such as :command:`ST_Union` on them."
-msgstr ""
+msgstr "Los ejemplos mencionados usaron dos variantes de la función raster :command:`ST_Transform`. La primera fue para obtener un raster de referencia que se usará para transformar los otros tiles raster para garantizar que todos los tiles tengan el mismo alineamiento. Observa que la segunda variante de :command:`ST_Transform` utilizada ni siquiera toma un SRID de entrada. Esto se debe a que el SRID y toda la escala de píxeles y tamaños de bloque se leen del raster de referencia. Si usaras la forma `ST_Transform(rast, srid)`, entonces todos tus raster podrían salir con diferentes alineamientos, haciendo imposible aplicar una operación como :command:`ST_Union` sobre ellos."
 
 #: ../../en/rasters.rst:860
 msgid "The only problem with the aforementioned :command:`ST_Transform` approach is that when you transform, the transformed often exists in other tiles. If you looked at the above output closely enough by outputting the convex hull of the rasters, in the next example you'd see annoying overlaps around the borders."
-msgstr ""
+msgstr "El único problema con el enfoque :command:`ST_Transform` mencionado es que cuando transformas, lo transformado a menudo existe en otros tiles. Si miraras la salida anterior con suficiente detalle sacando el convex hull de los raster, en el siguiente ejemplo verías solapamientos molestos alrededor de los bordes."
 
 #: ../../en/rasters.rst:873
 msgid "viewed in pgAdmin would look something like:"
-msgstr ""
+msgstr "visto en pgAdmin se vería algo como:"
 
 #: ../../en/rasters.rst:879
 msgid "Using ST_MakeEmptyCoverage to create even tiled rasters"
-msgstr ""
+msgstr "Usando ST_MakeEmptyCoverage para crear raster con tiles uniformes"
 
 #: ../../en/rasters.rst:880
 msgid "A better approach, albeit a bit slower, is to define your own coverage tile structure from scratch using `ST_MakeEmptyCoverage <https://postgis.net/docs/RT_ST_MakeEmptyCoverage.html>`_ and then find the intersecting tiles for each new tile, and ST_Union these and then use `ST_Transform(ref, ST_Union...)` to create each tile."
-msgstr ""
+msgstr "Un mejor enfoque, aunque un poco más lento, es definir tu propia estructura de tiles de cobertura desde cero usando `ST_MakeEmptyCoverage <https://postgis.net/docs/RT_ST_MakeEmptyCoverage.html>`_ y luego encontrar los tiles que se intersectan para cada nuevo tile, y hacer ST_Union de estos y luego usar `ST_Transform(ref, ST_Union...)` para crear cada tile."
 
 #: ../../en/rasters.rst:884
 msgid "For this we'll be using quite a few functions, we learned about earlier."
-msgstr ""
+msgstr "Para esto estaremos usando varias funciones que aprendimos anteriormente."
 
 #: ../../en/rasters.rst:909
 msgid "Repeating the same exercise as earlier:"
-msgstr ""
+msgstr "Repitiendo el ejercicio:"
 
 #: ../../en/rasters.rst:918
 msgid "viewed in pgAdmin we no longer have overlaps:"
-msgstr ""
+msgstr "visto en pgAdmin ya no tenemos solapamientos:"
 
 #: ../../en/rasters.rst:922
 msgid "On my system this took ~10 minutes and returned 3879 rows. After the creation of the table, we'll want to do the usual of adding a spatial index, primary key, and constraints as follows:"
-msgstr ""
+msgstr "En mi sistema esto tomó ~10 minutos y devolvió 3879 filas. Después de la creación de la tabla, querrás hacer lo habitual de añadir un índice espacial, clave primaria y restricciones como sigue:"
 
 #: ../../en/rasters.rst:937
 msgid "Which should take under 2 minutes for this dataset."
-msgstr ""
+msgstr "Lo cual debería tomar menos de 2 minutos para este conjunto de datos."
 
 #: ../../en/rasters.rst:940
 msgid "Creating overview tables with ST_CreateOverview"
-msgstr ""
+msgstr "Creando tablas de overview con ST_CreateOverview"
 
 #: ../../en/rasters.rst:942
 msgid "Just as with our original dataset, it would be useful to have overview tables to speed up performance of some operations. `ST_CreateOverview <https://postgis.net/docs/RT_CreateOverview.html>`_ is a function fit for that purpose. You can use :command:`ST_CreateOverview` to create overviews also if you neglected to create one during the raster2pgsql load or  you decided, you need more overviews."
-msgstr ""
+msgstr "Al igual que con nuestro conjunto de datos original, sería útil tener tablas de overview para acelerar el rendimiento de algunas operaciones. `ST_CreateOverview <https://postgis.net/docs/RT_CreateOverview.html>`_ es una función adecuada para ese propósito. Puedes usar :command:`ST_CreateOverview` para crear overviews también si olvidaste crear una durante la carga con raster2pgsql o decidiste que necesitas más overviews."
 
 #: ../../en/rasters.rst:948
 msgid "We'll create level 2 and 3 overviews as we had done with our original using this code."
-msgstr ""
+msgstr "Crearemos overviews de nivel 2 y 3 como habíamos hecho con nuestro original usando este código."
 
 #: ../../en/rasters.rst:955
 msgid "This process sadly takes a while, and a longer while the more rows you have so be patient. For this dataset it took about 3-5 minutes for the overview factor `2` and 1 minute for the overview factor `3`."
-msgstr ""
+msgstr "Este proceso desafortunadamente toma tiempo, y más tiempo cuanto más filas tengas, así que sé paciente. Para este conjunto de datos tomó alrededor de 3-5 minutos para el overview factor `2` y 1 minuto para el overview factor `3`."
 
 #: ../../en/rasters.rst:958
 msgid "The :command:`ST_CreateOverView` function also adds in the needed constraints so the columns appear with full detail in the `raster_columns` and `raster_overviews` catalogs. It does not add indexes to them though and also does not add an rid column. The rid column is probably not necessary unless you need a primary key to edit with. You would probably want an index which you can create with the following:"
-msgstr ""
+msgstr "La función :command:`ST_CreateOverview` también añade las restricciones necesarias para que las columnas aparezcan con todo detalle en los catálogos `raster_columns` y `raster_overviews`. Sin embargo, no añade índices ni tampoco una columna rid. La columna rid probablemente no es necesaria a menos que necesites una clave primaria para editar. Probablemente quieras un índice que puedes crear con lo siguiente:"
 
 #: ../../en/rasters.rst:973
 msgid "ST_CreateOverview has an optional argument for denoting the sampling method. If not specified it uses the default `NearestNeighbor` which is generally the fastest to compute but may not be ideal. Resampling methods is beyond the scope of this workshop."
-msgstr ""
+msgstr "ST_CreateOverview tiene un argumento opcional para indicar el método de muestreo. Si no se especifica, usa el valor por defecto `NearestNeighbor` que generalmente es el más rápido de calcular pero puede no ser el ideal. Los métodos de remuestreo están fuera del alcance de este taller."
 
 #: ../../en/rasters.rst:979
 msgid "The intersection of rasters and geometries"
-msgstr ""
+msgstr "La intersección de rasters y geometrías"
 
 #: ../../en/rasters.rst:980
 msgid "There are a couple of functions commonly used to compute intersections of rasters and geometries. We've already seen :command:`ST_Clip` in action which returns the intersection of a raster and geometry as a raster, but there are others. For point data, the most commonly used is :command:`ST_Value` and then there is the :command:`ST_Intersection` which has several overloads some returning rasters and some returning a set of `geomval`."
-msgstr ""
+msgstr "Hay un par de funciones comúnmente usadas para calcular intersecciones de rasters y geometrías. Ya hemos visto :command:`ST_Clip` en acción que devuelve la intersección de un raster y una geometría como un raster, pero hay otras. Para datos puntuales, la más comúnmente usada es :command:`ST_Value` y luego está :command:`ST_Intersection` que tiene varias sobrecargas, algunas devolviendo rasters y otras devolviendo un conjunto de `geomval`."
 
 #: ../../en/rasters.rst:988
 msgid "Pixel values at a geometric Point"
-msgstr ""
+msgstr "Valores de píxel en un Punto geométrico"
 
 #: ../../en/rasters.rst:990
 msgid "If you need to return values from rasters based on intersection of several ad-hoc geometry points, you'll use `ST_Value <https://postgis.net/docs/RT_ST_Value.html>`_ or it's nearest relative `ST_NearestValue <https://postgis.net/docs/RT_ST_NearestValue.html>`_."
-msgstr ""
+msgstr "Si necesitas devolver valores de raster basados en la intersección de varios puntos geométricos ad-hoc, usarás `ST_Value <https://postgis.net/docs/RT_ST_Value.html>`_ o su pariente cercano `ST_NearestValue <https://postgis.net/docs/RT_ST_NearestValue.html>`_."
 
 #: ../../en/rasters.rst:1004
 msgid "This example takes about 1 second to return 2444 rows. If you used :command:`ST_Intersects` instead of :command:`&&`, the process would take about 3 seconds. The reason `ST_Intersects` is slower is that it performs an additional recheck in some cases a pixel by pixel check. If you expect all your points to be represented with data in your raster set and your rasters represent a coverage (a continguous set non-overlapping raster tiles), then `&&` is generally a speedier option."
-msgstr ""
+msgstr "Este ejemplo tarda alrededor de 1 segundo en devolver 2444 filas. Si usaras :command:`ST_Intersects` en lugar de :command:`&&`, el proceso tomaría alrededor de 3 segundos. La razón por la que `ST_Intersects` es más lento es porque realiza una verificación adicional en algunos casos, una verificación píxel por píxel. Si esperas que todos tus puntos estén representados con datos en tu conjunto raster y tus raster representan una cobertura (un conjunto contiguo de tiles raster no superpuestos), entonces `&&` es generalmente una opción más rápida."
 
 #: ../../en/rasters.rst:1009
 msgid "If your raster data is not densely populated or you have overlapping rasters (e.g. they represent different observations in time), or they are skewed (not axis aligned) then there is an advantage to having ST_Intersects weed out the false positives."
-msgstr ""
+msgstr "Si tus datos raster no están densamente poblados o tienes rasters superpuestos (por ejemplo, representan diferentes observaciones en el tiempo), o están inclinados (no alineados a los ejes), entonces hay una ventaja en que ST_Intersects elimine los falsos positivos."
 
 #: ../../en/rasters.rst:1015
 msgid "ST_Intersection raster style"
-msgstr ""
+msgstr "Estilo raster de ST_Intersection"
 
 #: ../../en/rasters.rst:1016
 msgid "Just as you can compute the intersection of two geometries using :command:`ST_Intersection`, you can compute intersection of two rasters or a raster and a geometry using `raster ST_Intersection <https://postgis.net/docs/RT_ST_Intersection.html>`_."
-msgstr ""
+msgstr "Así como puedes calcular la intersección de dos geometrías usando :command:`ST_Intersection`, puedes calcular la intersección de dos raster o un raster y una geometría usando `raster ST_Intersection <https://postgis.net/docs/RT_ST_Intersection.html>`_."
 
 #: ../../en/rasters.rst:1020
 msgid "What you get out of this beast, are two different kinds of things:"
-msgstr ""
+msgstr "Lo que obtienes de esta función son dos tipos diferentes de cosas:"
 
 #: ../../en/rasters.rst:1022
 msgid "Intersect a geometry with a raster, and you get a set of `geomval` offspring. Perhaps one, but most often many."
-msgstr ""
+msgstr "Intersecta una geometría con un raster, y obtienes un conjunto de descendientes `geomval`. Quizás uno, pero la mayoría de las veces muchos."
 
 #: ../../en/rasters.rst:1025
 msgid "Intersect 2 rasters and you get a single `raster` back."
-msgstr ""
+msgstr "Intersecta 2 rasters y obtienes un único `raster` de vuelta."
 
 #: ../../en/rasters.rst:1027
 msgid "The golden rule for both raster intersection and geometry intersection is that both parties involved must have the same spatial reference system. For raster/raster, they also have to have same alignment."
-msgstr ""
+msgstr "La regla de oro tanto para la intersección raster como para la intersección de geometrías es que ambas partes involucradas deben tener el mismo sistema de referencia espacial. Para raster/raster, también deben tener el mismo alineamiento."
 
 #: ../../en/rasters.rst:1031
 msgid "Here is an example which answers a question you may have been curious about. If we bucket our elevations into 5 buckets of elevation values, which elevation range results in the most gun fatalities? We know based on our earlier summary statistics that `0` is the lowest value and `411` is the highest value for elevation in our nyc dem dataset, so we use that as min and max value for our `width_bucket <https://www.postgresql.org/docs/current/functions-math.html>`_ call."
-msgstr ""
+msgstr "Aquí hay un ejemplo que responde a una pregunta que podrías haber tenido curiosidad. Si agrupamos nuestras elevaciones en 5 intervalos de valores de elevación, ¿qué rango de elevación resulta en la mayor cantidad de muertes por arma de fuego? Sabemos, basándonos en nuestras estadísticas resumidas anteriores, que `0` es el valor más bajo y `411` es el valor más alto de elevación en nuestro conjunto de datos nyc dem, así que usamos eso como valor mínimo y máximo para nuestra llamada a `width_bucket <https://www.postgresql.org/docs/current/functions-math.html>`_."
 
 #: ../../en/rasters.rst:1054
 msgid "Is there an important correlation between gun homicides and elevation? Probably not."
-msgstr ""
+msgstr "¿Existe una correlación importante entre homicidios con armas de fuego y elevación? Probablemente no."
 
 #: ../../en/rasters.rst:1058
 msgid "Let's take a look at raster / raster intersection:"
-msgstr ""
+msgstr "Veamos la intersección raster/raster:"
 
 #: ../../en/rasters.rst:1067
 msgid "What we get are two rows with NULLLs, and if you have your PostgreSQL set to show notices, you'll see:"
-msgstr ""
+msgstr "Lo que obtenemos son dos filas con NULLs, y si tienes PostgreSQL configurado para mostrar avisos, verás:"
 
 #: ../../en/rasters.rst:1069
 msgid "**NOTICE:  The two rasters provided do not have the same alignment.  Returning NULL**"
-msgstr ""
+msgstr "**NOTICE: The two rasters provided do not have the same alignment. Returning NULL**"
 
 #: ../../en/rasters.rst:1071
 msgid "In order to fix this, we can align one to the other as it's coming out of the gate using `ST_Resample <https://postgis.net/docs/RT_ST_Resample.html>`_."
-msgstr ""
+msgstr "Para solucionar esto, podemos alinear uno con el otro en el momento de la salida usando `ST_Resample <https://postgis.net/docs/RT_ST_Resample.html>`_."
 
 #: ../../en/rasters.rst:1083
 msgid "Let's also roll it up into a single stats record"
-msgstr ""
+msgstr "Vamos también a resumirlo en un único registro estadístico"
 
 #: ../../en/rasters.rst:1097
 msgid "which outputs:"
-msgstr ""
+msgstr "lo cual produce:"
 
 #: ../../en/rasters.rst:1108
 msgid "Map Algebra Functions"
-msgstr ""
+msgstr "Funciones de álgebra de mapas"
 
 #: ../../en/rasters.rst:1109
 msgid "Map algebra is the idea that you can do math on your pixel values. The :command:`ST_Union` and :command:`ST_Intersection` functions covered earlier are a special fast case of map algebra. Then there are the `ST_MapAlgebra <https://postgis.net/docs/RT_ST_MapAlgebra.html>`_ family of functions which allow you to define your own crazy math, but at cost of performance."
-msgstr ""
+msgstr "El álgebra de mapas es la idea de que puedes hacer matemáticas sobre tus valores de píxeles. Las funciones :command:`ST_Union` y :command:`ST_Intersection` cubiertas anteriormente son un caso especial rápido de álgebra de mapas. Luego está la familia de funciones `ST_MapAlgebra <https://postgis.net/docs/RT_ST_MapAlgebra.html>`_ que te permiten definir tus propias matemáticas locas, pero a costa del rendimiento."
 
 #: ../../en/rasters.rst:1117
 msgid "People have the habit of jumping to  :command:`ST_MapAlgebra`, probably because the name sounds so cool and sophisticated. Who wouldn't want to tell their friends? *I'm using a function called ST_MapAlgebra.* My advice, explore other functions before you pull out that shotgun. Your life will be simpler and your performance will be 100 times better, and your code will be shorter."
-msgstr ""
+msgstr "La gente tiene la costumbre de saltar a :command:`ST_MapAlgebra`, probablemente porque el nombre suena tan genial y sofisticado. ¿Quién no querría decirle a sus amigos? *Estoy usando una función llamada ST_MapAlgebra.* Mi consejo: explora otras funciones antes de sacar esa escopeta. Tu vida será más simple, tu rendimiento será 100 veces mejor y tu código será más corto."
 
 #: ../../en/rasters.rst:1123
 msgid "Before we showcase `ST_MapAlgebra`, we'll explore other functions that fit under the `Map Algebra` family of functions and generally have better performance than `ST_MapAlgebra`."
-msgstr ""
+msgstr "Antes de mostrar `ST_MapAlgebra`, exploraremos otras funciones que encajan en la familia de funciones de `Map Algebra` y que generalmente tienen mejor rendimiento que `ST_MapAlgebra`."
 
 #: ../../en/rasters.rst:1127
 msgid "Reclassify your raster using ST_Reclass"
-msgstr ""
+msgstr "Reclasificar tu raster usando ST_Reclass"
 
 #: ../../en/rasters.rst:1129
 msgid "An often overlooked map-algebraish function is the `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_ function, who sits in the background waiting for someone to discover the power and speed it can offer."
-msgstr ""
+msgstr "Una función de álgebra de mapas a menudo pasada por alto es la función `ST_Reclass <https://postgis.net/docs/RT_ST_Reclass.html>`_, que espera en segundo plano a que alguien descubra el poder y la velocidad que puede ofrecer."
 
 #: ../../en/rasters.rst:1133
 msgid "What does **ST_Reclass** do? It as the name implies, reclassifies your pixel values based on minimalist range algebra."
-msgstr ""
+msgstr "¿Qué hace **ST_Reclass**? Como su nombre lo indica, reclasifica tus valores de píxeles basándose en un álgebra de rangos minimalista."
 
 #: ../../en/rasters.rst:1135
 msgid "Lets revisit our NYC Dems.  Perhaps we only care about classifying our elevations as 1) low, 2) medium, 3) high , and 4) really high. We don't need 411 values, we just need 4.  With that said lets do some reclassifying."
-msgstr ""
+msgstr "Revisitemos nuestros NYC Dems. Tal vez solo nos importe clasificar nuestras elevaciones como 1) baja, 2) media, 3) alta, y 4) muy alta. No necesitamos 411 valores, solo necesitamos 4. Dicho esto, hagamos algo de reclasificación."
 
 #: ../../en/rasters.rst:1138
 msgid "The classification scheme is governed by the `reclass expression <https://postgis.net/docs/reclassarg.html>`_."
-msgstr ""
+msgstr "El esquema de clasificación está gobernado por la `reclass expression <https://postgis.net/docs/reclassarg.html>`_."
 
 #: ../../en/rasters.rst:1154
 msgid "Which would output:"
-msgstr ""
+msgstr "Lo cual produciría:"
 
 #: ../../en/rasters.rst:1166
 msgid "If this were a classification scheme we preferred, we could create a new table using the ST_Reclass to recompute each tile."
-msgstr ""
+msgstr "Si este fuera un esquema de clasificación que prefiriéramos, podríamos crear una nueva tabla usando ST_Reclass para recalcular cada tile."
 
 #: ../../en/rasters.rst:1169
 msgid "Coloring your rasters with ST_ColorMap"
-msgstr ""
+msgstr "Coloreando tus rasters con ST_ColorMap"
 
 #: ../../en/rasters.rst:1170
 msgid "The `ST_ColorMap <https://postgis.net/docs/RT_ST_ColorMap.html>`_ function is another mapalgebraish function that reclassifies your pixel values.  Except it is band creating. It converts a single band raster such as our Dems into a visually presentable 3 or 4 banded raster."
-msgstr ""
+msgstr "La función `ST_ColorMap <https://postgis.net/docs/RT_ST_ColorMap.html>`_ es otra función de tipo mapalgebra que reclasifica tus valores de píxeles. Excepto que es creadora de bandas. Convierte un raster de una sola banda, como nuestros Dems, en un raster de 3 o 4 bandas visualmente presentable."
 
 #: ../../en/rasters.rst:1174
 msgid "You could use one of the built-in colormaps as below if you don't want to fuss with creating one."
-msgstr ""
+msgstr "Podrías usar uno de los colormaps incorporados como se muestra a continuación si no quieres complicarte creando uno."
 
 #: ../../en/rasters.rst:1187
 msgid "Which looks like:"
-msgstr ""
+msgstr "Lo cual se vería así:"
 
 #: ../../en/rasters.rst:1191
 msgid "The bluer the color the lower the elevation and the redder the color the higher the elevation."
-msgstr ""
+msgstr "Cuanto más azul es el color, menor es la elevación, y cuanto más rojo es el color, mayor es la elevación."

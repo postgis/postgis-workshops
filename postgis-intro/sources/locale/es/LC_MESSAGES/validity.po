@@ -7,13 +7,14 @@
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 12:31+0000\n"
-"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
+"PO-Revision-Date: 2025-09-26 06:54+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "validity/es/>\n"
 "Language: es\n"
@@ -35,14 +36,14 @@ msgid ""
 "Which begs the question: what does it mean to be invalid, and why should we "
 "care?"
 msgstr ""
-"En el 90% de los casos, la respuesta a la pregunta «¿por qué mi consulta da "
-"un error “TopologyException”?» es «una o varias de las entradas no son "
-"válidas». Lo que nos lleva a preguntarnos: ¿qué significa que no sea válida "
+"En el 90% de los casos, la respuesta a la pregunta \"¿por qué mi consulta da "
+"un error 'TopologyException'?\" es \"una o varias de las entradas no son "
+"válidas\". Lo que nos lleva a preguntarnos: ¿qué significa que no sea válida "
 "y por qué debería importarnos?"
 
 #: ../../en/validity.rst:9
 msgid "What is Validity"
-msgstr "¿Qué es la Validez?"
+msgstr "Qué es la Validez"
 
 #: ../../en/validity.rst:11
 msgid ""
@@ -134,8 +135,8 @@ msgstr ""
 "El anillo exterior es en realidad una figura de ocho, con una auto-"
 "intersección en el centro. Obsérvese que las rutinas gráficas representan "
 "correctamente el relleno del polígono, de modo que visualmente parece un "
-"«área»: dos cuadrados de una unidad, es decir, un área total de dos unidades "
-"de área."
+"\"área\": dos cuadrados de una unidad, es decir, un área total de dos "
+"unidades de área."
 
 #: ../../en/validity.rst:37
 msgid "Let's see what the database thinks the area of our polygon is:"
@@ -159,7 +160,7 @@ msgstr ""
 "comportamiento) ocho, el área delimitada está a la derecha de la línea para "
 "un lóbulo y a la izquierda para el otro. Esto hace que las áreas calculadas "
 "para cada lóbulo se anulen (una sale como 1, la otra como -1), de ahí el "
-"resultado de «área cero»."
+"resultado de \"área cero\"."
 
 #: ../../en/validity.rst:55
 msgid "Detecting Validity"
@@ -172,6 +173,10 @@ msgid ""
 "command:`ST_IsValid(geometry)` function. Used against our figure-eight, we "
 "get a quick answer:"
 msgstr ""
+"En el ejemplo anterior teníamos un polígono que **sabíamos** era inválido. ¿"
+"Cómo detectamos la invalidez en una tabla con millones de geometrías? Con la "
+"función :command:`ST_IsValid(geometry)`. Usada contra nuestro \"ocho\", "
+"obtenemos una respuesta rápida:"
 
 #: ../../en/validity.rst:69
 msgid ""
@@ -179,22 +184,29 @@ msgid ""
 "the :command:`ST_IsValidReason(geometry)` function to find out the source of "
 "the invalidity:"
 msgstr ""
+"Ahora sabemos que la entidad es inválida, pero no sabemos por qué. Podemos "
+"usar la función :command:`ST_IsValidReason(geometry)` para encontrar la "
+"causa de la invalidez:"
 
 #: ../../en/validity.rst:81
 msgid ""
 "Note that in addition to the reason (self-intersection) the location of the "
 "invalidity (coordinate (1 1)) is also returned."
 msgstr ""
+"Observa que además de la razón (autointersección) también se devuelve la "
+"ubicación de la invalidez (coordenada (1 1))."
 
 #: ../../en/validity.rst:83
 msgid ""
 "We can use the :command:`ST_IsValid(geometry)` function to test our tables "
 "too:"
 msgstr ""
+"Podemos usar la función :command:`ST_IsValid(geometry)` para probar nuestras "
+"tablas también:"
 
 #: ../../en/validity.rst:104
 msgid "Repairing Invalidity"
-msgstr ""
+msgstr "Reparar la no validez"
 
 #: ../../en/validity.rst:106
 msgid ""
@@ -207,6 +219,15 @@ msgid ""
 "read the `manual page <http://postgis.net/docs/ST_MakeValid.html>`_ "
 "carefully and choose the one you like best."
 msgstr ""
+"La reparación de invalidez implica reducir un polígono a sus estructuras más "
+"simples (anillos), asegurando que los anillos sigan las reglas de validez, y "
+"luego construir nuevos polígonos que sigan las reglas de encierro de "
+"anillos. Frecuentemente los resultados son intuitivos, pero en el caso de "
+"entradas extremadamente problemáticas, las salidas válidas pueden no "
+"ajustarse a tu intuición de cómo deberían verse. Las versiones recientes de "
+"PostGIS incluyen diferentes algoritmos para la reparación de geometrías: lee "
+"con cuidado la `página del manual <http://postgis.net/docs/ST_MakeValid."
+"html>`_ y elige el que más te guste."
 
 #: ../../en/validity.rst:108
 msgid ""
@@ -214,6 +235,9 @@ msgid ""
 "single ring that encloses an area but bends around to touch itself, leaving "
 "a \"hole\" which is not actually a hole."
 msgstr ""
+"Por ejemplo, aquí hay un caso clásico de invalidez -- el \"polígono banana\" "
+"-- un único anillo que encierra un área pero se dobla para tocarse a sí "
+"mismo, dejando un \"agujero\" que en realidad no es un agujero."
 
 #: ../../en/validity.rst:117
 msgid ""
@@ -221,6 +245,9 @@ msgid ""
 "polygon returns a valid :term:`OGC` polygon, consisting of an outer and "
 "inner ring that touch at one point."
 msgstr ""
+"Ejecutar `ST_MakeValid <http://postgis.net/docs/ST_MakeValid.html>`_ en el "
+"polígono devuelve un polígono :term:`OGC` válido, consistente en un anillo "
+"exterior e interior que se tocan en un punto."
 
 #: ../../en/validity.rst:133
 msgid ""
@@ -231,16 +258,24 @@ msgid ""
 "reverse. Neither is \"correct\", they are just different ways to model the "
 "same situation."
 msgstr ""
+"El \"polígono banana\" (o \"concha invertida\") es un caso donde el modelo "
+"topológico :term:`OGC` para geometrías válidas y el modelo usado "
+"internamente por ESRI difieren. El modelo de ESRI considera inválidos los "
+"anillos que se tocan, y prefiere la forma banana para este tipo de figura. "
+"El modelo OGC es lo contrario. Ninguno es \"correcto\", son solo formas "
+"diferentes de modelar la misma situación."
 
 #: ../../en/validity.rst:137
 msgid "Bulk Validity Repair"
-msgstr ""
+msgstr "Reparación de invalidez en lote"
 
 #: ../../en/validity.rst:139
 msgid ""
 "Here's an example of SQL to flag invalid geometries for review while adding "
 "a repaired version to the table."
 msgstr ""
+"Aquí hay un ejemplo de SQL para marcar geometrías inválidas para revisión "
+"mientras se agrega una versión reparada a la tabla."
 
 #: ../../en/validity.rst:159
 msgid ""
@@ -248,6 +283,9 @@ msgid ""
 "openjump.org) which includes a validation routine under **Tools->QA-"
 ">Validate Selected Layers**."
 msgstr ""
+"Una buena herramienta para reparar visualmente geometrías inválidas es "
+"OpenJump (http://openjump.org) que incluye una rutina de validación en "
+"**Tools->QA->Validate Selected Layers**."
 
 #: ../../en/validity.rst:163
 msgid "Function List"
@@ -258,6 +296,8 @@ msgid ""
 "`ST_IsValid(geometry A) <http://postgis.net/docs/ST_IsValid.html>`_: Returns "
 "a boolean indiciting whether the geometery is valid."
 msgstr ""
+"`ST_IsValid(geometry A) <http://postgis.net/docs/ST_IsValid.html>`_: "
+"Devuelve un valor booleano que indica si la geometría es válida."
 
 #: ../../en/validity.rst:167
 msgid ""
@@ -265,9 +305,14 @@ msgid ""
 "html>`_: Returns a text string with the reason for the invalidity and a "
 "coordinate of invalidity."
 msgstr ""
+"`ST_IsValidReason(geometry A) <http://postgis.net/docs/ST_IsValidReason."
+"html>`_: Devuelve una cadena de texto con la razón de la invalidez y una "
+"coordenada de invalidez."
 
 #: ../../en/validity.rst:169
 msgid ""
 "`ST_MakeValid(geometry A) <http://postgis.net/docs/ST_MakeValid.html>`_: "
 "Returns a geometry re-constructed to obey the validity rules."
 msgstr ""
+"`ST_MakeValid(geometry A) <http://postgis.net/docs/ST_MakeValid.html>`_: "
+"Devuelve una geometría reconstruida para cumplir con las reglas de validez."

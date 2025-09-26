@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-06-26 08:45+0000\n"
-"Last-Translator: David Mateos <dmateos@users.noreply.weblate.osgeo.org>\n"
+"PO-Revision-Date: 2025-09-25 16:32+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships/es/>\n"
 "Language: es\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../../en/spatial_relationships.rst:4
 msgid "Spatial Relationships"
-msgstr ""
+msgstr "Relaciones Espaciales"
 
 #: ../../en/spatial_relationships.rst:6
 msgid ""
@@ -32,12 +32,20 @@ msgid ""
 "deserialize (:command:`ST_AsGML`) geometries. What these functions have in "
 "common is that they only work on one geometry at a time."
 msgstr ""
+"Hasta ahora solo hemos usado funciones espaciales que miden "
+"(:command:`ST_Area`, :command:`ST_Length`), serializan "
+"(:command:`ST_GeomFromText`) o deserializan (:command:`ST_AsGML`) "
+"geometrías. Lo que estas funciones tienen en común es que solo trabajan con "
+"una geometría a la vez."
 
 #: ../../en/spatial_relationships.rst:8
 msgid ""
 "Spatial databases are powerful because they not only store geometry, they "
 "also have the ability to compare *relationships between geometries*."
 msgstr ""
+"Las bases de datos espaciales son potentes porque no solo almacenan "
+"geometrías, también tienen la capacidad de comparar *relaciones entre "
+"geometrías*."
 
 #: ../../en/spatial_relationships.rst:10
 msgid ""
@@ -45,21 +53,29 @@ msgid ""
 "are the intersections of subway lines and streets?\" can only be answered by "
 "comparing geometries representing the bike racks, streets, and subway lines."
 msgstr ""
+"Preguntas como \"¿Cuáles son los parqueaderos de bicicletas más cercanos a "
+"un parque?\" o \"¿Dónde están las intersecciones de líneas de metro y calles?"
+"\" solo pueden responderse comparando geometrías que representan los "
+"parqueaderos de bicicletas, las calles y las líneas de metro."
 
 #: ../../en/spatial_relationships.rst:12
 msgid ""
 "The OGC standard defines the following set of methods to compare geometries."
 msgstr ""
+"El estándar OGC define el siguiente conjunto de métodos para comparar "
+"geometrías."
 
 #: ../../en/spatial_relationships.rst:15
 msgid "ST_Equals"
-msgstr ""
+msgstr "ST_Equals"
 
 #: ../../en/spatial_relationships.rst:17
 msgid ""
 ":command:`ST_Equals(geometry A, geometry B)` tests the spatial equality of "
 "two geometries."
 msgstr ""
+":command:`ST_Equals(geometry A, geometry B)` prueba la igualdad espacial de "
+"dos geometrías."
 
 #: ../../en/spatial_relationships.rst:22
 msgid ""
@@ -67,18 +83,25 @@ msgid ""
 "coordinate values, i.e. if the second shape is equal (identical) to the "
 "first shape."
 msgstr ""
+"ST_Equals devuelve TRUE si dos geometrías del mismo tipo tienen valores de "
+"coordenadas x,y idénticos, es decir, si la segunda forma es igual (idéntica) "
+"a la primera."
 
 #: ../../en/spatial_relationships.rst:24
 msgid ""
 "First, let's retrieve a representation of a point from our "
 "``nyc_subway_stations`` table. We'll take just the entry for 'Broad St'."
 msgstr ""
+"Primero, recuperemos una representación de un punto de nuestra tabla "
+"``nyc_subway_stations``. Tomaremos solo la entrada de 'Broad St'."
 
 #: ../../en/spatial_relationships.rst:38
 msgid ""
 "Then, plug the geometry representation back into an :command:`ST_Equals` "
 "test:"
 msgstr ""
+"Luego, volvemos a usar la representación de la geometría en una prueba "
+":command:`ST_Equals`:"
 
 #: ../../en/spatial_relationships.rst:54
 msgid ""
@@ -87,16 +110,22 @@ msgid ""
 "representation of the coordinate values. For a test like equality, using the "
 "exact coordinates is necessary."
 msgstr ""
+"La representación del punto no era muy legible para humanos "
+"(``0101000020266900000EEBD4CF27CF2141BC17D69516315141``) pero era una "
+"representación exacta de los valores de coordenadas. Para una prueba como la "
+"de igualdad, usar las coordenadas exactas es necesario."
 
 #: ../../en/spatial_relationships.rst:58
 msgid "ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps"
-msgstr ""
+msgstr "ST_Intersects, ST_Disjoint, ST_Crosses y ST_Overlaps"
 
 #: ../../en/spatial_relationships.rst:60
 msgid ""
 ":command:`ST_Intersects`, :command:`ST_Crosses`, and :command:`ST_Overlaps` "
 "test whether the interiors of the geometries intersect."
 msgstr ""
+":command:`ST_Intersects`, :command:`ST_Crosses` y :command:`ST_Overlaps` "
+"prueban si los interiores de las geometrías se intersectan."
 
 #: ../../en/spatial_relationships.rst:65
 msgid ""
@@ -104,6 +133,9 @@ msgid ""
 "shapes have any space in common, i.e., if their boundaries or interiors "
 "intersect."
 msgstr ""
+":command:`ST_Intersects(geometry A, geometry B)` devuelve t (TRUE) si las "
+"dos formas tienen algún espacio en común, es decir, si sus límites o "
+"interiores se intersectan."
 
 #: ../../en/spatial_relationships.rst:70
 msgid ""
@@ -113,6 +145,11 @@ msgid ""
 "\"disjoint\" because the intersects tests can be spatially indexed, while "
 "the disjoint test cannot."
 msgstr ""
+"El opuesto de ST_Intersects es :command:`ST_Disjoint(geometry A , geometry "
+"B)`. Si dos geometrías son disjuntas, no se intersectan, y viceversa. De "
+"hecho, a menudo es más eficiente probar \"no intersecta\" que probar "
+"\"disjunta\" porque las pruebas de intersección pueden estar indexadas "
+"espacialmente, mientras que la prueba de disjunción no."
 
 #: ../../en/spatial_relationships.rst:75
 msgid ""
@@ -123,6 +160,12 @@ msgid ""
 "of the two source geometries and the intersection set is interior to both "
 "source geometries."
 msgstr ""
+"Para comparaciones multipunto/polígono, multipunto/linestring, linestring/"
+"linestring, linestring/polígono y linestring/multipolígono, "
+":command:`ST_Crosses(geometry A, geometry B)` devuelve t (TRUE) si la "
+"intersección da como resultado una geometría cuya dimensión es una menos que "
+"la dimensión máxima de las dos geometrías de origen y el conjunto de "
+"intersección está en el interior de ambas geometrías de origen."
 
 #: ../../en/spatial_relationships.rst:80
 msgid ""
@@ -130,22 +173,29 @@ msgid ""
 "the same dimension and returns TRUE if their intersection set results in a "
 "geometry different from both but of the same dimension."
 msgstr ""
+":command:`ST_Overlaps(geometry A, geometry B)` compara dos geometrías de la "
+"misma dimensión y devuelve TRUE si su conjunto de intersección da como "
+"resultado una geometría diferente de ambas pero de la misma dimensión."
 
 #: ../../en/spatial_relationships.rst:82
 msgid ""
 "Let's take our Broad Street subway station and determine its neighborhood "
 "using the :command:`ST_Intersects` function:"
 msgstr ""
+"Tomemos nuestra estación de metro Broad Street y determinemos su vecindario "
+"usando la función :command:`ST_Intersects`:"
 
 #: ../../en/spatial_relationships.rst:109
 msgid "ST_Touches"
-msgstr ""
+msgstr "ST_Touches"
 
 #: ../../en/spatial_relationships.rst:111
 msgid ""
 ":command:`ST_Touches` tests whether two geometries touch at their "
 "boundaries, but do not intersect in their interiors"
 msgstr ""
+":command:`ST_Touches` prueba si dos geometrías se tocan en sus límites, pero "
+"no se intersectan en sus interiores"
 
 #: ../../en/spatial_relationships.rst:116
 msgid ""
@@ -153,16 +203,21 @@ msgid ""
 "geometries' boundaries intersect or if only one of the geometry's interiors "
 "intersects the other's boundary."
 msgstr ""
+":command:`ST_Touches(geometry A, geometry B)` devuelve TRUE si los límites "
+"de cualquiera de las geometrías se intersectan o si solo el interior de una "
+"de las geometrías intersecta el límite de la otra."
 
 #: ../../en/spatial_relationships.rst:119
 msgid "ST_Within and ST_Contains"
-msgstr ""
+msgstr "ST_Within y ST_Contains"
 
 #: ../../en/spatial_relationships.rst:121
 msgid ""
 ":command:`ST_Within` and :command:`ST_Contains` test whether one geometry is "
 "fully within the other."
 msgstr ""
+":command:`ST_Within` y :command:`ST_Contains` prueban si una geometría está "
+"completamente dentro de la otra."
 
 #: ../../en/spatial_relationships.rst:126
 msgid ""
@@ -170,22 +225,29 @@ msgid ""
 "geometry is completely within the second geometry. ST_Within tests for the "
 "exact opposite result of ST_Contains."
 msgstr ""
+":command:`ST_Within(geometry A , geometry B)` devuelve TRUE si la primera "
+"geometría está completamente dentro de la segunda geometría. ST_Within "
+"prueba exactamente el resultado opuesto de ST_Contains."
 
 #: ../../en/spatial_relationships.rst:128
 msgid ""
 ":command:`ST_Contains(geometry A, geometry B)` returns TRUE if the second "
 "geometry is completely contained by the first geometry."
 msgstr ""
+":command:`ST_Contains(geometry A, geometry B)` devuelve TRUE si la segunda "
+"geometría está completamente contenida por la primera geometría."
 
 #: ../../en/spatial_relationships.rst:132
 msgid "ST_Distance and ST_DWithin"
-msgstr ""
+msgstr "ST_Distance y ST_DWithin"
 
 #: ../../en/spatial_relationships.rst:134
 msgid ""
 "An extremely common GIS question is \"find all the stuff within distance X "
 "of this other stuff\"."
 msgstr ""
+"Una pregunta de SIG extremadamente común es \"encontrar todas las cosas "
+"dentro de la distancia X de esta otra cosa\"."
 
 #: ../../en/spatial_relationships.rst:136
 msgid ""
@@ -193,6 +255,10 @@ msgid ""
 "distance between two geometries and returns it as a float. This is useful "
 "for actually reporting back the distance between objects."
 msgstr ""
+"La función :command:`ST_Distance(geometry A, geometry B)` calcula la "
+"distancia *más corta* entre dos geometrías y la devuelve como un número de "
+"punto flotante. Esto es útil para informar realmente la distancia entre "
+"objetos."
 
 #: ../../en/spatial_relationships.rst:148
 msgid ""
@@ -202,18 +268,27 @@ msgid ""
 "buffer of the road?\". You don't have to calculate an actual buffer, you "
 "just have to test the distance relationship."
 msgstr ""
+"Para probar si dos objetos están dentro de una distancia entre sí, la "
+"función :command:`ST_DWithin` proporciona una prueba de verdadero/falso "
+"acelerada por índice. Esto es útil para preguntas como \"¿cuántos árboles "
+"están dentro de un buffer de 500 metros de la carretera?\". No tienes que "
+"calcular un buffer real, solo tienes que probar la relación de distancia."
 
 #: ../../en/spatial_relationships.rst:153
 msgid ""
 "Using our Broad Street subway station again, we can find the streets nearby "
 "(within 10 meters of) the subway stop:"
 msgstr ""
+"Usando nuevamente nuestra estación de metro Broad Street, podemos encontrar "
+"las calles cercanas (a menos de 10 metros) de la parada de metro:"
 
 #: ../../en/spatial_relationships.rst:173
 msgid ""
 "And we can verify the answer on a map. The Broad St station is actually at "
 "the intersection of Wall, Broad and Nassau Streets."
 msgstr ""
+"Y podemos verificar la respuesta en un mapa. La estación Broad St está "
+"realmente en la intersección de Wall, Broad y Nassau Streets."
 
 #: ../../en/spatial_relationships.rst:178
 msgid "Function List"
@@ -225,6 +300,10 @@ msgid ""
 "html>`_: Returns true if and only if no points of B lie in the exterior of "
 "A, and at least one point of the interior of B lies in the interior of A."
 msgstr ""
+"`ST_Contains(geometry A, geometry B) <http://postgis.net/docs/ST_Contains."
+"html>`_: Devuelve true si y solo si ningún punto de B se encuentra en el "
+"exterior de A, y al menos un punto del interior de B se encuentra en el "
+"interior de A."
 
 #: ../../en/spatial_relationships.rst:182
 msgid ""
@@ -232,6 +311,9 @@ msgid ""
 "html>`_: Returns TRUE if the supplied geometries have some, but not all, "
 "interior points in common."
 msgstr ""
+"`ST_Crosses(geometry A, geometry B)  <http://postgis.net/docs/ST_Crosses."
+"html>`_: Devuelve TRUE si las geometrías suministradas tienen algunos, pero "
+"no todos, los puntos interiores en común."
 
 #: ../../en/spatial_relationships.rst:184
 msgid ""
@@ -239,6 +321,9 @@ msgid ""
 "html>`_: Returns TRUE if the Geometries do not \"spatially intersect\" - if "
 "they do not share any space together."
 msgstr ""
+"`ST_Disjoint(geometry A , geometry B) <http://postgis.net/docs/ST_Disjoint."
+"html>`_: Devuelve TRUE si las geometrías no \"intersectan espacialmente\", "
+"es decir, si no comparten ningún espacio."
 
 #: ../../en/spatial_relationships.rst:186
 msgid ""
@@ -246,6 +331,9 @@ msgid ""
 "html>`_: Returns the 2-dimensional cartesian minimum distance (based on "
 "spatial ref) between two geometries in projected units."
 msgstr ""
+"`ST_Distance(geometry A, geometry B)  <http://postgis.net/docs/ST_Distance."
+"html>`_: Devuelve la distancia cartesiana bidimensional mínima (basada en la "
+"referencia espacial) entre dos geometrías en unidades proyectadas."
 
 #: ../../en/spatial_relationships.rst:188
 msgid ""
@@ -253,6 +341,9 @@ msgid ""
 "ST_DWithin.html>`_: Returns true if the geometries are within the specified "
 "distance (radius) of one another."
 msgstr ""
+"`ST_DWithin(geometry A, geometry B, radius) <http://postgis.net/docs/"
+"ST_DWithin.html>`_: Devuelve true si las geometrías están dentro de la "
+"distancia especificada (radio) una de la otra."
 
 #: ../../en/spatial_relationships.rst:190
 msgid ""
@@ -260,6 +351,9 @@ msgid ""
 "html>`_: Returns true if the given geometries represent the same geometry. "
 "Directionality is ignored."
 msgstr ""
+"`ST_Equals(geometry A, geometry B) <http://postgis.net/docs/ST_Equals."
+"html>`_: Devuelve true si las geometrías dadas representan la misma "
+"geometría. Se ignora la direccionalidad."
 
 #: ../../en/spatial_relationships.rst:192
 msgid ""
@@ -268,6 +362,10 @@ msgid ""
 "intersect\" - (share any portion of space) and FALSE if they don't (they are "
 "Disjoint)."
 msgstr ""
+"`ST_Intersects(geometry A, geometry B) <http://postgis.net/docs/ST_Intersects"
+".html>`_: Devuelve TRUE si las geometrías/geografías \"intersectan "
+"espacialmente\" (comparten alguna porción del espacio) y FALSE si no lo "
+"hacen (son disjuntas)."
 
 #: ../../en/spatial_relationships.rst:194
 msgid ""
@@ -275,6 +373,9 @@ msgid ""
 "html>`_: Returns TRUE if the Geometries share space, are of the same "
 "dimension, but are not completely contained by each other."
 msgstr ""
+"`ST_Overlaps(geometry A, geometry B) <http://postgis.net/docs/ST_Overlaps."
+"html>`_: Devuelve TRUE si las geometrías comparten espacio, son de la misma "
+"dimensión, pero no están completamente contenidas una por la otra."
 
 #: ../../en/spatial_relationships.rst:196
 msgid ""
@@ -282,9 +383,15 @@ msgid ""
 "html>`_: Returns TRUE if the geometries have at least one point in common, "
 "but their interiors do not intersect."
 msgstr ""
+"`ST_Touches(geometry A, geometry B)  <http://postgis.net/docs/ST_Touches."
+"html>`_: Devuelve TRUE si las geometrías tienen al menos un punto en común, "
+"pero sus interiores no se intersectan."
 
 #: ../../en/spatial_relationships.rst:198
 msgid ""
 "`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within."
 "html>`_: Returns true if the geometry A is completely inside geometry B"
 msgstr ""
+"`ST_Within(geometry A , geometry B) <http://postgis.net/docs/ST_Within."
+"html>`_: Devuelve true si la geometría A está completamente dentro de la "
+"geometría B"

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "advanced_geometry_construction/es/>\n"
@@ -312,10 +312,12 @@ msgid ""
 "To work out the end stations of every route, we first have to work out what "
 "routes there are! We find the distinct routes."
 msgstr ""
+"Para determinar las estaciones finales de cada ruta, primero tenemos que "
+"averiguar qué rutas existen. Encontramos las rutas distintas."
 
 #: ../../en/advanced_geometry_construction.rst:130
 msgid "Note the use of two advanced PostgreSQL ARRAY functions:"
-msgstr ""
+msgstr "Observa el uso de dos funciones avanzadas de PostgreSQL para ARRAYS:"
 
 #: ../../en/advanced_geometry_construction.rst:132
 msgid ""
@@ -325,6 +327,11 @@ msgid ""
 "arrays of strings, as in this case, but also of geometries and geographies "
 "as we'll see later in this example."
 msgstr ""
+"**string_to_array** recibe una cadena y la divide en un arreglo usando un "
+"carácter separador. `PostgreSQL soporta arreglos <http://www.postgresql.org/"
+"docs/current/static/arrays.html>`_ de cualquier tipo, por lo que es posible "
+"construir arreglos de cadenas, como en este caso, pero también de geometrías "
+"y geographies como veremos más adelante en este ejemplo."
 
 #: ../../en/advanced_geometry_construction.rst:133
 msgid ""
@@ -332,10 +339,16 @@ msgid ""
 "array. The effect is to take a \"horizontal\" array embedded in a single row "
 "and turn it into a \"vertical\" array with a row for each value."
 msgstr ""
+"**unnest** recibe un arreglo y construye una nueva fila para cada entrada "
+"del arreglo. El efecto es tomar un arreglo \"horizontal\" incrustado en una "
+"sola fila y convertirlo en un arreglo \"vertical\" con una fila por cada "
+"valor."
 
 #: ../../en/advanced_geometry_construction.rst:135
 msgid "The result is a list of all the unique subway route identifiers."
 msgstr ""
+"El resultado es una lista de todos los identificadores únicos de rutas de "
+"metro."
 
 #: ../../en/advanced_geometry_construction.rst:167
 msgid ""
@@ -343,6 +356,9 @@ msgid ""
 "``nyc_subway_stations`` table to create a new table that has, for each "
 "route, a row for every station on that route."
 msgstr ""
+"Podemos ampliar este resultado uniéndolo nuevamente a la tabla "
+"``nyc_subway_stations`` para crear una nueva tabla que tenga, para cada "
+"ruta, una fila por cada estación en esa ruta."
 
 #: ../../en/advanced_geometry_construction.rst:193
 msgid ""
@@ -350,20 +366,26 @@ msgid ""
 "route into a single multi-point, and calculating the centroid of that multi-"
 "point."
 msgstr ""
+"Ahora podemos encontrar el punto central reuniendo todas las estaciones de "
+"cada ruta en un único multi-punto y calculando el centroide de ese multi-"
+"punto."
 
 #: ../../en/advanced_geometry_construction.rst:214
 msgid "The center point of the collection of 'Q' train stops looks like this:"
-msgstr ""
+msgstr "El punto central de la colección de paradas del tren 'Q' se ve así:"
 
 #: ../../en/advanced_geometry_construction.rst:218
 msgid ""
 "So the northern most stop, the end point, appears to also be the stop "
 "furthest from the center. Let's calculate the furthest point for every route."
 msgstr ""
+"Entonces, la parada más al norte, el punto final, parece ser también la "
+"parada más alejada del centro. Vamos a calcular el punto más lejano para "
+"cada ruta."
 
 #: ../../en/advanced_geometry_construction.rst:249
 msgid "We've added two sub-queries this time:"
-msgstr ""
+msgstr "Hemos agregado dos subconsultas esta vez:"
 
 #: ../../en/advanced_geometry_construction.rst:251
 msgid ""
@@ -372,6 +394,10 @@ msgid ""
 "result is ordered such that the records come out in batches for each route, "
 "with the furthest station as the first record of the batch."
 msgstr ""
+"**stops_distance** une los puntos centrales nuevamente a la tabla de "
+"estaciones y calcula la distancia entre las estaciones y el centro para cada "
+"ruta. El resultado se ordena de tal manera que los registros salen en lotes "
+"para cada ruta, con la estación más lejana como el primer registro del lote."
 
 #: ../../en/advanced_geometry_construction.rst:252
 msgid ""
@@ -380,31 +406,42 @@ msgid ""
 "**stops_distance** the first record is the furthest record, which means it's "
 "the station we want to use as our starting seed to build each subway route."
 msgstr ""
+"**first_stops** filtra la salida de **stops_distance** tomando solo el "
+"primer registro de cada grupo distinto. Debido a la forma en que ordenamos "
+"**stops_distance**, el primer registro es el más lejano, lo que significa "
+"que es la estación que queremos usar como semilla inicial para construir "
+"cada ruta del metro."
 
 #: ../../en/advanced_geometry_construction.rst:254
 msgid ""
 "Now we know every route, and we know (approximately) what station each route "
 "starts from: we're ready to generate the route lines!"
 msgstr ""
+"Ahora sabemos cada ruta y sabemos (aproximadamente) desde qué estación "
+"comienza cada ruta: estamos listos para generar las líneas de ruta!"
 
 #: ../../en/advanced_geometry_construction.rst:256
 msgid ""
 "But first, we need to turn our recursive CTE expression into a function we "
 "can call with parameters."
 msgstr ""
+"Pero primero, necesitamos convertir nuestra expresión CTE recursiva en una "
+"función que podamos llamar con parámetros."
 
 #: ../../en/advanced_geometry_construction.rst:283
 msgid "And now we are ready to go!"
-msgstr ""
+msgstr "Y ahora estamos listos para empezar!"
 
 #: ../../en/advanced_geometry_construction.rst:328
 msgid "Here's what our final table looks like visualized in QGIS:"
-msgstr ""
+msgstr "Así es como se ve nuestra tabla final visualizada en QGIS:"
 
 #: ../../en/advanced_geometry_construction.rst:332
 msgid ""
 "As usual, there are some problems with our simple understanding of the data:"
 msgstr ""
+"Como de costumbre, hay algunos problemas con nuestra comprensión simple de "
+"los datos:"
 
 #: ../../en/advanced_geometry_construction.rst:334
 msgid ""
@@ -412,6 +449,8 @@ msgid ""
 "Manhattan and one in the Rockaways, and we join them together because they "
 "are both called 'S';"
 msgstr ""
+"en realidad hay dos trenes 'S' (shuttle de corta distancia), uno en "
+"Manhattan y otro en Rockaways, y los unimos porque ambos se llaman 'S';"
 
 #: ../../en/advanced_geometry_construction.rst:335
 msgid ""
@@ -419,6 +458,9 @@ msgid ""
 "terminuses, so the \"follow one line\" assumption breaks and the result has "
 "a funny hook on the end."
 msgstr ""
+"el tren '4' (y algunos otros) se divide al final de una línea en dos "
+"terminales, por lo que el supuesto de \"seguir una línea\" se rompe y el "
+"resultado tiene un gancho extraño al final."
 
 #: ../../en/advanced_geometry_construction.rst:337
 msgid ""
@@ -426,6 +468,9 @@ msgid ""
 "manipulations that are possible combining the advanced features of "
 "PostgreSQL and PostGIS."
 msgstr ""
+"Esperamos que este ejemplo haya proporcionado una idea de algunas de las "
+"manipulaciones de datos complejas que son posibles combinando las "
+"características avanzadas de PostgreSQL y PostGIS."
 
 #: ../../en/advanced_geometry_construction.rst:341
 msgid "See Also"
@@ -436,19 +481,25 @@ msgid ""
 "`PostgreSQL Arrays <http://www.postgresql.org/docs/current/static/arrays."
 "html>`_"
 msgstr ""
+"`Arreglos en PostgreSQL<http://www.postgresql.org/docs/current/static/arrays."
+"html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:344
 msgid ""
 "`PostgreSQL Array Functions <http://www.postgresql.org/docs/current/static/"
 "functions-array.html>`_"
 msgstr ""
+"`Funciones de arreglo en PostgreSQL <http://www.postgresql.org/docs/current/"
+"static/functions-array.html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:345
 msgid ""
 "`PostgreSQL Recursive Common TABLE Expressions <http://www.postgresql.org/"
 "docs/current/static/queries-with.html>`_"
 msgstr ""
+"`Expresiones Recursive Common TABLE en PostgreSQL <http://www.postgresql.org/"
+"docs/current/static/queries-with.html>`_"
 
 #: ../../en/advanced_geometry_construction.rst:346
 msgid "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"
-msgstr ""
+msgstr "`PostGIS ST_MakeLine <http://postgis.net/docs/ST_MakeLine.html>`_"

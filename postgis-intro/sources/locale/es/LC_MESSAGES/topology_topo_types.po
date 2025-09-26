@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-09-04 23:47+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "topology_topo_types/es/>\n"
@@ -69,316 +69,435 @@ msgstr "Arista: línea con dirección que comienza y termina en un nodo"
 #: ../../en/topology_base_types.rst:27
 msgid "Face: Closed set of linestrings, that conforms a polygon"
 msgstr ""
+"Cara (Face): Conjunto cerrado de líneas (linestrings), que conforma un "
+"polígono"
 
 #: ../../en/topology_base_types.rst:29
 msgid "There are some rules for a set of nodes, edges and faces to be valid, check the ISO Topology document, has a very good summary of these conditions, a topology that follows all the rules, is a valid topology."
 msgstr ""
+"Existen algunas reglas para que un conjunto de nodos, aristas y caras sea "
+"válido. Revisa el documento ISO Topology, que tiene un muy buen resumen de "
+"estas condiciones. Una topología que sigue todas las reglas es una topología "
+"válida."
 
 #: ../../en/topology_base_types.rst:31
 msgid "Is good to know, until now Postgis will save all this information internally, each type has its own unique ID, and with it we can edit and change them using the available functions, for example with ST_RemEdgeNewFace you can remove an edge and create a new face."
 msgstr ""
+"Es bueno saber que, hasta ahora, PostGIS guardará toda esta información "
+"internamente, cada tipo tiene su propio ID único, y con él podemos editarlos "
+"y modificarlos usando las funciones disponibles. Por ejemplo, con "
+"ST_RemEdgeNewFace puedes eliminar una arista y crear una nueva cara."
 
 #: ../../en/topology_base_types.rst:33
 msgid "But there is still a missing piece, how do we say for example, a face has a specific attribute? Postgis implements several concepts to do this like Layers, TopoGeometry, TopoElement."
 msgstr ""
+"Pero aún falta una pieza: ¿cómo decimos, por ejemplo, que una cara tiene un "
+"atributo específico? PostGIS implementa varios conceptos para hacer esto "
+"como Layers, TopoGeometry, TopoElement."
 
 #: ../../en/topology_base_types.rst:36
 msgid "Universal Face"
-msgstr ""
+msgstr "Cara Universal"
 
 #: ../../en/topology_base_types.rst:38
 msgid "It Might be intuitive to think that only the faces constructed by edges exist, there is one exception, all the white space out of all the faces is also a face!"
 msgstr ""
+"Podría ser intuitivo pensar que solo existen las caras construidas por "
+"aristas, pero hay una excepción: ¡todo el espacio en blanco fuera de todas "
+"las caras también es una cara!"
 
 #: ../../en/topology_base_types.rst:40
 msgid "The empty space is called the Universal Face, when a Topology is empty, all the space is the Universal Face, when we add a linestring is an edge of this face, then when we make a polygon it is like make a hole in the face and stealing it to assign it to a face."
 msgstr ""
+"El espacio vacío se llama la Cara Universal. Cuando una topología está "
+"vacía, todo el espacio es la Cara Universal. Cuando añadimos una línea "
+"(linestring), esta es una arista de esa cara; luego, cuando creamos un "
+"polígono, es como hacer un agujero en la cara y “robarlo” para asignarlo a "
+"una cara."
 
 #: ../../en/topology_base_types.rst:42
 msgid "This face is infinite and does not have any boundary."
-msgstr ""
+msgstr "Esta cara es infinita y no tiene ningún límite."
 
 #: ../../en/topology_base_types.rst:49
 msgid "The Universal Face has the ID 0."
-msgstr ""
+msgstr "La Cara Universal tiene el ID 0."
 
 #: ../../en/topology_base_types.rst:52
 msgid "Edge interpretation"
-msgstr ""
+msgstr "Interpretación de Aristas"
 
 #: ../../en/topology_base_types.rst:54
 msgid "To correctly represent a topology and their forms, there are some definitions that are used to construct the tables that store everything, the edge is on the more complex ones."
 msgstr ""
+"Para representar correctamente una topología y sus formas, hay algunas "
+"definiciones que se usan para construir las tablas que almacenan todo. La "
+"arista es una de las más complejas."
 
 #: ../../en/topology_base_types.rst:56
 msgid "All the information about edges is stored on the edge_data table, in your custom topology schema, and which information do we need in the edges? basically its nodes and faces information, edge is the primitive who connects both."
 msgstr ""
+"Toda la información sobre las aristas se almacena en la tabla edge_data, en "
+"tu esquema de topología personalizada. ¿Y qué información necesitamos en las "
+"aristas? Básicamente la información de sus nodos y caras. La arista es la "
+"primitiva que conecta ambos."
 
 #: ../../en/topology_base_types.rst:58
 msgid "These linestrings are called Edges because they are the edges of the faces."
-msgstr ""
+msgstr "Estas líneas se llaman Aristas porque son los bordes de las caras."
 
 #: ../../en/topology_base_types.rst:61
 msgid "Edge direction, left and right"
-msgstr ""
+msgstr "Dirección de la arista, izquierda y derecha"
 
 #: ../../en/topology_base_types.rst:63
 msgid "Edges in topology has a right defined perspective and view, when we see them must be done in the next way:"
 msgstr ""
+"Las aristas en topología tienen una perspectiva y orientación definidas. "
+"Cuando las vemos, debe hacerse de la siguiente manera:"
 
 #: ../../en/topology_base_types.rst:68
 msgid "When we want to see from the edge perspective is always from the end node to the start edge, always looking the edge forward."
 msgstr ""
+"Cuando queremos ver desde la perspectiva de la arista, siempre es desde el "
+"nodo final hacia el nodo inicial, siempre mirando hacia adelante en la "
+"arista."
 
 #: ../../en/topology_base_types.rst:74
 msgid "The edges have left and right properties, as we see they are defined using the edge perspective, see the linestring from the start node to the end node, there will always be a well defined left and right."
 msgstr ""
+"Las aristas tienen propiedades de izquierda y derecha. Como vemos, estas se "
+"definen usando la perspectiva de la arista: mirando la línea desde el nodo "
+"inicial hacia el nodo final, siempre habrá un lado izquierdo y un lado "
+"derecho bien definidos."
 
 #: ../../en/topology_base_types.rst:76
 msgid "So see the edge forward and you always have a left and right side."
 msgstr ""
+"Así que mira la arista hacia adelante y siempre tendrás un lado izquierdo y "
+"uno derecho."
 
 #: ../../en/topology_base_types.rst:78
 msgid "This helps to relate which faces are on each side of the edge:"
-msgstr ""
+msgstr "Esto ayuda a relacionar qué caras están en cada lado de la arista:"
 
 #: ../../en/topology_base_types.rst:83
 msgid "Check the edges on the image, while almost all the edges go from down to up and left to right, there is an orange edge which has the opposite direction, so its sides left and right are swapped in reference to the others, but if you look the edge forward, the right and left are right."
 msgstr ""
+"Observa las aristas en la imagen: aunque casi todas van de abajo hacia "
+"arriba y de izquierda a derecha, hay una arista naranja que tiene la "
+"dirección opuesta, por lo que sus lados izquierdo y derecho están invertidos "
+"con respecto a las demás. Pero si miras la arista hacia adelante, el lado "
+"derecho e izquierdo son correctos."
 
 #: ../../en/topology_base_types.rst:85
 msgid "Continue seeing the orange edge, while on its right has a polygon built by the edges, on the left is the Universal Face."
 msgstr ""
+"Siguiendo con la arista naranja, mientras que a su derecha tiene un polígono "
+"construido por las aristas, a la izquierda está la Cara Universal."
 
 #: ../../en/topology_base_types.rst:87
 msgid "When we want to analyze any edge, and we need to see it from the edge perspective, it is always looking the edge in forward, never in backward!"
 msgstr ""
+"Cuando queremos analizar cualquier arista, y necesitamos verla desde la "
+"perspectiva de la arista, siempre es mirándola hacia adelante, ¡nunca hacia "
+"atrás!"
 
 #: ../../en/topology_base_types.rst:89
 msgid "Which are all the next edges? Looking forward we go from start node to the end node, all the edges who start or end in the end node of the edge!"
 msgstr ""
+"¿Cuáles son las siguientes aristas? Mirando hacia adelante vamos del nodo "
+"inicial al nodo final, ¡todas las aristas que comienzan o terminan en el "
+"nodo final de la arista!"
 
 #: ../../en/topology_base_types.rst:92
 msgid "Edge Data"
-msgstr ""
+msgstr "Datos de la Arista"
 
 #: ../../en/topology_base_types.rst:94
 msgid "The edge_data table has information related to the edge, from what we know right now we can interpret the next columns:"
 msgstr ""
+"La tabla edge_data tiene información relacionada con la arista. A partir de "
+"lo que sabemos hasta ahora, podemos interpretar las siguientes columnas:"
 
 #: ../../en/topology_base_types.rst:96
 msgid "edge_id: Unique ID for the edge"
-msgstr ""
+msgstr "edge_id: ID único para la arista"
 
 #: ../../en/topology_base_types.rst:97
 msgid "start_node: ID for the node who is the same as the start point of the edge"
 msgstr ""
+"start_node: ID del nodo que es el mismo que el punto inicial de la arista"
 
 #: ../../en/topology_base_types.rst:98
 msgid "end_node: ID for the node who is the same as the end point of the edge"
-msgstr ""
+msgstr "end_node: ID del nodo que es el mismo que el punto final de la arista"
 
 #: ../../en/topology_base_types.rst:99
 msgid "left_face: ID of the face on the left of the edge"
-msgstr ""
+msgstr "left_face: ID de la cara a la izquierda de la arista"
 
 #: ../../en/topology_base_types.rst:100
 msgid "right_face: ID of the face on the right of the edge"
-msgstr ""
+msgstr "right_face: ID de la cara a la derecha de la arista"
 
 #: ../../en/topology_base_types.rst:101
 msgid "geom: Geometry of the edge"
-msgstr ""
+msgstr "geom: Geometría de la arista"
 
 #: ../../en/topology_base_types.rst:104
 msgid "Abs Next Edge & Next Edge"
-msgstr ""
+msgstr "Siguientes Aristas"
 
 #: ../../en/topology_base_types.rst:106
 msgid "The table edge_data has the columns abs_next_left_edge and abs_next_right_edge, at this moment it gets a little tricky how to interpret it."
 msgstr ""
+"La tabla edge_data tiene las columnas abs_next_left_edge y "
+"abs_next_right_edge. En este momento se vuelve un poco complicado cómo "
+"interpretarlas."
 
 #: ../../en/topology_base_types.rst:108
 msgid "Until now we mainly see properties of the edge itself and what has on the sides, the next edge properties are different, do not ask only about the edge itself, it is about which is the next edge who builds the face on the right or left."
 msgstr ""
+"Hasta ahora hemos visto principalmente propiedades de la arista en sí y lo "
+"que tiene a los lados. Las propiedades de la arista siguiente son "
+"diferentes, no preguntan solo por la arista en sí, sino por cuál es la "
+"siguiente arista que construye la cara a la derecha o izquierda."
 
 #: ../../en/topology_base_types.rst:110
 msgid "The logic of the right_edge and the left_edge are very similar, so we will look first on the left one deeper and then show the right one."
 msgstr ""
+"La lógica de right_edge y left_edge es muy similar, así que primero veremos "
+"más a fondo la izquierda y luego mostraremos la derecha."
 
 #: ../../en/topology_base_types.rst:112
 msgid "We will be using the next topology as example:"
-msgstr ""
+msgstr "Usaremos la siguiente topología como ejemplo:"
 
 #: ../../en/topology_base_types.rst:119
 msgid "Left"
-msgstr ""
+msgstr "Izquierda"
 
 #: ../../en/topology_base_types.rst:121
 msgid "Let's pick as an example the Edge 5, this one has on the Left the Face 2, looking forward which is the next edge who builds the Face 2?"
 msgstr ""
+"Tomemos como ejemplo la Arista 5. Esta tiene a la izquierda la Cara 2. "
+"Mirando hacia adelante, ¿cuál es la siguiente arista que construye la Cara 2?"
 
 #: ../../en/topology_base_types.rst:123
 msgid "This is the Edge 6."
-msgstr ""
+msgstr "Es la Arista 6."
 
 #: ../../en/topology_base_types.rst:129
 msgid "Something very important here is the perspective we follow the lines, depending on the Edge direction, is like see the Face clockwise or anticlockwise."
 msgstr ""
+"Algo muy importante aquí es la perspectiva con la que seguimos las líneas. "
+"Dependiendo de la dirección de la Arista, es como ver la Cara en el sentido "
+"de las agujas del reloj o en sentido antihorario."
 
 #: ../../en/topology_base_types.rst:131
 msgid "With this information we have abs_next_left_edge which will be 6."
-msgstr ""
+msgstr "Con esta información tenemos que abs_next_left_edge será 6."
 
 #: ../../en/topology_base_types.rst:133
 msgid "The next_left_edge is almost the same as abs_next_left_edge, except it can be negative which depends on the perspective we see the edge."
 msgstr ""
+"La next_left_edge es casi la misma que abs_next_left_edge, excepto que puede "
+"ser negativa, lo cual depende de la perspectiva con la que vemos la arista."
 
 #: ../../en/topology_base_types.rst:135
 msgid "If we follow the Edge perspective we will have two directions, the direction of the next edge, and the direction of the perspective on the next edge."
 msgstr ""
+"Si seguimos la perspectiva de la Arista, tendremos dos direcciones: la "
+"dirección de la siguiente arista, y la dirección de la perspectiva en la "
+"siguiente arista."
 
 #: ../../en/topology_base_types.rst:137
 msgid "We will use the next sign in each case:"
-msgstr ""
+msgstr "Usaremos el siguiente signo en cada caso:"
 
 #: ../../en/topology_base_types.rst:139
 msgid "Perspective direction and Next edge direction are opposed: \"-\""
 msgstr ""
+"La dirección de la perspectiva y la dirección de la siguiente arista son "
+"opuestas: \"-\""
 
 #: ../../en/topology_base_types.rst:140
 msgid "Perspective direction and Next edge direction are the same: None, keep the value positive"
 msgstr ""
+"La dirección de la perspectiva y la dirección de la siguiente arista son las "
+"mismas: Ninguno, mantener el valor positivo"
 
 #: ../../en/topology_base_types.rst:142
 msgid "How the Perspective and Edge 6 have the same direction, next_left_edge will be 6."
 msgstr ""
+"Como la Perspectiva y la Arista 6 tienen la misma dirección, next_left_edge "
+"será 6."
 
 #: ../../en/topology_base_types.rst:144
 msgid "abs_next_left_edge: 6"
-msgstr ""
+msgstr "abs_next_left_edge: 6"
 
 #: ../../en/topology_base_types.rst:145
 msgid "next_left_edge: 6"
-msgstr ""
+msgstr "next_left_edge: 6"
 
 #: ../../en/topology_base_types.rst:148
 msgid "Right"
-msgstr ""
+msgstr "Derecha"
 
 #: ../../en/topology_base_types.rst:150
 msgid "The only difference between Left and Right analysis is the perspective, while in Left we use forward, in Right we will see backwards. Be careful, even if we look backwards the definition of Left Face and Right Face are still the same, looking forward! Only changes the perspective to follow."
 msgstr ""
+"La única diferencia entre el análisis Izquierda y Derecha es la perspectiva. "
+"Mientras que en Izquierda usamos hacia adelante, en Derecha veremos hacia "
+"atrás. Ten cuidado: incluso si miramos hacia atrás, la definición de Cara "
+"Izquierda y Cara Derecha sigue siendo la misma, mirando hacia adelante. Solo "
+"cambia la perspectiva a seguir."
 
 #: ../../en/topology_base_types.rst:152
 msgid "The Edge 5 has the Face 0 on its Right, the Universal Face, looking Edge 5 backwards the next edge who builds Face 0 is the Edge 4."
 msgstr ""
+"La Arista 5 tiene la Cara 0 a su derecha, la Cara Universal. Mirando la "
+"Arista 5 hacia atrás, la siguiente arista que construye la Cara 0 es la "
+"Arista 4."
 
 #: ../../en/topology_base_types.rst:158
 msgid "Following the perspective of Edge 5 on Edge 4 we can see it goes up, while the Edge 4 goes down, the Perspective direction and the Edge 4 direction are opposed."
 msgstr ""
+"Siguiendo la perspectiva de la Arista 5 en la Arista 4, vemos que va hacia "
+"arriba, mientras que la Arista 4 va hacia abajo. La dirección de la "
+"Perspectiva y la dirección de la Arista 4 son opuestas."
 
 #: ../../en/topology_base_types.rst:160
 msgid "abs_next_right_edge: 4"
-msgstr ""
+msgstr "abs_next_right_edge: 4"
 
 #: ../../en/topology_base_types.rst:161
 msgid "next_right_edge: -4 (Perspective direction and Edge 4 direction are opposed)"
 msgstr ""
+"next_right_edge: -4 (La dirección de la Perspectiva y la dirección de la "
+"Arista 4 son opuestas)"
 
 #: ../../en/topology_base_types.rst:164
 msgid "Isolated Edge Case"
-msgstr ""
+msgstr "Caso de Arista Aislada"
 
 #: ../../en/topology_base_types.rst:166
 msgid "There is a case that may be confusing, all the rules above follow in the same way but it is good to take a look."
 msgstr ""
+"Hay un caso que puede ser confuso. Todas las reglas anteriores se siguen de "
+"la misma manera, pero es bueno revisarlo."
 
 #: ../../en/topology_base_types.rst:172
 msgid "When we have an Edge that has no connections to other Edges, the first thing we can appreciate is that the Face of the Left is the same as the Right, in this case Face 0, the Universal Face."
 msgstr ""
+"Cuando tenemos una Arista que no tiene conexión con otras Aristas, lo "
+"primero que podemos apreciar es que la Cara de la Izquierda es la misma que "
+"la de la Derecha, en este caso la Cara 0, la Cara Universal."
 
 #: ../../en/topology_base_types.rst:174
 msgid "If we follow the past logic, on the Left is the Face 0, which is the next edge who builds Face 0? Actually there is an Edge, and is itself, and it also has a perspective as before:"
 msgstr ""
+"Si seguimos la lógica anterior, a la izquierda está la Cara 0. ¿Cuál es la "
+"siguiente arista que construye la Cara 0? En realidad hay una arista, y es "
+"ella misma, y también tiene una perspectiva como antes:"
 
 #: ../../en/topology_base_types.rst:180
 msgid "If we check the perspective direction we ends looking the same edge but in opposite direction, this means the Edge 1 and its Next Edge (Edge 1) has opposed directions."
 msgstr ""
+"Si revisamos la dirección de la perspectiva, terminamos viendo la misma "
+"arista pero en dirección opuesta. Esto significa que la Arista 1 y su "
+"Siguiente Arista (Arista 1) tienen direcciones opuestas."
 
 #: ../../en/topology_base_types.rst:182
 #: ../../en/topology_base_types.rst:194
 msgid "edge_id: 1"
-msgstr ""
+msgstr "edge_id: 1"
 
 #: ../../en/topology_base_types.rst:183
 msgid "abs_next_left_edge: 1"
-msgstr ""
+msgstr "abs_next_left_edge: 1"
 
 #: ../../en/topology_base_types.rst:184
 msgid "next_left_edge: -1 (This will always be negative while we see forward a isolated edge)"
 msgstr ""
+"next_left_edge: -1 (Esto siempre será negativo mientras veamos hacia "
+"adelante una arista aislada)"
 
 #: ../../en/topology_base_types.rst:186
 msgid "For the Next Right Edge is the same, the Next Edge will be it self, the only what it changes is the perspective:"
 msgstr ""
+"Para la Next Right Edge es lo mismo. La siguiente arista será ella misma, lo "
+"único que cambia es la perspectiva:"
 
 #: ../../en/topology_base_types.rst:192
 msgid "When we look backwards any isolated edge, the perspective will always have the same direction as the Edge so:"
 msgstr ""
+"Cuando miramos hacia atrás cualquier arista aislada, la perspectiva siempre "
+"tendrá la misma dirección que la Arista, así que:"
 
 #: ../../en/topology_base_types.rst:195
 msgid "abs_next_right_edge: 1"
-msgstr ""
+msgstr "abs_next_right_edge: 1"
 
 #: ../../en/topology_base_types.rst:196
 msgid "next_right_edge: -1 (This will always be positive while we see backwar a isolated edge)"
 msgstr ""
+"next_right_edge: -1 (Esto siempre será positivo mientras veamos hacia atrás "
+"una arista aislada)"
 
 #: ../../en/topology_base_types.rst:199
 msgid "Full columns of edge_data"
-msgstr ""
+msgstr "Columnas de la tabla edge_data"
 
 #: ../../en/topology_base_types.rst:201
 msgid "We already checked all the columns of the edge_data table:"
-msgstr ""
+msgstr "Ya hemos revisado todas las columnas de la tabla edge_data:"
 
 #: ../../en/topology_base_types.rst:203
 msgid "edge_id: Unique ID for the edge."
-msgstr ""
+msgstr "edge_id: ID único para la arista."
 
 #: ../../en/topology_base_types.rst:204
 msgid "start_node: ID for the node which is the same as the start point of the edge."
 msgstr ""
+"start_node: ID del nodo que es el mismo que el punto inicial de la arista."
 
 #: ../../en/topology_base_types.rst:205
 msgid "end_node: ID for the node which is the same as the end point of the edge."
-msgstr ""
+msgstr "end_node: ID del nodo que es el mismo que el punto final de la arista."
 
 #: ../../en/topology_base_types.rst:206
 msgid "left_face: ID of the face on the left of the edge."
-msgstr ""
+msgstr "left_face: ID de la cara a la izquierda de la arista."
 
 #: ../../en/topology_base_types.rst:207
 msgid "abs_next_left_edge: Next edge who builds the face on the left."
 msgstr ""
+"abs_next_left_edge: Siguiente arista que construye la cara en la izquierda."
 
 #: ../../en/topology_base_types.rst:208
 msgid "next_left_edge: abs_next_left_edge and negative sign if the right face is on the right of the next left edge."
 msgstr ""
+"next_left_edge: abs_next_left_edge y signo negativo si la cara derecha está "
+"a la derecha de la siguiente arista izquierda."
 
 #: ../../en/topology_base_types.rst:209
 msgid "right_face: ID of the face on the right of the edge."
-msgstr ""
+msgstr "right_face: ID de la cara a la derecha de la arista."
 
 #: ../../en/topology_base_types.rst:210
 msgid "abs_next_right_edge: Next edge who builds the face on the right."
 msgstr ""
+"abs_next_right_edge: Siguiente arista que construye la cara en la derecha."
 
 #: ../../en/topology_base_types.rst:211
 msgid "next_right_edge: abs_next_right_edge and negative sign if the left face is on the right of the next right edge."
 msgstr ""
+"next_right_edge: abs_next_right_edge y signo negativo si la cara izquierda "
+"está a la derecha de la siguiente arista derecha."
 
 #: ../../en/topology_base_types.rst:212
 msgid "geom: Geometry of the edge."
-msgstr ""
+msgstr "geom: Geometría de la arista."

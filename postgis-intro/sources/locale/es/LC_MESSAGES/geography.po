@@ -5,13 +5,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
+# Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-03-18 00:30+0000\n"
-"Last-Translator: Paulo Cesar <paulocoronado@gmail.com>\n"
+"PO-Revision-Date: 2025-09-25 16:32+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geography/es/>\n"
 "Language: es\n"
@@ -31,6 +33,8 @@ msgid ""
 "It is very common to have data in which the coordinate are \"geographics\" "
 "or \"latitude/longitude\"."
 msgstr ""
+"Es muy común tener datos en los que las coordenadas son “geográficas” o "
+"“latitud/longitud”."
 
 #: ../../en/geography.rst:8
 msgid ""
@@ -41,6 +45,13 @@ msgid ""
 "spherical coordinates a point is specified by the angle of rotation from a "
 "reference meridian (longitude), and the angle from the equator (latitude)."
 msgstr ""
+"A diferencia de las coordenadas en Mercator, UTM o Stateplane, las "
+"coordenadas geográficas no son coordenadas cartesianas. Las coordenadas "
+"geográficas no representan una distancia lineal desde un origen trazado en "
+"un plano. Más bien, estas coordenadas esféricas describen coordenadas "
+"angulares sobre un globo. En coordenadas esféricas un punto se especifica "
+"por el ángulo de rotación desde un meridiano de referencia (longitud), y el "
+"ángulo desde el ecuador (latitud)."
 
 #: ../../en/geography.rst:13
 msgid ""
@@ -52,18 +63,27 @@ msgid ""
 "become terribly wrong. The distance between points get larger as problem "
 "areas like the poles or the international dateline are approached."
 msgstr ""
+"Puedes tratar las coordenadas geográficas como coordenadas cartesianas "
+"aproximadas y continuar realizando cálculos espaciales. Sin embargo, las "
+"mediciones de distancia, longitud y área serán sin sentido. Dado que las "
+"coordenadas esféricas miden distancia angular, las unidades están en "
+"“grados”. Además, los resultados aproximados de índices y pruebas verdadero/"
+"falso como intersects y contains pueden resultar completamente erróneos. La "
+"distancia entre puntos se vuelve más grande a medida que se aproximan a "
+"zonas problemáticas como los polos o la línea internacional de cambio de "
+"fecha."
 
 #: ../../en/geography.rst:15
 msgid "For example, here are the coordinates of Los Angeles and Paris."
-msgstr ""
+msgstr "Por ejemplo, aquí están las coordenadas de Los Ángeles y París."
 
 #: ../../en/geography.rst:17
 msgid "Los Angeles: ``POINT(-118.4079 33.9434)``"
-msgstr ""
+msgstr "Los Ángeles: POINT(-118.4079 33.9434)"
 
 #: ../../en/geography.rst:18
 msgid "Paris: ``POINT(2.3490 48.8533)``"
-msgstr ""
+msgstr "París: POINT(2.3490 48.8533)"
 
 #: ../../en/geography.rst:20
 msgid ""
@@ -71,16 +91,22 @@ msgid ""
 "the standard PostGIS Cartesian :command:`ST_Distance(geometry, geometry)`.  "
 "Note that the SRID of 4326 declares a geographic spatial reference system."
 msgstr ""
+"El siguiente cálculo mide la distancia entre Los Ángeles y París usando la "
+"función cartesiana estándar de PostGIS :command:`ST_Distance(geometry, "
+"geometry)`. Obsérvese que el SRID 4326 declara un sistema de referencia "
+"espacial geográfico."
 
 #: ../../en/geography.rst:33
 msgid "Aha! 122! But, what does that mean?"
-msgstr ""
+msgstr "¡Ajá! 122. Pero, ¿qué significa eso?"
 
 #: ../../en/geography.rst:35
 msgid ""
 "The units for spatial reference 4326 are degrees. So our answer is 122 "
 "degrees. But (again), what does that mean?"
 msgstr ""
+"Las unidades para el sistema de referencia espacial 4326 son grados. Así que "
+"nuestra respuesta es 122 grados. Pero (otra vez), ¿qué significa eso?"
 
 #: ../../en/geography.rst:37
 msgid ""
@@ -90,6 +116,11 @@ msgid ""
 "poles. So, a distance of 122 degrees doesn't *mean* anything. It is a "
 "nonsense number."
 msgstr ""
+"En una esfera, el tamaño de un “cuadrado de un grado” es muy variable, "
+"volviéndose más pequeño a medida que uno se aleja del ecuador. Piensa en los "
+"meridianos (líneas verticales) del globo acercándose entre sí al ir hacia "
+"los polos. Así que, una distancia de 122 grados no significa nada. Es un "
+"número sin sentido."
 
 #: ../../en/geography.rst:39
 msgid ""
@@ -98,52 +129,70 @@ msgid ""
 "spherical coordinates.  We must measure the distances between points as true "
 "paths over a sphere -- a portion of a great circle."
 msgstr ""
+"Para calcular una distancia significativa, debemos tratar las coordenadas "
+"geográficas no como coordenadas cartesianas aproximadas sino como verdaderas "
+"coordenadas esféricas. Debemos medir las distancias entre puntos como "
+"trayectorias reales sobre una esfera —una porción de un círculo máximo."
 
 #: ../../en/geography.rst:41
 msgid "PostGIS provides this functionality through the ``geography`` type."
-msgstr ""
+msgstr "PostGIS proporciona esta funcionalidad a través del tipo geography."
 
 #: ../../en/geography.rst:45
 msgid ""
 "Different spatial databases have different approaches for \"handling "
 "geographics\""
 msgstr ""
+"Diferentes bases de datos espaciales tienen distintos enfoques para “manejar "
+"coordenadas geográficas”"
 
 #: ../../en/geography.rst:47
 msgid ""
 "Oracle attempts to paper over the differences by transparently doing "
 "geographic calculations when the SRID is geographic."
 msgstr ""
+"Oracle intenta disimular las diferencias haciendo cálculos geográficos de "
+"manera transparente cuando el SRID es geográfico."
 
 #: ../../en/geography.rst:48
 msgid ""
 "SQL Server uses two spatial types, \"STGeometry\" for Cartesian data and "
 "\"STGeography\" for geographics."
 msgstr ""
+"SQL Server usa dos tipos espaciales: “STGeometry” para datos cartesianos y "
+"“STGeography” para geográficos."
 
 #: ../../en/geography.rst:49
 msgid ""
 "Informix Spatial is a pure Cartesian extension to Informix, while Informix "
 "Geodetic is a pure geographic extension."
 msgstr ""
+"Informix Spatial es una extensión puramente cartesiana de Informix, mientras "
+"que Informix Geodetic es una extensión puramente geográfica."
 
 #: ../../en/geography.rst:50
 msgid ""
 "Similar to SQL Server, PostGIS uses two types, \"geometry\" and "
 "\"geography\"."
 msgstr ""
+"De forma similar a SQL Server, PostGIS usa dos tipos: “geometry” y "
+"“geography”."
 
 #: ../../en/geography.rst:52
 msgid ""
 "Using the ``geography`` instead of ``geometry`` type, let's try again to "
 "measure the distance between Los Angeles and Paris."
 msgstr ""
+"Usando el tipo geography en lugar de geometry, probemos de nuevo medir la "
+"distancia entre Los Ángeles y París."
 
 #: ../../en/geography.rst:65
 msgid ""
 "A big number! All return values from ``geography`` calculations are in "
 "**meters**, so our answer is 9125km."
 msgstr ""
+"¡Un número grande! Todos los valores devueltos por cálculos con geography "
+"están en metros, así que nuestra respuesta es 9125 km."
 
 #: ../../en/geography.rst:67
 msgid ""
@@ -153,6 +202,11 @@ msgid ""
 "The function only works on points and provides no support for indexing "
 "across the poles or international dateline."
 msgstr ""
+"Las versiones antiguas de PostGIS soportaban cálculos muy básicos sobre la "
+"esfera mediante la función :command:`ST_Distance_Spheroid(point, point, "
+"measurement)`. Sin embargo, :command:`ST_Distance_Spheroid` es bastante "
+"limitada. La función solo funciona con puntos y no proporciona soporte para "
+"indexación a través de los polos o la línea internacional de cambio de fecha."
 
 #: ../../en/geography.rst:69
 msgid ""
@@ -160,6 +214,9 @@ msgid ""
 "question like \"How close will a flight from Los Angeles to Paris come to "
 "Iceland?\""
 msgstr ""
+"La necesidad de soportar geometrías que no son puntos se hace muy clara al "
+"plantear una pregunta como: “¿Qué tan cerca pasará un vuelo de Los Ángeles a "
+"París de Islandia?”"
 
 #: ../../en/geography.rst:73
 msgid ""
@@ -169,12 +226,19 @@ msgid ""
 "string and calculate the distance to a point in Iceland using ``geography`` "
 "we'll get the right answer (recall) in meters."
 msgstr ""
+"Trabajar con coordenadas geográficas en un plano cartesiano (la línea "
+"púrpura) da una respuesta muy errónea. Usar rutas de círculo máximo (las "
+"líneas rojas) da la respuesta correcta. Si convertimos nuestro vuelo LAX-CDG "
+"en una line string y calculamos la distancia a un punto en Islandia usando "
+"geography, obtendremos la respuesta correcta (en metros)."
 
 #: ../../en/geography.rst:86
 msgid ""
 "So the closest approach to Iceland (as measured from its international "
 "airport) on the LAX-CDG route is a relatively small 502km."
 msgstr ""
+"Así, la aproximación más cercana a Islandia (medida desde su aeropuerto "
+"internacional) en la ruta LAX-CDG es relativamente pequeña: 502 km."
 
 #: ../../en/geography.rst:88
 msgid ""
@@ -183,10 +247,15 @@ msgid ""
 "great-circle route from Los Angeles to Tokyo crosses the Pacific Ocean. The "
 "shortest Cartesian route crosses the Atlantic and Indian Oceans."
 msgstr ""
+"El enfoque cartesiano para manejar coordenadas geográficas se rompe "
+"completamente en el caso de entidades que cruzan la línea internacional de "
+"cambio de fecha. La ruta de círculo máximo más corta de Los Ángeles a Tokio "
+"cruza el Océano Pacífico. La ruta cartesiana más corta cruza el Atlántico y "
+"el Índico."
 
 #: ../../en/geography.rst:111
 msgid "Using Geography"
-msgstr ""
+msgstr "Usando Geography"
 
 #: ../../en/geography.rst:113
 msgid ""
@@ -197,12 +266,19 @@ msgid ""
 "`Geography(geometry)` function or the ``::geography`` suffix \"casts\" to "
 "geography."
 msgstr ""
+"Para cargar datos de geometría en una tabla de tipo geography, primero la "
+"geometría debe proyectarse a EPSG:4326 (longitud/latitud), y luego debe "
+"convertirse a geography. La función :command:ST_Transform(geometry,srid) "
+"convierte coordenadas a geográficas y la función :command:"
+"Geography(geometry) o el sufijo ::geography realiza el casting a geography."
 
 #: ../../en/geography.rst:124
 msgid ""
 "Building a spatial index on a geography table is exactly the same as for "
 "geometry:"
 msgstr ""
+"Construir un índice espacial en una tabla geography es exactamente igual que "
+"en una tabla geometry:"
 
 #: ../../en/geography.rst:131
 msgid ""
@@ -210,93 +286,103 @@ msgid ""
 "handle queries that cover the poles or the international date-line, while "
 "the geometry one will not."
 msgstr ""
+"La diferencia está en el funcionamiento interno: el índice geography "
+"manejará correctamente consultas que crucen los polos o la línea "
+"internacional de cambio de fecha, mientras que el de geometry no lo hará."
 
 #: ../../en/geography.rst:133
 msgid ""
 "Here's a query to find all the subway stations within 500 meters of the "
 "Empire State Building."
 msgstr ""
+"Aquí hay una consulta para encontrar todas las estaciones de metro dentro de "
+"500 metros del Empire State Building."
 
 #: ../../en/geography.rst:148
 msgid ""
 "There are only a small number of native functions for the geography type:"
-msgstr ""
+msgstr "Existen solo unas pocas funciones nativas para el tipo geography:"
 
 #: ../../en/geography.rst:150
 msgid ":command:`ST_AsText(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsText(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:151
 msgid ":command:`ST_GeographyFromText(text)` returns ``geography``"
-msgstr ""
+msgstr ":command:`ST_GeographyFromText(text)` devuelve ``geography``"
 
 #: ../../en/geography.rst:152
 msgid ":command:`ST_AsBinary(geography)` returns ``bytea``"
-msgstr ""
+msgstr ":command:`ST_AsBinary(geography)` devuelve ``bytea``"
 
 #: ../../en/geography.rst:153
 msgid ":command:`ST_GeogFromWKB(bytea)` returns ``geography``"
-msgstr ""
+msgstr ":command:`ST_GeogFromWKB(bytea)` devuelve ``geography``"
 
 #: ../../en/geography.rst:154
 msgid ":command:`ST_AsSVG(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsSVG(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:155
 msgid ":command:`ST_AsGML(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGML(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:156
 msgid ":command:`ST_AsKML(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsKML(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:157
 msgid ":command:`ST_AsGeoJson(geography)` returns ``text``"
-msgstr ""
+msgstr ":command:`ST_AsGeoJson(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:158
 msgid ":command:`ST_Distance(geography, geography)` returns ``double``"
-msgstr ""
+msgstr ":command:`ST_Distance(geography, geography)` devuelve ``double``"
 
 #: ../../en/geography.rst:159
 msgid ":command:`ST_DWithin(geography, geography, float8)` returns ``boolean``"
 msgstr ""
+":command:`ST_DWithin(geography, geography, float8)` devuelve ``boolean``"
 
 #: ../../en/geography.rst:160
 msgid ":command:`ST_Area(geography)` returns ``double``"
-msgstr ""
+msgstr ":command:`ST_Area(geography)` devuelve ``double``"
 
 #: ../../en/geography.rst:161
 msgid ":command:`ST_Length(geography)` returns ``double``"
-msgstr ""
+msgstr ":command:`ST_Length(geography)` devuelve ``double``"
 
 #: ../../en/geography.rst:162
 msgid ":command:`ST_Covers(geography, geography)` returns ``boolean``"
-msgstr ""
+msgstr ":command:`ST_Covers(geography, geography)` devuelve ``boolean``"
 
 #: ../../en/geography.rst:163
 msgid ":command:`ST_CoveredBy(geography, geography)` returns ``boolean``"
-msgstr ""
+msgstr ":command:`ST_CoveredBy(geography, geography)` devuelve ``boolean``"
 
 #: ../../en/geography.rst:164
 msgid ":command:`ST_Intersects(geography, geography)` returns ``boolean``"
-msgstr ""
+msgstr ":command:`ST_Intersects(geography, geography)` devuelve ``boolean``"
 
 #: ../../en/geography.rst:165
 msgid ""
 ":command:`ST_Buffer(geography, float8)` returns ``geography`` "
 "[#Casting_note]_"
 msgstr ""
+":command:`ST_Buffer(geography, float8)` devuelve ``geography`` "
+"[#Casting_note]_"
 
 #: ../../en/geography.rst:166
 msgid ""
 ":command:`ST_Intersection(geography, geography)` returns ``geography`` "
 "[#Casting_note]_"
 msgstr ""
+":command:`ST_Intersection(geography, geography)` devuelve ``geography`` "
+"[#Casting_note]_"
 
 #: ../../en/geography.rst:169
 msgid "Creating a Geography Table"
-msgstr ""
+msgstr "Crear una tabla Geography"
 
 #: ../../en/geography.rst:171
 msgid ""
@@ -304,6 +390,9 @@ msgid ""
 "for creating a geometry table. However, geography includes the ability to "
 "specify the object type directly at the time of table creation. For example:"
 msgstr ""
+"El SQL para crear una nueva tabla con una columna geography es muy similar "
+"al de geometry. Sin embargo, geography permite especificar el tipo de objeto "
+"directamente en la creación de la tabla. Por ejemplo:"
 
 #: ../../en/geography.rst:187
 msgid ""
@@ -312,14 +401,17 @@ msgid ""
 "``geometry_columns`` view. Instead, they are registered in a view called "
 "``geography_columns``."
 msgstr ""
+"En la definición de la tabla, GEOGRAPHY(Point) especifica nuestro tipo de "
+"datos de aeropuertos como puntos. Los nuevos campos geography no se "
+"registran en la vista geometry_columns, sino en la vista geography_columns."
 
 #: ../../en/geography.rst:200
 msgid "Some columns were omitted from the above output."
-msgstr ""
+msgstr "Algunas columnas fueron omitidas en la salida de arriba."
 
 #: ../../en/geography.rst:203
 msgid "Casting to Geometry"
-msgstr ""
+msgstr "Convertir a tipo Geometry"
 
 #: ../../en/geography.rst:205
 msgid ""
@@ -328,6 +420,9 @@ msgid ""
 "by the geometry type. Fortunately, you can convert objects back and forth "
 "from geography to geometry."
 msgstr ""
+"Aunque las funciones básicas para geography cubren muchos casos de uso, en "
+"ocasiones se necesitan funciones que solo soporta geometry. Afortunadamente, "
+"se pueden convertir objetos de geography a geometry y viceversa."
 
 #: ../../en/geography.rst:207
 msgid ""
@@ -336,12 +431,18 @@ msgid ""
 "numeric two to a text string '2'. And ``'POINT(0 0)'::geometry`` will "
 "convert the text representation of point into a geometry point."
 msgstr ""
+"La convención de PostgreSQL para casting es añadir ``::typename`` al final "
+"del valor. Por ejemplo: `2::text` convierte el número dos en una cadena de "
+"texto '2'. Y ``'POINT(0 0)'::geometry`` convierte la representación en texto "
+"de un punto a una geometría de tipo punto."
 
 #: ../../en/geography.rst:209
 msgid ""
 "The :command:`ST_X(point)` function only supports the geometry type. How can "
 "we read the X coordinate from our geographies?"
 msgstr ""
+"La función :command:ST_X(point) solo admite el tipo geometry. ¿Cómo leer la "
+"coordenada X de nuestras geographies?"
 
 #: ../../en/geography.rst:223
 msgid ""
@@ -351,10 +452,14 @@ msgid ""
 "geometry, the coordinates will be interpreted as Cartesian coordinates, not "
 "spherical ones."
 msgstr ""
+"Adjuntando ::geometry a nuestro valor geography lo convertimos a geometry "
+"con SRID 4326. Desde ahí podemos usar todas las funciones de geometry que "
+"queramos. Pero hay que recordar que, una vez convertido a geometry, las "
+"coordenadas se interpretan como cartesianas, no esféricas."
 
 #: ../../en/geography.rst:227
 msgid "Why (Not) Use Geography"
-msgstr ""
+msgstr "Por qué (no) usar Geography"
 
 #: ../../en/geography.rst:229
 msgid ""
@@ -362,6 +467,9 @@ msgid ""
 "what latitude/longitude mean, but very few people understand what UTM "
 "coordinates mean. Why not use geography all the time?"
 msgstr ""
+"Las coordenadas geográficas son universalmente aceptadas: todos entienden "
+"qué significan latitud y longitud, pero muy pocos entienden lo que "
+"significan coordenadas UTM. ¿Por qué no usar siempre geography?"
 
 #: ../../en/geography.rst:231
 msgid ""
@@ -369,6 +477,9 @@ msgid ""
 "that directly support the geography type. You may spend a lot of time "
 "working around geography type limitations."
 msgstr ""
+"Primero, como se señaló antes, hay muchas menos funciones disponibles "
+"directamente para geography. Podrías pasar mucho tiempo buscando soluciones "
+"a sus limitaciones."
 
 #: ../../en/geography.rst:232
 msgid ""
@@ -379,10 +490,16 @@ msgid ""
 "and two cos() calls. Trigonometric functions are very costly, and spherical "
 "calculations involve a lot of them."
 msgstr ""
+"Segundo, los cálculos en una esfera son mucho más costosos "
+"computacionalmente que los cálculos cartesianos. La fórmula cartesiana de "
+"distancia (Pitágoras) requiere una llamada a sqrt(). La fórmula esférica "
+"(Haversine) requiere dos sqrt(), una arctan(), cuatro sin() y dos cos(). Las "
+"funciones trigonométricas son costosas, y los cálculos esféricos involucran "
+"muchas de ellas."
 
 #: ../../en/geography.rst:234
 msgid "The conclusion?"
-msgstr ""
+msgstr "¿Conclusión?"
 
 #: ../../en/geography.rst:236
 msgid ""
@@ -391,6 +508,10 @@ msgid ""
 "sense with your data. See the http://epsg.io site and type in the name of "
 "your region for a selection of possible reference systems."
 msgstr ""
+"**Si tus datos son geográficamente compactos** (dentro de un estado, condado "
+"o ciudad), usa el tipo geometry con una proyección cartesiana adecuada. Para "
+"elegir una, visita http://epsg.io e introduce el nombre de tu región para "
+"obtener una selección de posibles sistemas de referencia."
 
 #: ../../en/geography.rst:238
 msgid ""
@@ -400,6 +521,10 @@ msgid ""
 "performance issues. And casting to ``geometry`` can offset most "
 "functionality limitations."
 msgstr ""
+"**Si necesitas medir distancias en un conjunto de datos geográficamente "
+"disperso** (cubriendo gran parte del mundo), usa el tipo geography. La "
+"complejidad que te ahorras compensará los problemas de rendimiento. Además, "
+"convertir a geometry puede suplir la mayoría de limitaciones funcionales."
 
 #: ../../en/geography.rst:241
 msgid "Function List"
@@ -413,6 +538,11 @@ msgid ""
 "For geography type defaults to return spheroidal minimum distance between "
 "two geographies in meters."
 msgstr ""
+"`ST_Distance(geometry, geometry)<http://postgis.net/docs/ST_Distance.html>`_:"
+" Para geometry devuelve la distancia cartesiana mínima bidimensional (basada "
+"en el sistema de referencia espacial) entre dos geometrías en unidades "
+"proyectadas. Para geography devuelve la distancia mínima esferoidal entre "
+"dos geographies en metros."
 
 #: ../../en/geography.rst:245
 msgid ""
@@ -420,6 +550,9 @@ msgid ""
 "html>`_: Returns a specified geography value from Well-Known Text "
 "representation or extended (WKT)."
 msgstr ""
+"`ST_GeographyFromText(text) <http://postgis.net/docs/ST_GeographyFromText."
+"html>`_: Devuelve un valor geography a partir de la representación en WKT o "
+"extendida."
 
 #: ../../en/geography.rst:247
 msgid ""
@@ -427,28 +560,37 @@ msgid ""
 "Returns a new geometry with its coordinates transformed to the SRID "
 "referenced by the integer parameter."
 msgstr ""
+"`ST_Transform(geometry, srid) <http://postgis.net/docs/ST_Transform.html>`_: "
+"Devuelve una nueva geometría con sus coordenadas transformadas al SRID "
+"indicado."
 
 #: ../../en/geography.rst:249
 msgid ""
 "`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: Returns the X coordinate "
 "of the point, or NULL if not available. Input must be a point."
 msgstr ""
+"`ST_X(point) <http://postgis.net/docs/ST_X.html>`_: Devuelve la coordenada X "
+"del punto, o NULL si no está disponible. La entrada debe ser un punto."
 
 #: ../../en/geography.rst:251
 msgid ""
 "`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth."
 "html>`_: Returns the direction from A to B in radians."
 msgstr ""
+"`ST_Azimuth(geography_A, geography_B) <http://postgis.net/docs/ST_Azimuth."
+"html>`_: Devuelve la dirección de A a B en radianes."
 
 #: ../../en/geography.rst:253
 msgid ""
 "`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin."
 "html>`_: Returns true if A is within R meters of B."
 msgstr ""
+"`ST_DWithin(geography_A, geography_B, R) <http://postgis.net/docs/ST_DWithin."
+"html>`_: Devuelve verdadero si A está dentro de R metros de B."
 
 #: ../../en/geography.rst:257
 msgid "Footnotes"
-msgstr ""
+msgstr "Nota al pie"
 
 #: ../../en/geography.rst:258
 msgid ""
@@ -457,6 +599,11 @@ msgid ""
 "result, they may fail to return correct results for objects with very large "
 "extents that cannot be cleanly converted to a planar representation."
 msgstr ""
+"Las funciones de buffer e intersection en realidad son envoltorios sobre un "
+"casting a geometry, y no se ejecutan de forma nativa en coordenadas "
+"esféricas. Como resultado, pueden fallar al devolver resultados correctos "
+"para objetos con extensiones muy grandes que no pueden convertirse "
+"limpiamente a una representación planar."
 
 #: ../../en/geography.rst:260
 msgid ""
@@ -466,3 +613,8 @@ msgid ""
 "(the object is too large), the operation can fail or return a malformed "
 "buffer."
 msgstr ""
+"Por ejemplo, la función :command:ST_Buffer(geography,distance) transforma el "
+"objeto geography a una proyección “óptima”, aplica el buffer y luego lo "
+"transforma de nuevo a geográficas. Si no existe una proyección “óptima” (el "
+"objeto es demasiado grande), la operación puede fallar o devolver un buffer "
+"malformado."

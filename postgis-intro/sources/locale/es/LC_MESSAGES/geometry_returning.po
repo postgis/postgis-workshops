@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-06-18 09:58+0000\n"
+"PO-Revision-Date: 2025-08-29 06:47+0000\n"
 "Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning/es/>\n"
@@ -41,32 +41,40 @@ msgid ""
 "analyses of the objects (:command:`ST_Length(geometry)`, :command:"
 "`ST_Area(geometry)`),"
 msgstr ""
+"análisis de los objetos (:command:ST_Length(geometry), "
+":command:ST_Area(geometry)),"
 
 #: ../../en/geometry_returning.rst:9
 msgid ""
 "serializations of the objects (:command:`ST_AsText(geometry)`, :command:"
 "`ST_AsGML(geometry)`),"
 msgstr ""
+"serializaciones de los objetos (:command:ST_AsText(geometry), "
+":command:ST_AsGML(geometry)),"
 
 #: ../../en/geometry_returning.rst:10
 msgid "parts of the object (:command:`ST_RingN(geometry,n)`) or"
-msgstr ""
+msgstr "partes del objeto (:command:ST_RingN(geometry,n)) o"
 
 #: ../../en/geometry_returning.rst:11
 msgid ""
 "true/false tests (:command:`ST_Contains(geometry,geometry)`, :command:"
 "`ST_Intersects(geometry,geometry)`)."
 msgstr ""
+"pruebas verdadero/falso (:command:ST_Contains(geometry,geometry), "
+":command:ST_Intersects(geometry,geometry))."
 
 #: ../../en/geometry_returning.rst:13
 msgid ""
 "\"Geometry constructing functions\" take geometries as inputs and output new "
 "shapes."
 msgstr ""
+"Las \"funciones de construcción de geometrías\" toman geometrías como "
+"entrada y generan nuevas formas."
 
 #: ../../en/geometry_returning.rst:17
 msgid "ST_Centroid / ST_PointOnSurface"
-msgstr ""
+msgstr "ST_Centroid / ST_PointOnSurface"
 
 #: ../../en/geometry_returning.rst:19
 msgid ""
@@ -78,6 +86,13 @@ msgid ""
 "sides; replacing it with a point forces it to be on one side or the other, "
 "not both."
 msgstr ""
+"Una necesidad común al componer una consulta espacial es reemplazar un "
+"polígono con una representación puntual de la entidad. Esto es útil para las "
+"uniones espaciales (como se discute en :ref:polypolyjoins) porque usar "
+":command:ST_Intersects(geometry,geometry) sobre dos capas de polígonos a "
+"menudo resulta en doble conteo: un polígono en un límite intersectará un "
+"objeto a ambos lados; reemplazarlo con un punto obliga a que esté en un lado "
+"u otro, no en ambos."
 
 #: ../../en/geometry_returning.rst:21
 msgid ""
@@ -88,6 +103,12 @@ msgid ""
 "(imagine the letter 'C') the returned centroid might not be in the interior "
 "of the feature."
 msgstr ""
+":command:ST_Centroid(geometry) devuelve un punto que está aproximadamente en "
+"el centro de masa del argumento de entrada. Este cálculo simple es muy "
+"rápido, pero a veces no es deseable, porque el punto devuelto no "
+"necesariamente se encuentra dentro de la propia geometría. Si la entidad de "
+"entrada tiene una concavidad (imagine la letra 'C'), el centroide devuelto "
+"podría no estar en el interior de la entidad."
 
 #: ../../en/geometry_returning.rst:22
 msgid ""
@@ -95,6 +116,9 @@ msgid ""
 "be inside the input argument. This makes it more useful for computing "
 "\"proxy points\" for spatial joins."
 msgstr ""
+":command:ST_PointOnSurface(geometry) devuelve un punto que está garantizado "
+"dentro del argumento de entrada. Esto lo hace más útil para calcular \"puntos"
+" representativos\" en junturas (joins) espaciales."
 
 #: ../../en/geometry_returning.rst:45
 msgid "ST_Buffer"
@@ -107,6 +131,10 @@ msgid ""
 "and geometry type and outputs a polygon with a boundary the buffer distance "
 "away from the input geometry."
 msgstr ""
+"La operación de buffer es común en los flujos de trabajo SIG, y también está "
+"disponible en PostGIS. :command:ST_Buffer(geometry,distance) recibe una "
+"distancia de buffer y una geometría, y devuelve un polígono con un límite a "
+"la distancia especificada de la geometría de entrada."
 
 #: ../../en/geometry_returning.rst:52
 msgid ""
@@ -115,6 +143,11 @@ msgid ""
 "the island. Liberty Island is a single census block in our "
 "``nyc_census_blocks`` table, so we can easily extract and buffer it."
 msgstr ""
+"Por ejemplo, si el Servicio de Parques de EE. UU. quisiera establecer una "
+"zona de tráfico marítimo alrededor de Liberty Island, podría construir un "
+"polígono de buffer de 500 metros alrededor de la isla. Liberty Island es un "
+"solo bloque censal en nuestra tabla nyc_census_blocks, por lo que podemos "
+"extraerlo y generar el buffer fácilmente."
 
 #: ../../en/geometry_returning.rst:65
 msgid ""
@@ -122,6 +155,9 @@ msgid ""
 "inscribed polygons within polygonal inputs. For lines and points you will "
 "just get an empty return."
 msgstr ""
+"La función :command:ST_Buffer también acepta distancias negativas y "
+"construye polígonos inscritos dentro de las geometrías poligonales de "
+"entrada. Para líneas y puntos simplemente devolverá un resultado vacío."
 
 #: ../../en/geometry_returning.rst:72
 msgid "ST_Intersection"
@@ -134,6 +170,10 @@ msgid ""
 "has the property that any polygon in either of the parents can be built by "
 "merging polygons in the resultant."
 msgstr ""
+"Otra operación clásica de SIG —el \"overlay\" o superposición— crea una "
+"nueva cobertura al calcular la intersección de dos polígonos superpuestos. "
+"El resultado tiene la propiedad de que cualquier polígono de los padres "
+"puede construirse a partir de la unión de polígonos en el resultado."
 
 #: ../../en/geometry_returning.rst:76
 msgid ""
@@ -141,10 +181,13 @@ msgid ""
 "spatial area (or line, or point) that both arguments have in common. If the "
 "arguments are disjoint, the function returns an empty geometry."
 msgstr ""
+"La función :command:ST_Intersection(geometry A, geometry B) devuelve el área "
+"espacial (o línea, o punto) que ambos argumentos tienen en común. Si los "
+"argumentos no se intersectan, la función devuelve una geometría vacía."
 
 #: ../../en/geometry_returning.rst:94
 msgid "ST_Union"
-msgstr ""
+msgstr "ST_Union"
 
 #: ../../en/geometry_returning.rst:96
 msgid ""
@@ -153,6 +196,10 @@ msgid ""
 "the reverse; it takes inputs and removes common lines. There are two forms "
 "of the :command:`ST_Union` function:"
 msgstr ""
+"En el ejemplo anterior intersectamos geometrías, creando una nueva geometría "
+"que tenía líneas de ambas entradas. La función :command:ST_Union hace lo "
+"contrario: toma las entradas y elimina las líneas comunes. Existen dos "
+"formas de la función :command:ST_Union:"
 
 #: ../../en/geometry_returning.rst:98
 msgid ""
@@ -161,6 +208,10 @@ msgid ""
 "example from the previous section looks like this when you replace the "
 "intersection with a union."
 msgstr ""
+":command:ST_Union(geometry, geometry): Una versión de dos argumentos que "
+"recibe dos geometrías y devuelve la unión combinada. Por ejemplo, nuestro "
+"ejemplo de dos círculos de la sección anterior se ve así cuando reemplazas "
+"la intersección por una unión."
 
 #: ../../en/geometry_returning.rst:114
 msgid ""
@@ -169,6 +220,10 @@ msgid ""
 "aggregate ST_Union can be used with the ``GROUP BY`` SQL statement to create "
 "carefully merged subsets of basic geometries. It is very powerful."
 msgstr ""
+":command:ST_Union([geometry]): Una versión agregada que recibe un conjunto "
+"de geometrías y devuelve la geometría fusionada de todo el grupo. La versión "
+"agregada de ST_Union puede usarse con la sentencia SQL GROUP BY para crear "
+"subconjuntos cuidadosamente fusionados de geometrías básicas. Es muy potente."
 
 #: ../../en/geometry_returning.rst:116
 msgid ""
@@ -179,6 +234,12 @@ msgid ""
 "later in :ref:`creatingtractstable`). Or, we can create a county map by "
 "merging blocks that fall within each county."
 msgstr ""
+"Como ejemplo de agregación con :command:ST_Union, consideremos nuestra tabla "
+"nyc_census_blocks. La geografía censal está cuidadosamente construida de "
+"modo que las geografías más grandes puedan generarse a partir de las más "
+"pequeñas. Así, podemos crear un mapa de tramos censales uniendo los bloques "
+"que forman cada tramo. O podemos crear un mapa de condados uniendo los "
+"bloques que caen dentro de cada condado."
 
 #: ../../en/geometry_returning.rst:118
 msgid ""
@@ -186,6 +247,9 @@ msgid ""
 "information about the higher level geographies. Here are the parts of the "
 "key for Liberty Island we used earlier:"
 msgstr ""
+"Para llevar a cabo la unión, obsérvese que la clave única blkid en realidad "
+"incorpora información sobre las geografías de nivel superior. Aquí están las "
+"partes de la clave para Liberty Island que usamos anteriormente:"
 
 #: ../../en/geometry_returning.rst:131
 msgid ""
@@ -193,6 +257,9 @@ msgid ""
 "first 5 digits of their ``blkid``. Be patient; this is computationally "
 "expensive and can take a minute or two."
 msgstr ""
+"Así, podemos crear un mapa de condados uniendo todas las geometrías que "
+"comparten los mismos primeros 5 dígitos de su blkid. Sea paciente; esto es "
+"computacionalmente costoso y puede tardar uno o dos minutos."
 
 #: ../../en/geometry_returning.rst:146
 msgid ""
@@ -200,18 +267,25 @@ msgid ""
 "First, we calculate the area of each individual census block, and sum those "
 "areas grouping by census county id."
 msgstr ""
+"Una prueba de área puede confirmar que nuestra operación de unión no perdió "
+"ninguna geometría. Primero, calculamos el área de cada bloque censal "
+"individual y sumamos esas áreas agrupando por id de condado censal."
 
 #: ../../en/geometry_returning.rst:165
 msgid ""
 "Then we calculate the area of each of our new county polygons from the "
 "county table:"
 msgstr ""
+"Luego calculamos el área de cada uno de nuestros nuevos polígonos de condado "
+"a partir de la tabla de condados:"
 
 #: ../../en/geometry_returning.rst:183
 msgid ""
 "The same answer! We have successfully built an NYC county table from our "
 "census blocks data."
 msgstr ""
+"¡La misma respuesta! Hemos construido exitosamente una tabla de condados de "
+"NYC a partir de nuestros datos de bloques censales."
 
 #: ../../en/geometry_returning.rst:212
 msgid "Function List"
@@ -222,6 +296,9 @@ msgid ""
 "`ST_Centroid(geometry) <http://postgis.net/docs/ST_Centroid.html>`_: Returns "
 "a point geometry that represents the center of mass of the input geometry."
 msgstr ""
+"ST_Centroid(geometry) <http://postgis.net/docs/ST_Centroid.html>_: Devuelve "
+"una geometría de punto que representa el centro de masa de la geometría de "
+"entrada."
 
 #: ../../en/geometry_returning.rst:216
 msgid ""
@@ -229,6 +306,9 @@ msgid ""
 "html>`_: Returns a point geometry that is guaranteed to be in the interior "
 "of the input geometry."
 msgstr ""
+"ST_PointOnSurface(geometry) <http://postgis.net/docs/ST_PointOnSurface."
+"html>_: Devuelve una geometría de punto que está garantizada en el interior "
+"de la geometría de entrada."
 
 #: ../../en/geometry_returning.rst:218
 msgid ""
@@ -238,6 +318,11 @@ msgid ""
 "the Spatial Reference System of this Geometry. For geography: Uses a planar "
 "transform wrapper."
 msgstr ""
+"ST_Buffer(geometry, distance) <http://postgis.net/docs/ST_Buffer.html>_: "
+"Para geometría: devuelve una geometría que representa todos los puntos cuya "
+"distancia desde esta geometría es menor o igual a la distancia. Los cálculos "
+"se realizan en el sistema de referencia espacial de esta geometría. Para "
+"geografía: usa un envoltorio de transformación planar."
 
 #: ../../en/geometry_returning.rst:220
 msgid ""
@@ -246,12 +331,19 @@ msgid ""
 "portion of geomA and geomB. The geography implementation does a transform to "
 "geometry to do the intersection and then transform back to WGS84."
 msgstr ""
+"ST_Intersection(geometry A, geometry B) <http://postgis.net/docs/"
+"ST_Intersection.html>_: Devuelve una geometría que representa la porción "
+"compartida de geomA y geomB. La implementación en geografía realiza una "
+"transformación a geometría para efectuar la intersección y luego transforma "
+"de nuevo a WGS84."
 
 #: ../../en/geometry_returning.rst:222
 msgid ""
 "`ST_Union() <http://postgis.net/docs/ST_Union.html>`_: Returns a geometry "
 "that represents the point set union of the Geometries."
 msgstr ""
+"ST_Union() <http://postgis.net/docs/ST_Union.html>_: Devuelve una geometría "
+"que representa la unión de conjuntos de puntos de las geometrías."
 
 #: ../../en/geometry_returning.rst:224
 msgid ""
@@ -259,6 +351,9 @@ msgid ""
 "Well-Known Text (WKT) representation of the geometry/geography without SRID "
 "metadata."
 msgstr ""
+"ST_AsText(text) <http://postgis.net/docs/ST_AsText.html>_: Devuelve la "
+"representación Well-Known Text (WKT) de la geometría/geografía sin metadatos "
+"de SRID."
 
 #: ../../en/geometry_returning.rst:226
 msgid ""
@@ -266,6 +361,9 @@ msgid ""
 "current/static/functions-string.html>`_: PostgreSQL string function to "
 "extract substring matching SQL regular expression."
 msgstr ""
+"substring(string [from int] [for int]) <http://www.postgresql.org/docs/"
+"current/static/functions-string.html>_: Función de PostgreSQL para extraer "
+"una subcadena que coincide con una expresión regular SQL."
 
 #: ../../en/geometry_returning.rst:228
 msgid ""

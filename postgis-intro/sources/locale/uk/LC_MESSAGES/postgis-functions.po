@@ -7,174 +7,198 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-08-13 12:47+0000\n"
+"Last-Translator: Denys Kovshun <deniskovshun@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.osgeo.org/projects/"
+"postgis-workshop/postgis-functions/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: ../../en/postgis-functions.rst:4
 msgid "Appendix A: PostGIS Functions"
-msgstr ""
+msgstr "Додаток А: Функції PostGIS"
 
 #: ../../en/postgis-functions.rst:7
 msgid "Constructors"
-msgstr ""
+msgstr "Конструктори"
 
 #: ../../en/postgis-functions.rst:10
 msgid ":command:`ST_MakePoint(Longitude, Latitude)`"
-msgstr ""
+msgstr ":command:`ST_MakePoint(Longitude, Latitude)`"
 
 #: ../../en/postgis-functions.rst:10
 msgid "Returns a new point. Note the order of the coordinates (longitude then latitude)."
 msgstr ""
+"Повертає нову точку. Зверніть увагу на порядок координат (спочатку довгота, "
+"потім широта)."
 
 #: ../../en/postgis-functions.rst:13
 msgid ":command:`ST_GeomFromText(WellKnownText, srid)`"
-msgstr ""
+msgstr ":command:`ST_GeomFromText(WellKnownText, srid)`"
 
 #: ../../en/postgis-functions.rst:13
 msgid "Returns a new geometry from a standard WKT string and srid."
-msgstr ""
+msgstr "Повертає нову геометрію зі стандартного рядка WKT та srid."
 
 #: ../../en/postgis-functions.rst:16
 msgid ":command:`ST_SetSRID(geometry, srid)`"
-msgstr ""
+msgstr ":command:`ST_SetSRID(geometry, srid)`"
 
 #: ../../en/postgis-functions.rst:16
 msgid "Updates the srid on a geometry.  Returns the same geometry.  This does not alter the coordinates of the geometry, it just updates the srid. This function is useful for conditioning geometries created without an srid."
 msgstr ""
+"Оновлює srid для геометрії.  Повертає ту саму геометрію.  Це не змінює "
+"координати геометрії, а лише оновлює srid. Ця функція корисна для обробки "
+"геометрій, створених без srid."
 
 #: ../../en/postgis-functions.rst:19
 msgid ":command:`ST_Expand(geometry, Radius)`"
-msgstr ""
+msgstr ":command:`ST_Expand(geometry, Radius)`"
 
 #: ../../en/postgis-functions.rst:19
 msgid "Returns a new geometry that is an expanded bounding box of the input geometry.  This function is useful for creating envelopes for use in indexed searches."
 msgstr ""
+"Повертає нову геометрію, яка є розширеною обмежувальною рамкою вхідної "
+"геометрії. Ця функція корисна для створення обмежувальних рамок для "
+"використання в індексованому пошуку."
 
 #: ../../en/postgis-functions.rst:22
+#, fuzzy
 msgid "Outputs"
-msgstr ""
+msgstr "Генератори"
 
 #: ../../en/postgis-functions.rst:25
 msgid ":command:`ST_AsText(geometry)`"
-msgstr ""
+msgstr ":command:`ST_AsText(geometry)`"
 
 #: ../../en/postgis-functions.rst:25
 msgid "Returns a geometry in a human-readable text format."
-msgstr ""
+msgstr "Повертає геометрію у текстовому форматі, зрозумілому для людини."
 
 #: ../../en/postgis-functions.rst:28
 msgid ":command:`ST_AsGML(geometry)`"
-msgstr ""
+msgstr ":command:`ST_AsGML(geometry)`"
 
 #: ../../en/postgis-functions.rst:28
 msgid "Returns a geometry in standard OGC :term:`GML` format."
-msgstr ""
+msgstr "Повертає геометрію у стандартному форматі OGC :term:`GML`."
 
 #: ../../en/postgis-functions.rst:31
 msgid ":command:`ST_AsGeoJSON(geometry)`"
-msgstr ""
+msgstr ":command:`ST_AsGeoJSON(geometry)`"
 
 #: ../../en/postgis-functions.rst:31
 msgid "Returns a geometry to a standard `GeoJSON <http://geojson.org>`_ format."
-msgstr ""
+msgstr "Повертає геометрію у стандартний `GeoJSON <http://geojson.org>`_формат."
 
 #: ../../en/postgis-functions.rst:34
 msgid "Measurements"
-msgstr ""
+msgstr "Вимірювання"
 
 #: ../../en/postgis-functions.rst:37
 msgid ":command:`ST_Area(geometry)`"
-msgstr ""
+msgstr ":command:`ST_Area(geometry)`"
 
 #: ../../en/postgis-functions.rst:37
 msgid "Returns the area of the geometry in the units of the spatial reference system."
-msgstr ""
+msgstr "Повертає площу геометрії в одиницях просторової системи координат."
 
 #: ../../en/postgis-functions.rst:40
 msgid ":command:`ST_Length(geometry)`"
-msgstr ""
+msgstr ":command:`ST_Length(geometry)`"
 
 #: ../../en/postgis-functions.rst:40
 msgid "Returns the length of the geometry in the units of the spatial reference system."
 msgstr ""
+"Повертає значення довжини геометрії в одиницях просторової системи координат."
 
 #: ../../en/postgis-functions.rst:43
 msgid ":command:`ST_Perimeter(geometry)`"
-msgstr ""
+msgstr ":command:`ST_Perimeter(geometry)`"
 
 #: ../../en/postgis-functions.rst:43
 msgid "Returns the perimeter of the geometry in the units of the spatial reference system."
 msgstr ""
+"Повертає значення периметра геометрії в одиницях просторової системи "
+"координат."
 
 #: ../../en/postgis-functions.rst:46
 msgid ":command:`ST_NumPoints(linestring)`"
-msgstr ""
+msgstr ":command:`ST_NumPoints(linestring)`"
 
 #: ../../en/postgis-functions.rst:46
 msgid "Returns the number of vertices in a linestring."
-msgstr ""
+msgstr "Повертає кількість вершин у лінії."
 
 #: ../../en/postgis-functions.rst:49
 msgid ":command:`ST_NumRings(polygon)`"
-msgstr ""
+msgstr ":command:`ST_NumRings(polygon)`"
 
 #: ../../en/postgis-functions.rst:49
 msgid "Returns the number of rings in a polygon."
-msgstr ""
+msgstr "Повертає кількість кілець у полігоні."
 
 #: ../../en/postgis-functions.rst:52
 msgid ":command:`ST_NumGeometries(geometry)`"
-msgstr ""
+msgstr ":command:`ST_NumGeometries(geometry)`"
 
 #: ../../en/postgis-functions.rst:52
 msgid "Returns the number of geometries in a geometry collection."
-msgstr ""
+msgstr "Повертає кількість геометрій у колекції геометрій."
 
 #: ../../en/postgis-functions.rst:55
 msgid "Relationships"
-msgstr ""
+msgstr "Співвідношення"
 
 #: ../../en/postgis-functions.rst:58
 msgid ":command:`ST_Distance(geometry, geometry)`"
-msgstr ""
+msgstr ":command:`ST_Distance(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:58
 msgid "Returns the distance between two geometries in the units of the spatial reference system."
 msgstr ""
+"Повертає відстань між двома геометріями в одиницях просторової системи "
+"координат."
 
 #: ../../en/postgis-functions.rst:61
 msgid ":command:`ST_DWithin(geometry, geometry, radius)`"
-msgstr ""
+msgstr ":command:`ST_DWithin(geometry, geometry, radius)`"
 
 #: ../../en/postgis-functions.rst:61
 msgid "Returns true if the geometries are within the radius distance of one another, otherwise false."
 msgstr ""
+"Повертає true, якщо геометрії знаходяться на відстані радіусу одна від "
+"одної, інакше повертає false."
 
 #: ../../en/postgis-functions.rst:64
 msgid ":command:`ST_Intersects(geometry, geometry)`"
-msgstr ""
+msgstr ":command:`ST_Intersects(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:64
 msgid "Returns true if the geometries are not disjoint, otherwise false."
-msgstr ""
+msgstr "Повертає true, якщо геометрії не роз'єднані, інакше false."
 
 #: ../../en/postgis-functions.rst:67
 msgid ":command:`ST_Contains(geometry, geometry)`"
-msgstr ""
+msgstr ":command:`ST_Contains(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:67
 msgid "Returns true if the first geometry fully contains the second geometry, otherwise false."
 msgstr ""
+"Повертає true, якщо перша геометрія повністю містить другу геометрію, інакше "
+"повертає false."
 
 #: ../../en/postgis-functions.rst:69
 msgid ":command:`ST_Crosses(geometry, geometry)`"
-msgstr ""
+msgstr ":command:`ST_Crosses(geometry, geometry)`"
 
 #: ../../en/postgis-functions.rst:70
 msgid "Returns true if a line or polygon boundary crosses another line or polygon boundary, otherwise false."
 msgstr ""
+"Повертає true, якщо лінія або межа полігону перетинає іншу лінію або межу "
+"полігону, інакше повертає false."

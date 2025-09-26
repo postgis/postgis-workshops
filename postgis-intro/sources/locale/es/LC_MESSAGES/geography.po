@@ -6,13 +6,14 @@
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2024.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-08-29 06:47+0000\n"
-"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
+"PO-Revision-Date: 2025-09-25 16:32+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geography/es/>\n"
 "Language: es\n"
@@ -91,8 +92,8 @@ msgid ""
 "Note that the SRID of 4326 declares a geographic spatial reference system."
 msgstr ""
 "El siguiente cálculo mide la distancia entre Los Ángeles y París usando la "
-"función cartesiana estándar de PostGIS :command:ST_Distance(geometry, "
-"geometry). Obsérvese que el SRID 4326 declara un sistema de referencia "
+"función cartesiana estándar de PostGIS :command:`ST_Distance(geometry, "
+"geometry)`. Obsérvese que el SRID 4326 declara un sistema de referencia "
 "espacial geográfico."
 
 #: ../../en/geography.rst:33
@@ -202,8 +203,8 @@ msgid ""
 "across the poles or international dateline."
 msgstr ""
 "Las versiones antiguas de PostGIS soportaban cálculos muy básicos sobre la "
-"esfera mediante la función :command:ST_Distance_Spheroid(point, point, "
-"measurement). Sin embargo, :command:ST_Distance_Spheroid es bastante "
+"esfera mediante la función :command:`ST_Distance_Spheroid(point, point, "
+"measurement)`. Sin embargo, :command:`ST_Distance_Spheroid` es bastante "
 "limitada. La función solo funciona con puntos y no proporciona soporte para "
 "indexación a través de los polos o la línea internacional de cambio de fecha."
 
@@ -304,77 +305,79 @@ msgstr "Existen solo unas pocas funciones nativas para el tipo geography:"
 
 #: ../../en/geography.rst:150
 msgid ":command:`ST_AsText(geography)` returns ``text``"
-msgstr ":command:ST_AsText(geography) devuelve text"
+msgstr ":command:`ST_AsText(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:151
 msgid ":command:`ST_GeographyFromText(text)` returns ``geography``"
-msgstr ":command:ST_GeographyFromText(text) devuelve geography"
+msgstr ":command:`ST_GeographyFromText(text)` devuelve ``geography``"
 
 #: ../../en/geography.rst:152
 msgid ":command:`ST_AsBinary(geography)` returns ``bytea``"
-msgstr ":command:ST_AsBinary(geography) devuelve bytea"
+msgstr ":command:`ST_AsBinary(geography)` devuelve ``bytea``"
 
 #: ../../en/geography.rst:153
 msgid ":command:`ST_GeogFromWKB(bytea)` returns ``geography``"
-msgstr ":command:ST_GeogFromWKB(bytea) devuelve geography"
+msgstr ":command:`ST_GeogFromWKB(bytea)` devuelve ``geography``"
 
 #: ../../en/geography.rst:154
 msgid ":command:`ST_AsSVG(geography)` returns ``text``"
-msgstr ":command:ST_AsSVG(geography) devuelve text"
+msgstr ":command:`ST_AsSVG(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:155
 msgid ":command:`ST_AsGML(geography)` returns ``text``"
-msgstr ":command:ST_AsGML(geography) devuelve text"
+msgstr ":command:`ST_AsGML(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:156
 msgid ":command:`ST_AsKML(geography)` returns ``text``"
-msgstr ":command:ST_AsKML(geography) devuelve text"
+msgstr ":command:`ST_AsKML(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:157
 msgid ":command:`ST_AsGeoJson(geography)` returns ``text``"
-msgstr ":command:ST_AsGeoJson(geography) devuelve text"
+msgstr ":command:`ST_AsGeoJson(geography)` devuelve ``text``"
 
 #: ../../en/geography.rst:158
 msgid ":command:`ST_Distance(geography, geography)` returns ``double``"
-msgstr ":command:ST_Distance(geography, geography) devuelve double"
+msgstr ":command:`ST_Distance(geography, geography)` devuelve ``double``"
 
 #: ../../en/geography.rst:159
 msgid ":command:`ST_DWithin(geography, geography, float8)` returns ``boolean``"
-msgstr ":command:ST_DWithin(geography, geography, float8) devuelve boolean"
+msgstr ""
+":command:`ST_DWithin(geography, geography, float8)` devuelve ``boolean``"
 
 #: ../../en/geography.rst:160
 msgid ":command:`ST_Area(geography)` returns ``double``"
-msgstr ":command:ST_Area(geography) devuelve double"
+msgstr ":command:`ST_Area(geography)` devuelve ``double``"
 
 #: ../../en/geography.rst:161
 msgid ":command:`ST_Length(geography)` returns ``double``"
-msgstr ":command:ST_Length(geography) devuelve double"
+msgstr ":command:`ST_Length(geography)` devuelve ``double``"
 
 #: ../../en/geography.rst:162
 msgid ":command:`ST_Covers(geography, geography)` returns ``boolean``"
-msgstr ":command:ST_Covers(geography, geography) devuelve boolean"
+msgstr ":command:`ST_Covers(geography, geography)` devuelve ``boolean``"
 
 #: ../../en/geography.rst:163
 msgid ":command:`ST_CoveredBy(geography, geography)` returns ``boolean``"
-msgstr ":command:ST_CoveredBy(geography, geography) devuelve boolean"
+msgstr ":command:`ST_CoveredBy(geography, geography)` devuelve ``boolean``"
 
 #: ../../en/geography.rst:164
 msgid ":command:`ST_Intersects(geography, geography)` returns ``boolean``"
-msgstr ":command:ST_Intersects(geography, geography) devuelve boolean"
+msgstr ":command:`ST_Intersects(geography, geography)` devuelve ``boolean``"
 
 #: ../../en/geography.rst:165
 msgid ""
 ":command:`ST_Buffer(geography, float8)` returns ``geography`` "
 "[#Casting_note]_"
 msgstr ""
-":command:ST_Buffer(geography, float8) devuelve geography [#Casting_note]_"
+":command:`ST_Buffer(geography, float8)` devuelve ``geography`` "
+"[#Casting_note]_"
 
 #: ../../en/geography.rst:166
 msgid ""
 ":command:`ST_Intersection(geography, geography)` returns ``geography`` "
 "[#Casting_note]_"
 msgstr ""
-":command:ST_Intersection(geography, geography) devuelve geography "
+":command:`ST_Intersection(geography, geography)` devuelve ``geography`` "
 "[#Casting_note]_"
 
 #: ../../en/geography.rst:169
@@ -535,8 +538,8 @@ msgid ""
 "For geography type defaults to return spheroidal minimum distance between "
 "two geographies in meters."
 msgstr ""
-"`ST_Distance(geometry, geometry)<http://postgis.net/docs/ST_Distance.html>`: "
-"Para geometry devuelve la distancia cartesiana mínima bidimensional (basada "
+"`ST_Distance(geometry, geometry)<http://postgis.net/docs/ST_Distance.html>`_:"
+" Para geometry devuelve la distancia cartesiana mínima bidimensional (basada "
 "en el sistema de referencia espacial) entre dos geometrías en unidades "
 "proyectadas. Para geography devuelve la distancia mínima esferoidal entre "
 "dos geographies en metros."

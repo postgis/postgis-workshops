@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-09-04 23:47+0000\n"
-"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
+"PO-Revision-Date: 2025-09-26 06:54+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries/es/>\n"
 "Language: es\n"
@@ -150,7 +150,7 @@ msgid ""
 "Do some or all of your ``nyc`` tables not have an ``srid`` of 26918? It's "
 "easy to fix by updating the table."
 msgstr ""
-"Algunas de tus tablas nyc no tienen un srid de 26918? Es fácil corregirlo "
+"¿Algunas de tus tablas nyc no tienen un srid de 26918? Es fácil corregirlo "
 "actualizando la tabla."
 
 #: ../../en/geometries.rst:67
@@ -410,7 +410,7 @@ msgstr ""
 msgid ""
 ":command:`ST_ExteriorRing(geometry)` returns the outer ring as a linestring"
 msgstr ""
-":command:`ST_ExteriorRing(geometry)`devuelve el anillo exterior como una "
+":command:`ST_ExteriorRing(geometry)` devuelve el anillo exterior como una "
 "linestring"
 
 #: ../../en/geometries.rst:214
@@ -458,7 +458,7 @@ msgstr "**MultiPoint**, una colección de puntos"
 
 #: ../../en/geometries.rst:238
 msgid "**MultiLineString**, a collection of linestrings"
-msgstr "**MultiLineString**,una colección de líneas"
+msgstr "**MultiLineString**, una colección de líneas"
 
 #: ../../en/geometries.rst:239
 msgid "**MultiPolygon**, a collection of polygons"

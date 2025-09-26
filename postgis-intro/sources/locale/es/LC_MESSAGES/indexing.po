@@ -6,13 +6,14 @@
 # David Mateos <david@dmts.es>, 2022.
 # David Mateos <dmateos@users.noreply.weblate.osgeo.org>, 2023, 2024.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-09 03:04+0000\n"
-"PO-Revision-Date: 2025-09-04 23:47+0000\n"
-"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
+"PO-Revision-Date: 2025-09-26 06:54+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "indexing/es/>\n"
 "Language: es\n"
@@ -457,7 +458,7 @@ msgid ""
 "PostgreSQL provides an \"autovacuum\" facility by default."
 msgstr ""
 "El vacuuming es tan crítico para la ejecución eficiente de la base de datos "
-"que PostgreSQL proporciona una facilidad de \"autovacuum\" predeterminda."
+"que PostgreSQL proporciona una facilidad de \"autovacuum\" predeterminada."
 
 #: ../../en/indexing.rst:163
 msgid ""

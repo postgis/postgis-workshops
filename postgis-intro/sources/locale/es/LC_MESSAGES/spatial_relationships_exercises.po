@@ -6,13 +6,14 @@
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-08-29 06:47+0000\n"
-"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
+"PO-Revision-Date: 2025-09-01 05:23+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships_exercises/es/>\n"
 "Language: es\n"
@@ -78,7 +79,7 @@ msgid ""
 ":command:`ST_Distance(geometry A, geometry B)` returns the minimum distance "
 "between geometry A and geometry B"
 msgstr ""
-":command:`ST_Distancia(geometría A, geometría B)` devuelve la distancia "
+":command:`ST_Distance(geometría A, geometría B)` devuelve la distancia "
 "mínima entre la geometría A y la geometría B"
 
 #: ../../en/spatial_relationships_exercises.rst:14

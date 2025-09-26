@@ -2,13 +2,14 @@
 # Copyright (C) 2012-2023, Paul Ramsey | Mark Leslie | PostGIS contributors
 # This file is distributed under the same license as the Introduction to PostGIS package.
 # Daniel Nylander <daniel@danielnylander.se>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-06-10 20:47+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"PO-Revision-Date: 2025-09-01 05:23+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Swedish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geography/sv/>\n"
 "Language: sv\n"
@@ -534,7 +535,7 @@ msgid ""
 "For geography type defaults to return spheroidal minimum distance between "
 "two geographies in meters."
 msgstr ""
-"`ST_Distance(geometri, geometri) <http://postgis.net/docs/ST_Distance."
+"`ST_Distance(geometry, geometry) <http://postgis.net/docs/ST_Distance."
 "html>`_: För geometrityp Returnerar det 2-dimensionella kartesiska "
 "minimiavståndet (baserat på spatial ref) mellan två geometrier i projicerade "
 "enheter. För geograftyp returneras som standard det sfäroida minsta "

@@ -6,14 +6,14 @@
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 # juan sebastian jimenez aldana <jusjimeneza@udistrital.edu.co>, 2025.
+# Regina Obe <robe@postgis.net>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-10-24 20:06+0000\n"
-"Last-Translator: juan sebastian jimenez aldana <jusjimeneza@udistrital.edu."
-"co>\n"
+"PO-Revision-Date: 2025-10-26 02:32+0000\n"
+"Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "projection_exercises/es/>\n"
 "Language: es\n"
@@ -67,7 +67,7 @@ msgstr ""
 
 #: ../../en/projection_exercises.rst:13
 msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
-msgstr ":command:`ST_AsText(geometry)`convierte formato binario en WKT"
+msgstr ":command:`ST_AsText(geometry)` convierte formato binario en WKT"
 
 #: ../../en/projection_exercises.rst:14
 msgid ":command:`ST_AsGML(geometry)` returns GML ``text``"

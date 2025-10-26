@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-08-29 06:47+0000\n"
-"Last-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\n"
+"PO-Revision-Date: 2025-10-24 20:06+0000\n"
+"Last-Translator: juan sebastian jimenez aldana <jusjimeneza@udistrital.edu."
+"co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries_exercises/es/>\n"
 "Language: es\n"
@@ -101,7 +102,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:19
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ":command:`ST_Area(geometría)` devuelve el área de la geometría"
+msgstr ":comando:`ST_Area(geometría)` devuelve el área de las geometrías"
 
 #: ../../en/geometries_exercises.rst:20
 msgid ""
@@ -154,9 +155,7 @@ msgstr ""
 
 #: ../../en/geometries_exercises.rst:27
 msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
-msgstr ""
-":command:`ST_AsText(geometry)` devuelve la representación de geometry en "
-"formato WKT"
+msgstr ":command:`ST_AsText(geometry)`convierte formato binario en WKT"
 
 #: ../../en/geometries_exercises.rst:28
 msgid ":command:`ST_AsEWKT(geometry)` returns EWKT ``text``"

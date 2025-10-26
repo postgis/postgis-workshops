@@ -5,8 +5,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
+# juan sebastian jimenez aldana <jusjimeneza@udistrital.edu.co>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2025-06-10 18:57+0000\nPO-Revision-Date: 2025-08-29 06:47+0000\nLast-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\nLanguage-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/topology/es/>\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.8.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2025-06-10 18:57+0000\nPO-Revision-Date: 2025-10-24 20:06+0000\nLast-Translator: juan sebastian jimenez aldana <jusjimeneza@udistrital.edu.co>\nLanguage-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/topology/es/>\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.8.0\n"
 
 #: ../../en/topology.rst:4
 msgid "Topology"
@@ -50,11 +51,11 @@ msgstr "¿Qué es exactamente una topología y una topogeometría, y cómo se re
 
 #: ../../en/topology.rst:44 ../../en/topology.rst:211
 msgid "Which outputs:"
-msgstr "La salida es:"
+msgstr "Cuya salida es:"
 
 #: ../../en/topology.rst:50
 msgid "Which is the id it assigned the new topology. Once you run the above command, you will see a new schema in your database called `nyc_topo`. You can name the topology anything you want. My convention is to add `_topo` at the end to distinguish it from other schemas I have in my database."
-msgstr "Este es el id asignado a la nueva topología. Una vez ejecutes el comando anterior, verás un nuevo esquema en tu base de datos llamado `nyc_topo`. Puedes nombrar la topología como quieras. Mi convención es añadir `_topo` al final para distinguirlo de otros esquemas que tengo en mi base de datos."
+msgstr "Que es el identificador que se le ha asignado a la nueva topología. Una vez que ejecute el comando anterior, verá un nuevo esquema en su base de datos llamado `nyc_topo`. Puede nombrar la topología como desee. Mi convención es añadir `_topo` al final para distinguirla de otros esquemas que tengo en mi base de datos."
 
 #: ../../en/topology.rst:56
 msgid "If you explore the `topology.topology` table,"

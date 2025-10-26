@@ -4,8 +4,9 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
+# juan sebastian jimenez aldana <jusjimeneza@udistrital.edu.co>, 2025.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-09-02 22:31+0000\nLast-Translator: Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>\nLanguage-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/es/>\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2025-10-24 20:06+0000\nLast-Translator: juan sebastian jimenez aldana <jusjimeneza@udistrital.edu.co>\nLanguage-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/rasters/es/>\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.4.3\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -497,7 +498,7 @@ msgstr ":command:`ST_PixelAsPolygons`, similar a otras funciones raster, trabaja
 
 #: ../../en/rasters.rst:662
 msgid "Which outputs:"
-msgstr "La salida es:"
+msgstr "Cuya salida es:"
 
 #: ../../en/rasters.rst:666
 msgid "and if we inspect using the geometry viewer, we'd see:"

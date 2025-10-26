@@ -6,12 +6,13 @@
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 # Regina Obe <robe@postgis.net>, 2025.
+# juan sebastian jimenez aldana <jusjimeneza@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-11 22:14-0400\n"
-"PO-Revision-Date: 2025-09-01 05:23+0000\n"
+"PO-Revision-Date: 2025-10-26 02:32+0000\n"
 "Last-Translator: Regina Obe <robe@postgis.net>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "joins_exercises/es/>\n"
@@ -47,26 +48,24 @@ msgid ""
 ":command:`count(expression)`: aggregate to return the size of a set of "
 "records"
 msgstr ""
-":command:`count(expression)`: devolver la cantidad de filas (registros) que "
-"retorna una consulta"
+":comando:`count(expresión)`: agregado para devolver el tamaño de un conjunto "
+"de registros."
 
 #: ../../en/joins_exercises.rst:10
 msgid ":command:`ST_Area(geometry)` returns the area of the polygons"
-msgstr ":command:`ST_Area(geometría)` devuelve el área de la geometría"
+msgstr ":comando:`ST_Area(geometría)` devuelve el área de las geometrías"
 
 #: ../../en/joins_exercises.rst:11
 msgid ":command:`ST_AsText(geometry)` returns WKT ``text``"
-msgstr ""
-":command:`ST_AsText(geometry)` devuelve la representación de geometry en "
-"formato WKT"
+msgstr ":command:`ST_AsText(geometry)` convierte formato binario en WKT"
 
 #: ../../en/joins_exercises.rst:12
 msgid ""
 ":command:`ST_Contains(geometry A, geometry B)` returns the true if geometry "
 "A contains geometry B"
 msgstr ""
-":command:`ST_Contiene(geometría A, geometría B)` devuelve verdadero si la "
-"geometría A contiene a la geometría B"
+":command:`ST_Contains(geometría A, geometría B)` devuelve verdadero si la "
+"geometría A contiene la geometría B"
 
 #: ../../en/joins_exercises.rst:13
 msgid ""

@@ -6,13 +6,15 @@
 # Regina Obe <regina@arrival3d.com>, 2022.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 # Regina Obe <robe@postgis.net>, 2025.
+# juan sebastian jimenez aldana <jusjimeneza@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-09-26 07:20+0000\n"
-"Last-Translator: Regina Obe <robe@postgis.net>\n"
+"PO-Revision-Date: 2025-10-24 20:06+0000\n"
+"Last-Translator: juan sebastian jimenez aldana <jusjimeneza@udistrital.edu."
+"co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "tuning/es/>\n"
 "Language: es\n"
@@ -39,16 +41,16 @@ msgid ""
 "databases, and you can see that the default configuration will not be "
 "totally appropriate for our purposes."
 msgstr ""
-"PostgreSQL es un sistema de bases de datos muy versátil, capaz de ejecutarse "
-"de manera eficiente en entornos de muy bajos recursos y en entornos "
-"compartidos con una variedad de otras aplicaciones. Para garantizar que "
-"funcione correctamente en muchos entornos diferentes, la configuración "
-"predeterminada es muy conservadora y no resulta del todo adecuada para una "
-"base de datos de producción de alto rendimiento. Si añadimos el hecho de que "
-"las bases de datos geoespaciales tienen diferentes patrones de uso, y los "
-"datos tienden a consistir en menos registros pero mucho más grandes que en "
-"bases de datos no geoespaciales, se puede ver que la configuración por "
-"defecto no será totalmente apropiada para nuestros propósitos."
+"PostgreSQL es un sistema de base de datos muy versátil, capaz de funcionar "
+"de manera eficiente en entornos con muy pocos recursos y en entornos "
+"compartidos con una variedad de otras aplicaciones.  Para garantizar su "
+"correcto funcionamiento en muchos entornos diferentes, la configuración "
+"predeterminada es muy conservadora y no resulta muy adecuada para una base "
+"de datos de producción de alto rendimiento. Si a esto le sumamos que las "
+"bases de datos geoespaciales tienen patrones de uso diferentes y que los "
+"datos suelen consistir en registros menos numerosos, pero mucho más grandes "
+"que los de las bases de datos no geoespaciales, es evidente que la "
+"configuración predeterminada no es totalmente adecuada para nuestros fines."
 
 #: ../../en/tuning.rst:8
 msgid ""
@@ -196,7 +198,7 @@ msgstr "*Valor predeterminado*: 1MB"
 
 #: ../../en/tuning.rst:44
 msgid "*Recommended value*: 32MB"
-msgstr "*Recommended value*: 32MB"
+msgstr "*Valor Recomendado*: 32MB"
 
 #: ../../en/tuning.rst:48
 msgid "maintenance_work_mem"

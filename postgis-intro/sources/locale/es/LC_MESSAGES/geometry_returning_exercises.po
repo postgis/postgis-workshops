@@ -6,13 +6,15 @@
 # Paulo Cesar <paulocoronado@gmail.com>, 2025.
 # Paulo Cesar Coronado <paulocoronado@udistrital.edu.co>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# juan sebastian jimenez aldana <jusjimeneza@udistrital.edu.co>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2025-09-04 23:47+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-10-24 20:06+0000\n"
+"Last-Translator: juan sebastian jimenez aldana <jusjimeneza@udistrital.edu."
+"co>\n"
 "Language-Team: Spanish <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning_exercises/es/>\n"
 "Language: es\n"
@@ -56,8 +58,8 @@ msgid ""
 ":command:`ST_Transform(geometry, srid)` converts ``geometries`` into "
 "different spatial reference systems"
 msgstr ""
-":command:`ST_Transform(geometry, srid)` convierte las geometrías a un "
-"determinado SRID"
+":comando:`ST_Transform(geometría, srid)` convierte ``geometrías`` en "
+"diferentes sistemas de referencia espacial."
 
 #: ../../en/geometry_returning_exercises.rst:12
 msgid ""

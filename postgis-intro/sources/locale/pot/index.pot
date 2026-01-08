@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2026-01-08 18:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "Getting Started"
 msgstr ""
 
 #: ../../en/index.rst:9
-msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
+msgid "This workshop uses a `data bundle <https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
 msgstr ""
 
 #: ../../en/index.rst:11
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Inside the data bundle, you will find:"
 msgstr ""
 
-#: ../../en/index.rst:22
+#: ../../en/index.rst:21
 msgid "**data/**"
 msgstr ""
 
@@ -52,7 +52,7 @@ msgstr ""
 msgid "a directory containing the data files we will be loading"
 msgstr ""
 
-#: ../../en/index.rst:26
+#: ../../en/index.rst:24
 msgid "**printing/**"
 msgstr ""
 
@@ -72,62 +72,74 @@ msgstr ""
 msgid "Workshop Modules"
 msgstr ""
 
-#: ../../en/index.rst:85
+#: ../../en/index.rst:88
 msgid "Links to have on hand"
 msgstr ""
 
-#: ../../en/index.rst:87
+#: ../../en/index.rst:90
 msgid "PostGIS - https://postgis.net/"
 msgstr ""
 
-#: ../../en/index.rst:89
+#: ../../en/index.rst:92
 msgid "Docs - https://postgis.net/docs/"
 msgstr ""
 
-#: ../../en/index.rst:91
+#: ../../en/index.rst:94
 msgid "PostgreSQL - https://www.postgresql.org/"
 msgstr ""
 
-#: ../../en/index.rst:93
+#: ../../en/index.rst:96
 msgid "Docs - https://www.postgresql.org/docs/"
 msgstr ""
 
-#: ../../en/index.rst:94
+#: ../../en/index.rst:97
 msgid "Downloads - https://www.postgresql.org/download/"
 msgstr ""
 
-#: ../../en/index.rst:95
+#: ../../en/index.rst:98
 msgid "JDBC Driver - https://jdbc.postgresql.org/"
 msgstr ""
 
-#: ../../en/index.rst:96
+#: ../../en/index.rst:99
 msgid ".Net Driver - https://www.npgsql.org/"
 msgstr ""
 
-#: ../../en/index.rst:97
+#: ../../en/index.rst:100
 msgid "Python Driver - http://www.pygresql.org/"
 msgstr ""
 
-#: ../../en/index.rst:98
+#: ../../en/index.rst:101
 msgid "C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html"
 msgstr ""
 
-#: ../../en/index.rst:100
+#: ../../en/index.rst:103
 msgid "PgAdmin - https://www.pgadmin.org/"
 msgstr ""
 
-#: ../../en/index.rst:102
+#: ../../en/index.rst:105
 msgid "Open Source Desktop Clients"
 msgstr ""
 
-#: ../../en/index.rst:104
+#: ../../en/index.rst:107
 msgid "QGIS - https://qgis.org/"
 msgstr ""
 
-#: ../../en/index.rst:105
+#: ../../en/index.rst:108
 msgid "OpenJUMP - http://openjump.org/"
 msgstr ""
 
-#: ../../en/index.rst:106
+#: ../../en/index.rst:109
 msgid "uDig - https://udig.github.io/"
+msgstr ""
+
+#: ../../en/index.rst:111
+msgid "Online Playground"
+msgstr ""
+
+#: ../../en/index.rst:113
+msgid "PostgreSQL playground - https://sqlize.online/s/4Q"
+msgstr ""
+
+#: ../../en/index.rst:114
+msgid "PostGIS playground with workshop data - https://sqlize.online/s/pQ"
 msgstr ""

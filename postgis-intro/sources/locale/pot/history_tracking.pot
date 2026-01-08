@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2026-01-08 18:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,7 +165,7 @@ msgid "We can use this logic to create a query, or a view, of the state of the d
 msgstr ""
 
 #: ../../en/history_tracking.rst:221
-msgid "We can also create views that show just what a particular used has added, for example:"
+msgid "We can also create views that show just what a particular user has added, for example:"
 msgstr ""
 
 #: ../../en/history_tracking.rst:231

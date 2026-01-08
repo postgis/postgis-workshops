@@ -5,7 +5,20 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2023-01-07 21:46-0500\nPO-Revision-Date: 2023-10-06 08:23+0000\nLast-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/index/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.0\nGenerated-By: Babel 2.9.1\n"
+msgstr ""
+"Project-Id-Version: Introduction to PostGIS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-08 18:21+0100\n"
+"PO-Revision-Date: 2023-10-06 08:23+0000\n"
+"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"Language: ja\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-"
+"workshop/index/ja/>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: ../../en/index.rst:4
 msgid "Introduction to PostGIS"
@@ -16,15 +29,29 @@ msgid "Getting Started"
 msgstr "はじめに"
 
 #: ../../en/index.rst:9
-msgid "This workshop uses a `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_. Download it and extract to a convenient location."
-msgstr "このワークショップは `data bundle <http://s3.cleverelephant.ca/postgis-workshop-2020.zip>`_ を使います。ダウンロードして使いやすい場所に展開しておいて下さい。"
+#, fuzzy
+msgid ""
+"This workshop uses a `data bundle "
+"<https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-"
+"workshop-2020.zip>`_. Download it and extract to a convenient location."
+msgstr ""
+"このワークショップは `data bundle <http://s3.cleverelephant.ca/postgis-"
+"workshop-2020.zip>`_ を使います。ダウンロードして使いやすい場所に展開しておいて下さい。"
 
 #: ../../en/index.rst:11
-msgid "The **presentation deck** that goes with this workshop is available `on Google Slides <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
-msgstr "このワークショップに付属する **presentation deck** は `Googleスライド <https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_ 上にあります。"
+msgid ""
+"The **presentation deck** that goes with this workshop is available `on "
+"Google Slides <https://docs.google.com/presentation/d"
+"/1qYXdeCIymLl32uoAHvAPrp1r-hK-_4Z8InG7sHEo6vc/edit>`_."
+msgstr ""
+"このワークショップに付属する **presentation deck** は `Googleスライド "
+"<https://docs.google.com/presentation/d/1qYXdeCIymLl32uoAHvAPrp1r-hK-"
+"_4Z8InG7sHEo6vc/edit>`_ 上にあります。"
 
 #: ../../en/index.rst:13
-msgid "The **cheat sheet** of SQL commands that are run in this workshop is `available here <workshop-sql.txt>`_."
+msgid ""
+"The **cheat sheet** of SQL commands that are run in this workshop is "
+"`available here <workshop-sql.txt>`_."
 msgstr "このワークショップで実行する SQLコマンドの **cheat sheet* は `ここにあります <workshop-sql.txt>`_。"
 
 #: ../../en/index.rst:17
@@ -35,7 +62,7 @@ msgstr "データバンドル"
 msgid "Inside the data bundle, you will find:"
 msgstr "データバンドル内には次のものがあります:"
 
-#: ../../en/index.rst:22
+#: ../../en/index.rst:21
 msgid "**data/**"
 msgstr "**data/**"
 
@@ -43,7 +70,7 @@ msgstr "**data/**"
 msgid "a directory containing the data files we will be loading"
 msgstr "ロードされる予定のデータファイルがあるディレクトリ"
 
-#: ../../en/index.rst:26
+#: ../../en/index.rst:24
 msgid "**printing/**"
 msgstr "**printing/**"
 
@@ -56,69 +83,92 @@ msgid "License & Copying"
 msgstr "ライセンスおよび再配布"
 
 #: ../../en/index.rst:31
-msgid "All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons \"`share alike with attribution <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\", and is freely redistributable under the terms of that license."
-msgstr "このパッケージのデータは全てパブリックドメインで、再配布自由です。パッケージ内の全てのソフトウェアはオープンソースで、再配布自由です。このワークショップはクリエイティブコモンズ \"`表示-継承 3.0 US <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\" として許諾していて、ライセンス条件の下でなら再配布自由です。"
+msgid ""
+"All the data in the package is public domain and freely redistributable. "
+"All the software in the package is open source, and freely "
+"redistributable. This workshop is licensed as Creative Commons \"`share "
+"alike with attribution <http://creativecommons.org/licenses/by-"
+"sa/3.0/us/>`_\", and is freely redistributable under the terms of that "
+"license."
+msgstr ""
+"このパッケージのデータは全てパブリックドメインで、再配布自由です。パッケージ内の全てのソフトウェアはオープンソースで、再配布自由です。このワークショップはクリエイティブコモンズ"
+" \"`表示-継承 3.0 US <http://creativecommons.org/licenses/by-sa/3.0/us/>`_\" "
+"として許諾していて、ライセンス条件の下でなら再配布自由です。"
 
 #: ../../en/index.rst:35
 msgid "Workshop Modules"
 msgstr "ワークショップモジュール"
 
-#: ../../en/index.rst:85
+#: ../../en/index.rst:88
 msgid "Links to have on hand"
 msgstr "手元においておくべきリンク"
 
-#: ../../en/index.rst:87
+#: ../../en/index.rst:90
 msgid "PostGIS - https://postgis.net/"
 msgstr "PostGIS - https://postgis.net/"
 
-#: ../../en/index.rst:89
+#: ../../en/index.rst:92
 msgid "Docs - https://postgis.net/docs/"
 msgstr "PostGIS ドキュメント - https://postgis.net/docs/"
 
-#: ../../en/index.rst:91
+#: ../../en/index.rst:94
 msgid "PostgreSQL - https://www.postgresql.org/"
 msgstr "PostgreSQL - https://www.postgresql.org/"
 
-#: ../../en/index.rst:93
+#: ../../en/index.rst:96
 msgid "Docs - https://www.postgresql.org/docs/"
 msgstr "PostgreSQL ドキュメント - https://www.postgresql.org/docs/"
 
-#: ../../en/index.rst:94
+#: ../../en/index.rst:97
 msgid "Downloads - https://www.postgresql.org/download/"
 msgstr "PostgreSQL ダウンロード - https://www.postgresql.org/download/"
 
-#: ../../en/index.rst:95
+#: ../../en/index.rst:98
 msgid "JDBC Driver - https://jdbc.postgresql.org/"
 msgstr "JDBC ドライバ - https://jdbc.postgresql.org/"
 
-#: ../../en/index.rst:96
+#: ../../en/index.rst:99
 msgid ".Net Driver - https://www.npgsql.org/"
 msgstr ".NET ドライバ - https://www.npgsql.org/"
 
-#: ../../en/index.rst:97
+#: ../../en/index.rst:100
 msgid "Python Driver - http://www.pygresql.org/"
 msgstr "Python ドライバ - http://www.pygresql.org/"
 
-#: ../../en/index.rst:98
+#: ../../en/index.rst:101
 msgid "C/C++ Driver - https://www.postgresql.org/docs/current/static/libpq.html"
 msgstr "C/C++ ドライバ - https://www.postgresql.org/docs/current/static/libpq.html"
 
-#: ../../en/index.rst:100
+#: ../../en/index.rst:103
 msgid "PgAdmin - https://www.pgadmin.org/"
 msgstr "PgAdmin - https://www.pgadmin.org/"
 
-#: ../../en/index.rst:102
+#: ../../en/index.rst:105
 msgid "Open Source Desktop Clients"
 msgstr "オープンソースのデスクトップクライアント"
 
-#: ../../en/index.rst:104
+#: ../../en/index.rst:107
 msgid "QGIS - https://qgis.org/"
 msgstr "QGIS - https://qgis.org/"
 
-#: ../../en/index.rst:105
+#: ../../en/index.rst:108
 msgid "OpenJUMP - http://openjump.org/"
 msgstr "OpenJUMP - http://openjump.org/"
 
-#: ../../en/index.rst:106
+#: ../../en/index.rst:109
 msgid "uDig - https://udig.github.io/"
 msgstr "uDig - https://udig.github.io/"
+
+#: ../../en/index.rst:111
+msgid "Online Playground"
+msgstr ""
+
+#: ../../en/index.rst:113
+#, fuzzy
+msgid "PostgreSQL playground - https://sqlize.online/s/4Q"
+msgstr "PostgreSQL - https://www.postgresql.org/"
+
+#: ../../en/index.rst:114
+msgid "PostGIS playground with workshop data - https://sqlize.online/s/pQ"
+msgstr ""
+

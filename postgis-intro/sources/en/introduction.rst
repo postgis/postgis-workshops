@@ -153,7 +153,7 @@ Recent releases of PostGIS continue to add features and performance improvements
 Who uses PostGIS?
 -----------------
 
-For a complete list of case studies, see the `PostGIS case studies <https://postgis.net/category/casestudy/>`_ page.
+For a complete list of case studies, see the `PostGIS case studies <http://wwww.postgis.org/expertise/whitepapers/postgis-case-studies/postgis-case-studies.pdf>`_ page.
 
 Institut Geographique National, France
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

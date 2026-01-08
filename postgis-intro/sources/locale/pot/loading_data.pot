@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-17 01:29-0400\n"
+"POT-Creation-Date: 2026-01-08 18:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgid "In the PgAdmin browser, **right-click** on the **nyc** database icon, and
 msgstr ""
 
 #: ../../en/loading_data.rst:19
-msgid "Browse to the location of your workshop data data directory, and select the :file:`nyc_data.backup` file."
+msgid "Browse to the location of your workshop data data directory (available in the workshop `data bundle <https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip>`_), and select the :file:`nyc_data.backup` file."
 msgstr ""
 
 #: ../../en/loading_data.rst:24
@@ -64,7 +64,7 @@ msgstr ""
 msgid ":file:`ogr2ogr` is a commandline utility for converting data between GIS data formats, including common file formats and common spatial databases."
 msgstr ""
 
-#: ../../en/loading_data.rst:55
+#: ../../en/loading_data.rst:52
 msgid "**Windows**:"
 msgstr ""
 
@@ -80,7 +80,7 @@ msgstr ""
 msgid "Builds of ogr2ogr can be downloaded from `MS4W <https://ms4w.com/download.html>`_."
 msgstr ""
 
-#: ../../en/loading_data.rst:59
+#: ../../en/loading_data.rst:57
 msgid "**MacOS**:"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 msgid "Finally, if you have installed `HomeBrew <https://brew.sh/>`_ you can install the **gdal** package to get access to :file:`ogr2ogr`"
 msgstr ""
 
-#: ../../en/loading_data.rst:62
+#: ../../en/loading_data.rst:61
 msgid "**Linux**:"
 msgstr ""
 

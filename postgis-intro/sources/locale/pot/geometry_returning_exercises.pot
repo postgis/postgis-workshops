@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-07 21:46-0500\n"
+"POT-Creation-Date: 2026-01-08 18:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgid ":command:`ST_Buffer(geometry, radius)` returns an expanded ``geometry`` s
 msgstr ""
 
 #: ../../en/geometry_returning_exercises.rst:13
-msgid ":command:`ST_Contains(geometry1, geometry2)` returns truw if geometry1 contains geometry2"
+msgid ":command:`ST_Contains(geometry1, geometry2)` returns true if geometry1 contains geometry2"
 msgstr ""
 
 #: ../../en/geometry_returning_exercises.rst:14

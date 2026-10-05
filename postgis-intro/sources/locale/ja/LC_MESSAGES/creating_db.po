@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023.
+# Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-06-21 08:47+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2026-09-03 06:39+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "creating_db/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/creating_db.rst:4
@@ -39,14 +40,14 @@ msgid ""
 "line with ``psql``. pgAdmin also includes a geometry viewer you can use to "
 "spatial view PostGIS queries."
 msgstr ""
-"PostgreSQLはいくつかの管理フロントエンドがあります。主要なものとしては、"
-"SQLクエリを入力するコマンドラインツールの `psql <https://www.postgresql.jp/"
+"PostgreSQL はいくつかの管理フロントエンドがあります。主要なものとしては、SQL "
+"クエリを入力するコマンドラインツールの `psql <https://www.postgresql.jp/"
 "document/current/html/app-psql.html>`_ があります。他の人気のある PostgreSQL "
-"フロントエンドとしては、フリーでオープンソースの GUI ツール `pgAdmin "
-"<http://www.pgadmin.org/>`_ があります。pgAdmin "
-"で実行された全てのクエリは、``psql`` でコマンドラインから実行することもできま"
-"す。pgAdminはジオメトリビューア持っていて、PostGIS "
-"クエリの空間ビューに使うことができます。"
+"フロントエンドとしては、フリーでオープンソースの GUI ツール `pgAdmin <http://"
+"www.pgadmin.org/>`_ があります。pgAdmin で実行された全てのクエリーは"
+"、``psql`` でコマンドラインから実行することもできます。pgAdminは"
+"ジオメトリービューア持っていて、PostGIS クエリーの空間ビューに使うことができ"
+"ます。"
 
 #: ../../en/creating_db.rst:12
 msgid "Find pgAdmin and start it up."

@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023, 2024, 2025.
+# Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2025-06-11 10:47+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2026-09-03 08:39+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "about_data/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4.3\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/about_data.rst:4
@@ -32,7 +33,7 @@ msgid ""
 "as PostGIS tables and will add sociodemographic data later in the workshop."
 msgstr ""
 "このワークショップのデータは四つのニューヨーク市のシェープファイルと一つの人"
-"口統計の属性テーブルです。このワークショップでは、シェープファイルをPostGIS"
+"口統計の属性テーブルです。このワークショップでは、シェープファイルを PostGIS "
 "テーブルとしてロードしている状態から、人口統計データを追加します。"
 
 #: ../../en/about_data.rst:8
@@ -50,7 +51,7 @@ msgid ""
 "table and select **Properties**.  You will find a summary of table "
 "properties, including a list of table attributes within the **Columns** tab."
 msgstr ""
-"テーブルをpgAdminで見て回るには、選択したテーブルを右クリックして "
+"テーブルを pgAdmin で見て回るには、選択したテーブルを右クリックして "
 "**Properties** を選択します。テーブルのプロパティの要約が表示され、この中に "
 "**Columns** タブにテーブル属性の一覧があります。"
 
@@ -65,10 +66,10 @@ msgid ""
 "counties, etc) can be built from unions of census blocks. We have attached "
 "some demographic data to our collection of blocks."
 msgstr ""
-"センサスのblockは、センサスデータの報告に使われる最小のジオグラフィです。より"
-"高いレベルのセンサスジオグラフィ (block groups, tracts, metro areas, counties"
-"など)は全てセンサスblockの結合から構築することができます。blockのコレクション"
-"に取り付けられた人口統計データがあります。"
+"センサスの block は、センサスデータの報告に使われる最小のジオグラフィです。よ"
+"り高いレベルのセンサスジオグラフィ (block groups, tracts, metro areas, "
+"countiesなど) は全てセンサス block の結合から構築することができます。block の"
+"コレクションに取り付けられた人口統計データがあります。"
 
 #: ../../en/about_data.rst:19
 msgid "Number of records: 38794"
@@ -82,7 +83,7 @@ msgstr "**blkid**"
 msgid ""
 "A 15-digit code that uniquely identifies every census **block**. Eg: "
 "360050001009000"
-msgstr "**block** を一意に識別する15桁のコードです。例: 360050001009000"
+msgstr "**block** を一意に識別する 15桁のコードです。例: 360050001009000"
 
 #: ../../en/about_data.rst:26
 msgid "**popn_total**"
@@ -98,7 +99,7 @@ msgstr "**popn_white**"
 
 #: ../../en/about_data.rst:29
 msgid "Number of people self-identifying as \"White\" in the block"
-msgstr "block内で「白人」を自認する人の数"
+msgstr "block 内で「白人」を自認する人の数"
 
 #: ../../en/about_data.rst:30
 msgid "**popn_black**"
@@ -106,7 +107,7 @@ msgstr "**popn_black**"
 
 #: ../../en/about_data.rst:31
 msgid "Number of people self-identifying as \"Black\" in the block"
-msgstr "block内で「黒人」を自認する人の数"
+msgstr "block 内で「黒人」を自認する人の数"
 
 #: ../../en/about_data.rst:32
 msgid "**popn_nativ**"
@@ -114,7 +115,7 @@ msgstr "**popn_nativ**"
 
 #: ../../en/about_data.rst:33
 msgid "Number of people self-identifying as \"Native American\" in the block"
-msgstr "block内で「ネイティブアメリカン」と自認する人の数"
+msgstr "block 内で「ネイティブアメリカン」と自認する人の数"
 
 #: ../../en/about_data.rst:34
 msgid "**popn_asian**"
@@ -122,7 +123,7 @@ msgstr "**popn_asian**"
 
 #: ../../en/about_data.rst:35
 msgid "Number of people self-identifying as \"Asian\" in the block"
-msgstr "block内で「アジア人」と自認する人の数"
+msgstr "block 内で「アジア人」と自認する人の数"
 
 #: ../../en/about_data.rst:36
 msgid "**popn_other**"
@@ -130,7 +131,7 @@ msgstr "**popn_other**"
 
 #: ../../en/about_data.rst:37
 msgid "Number of people self-identifying with other categories in the block"
-msgstr "ブロック内で他のカテゴリを自認する人の数"
+msgstr "ブロック内で他のカテゴリーを自認する人の数"
 
 #: ../../en/about_data.rst:38 ../../en/about_data.rst:63
 msgid "**boroname**"
@@ -152,7 +153,7 @@ msgstr "**geom**"
 
 #: ../../en/about_data.rst:41
 msgid "Polygon boundary of the block"
-msgstr "ブロックのポリゴン"
+msgstr "block の境界ポリゴン"
 
 #: ../../en/about_data.rst:45
 msgid "*Black population as a percentage of Total Population*"
@@ -165,10 +166,10 @@ msgid ""
 "options for getting the data, including downloading data and boundaries from "
 "the Census Bureau's `American FactFinder <http://factfinder.census.gov>`_."
 msgstr ""
-"センサスデータをGISに取り込むには、実データ (テキスト)と境界ファイル (空間"
-"データ)の二つの情報のピースを繋げる必要があります。データを取得するには、アメ"
-"リカ国勢調査局の `American FactFinder <http://factfinder.census.gov>`_ から"
-"データと境界をダウンロードする等の多数の選択肢があります。"
+"センサスデータを GIS に取り込むには、実データ (テキスト) と境界ファイル (空間"
+"データ) の二つの情報のピースを繋げる必要があります。データを取得するには、"
+"アメリカ国勢調査局の `American FactFinder <http://factfinder.census.gov>`_ か"
+"らデータと境界をダウンロードする等の多数の選択肢があります。"
 
 #: ../../en/about_data.rst:52
 msgid "nyc_neighborhoods"
@@ -185,11 +186,11 @@ msgid ""
 "Heights, Carroll Gardens West, or Red Hook!"
 msgstr ""
 "ニューヨークには地区名と地区範囲の豊富な歴史があります。地区は社会的に構築さ"
-"れたもので、役所が定めた線に従っていません。たとえば、キャロルガーデン、レッ"
-"ドフック、コブルヒルのブルックリンの地区は、まとめて「南ブルックリン」と呼ば"
-"れていました。現在では、あなたが話をしている実際の不動産業者に依存して、かつ"
-"てレッドフックとして知られていた地域にある同じ四つのブロックがコロンビアハイ"
-"ツ、キャロルガーデンズウエスト、レッドフックと呼ばれます!"
+"れたもので、役所が定めた線に従っていません。たとえば、キャロルガーデン、"
+"レッドフック、コブルヒルのブルックリンの地区は、まとめて「南ブルックリン」と"
+"呼ばれていました。同じ四つのブロックがかつてレッドフックとして知られていた地"
+"域でしたが、現在は不動産業者によって、コロンビアハイツ、"
+"キャロルガーデンズウエスト、レッドフックと呼び方が違います!"
 
 #: ../../en/about_data.rst:56
 msgid "Number of records: 129"
@@ -256,7 +257,7 @@ msgstr "道路タイプ (主要道路、周辺道路、生活道路、自動車�
 
 #: ../../en/about_data.rst:89
 msgid "Linear centerline of the street"
-msgstr "ストリートの線形の中心線"
+msgstr "ストリートの中心線"
 
 #: ../../en/about_data.rst:93
 msgid "*The streets of New York City. Major roads are in red.*"
@@ -335,16 +336,16 @@ msgid ""
 msgstr ""
 "国勢調査で集められた社会経済データの豊富なコレクションがありますが、国勢統計"
 "区より大きい地理レベルでのみ集められています。国勢調査細分区は統計区 (と調査"
-"細分区グループ)を形成するために結合します。私たちはニューヨーク市に関する興味"
-"深い質問に答えるために統計区レベルで社会経済データを集めました。"
+"細分区グループ) を形成するために結合します。私たちはニューヨーク市に関する興"
+"味深い質問に答えるために統計区レベルで社会経済データを集めました。"
 
 #: ../../en/about_data.rst:130
 msgid ""
 "The ``nyc_census_sociodata`` is a data table.  We will need to connect it to "
 "Census geographies before conducting any spatial analysis."
 msgstr ""
-"``nyc_census_sociodata``はデータテーブルです。空間解析を行う前に、このデータ"
-"テーブルを国勢調査の地理データに接続しなければなりません。"
+"``nyc_census_sociodata`` はデータテーブルです。空間解析を行う前に、この"
+"データテーブルを国勢調査の地理データに接続しなければなりません。"
 
 #: ../../en/about_data.rst:135
 msgid "**tractid**"
@@ -478,7 +479,7 @@ msgstr "**edu_college_dipl**"
 
 #: ../../en/about_data.rst:166
 msgid "Number of people with college diploma and no further education"
-msgstr "大学卒業してそれ以上の教育を受けていない人の数"
+msgstr "大学を卒業してそれ以上の教育を受けていない人の数"
 
 #: ../../en/about_data.rst:167
 msgid "**edu_graduate_dipl**"
@@ -486,4 +487,4 @@ msgstr "**edu_graduate_dipl**"
 
 #: ../../en/about_data.rst:168
 msgid "Number of people with graduate school diploma"
-msgstr "大学院修了した人の数"
+msgstr "大学院を修了した人の数"

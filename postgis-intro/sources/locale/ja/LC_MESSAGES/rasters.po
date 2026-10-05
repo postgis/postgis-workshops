@@ -6,7 +6,7 @@
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
 # Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>, 2026.
 msgid ""
-msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2026-09-02 09:39+0000\nLast-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.16.2\nGenerated-By: Babel 2.11.0\n"
+msgstr "Project-Id-Version: Introduction to PostGIS 1.1\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2024-11-02 22:32+0000\nPO-Revision-Date: 2026-09-03 06:39+0000\nLast-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\nLanguage-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/rasters/ja/>\nLanguage: ja\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.16.2\nGenerated-By: Babel 2.11.0\n"
 
 #: ../../en/rasters.rst:4
 msgid "Rasters"
@@ -14,7 +14,7 @@ msgstr "ラスタ"
 
 #: ../../en/rasters.rst:6
 msgid "PostGIS supports another kind of spatial data type called a *raster*. Raster data, much like geometry data, uses **Cartesian coordinates** and a spatial reference system. However instead of vector data, raster data is represented as an n-dimensional matrix consisting of pixels and bands. The bands defines the number of matrices you have. Each pixel stores a value corresponding to each band. So a 3-banded raster such as an RGB image, would have 3 values for each pixel corresponding to the Red-Green-Blue bands."
-msgstr "PostGIS は *raster* という、これまでと別の空間データ型を持っています。ラスタデータはジオメトリデータと同じで **直交座標** と空間参照系を使用します。しかし、ラスタデータはベクタデータと違い、ピクセルとバンドで構成される n次元行列 として表されます。バンドは持っている行列の数を定義します。ピクセルはそれぞれが、バンドに対応する値を格納します。RGB画像のような 3バンドラスタ では、ピクセルはおのおの、赤、緑、青のバンドに対応する三つの値を持ちます。"
+msgstr "PostGIS は *raster* という、これまでと別の空間データ型を持っています。ラスターデータはジオメトリーデータと同じで **直交座標** と空間参照系を使用します。しかし、ラスターデータはベクターデータと違い、ピクセルとバンドで構成される n次元行列 として表されます。バンドは持っている行列の数を定義します。ピクセルはそれぞれが、バンドに対応する値を格納します。RGB画像のような 3バンドラスタ では、ピクセルはおのおの、赤、緑、青のバンドに対応する三つの値を持ちます。"
 
 #: ../../en/rasters.rst:12
 msgid "Although pretty pictures such as those you see on your TV screen are rasters, rasters may not be that exciting to look at. In a nutshell, a raster is a matrix, pinned on a coordinate system, that has values that can represent anything you want them to represent."
@@ -22,7 +22,7 @@ msgstr "テレビ画面で見るようなきれいな画像もラスタですが
 
 #: ../../en/rasters.rst:17
 msgid "Since rasters live in cartesian space, rasters can interact with geometries. PostGIS offers many functions that take as input both rasters and geometries. Many operations applied to rasters will result in geometries. Common ones are the `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, and `ST_MinConvexHull` as shown below.  When you cast a raster to a geometry, what is output is the `ST_ConvexHull` of the raster."
-msgstr "ラスタがデカルト空間内に存在するので、ラスタはジオメトリとの相互作用が可能です。PostGIS は、ラスタとジオメトリの両方を入力に取る関数を多数提供しています。一般的なものとしては、下の図に示す `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, `ST_MinConvexHull` です。ラスタをジオメトリにキャストすると、出力はラスタの `ST_ConvexHull` です。"
+msgstr "ラスターがデカルト空間内に存在するので、ラスターはジオメトリーとの相互作用が可能です。PostGIS は、ラスターとジオメトリーの両方を入力に取る関数を多数提供しています。一般的なものとしては、下の図に示す `ST_Polygon`, `ST_Envelope`, `ST_ConvexHull`, `ST_MinConvexHull` です。ラスターをジオメトリーにキャストすると、出力はラスターの `ST_ConvexHull` です。"
 
 #: ../../en/rasters.rst:24
 msgid "The raster format is commonly used to store elevation data, temperature data, satellite data, and thematic data representing things like environmental contamination, population density, and environmental hazard occurrences. You can use rasters to store any numeric data that has a meaningful coordinate location. The only restriction is that for all data in a specific band the numeric data types have to be the same."

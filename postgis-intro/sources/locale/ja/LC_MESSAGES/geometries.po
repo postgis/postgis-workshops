@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-10-03 10:36+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2026-09-03 06:39+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometries/ja/>\n"
 "Language: ja\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geometries.rst:4
 msgid "Geometries"
-msgstr "ジオメトリ"
+msgstr "ジオメトリー"
 
 #: ../../en/geometries.rst:7
 msgid "Introduction"
@@ -50,10 +50,9 @@ msgid ""
 "collection. Finally, the inserted rows are SELECTed and displayed in the "
 "Output pane."
 msgstr ""
-"上の例でテーブル (**geometries**) を CREATE "
-"して、ポイント、ライン、ポリゴン、穴付きポリゴン、コレクションの "
-"5個のジオメトリを INSERT します。最後に、挿入した行を SELECT して、Output "
-"ペインに表示します。"
+"上の例でテーブル (**geometries**) を CREATE して、ポイント、ライン、ポリゴン"
+"、穴付きポリゴン、コレクションの 5個のジオメトリーを INSERT します。最後に、"
+"挿入した行を SELECT して、Output ペインに表示します。"
 
 #: ../../en/geometries.rst:29
 msgid "Metadata Tables"
@@ -66,8 +65,8 @@ msgid ""
 "geometry types available in a given database."
 msgstr ""
 "PostGIS は、Simple Features for SQL (:term:`SFSQL`) 仕様に準拠して、与えられ"
-"たデータベースで使用可能なジオメトリタイプに関する追跡と報告のための二つのテ"
-"ーブルを提供します。"
+"たデータベースで使用可能なジオメトリータイプに関する追跡と報告のための二つの"
+"テーブルを提供します。"
 
 #: ../../en/geometries.rst:33
 msgid ""
@@ -186,13 +185,13 @@ msgstr ""
 
 #: ../../en/geometries.rst:73
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
-msgstr ":command:`ST_GeometryType(geometry)` はジオメトリのタイプを返します"
+msgstr ":command:`ST_GeometryType(geometry)` はジオメトリーのタイプを返します"
 
 #: ../../en/geometries.rst:74
 msgid ""
 ":command:`ST_NDims(geometry)` returns the number of dimensions of the "
 "geometry"
-msgstr ":command:`ST_NDims(geometry)` はジオメトリの次元数を返します"
+msgstr ":command:`ST_NDims(geometry)` はジオメトリーの座標次元数を返します"
 
 #: ../../en/geometries.rst:75
 msgid ""

@@ -4,13 +4,14 @@
 # PostGIS package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
+# Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-05-30 02:45+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2026-09-03 06:39+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "projection/ja/>\n"
 "Language: ja\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4.3\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/projection.rst:4
@@ -55,14 +56,13 @@ msgid ""
 "reference identifiers on geometries, PostGIS provides the :command:"
 "`ST_SRID(geometry)` and :command:`ST_SetSRID(geometry, srid)` functions."
 msgstr ""
-"ここまでで :ref:`ニューヨーク市のデータのロード<loading_data>` "
-"の時に投影法を目にしています (厄介な SRID 26918 を思い出して下さい)。しかしな"
-"がら、時々、空間参照系間の変換を行う必要があります。PostGIS は "
-":command:`ST_Transform(geometry, srid)` "
-"関数を使って、データの投影を変更に対応する機能が組み込まれています。"
-"ジオメトリの空間参照系識別子の管理のために PostGIS では "
-":command:`ST_SRID(geometry)` と :command:`ST_SetSRID(geometry, srid)` "
-"関数が提供されています。"
+"ここまでで :ref:`ニューヨーク市のデータのロード<loading_data>` の時に投影法を"
+"目にしています (厄介な SRID 26918 を思い出して下さい)。しかしながら、時々、空"
+"間参照系間の変換を行う必要があります。PostGIS は :command:`ST_Transform"
+"(geometry, srid)` 関数を使って、データの投影を変更に対応する機能が組み込まれ"
+"ています。ジオメトリーの空間参照系識別子の管理のために PostGIS では "
+":command:`ST_SRID(geometry)` と :command:`ST_SetSRID(geometry, srid)` 関数が"
+"提供されています。"
 
 #: ../../en/projection.rst:10
 msgid ""

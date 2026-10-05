@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-10 18:57+0000\n"
-"PO-Revision-Date: 2026-09-02 09:39+0000\n"
+"PO-Revision-Date: 2026-09-03 06:39+0000\n"
 "Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "topology_topo_types/ja/>\n"
@@ -351,7 +351,7 @@ msgstr "レイヤーキー: [topology_id, layer_id] からなる複合キー"
 msgid ""
 "Table route: Schema name, table name and column name to know where it is "
 "linked."
-msgstr ""
+msgstr "テーブル参照経路: 関連付けられているスキーマ名、テーブル名、カラム名。"
 
 #: ../../en/topology_topo_types.rst:109
 msgid "Feature Type: Feature type the layer will contain."
@@ -387,6 +387,8 @@ msgid ""
 "Finally, the section you may be looking at, how Postgis Topology goes from a"
 " TopoGeometry to what they contain."
 msgstr ""
+"最後となります。このセクションでは、どのように PostGIS トポロジーは"
+"トポジオメトリーからその部品に行きつくかを示します。"
 
 #: ../../en/topology_topo_types.rst:118
 msgid ""
@@ -491,23 +493,23 @@ msgstr "トポジオメトリー"
 
 #: ../../en/topology_topo_types.rst:155
 msgid "TopoGeometry is a composite key with the next elements:"
-msgstr ""
+msgstr "トポジオメトリーは次の要素からなる複合キーです:"
 
 #: ../../en/topology_topo_types.rst:157
 msgid "topology_id: topology_id of TopoGeometry Key"
-msgstr ""
+msgstr "topology_id: トポジオメトリーキーの topology_id"
 
 #: ../../en/topology_topo_types.rst:158
 msgid "layer_id: layer_id of the TopoGeometry Key"
-msgstr ""
+msgstr "layer_id: トポジオメトリーキーの layer_id"
 
 #: ../../en/topology_topo_types.rst:159
 msgid "id: topogeometry_id of the TopoGeometry Key"
-msgstr ""
+msgstr "id: トポジオメトリーキーの topogeometry_id"
 
 #: ../../en/topology_topo_types.rst:160
 msgid "type: Feature type as number"
-msgstr ""
+msgstr "type: 地物タイプを示す番号F"
 
 #: ../../en/topology_topo_types.rst:163
 msgid "Basic Relation's table structure"
@@ -519,12 +521,17 @@ msgid ""
 "when you create your first TopoGeometry, the table is stored inside the "
 "topology as ``custom_topology.relation``."
 msgstr ""
+"各トポロジースキーマは、独自のリレーションテーブルを持ちます。このテーブルは"
+"最初にトポジオメトリーを生成した際に作られ、トポロジー内に "
+"``custom_topology.relation`` として保存されます。"
 
 #: ../../en/topology_topo_types.rst:167
 msgid ""
 "Each row of the table is called a \"Component\", like a component of the "
 "relations."
 msgstr ""
+"テーブルの各行は「コンポーネント」と呼ばれます。リレーションを構成する要素の"
+"ようなものです。"
 
 #: ../../en/topology_topo_types.rst:169
 msgid ""
@@ -535,44 +542,52 @@ msgid ""
 "different TopoElements, this way only filtering in the table we can get all "
 "the TopoElements for any TopoGeometry."
 msgstr ""
+"コンポーネントはトポジオメトリーキーとトポエレメントを保存します。"
+"トポエレメントは一つのプリミティブまたはトポジオメトリーしか表現できないこと"
+"を忘れないで下さい。一つのトポジオメトリーが複数の要素を表現することができる"
+"ようにするために、テーブルは同じトポジオメトリーキーと異なるトポエレメントで"
+"複数行を保存します。テーブル内でフィルタリングするだけで、あらゆるの"
+"トポジオメトリーの全てのトポエレメントを取得することができます。"
 
 #: ../../en/topology_topo_types.rst:176
 msgid "Find Components of a TopoGeometry"
-msgstr ""
+msgstr "トポロジーのコンポーネントを探索する"
 
 #: ../../en/topology_topo_types.rst:178
 msgid ""
 "To find which components belong to a TopoGeometry is a little tricky, "
 "because here will work the implicit Keys."
 msgstr ""
+"トポジオメトリーに所属するコンポーネントがどれかを探索するのは、暗黙的なキー"
+"が機能するので、やや扱いにくくなります。"
 
 #: ../../en/topology_topo_types.rst:180
 msgid "A component has the next elements:"
-msgstr ""
+msgstr "コンポーネントは次の要素を持ちます:"
 
 #: ../../en/topology_topo_types.rst:182
 msgid "TopoGeometry Key"
-msgstr ""
+msgstr "トポジオメトリーキー"
 
 #: ../../en/topology_topo_types.rst:184
 msgid "topogeom_id: topogeometry_id from TopoGeometry Key"
-msgstr ""
+msgstr "topogeom_id: トポジオメトリーキー由来の topogeometry_id"
 
 #: ../../en/topology_topo_types.rst:185
 msgid "layer_id: layer_id from TopoGeometry Key"
-msgstr ""
+msgstr "layer_id: トポジオメトリーキー由来の layer_id"
 
 #: ../../en/topology_topo_types.rst:187
 msgid "TopoElement"
-msgstr ""
+msgstr "トポエレメント"
 
 #: ../../en/topology_topo_types.rst:189
 msgid "element_id"
-msgstr ""
+msgstr "element_id"
 
 #: ../../en/topology_topo_types.rst:190
 msgid "element_type"
-msgstr ""
+msgstr "element_type"
 
 #: ../../en/topology_topo_types.rst:192
 msgid ""
@@ -580,6 +595,8 @@ msgid ""
 "relation's table already belongs to a topology, so there is no need to store"
 " the topology identifier again."
 msgstr ""
+"トポジオメトリーキーは不完全だと言えます。リレーションテーブルが既に"
+"トポロジーに属していて、重ねてトポロジー識別子を格納する必要が無いためです。"
 
 #: ../../en/topology_topo_types.rst:194
 msgid ""
@@ -588,10 +605,13 @@ msgid ""
 " the Topology Name, with it we can found the relation's table in their "
 "respective schema."
 msgstr ""
+"トポジオメトリーからコンポーネントに進むには、TopoGeometry.topology_id を使っ"
+"て ``topology.topology.id`` を検索して、そこからトポロジー名が取得できるので"
+"、対象とするトポロジースキーマのリレーションテーブルを得ます。"
 
 #: ../../en/topology_topo_types.rst:201
 msgid "Reading TopoElements"
-msgstr ""
+msgstr "トポエレメントを読む"
 
 #: ../../en/topology_topo_types.rst:203
 msgid ""
@@ -599,12 +619,16 @@ msgid ""
 "TopoElements which is more complex than other keys, because its meaning can "
 "change based on the Layer it is saved."
 msgstr ""
+"トポジオメトリーの分解の最後は他のキーより複雑なトポエレメントの解釈です。保"
+"存先レイヤーによって意味が変わります。"
 
 #: ../../en/topology_topo_types.rst:205
 msgid ""
 "As we talked, a Layer can have as Childs two options, Primitives or "
 "TopoGeometries."
 msgstr ""
+"上述の通り、レイヤーの子にはプリミティブかトポジオメトリーを取ることができま"
+"す。"
 
 #: ../../en/topology_topo_types.rst:207
 msgid ""
@@ -612,42 +636,49 @@ msgid ""
 "look on ``topology.layer.id`` using the ``TopoGeometry Key.layer_id`` and "
 "get ```topology.layer.child_id```."
 msgstr ""
+"知る必要があることの一つ目はどの子を使っているかです。``TopoGeometry "
+"Key.layer_id`` を使って ``topology.layer.id`` の行を見て"
+"、```topology.layer.child_id``` を得ます。"
 
 #: ../../en/topology_topo_types.rst:209
 msgid "So the cases depends on child_id:"
-msgstr ""
+msgstr "child_id で次の通り場合分けをします:"
 
 #: ../../en/topology_topo_types.rst:211
 msgid "If is NULL:"
-msgstr ""
+msgstr "NULL の場合:"
 
 #: ../../en/topology_topo_types.rst:213
 msgid "element_id: Primitive Identifier"
-msgstr ""
+msgstr "element_id: プリミティブ識別子"
 
 #: ../../en/topology_topo_types.rst:214
 msgid ""
 "element_type: Feature number, look on the Features to know to which "
 "primitive table too look on."
 msgstr ""
+"element_type: 地物番号。どのプリミティブテーブルを見るべきかを知るためのもの"
+"です。"
 
 #: ../../en/topology_topo_types.rst:216
 msgid "If is not NULL:"
-msgstr ""
+msgstr "NULL でない場合:"
 
 #: ../../en/topology_topo_types.rst:218
 msgid "element_id: topogeometry_id from a TopoGeometry Key"
-msgstr ""
+msgstr "element_id: トポジオメトリーキー由来の topogeometry_id"
 
 #: ../../en/topology_topo_types.rst:219
 msgid "element_type: layer_id from a TopoGeometry Key"
-msgstr ""
+msgstr "element_type: トポジオメトリーキー由来の layer_id"
 
 #: ../../en/topology_topo_types.rst:221
 msgid ""
 "The first case is trivial, just look at their respective Primitive table and"
 " use the identifier to know which primitive is."
 msgstr ""
+"一つ目の場合は大したこともなく、対象プリミティブテーブルを見てどの"
+"プリミティブかを特定するための識別子を使います。"
 
 #: ../../en/topology_topo_types.rst:223
 msgid ""
@@ -656,6 +687,9 @@ msgid ""
 "find the new elements look again on the relation's table but using the new "
 "keys."
 msgstr ""
+"二つ目の場合では、トポエレメントを使ってトポジオメトリーキーを構築します。前"
+"述の通り topology_id は明示されていませんが、生成されたキーは、新しい要素を"
+"リレーションテーブルで後で再度検索するのには十分です。"
 
 #~ msgid "Topology Basic Types"
 #~ msgstr "トポロジ基本タイプ"

@@ -193,7 +193,7 @@ When we look backwards any isolated edge, the perspective will always have the s
 
 - edge_id: 1
 - abs_next_right_edge: 1
-- next_right_edge: -1 (This will always be positive while we see backwar a isolated edge)
+- next_right_edge: 1 (This will always be positive while we see backwar a isolated edge)
 
 Full columns of edge_data
 <<<<<<<<<<<<<<<<<<<<<<<<<

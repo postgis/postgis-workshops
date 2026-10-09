@@ -38,13 +38,13 @@ Just to write in two ways:
   * Geometry Collection
   * Primitive from the Topology: Nodes, Edges, or Faces
 
-TopoGeometries are exposed as keys, they has a unique key inside the Layer, but also stores its Layer Key, this allows Postgis to store it in an arbitrary column and always be able to find its TopoElements, and with them what they represent.
+TopoGeometries are exposed as keys, they have a unique key inside the Layer, but also store its Layer Key, this allows Postgis to store it in an arbitrary column and always be able to find its TopoElements, and with them what they represent.
 
 You need a Layer where a TopoGeometry will be constructed, and after that you don't need to remember to which Layer it belongs.
 
 This concept is the one used for the user, from this point we will explain deep and technical details.
 
-As a side note, Postgis Topology has internally some tricks when its about keys, helps to optimize a lot of parts but at the same time there is a lot of reduntant information, do not be supreised if you find the same information in two or more places.
+As a side note, Postgis Topology has internally some tricks in relation to keys, to help optimize a lot of parts but at the same time there is a lot of reduntant information, do not be supreised if you find the same information in two or more places.
 
 Features
 --------

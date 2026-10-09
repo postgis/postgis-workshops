@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2022, 2023.
 # Regina Obe <regina@arrival3d.com>, 2023.
+# Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2023-12-06 09:23+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2026-09-03 06:39+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "simple_sql_exercises/ja/>\n"
 "Language: ja\n"
@@ -19,12 +20,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/simple_sql_exercises.rst:4
 msgid "Simple SQL Exercises"
-msgstr "単純なSQLの練習"
+msgstr "単純な SQL の練習"
 
 #: ../../en/simple_sql_exercises.rst:6
 msgid ""
@@ -98,7 +99,7 @@ msgstr "**popn_other**"
 
 #: ../../en/simple_sql_exercises.rst:26
 msgid "Number of people self-identifying with other categories in the block"
-msgstr "ブロック内で他のカテゴリを自認する人の数"
+msgstr "ブロック内で他のカテゴリーを自認する人の数"
 
 #: ../../en/simple_sql_exercises.rst:27
 msgid "**hous_total**"
@@ -142,7 +143,7 @@ msgstr "**geom**"
 
 #: ../../en/simple_sql_exercises.rst:36
 msgid "Polygon boundary of the block"
-msgstr "ブロックのポリゴン"
+msgstr "block の境界ポリゴン"
 
 #: ../../en/simple_sql_exercises.rst:38
 msgid ""

@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
+# Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-03-13 03:45+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2026-09-03 06:39+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "spatial_relationships_exercises/ja/>\n"
 "Language: ja\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/spatial_relationships_exercises.rst:4
@@ -47,16 +48,16 @@ msgid ""
 ":command:`ST_Contains(geometry A, geometry B)` returns true if geometry A "
 "contains geometry B"
 msgstr ""
-":command:`ST_Contains(geometry A, geometry B)` "
-"ジオメトリAがジオメトリBを含む場合には TRUE を返します"
+":command:`ST_Contains(geometry A, geometry B)` ジオメトリー A がジオメトリー "
+"B を含む場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:11
 msgid ""
 ":command:`ST_Crosses(geometry A, geometry B)` returns true if geometry A "
 "crosses geometry B"
 msgstr ""
-":command:`ST_Crosses(geometry A, geometry B)` "
-"ジオメトリAはジオメトリBとクロスする場合には TRUE を返します"
+":command:`ST_Crosses(geometry A, geometry B)` ジオメトリー A はジオメトリー "
+"B とクロスする場合には TRUE を返します"
 
 #: ../../en/spatial_relationships_exercises.rst:12
 msgid ""

@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
+# Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-03-13 03:45+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2026-09-03 06:39+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "projection_exercises/ja/>\n"
 "Language: ja\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/projection_exercises.rst:4
@@ -43,14 +44,15 @@ msgstr ":command:`ST_Length(linestring)` はラインストリングの長さを
 
 #: ../../en/projection_exercises.rst:10
 msgid ":command:`ST_SRID(geometry)` returns the SRID of the geometry"
-msgstr ":command:`ST_SRID(geometry)` はジオメトリの SRID を返します"
+msgstr ":command:`ST_SRID(geometry)` はジオメトリーの SRID を返します"
 
 #: ../../en/projection_exercises.rst:11
 msgid ""
 ":command:`ST_Transform(geometry, srid)` converts geometries into different "
 "spatial reference systems"
-msgstr ":command:`ST_Transform(geometry, srid)` "
-"はジオメトリを異なる空間参照系に変換します"
+msgstr ""
+":command:`ST_Transform(geometry, srid)` はジオメトリーを異なる空間参照系に変"
+"換します"
 
 #: ../../en/projection_exercises.rst:12
 msgid ":command:`ST_GeomFromText(text)` returns ``geometry``"

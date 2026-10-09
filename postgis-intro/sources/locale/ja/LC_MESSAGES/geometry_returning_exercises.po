@@ -5,13 +5,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
 # Regina Obe <regina@arrival3d.com>, 2023.
 # Teramoto Ikuhiro <yellow@affrc.go.jp>, 2023, 2024.
+# Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Introduction to PostGIS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-07 21:46-0500\n"
-"PO-Revision-Date: 2024-03-13 03:45+0000\n"
-"Last-Translator: Teramoto Ikuhiro <yellow@affrc.go.jp>\n"
+"PO-Revision-Date: 2026-09-03 06:39+0000\n"
+"Last-Translator: Teramoto Ikuhiro <teramoto.ikuhiro576@naro.go.jp>\n"
 "Language-Team: Japanese <https://weblate.osgeo.org/projects/postgis-workshop/"
 "geometry_returning_exercises/ja/>\n"
 "Language: ja\n"
@@ -19,12 +20,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.16.2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: ../../en/geometry_returning_exercises.rst:4
 msgid "Geometry Constructing Exercises"
-msgstr "ジオメトリ構築演習"
+msgstr "ジオメトリー構築演習"
 
 #: ../../en/geometry_returning_exercises.rst:6
 msgid ""
@@ -39,7 +40,7 @@ msgstr ":command:`sum(expression)` はレコードの集合の合計を返す集
 
 #: ../../en/geometry_returning_exercises.rst:9
 msgid ":command:`ST_Area(geometry)` returns the area of the geometry"
-msgstr ":command:`ST_Area(geometry)` はジオメトリの面積を返します"
+msgstr ":command:`ST_Area(geometry)` はジオメトリーの面積を返します"
 
 #: ../../en/geometry_returning_exercises.rst:10
 msgid ":command:`ST_Centroid(geometry)` returns the ``geometry`` centroid"
@@ -76,7 +77,7 @@ msgstr ":command:`ST_Union(geometry[])` "
 
 #: ../../en/geometry_returning_exercises.rst:15
 msgid ":command:`ST_GeometryType(geometry)` returns the type of the geometry"
-msgstr ":command:`ST_GeometryType(geometry)` はジオメトリのタイプを返します"
+msgstr ":command:`ST_GeometryType(geometry)` はジオメトリーのタイプを返します"
 
 #: ../../en/geometry_returning_exercises.rst:16
 msgid ""
